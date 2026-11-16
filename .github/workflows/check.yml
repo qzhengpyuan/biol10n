@@ -1,0 +1,23 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci || npm install
+      - name: 构建
+        run: npm run build
+      - name: 引擎与产物单测
+        run: npm test
+      - name: 词库与代码红线
+        run: node tools/check.mjs
+      - name: 术语一致性
+        run: node tools/terms.mjs

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vscode/
+.idea/
+*.tmp
+coverage/
+research/
+
+# 真实浏览器验收截图（本地留存，不入库）
+docs/shots/

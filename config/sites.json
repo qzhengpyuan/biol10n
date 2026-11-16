@@ -1,0 +1,234 @@
+{
+  "version": "0.1.0",
+  "defaults": {
+    "attrs": [
+      "placeholder",
+      "title",
+      "aria-label",
+      "alt"
+    ],
+    "block": "pre, code, kbd, samp, textarea, [contenteditable='true'], .highlight, .blob-code, .code, svg"
+  },
+  "sites": [
+    {
+      "id": "pubmed",
+      "hosts": [
+        "pubmed.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #search-results, .results-amount, .query-box, .advanced-search"
+    },
+    {
+      "id": "ncbi-geo",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/(geo|gap|sra|snp|clinvar|variation)",
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #maincontent, .content"
+    },
+    {
+      "id": "ncbi-gdv",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/gdv",
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #gdv-root",
+      "spa": true,
+      "waitFor": "#gdv-root"
+    },
+    {
+      "id": "ncbi-blast",
+      "hosts": [
+        "blast.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #blastapp, .blastpage"
+    },
+    {
+      "id": "kegg",
+      "hosts": [
+        "www.genome.jp",
+        "www.kegg.jp"
+      ],
+      "dicts": [
+        "common",
+        "kegg"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "hpa",
+      "hosts": [
+        "www.proteinatlas.org"
+      ],
+      "dicts": [
+        "common",
+        "hpa",
+        "anatomy",
+        "onco"
+      ],
+      "scope": "main, #content, .content"
+    },
+    {
+      "id": "mirbase",
+      "hosts": [
+        "www.mirbase.org"
+      ],
+      "dicts": [
+        "common",
+        "mirbase"
+      ],
+      "scope": "main, .container, body"
+    },
+    {
+      "id": "cbioportal",
+      "hosts": [
+        "www.cbioportal.org"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "anatomy"
+      ],
+      "scope": "main, #root, .cbioportal-frontend",
+      "spa": true,
+      "waitFor": "#root"
+    },
+    {
+      "id": "gdc",
+      "hosts": [
+        "portal.gdc.cancer.gov"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "spa"
+      ],
+      "scope": "main, #root",
+      "spa": true,
+      "waitFor": "#root"
+    },
+    {
+      "id": "gepia2",
+      "hosts": [
+        "gepia2.cancer-pku.cn"
+      ],
+      "dicts": [
+        "common",
+        "onco"
+      ],
+      "scope": "body",
+      "protocols": [
+        "http"
+      ]
+    },
+    {
+      "id": "ualcan",
+      "hosts": [
+        "ualcan.path.uab.edu"
+      ],
+      "dicts": [
+        "common",
+        "onco"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "timer2",
+      "hosts": [
+        "timer.comp-genomics.org",
+        "timer.cistrome.org",
+        "compbio.cn"
+      ],
+      "dicts": [
+        "common",
+        "onco"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "gtex",
+      "hosts": [
+        "gtexportal.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa"
+      ],
+      "scope": "main, #root",
+      "spa": true,
+      "waitFor": "#root"
+    },
+    {
+      "id": "ensembl",
+      "hosts": [
+        "www.ensembl.org",
+        "ensembl.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa"
+      ],
+      "scope": "main, #wrapper, .ensembl-page",
+      "spa": true,
+      "waitFor": "main"
+    },
+    {
+      "id": "ucsc",
+      "hosts": [
+        "genome.ucsc.edu"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "uniprot",
+      "hosts": [
+        "www.uniprot.org",
+        "uniprot.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa"
+      ],
+      "scope": "main, #root",
+      "spa": true,
+      "waitFor": "main"
+    },
+    {
+      "id": "rcsb-pdb",
+      "hosts": [
+        "www.rcsb.org",
+        "rcsb.org"
+      ],
+      "dicts": [
+        "common",
+        "spa"
+      ],
+      "scope": "main, #root",
+      "spa": true,
+      "waitFor": "#root"
+    }
+  ]
+}

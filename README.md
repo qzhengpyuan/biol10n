@@ -9,8 +9,11 @@
 ## 安装
 
 1. 装 Tampermonkey（Chrome/Firefox）或 ScriptCat
-2. 打开 [`dist/biol10n.user.js`](dist/biol10n.user.js)，脚本管理器会提示安装
+2. 打开 [v0.1.1 发布包](https://github.com/qzhengpyuan/biol10n/releases/latest/download/biol10n.user.js)，脚本管理器会提示安装
 3. 打开已支持的站点，界面文本自动变中文；`Alt+Shift+L` 一键切回英文对比
+
+ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚本猫详情 → 打开「允许运行用户脚本」，
+否则脚本装上了也不会执行。这个开关按 profile 保存，重启浏览器后保持开启。
 
 调试：控制台里 `__BIOL10N.stats()` 看命中数，`__BIOL10N.misses()` 看没翻到的英文。
 
@@ -42,21 +45,23 @@
 | common | 617 | 37 | 跨站通用界面词 |
 | ncbi | 492 | 27 | PubMed / GEO / BLAST / GDV |
 | anatomy | 498 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC） |
+| hpa | 325 | 9 | Human Protein Atlas |
 | kegg | 254 | 11 | KEGG |
-| hpa | 248 | 9 | Human Protein Atlas |
-| onco | 222 | 9 | TCGA 队列、变异类型、生存统计 |
+| onco | 235 | 9 | TCGA 队列、变异类型、生存统计、GEPIA |
+| spa | 136 | 0 | UniProt / Ensembl / GTEx / GDC / UCSC / RCSB |
 | mirbase | 124 | 9 | miRBase |
 
-合计 **2455 条**。词库分家族复用，加一个站通常只增 50–200 条。
+合计 **2681 条 / 108 条规则**。词库分家族复用，加一个站通常只增 50–200 条。
 
 实测覆盖率（真实页面、只算界面骨架，排除数据行）：
-PubMed 75.5%、miRBase 91.7%、HPA 62.0%、KEGG 19.5%（KEGG 页面主体是通路名，属数据不翻）。
+PubMed 75.5%、miRBase 91.7%、KEGG 19.5%（KEGG 页面主体是通路名，属数据不翻）。
+真实浏览器逐站命中数与截图见 [docs/real-browser-check.md](docs/real-browser-check.md)。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎单测（15 条）
+npm test             # 引擎与产物单测（20 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

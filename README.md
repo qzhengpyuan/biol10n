@@ -52,25 +52,25 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
+| hpa | 1536 | 117 | Human Protein Atlas |
 | ncbi | 1269 | 53 | PubMed / GEO / BLAST / GDV |
-| hpa | 1438 | 93 | Human Protein Atlas |
-| anatomy | 498 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
+| anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
 | kegg | 491 | 16 | KEGG |
 | rcsb | 460 | 31 | RCSB PDB |
+| gdc | 452 | 20 | GDC Data Portal |
 | uniprot | 437 | 15 | UniProt |
+| cbioportal | 388 | 45 | cBioPortal |
 | ensembl | 329 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
 | ucsc | 212 | 5 | UCSC Genome Browser |
-| gdc | 198 | 4 | GDC Data Portal |
 | gepia2 | 175 | 9 | GEPIA2 |
 | mirbase | 158 | 22 | miRBase |
 | gtex | 145 | 11 | GTEx Portal |
 | spa | 136 | 0 | 各站共用的单页应用骨架词 |
-| cbioportal | 130 | 16 | cBioPortal |
 | ualcan | 124 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **7215 条 / 349 条规则**，17 个站点。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **7901 条 / 418 条规则**，17 个站点。词库按家族复用，加一个站通常只增 50–200 条。
 
 支持站点：PubMed、NCBI GEO / GDV / BLAST、UCSC、KEGG、HPA、miRBase、Ensembl、UniProt、
 RCSB PDB、GTEx、GDC、cBioPortal、GEPIA2、UALCAN、TIMER2.0/3.0。
@@ -79,7 +79,7 @@ RCSB PDB、GTEx、GDC、cBioPortal、GEPIA2、UALCAN、TIMER2.0/3.0。
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎与产物单测（64 条）
+npm test             # 引擎与产物单测（67 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

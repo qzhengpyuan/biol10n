@@ -4,8 +4,20 @@
 (function () {
   "use strict";
 
-  var DICT = __BIOL10N_DICT__;
+  // 每本词库是独立的 JSON 字符串，只有本站用到的才会被解析（见 parseDict）。
+  var DICT_SRC = __BIOL10N_DICT__;
   var SITES = __BIOL10N_SITES__;
+  var parsedDicts = {};
+  function parseDict(id) {
+    if (parsedDicts[id] !== undefined) return parsedDicts[id];
+    var s = DICT_SRC[id];
+    var d = null;
+    if (s) {
+      try { d = JSON.parse(s); } catch (e) { d = null; }
+    }
+    parsedDicts[id] = d;
+    return d;
+  }
 
   var host = location.hostname || "";
   var path = location.pathname || "";
@@ -30,7 +42,7 @@
   var exact = {};
   var rules = [];
   (site.dicts || ["common"]).forEach(function (id) {
-    var d = DICT[id];
+    var d = parseDict(id);
     if (!d) return;
     Object.keys(d.exact || {}).forEach(function (k) { exact[k] = d.exact[k]; });
     if (d.rules) rules = rules.concat(d.rules);
@@ -44,6 +56,15 @@
       scope: site.scope || "",
       block: (SITES.defaults && SITES.defaults.block) || "",
       attrs: (SITES.defaults && SITES.defaults.attrs) || [],
+      skip: site.skip || "",
+      proseGuard: site.proseGuard !== false,
+      proseMax: site.proseMax || 120,
+      proseExempt: site.proseExempt || "",
+      valueText: !!site.valueText,
+      translateNoAllow: site.translateNoAllow || [],
+      punctFix: site.punctFix !== false,
+      rescan: site.rescan,
+      blocks: site.blocks || [],
       spa: !!site.spa,
       waitFor: site.waitFor || ""
     }
@@ -60,7 +81,14 @@
         console.table(m);
         return m.length;
       },
-      toggle: function () { engine.disable(); }
+      // 真正的开关：关时 restore，再开时重新扫（engine.enable 会重置 processed）
+      toggle: function () {
+        if (engine.stats && engine.stats.enabled === false) engine.enable();
+        else engine.disable();
+        return engine.stats && engine.stats.enabled !== false;
+      },
+      disable: function () { engine.disable(); },
+      enable: function () { engine.enable(); }
     };
   } catch (e) { /* 页面可能禁止写 window */ }
 

@@ -45,10 +45,15 @@ const header = [
   ""
 ].join("\n");
 
+// 词库不直接写成 JS 对象字面量：那样脚本一加载（哪怕不是本站）就会把所有词库全部解析一遍。
+// 这里每本词库存成一段字符串，boot 先按 hostname 认出站点，再只 JSON.parse 该站用的那几本。
+const dictSrc = {};
+for (const id of Object.keys(dict)) dictSrc[id] = JSON.stringify(dict[id]);
+
 const engine = read("src/engine.js");
 const boot = read("src/boot.js")
-  .replace("__BIOL10N_DICT__", JSON.stringify(dict))
-  .replace("__BIOL10N_SITES__", JSON.stringify(sites));
+  .replace("__BIOL10N_DICT__", () => JSON.stringify(dictSrc))
+  .replace("__BIOL10N_SITES__", () => JSON.stringify(sites));
 
 const out = header + "\n" + engine + "\n" + boot;
 fs.mkdirSync(path.join(root, "dist"), { recursive: true });

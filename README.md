@@ -15,12 +15,13 @@
 ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚本猫详情 → 打开「允许运行用户脚本」，
 否则脚本装上了也不会执行。这个开关按 profile 保存，重启浏览器后保持开启。
 
-调试：控制台里 `__BIOL10N.stats()` 看命中数，`__BIOL10N.misses()` 看没翻到的英文。
+调试：控制台里 `__BIOL10N.stats()` 看命中数与当前站点使用的词库，`__BIOL10N.misses()` 看没翻到的英文，
+`__BIOL10N.toggle()` 或 `Alt+Shift+L` 切换中英。
 
 ## 范围
 
-- **翻**：界面标签、按钮、表头、字段名、图例、反复出现的数据说明句
-- **不翻**：基因与蛋白符号、变异命名（`c.68_69delAG`）、物种拉丁名、accession、序列、坐标、数字单位、通路名
+- **翻**：界面骨架（导航、表头、按钮、表单标签、占位符、aria-label/title）、固定枚举值（性别、物种、组装层级、变异类型、组织名）、固定说明句与帮助文本整块、通用规范化（日期与标点）
+- **不翻**：基因与蛋白符号、变异命名（`c.68_69delAG`）、物种拉丁名、accession、序列、坐标、数字单位、通路名、数据库名（UniProt / Pfam / InterPro 等）、下拉选项的 `value`、长正文段落
 
 目标不是把整页英文变成通顺中文，而是让页面结构可读、知道该点哪里。
 覆盖不到的地方保留英文——**宁可留白，不可翻错**。
@@ -30,43 +31,62 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 核心决定是：**只在整个文本节点命中词表时才替换**。因此句子里夹带的 `BRCA1`、`p.Val600Glu`
 不会被切开、也不会被误译；代价是句子必须整体进词表或用模板覆盖。
 
+- **先认站、再取词库**：`config/sites.json` 按 hostname + path 匹配站点，命中后只解析该站用到的
+  那几个词库（`build.mjs` 把每本词库序列化成一段 JSON 字符串，`boot.js` 的 `parseDict()` 按需
+  `JSON.parse`）。全量解析约 3.1 ms，单站约 0.25 ms；认不出的站点直接不初始化。
 - exact：整节点精确匹配（含大小写兜底、句尾标点退化）
 - rules：`^...$` 锚定的句式模板，`$1` 会在词表里二次查表
-- 只改文本节点与白名单属性（`placeholder`/`title`/`aria-label`/`alt`），不重建 DOM
-- 幂等（WeakSet）与可逆（WeakMap 存原文）
-- SPA 站点挂 MutationObserver（200 ms 去抖）+ pushState/replaceState 路由钩子
+- blocks：整块替换（帮助面板、页脚这类跨节点段落），可带 `match` 筛选
+- 只改文本节点与白名单属性（`placeholder`/`title`/`aria-label`/`alt`，以及可选的可见 value），不重建 DOM
+- 幂等（WeakSet）与可逆（WeakMap 存原文）；`translate="no"` 的区域不碰
+- SPA 站点挂 MutationObserver（去抖）+ pushState/replaceState 路由钩子，切页后自动重扫
+- 跨节点拼接：`<br>` 打断的句子、分散在多个 `<tspan>` 的 SVG 文字、被 `<span>` 切碎的标签，
+  都先拼再查表；末尾统一跑一遍空白与标点清理（`cleanupPass`）
 
 细节见 [docs/engine-design.md](docs/engine-design.md)。
 
 ## 词库
 
+18 本词库按站点分文件，一个站点只加载自己那几本。
+
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
-| common | 617 | 37 | 跨站通用界面词 |
-| ncbi | 492 | 27 | PubMed / GEO / BLAST / GDV |
-| anatomy | 498 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC） |
-| hpa | 325 | 9 | Human Protein Atlas |
-| kegg | 254 | 11 | KEGG |
-| onco | 235 | 9 | TCGA 队列、变异类型、生存统计、GEPIA |
-| spa | 136 | 0 | UniProt / Ensembl / GTEx / GDC / UCSC / RCSB |
-| mirbase | 124 | 9 | miRBase |
+| common | 657 | 43 | 跨站通用界面词与规范化规则 |
+| ncbi | 1269 | 53 | PubMed / GEO / BLAST / GDV |
+| hpa | 1438 | 93 | Human Protein Atlas |
+| anatomy | 498 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
+| kegg | 491 | 16 | KEGG |
+| rcsb | 460 | 31 | RCSB PDB |
+| uniprot | 437 | 15 | UniProt |
+| ensembl | 329 | 4 | Ensembl（含新前端与帮助页） |
+| onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
+| ucsc | 212 | 5 | UCSC Genome Browser |
+| gdc | 198 | 4 | GDC Data Portal |
+| gepia2 | 175 | 9 | GEPIA2 |
+| mirbase | 158 | 22 | miRBase |
+| gtex | 145 | 11 | GTEx Portal |
+| spa | 136 | 0 | 各站共用的单页应用骨架词 |
+| cbioportal | 130 | 16 | cBioPortal |
+| ualcan | 124 | 4 | UALCAN |
+| timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **2681 条 / 108 条规则**。词库分家族复用，加一个站通常只增 50–200 条。
+合计 **7215 条 / 349 条规则**，17 个站点。词库按家族复用，加一个站通常只增 50–200 条。
 
-实测覆盖率（真实页面、只算界面骨架，排除数据行）：
-PubMed 75.5%、miRBase 91.7%、KEGG 19.5%（KEGG 页面主体是通路名，属数据不翻）。
-真实浏览器逐站命中数与截图见 [docs/real-browser-check.md](docs/real-browser-check.md)。
+支持站点：PubMed、NCBI GEO / GDV / BLAST、UCSC、KEGG、HPA、miRBase、Ensembl、UniProt、
+RCSB PDB、GTEx、GDC、cBioPortal、GEPIA2、UALCAN、TIMER2.0/3.0。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎与产物单测（20 条）
+npm test             # 引擎与产物单测（64 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）
+node tools/apply.mjs # 构建并装进本机 ScriptCat（浏览器已开 CDP 时）
 
-# 覆盖率与冒烟测试（需要先抓一份页面 HTML）
+# 真实页面残留报告 / 覆盖率 / 冒烟测试（前两个需要浏览器开着 CDP 9227）
+node tools/miss-report.mjs ensembl "https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000141510"
 node tools/coverage.mjs research/pubmed.html pubmed
 node tools/smoke.mjs research/pubmed.html "https://pubmed.ncbi.nlm.nih.gov/?term=brca1" 40
 ```

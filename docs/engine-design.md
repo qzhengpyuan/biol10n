@@ -39,6 +39,13 @@
 3. 文本以规范化后长度 < 2，或完全不含字母（纯数字、坐标、符号）
 4. 祖先在 `pre, code, kbd, samp, textarea, [contenteditable]` 或站点自定义 BLOCK 选择器内
 5. 祖先带 `data-l10n-scope="off"`（站点配置里用来排除个别区域）
+6. 祖先带 `translate="no"`（站点自己声明这段别翻，如 UniProt 的示例检索词按钮）。
+   例外：站点可在 `config/sites.json` 里给 `translateNoAllow` 列放行选择器，
+   命中元素必须在同一层 `translate="no"` 之内才会翻（UniProt 的疾病与变异表就是这样：
+   整表 `translate="no"`，但里面的「N 篇文献」证据按钮与 header 的 Align 链接是界面骨架）。
+7. `<option>` 只在文字命中下载格式白名单（FASTA / TSV / Excel / JSON / XML / List…）时跳过；
+   其余选项照翻文字、**绝不改 `value`** —— 筛选器常常 `value === 显示文字`，
+   按“value 与文字相同就不翻”一刀切会把 `Mutagenesis` 这类该翻的筛选项整类留下。
 
 ## 属性
 
@@ -47,7 +54,11 @@
 
 ## 幂等与可逆
 
-- 幂等：`WeakSet` 记录已处理的文本节点与属性。
+- 幂等：`WeakSet` 记录已处理的文本节点与属性；站点把同一个文本节点改回英文时（React 筛选后回填），
+  `characterData` 变更会把它从集合里删掉重新判一次，不依赖手动重扫。
+- 句式模板里带全角标点、而捕获组可能只是英文专名时，规则要写 `"requireHit": true`：
+  至少一个捕获组真的命中词表才替换，否则 `Pan-Lung Cancer (TCGA, Nat Genet 2016)`
+  会被套成全角括号的半中半英。
 - 可逆：`WeakMap` 保存原文，`engine.disable()` 一次性还原（Alt+Shift+L 触发）。
   不写 `data-src` 之类属性，避免污染页面 DOM 和触发站点自身的观察器。
 

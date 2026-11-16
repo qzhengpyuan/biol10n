@@ -72,7 +72,13 @@ try {
     if (!s.id) err("站点缺 id");
     if (!s.hosts || !s.hosts.length) err(s.id + " 缺 hosts");
     for (const h of s.hosts || []) {
-      if (h === "*" || h.startsWith("*.")) err(s.id + " 主机名过宽: " + h);
+      if (h === "*") { err(s.id + " 主机名过宽: " + h); continue; }
+      // 通配只允许是本站某个具体域名的子域，如 *.archive.ensembl.org 对应 ensembl.org
+      if (h.startsWith("*.")) {
+        const base = h.slice(1);
+        const owned = (s.hosts || []).some((o) => !o.startsWith("*") && base.endsWith("." + o));
+        if (!owned) err(s.id + " 通配主机名没有对应的具体域名: " + h);
+      }
     }
     for (const d of s.dicts || []) {
       if (!fs.existsSync(path.join(dictDir, d + ".json"))) warn(s.id + " 引用的词库不存在: " + d);

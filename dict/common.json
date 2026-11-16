@@ -437,7 +437,6 @@
     "Journal": "期刊",
     "Title": "标题",
     "Year": "年份",
-    "PMID": "PMID 号",
     "DOI": "DOI 号",
     "Abstract": "摘要",
     "Full text": "全文",
@@ -453,7 +452,7 @@
     "Accession": "登录号",
     "Accession number": "登录号",
     "Transcriptome": "转录组",
-    "Genomic": "基因组的",
+    "Genomic": "基因组",
     "Promoter": "启动子",
     "Enhancer": "增强子",
     "Mutation": "突变",
@@ -623,9 +622,55 @@
     "Share on Facebook": "分享到脸书",
     "Twitter": "推特",
     "Facebook": "脸书",
-    "Permalink": "永久链接"
+    "Permalink": "永久链接",
+    "January": "1 月",
+    "February": "2 月",
+    "March": "3 月",
+    "April": "4 月",
+    "May": "5 月",
+    "June": "6 月",
+    "July": "7 月",
+    "August": "8 月",
+    "September": "9 月",
+    "October": "10 月",
+    "November": "11 月",
+    "December": "12 月",
+    "Jan": "1 月",
+    "Feb": "2 月",
+    "Mar": "3 月",
+    "Apr": "4 月",
+    "Jun": "6 月",
+    "Jul": "7 月",
+    "Aug": "8 月",
+    "Sep": "9 月",
+    "Sept": "9 月",
+    "Oct": "10 月",
+    "Nov": "11 月",
+    "Dec": "12 月",
+    "Monday": "周一",
+    "Tuesday": "周二",
+    "Wednesday": "周三",
+    "Thursday": "周四",
+    "Friday": "周五",
+    "Saturday": "周六",
+    "Sunday": "周日",
+    "Mon": "周一",
+    "Tue": "周二",
+    "Tues": "周二",
+    "Wed": "周三",
+    "Thu": "周四",
+    "Thur": "周四",
+    "Thurs": "周四",
+    "Fri": "周五",
+    "Sat": "周六",
+    "Sun": "周日"
   },
   "rules": [
+    {
+      "re": "^((?:Mon|Tue|Tues|Wed|Thu|Thur|Thurs|Fri|Sat|Sun|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)),?\\s+(.+)$",
+      "to": "$2（$1）",
+      "requireHit": true
+    },
     {
       "re": "^Showing (\\d+) of ([\\d,]+) results?$",
       "to": "显示第 $1 条，共 $2 条结果"
@@ -773,6 +818,26 @@
     {
       "re": "^(\\d+) (?:records?|entries?)$",
       "to": "共 $1 条记录"
+    },
+    {
+      "re": "^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|May)\\.?\\s+(\\d{1,2}),?\\s*(\\d{4})$",
+      "to": "$3 年 $1 $2 日"
+    },
+    {
+      "re": "^(\\d{1,2})\\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|May)\\s+(\\d{4})$",
+      "to": "$3 年 $2 $1 日"
+    },
+    {
+      "re": "^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|May)\\s+(\\d{4})$",
+      "to": "$2 年 $1"
+    },
+    {
+      "re": "^Updated\\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|May)\\.?\\s+(\\d{1,2}),\\s*(\\d{4})$",
+      "to": "更新于 $3 年 $1 $2 日"
+    },
+    {
+      "re": "^(.+), ([\\d,]+) cases$",
+      "to": "$1：$2 例"
     }
   ]
 }

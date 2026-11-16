@@ -262,11 +262,13 @@
     },
     {
       "re": "^(.+) \\((\\d+)\\)$",
-      "to": "$1（$2）"
+      "to": "$1（$2）",
+      "requireHit": true
     },
     {
       "re": "^(.+) \\(TCGA, (.+)\\)$",
-      "to": "$1（TCGA，$2）"
+      "to": "$1（TCGA，$2）",
+      "requireHit": true
     },
     {
       "re": "^num\\(T\\)=(\\d+); num\\(N\\)=(\\d+)$",
@@ -274,7 +276,8 @@
     },
     {
       "re": "^TCGA, (.+)$",
-      "to": "TCGA，$1"
+      "to": "TCGA，$1",
+      "requireHit": true
     },
     {
       "re": "^Stage (I{1,3}[ABC]?|IV[ABC]?)$",

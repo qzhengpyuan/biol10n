@@ -130,7 +130,41 @@
     "Organism": "物种",
     "Browse by organism": "按物种浏览",
     "Export": "导出",
-    "Cite": "引用"
+    "Cite": "引用",
+    "More about miRBase →": "更多关于 miRBase →",
+    "Fetch sequences": "获取序列",
+    "High": "高",
+    "Section": "分区",
+    "#hits": "命中数",
+    "Precursor miRNA": "前体 miRNA",
+    "Mature miRNA": "成熟体 miRNA",
+    "Dead": "已废弃",
+    "All matches": "全部匹配",
+    "Download CSV File": "下载 CSV 文件",
+    "Previous ID": "原标识符",
+    "Previous mature ID": "原成熟体标识符",
+    "Dead entry previous ID": "已废弃条目的原标识符",
+    "Site": "位点",
+    "There are no results in this section matching": "本节无匹配结果 ",
+    "ascending": "升序",
+    "descending": "降序",
+    "Your query": "您的检索",
+    "returned": "返回",
+    "matched": "匹配",
+    "matched previous IDs of": "按原标识符匹配到",
+    "matched the gene symbol(s) of": "按基因符号匹配到",
+    "hairpin entries": "前体条目",
+    "mature entries": "成熟体条目",
+    "Stem-loop": "茎环",
+    "Click": "点击",
+    "here": "此处",
+    "for more.": "了解更多。",
+    "(Source:": "（来源：",
+    "experimental": "实验验证",
+    "Want the script? Email us or visit": "需要该脚本？请发邮件或访问",
+    "or something.": "或类似内容。",
+    "miRBase Homepage": "miRBase 首页",
+    "Source:": "来源："
   },
   "rules": [
     {
@@ -168,6 +202,58 @@
     {
       "re": "^\\((\\d+) sentences\\)$",
       "to": "（$1 个句子）"
+    },
+    {
+      "re": "^Showing (\\d+) to (\\d+) of ([\\d,]+) entries$",
+      "to": "显示第 $1 至 $2 条，共 $3 条"
+    },
+    {
+      "re": "^(.+): activate to sort column (ascending|descending)$",
+      "to": "$1：点击按列$2排序"
+    },
+    {
+      "re": "^mention (.+)$",
+      "to": "提及 $1"
+    },
+    {
+      "re": "^(\\d+) open access papers$",
+      "to": "$1 篇开放获取论文"
+    },
+    {
+      "re": "^reads per million, (\\d+) experiments$",
+      "to": "每百万读数（RPM），$1 个实验"
+    },
+    {
+      "re": "^Yes \\(\\+(\\d+)\\)$",
+      "to": "是（+$1）"
+    },
+    {
+      "re": "^No \\(-(\\d+)\\)$",
+      "to": "否（-$1）"
+    },
+    {
+      "re": "^(.+) is associated with one or more human diseases in the$",
+      "to": "$1 与一种或多种人类疾病相关，见"
+    },
+    {
+      "re": "^(.+) is involved in one or more biological pathways:$",
+      "to": "$1 参与一条或多条生物学通路："
+    },
+    {
+      "re": "^(.+) is involved in one or more regulation/signalling events:$",
+      "to": "$1 参与一项或多项调控/信号事件："
+    },
+    {
+      "re": "^(.+) precursor miRNA (.+)$",
+      "to": "$1 前体 miRNA $2"
+    },
+    {
+      "re": "^(.+) mature miRNA$",
+      "to": "$1 成熟体 miRNA"
+    },
+    {
+      "re": "^page for (.+)$",
+      "to": "$1 的页面"
     }
   ]
 }

@@ -155,3 +155,49 @@ test("SPA 等待元素出现后再扫描", async () => {
   await new Promise((r) => setTimeout(r, 600));
   assert.equal(dom.window.document.querySelector("span").textContent, "结果");
 });
+
+test("SPA 路由后 <title> 会重新翻译", () => {
+  const dom = new JSDOM("<!doctype html><html><head><title>Home page</title></head><body><p>Home</p></body></html>", { url: "https://www.ensembl.org/" });
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: { exact: { "Home page": "首页", "Gene: TP53 — Ensembl": "基因：TP53 — Ensembl" }, rules: [] },
+    site: { attrs: [], block: "", proseGuard: true }
+  });
+  engine.start();
+  assert.equal(dom.window.document.title, "首页");
+  dom.window.document.title = "Gene: TP53 — Ensembl";
+  engine.scan();
+  assert.equal(dom.window.document.title, "基因：TP53 — Ensembl");
+});
+
+test("关掉再开回到中文（stats.enabled 同步）", () => {
+  const dom = new JSDOM("<body><p>Search</p></body>", { url: "https://example.org/" });
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: { exact: { Search: "检索" }, rules: [] },
+    site: { attrs: [], block: "", proseGuard: true }
+  });
+  engine.start();
+  assert.equal(dom.window.document.body.textContent, "检索");
+  engine.disable();
+  assert.equal(dom.window.document.body.textContent, "Search");
+  assert.equal(engine.stats.enabled, false);
+  engine.enable();
+  assert.equal(dom.window.document.body.textContent, "检索");
+  assert.equal(engine.stats.enabled, true);
+});
+
+test("公式碎片不单独翻（Log<sub>2</sub> 保持原样）", () => {
+  const dom = new JSDOM("<body><p>Log<sub>2</sub> transformed count</p></body>", { url: "https://example.org/" });
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: { exact: { Log: "对数" }, rules: [] },
+    site: { attrs: [], block: "", proseGuard: true }
+  });
+  engine.start();
+  assert.match(dom.window.document.body.textContent, /^Log2/);
+  assert.doesNotMatch(dom.window.document.body.textContent, /对数/);
+});

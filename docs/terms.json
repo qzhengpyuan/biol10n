@@ -4,7 +4,9 @@
   "note": "canonical 为全局唯一译法；站点词库不得对同名键另译，除非列在 allowOverride（站点语境确有差别）",
   "allowOverride": [
     "Summary",
-    "Profile"
+    "Profile",
+    "Nucleotide",
+    "Dead"
   ],
   "canonical": {
     "Search": "检索",
@@ -453,7 +455,7 @@
     "Accession": "登录号",
     "Accession number": "登录号",
     "Transcriptome": "转录组",
-    "Genomic": "基因组的",
+    "Genomic": "基因组",
     "Promoter": "启动子",
     "Enhancer": "增强子",
     "Mutation": "突变",
@@ -521,6 +523,7 @@
     "Similar articles": "相似文章",
     "Cited by": "被引",
     "Citing articles": "施引文献",
-    "References cited": "参考文献"
+    "References cited": "参考文献",
+    "Evidence at protein level": "蛋白质水平证据"
   }
 }

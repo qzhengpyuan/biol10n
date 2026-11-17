@@ -58,9 +58,9 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **424 KB**（优化前 812 KB，−48%）；词库里 19 本共 10051 条，纯 JSON 有 509 KB
-- 解压开销在 `document-end` 之后：PubMed 帮助页 82 ms、HPA 160 ms（三本词库合计约 150 KB 的 base64）
-- 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 117 ms、HPA 84 ms，整页脚本耗时 < 0.5 s
+- 单文件产物 **445 KB**（优化前 812 KB，−45%）；gzip 后 294 KB；词库里 19 本共 10051 条，纯 JSON 有 509 KB
+- 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
+- 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
 - 调试：`__BIOL10N.timing()` 看词库解压与首次扫描耗时，`__BIOL10N.stats().time` 看各阶段拆分
 

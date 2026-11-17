@@ -261,6 +261,9 @@ function createEngine(options) {
     return "";
   }
 
+  var proseLenCache = new WeakMap();
+  var cjkCache = new WeakMap();
+
   function inLongProse(node) {
     if (site.proseGuard === false) return false;
     var el = node && node.nodeType === 3 ? node.parentElement : node;
@@ -279,7 +282,13 @@ function createEngine(options) {
     // 所以要找到最近的"块级容器"再判是不是成句正文。
     var p = el.closest("p, blockquote, dd, dt, li, td, figcaption, div, section, article");
     if (!p) return false;
-    var blockText = String(p.textContent || "");
+    // 同一个块容器在一次扫描里会被成百上千个文本节点问到；textContent 会拼接整棵子树，
+    // 不缓存的话大页面上是 O(n²)（PubMed 帮助页能到 2–5 秒）。长度只用于阈值判断，缓存安全。
+    var blockText = proseLenCache.get(p);
+    if (blockText === undefined) {
+      blockText = String(p.textContent || "");
+      proseLenCache.set(p, blockText);
+    }
     if (blockText.length <= (site.proseMax || 120)) return false;
     // 关键判据：这个文本节点后面紧跟着小写英文单词，说明它处在句子中间
     // （"<a>KEGG PATHWAY</a> is a collection of…"），单独翻它必然造成中英混排。
@@ -564,7 +573,14 @@ function createEngine(options) {
 
   function handleBrJoin(node) {
     var el = node.parentElement;
-    if (!el || !el.querySelector || !el.querySelector("br")) return false;
+    if (!el) return false;
+    // 只看直接子节点里的 <br>：以前用 el.querySelector("br")，节点在带 <br> 的大容器里时
+    // 每次都要扫整棵子树，PubMed 帮助页这种长文档上是 O(n²)。
+    var hasBr = false;
+    for (var bc = el.firstChild; bc; bc = bc.nextSibling) {
+      if (bc.nodeType === 1 && bc.tagName === "BR") { hasBr = true; break; }
+    }
+    if (!hasBr) return false;
     if (brDone.has(el)) return false;
     var full = brJoinedText(el);
     if (!full || full.length > 120 || hasCJK(full) || !LETTER.test(full)) return false;
@@ -641,7 +657,10 @@ function createEngine(options) {
       if (!el || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|PRE|CODE)$/.test(el.tagName)) continue;
       var block = null;
       try { block = el.closest("p, li, dd, dt, td, th, figcaption"); } catch (e) { block = null; }
-      if (!block || !hasCJK(block.textContent || "")) continue;
+      if (!block) continue;
+      var bcj = cjkCache.get(block);
+      if (bcj === undefined) { bcj = hasCJK(block.textContent || ""); cjkCache.set(block, bcj); }
+      if (!bcj) continue;
       if (skipNode(n) || inBlock(el) || inSkip(el)) continue;
       var v = lookupExact(text);
       if (v === null) continue;
@@ -811,14 +830,14 @@ function createEngine(options) {
   function translateParagraphs(root) {
     if (!root || !root.querySelectorAll) return;
     var els;
-    try { els = root.querySelectorAll("p, li, dd, td, h1, h2, h3, h4"); } catch (e) { return; }
+    try { els = root.querySelectorAll("p, dd"); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
       if (inBlock(el) || inSkip(el)) continue;
       if (el.querySelector("p, li, ul, ol, div, table, pre, code, textarea")) continue;
       var text = normalize(el.textContent || "");
-      if (text.length < 40 || text.length > 900 || hasCJK(text)) continue;
+      if (text.length < 100 || text.length > 900 || hasCJK(text)) continue;
       var hit = lookupExact(text);
       if (hit === null || !hasCJK(hit)) continue;
       if (!blockOriginals.has(el)) {
@@ -878,12 +897,28 @@ function createEngine(options) {
 
   function scan() {
     if (!enabled) return;
+    proseLenCache = new WeakMap();
+    cjkCache = new WeakMap();
+    var now = (typeof performance !== "undefined" && performance.now) ? function () { return performance.now(); } : function () { return 0; };
+    var T = [now()];
     applyBlocks();
     var roots = scopeRoots();
+    T.push(now());
     for (var q = 0; q < roots.length; q++) translateParagraphs(roots[q]);
+    T.push(now());
     for (var i = 0; i < roots.length; i++) walk(roots[i]);
+    T.push(now());
     for (var k = 0; k < roots.length; k++) translateInlineInCJK(roots[k]);
+    T.push(now());
     for (var j = 0; j < roots.length; j++) cleanupPass(roots[j]);
+    T.push(now());
+    stats.time = {
+      blocks: Math.round(T[1] - T[0]),
+      paras: Math.round(T[2] - T[1]),
+      walk: Math.round(T[3] - T[2]),
+      inline: Math.round(T[4] - T[3]),
+      cleanup: Math.round(T[5] - T[4])
+    };
     // SPA 站路由后 React 会重写 <title>；任何一次重扫都顺带校正标题
     translateTitle();
   }

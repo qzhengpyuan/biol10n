@@ -1,6 +1,7 @@
 // 构建：把引擎、站点配置与全部词库合成一个离线 .user.js
 import fs from "node:fs";
 import path from "node:path";
+import zlib from "node:zlib";
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const read = (p) => fs.readFileSync(path.join(root, p), "utf8");
@@ -52,9 +53,14 @@ const header = [
 ].join("\n");
 
 // 词库不直接写成 JS 对象字面量：那样脚本一加载（哪怕不是本站）就会把所有词库全部解析一遍。
-// 这里每本词库存成一段字符串，boot 先按 hostname 认出站点，再只 JSON.parse 该站用的那几本。
+// 这里每本词库单独 gzip + base64 存成字符串，boot 先按 hostname 认出站点，
+// 再只用 DecompressionStream 解压该站用到的那几本（meta 只在构建期用，运行期丢掉）。
 const dictSrc = {};
-for (const id of Object.keys(dict)) dictSrc[id] = JSON.stringify(dict[id]);
+for (const id of Object.keys(dict)) {
+  const d = dict[id];
+  delete d.meta;
+  dictSrc[id] = zlib.gzipSync(Buffer.from(JSON.stringify(d), "utf8"), { level: 9 }).toString("base64");
+}
 
 const engine = read("src/engine.js");
 const ui = read("src/ui.js");

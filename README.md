@@ -2,6 +2,9 @@
 
 离线词库驱动的生物医学网站界面汉化脚本（Tampermonkey / ScriptCat）。
 
+仓库地址：<https://github.com/qzhengpyuan/biol10n>
+脚本猫脚本站：<https://scriptcat.org/zh-CN/script-show-page/9127>（当前为**未公开**状态，站内搜不到，只能通过这个链接进入）
+
 ## 为什么做这个
 
 PubMed、GEO、UCSC、Ensembl、KEGG、HPA、cBioPortal、GDC 这些数据库、论文库、工具库，本身都没有中文界面。老师上课放 PPT、现场点开网站演示时，一个按钮、一个表头没跟上，后面几步就全听不懂了。很多生物学新生不是学不会，而是卡在「不知道这些网站怎么用」这一步——没有人带他们入门，热情在一次次看不懂的英文界面里被磨掉。
@@ -50,12 +53,31 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 细节见 [docs/engine-design.md](docs/engine-design.md)。
 
-## 支持站点
+## 覆盖站点
 
-PubMed、NCBI GEO / GDV / BLAST、UCSC Genome Browser、KEGG、Human Protein Atlas、miRBase、
-Ensembl、UniProt、RCSB PDB、GTEx Portal、GDC Data Portal、cBioPortal、GEPIA2、UALCAN、TIMER2.0 / 3.0。
+点开就能看实际效果（17 个入口页都是纯英文界面，`<html lang="en">`，没有语言切换）：
 
-这 17 个站点的入口页目前都是纯英文界面（`<html lang="en">`，没有语言切换），中文资料只存在于社区写的教程里。
+| 站点 | 链接 | 类型 |
+|---|---|---|
+| PubMed | <https://pubmed.ncbi.nlm.nih.gov/> | 文献检索 |
+| NCBI GEO | <https://www.ncbi.nlm.nih.gov/geo/> | 基因表达数据 |
+| NCBI GDV | <https://www.ncbi.nlm.nih.gov/gdv/browser/genome/> | 基因组浏览器 |
+| NCBI BLAST | <https://blast.ncbi.nlm.nih.gov/Blast.cgi> | 序列比对 |
+| UCSC Genome Browser | <https://genome.ucsc.edu/> | 基因组浏览器 |
+| KEGG | <https://www.genome.jp/kegg/> | 通路数据库 |
+| Human Protein Atlas | <https://www.proteinatlas.org/> | 蛋白表达图谱 |
+| miRBase | <https://www.mirbase.org/> | miRNA 数据库 |
+| Ensembl | <https://www.ensembl.org/> | 基因组注释 |
+| UniProt | <https://www.uniprot.org/> | 蛋白序列与功能 |
+| RCSB PDB | <https://www.rcsb.org/> | 蛋白结构 |
+| GTEx Portal | <https://gtexportal.org/home/> | 组织表达 |
+| GDC Data Portal | <https://portal.gdc.cancer.gov/> | TCGA 数据门户 |
+| cBioPortal | <https://www.cbioportal.org/> | 肿瘤基因组 |
+| GEPIA2 | <http://gepia2.cancer-pku.cn/> | 表达与生存分析 |
+| UALCAN | <https://ualcan.path.uab.edu/> | 肿瘤表达分析 |
+| TIMER2.0 / 3.0 | <https://timer.cistrome.org/> · <https://compbio.cn/timer3/> | 免疫浸润分析 |
+
+中文资料目前只存在于社区写的教程里，站点本身没有中文界面。
 
 ## 词库
 

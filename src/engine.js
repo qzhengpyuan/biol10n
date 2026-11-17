@@ -43,6 +43,7 @@ function createEngine(options) {
   var originals = new WeakMap();
   var propOriginals = new WeakMap(); // 通过 el.value 写入的默认文字
   var blockOriginals = new WeakMap(); // 整块替换时摘下的原始子节点（disable 时要挂回去）
+  var svgTexts = []; // SVG <text> 的逐节点原文（元素不在文本节点还原范围内，单独记）
   var misses = new Set();
   // enabled 放在 stats 上而不是只做闭包变量：boot 的 toggle 靠它判断该开还是该关
   var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, enabled: true };
@@ -378,6 +379,7 @@ function createEngine(options) {
     if (!enabled || processed.has(node)) return;
     if (node.isConnected === false) return;
     if (handleSvgText(node)) return;
+    if (handleSplitText(node)) return;
     if (handleBrJoin(node)) return;
     var raw = node.nodeValue;
     if (!raw) return;
@@ -480,7 +482,9 @@ function createEngine(options) {
     var n;
     while ((n = w.nextNode())) nodes.push(n);
     if (!nodes.length) return true;
-    if (!originals.has(t)) originals.set(t, t.textContent);
+    // 逐节点存原文：<text> 里可能有多个 tspan，还原时要各自回到原值，
+    // 不能只存整段 textContent（那是元素级快照，text 节点上还原不到）。
+    svgTexts.push({ nodes: nodes.map(function (x) { return x; }), vals: nodes.map(function (x) { return x.nodeValue; }) });
     nodes[0].nodeValue = out;
     for (var i = 1; i < nodes.length; i++) nodes[i].nodeValue = "";
     nodes.forEach(function (x) { processed.add(x); });
@@ -501,6 +505,42 @@ function createEngine(options) {
     }
     return normalize(parts.join(""));
   }
+  /** 同一元素里的文本被站点拆成多个文本节点（cBioPortal 的 <h4>Horizontal\nAxis</h4>），
+   *  整串比对才命得中词表。只在元素没有子元素时动手，替换后按整块记录，disable 能还原。 */
+  function handleSplitText(node) {
+    var el = node.parentElement;
+    if (!el || el.children.length || el.childNodes.length < 2) return false;
+    if (skipNode(node) || inBlock(el) || inSkip(el)) return false;
+    var parts = [], raw = "";
+    for (var i = 0; i < el.childNodes.length; i++) {
+      var c = el.childNodes[i];
+      if (c.nodeType !== 3) return false;
+      raw += c.nodeValue || "";
+      var t = String(c.nodeValue || "").trim();
+      if (t) parts.push(t);
+    }
+    if (parts.length < 2) return false;
+    var full = parts.join(" ");
+    var flat = raw.replace(/\s+/g, " ").trim();
+    if (full.length < 3 || full.length > 120) return false;
+    if (hasCJK(full) || !LETTER.test(full)) return false;
+    // 长句只在整条命中词表时才拼（脚注被站点拆成「¹ 」+ 句子两段）；
+    // 短标签仍允许走规则，避免长正文靠规则拼出半中半英。
+    var out = lookupExact(full);
+    if (out === null && flat !== full) out = lookupExact(flat);
+    if (out === null && full.length <= 60) {
+      out = translate(full);
+      if (out === null && flat !== full) out = translate(flat);
+    }
+    if (out === null) return false;
+    if (!blockOriginals.has(el)) blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+    try { el.setAttribute("data-biol10n-block", "1"); } catch (e) { /* ignore */ }
+    while (el.firstChild) el.removeChild(el.firstChild);
+    el.appendChild(doc.createTextNode(out));
+    stats.split = (stats.split || 0) + 1;
+    return true;
+  }
+
   function handleBrJoin(node) {
     var el = node.parentElement;
     if (!el || !el.querySelector || !el.querySelector("br")) return false;
@@ -511,9 +551,18 @@ function createEngine(options) {
     if (out === null) return false;
     // 只有拼接成功才记账：早期版本在查表前就 brDone.add，拼接失败的元素后半段
     // 会被 brDone 永久跳过（HPA 的 Total<br>elevated → 「总计elevated」）
+    // 容器里若还有输入框/按钮/链接这类活控件，绝不能 textContent 覆盖（HPA 的
+    // 「Interacting gene (ensg_id)<br><input>」会把 <input> 一起删掉，且关脚本也回不来）。
+    var kids = el.children, guardTag = 0;
+    for (var k = 0; k < kids.length; k++) {
+      if (!/^(BR|SPAN|B|I|EM|STRONG|SMALL|SUP|SUB)$/.test(kids[k].tagName)) { guardTag = 1; break; }
+    }
+    if (guardTag) return false;
     brDone.add(el);
-    if (!originals.has(el)) originals.set(el, el.textContent);
-    el.textContent = out;
+    if (!blockOriginals.has(el)) blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+    try { el.setAttribute("data-biol10n-block", "1"); } catch (e) { /* ignore */ }
+    while (el.firstChild) el.removeChild(el.firstChild);
+    el.appendChild(doc.createTextNode(out));
     stats.br = (stats.br || 0) + 1;
     return true;
   }
@@ -734,6 +783,22 @@ function createEngine(options) {
     }
   }
 
+  /** 调试：解释某个文本节点为什么没被翻（不改变 DOM）。 */
+  function debugWhy(node) {
+    if (!node || node.nodeType !== 3) return { error: "not a text node" };
+    var raw = node.nodeValue, text = normalize(raw);
+    var r = {
+      raw: String(raw).slice(0, 60), text: String(text).slice(0, 60),
+      processed: processed.has(node), connected: node.isConnected !== false,
+      cjk: hasCJK(text), letter: LETTER.test(text), len: text.length,
+      skip: skipNode(node), block: inBlock(node.parentElement), inSkip: inSkip(node.parentElement),
+      prose: inLongProse(node.parentElement),
+      exact: lookupExact(text), parent: node.parentElement ? node.parentElement.tagName + "." + (node.parentElement.className || "") : null,
+      split: node.parentElement ? node.parentElement.children.length : null, kids: node.parentElement ? node.parentElement.childNodes.length : null
+    };
+    return r;
+  }
+
   function scan() {
     if (!enabled) return;
     applyBlocks();
@@ -806,11 +871,7 @@ function createEngine(options) {
   }
 
   function restore() {
-    doc.createTreeWalker(doc.body, 4, null, false);
-    var nodes = [];
-    var w = doc.createTreeWalker(doc.body, 4, null, false), n;
-    while ((n = w.nextNode())) if (originals.has(n)) nodes.push(n);
-    nodes.forEach(function (x) { x.nodeValue = originals.get(x); });
+    // 先还原整块：块里原来挂着子节点（<b>/<br>/<a>），挂回去之后它们才会被下面的文本遍历看见
     doc.querySelectorAll("[data-biol10n-block]").forEach(function (el) {
       var kids = blockOriginals.get(el);
       if (kids) {
@@ -818,6 +879,16 @@ function createEngine(options) {
         for (var i = 0; i < kids.length; i++) el.appendChild(kids[i]);
       }
       try { el.removeAttribute("data-biol10n-block"); } catch (e) { /* ignore */ }
+    });
+    var nodes = [];
+    var w = doc.createTreeWalker(doc.body, 4, null, false), n;
+    while ((n = w.nextNode())) if (originals.has(n)) nodes.push(n);
+    nodes.forEach(function (x) { x.nodeValue = originals.get(x); });
+    // SVG <text>：把每个 tspan 文本节点写回原文
+    svgTexts.forEach(function (rec) {
+      for (var i = 0; i < rec.nodes.length; i++) {
+        if (rec.nodes[i] && rec.nodes[i].isConnected !== false) rec.nodes[i].nodeValue = rec.vals[i];
+      }
     });
     doc.querySelectorAll("*").forEach(function (el) {
       var prop = propOriginals.get(el);
@@ -872,6 +943,7 @@ function createEngine(options) {
     if (origTitle !== null && (doc.title === translatedTitle || CJK.test(doc.title))) doc.title = origTitle;
     origTitle = null;
     translatedTitle = null;
+    svgTexts = [];
   }
 
   function start() {
@@ -900,6 +972,7 @@ function createEngine(options) {
     start: start, scan: scan, enable: enable, disable: disable,
     /** 干跑：只返回译文，不写 DOM，供覆盖率统计与词表调试使用 */
     translateText: function (s) { return translate(normalize(s)); },
+    debugWhy: debugWhy,
     stats: stats,
     misses: function () { return Array.from(misses); },
     restore: restore

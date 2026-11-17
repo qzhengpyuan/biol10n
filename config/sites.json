@@ -98,7 +98,7 @@
         {
           "sel": "#help_3050 .helpText p",
           "match": "The RNA specificity category",
-          "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEX 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
+          "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEx 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
         },
         {
           "sel": "#help_333100 .helpText p",
@@ -133,7 +133,7 @@
         {
           "sel": "#help_109 .helpText p",
           "match": "The RNA specificity category is based on mRNA expression levels in the",
-          "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEX 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
+          "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEx 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
         },
         {
           "sel": "#help_4047 .helpText p",
@@ -143,7 +143,7 @@
         {
           "sel": "#help_130 .helpText p",
           "match": "is based on mRNA expression levels in the analyzed samples based on a combination of data",
-          "text": "RNA 分布类别基于所分析样本中的 mRNA 表达水平，综合 HPA 与 GTEX 的数据计算。类别包括：全部检出、多数检出、部分检出、单一检出、未检出。"
+          "text": "RNA 分布类别基于所分析样本中的 mRNA 表达水平，综合 HPA 与 GTEx 的数据计算。类别包括：全部检出、多数检出、部分检出、单一检出、未检出。"
         },
         {
           "sel": "#help_110 .helpText p",
@@ -336,14 +336,6 @@
           "text": "单细胞资源中所含各数据集的概览。"
         },
         {
-          "sel": "#help_5023 .helpText p",
-          "text": "核心细胞类型表展示八种存在于多种组织中的细胞类型的数据。彩色圆点表示所选基因在对应组织中具有核心细胞类型特异性；灰色圆点表示该组织中存在该细胞类型，但所选基因在该处未预测为富集。"
-        },
-        {
-          "sel": "#help_5024 .helpText p",
-          "text": "此图展示所选基因在所有已分析组织内的非核心细胞类型中的富集评分，便于比较不同组织内不同细胞类型之间的差异。放大的符号表示该基因在对应细胞类型中被归类为细胞类型富集。"
-        },
-        {
           "sel": "#help_117 .helpText p",
           "text": "每个柱条代表某一组织组中最高的表达评分。蛋白质表达评分基于知识注释对「真实」蛋白质表达的最佳估计，详见此处。对于使用了多种抗体的基因，会设定一个综合评分以展示估计的真实蛋白质表达。"
         },
@@ -366,6 +358,26 @@
         {
           "sel": "#help_5022 .helpText p",
           "text": "组织细胞类型部分为所有蛋白编码基因提供细胞类型特异性预测。有关可用数据的更多信息见此处，分析的说明见此处。"
+        },
+        {
+          "sel": "#help_5023 .helpText p",
+          "match": "core cell type table displays",
+          "text": "核心细胞类型表展示八种存在于多种组织中的细胞类型的数据。"
+        },
+        {
+          "sel": "#help_5023 .helpText p",
+          "match": "Colored dots",
+          "text": "彩色圆点表示所选基因在对应组织中具有核心细胞类型特异性；灰色圆点表示该组织中存在该细胞类型，但所选基因在该处未预测为富集。"
+        },
+        {
+          "sel": "#help_5024 .helpText p",
+          "match": "This plot shows the enrichment score",
+          "text": "此图展示所选基因在所有已分析组织内的非核心细胞类型中的富集评分，便于比较不同组织内不同细胞类型之间的差异。"
+        },
+        {
+          "sel": "#help_5024 .helpText p",
+          "match": "An enlarged symbol",
+          "text": "放大的符号表示该基因在对应细胞类型中被归类为细胞类型富集。"
         }
       ]
     },
@@ -409,6 +421,11 @@
           "sel": "h4.tab-title",
           "match": "Vertical Axis",
           "text": "纵轴"
+        },
+        {
+          "sel": "div[style*='margin-top: 5px']",
+          "match": "Driver annotation settings",
+          "text": "* 驱动注释设置位于页面顶部的设置菜单中（滑块图标处）。"
         }
       ],
       "rescan": [

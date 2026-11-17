@@ -76,6 +76,11 @@
   try {
     window.__BIOL10N = {
       stats: function () { return engine.stats; },
+      scan: function () { engine.scan(); return engine.stats; },
+      why: function (el) {
+        var n = el && el.nodeType === 3 ? el : el && el.firstChild;
+        return engine.debugWhy(n);
+      },
       misses: function () {
         var m = engine.misses();
         console.table(m);

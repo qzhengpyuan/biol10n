@@ -394,7 +394,31 @@
     ": Inframe deletion, Inframe insertion": "：整码缺失、整码插入",
     ": All other types of mutations": "：所有其他类型的突变",
     "Copy Number Profile": "拷贝数谱",
-    "mRNA Profile": "mRNA 谱"
+    "mRNA Profile": "mRNA 谱",
+    "Samples with mutation and CNA data": "有突变与拷贝数数据的样本",
+    "Case ID..": "病例 ID..",
+    "* Driver annotation settings are located in the settings menu  at the top of the page.": "* 驱动注释设置位于页面顶部的设置菜单中。",
+    "* Driver annotation settings are located in the settings menu at the top of the page.": "* 驱动注释设置位于页面顶部的设置菜单中。",
+    "¹ Structural variants are shown instead of copy number alterations when a sample has both.": "¹ 当样本同时具有结构变异与拷贝数改变时，显示结构变异。",
+    "Structural Variants": "结构变异",
+    "Connection Type": "连接类型",
+    "Event Info": "事件信息",
+    "Variant Class": "变异类别",
+    "Gene 1": "基因 1",
+    "Gene 2": "基因 2",
+    "Mut# vs Dx": "突变数 vs 诊断年龄",
+    "FGA vs Dx": "基因组改变比例 vs 诊断年龄",
+    "Mut# vs FGA": "突变数 vs 基因组改变比例",
+    "mRNA vs Dx": "mRNA vs 诊断年龄",
+    "mRNA vs mut type": "mRNA vs 突变类型",
+    "mRNA vs CNA": "mRNA vs 拷贝数",
+    "mRNA vs methyl": "mRNA vs 甲基化",
+    "Protein vs mRNA": "蛋白质 vs mRNA",
+    "Tumor Split Read Count": "肿瘤分裂读段计数",
+    "Effect on Frame": "对阅读框的影响",
+    "NCBI Build": "NCBI 构建版本",
+    "SV Description": "结构变异描述",
+    "Breakpoint Type": "断点类型"
   },
   "rules": [
     {
@@ -581,6 +605,14 @@
       "re": "^(.+): (.+)$",
       "to": "$1：$2",
       "requireHit": true
+    },
+    {
+      "re": "^Same gene \\((.+)\\)$",
+      "to": "同一基因（$1）"
+    },
+    {
+      "re": "^Showing (\\d+)-(\\d+) of ([\\d,]+) (Structural Variants)$",
+      "to": "显示第 $1-$2 条，共 $3 条 $4"
     }
   ]
 }

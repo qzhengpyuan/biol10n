@@ -1542,7 +1542,12 @@
     "Tau specificity score": "Tau 特异性评分",
     "Brain cell type specificity": "脑细胞类型特异性",
     "Medium consistency between antibody staining and RNA expression data. Tissue location of RNA and protein might differ due to short half-life of wild-type p53 protein.": "抗体染色与 RNA 表达数据之间一致性中等。由于野生型 p53 蛋白半衰期短，RNA 与蛋白的组织定位可能不同。",
-    "The expression category reflects the overall expression pattern for the gene based on expression profiles for all individual isoforms.": "表达类别反映该基因的整体表达模式，依据所有单个异构体的表达谱。"
+    "The expression category reflects the overall expression pattern for the gene based on expression profiles for all individual isoforms.": "表达类别反映该基因的整体表达模式，依据所有单个异构体的表达谱。",
+    "HPA dataset": "HPA 数据集",
+    "GTEx dataset": "GTEx 数据集",
+    "FANTOM5 dataset": "FANTOM5 数据集",
+    "HPA datasets": "HPA 数据集",
+    "GTEx datasets": "GTEx 数据集"
   },
   "rules": [
     {

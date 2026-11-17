@@ -2,7 +2,7 @@
 // @name         BioL10n 生物医学网站中文化
 // @name:en      BioL10n
 // @namespace    biol10n
-// @version      0.2.0
+// @version      0.2.1
 // @description  离线词库驱动的生物医学网站界面汉化：只替换界面文本，不联网、不调用翻译 API
 // @author       BioL10n contributors
 // @license      MIT

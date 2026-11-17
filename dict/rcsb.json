@@ -610,7 +610,10 @@
   "Video:": "视频：",
   "Entry, Entity, Assembly, and Instance": "条目、实体、装配体与实例",
   "PDB ENTRY": "PDB 条目",
-  "This ENTRY includes two polymeric ENTITIES, the alpha chain and the beta chain.": "该条目包含两个聚合物实体：α 链与 β 链。"
+  "This ENTRY includes two polymeric ENTITIES, the alpha chain and the beta chain.": "该条目包含两个聚合物实体：α 链与 β 链。",
+  "Biomolecules are hierarchical structures. For example, proteins are composed of linear chains of amino acids that (often) fold into compact subunits which then can associate into higher level assemblies with other proteins, small molecule ligands, and water or other solvent molecules. Biomolecules in the Protein Data Bank (PDB) archive are organized and represented using this hierarchy to simplify searching and exploration.": "生物大分子是层级结构。例如，蛋白质由氨基酸线性链组成，这些链（通常）折叠成紧凑的亚基，亚基随后可与其他蛋白质、小分子配体以及水或其他溶剂分子结合成更高层次的组装体。蛋白质数据库（PDB）归档中的生物大分子正是使用这种层级来组织和表示的，以简化检索和探索。",
+  "Understanding the hierarchy in these terms can help with exploring the PDB, searching for and identifying relevant structures, and visualizing/analyzing them meaningfully.": "从这些角度理解层级结构，有助于探索 PDB、检索和识别相关结构，以及有意义地可视化和分析它们。",
+  "In summary, a deposited ENTRY contains one or more INSTANCES of at least one polymer or branched ENTITY arranged in one or more ASSEMBLIES.": "总之，一个存档的条目（ENTRY）包含至少一种聚合物或分支实体（ENTITY）的一个或多个实例（INSTANCE），这些实例排列在一个或多个组装体（ASSEMBLY）中。"
  },
  "rules": [
   {

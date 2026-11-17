@@ -58,7 +58,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **449 KB**（优化前 812 KB，−45%）；gzip 后 296 KB；词库里 19 本共 10197 条，压缩前纯 JSON 有 674 KB
+- 单文件产物 **461 KB**（优化前 812 KB，−43%）；gzip 后 304 KB；词库里 19 本共 10239 条，压缩前纯 JSON 有 697 KB
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -119,16 +119,16 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
-| hpa | 1604 | 117 | Human Protein Atlas |
+| hpa | 1628 | 117 | Human Protein Atlas |
 | ncbi | 1313 | 54 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | ncbi-help | 1704 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
 | kegg | 494 | 16 | KEGG |
 | gdc | 479 | 20 | GDC Data Portal |
-| rcsb | 603 | 31 | RCSB PDB |
+| rcsb | 606 | 31 | RCSB PDB |
 | uniprot | 447 | 15 | UniProt |
 | cbioportal | 646 | 47 | cBioPortal |
-| ensembl | 352 | 4 | Ensembl（含新前端与帮助页） |
+| ensembl | 367 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
 | ucsc | 215 | 5 | UCSC Genome Browser |
 | gepia2 | 175 | 9 | GEPIA2 |
@@ -138,7 +138,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **10197 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **10239 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 

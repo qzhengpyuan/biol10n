@@ -14,7 +14,13 @@ const version = (fs.readFileSync(file, "utf8").match(/@version\s+(\S+)/) || [])[
 const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
 
 const blob = git("hash-object", "-w", file);
-const tree = execFileSync("git", ["mktree"], { cwd: root, input: "100644 blob " + blob + "\tbiol10n.user.js\n", encoding: "utf8" }).trim();
+let treeInput = "100644 blob " + blob + "\tbiol10n.user.js\n";
+const readme = path.join(root, "README.md");
+if (fs.existsSync(readme)) {
+  const rb = git("hash-object", "-w", readme);
+  treeInput += "100644 blob " + rb + "\tREADME.md\n";
+}
+const tree = execFileSync("git", ["mktree"], { cwd: root, input: treeInput, encoding: "utf8" }).trim();
 
 let parent = null;
 try { parent = git("rev-parse", "--verify", "refs/heads/release"); } catch (e) { parent = null; }

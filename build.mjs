@@ -29,6 +29,9 @@ for (const s of sites.sites) {
 }
 const matches = [...new Set(matchLines)].join("\n");
 
+// 发布分支只放单文件产物，商店同步与手动安装都读这个地址
+const RAW_URL = "https://raw.githubusercontent.com/qzhengpyuan/biol10n/release/biol10n.user.js";
+
 const header = [
   "// ==UserScript==",
   "// @name         BioL10n 生物医学网站中文化",
@@ -38,6 +41,9 @@ const header = [
   "// @description  离线词库驱动的生物医学网站界面汉化：只替换界面文本，不联网、不调用翻译 API",
   "// @author       BioL10n contributors",
   "// @license      MIT",
+  "// @homepageURL  https://github.com/qzhengpyuan/biol10n",
+  "// @downloadURL  " + RAW_URL,
+  "// @updateURL    " + RAW_URL,
   "// @run-at       document-end",
   "// @grant        none",
   matches,

@@ -7,6 +7,7 @@
   // 每本词库是独立的 JSON 字符串，只有本站用到的才会被解析（见 parseDict）。
   var DICT_SRC = __BIOL10N_DICT__;
   var SITES = __BIOL10N_SITES__;
+  var VERSION = "__BIOL10N_VERSION__";
   var parsedDicts = {};
   function parseDict(id) {
     if (parsedDicts[id] !== undefined) return parsedDicts[id];
@@ -41,11 +42,20 @@
 
   var exact = {};
   var rules = [];
+  var dictInfo = [];
   (site.dicts || ["common"]).forEach(function (id) {
     var d = parseDict(id);
     if (!d) return;
+    dictInfo.push({ id: id, count: Object.keys(d.exact || {}).length });
     Object.keys(d.exact || {}).forEach(function (k) { exact[k] = d.exact[k]; });
     if (d.rules) rules = rules.concat(d.rules);
+  });
+
+  // 面板先建好：引擎第一次扫描就会产生"漏翻"回调，晚建会丢掉首页那一批。
+  var ui = createBioL10nUI({
+    site: { id: site.id, name: site.name || site.id },
+    dicts: dictInfo,
+    version: VERSION
   });
 
   var engine = createEngine({
@@ -60,6 +70,7 @@
       proseGuard: site.proseGuard !== false,
       proseMax: site.proseMax || 120,
       proseExempt: site.proseExempt || "",
+      logSkip: site.logSkip || "",
       valueText: !!site.valueText,
       translateNoAllow: site.translateNoAllow || [],
       punctFix: site.punctFix !== false,
@@ -67,9 +78,11 @@
       blocks: site.blocks || [],
       spa: !!site.spa,
       waitFor: site.waitFor || ""
-    }
+    },
+    onMiss: function (text, ctx) { ui.addMiss(text, ctx); }
   });
 
+  ui.attach(engine);
   engine.start();
 
   // 调试接口：控制台里 __BIOL10N.stats() / __BIOL10N.misses()
@@ -93,7 +106,8 @@
         return engine.stats && engine.stats.enabled !== false;
       },
       disable: function () { engine.disable(); },
-      enable: function () { engine.enable(); }
+      enable: function () { engine.enable(); },
+      ui: ui
     };
   } catch (e) { /* 页面可能禁止写 window */ }
 

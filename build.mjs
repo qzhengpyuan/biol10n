@@ -57,11 +57,13 @@ const dictSrc = {};
 for (const id of Object.keys(dict)) dictSrc[id] = JSON.stringify(dict[id]);
 
 const engine = read("src/engine.js");
+const ui = read("src/ui.js");
 const boot = read("src/boot.js")
   .replace("__BIOL10N_DICT__", () => JSON.stringify(dictSrc))
-  .replace("__BIOL10N_SITES__", () => JSON.stringify(sites));
+  .replace("__BIOL10N_SITES__", () => JSON.stringify(sites))
+  .replace("__BIOL10N_VERSION__", () => pkg.version);
 
-const out = header + "\n" + engine + "\n" + boot;
+const out = header + "\n" + engine + "\n" + ui + "\n" + boot;
 fs.mkdirSync(path.join(root, "dist"), { recursive: true });
 fs.writeFileSync(path.join(root, "dist/biol10n.user.js"), out);
 

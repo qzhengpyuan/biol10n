@@ -20,8 +20,10 @@
         "common",
         "ncbi"
       ],
-      "scope": "main, #search-results, .results-amount, .query-box, .advanced-search",
-      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+      "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "name": "PubMed",
+      "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li"
     },
     {
       "id": "ncbi-geo",
@@ -34,7 +36,8 @@
         "ncbi"
       ],
       "scope": "main, #maincontent, .content",
-      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "name": "NCBI GEO/GDS"
     },
     {
       "id": "ncbi-gdv",
@@ -49,7 +52,8 @@
       "scope": "main, #gdv-root",
       "spa": true,
       "waitFor": "#gdv-root",
-      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "name": "NCBI GDV"
     },
     {
       "id": "ncbi-blast",
@@ -62,7 +66,8 @@
       ],
       "scope": "main, #blastapp, .blastpage",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
-      "valueText": true
+      "valueText": true,
+      "name": "NCBI BLAST"
     },
     {
       "id": "kegg",
@@ -74,7 +79,8 @@
         "common",
         "kegg"
       ],
-      "scope": "body"
+      "scope": "body",
+      "name": "KEGG"
     },
     {
       "id": "hpa",
@@ -379,7 +385,8 @@
           "match": "An enlarged symbol",
           "text": "放大的符号表示该基因在对应细胞类型中被归类为细胞类型富集。"
         }
-      ]
+      ],
+      "name": "Human Protein Atlas"
     },
     {
       "id": "mirbase",
@@ -391,7 +398,8 @@
         "common",
         "mirbase"
       ],
-      "scope": "main, .container, body"
+      "scope": "main, .container, body",
+      "name": "miRBase"
     },
     {
       "id": "cbioportal",
@@ -433,7 +441,8 @@
         8000,
         15000,
         22000
-      ]
+      ],
+      "name": "cBioPortal"
     },
     {
       "id": "gdc",
@@ -613,7 +622,8 @@
           "match": "Data in the GDC is considered provisional",
           "text": "警告：GDC 数据被视为临时性数据，因为 GDC 采用的分析流程会随时间演进。访问本站前请阅读《GDC 数据发布说明》，其中提供数据更新、已知问题与变通方法的详情。"
         }
-      ]
+      ],
+      "name": "GDC 数据门户"
     },
     {
       "id": "gepia2",
@@ -628,7 +638,8 @@
       "scope": "body",
       "protocols": [
         "http"
-      ]
+      ],
+      "name": "GEPIA2"
     },
     {
       "id": "ualcan",
@@ -640,7 +651,8 @@
         "onco",
         "ualcan"
       ],
-      "scope": "body"
+      "scope": "body",
+      "name": "UALCAN"
     },
     {
       "id": "timer2",
@@ -654,7 +666,8 @@
         "onco",
         "timer"
       ],
-      "scope": "body"
+      "scope": "body",
+      "name": "TIMER2.0/3.0"
     },
     {
       "id": "gtex",
@@ -669,7 +682,8 @@
       ],
       "scope": "main, #root",
       "spa": true,
-      "waitFor": "#root"
+      "waitFor": "#root",
+      "name": "GTEx Portal"
     },
     {
       "id": "ensembl",
@@ -688,7 +702,8 @@
       "spa": true,
       "waitFor": "header, .root__Root__8fRu3, #content",
       "proseExempt": "section[class*=privacyBanner]",
-      "valueText": true
+      "valueText": true,
+      "name": "Ensembl"
     },
     {
       "id": "ucsc",
@@ -704,7 +719,8 @@
       "scope": "body",
       "proseExempt": "#descriptionText",
       "skip": "div[style*=\"background-color: #f0f8ff\"], p[style*=\"font-size: smaller\"], .gbsPage > h1 + p, div.col-md-7 > p",
-      "valueText": true
+      "valueText": true,
+      "name": "UCSC Genome Browser"
     },
     {
       "id": "uniprot",
@@ -735,7 +751,8 @@
       "translateNoAllow": [
         "button.evidence-tag",
         "a[href=\"/align\"]"
-      ]
+      ],
+      "name": "UniProt"
     },
     {
       "id": "rcsb-pdb",
@@ -769,7 +786,8 @@
           "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(4) p",
           "text": "使用来自各种本体与层级分类方案的注释检索 PDB 结构，例如疾病本体、分子功能。"
         }
-      ]
+      ],
+      "name": "RCSB PDB"
     }
   ]
 }

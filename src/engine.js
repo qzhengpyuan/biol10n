@@ -143,9 +143,22 @@ function createEngine(options) {
     return null;
   }
 
-  function recordMiss(text) {
-    if (typeof onMiss === "function") onMiss(text);
-    if (misses.size < 200 && text.length <= 80 && LETTER.test(text)) misses.add(text);
+  function recordMiss(text, node, isProse) {
+    stats.miss = (stats.miss || 0) + 1;
+    if (typeof onMiss === "function") {
+      var el = node && node.nodeType === 3 ? node.parentElement : node;
+      try {
+        var skipLog = false;
+        if (site.logSkip && el && el.closest) { try { skipLog = !!el.closest(site.logSkip); } catch (e2) {} }
+        onMiss(text, {
+          prose: !!isProse,
+          skipLog: skipLog,
+          tag: el && el.tagName ? el.tagName : "",
+          cls: el && typeof el.className === "string" ? el.className.slice(0, 80) : ""
+        });
+      } catch (e) { /* 记录失败不影响翻译 */ }
+    }
+    if (!isProse && misses.size < 200 && text.length <= 80 && LETTER.test(text)) misses.add(text);
   }
 
   function skipNode(node, skipTranslateNo) {
@@ -164,6 +177,8 @@ function createEngine(options) {
       if (SKIP_TAGS[p.tagName] === 1) return true;
       if (p.isContentEditable) return true;
       if (p.dataset && p.dataset.l10nScope === "off") return true;
+      // 设置面板自己的文字（BioL10n 等英文标签）永远不参与翻译
+      if (p.hasAttribute && p.hasAttribute("data-biol10n-ui")) return true;
       if (p.hasAttribute && p.hasAttribute("data-biol10n-block")) return true;
       // 站点自己声明"这段别翻"（UniProt 的示例检索词按钮就是 <span translate="no">Human</span>）
       if (!skipTranslateNo && p.getAttribute && p.getAttribute("translate") === "no") {
@@ -401,7 +416,13 @@ function createEngine(options) {
     if (skipNode(node) || inBlock(node.parentElement) || inSkip(node.parentElement)) { processed.add(node); return; }
     // 正文保护挡下的节点不记入 processed：块内容会随其它节点被翻译而变中文
     // （RCSB 构建器先被翻成「选择一个 attribute 进行检索…」），下一轮补扫要能重新判一次。
-    if (inLongProse(node.parentElement)) return;
+    // 但词库里明确收录的整段（帮助页、FAQ、首页简介）是人工核对过的译文，
+    // 命中就照翻——否则这些"固定说明句"永远进不来。查表用 count=false，避免命中数翻倍。
+    if (inLongProse(node.parentElement)) {
+      // 只放行"整句/整段"级别的命中（>= 40 字符）。英文句子里的短链接（"… browser. Contact Us"）
+      // 即使词典里有 Contact Us，也不能在一句英文中间冒出一小块中文。
+      if (text.length < 40 || lookupExact(text, false) === null) { recordMiss(text, node, true); return; }
+    }
 
     stats.nodes++;
     var out = translate(text);

@@ -2,34 +2,39 @@
 
 离线词库驱动的生物医学网站界面汉化脚本（Tampermonkey / ScriptCat）。
 
-针对没有中文语言选项的生物信息学与医学站点（PubMed、GEO、UCSC、Ensembl、KEGG、HPA、miRBase 等），
-用内置词表把界面文本与重复出现的说明性文字替换为中文。不联网、不调用翻译 API、不打包模型、
-不需要本地服务——一个 `.user.js` 文件，任何设备导入即用。
+## 为什么做这个
 
-## 安装
+PubMed、GEO、UCSC、Ensembl、KEGG、HPA、cBioPortal、GDC 这些数据库、论文库、工具库，本身都没有中文界面。老师上课放 PPT、现场点开网站演示时，一个按钮、一个表头没跟上，后面几步就全听不懂了。很多生物学新生不是学不会，而是卡在「不知道这些网站怎么用」这一步——没有人带他们入门，热情在一次次看不懂的英文界面里被磨掉。
 
-1. 装 Tampermonkey（Chrome/Firefox）或 ScriptCat
-2. 打开 [v0.1.1 发布包](https://github.com/qzhengpyuan/biol10n/releases/latest/download/biol10n.user.js)，脚本管理器会提示安装
-3. 打开已支持的站点，界面文本自动变中文；`Alt+Shift+L` 一键切回英文对比
+学这些工具的第一步，应该是先看懂页面：哪里是检索框、哪一列是物种、这个按钮点下去会发生什么。英语不应该成为学习的门槛，也不该成为放弃的理由。
 
-ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚本猫详情 → 打开「允许运行用户脚本」，
-否则脚本装上了也不会执行。这个开关按 profile 保存，重启浏览器后保持开启。
+这个脚本只做这一层：不改网站功能、不搬数据，只把按钮、标题、表头、固定说明句换成中文，让第一次打开这些网站的人先「看懂」，再谈怎么用。
 
-调试：控制台里 `__BIOL10N.stats()` 看命中数与当前站点使用的词库，`__BIOL10N.misses()` 看没翻到的英文，
-`__BIOL10N.toggle()` 或 `Alt+Shift+L` 切换中英。
+## 它做什么
 
-## 范围
+针对没有中文语言选项的生物信息学与医学站点，用内置词表把界面文本与重复出现的说明性文字替换为中文。不联网、不调用翻译 API、不打包模型、不需要本地服务——一个 `.user.js` 文件，任何设备导入即用。
 
 - **翻**：界面骨架（导航、表头、按钮、表单标签、占位符、aria-label/title）、固定枚举值（性别、物种、组装层级、变异类型、组织名）、固定说明句与帮助文本整块、通用规范化（日期与标点）
 - **不翻**：基因与蛋白符号、变异命名（`c.68_69delAG`）、物种拉丁名、accession、序列、坐标、数字单位、通路名、数据库名（UniProt / Pfam / InterPro 等）、下拉选项的 `value`、长正文段落
 
-目标不是把整页英文变成通顺中文，而是让页面结构可读、知道该点哪里。
-覆盖不到的地方保留英文——**宁可留白，不可翻错**。
+目标不是把整页英文变成通顺中文，而是让页面结构可读、知道该点哪里。覆盖不到的地方保留英文——**宁可留白，不可翻错**。
+
+## 安装
+
+脚本目前在脚本猫上处于**未公开**状态：不进搜索、不进列表，只能通过下面的链接安装，测试稳定后会转为公开。
+
+1. 装 Tampermonkey（Chrome / Firefox）或 ScriptCat
+2. 打开 [脚本猫页面](https://scriptcat.org/zh-CN/script-show-page/9127) 点安装
+   - 或者直接导入源码：[biol10n.user.js](https://raw.githubusercontent.com/qzhengpyuan/biol10n/release/biol10n.user.js)
+3. 打开已支持的站点，界面文本自动变中文；`Alt+Shift+L` 一键切回英文对比
+
+ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚本猫详情 → 打开「允许运行用户脚本」，否则脚本装上了也不会执行。这个开关按 profile 保存，重启浏览器后保持开启。
+
+调试：控制台里 `__BIOL10N.stats()` 看命中数与当前站点使用的词库，`__BIOL10N.misses()` 看没翻到的英文，`__BIOL10N.toggle()` 或 `Alt+Shift+L` 切换中英。
 
 ## 设计
 
-核心决定是：**只在整个文本节点命中词表时才替换**。因此句子里夹带的 `BRCA1`、`p.Val600Glu`
-不会被切开、也不会被误译；代价是句子必须整体进词表或用模板覆盖。
+核心决定是：**只在整个文本节点命中词表时才替换**。因此句子里夹带的 `BRCA1`、`p.Val600Glu` 不会被切开、也不会被误译；代价是句子必须整体进词表或用模板覆盖。
 
 - **先认站、再取词库**：`config/sites.json` 按 hostname + path 匹配站点，命中后只解析该站用到的
   那几个词库（`build.mjs` 把每本词库序列化成一段 JSON 字符串，`boot.js` 的 `parseDict()` 按需
@@ -45,6 +50,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 细节见 [docs/engine-design.md](docs/engine-design.md)。
 
+## 支持站点
+
+PubMed、NCBI GEO / GDV / BLAST、UCSC Genome Browser、KEGG、Human Protein Atlas、miRBase、
+Ensembl、UniProt、RCSB PDB、GTEx Portal、GDC Data Portal、cBioPortal、GEPIA2、UALCAN、TIMER2.0 / 3.0。
+
+这 17 个站点的入口页目前都是纯英文界面（`<html lang="en">`，没有语言切换），中文资料只存在于社区写的教程里。
+
 ## 词库
 
 18 本词库按站点分文件，一个站点只加载自己那几本。
@@ -52,14 +64,14 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
-| hpa | 1536 | 117 | Human Protein Atlas |
+| hpa | 1541 | 117 | Human Protein Atlas |
 | ncbi | 1269 | 53 | PubMed / GEO / BLAST / GDV |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
 | kegg | 491 | 16 | KEGG |
+| gdc | 473 | 20 | GDC Data Portal |
 | rcsb | 460 | 31 | RCSB PDB |
-| gdc | 452 | 20 | GDC Data Portal |
 | uniprot | 437 | 15 | UniProt |
-| cbioportal | 388 | 45 | cBioPortal |
+| cbioportal | 412 | 47 | cBioPortal |
 | ensembl | 329 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
 | ucsc | 212 | 5 | UCSC Genome Browser |
@@ -70,22 +82,26 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 124 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **7901 条 / 418 条规则**，17 个站点。词库按家族复用，加一个站通常只增 50–200 条。
-
-支持站点：PubMed、NCBI GEO / GDV / BLAST、UCSC、KEGG、HPA、miRBase、Ensembl、UniProt、
-RCSB PDB、GTEx、GDC、cBioPortal、GEPIA2、UALCAN、TIMER2.0/3.0。
+合计 **7951 条 / 420 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎与产物单测（67 条）
+npm test             # 引擎与产物单测（75 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）
 node tools/apply.mjs # 构建并装进本机 ScriptCat（浏览器已开 CDP 时）
 
-# 真实页面残留报告 / 覆盖率 / 冒烟测试（前两个需要浏览器开着 CDP 9227）
+# 发版：构建产物推到 release 分支，webhook 通知脚本猫同步
+node tools/release.mjs
+git push origin release
+```
+
+真实页面残留报告 / 覆盖率 / 冒烟测试（前两个需要浏览器开着 CDP 9227）：
+
+```bash
 node tools/miss-report.mjs ensembl "https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000141510"
 node tools/coverage.mjs research/pubmed.html pubmed
 node tools/smoke.mjs research/pubmed.html "https://pubmed.ncbi.nlm.nih.gov/?term=brca1" 40

@@ -637,7 +637,6 @@
     "Format: Summary, Summary (text), Abstract, or Abstract (text)": "格式：概要、概要（文本）、摘要或摘要（文本）",
     "Click Send email. The system returns you to your current page and displays a confirmation message.": "点击发送邮件。系统会将您带回当前页面并显示确认信息。",
     "More information about emailing citations:": "关于通过电子邮件发送引文的更多信息：",
-    "Your citations will be sent from the NCBI automatic mail server with the sender's email address [nobody@ncbi.nlm.nih.gov]. Do not reply to this message, as this is not a functioning customer service email address and is not monitored.": "您的引文将由 NCBI 自动邮件服务器发送，发件人地址为 [nobody@ncbi.nlm.nih.gov]。请勿回复此邮件，因为该地址不是可用的客户服务邮箱，也不会有人监控。",
     "To use the email feature,": "要使用电子邮件功能，",
     "register for a free My NCBI account": "请注册一个免费的 My NCBI 账户",
     ". See the": "。请参阅",
@@ -1711,5 +1710,12 @@
       "re": "^Last update: (.+)$",
       "to": "最后更新：$1"
     }
-  ]
+  ],
+  "meta": {
+    "family": "ncbi-help",
+    "version": "0.1.0",
+    "sites": [
+      "pubmed.ncbi.nlm.nih.gov"
+    ]
+  }
 }

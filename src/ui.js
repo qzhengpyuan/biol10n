@@ -147,7 +147,7 @@ function createBioL10nUI(opts) {
 
   function statLine() {
     var s = (engine && engine.stats) || {};
-    return { nodes: s.nodes || 0, exact: s.hitExact || 0, rule: s.hitRule || 0, attrs: s.attrs || 0, miss: s.miss || 0 };
+    return { nodes: s.nodes || 0, exact: s.hitExact || 0, rule: s.hitRule || 0, attrs: s.attrs || 0, paras: s.paras || 0, inline: s.inline || 0, miss: s.miss || 0 };
   }
 
   function buildPanel() {
@@ -337,7 +337,7 @@ function createBioL10nUI(opts) {
     }
     nodes.dict.appendChild(chips);
     nodes.stats.textContent = "";
-    var parts = [["已替换", s.nodes], ["整条命中", s.exact], ["规则命中", s.rule], ["属性", s.attrs], ["漏翻", s.miss]];
+    var parts = [["已替换", s.nodes], ["整条命中", s.exact], ["规则命中", s.rule], ["整段", s.paras], ["属性", s.attrs], ["漏翻", s.miss]];
     parts.forEach(function (p) {
       var d = el("span", null);
       d.appendChild(el("b", null, String(p[1])));

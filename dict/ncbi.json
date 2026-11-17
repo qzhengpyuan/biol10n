@@ -207,7 +207,6 @@
     "See all age filters": "查看全部年龄筛选",
     "Other": "其他",
     "Exclude preprints": "排除预印本",
-    "MEDLINE": "MEDLINE 收录",
     "Clear applied filters": "清除已应用的筛选",
     "Reset filters menu": "重置筛选菜单",
     "Search Results": "检索结果",
@@ -1297,7 +1296,6 @@
     "Feature updates and other PubMed highlights": "功能更新与其他要点",
     "See more trending articles": "查看更多热门文章",
     "Home Page": "首页",
-    "Bookshelf": "图书架",
     "This site needs JavaScript to work properly. Please enable it to take advantage of the complete set of features!": "本站需要 JavaScript 才能正常运行，请启用以使用全部功能！",
     "PubMed® comprises more than 40 million citations for biomedical literature from MEDLINE, life science journals, and online books. Citations may include links to full text content from PubMed Central and publisher web sites.": "PubMed® 收录来自 MEDLINE、生命科学期刊和在线图书的 4000 多万条生物医学文献引文。引文可能包含指向 PubMed Central 全文及出版商网站的链接。",
     "The PubMed wordmark and PubMed logo are registered trademarks of the U.S. Department of Health and Human Services (HHS). Unauthorized use of these marks is strictly prohibited.": "PubMed 字标与 PubMed 徽标是美国卫生与公众服务部（HHS）的注册商标。严禁未经授权使用这些标识。",
@@ -1305,7 +1303,21 @@
     "https://": "HTTPS",
     "FTP": "FTP 下载",
     "MeSH": "MeSH 主题词",
-    "PMC": "PMC 全文库"
+    "PMC": "PMC 全文库",
+    "PubMed is a free resource supporting the search and retrieval of biomedical and life sciences literature with the aim of improving health–both globally and personally.": "PubMed 是一个免费资源，用于检索和获取生物医学与生命科学文献，目标是改善健康——无论在全球范围还是个人层面。",
+    "PubMed contains more than 40 million citations and abstracts of biomedical literature. It does not include full text journal articles; however, links to the full text are often present when available from other sources, such as the publisher's website or PubMed Central (PMC).": "PubMed 收录超过 4000 万条生物医学文献的引文与摘要。它不包含期刊全文；不过，当其他来源（如出版商网站或 PubMed Central（PMC））提供全文时，通常会给出全文链接。",
+    "Available to the public online since 1996, PubMed was developed and is maintained by the National Center for Biotechnology Information (NCBI), at the U.S. National Library of Medicine (NLM), located at the National Institutes of Health (NIH).": "PubMed 自 1996 年起向公众在线开放，由美国国家生物技术信息中心（NCBI）开发与维护，隶属于美国国家医学图书馆（NLM），而 NLM 隶属于美国国立卫生研究院（NIH）。",
+    "About the Content": "关于收录内容",
+    "Citations in PubMed primarily stem from the biomedicine and health fields, and related disciplines such as life sciences, behavioral sciences, chemical sciences, and bioengineering.": "PubMed 中的引文主要来自生物医学与健康领域，以及生命科学、行为科学、化学科学和生物工程等相关学科。",
+    "PubMed facilitates searching across several NLM literature resources:": "PubMed 支持跨多个 NLM 文献资源进行检索：",
+    "MEDLINE is the largest component of PubMed and consists primarily of citations from journals selected for MEDLINE; articles indexed with MeSH (Medical Subject Headings) and curated with funding, genetic, chemical and other metadata.": "MEDLINE 是 PubMed 中最大的组成部分，主要由被 MEDLINE 选入的期刊引文构成；这些文章用 MeSH（医学主题词）标引，并带有资助、遗传、化学等元数据。",
+    "Citations for PubMed Central (PMC) articles make up the second largest component of PubMed.": "PubMed Central（PMC）文章的引文构成 PubMed 的第二大组成部分。",
+    "PMC is a full text archive that includes articles from journals reviewed and selected by NLM for archiving (current and historical), as well as individual articles collected for archiving in compliance with funder policies.": "PMC 是一个全文存档，收录 NLM 审核并选定存档的期刊文章（当期与历史），以及为遵循资助方政策而单独收集存档的文章。",
+    "The final component of PubMed is citations for books and some individual chapters available on Bookshelf.": "PubMed 的最后一部分是 Bookshelf 上可用的图书与部分单章引文。",
+    "Bookshelf is a full text archive of books, reports, databases, and other documents related to biomedical, health, and life sciences.": "Bookshelf 是生物医学、健康与生命科学相关图书、报告、数据库及其他文档的全文存档。",
+    "Please see PubMed Coverage for more information about the types of content included in PubMed.": "关于 PubMed 收录的内容类型，请参见 PubMed 收录范围。",
+    "For how-to information on searching the PubMed database, see the PubMed User Guide.": "关于如何检索 PubMed 数据库，请参见 PubMed 用户指南。",
+    "Additional Resources": "其他资源"
   },
   "rules": [
     {
@@ -1519,6 +1531,10 @@
     {
       "re": "^(.+) - PubMed$",
       "to": "$1 - PubMed"
+    },
+    {
+      "re": "^Last update: (.+)$",
+      "to": "最后更新：$1"
     }
   ]
 }

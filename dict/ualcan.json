@@ -130,7 +130,11 @@
     "Oct": "10 月",
     "Nov": "11 月",
     "Dec": "12 月",
-    "now allows gene expression analysis using data from The Children Brain Tumor Tissue Consortium(CBTTC).": "现已支持使用儿童脑肿瘤组织联盟（CBTTC）的数据进行基因表达分析。"
+    "now allows gene expression analysis using data from The Children Brain Tumor Tissue Consortium(CBTTC).": "现已支持使用儿童脑肿瘤组织联盟（CBTTC）的数据进行基因表达分析。",
+    "Yes! You All Can": "是的！你们都能",
+    "evaluate epigenetic regulation of gene expression by promoter methylation,": "评估启动子甲基化对基因表达的表观遗传调控，",
+    "perform pan-cancer gene expression analysis,": "进行泛癌基因表达分析，",
+    "provide pediatric brain tumor gene expression and protein expression analysis.": "提供儿童脑肿瘤的基因表达与蛋白表达分析"
   },
   "rules": [
     {

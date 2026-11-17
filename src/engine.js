@@ -806,6 +806,31 @@ function createEngine(options) {
     return roots.length ? roots : [doc.body];
   }
 
+  /** 整段静态文案：被链接、加粗、<br> 切碎的段落，逐节点打不中词条，改用整段文本查表。
+   *  只处理内部没有嵌套块的静态容器；命中后整块换成中文（与 applyBlocks 共用原文备份，disable 可还原）。 */
+  function translateParagraphs(root) {
+    if (!root || !root.querySelectorAll) return;
+    var els;
+    try { els = root.querySelectorAll("p, li, dd, td, h1, h2, h3, h4"); } catch (e) { return; }
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
+      if (inBlock(el) || inSkip(el)) continue;
+      if (el.querySelector("p, li, ul, ol, div, table, pre, code, textarea")) continue;
+      var text = normalize(el.textContent || "");
+      if (text.length < 40 || text.length > 900 || hasCJK(text)) continue;
+      var hit = lookupExact(text);
+      if (hit === null || !hasCJK(hit)) continue;
+      if (!blockOriginals.has(el)) {
+        blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+      }
+      while (el.firstChild) el.removeChild(el.firstChild);
+      el.appendChild(doc.createTextNode(hit));
+      try { el.setAttribute("data-biol10n-block", "1"); } catch (e) { /* ignore */ }
+      stats.paras = (stats.paras || 0) + 1;
+    }
+  }
+
   // 整块替换：给被拆成逐字母 span / 被内嵌链接切碎的块用（词条打不中时）
   function applyBlocks() {
     var list = site.blocks;
@@ -855,6 +880,7 @@ function createEngine(options) {
     if (!enabled) return;
     applyBlocks();
     var roots = scopeRoots();
+    for (var q = 0; q < roots.length; q++) translateParagraphs(roots[q]);
     for (var i = 0; i < roots.length; i++) walk(roots[i]);
     for (var k = 0; k < roots.length; k++) translateInlineInCJK(roots[k]);
     for (var j = 0; j < roots.length; j++) cleanupPass(roots[j]);

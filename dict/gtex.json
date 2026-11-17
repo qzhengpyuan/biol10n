@@ -151,7 +151,16 @@
     "p-value": "p 值",
     "sQTL Violin Plots": "sQTL 小提琴图",
     "sQTL violin plot": "sQTL 小提琴图",
-    "tumor protein p53": "肿瘤蛋白 p53"
+    "tumor protein p53": "肿瘤蛋白 p53",
+    "IGV Browser Issue": "IGV 浏览器问题",
+    "We have fixed the issue with the IGV Browser. You...": "我们已修复 IGV 浏览器的问题。您…",
+    "V11 Bulk RNA-Seq Data Update": "V11 Bulk RNA-Seq 数据更新",
+    "We have released updated Adult GTEx RNA-Seq data files for...": "我们已发布更新后的成人 GTEx RNA-Seq 数据文件，适用于…",
+    "NHP-dGTEx V1 Released": "NHP-dGTEx V1 发布",
+    "The first data release of the Non-Human Primate Developmental GTEx...": "非人灵长类发育 GTEx 的首批数据发布…",
+    "dGTEx V1 Released": "dGTEx V1 发布",
+    "The first data release of the Developmental GTEx (dGTEx) Project...": "发育 GTEx（dGTEx）项目的首批数据发布…",
+    "ASHG GTEx Workshop Materials": "ASHG GTEx 研讨会的材料"
   },
   "rules": [
     {

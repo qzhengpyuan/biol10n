@@ -46,3 +46,20 @@ test("正文里的短链接不被单独翻成中文", () => {
   engine.start();
   assert.equal(doc.querySelector("a").textContent, "Contact Us");
 });
+
+test("整段被链接切碎的静态段落，按整段文本命中替换", () => {
+  const FULL = "PubMed was developed by the National Center for Biotechnology Information, at the National Library of Medicine, located at the National Institutes of Health.";
+  const html = '<p>PubMed was developed by the <a>National Center for Biotechnology Information</a>, at the <a>National Library of Medicine</a>, located at the <a>National Institutes of Health</a>.</p>';
+  const { engine, doc } = boot(html, { [FULL]: "PubMed 由美国国家生物技术信息中心开发，隶属于美国国家医学图书馆，而 NLM 隶属于美国国立卫生研究院。" });
+  engine.start();
+  assert.equal(doc.querySelector("p").textContent, "PubMed 由美国国家生物技术信息中心开发，隶属于美国国家医学图书馆，而 NLM 隶属于美国国立卫生研究院。");
+  assert.ok(engine.stats.paras >= 1, "应计入整段替换");
+});
+
+test("整段未收录时不替换，链接保持英文", () => {
+  const html = '<p>PubMed was developed by the <a>National Center for Biotechnology Information</a>, at the <a>National Library of Medicine</a>, located at the National Institutes of Health.</p>';
+  const { engine, doc } = boot(html, {});
+  engine.start();
+  assert.match(doc.querySelector("p").textContent, /National Center for Biotechnology Information/);
+});
+

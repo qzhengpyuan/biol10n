@@ -18,7 +18,7 @@ PubMed、GEO、UCSC、Ensembl、KEGG、HPA、cBioPortal、GDC 这些数据库、
 针对没有中文语言选项的生物信息学与医学站点，用内置词表把界面文本与重复出现的说明性文字替换为中文。不联网、不调用翻译 API、不打包模型、不需要本地服务——一个 `.user.js` 文件，任何设备导入即用。
 
 - **翻**：界面骨架（导航、表头、按钮、表单标签、占位符、aria-label/title）、固定枚举值（性别、物种、组装层级、变异类型、组织名）、固定说明句与帮助文本整块、通用规范化（日期与标点）
-- **静态文案**：首页简介、栏目导航、免责声明、页脚商标这类固定整段，人工核对后按整句收录
+- **静态文案**：首页简介、栏目导航、免责声明、页脚商标这类固定整段，人工核对后按整句收录；被行内链接切碎的段落按整段查表替换
 - **不翻**：基因与蛋白符号、变异命名（`c.68_69delAG`）、物种拉丁名、accession、序列、坐标、数字单位、通路名、数据库名（UniProt / Pfam / InterPro 等）、下拉选项的 `value`、长正文段落
 
 目标不是把整页英文变成通顺中文，而是让页面结构可读、知道该点哪里。覆盖不到的地方保留英文——**宁可留白，不可翻错**。
@@ -51,7 +51,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 除了按钮和表头，站点里那些「不会随数据变化」的固定文案也在覆盖范围内：首页简介、栏目名（Learn / Find / Explore）、免责声明、页脚版权与商标说明。这些整段文字按**整句/整段**进词表，只在人工核对过译文之后才收录——命中就替换，没收录就保持英文，不会出现半句中文。
 
-帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。PubMed 的 `/help/` 已经整页覆盖（1705 条，检索语法、显示格式、引文、字段表与附录都在内），页面上约 2269 个文本节点被替换，剩下的基本是检索式示例、字段标签与商标专名。
+帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。PubMed 的 `/help/` 已经整页覆盖（1704 条，检索语法、显示格式、引文、字段表与附录都在内），页面上约 2269 个文本节点被替换，剩下的基本是检索式示例、字段标签与商标专名。`/about/` 这类整页固定说明也逐段收录；被链接、加粗、`<br>` 切碎的整段文字，脚本会按整段的文本查表，命中后整块换成中文，不再留下半句英文。
 
 
 ## 设计
@@ -69,6 +69,8 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 - SPA 站点挂 MutationObserver（去抖）+ pushState/replaceState 路由钩子，切页后自动重扫
 - 跨节点拼接：`<br>` 打断的句子、分散在多个 `<tspan>` 的 SVG 文字、被 `<span>` 切碎的标签，
   都先拼再查表；末尾统一跑一遍空白与标点清理（`cleanupPass`）
+- 整段替换：`p`/`li`/`td` 这类不嵌套块的容器，按整段 `textContent` 查表，命中就整块换成中文
+  （词条是被链接切碎的段落时，逐节点永远打不中）
 
 细节见 [docs/engine-design.md](docs/engine-design.md)。
 
@@ -106,32 +108,32 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
-| hpa | 1541 | 117 | Human Protein Atlas |
-| ncbi | 1296 | 53 | PubMed / GEO / BLAST / GDV（含首页与页脚静态文案） |
-| ncbi-help | 1705 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
+| hpa | 1586 | 117 | Human Protein Atlas |
+| ncbi | 1308 | 54 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
+| ncbi-help | 1704 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
-| kegg | 491 | 16 | KEGG |
-| gdc | 473 | 20 | GDC Data Portal |
-| rcsb | 460 | 31 | RCSB PDB |
-| uniprot | 437 | 15 | UniProt |
-| cbioportal | 412 | 47 | cBioPortal |
+| kegg | 494 | 16 | KEGG |
+| gdc | 479 | 20 | GDC Data Portal |
+| rcsb | 527 | 31 | RCSB PDB |
+| uniprot | 441 | 15 | UniProt |
+| cbioportal | 631 | 47 | cBioPortal |
 | ensembl | 329 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
 | ucsc | 212 | 5 | UCSC Genome Browser |
 | gepia2 | 175 | 9 | GEPIA2 |
 | mirbase | 158 | 22 | miRBase |
-| gtex | 145 | 11 | GTEx Portal |
+| gtex | 154 | 11 | GTEx Portal |
 | spa | 136 | 0 | 各站共用的单页应用骨架词 |
-| ualcan | 124 | 4 | UALCAN |
+| ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **9683 条 / 421 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **10051 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（85 条）
+npm test             # 引擎、面板与产物单测（87 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

@@ -479,7 +479,13 @@
     "Single Cell Analysis": "单细胞分析",
     "Splice Junction Quantification": "剪接位点定量",
     "Structural Rearrangement": "结构重排",
-    "Transcript Fusion": "转录本融合"
+    "Transcript Fusion": "转录本融合",
+    "Data Cloud": "数据云",
+    "Skewed representation of data explorer": "数据浏览器的斜向示意图",
+    "graph of survival plot": "生存曲线图",
+    "graph of mutation frequency": "突变频率图",
+    "feature of protein paint": "ProteinPaint 功能示意图",
+    "Data being transferred between files, folders, and clouds": "数据在文件、文件夹与云之间传输"
   },
   "rules": [
     {

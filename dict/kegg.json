@@ -498,7 +498,10 @@
     "Go": "执行",
     "only": "（仅搜索此项）",
     "Cellular Processes; Cell growth and death": "细胞过程；细胞生长与死亡",
-    "* KEGG identifier = prefix followed by five digit-number or combination of dbname:entryname": "* KEGG 标识符 = 前缀后接五位数字，或 dbname:entryname 的组合"
+    "* KEGG identifier = prefix followed by five digit-number or combination of dbname:entryname": "* KEGG 标识符 = 前缀后接五位数字，或 dbname:entryname 的组合",
+    "KEGG identifier": "KEGG 标识符",
+    "KEGG Web Apps": "KEGG 网页应用",
+    "KEGG for characterizing genomes and pathways in the biosphere": "KEGG：刻画生物圈中基因组与通路的数据库"
   },
   "rules": [
     {

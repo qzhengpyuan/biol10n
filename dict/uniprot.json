@@ -443,7 +443,11 @@
     "BINARY": "二元复合物",
     "XENO": "异源复合物",
     "Motif": "基序",
-    "Region": "区域"
+    "Region": "区域",
+    "Fuel": "燃料",
+    "Germ Warfare: Arsenal of Antimicrobial Resistance Proteins in UniProt": "病菌战：UniProt 中的抗微生物耐药蛋白武器库",
+    "Using UniProtKB to navigate large and complex structures": "使用 UniProtKB 浏览大型复杂结构",
+    "UniProt - Exploring protein sequence and functional information – 2026/27": "UniProt - 探索蛋白质序列与功能信息 – 2026/27"
   },
   "rules": [
     {

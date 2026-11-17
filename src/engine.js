@@ -624,6 +624,37 @@ function createEngine(options) {
     n.nodeValue = fixed;
   }
 
+  /** 段落已经被整段译成中文后，里面残留的内联短词（链接、<strong> 标签）
+   *  往往会因为"正文保护 + 本身太短"被跳过，留下半中半英。
+   *  这里只处理"所在块已经是中文"的内联节点，且必须整条命中词表，避免误伤数据。 */
+  function translateInlineInCJK(root) {
+    if (!root || !root.querySelectorAll) return;
+    var w = doc.createTreeWalker(root, 4, null, false), n;
+    while ((n = w.nextNode())) {
+      if (!n.isConnected === false) { /* ignore */ }
+      var raw = n.nodeValue;
+      if (!raw) continue;
+      var text = normalize(raw);
+      if (text.length < 2 || text.length > 60 || hasCJK(text) || !LETTER.test(text)) continue;
+      if (processed.has(n)) continue;
+      var el = n.parentElement;
+      if (!el || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|PRE|CODE)$/.test(el.tagName)) continue;
+      var block = null;
+      try { block = el.closest("p, li, dd, dt, td, th, figcaption"); } catch (e) { block = null; }
+      if (!block || !hasCJK(block.textContent || "")) continue;
+      if (skipNode(n) || inBlock(el) || inSkip(el)) continue;
+      var v = lookupExact(text);
+      if (v === null) continue;
+      var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(raw);
+      if (!originals.has(n)) originals.set(n, raw);
+      if (/^[\u3400-\u9fff]/.test(v)) blankSibling(n, "previousSibling");
+      if (/[\u3400-\u9fff]$/.test(v)) blankSibling(n, "nextSibling");
+      n.nodeValue = (m ? m[1] : "") + v + (m ? m[3] : "");
+      processed.add(n);
+      stats.inline = (stats.inline || 0) + 1;
+    }
+  }
+
   function cleanupPass(root) {
     if (!root || !root.querySelectorAll) return;
     var w = doc.createTreeWalker(root, 4, null, false), n;
@@ -653,10 +684,10 @@ function createEngine(options) {
       var lead = v.match(/^\s+/), trail = v.match(/\s+$/);
       if (!lead && !trail) continue;
       var changed = v;
-      if (lead && /[\u3400-\u9fff，。、；：！？）]$/.test(neighborChar(n, -1)) && /^[\u3400-\u9fff（「【]/.test(changed.replace(/^\s+/, ""))) {
+      if (lead && /[\u3400-\u9fff，。、；：！？）]$/.test(neighborChar(n, -1)) && /^[\u3400-\u9fff，。、；：！？）]/.test(changed.replace(/^\s+/, ""))) {
         changed = changed.replace(/^\s+/, "");
       }
-      if (trail && /^[\u3400-\u9fff（]/.test(neighborChar(n, 1)) && /[\u3400-\u9fff，。、；：！？]$/.test(changed.replace(/\s+$/, ""))) {
+      if (trail && /^[\u3400-\u9fff（，。、；：！？]/.test(neighborChar(n, 1)) && /[\u3400-\u9fff，。、；：！？]$/.test(changed.replace(/\s+$/, ""))) {
         changed = changed.replace(/\s+$/, "");
       }
       if (changed !== v) {
@@ -825,6 +856,7 @@ function createEngine(options) {
     applyBlocks();
     var roots = scopeRoots();
     for (var i = 0; i < roots.length; i++) walk(roots[i]);
+    for (var k = 0; k < roots.length; k++) translateInlineInCJK(roots[k]);
     for (var j = 0; j < roots.length; j++) cleanupPass(roots[j]);
     // SPA 站路由后 React 会重写 <title>；任何一次重扫都顺带校正标题
     translateTitle();

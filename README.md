@@ -51,7 +51,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 除了按钮和表头，站点里那些「不会随数据变化」的固定文案也在覆盖范围内：首页简介、栏目名（Learn / Find / Explore）、免责声明、页脚版权与商标说明。这些整段文字按**整句/整段**进词表，只在人工核对过译文之后才收录——命中就替换，没收录就保持英文，不会出现半句中文。
 
-帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。
+帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。PubMed 的 `/help/` 已经整页覆盖（1705 条，检索语法、显示格式、引文、字段表与附录都在内），页面上约 2269 个文本节点被替换，剩下的基本是检索式示例、字段标签与商标专名。
 
 
 ## 设计
@@ -74,7 +74,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ## 覆盖站点
 
-点开就能看实际效果（17 个入口页都是纯英文界面，`<html lang="en">`，没有语言切换）：
+点开就能看实际效果（17 个入口页都是纯英文界面，`<html lang="en">`，没有语言切换；PubMed 另有帮助中心整页覆盖）：
 
 | 站点 | 链接 | 类型 |
 |---|---|---|
@@ -95,18 +95,20 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | GEPIA2 | <http://gepia2.cancer-pku.cn/> | 表达与生存分析 |
 | UALCAN | <https://ualcan.path.uab.edu/> | 肿瘤表达分析 |
 | TIMER2.0 / 3.0 | <https://timer.cistrome.org/> · <https://compbio.cn/timer3/> | 免疫浸润分析 |
+| PubMed 帮助中心 | <https://pubmed.ncbi.nlm.nih.gov/help/> | 使用文档（FAQ / 检索语法 / 附录） |
 
 中文资料目前只存在于社区写的教程里，站点本身没有中文界面。
 
 ## 词库
 
-18 本词库按站点分文件，一个站点只加载自己那几本。
+19 本词库按站点分文件，一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
 | hpa | 1541 | 117 | Human Protein Atlas |
 | ncbi | 1296 | 53 | PubMed / GEO / BLAST / GDV（含首页与页脚静态文案） |
+| ncbi-help | 1705 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
 | kegg | 491 | 16 | KEGG |
 | gdc | 473 | 20 | GDC Data Portal |
@@ -123,13 +125,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 124 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **7978 条 / 420 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **9683 条 / 421 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（83 条）
+npm test             # 引擎、面板与产物单测（85 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

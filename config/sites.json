@@ -12,6 +12,21 @@
   },
   "sites": [
     {
+      "id": "pubmed-help",
+      "name": "PubMed 帮助中心",
+      "hosts": [
+        "pubmed.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/help",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-help"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+    },
+    {
       "id": "pubmed",
       "hosts": [
         "pubmed.ncbi.nlm.nih.gov"

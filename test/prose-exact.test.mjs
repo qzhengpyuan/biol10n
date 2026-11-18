@@ -63,3 +63,22 @@ test("整段未收录时不替换，链接保持英文", () => {
   assert.match(doc.querySelector("p").textContent, /National Center for Biotechnology Information/);
 });
 
+
+test("列表项整段命中时替换（无链接）", () => {
+  const T = "The tissue resource, showing the distribution of the proteins across all major tissues and organs in the human body, described in the HPA.";
+  const html = "<ul><li>" + T + "</li></ul>";
+  const { engine, doc } = boot(html, { [T]: "组织资源，展示蛋白质在人体所有主要组织与器官中的分布，详见 HPA。" });
+  engine.start();
+  assert.match(doc.querySelector("li").textContent, /组织资源/, "无链接的 li 应整段替换");
+  assert.equal(engine.stats.paras, 1);
+});
+
+test("列表项里有链接时保持原样，不吞链接", () => {
+  const T = "The tissue resource, showing the distribution of the proteins across all major tissues and organs in the human body, described in the HPA.";
+  const html = "<ul><li>The <a>tissue</a> resource, showing the distribution of the proteins across all major tissues and organs in the human body, described in the HPA.</li></ul>";
+  const { engine, doc } = boot(html, { [T]: "组织资源，展示蛋白质在人体所有主要组织与器官中的分布，详见 HPA。" });
+  engine.start();
+  assert.ok(doc.querySelector("a"), "链接必须还在");
+  assert.equal(doc.querySelector("a").textContent, "tissue");
+  assert.equal(engine.stats.paras || 0, 0);
+});

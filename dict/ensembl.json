@@ -373,7 +373,8 @@
   "GVF (Genome Variation Format) is a simple tab-delimited format derived from GFF3 for variation positions across the genome. There are GVF files for different types of variation data (e.g. somatic variants, structural variants etc). For more information see the \"README\" files in the GVF directory.": "GVF（Genome Variation Format）是一种源自 GFF3 的简单制表符分隔格式，用于表示基因组上的变异位置。针对不同类型的变异数据（例如体细胞变异、结构变异等）都有相应的 GVF 文件。更多信息请参阅 GVF 目录中的“README”文件。",
   "VCF (Variant Call Format) is a text file format containing meta-information lines, a header line, and then data lines each containing information about a position in the genome. This file format can also contain genotype information on samples for each position. More details about the format and its specifications are available here.": "VCF（Variant Call Format）是一种文本文件格式，包含元信息行、一个标题行，然后是数据行，每行包含基因组中某个位置的信息。该文件格式还可以包含每个位置上样本的基因型信息。有关该格式及其规范的更多详细信息可在此处获取。",
   "Compressed text files (called \"cache files\") used by the Variant Effect Predictor tool. More information about these files is available here.": "Variant Effect Predictor 工具使用的压缩文本文件（称为“cache files”）。有关这些文件的更多信息可在此处获取。",
-  "Constrained elements calculated using GERP are available in BED format. For more information see the accompanying README file.": "使用 GERP 计算的保守元件以 BED 格式提供。更多信息请参阅随附的 README 文件。"
+  "Constrained elements calculated using GERP are available in BED format. For more information see the accompanying README file.": "使用 GERP 计算的保守元件以 BED 格式提供。更多信息请参阅随附的 README 文件。",
+  "This site is a mirror based on code from Ensembl, a joint project between the Wellcome Trust Sanger Institute and the European Bioinformatics Institute. For more information about the Ensembl project, including contact details, please visit www.ensembl.org.": "本网站是一个镜像站点，基于 Ensembl 的代码构建。Ensembl 是 Wellcome Trust Sanger Institute 与 European Bioinformatics Institute 的合作项目。如需了解 Ensembl 项目的更多信息（包括联系方式），请访问 www.ensembl.org。"
  },
  "rules": [
   {

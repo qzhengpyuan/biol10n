@@ -453,7 +453,9 @@
   "Page last modified": "页面最后修改",
   "Genome annotation tracks": "基因组注释轨道",
   "Embeddings": "嵌入向量",
-  "Embeddings (per-protein)": "嵌入向量（按蛋白）"
+  "Embeddings (per-protein)": "嵌入向量（按蛋白）",
+  "UniProt is updated roughly every eight weeks. You can download small data sets and subsets directly from this website by following the download link on any search result page. For downloading complete data sets we recommend using ftp.uniprot.org. If you are located in Europe, the Middle East or Africa, you may want to download data from our mirror site in the United Kingdom or in Switzerland instead.": "UniProt 大约每八周更新一次。您可以通过任意搜索结果页面上的下载链接，直接从本网站下载小型数据集和数据子集。如需下载完整数据集，我们建议使用 ftp.uniprot.org。如果您位于欧洲、中东或非洲，也可以改从我们在英国或瑞士的镜像站点下载数据。",
+  "Here are the main sections of our FTP site, with links to README files and help pages and some frequently downloaded files:": "以下是我们 FTP 站点的主要部分，并附有 README 文件、帮助页面的链接以及一些常用的下载文件："
  },
  "rules": [
   {

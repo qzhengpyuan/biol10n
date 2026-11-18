@@ -830,12 +830,14 @@ function createEngine(options) {
   function translateParagraphs(root) {
     if (!root || !root.querySelectorAll) return;
     var els;
-    try { els = root.querySelectorAll("p, dd"); } catch (e) { return; }
+    try { els = root.querySelectorAll("p, dd, li"); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
       if (inBlock(el) || inSkip(el)) continue;
       if (el.querySelector("p, li, ul, ol, div, table, pre, code, textarea")) continue;
+      // 列表项整段替换会连里面的链接一起抹掉，所以只收没有链接的 li
+      if (el.tagName === "LI" && el.querySelector("a")) continue;
       var text = normalize(el.textContent || "");
       if (text.length < 100 || text.length > 900 || hasCJK(text)) continue;
       var hit = lookupExact(text);

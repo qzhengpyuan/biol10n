@@ -43,6 +43,8 @@ const header = [
   "// @author       BioL10n contributors",
   "// @license      MIT",
   "// @homepageURL  https://github.com/qzhengpyuan/biol10n",
+  "// @icon         https://raw.githubusercontent.com/qzhengpyuan/biol10n/main/assets/icon-48.png",
+  "// @icon64       https://raw.githubusercontent.com/qzhengpyuan/biol10n/main/assets/icon-64.png",
   "// @downloadURL  " + RAW_URL,
   "// @updateURL    " + RAW_URL,
   "// @run-at       document-end",

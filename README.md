@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.svg" width="104" alt="BioL10n"></p>
+
 # BioL10n
 
 离线词库驱动的生物医学网站界面汉化脚本（Tampermonkey / ScriptCat）。
@@ -58,7 +60,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **461 KB**（优化前 812 KB，−43%）；gzip 后 304 KB；词库里 19 本共 10239 条，压缩前纯 JSON 有 697 KB
+- 单文件产物 **541 KB**（优化前 812 KB，−33%）；gzip 后 365 KB；词库里 19 本共 10521 条，压缩前纯 JSON 有 865 KB
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -126,25 +128,25 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | kegg | 494 | 16 | KEGG |
 | gdc | 479 | 20 | GDC Data Portal |
 | rcsb | 606 | 31 | RCSB PDB |
-| uniprot | 447 | 15 | UniProt |
+| uniprot | 449 | 15 | UniProt |
 | cbioportal | 646 | 47 | cBioPortal |
-| ensembl | 367 | 4 | Ensembl（含新前端与帮助页） |
+| ensembl | 368 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
-| ucsc | 215 | 5 | UCSC Genome Browser |
+| ucsc | 482 | 5 | UCSC Genome Browser |
 | gepia2 | 175 | 9 | GEPIA2 |
-| mirbase | 158 | 22 | miRBase |
-| gtex | 154 | 11 | GTEx Portal |
+| mirbase | 159 | 22 | miRBase |
+| gtex | 165 | 11 | GTEx Portal |
 | spa | 136 | 0 | 各站共用的单页应用骨架词 |
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **10239 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **10521 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（87 条）
+npm test             # 引擎、面板与产物单测（89 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

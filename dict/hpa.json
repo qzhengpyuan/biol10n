@@ -1651,7 +1651,43 @@
   "The": "该",
   "The full publication list is available": "完整出版物列表见",
   "An interactive pathway explorer, along with information on the spatial organization of metabolism and variation at the subcellular level, is available": "交互式通路探索器，以及代谢的空间组织与亚细胞水平变异信息，见",
-  "More information about the specific content and the generation and analysis of the data in the resource can be found on the": "有关该资源的具体内容以及数据生成与分析方法的更多信息，见"
+  "More information about the specific content and the generation and analysis of the data in the resource can be found on the": "有关该资源的具体内容以及数据生成与分析方法的更多信息，见",
+  "The Brain Resource provides a comprehensive overview of gene expression across the human brain, combining complementary transcriptomics datasets to explore expression patterns at different levels of anatomical and cellular resolution. Bulk RNA sequencing of microdissected samples provides a detailed anatomical expression landscape, organized into 11 major brain regions and extending to 34 regional domains and 192 subregions. This is complemented by spatial transcriptomics data covering five of the 11 major regions, as well as single-nucleus RNA sequencing data providing cell-type-resolved expression profiles across all 11 regions, based on 832 annotated cell type clusters.": "脑资源对全脑基因表达做了全面概览，整合多个互补的转录组数据集，从不同层次的解剖与细胞分辨率考察表达模式。对显微切割样本进行 bulk RNA 测序，得到细致的解剖表达图谱，覆盖 11 个主要脑区，并细分为 34 个区域域与 192 个亚区。空间转录组数据覆盖 11 个主要脑区中的 5 个，单核 RNA 测序数据则提供全部 11 个脑区基于 832 个已注释细胞类型簇的细胞类型分辨表达谱。",
+  "Gene summary pages enable exploration and comparison of these different expression profiles, while lists of genes with elevated expression in individual regions or groups of regions facilitate the identification of region-specific expression patterns. The transcriptomics data can also be explored alongside immunohistochemistry-based protein expression profiles available in the Tissue Resource and mouse brain protein profiles available in the Evolutionary Resource.": "基因摘要页可用来浏览和比较这些不同的表达谱；对在单个脑区或若干脑区中表达升高的基因，可通过相应列表了解区域特异的表达模式。转录组数据还可与组织资源中基于免疫组化的蛋白质表达谱、进化资源中的小鼠脑蛋白质谱对照查看。",
+  "The Brain Atlas integrates transcriptomics data at different levels of anatomical and cellular resolution. Gene-specific expression profiles are available on gene summary pages, while this overview highlights key findings and expression categories. Explore the sections below for comparisons between the brain and peripheral tissues compared to the regional expression patterns, spatial transcriptomics, and single-nucleus RNA sequencing data.": "脑图谱整合了不同解剖与细胞分辨率层次的转录组数据。单个基因的表达谱见基因摘要页，本概览则给出主要发现与表达分类。可浏览下面的各节，了解脑与外周组织的比较、区域表达模式、空间转录组以及单核 RNA 测序数据。",
+  "Explore gene expression across the human brain through three complementary perspectives: anatomical expression patterns, spatial transcriptomics, and cell-type-specific expression. The sections below provide further insights into regional expression variation, spatial gene expression patterns, and the cellular diversity of the human brain.": "可从三个互补视角了解人脑的基因表达：解剖表达模式、空间转录组与细胞类型特异的表达。下面的各节将进一步介绍区域表达差异、空间基因表达模式以及人脑的细胞多样性。",
+  "Brain samples are grouped into 11 major anatomical regions, enabling the classification of all genes based on their regional RNA expression patterns and the identification of proteins with elevated expression in one or several regions compared to others. Explore regional expression specificity, spatial transcriptomics profiles, and cell type-specific expression based on integrated single nucleus RNA sequencing data in the respective summary pages.": "脑样本被归入 11 个主要解剖区域，据此可按区域 RNA 表达模式对所有基因分类，并找出在某一或若干区域中表达高于其他区域的蛋白质。区域表达特异性、空间转录组谱以及基于整合单核 RNA 测序数据的细胞类型特异表达，可分别在对应的摘要页中浏览。",
+  "A more detailed anatomical perspective is provided by bulk RNA sequencing of microdissected brain samples, covering approximately 192 subregions grouped into 34 regional domains and 11 major brain regions. These data enable the identification of genes with regionally elevated expression, while spatial transcriptomics provides an additional level of resolution by identifying genes enriched in specific anatomical niches, currently available for five of the 11 major regions. The table below summarizes the number of genes with elevated expression at these different levels of anatomical resolution.": "更细致的解剖视角来自对显微切割脑样本的 bulk RNA 测序，覆盖约 192 个亚区，归并为 34 个区域域与 11 个主要脑区。这些数据可用于找出区域表达升高的基因；空间转录组则进一步给出在特定解剖微环境中富集的基因，目前覆盖 11 个主要脑区中的 5 个。下表汇总了这些不同解剖分辨率层次上表达升高的基因数目。",
+  "Gene expression specificity was assessed at two levels. First, across broad neuronal and non-neuronal cell types, with neuronal populations organized into five main groups represented by the highest expression value among their constituent cell types. Second, at a more detailed level, across 34 neuronal cell types, allowing further investigation of neuronal diversity. These classifications enable the identification of genes with elevated expression in specific cell populations, accessible through searchable gene lists and individual gene pages. Further information about the classifications and annotated cell types is available on the Brain Cell Type summary pages.": "基因表达特异性在两个层次上评估。首先是在宽泛的神经元与非神经元细胞类型之间，神经元群体归为五个主要类群，以其组成细胞类型中的最高表达值代表。其次是在更精细的层次上，考察 34 种神经元细胞类型，以便进一步研究神经元的多样性。据此可找出在特定细胞群体中表达升高的基因，通过可检索的基因列表与单个基因页面查看。有关分类与已注释细胞类型的更多信息见脑细胞类型摘要页。",
+  "The brain RNA data was used to cluster genes according to their expression across brain regions. The clustering of 17832 genes expressed in brain tissues resulted in 56 expression clusters, which have been manually annotated to describe common features in terms of distribution, function and specificity. The result of the cluster analysis is presented as a UMAP based on gene expression, where each cluster has been summarized as colored areas containing most of the cluster genes.": "脑 RNA 数据被用来按各脑区表达对基因聚类。对在脑组织中表达的 17832 个基因聚类，得到 56 个表达簇，已人工注释其分布、功能与特异性方面的共同特征。聚类结果以基于基因表达的 UMAP 呈现，每个簇以包含该簇多数基因的彩色区域表示。",
+  "The Single Cell resource of the Human Protein Atlas presents comprehensive data on gene expression across various human tissues and cell types, utilizing single cell and single nuclei RNA sequencing (sc/snRNAseq), deep visual proteomics (mass spectrometry), and bulk RNAseq correlation analyses. The resource provides insights into mRNA and protein expression patterns, gene specificity, and expression clustering based on single cell types. The Single Cell Resource includes three main datasets:": "人类蛋白质图谱的单细胞资源基于单细胞与单核 RNA 测序（sc/snRNAseq）、深度视觉蛋白质组学（质谱）以及 bulk RNAseq 相关性分析，提供了跨多种人体组织与细胞类型的基因表达的全面数据。该资源可了解 mRNA 与蛋白质的表达模式、基因特异性以及基于单细胞类型的表达聚类。单细胞资源包含三个主要数据集：",
+  "The RNA data was used to cluster genes according to their expression across tissues. The clustering of 19131 genes expressed in tissues resulted in 82 expression clusters, which have been manually annotated to describe common features in terms of function and specificity. The result of the cluster analysis is presented as a UMAP based on gene expression, where each cluster has been summarized as colored areas containing most of the cluster genes.": "RNA 数据被用来按各组织表达对基因聚类。对在组织中表达的 19131 个基因聚类，得到 82 个表达簇，已人工注释其功能与特异性方面的共同特征。聚类结果以基于基因表达的 UMAP 呈现，每个簇以包含该簇多数基因的彩色区域表示。",
+  "The left panel shows the proportion of each class among all genes expressed in the tissue (nTPM ≥ 1). The middle panel shows it among the genes with elevated expression in the tissue (tissue enriched, group enriched or tissue enhanced). The bars on the right show the number of expressed genes (green, top axis) and elevated genes (purple, bottom axis) in each tissue.": "左图显示在组织中所表达基因（nTPM ≥ 1）里各类别的比例，中间图显示在组织中表达升高的基因（组织富集、组富集或组织增强）里的比例，右侧柱状图给出每个组织中表达基因数（绿色，上轴）与升高基因数（紫色，下轴）。",
+  "Brain methods": "脑方法",
+  "Additional information:": "附加信息：",
+  "In addition to the data provided in the brain resource there is also data on": "除了脑资源提供的数据之外，还有以下数据：",
+  "Each symbol below is clickable and will redirect to the selected summary page.": "下方每个符号均可点击，会跳转到对应的摘要页。",
+  "Human brain": "人脑",
+  "Explore the various regions of the brain": "浏览脑的各个区域",
+  "Brain expression compared to peripheral tissue expression": "脑表达与外周组织表达的比较",
+  "Detected": "检测到",
+  "Regionally elevated": "区域富集",
+  "Brain Single Nuclei": "脑单核",
+  "- basal ganglia, neurons": "- 基底神经节，神经元",
+  "- basal ganglia, non-neuronal": "- 基底神经节，非神经元",
+  "Evolutionary resource": "进化资源",
+  "conservation": "保守性",
+  "- Mouse protein profile": "- 小鼠蛋白质谱",
+  "Sorry, but the page you were looking for cannot be found.": "抱歉，找不到你要访问的页面。",
+  "tissue cell type": "组织细胞类型",
+  "Transcription factor landscape": "转录因子图谱",
+  "Explore the expression landscape of the": "浏览以下对象的表达图谱：",
+  "Expression levels for all human proteins in regions and subregions of the human brain": "全部人类蛋白质在脑的各区域与亚区中的表达水平",
+  "Brain enriched genes with higher expression in any of the regions of the brain compared to peripheral organs": "脑富集基因：在脑内任一区域的表达高于外周器官",
+  "Regional enriched genes with higher expression in a single or a few brain regions": "区域富集基因：在单个或少数脑区中表达更高",
+  "Spatial gene expression patterns across five major brain regions, including genes enriched in specific anatomical niches": "五个主要脑区的空间基因表达模式，包括在特定解剖微环境中富集的基因",
+  "Expression level across different brain cell types, based on single nuclei RNAseq": "基于单核 RNA 测序的不同脑细胞类型的表达水平",
+  "human retina": "人视网膜"
  },
  "rules": [
   {
@@ -2162,6 +2198,46 @@
   {
    "pat": "Predicted location of the proteins encoded by the genes expressed in each tissue, based on the HPA {{1}} annotation. Each gene is classified from predicted signal peptides and transmembrane regions as intracellular, membrane or secreted. Genes with splice variants predicted in different locations get combined classes (e.g. intracellular/membrane). Immunoglobulin and T-cell receptor genes are shown as separate classes.",
    "zh": "各组织中表达基因所编码蛋白质的预测定位，基于 HPA 的{{1}}注释。每个基因根据预测的信号肽和跨膜区被分类为胞内、膜或分泌型。其剪接变异体被预测位于不同位置的基因会得到合并的类别（如胞内/膜）。免疫球蛋白和 T 细胞受体基因显示为单独的类别。"
+  },
+  {
+   "pat": "More information about the specific content and the generation and analysis of the data in this resource can be found on the {{1}}。",
+   "zh": "有关该资源具体内容以及数据生成与分析方法的更多信息，见{{1}}。"
+  },
+  {
+   "pat": "To identify genes with elevated expression in the brain compared to peripheral tissues, consensus RNA expression profiles from the HPA Tissue Resource, primarily based on GTEx data, were used. The highest normalized expression (nTPM) value among the available brain regions was used to represent the brain in this whole-body comparison, resulting in {{1}} genes classified as brain elevated. This classification is based on the brain regions represented in the Tissue Resource and does not cover the full anatomical diversity of the brain.",
+   "zh": "为找出在脑组织中表达高于外周组织的基因，使用了 HPA 组织资源的共识 RNA 表达谱，主要基于 GTEx 数据。在与全身比较时，以各脑区中可用的最高归一化表达值（nTPM）代表脑组织，最终有 {{1}} 个基因被归为脑富集。该分类基于组织资源所涵盖的脑区，并不覆盖脑的全部解剖多样性。"
+  },
+  {
+   "pat": "Among the genes classified as brain elevated compared to peripheral tissues, {{1}} also show regionally elevated expression within the brain. However, genes expressed across multiple tissues may also show distinct regional expression patterns. In total, {{2}} genes are classified as regionally elevated, highlighting the additional molecular diversity revealed by the detailed anatomical analysis.",
+   "zh": "在被归为（相对外周组织）脑富集的基因中，有 {{1}} 个在脑内也表现出区域富集表达。不过，在多个组织中表达的基因也可能呈现不同的区域表达模式。总计有 {{2}} 个基因被归为区域富集，这体现了细致解剖分析所揭示的额外分子多样性。"
+  },
+  {
+   "pat": "High resolution spatial transcriptomics data was segmented into tissue niches based on unsupervised clustering. For each niche the gene expression was determined and normalized counts per million was calculated for all protein conding genes. Both spatial location of transcripts and expression levels in all tissue niches can be explored. Examples (right) show the expression of {{1}} in the locus coeruleus of the pons.",
+   "zh": "高分辨率空间转录组数据按无监督聚类被分割为组织微环境（niche）。对每个微环境测定基因表达，并计算所有蛋白质编码基因的每百万计数归一化值。转录本的空间位置以及所有组织微环境中的表达水平均可浏览。右图示例展示了 {{1}} 在脑桥蓝斑中的表达。"
+  },
+  {
+   "pat": "Brain cell type expression profiles are based on single-nucleus RNA sequencing (snRNA-seq) data from the study by {{1}}, comprising over 3 million nuclei sampled across the human brain. For integration into the HPA, approximately 2.6 million nuclei from 11 major brain regions were included and reclustered, with neuronal and non-neuronal populations analyzed separately. The resulting clusters were annotated based on marker gene expression and anatomical distribution and organized into 48 main cell types.",
+   "zh": "脑细胞类型表达谱基于 {{1}} 研究中的单核 RNA 测序（snRNA-seq）数据，该研究覆盖人脑逾 300 万个细胞核。为纳入 HPA，我们选取了来自 11 个主要脑区的约 260 万个细胞核并重新聚类，将神经元与非神经元群体分别分析。所得聚类依据标记基因表达与解剖分布进行注释，并整理为 48 种主要细胞类型。"
+  },
+  {
+   "pat": "{{1}} For all protein-coding genes, expression profiles are presented as interactive UMAP plots and a summarized bar plots, enabling exploration of gene expression across neuronal and non-neuronal cell populations in each of the 11 brain regions. The UMAP plots to the left illustrate this using two examples from the basal ganglia: {{2}}, encoding a dopamine receptor predominantly expressed in D1-type medium spiny neurons involved in motor control and reward signaling, and {{3}}, encoding a water channel highly expressed in astrocytes and involved in water homeostasis in the brain.",
+   "zh": "{{1}}对于所有蛋白质编码基因，表达谱以交互式 UMAP 图与汇总柱状图呈现，可浏览 11 个脑区各自神经元与非神经元群体中的基因表达。左侧 UMAP 图以基底神经节的两个例子说明：{{2}}，编码一种多巴胺受体，主要表达于参与运动控制与奖赏信号传导的 D1 型中等棘状神经元；{{3}}，编码一种水通道蛋白，在星形胶质细胞中高表达，参与脑内水稳态。"
+  },
+  {
+   "pat": "The immunofluorescence profiling of the whole mouse brain has been relocated to the {{1}}, where it is presented alongside transcriptomic expression profiles across brain regions in multiple mammalian species, including macaque, pig, mouse, and rat. The resource also provides whole-body expression profiles and enables comparisons of gene expression across corresponding brain regions between species, offering insights into the {{2}} and diversity of gene expression in the mammalian brain.",
+   "zh": "全小鼠脑的免疫荧光图谱已迁移至{{1}}，在那里与多个哺乳动物物种（包括猕猴、猪、小鼠和大鼠）各脑区的转录组表达谱一同呈现。该资源还提供全身表达谱，并支持跨物种比较相应脑区的基因表达，有助于了解哺乳动物脑内基因表达的{{2}}与多样性。"
+  },
+  {
+   "pat": "The search function can be used for free text search (type anything in the search field), or for more complex queries using \"Fields\" (see {{1}}).",
+   "zh": "搜索功能可用于自由文本搜索（在搜索框中输入任意内容），也可用「字段」进行更复杂的查询（见{{1}}）。"
+  },
+  {
+   "pat": "The free text search will scan for complete and partial matches to gene names, gene synonyms, gene descriptions, external ({{1}}, {{2}}, {{3}} Gene) gene and protein identifiers, {{4}}, {{5}} identifiers and descriptions, antibody identifiers and image annotations. The free text query word needs to be at least three characters long.",
+   "zh": "自由文本搜索会查找基因名、基因同义词、基因描述、外部（{{1}}、{{2}}、{{3}} Gene）基因与蛋白质标识符、{{4}}、{{5}} 标识符与描述、抗体标识符以及图像注释的完整或部分匹配。自由文本查询词至少需要三个字符。"
+  },
+  {
+   "pat": "Learn more about each of these four parts down below, and explore the details of each dataset, or serach for a gene and browse the expression details side by side across the different datasets on the gene summary pages. More information about the content, the generation and analysis of the data in this resource can be found under respective link or here for {{1}}， {{2}}, and {{3}}.",
+   "zh": "下面将逐一介绍这四个部分，可深入了解各个数据集，或在基因摘要页上搜索某个基因、并排浏览它在不同数据集中的表达详情。有关该资源内容以及数据生成与分析方法的更多信息，可分别见相应链接，或此处关于{{1}}、{{2}}和{{3}}的说明。"
   }
  ]
 }

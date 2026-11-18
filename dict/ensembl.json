@@ -374,7 +374,8 @@
   "VCF (Variant Call Format) is a text file format containing meta-information lines, a header line, and then data lines each containing information about a position in the genome. This file format can also contain genotype information on samples for each position. More details about the format and its specifications are available here.": "VCF（Variant Call Format）是一种文本文件格式，包含元信息行、一个标题行，然后是数据行，每行包含基因组中某个位置的信息。该文件格式还可以包含每个位置上样本的基因型信息。有关该格式及其规范的更多详细信息可在此处获取。",
   "Compressed text files (called \"cache files\") used by the Variant Effect Predictor tool. More information about these files is available here.": "Variant Effect Predictor 工具使用的压缩文本文件（称为“cache files”）。有关这些文件的更多信息可在此处获取。",
   "Constrained elements calculated using GERP are available in BED format. For more information see the accompanying README file.": "使用 GERP 计算的保守元件以 BED 格式提供。更多信息请参阅随附的 README 文件。",
-  "This site is a mirror based on code from Ensembl, a joint project between the Wellcome Trust Sanger Institute and the European Bioinformatics Institute. For more information about the Ensembl project, including contact details, please visit www.ensembl.org.": "本网站是一个镜像站点，基于 Ensembl 的代码构建。Ensembl 是 Wellcome Trust Sanger Institute 与 European Bioinformatics Institute 的合作项目。如需了解 Ensembl 项目的更多信息（包括联系方式），请访问 www.ensembl.org。"
+  "This site is a mirror based on code from Ensembl, a joint project between the Wellcome Trust Sanger Institute and the European Bioinformatics Institute. For more information about the Ensembl project, including contact details, please visit www.ensembl.org.": "本网站是一个镜像站点，基于 Ensembl 的代码构建。Ensembl 是 Wellcome Trust Sanger Institute 与 European Bioinformatics Institute 的合作项目。如需了解 Ensembl 项目的更多信息（包括联系方式），请访问 www.ensembl.org。",
+  "Gene annotation in Ensembl": "Ensembl 中的基因注释"
  },
  "rules": [
   {
@@ -438,6 +439,14 @@
   {
    "pat": "Genome and annotation data in JSON format for each species. This file format is described {{1}}.",
    "zh": "各物种的基因组与注释数据，JSON 格式。该文件格式的说明见{{1}}。"
+  },
+  {
+   "pat": "Gene annotation is the plotting of genes onto {{1}}, and indexing their genomic coordinates.",
+   "zh": "基因注释就是把基因定位到 {{1}} 上，并为其基因组坐标建立索引。"
+  },
+  {
+   "pat": "Please check that you have typed in the correct URL or else use the {{1}} facility to try and locate information you require.{{2}}If you think an error has occurred, please {{3}}",
+   "zh": "请检查你输入的 URL 是否正确，否则请使用{{1}}功能查找所需的信息。{{2}}如果你认为出现了错误，请{{3}}"
   }
  ]
 }

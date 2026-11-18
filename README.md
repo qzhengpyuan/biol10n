@@ -53,14 +53,14 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 除了按钮和表头，站点里那些「不会随数据变化」的固定文案也在覆盖范围内：首页简介、栏目名（Learn / Find / Explore）、免责声明、页脚版权与商标说明。这些整段文字按**整句/整段**进词表，只在人工核对过译文之后才收录——命中就替换，没收录就保持英文，不会出现半句中文。
 
-帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。UCSC 帮助页的左侧目录、章节标题与正文段落是整批收录的（目录 24 项、章节标题 125 条），HPA About 的资源列表按「链接后的句子」逐条收录，链接本身不被替换、仍可点击。PubMed 的 `/help/` 已经整页覆盖（1704 条，检索语法、显示格式、引文、字段表与附录都在内），页面上约 2269 个文本节点被替换，剩下的基本是检索式示例、字段标签与商标专名。`/about/` 这类整页固定说明也逐段收录；被链接、加粗、`<br>` 切碎的整段文字，脚本会按整段的文本查表，命中后整块换成中文，不再留下半句英文。
+帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。UCSC 帮助页除左侧目录与章节标题外，正文的步骤说明、列表项与完整句子也整批收录（本版 766 条，覆盖页面主体），HPA About 的资源列表按「链接后的句子」逐条收录，链接本身不被替换、仍可点击；被行内链接切成半句的碎片（如 `Track Hubs for` 这类停在冠词/介词上的残句）一律不翻，留着英文，避免出现「浏览 the Genome Browser mailing list」这种半中半英。PubMed 的 `/help/` 已经整页覆盖（1704 条，检索语法、显示格式、引文、字段表与附录都在内），页面上约 2269 个文本节点被替换，剩下的基本是检索式示例、字段标签与商标专名。`/about/` 这类整页固定说明也逐段收录；被链接、加粗、`<br>` 切碎的整段文字，脚本会按整段的文本查表，命中后整块换成中文，不再留下半句英文。
 
 
 ## 体积与加载
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **545 KB**（优化前 812 KB，−33%）；gzip 后 369 KB；词库里 19 本共 10659 条，压缩前纯 JSON 有 873 KB
+- 单文件产物 **552 KB**（优化前 812 KB，−32%）；gzip 后 374 KB；词库里 19 本共 10822 条，压缩前纯 JSON 有 903 KB
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -121,7 +121,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
-| hpa | 1642 | 117 | Human Protein Atlas（含 About 资源列表） |
+| hpa | 1645 | 117 | Human Protein Atlas（含 About 资源列表与整段正文） |
 | ncbi | 1313 | 54 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | ncbi-help | 1704 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
@@ -132,7 +132,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | cbioportal | 646 | 47 | cBioPortal |
 | ensembl | 368 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
-| ucsc | 606 | 5 | UCSC Genome Browser（含帮助页目录、章节标题与正文段落） |
+| ucsc | 766 | 5 | UCSC Genome Browser（含帮助页整页正文、目录、章节标题与正文段落） |
 | gepia2 | 175 | 9 | GEPIA2 |
 | mirbase | 159 | 22 | miRBase |
 | gtex | 165 | 11 | GTEx Portal |
@@ -140,7 +140,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **10659 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **10822 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 

@@ -375,7 +375,13 @@
   "Compressed text files (called \"cache files\") used by the Variant Effect Predictor tool. More information about these files is available here.": "Variant Effect Predictor 工具使用的压缩文本文件（称为“cache files”）。有关这些文件的更多信息可在此处获取。",
   "Constrained elements calculated using GERP are available in BED format. For more information see the accompanying README file.": "使用 GERP 计算的保守元件以 BED 格式提供。更多信息请参阅随附的 README 文件。",
   "This site is a mirror based on code from Ensembl, a joint project between the Wellcome Trust Sanger Institute and the European Bioinformatics Institute. For more information about the Ensembl project, including contact details, please visit www.ensembl.org.": "本网站是一个镜像站点，基于 Ensembl 的代码构建。Ensembl 是 Wellcome Trust Sanger Institute 与 European Bioinformatics Institute 的合作项目。如需了解 Ensembl 项目的更多信息（包括联系方式），请访问 www.ensembl.org。",
-  "Gene annotation in Ensembl": "Ensembl 中的基因注释"
+  "Gene annotation in Ensembl": "Ensembl 中的基因注释",
+  "Gene annotation provided by Ensembl includes automatic annotation, ie genome-wide determination of transcripts. For selected species (ie human, mouse, zebrafish, rat), gene annotation may also include manual curation, ie reviewed determination of transcripts on a case-by-case basis. Furthermore, Ensembl imports annotation from FlyBase, WormBase and SGD.": "Ensembl 提供的基因注释包括自动注释，即在全基因组范围内确定转录本。对部分选定物种（如人、小鼠、斑马鱼、大鼠），基因注释还可能包括人工审编，即逐个复核并确定转录本。此外，Ensembl 还导入来自 FlyBase、WormBase 与 SGD 的注释。",
+  "Ensembl transcripts displayed on our website are products of the Ensembl automatic gene annotation system (a collection of gene annotation pipelines), termed the Ensembl annotation process. All Ensembl transcripts are based on experimental evidence and thus the automated pipeline relies on the mRNAs and protein sequences deposited into public databases from the scientific community. Manually-curated transcripts are produced by the HAVANA group.": "网站上展示的 Ensembl 转录本由 Ensembl 自动基因注释系统（一组基因注释流程）产出，称为 Ensembl 注释过程。所有 Ensembl 转录本都以实验证据为基础，因此自动流程依赖科学界存入公共数据库的 mRNA 与蛋白质序列。人工审编的转录本由 HAVANA 团队产出。",
+  "An Ensembl gene (with a unique ENSG... ID) includes any spliced transcripts (ENST...) with overlapping coding sequence, with the exception of manually annotated readthrough genes which are annotated as a separate locus. Transcripts from the Ensembl annotation process, the Havana/Vega set and the Consensus Coding Sequence (CCDS project) set may all be clustered into the same gene. Transcripts that belong to the same gene ID may differ in transcription start and end sites, splice events and exons, and can give rise to very different proteins. Transcript clusters with no overlapping coding sequence are annotated as separate genes. Two transcripts may overlap in non-coding sequence (ie intronic sequence or UnTranslated Region (UTR), and be classified under two separate genes. After the Ensembl gene and transcript sequences are defined, the gene and transcript names are assigned.": "一个 Ensembl 基因（带唯一的 ENSG… 编号）包含所有编码序列相互重叠的剪接转录本（ENST…），但人工注释的读通（readthrough）基因除外，此类基因被注释为独立位点。来自 Ensembl 注释过程、Havana/Vega 集合与共识编码序列（CCDS 项目）集合的转录本都可能被聚到同一基因下。属于同一基因编号的转录本在转录起始与终止位点、剪接事件与外显子上可以不同，可能产生差异很大的蛋白质。编码序列不重叠的转录本簇会被注释为不同基因。两个转录本可以在非编码序列（如内含子序列或非翻译区 UTR）上重叠，此时分别归入两个不同基因。Ensembl 的基因与转录本序列确定之后，再为其分配基因名与转录本名。",
+  "The sequence of any gene or transcript shown in Ensembl is the sequence in the underlying genome assembly, where the sequence of any protein is the translated genomic sequence. This is to prevent any mismatch between the genes and the genome. For this reason, sequences of genes, transcripts and proteins in Ensembl may differ from other databases, who may use sequence from other individuals than were used to produce the genome.": "Ensembl 中展示的任何基因或转录本序列，都是底层基因组组装中的序列；任何蛋白质序列则是翻译后的基因组序列。这样做是为了避免基因与基因组之间出现不一致。正因如此，Ensembl 中的基因、转录本与蛋白质序列可能与其他数据库不同——后者可能使用了产生该基因组的个体之外的其他个体的序列。",
+  "Perl API Documentation": "Perl API 文档",
+  "Ensembl Software Support": "Ensembl 软件支持"
  },
  "rules": [
   {
@@ -447,6 +453,18 @@
   {
    "pat": "Please check that you have typed in the correct URL or else use the {{1}} facility to try and locate information you require.{{2}}If you think an error has occurred, please {{3}}",
    "zh": "请检查你输入的 URL 是否正确，否则请使用{{1}}功能查找所需的信息。{{2}}如果你认为出现了错误，请{{3}}"
+  },
+  {
+   "pat": "Ensembl uses {{1}} relational databases to store its information. A comprehensive set of Application Program Interfaces (APIs) serve as a middle-layer between underlying database schemes and more specific application programmes. The APIs aim to encapsulate the database layout by providing efficient high-level access to data tables and isolate applications from data layout changes.",
+   "zh": "Ensembl 使用 {{1}} 关系型数据库存储其信息。一整套应用程序接口（API）充当底层数据库结构与具体应用程序之间的中间层。这些 API 通过提供对数据表的高效高层访问来封装数据库布局，使应用程序与数据布局的变化隔离开来。"
+  },
+  {
+   "pat": "Ensembl is an open project and we would like to encourage correspondence and discussions on any subject on any aspect of Ensembl. Please see the {{1}} page for suitable options for getting in touch with us.",
+   "zh": "Ensembl 是一个开放项目，我们希望就 Ensembl 的任何方面、任何话题与大家通信和讨论。联系我们请见 {{1}} 页面所列的方式。"
+  },
+  {
+   "pat": "If you are interested in undertaking a short-term collaborative project, our \"{{1}}\" scheme allows developers and researchers to work alongside Ensembl team members.",
+   "zh": "如果你有意开展短期合作项目，我们的「{{1}}」计划可以让开发者和研究人员与 Ensembl 团队成员并肩工作。"
   }
  ]
 }

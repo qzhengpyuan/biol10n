@@ -55,14 +55,14 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 帮助中心（FAQ、User Guide）这类成篇的文档按需分批覆盖：先目录与高频条目，再按设置面板记录到的实际漏翻补。UCSC 帮助页除左侧目录与章节标题外，正文的步骤说明、列表项与完整句子也整批收录（本版 766 条，覆盖页面主体），HPA About 的资源列表按「链接后的句子」逐条收录，链接本身不被替换、仍可点击；被行内链接切成半句的碎片（如 `Track Hubs for` 这类停在冠词/介词上的残句）一律不翻，留着英文，避免出现「浏览 the Genome Browser mailing list」这种半中半英。PubMed 的 `/help/` 已经整页覆盖（1704 条，检索语法、显示格式、引文、字段表与附录都在内），页面上约 2269 个文本节点被替换，剩下的基本是检索式示例、字段标签与商标专名。`/about/` 这类整页固定说明也逐段收录；被链接、加粗、`<br>` 切碎的整段文字，脚本会按整段的文本查表，命中后整块换成中文，不再留下半句英文。
 
-整段整块替换会连里面的链接一起抹掉，所以还多了一条**模板通道**（0.7.0）：词条存成 `轨道行以单词{{1}}开头，后面跟一个或多个{{2}}对。` 这样的中文模板，`{{n}}` 对应段内第 n 个内联元素（链接、代码、加粗），运行时把原节点放回译文里。占位符必须是 1..N 一一对应，对不上就不替换——宁可留英文，也不丢链接。UCSC 帮助页靠这条通道吃下了 49 段带链接的正文，HPA 组织页、RCSB 帮助、Ensembl FTP、PubMed 帮助又陆续收了 37 段，HPA 脑/单细胞/细胞资源页再收 12 段（本版共 98 条模板）。只收以句末标点收尾的整句——停在介词/冠词上的半句翻译了反而变成「……并在互补的 <链接>」这种半中半英，这类一律不翻。
+整段整块替换会连里面的链接一起抹掉，所以还多了一条**模板通道**（0.7.0）：词条存成 `轨道行以单词{{1}}开头，后面跟一个或多个{{2}}对。` 这样的中文模板，`{{n}}` 对应段内第 n 个内联元素（链接、代码、加粗），运行时把原节点放回译文里。占位符必须是 1..N 一一对应，对不上就不替换——宁可留英文，也不丢链接。链接里再套 `<em>`/`<span>`（整节点当一个槽位搬回去）从 0.9.0 起也接受，只有藏了块级元素才放弃。UCSC 帮助页靠这条通道吃下了 49 段带链接的正文，HPA 组织页、RCSB 帮助、Ensembl FTP、PubMed 帮助又陆续收了 37 段，HPA 脑/单细胞/细胞/免疫/亚细胞资源页与 Ensembl API 文档续收 27 段（本版共 113 条模板）。只收以句末标点收尾的整句——停在介词/冠词上的半句翻译了反而变成「……并在互补的 <链接>」这种半中半英，这类一律不翻。
 
 
 ## 体积与加载
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **589 KB**（优化前 812 KB，−27%）；gzip 后 401 KB；词库里 19 本共 10876 条词条 + 98 条模板，压缩前纯 JSON 有 932 KB
+- 单文件产物 **618 KB**（优化前 812 KB，−24%）；gzip 后 423 KB；词库里 19 本共 11679 条词条 + 113 条模板，压缩前纯 JSON 有 1002 KB
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -123,18 +123,18 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
-| hpa | 1681 | 117 | Human Protein Atlas（含 About、脑/单细胞/细胞资源页正文与列表） |
-| ncbi | 1313 | 54 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
+| hpa | 1691 | 117 | Human Protein Atlas（含 About 与脑/单细胞/细胞/免疫/亚细胞资源页正文） |
+| ncbi | 1316 | 54 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | ncbi-help | 1704 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
 | kegg | 494 | 16 | KEGG |
 | gdc | 479 | 20 | GDC Data Portal |
-| rcsb | 606 | 31 | RCSB PDB |
-| uniprot | 449 | 15 | UniProt |
-| cbioportal | 646 | 47 | cBioPortal |
-| ensembl | 369 | 4 | Ensembl（含新前端与帮助页） |
+| rcsb | 616 | 31 | RCSB PDB |
+| uniprot | 771 | 15 | UniProt（含条目页 GO 术语、化学修饰名、亚细胞定位） |
+| cbioportal | 1095 | 47 | cBioPortal（含首页队列列表标签与新闻条目） |
+| ensembl | 375 | 4 | Ensembl（含新前端、帮助页与 API 文档） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
-| ucsc | 783 | 5 | UCSC Genome Browser（含帮助页整页正文、目录、章节标题与正文段落） |
+| ucsc | 786 | 5 | UCSC Genome Browser（含帮助页整页正文、目录、章节标题与正文段落） |
 | gepia2 | 175 | 9 | GEPIA2 |
 | mirbase | 159 | 22 | miRBase |
 | gtex | 165 | 11 | GTEx Portal |
@@ -142,13 +142,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **10876 条 / 422 条规则 / 98 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **11679 条 / 422 条规则 / 113 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（96 条）
+npm test             # 引擎、面板与产物单测（98 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

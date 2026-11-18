@@ -90,3 +90,25 @@ test("code 槽位也能走模板（代码文本保持英文）", () => {
   assert.equal(doc.querySelectorAll("code").length, 2, "两个 code 节点都保留");
   dom.window.close();
 });
+test("链接里再套 <em> 也按模板替换，链接与 em 都保留", () => {
+  const html = '<p>In addition to the data in the brain resource there is also data on <a href="/retina">the <em>human retina</em></a>.</p>';
+  const t = { pat: "In addition to the data in the brain resource there is also data on {{1}}.", zh: "除脑资源中的数据外，还有{{1}}的数据。" };
+  const { engine, doc, dom } = boot(html, { templates: [t] });
+  engine.start();
+  const p = doc.querySelector("p");
+  assert.match(p.textContent, /除脑资源中的数据外/, "嵌套内联不应阻止模板替换");
+  const a = p.querySelector("a");
+  assert.ok(a && a.querySelector("em"), "链接与内部 em 都要保留");
+  assert.equal(a.getAttribute("href"), "/retina");
+  dom.window.close();
+});
+
+test("链接里藏块级元素时放弃替换", () => {
+  const html = '<p>In addition there is also data on <a href="/x"><div>block</div></a>.</p>';
+  const t = { pat: "In addition there is also data on {{1}}.", zh: "此外还有{{1}}。" };
+  const { engine, doc, dom } = boot(html, { templates: [t] });
+  engine.start();
+  assert.match(doc.querySelector("p").textContent, /In addition/, "块级嵌套必须保持英文");
+  assert.equal(engine.stats.tpl, 0);
+  dom.window.close();
+});

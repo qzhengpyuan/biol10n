@@ -1687,7 +1687,17 @@
   "Regional enriched genes with higher expression in a single or a few brain regions": "区域富集基因：在单个或少数脑区中表达更高",
   "Spatial gene expression patterns across five major brain regions, including genes enriched in specific anatomical niches": "五个主要脑区的空间基因表达模式，包括在特定解剖微环境中富集的基因",
   "Expression level across different brain cell types, based on single nuclei RNAseq": "基于单核 RNA 测序的不同脑细胞类型的表达水平",
-  "human retina": "人视网膜"
+  "human retina": "人视网膜",
+  "The RNA data is used to cluster genes according to their expression across immune cells. The clustering of 12863 genes expressed in immune cells resulted in 46 expression clusters, which have been manually annotated to describe common features in terms of function and specificity. The result of the cluster analysis is presented as an UMAP based on gene expression, where each cluster has been summarized as colored areas containing most of the cluster genes.": "RNA 数据被用来按各免疫细胞中的表达对基因聚类。对在免疫细胞中表达的 12863 个基因聚类，得到 46 个表达簇，已人工注释其功能与特异性方面的共同特征。聚类结果以基于基因表达的 UMAP 呈现，每个簇以包含该簇多数基因的彩色区域表示。",
+  "The cellular and organelle proteome chapters is a collection of interactive pages providing conceptual overviews, compilations and analyses of the data generated within the subcellular resource. Discover the proteomes of particular organelles, the cell cycle-dependent proteome and transcriptome, the multilocalizing proteome and the metabolic proteome in knowledge summaries, providing different perspectives on the distribution of proteins in human cells. The chapters can serve as an educational resource, but also as a starting point for deeper exploration of the fascinating spatiotemporal complexity of protein expression and distribution in human cells.": "细胞与细胞器蛋白质组章节是一组交互式页面，提供亚细胞资源所生成数据的概念概览、汇编与分析。可在知识摘要中了解特定细胞器的蛋白质组、依赖细胞周期的蛋白质组与转录组、多定位蛋白质组以及代谢蛋白质组，从不同角度认识蛋白质在人体细胞中的分布。这些章节既可作为教学资源，也可作为深入探索人体细胞中蛋白质表达与分布这一时空复杂性的起点。",
+  "Join us on an inspiring journey through the human cell; the basic structural and functional unit of the human body and home to many of our proteins. This video uses comprehensive animated graphics and microscopy images from the subcellular section to give you an overview of the inner universe of a human cell. Travel through a world of different organelles and compartments, and get familiar with their unique structures and functions.": "跟我们一起踏上穿越人体细胞的旅程——细胞是人体的基本结构与功能单位，也是许多蛋白质的所在。本视频结合丰富的动画图形与亚细胞部分的显微图像，带你概览人体细胞的内部宇宙。穿行于不同细胞器与区室的世界，熟悉它们独特的结构与功能。",
+  "read the latest article - published Wed, 11 Nov 2026": "阅读最新文章 - 发布于 2026年11月11日 周三",
+  "The immune cell resource - Expression profiles in human immune cells": "免疫细胞资源 - 人免疫细胞中的表达谱",
+  "Immune cell methods": "免疫细胞方法",
+  "if a gene is enriched in a particular immune cell type (specificity)": "某基因是否在特定免疫细胞类型中富集（特异性）",
+  "which genes have a similar expression profile across the immune cells (expression cluster)": "哪些基因在免疫细胞中具有相似的表达谱（表达聚类）",
+  "the catalogue of genes elevated in each of the immune cell types": "各类免疫细胞中表达升高的基因清单",
+  "THE HUMAN IMMUNE CELLS": "人类免疫细胞"
  },
  "rules": [
   {
@@ -2238,6 +2248,50 @@
   {
    "pat": "Learn more about each of these four parts down below, and explore the details of each dataset, or serach for a gene and browse the expression details side by side across the different datasets on the gene summary pages. More information about the content, the generation and analysis of the data in this resource can be found under respective link or here for {{1}}， {{2}}, and {{3}}.",
    "zh": "下面将逐一介绍这四个部分，可深入了解各个数据集，或在基因摘要页上搜索某个基因、并排浏览它在不同数据集中的表达详情。有关该资源内容以及数据生成与分析方法的更多信息，可分别见相应链接，或此处关于{{1}}、{{2}}和{{3}}的说明。"
+  },
+  {
+   "pat": "The Immune Cell section contains single cell information on genome-wide RNA expression profiles of human protein-coding genes covering various B- and T-cells, monocytes, granulocytes and dendritic cells. The transcriptomics analysis covers 18 cell types isolated with cell sorting and includes classification based on specificity, distribution and expression cluster across all immune cells. More information about the specific content and the generation and analysis of the data in the section can be found in the {{1}}。",
+   "zh": "免疫细胞部分收录了单细胞层面的全基因组 RNA 表达谱信息，覆盖人类蛋白质编码基因在各类 B 细胞、T 细胞、单核细胞、粒细胞和树突状细胞中的表达。转录组分析覆盖经细胞分选分离的 18 种细胞类型，并按全部免疫细胞范围内的特异性、分布与表达聚类进行分类。有关该部分具体内容以及数据生成与分析方法的更多信息，见{{1}}。"
+  },
+  {
+   "pat": "All protein-coding genes have been classified according to the immune cell expression into genes elevated in at least one of the immune cells. In the figure, the number of cell lineage-elevated genes with highest expression in blood or lymphoid tissues is shown to the left and the cell lineage-enriched genes with highest expression in blood or lymphoid tissues to the right. All immune cell specific categories can be found {{1}}。",
+   "zh": "所有蛋白质编码基因均已按免疫细胞表达情况分类，归入至少在一种免疫细胞中表达升高的基因。图中左侧给出最高表达出现在血液或淋巴组织中的细胞谱系升高基因数目，右侧给出最高表达出现在血液或淋巴组织中的细胞谱系富集基因数目。全部免疫细胞特异性类别见{{1}}。"
+  },
+  {
+   "pat": "A description about the classification of genes into the immune cell enriched and group enriched categories is found {{1}}。",
+   "zh": "把基因归入免疫细胞富集与组富集类别的说明见{{1}}。"
+  },
+  {
+   "pat": "Learn more about each of these four parts down below, and explore the details of each dataset, or serach for a gene and browse the expression details side by side across the different datasets on the gene summary pages. More information about the content, the generation and analysis of the data in this resource can be found under respective link or here for {{1}}， {{2}}, and {{3}}。",
+   "zh": "下面将逐一介绍这四个部分，可深入了解各个数据集，或在基因摘要页上搜索某个基因、并排浏览它在不同数据集中的表达详情。有关该资源内容以及数据生成与分析方法的更多信息，可分别见相应链接，或此处关于{{1}}、{{2}}和{{3}}的说明。"
+  },
+  {
+   "pat": "{{1}}{{2}} {{3}} Providing the mRNA expression profiles of protein-coding genes from 34 human tissues across single cell types. The scRNAseq analysis is based on publicly available genome-wide expression data and comprises all protein-coding genes in 1214 individual cell type clusters corresponding to 15 different cell classes, 54 cell type groups and 155 individual cell types.",
+   "zh": "{{1}}{{2}} {{3}} 提供 34 种人体组织蛋白质编码基因在各类单细胞类型中的 mRNA 表达谱。该 scRNAseq 分析基于公开的全基因组表达数据，涵盖全部蛋白质编码基因，对应 1214 个细胞类型簇，分属 15 个细胞大类、54 个细胞类型组和 155 种细胞类型。"
+  },
+  {
+   "pat": "{{1}}{{2}} {{3}} Providing protein detection profiles for more than 13,000 genes across 27 cell types, representing 14 different tissue types. The MS-based protein abundance is visualized side-by-side with matched single cell RNAseq data, enabling easy exploration and comparison.",
+   "zh": "{{1}}{{2}} {{3}} 提供 27 种细胞类型（代表 14 种不同组织类型）中超过 13000 个基因的蛋白质检测谱。基于质谱的蛋白质丰度与匹配的单细胞 RNAseq 数据并排展示，便于浏览和比较。"
+  },
+  {
+   "pat": "{{1}}{{2}} {{3}} Providing cell type expression specificity predictions for all human protein-coding genes within 18 different tissue types, generated using correlation-based integrated network analysis of publicly available bulk RNAseq data.",
+   "zh": "{{1}}{{2}} {{3}} 提供 18 种不同组织类型中全部人类蛋白质编码基因的细胞类型表达特异性预测，基于对公开 bulk RNAseq 数据的相关性整合网络分析生成。"
+  },
+  {
+   "pat": "{{1}}{{2}} {{3}} Explore the genes with elevated expression profiles in different cell and tissue types, and how they overlap. Find easy clickable seach functions and examples verified at protein level using immunohistochemistry.",
+   "zh": "{{1}}{{2}} {{3}} 浏览在不同细胞与组织类型中表达谱升高的基因及其重叠情况。提供简便的点击式搜索功能，以及在蛋白质水平用免疫组化验证过的示例。"
+  },
+  {
+   "pat": "The subcellular resource of the Human Protein Atlas provides high-resolution insights into the expression and spatiotemporal distribution of proteins encoded by {{1}} genes (68% of the human protein-coding genes), as well as predictions for an additional {{2}} secreted- or membrane proteins, covering a total of 17092 genes (85% of the human protein-coding genes). For each gene, the subcellular distribution of the protein has been investigated by immunofluorescence ({{3}}) and confocal microscopy in up to three different standard cell lines, selected from a panel of 42 {{4}} used in the subcellular resource. For some genes, the protein has also been stained in up to three ciliated cell lines, induced pluripotent stem cells (iPSCs) and/or in human sperm cells. Upon image analysis, the subcellular localization of the protein has been classified into one or more of 49 different organelles and subcellular structures. In addition, the resource includes an annotation of genes that display single-cell variation in protein expression levels and/or subcellular distribution, as well as an extended analysis of cell cycle dependency of such variations.",
+   "zh": "人类蛋白质图谱的亚细胞资源提供高分辨率信息，涵盖 {{1}} 个基因（占人类蛋白质编码基因的 68%）所编码蛋白质的表达与时空分布，并对另外 {{2}} 个分泌蛋白或膜蛋白给出预测，合计覆盖 17092 个基因（占人类蛋白质编码基因的 85%）。对每个基因，用免疫荧光（{{3}}）与共聚焦显微镜在该资源所用 42 种{{4}}中选出的至多三种标准细胞系里考察蛋白质的亚细胞分布。部分基因还在至多三种纤毛细胞系、诱导多能干细胞（iPSC）和/或人精子细胞中做了染色。经图像分析，蛋白质的亚细胞定位被归入 49 种细胞器与亚细胞结构中的一个或多个。此外，该资源还注释了在蛋白质表达水平或亚细胞分布上呈现单细胞差异的基因，并对这类差异的细胞周期依赖性作了延伸分析。"
+  },
+  {
+   "pat": "The subcellular resource offers a database for detailed exploration of individual genes and proteins of interest, as well as for systematic analysis of proteomes in a broader context. More information about the content of the resouce, as well as the generation and analysis of the data, can be found in the {{1}}。",
+   "zh": "亚细胞资源提供一个数据库，既可细致考察感兴趣的单个基因与蛋白质，也可在更广的范围内对蛋白质组做系统分析。有关该资源内容以及数据生成与分析方法的更多信息，见{{1}}。"
+  },
+  {
+   "pat": "Uniform Manifold Approximation and Projection (UMAP) is an analytical technique for reducing the dimensionality of a complex data set ({{1}}). The interactive subcellular location UMAP has been generated using image-level feature extraction for the large collection of confocal microscopy images showing the subcellular localization patterns of human proteins. This tool provides a way to visualize and study the high-dimensional protein localization data that makes up the subcellular resource, projected in a two- or three dimensional space. By coloring the data points, each representing one image, according to subcellular localization(s) it is evident that images of proteins localizing to the same compartment tend to cluster together. Overlaying the UMAP projection with different data can allow you to find new features and identify interesting groups of genes in a large and complex data set. Click on the UMAP or explore the interactive vesion of the subcellular location UMAP {{2}}。",
+   "zh": "均匀流形近似与投影（UMAP）是一种对复杂数据集降维的分析方法（{{1}}）。该交互式亚细胞定位 UMAP 是对大量共聚焦显微图像做图像级特征提取后生成的，这些图像展示了人类蛋白质的亚细胞定位模式。该工具可把构成亚细胞资源的高维蛋白质定位数据投影到二维或三维空间，便于可视化与研究。按亚细胞定位给每个数据点（对应一张图像）着色后可以明显看出，定位于同一细胞区室的蛋白质图像往往聚在一起。把不同数据叠加到 UMAP 投影上，可在庞大复杂的数据集中发现新特征、识别有趣的基因群。点击 UMAP，或浏览亚细胞定位 UMAP 的交互版本{{2}}。"
   }
  ]
 }

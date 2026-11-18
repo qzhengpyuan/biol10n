@@ -1322,7 +1322,10 @@
   "4 related Platforms": "4 个相关平台",
   "Somatic": "体细胞",
   "(Submitter supplied) This SuperSeries is composed of the SubSeries listed below.": "（由提交者提供）本 SuperSeries 由下列 SubSeries 组成。",
-  "Sorry, can't find the page or item you're requesting.": "抱歉，找不到您请求的页面或项目。"
+  "Sorry, can't find the page or item you're requesting.": "抱歉，找不到您请求的页面或项目。",
+  "in view": "在视图中",
+  "Showing GCF_000001405.40 instead of undefined": "显示 GCF_000001405.40 而非 undefined",
+  "for details of assembly revision history": "查看组装修订历史详情"
  },
  "rules": [
   {

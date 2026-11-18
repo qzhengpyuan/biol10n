@@ -867,7 +867,20 @@ function createEngine(options) {
     }
   }
 
-  /** 把块拆成「文本片段 + 内联元素占位符」的模板串；只收纯内联结构，遇到嵌套块/嵌套内联返回 null。 */
+  /** 内联元素里再套内联（<a><em>x</em></a>）是安全的：整个外层节点当一个占位符搬回去即可。
+   *  只有里面藏了块级元素才放弃——那说明这一段并不是一个可整块替换的句子。 */
+  function isInlineSubtree(el) {
+    var kids = el.children;
+    if (!kids) return true;
+    for (var i = 0; i < kids.length; i++) {
+      var k = kids[i];
+      if (!k.tagName || !INLINE_TAGS[k.tagName]) return false;
+      if (!isInlineSubtree(k)) return false;
+    }
+    return true;
+  }
+
+  /** 把块拆成「文本片段 + 内联元素占位符」的模板串；只收纯内联结构，遇到嵌套块返回 null。 */
   function buildTemplate(el) {
     if (!el || !el.firstChild) return null;
     var parts = [], slots = [];
@@ -876,8 +889,8 @@ function createEngine(options) {
       if (c.nodeType !== 1) return null;
       var tn = c.tagName;
       if (!tn || !INLINE_TAGS[tn]) return null;
-      // <span><a>…</a></span> 这种嵌套会带来占位符归属歧义，直接放弃
-      if (tn !== "BR" && c.querySelector && c.querySelector("*")) return null;
+      // <a><em>x</em></a> 允许（整节点当一个槽位）；<a><div>…</div></a> 拒绝
+      if (tn !== "BR" && !isInlineSubtree(c)) return null;
       slots.push(c);
       parts.push("{{" + slots.length + "}}");
     }

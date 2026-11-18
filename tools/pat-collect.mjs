@@ -48,6 +48,7 @@ function connect(wsUrl) {
 const COLLECTOR = String.raw`(() => {
   const INLINE = new Set(["A","ABBR","B","BDI","BDO","BR","CITE","CODE","DATA","DEL","DFN","EM","I","INS","KBD","MARK","Q","S","SAMP","SMALL","SPAN","STRONG","SUB","SUP","TIME","U","VAR","WBR"]);
   const norm = (s) => (s || "").replace(/[\u00a0\u2000-\u200b\u3000]/g, " ").replace(/\s+/g, " ").trim();
+  const inlineSubtree = (el) => { for (const k of el.children) { if (!INLINE.has(k.tagName)) return false; if (!inlineSubtree(k)) return false; } return true; };
   const out = [];
   const seen = new Set();
   for (const el of document.querySelectorAll("p, dd, li")) {
@@ -61,7 +62,7 @@ const COLLECTOR = String.raw`(() => {
       if (c.nodeType !== 1) { bad = true; break; }
       const tn = c.tagName;
       if (!INLINE.has(tn)) { bad = true; break; }
-      if (tn !== "BR" && c.querySelector("*")) { bad = true; break; }
+      if (tn !== "BR" && !inlineSubtree(c)) { bad = true; break; }
       slots.push({ tag: tn.toLowerCase(), text: norm(c.textContent) });
       parts.push("{{" + slots.length + "}}");
     }

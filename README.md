@@ -123,7 +123,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 覆盖 |
 |---|---|---|---|
 | common | 657 | 43 | 跨站通用界面词与规范化规则 |
-| hpa | 1645 | 117 | Human Protein Atlas（含 About 资源列表与整段正文） |
+| hpa | 1681 | 117 | Human Protein Atlas（含 About、脑/单细胞/细胞资源页正文与列表） |
 | ncbi | 1313 | 54 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | ncbi-help | 1704 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
@@ -132,9 +132,9 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | rcsb | 606 | 31 | RCSB PDB |
 | uniprot | 449 | 15 | UniProt |
 | cbioportal | 646 | 47 | cBioPortal |
-| ensembl | 368 | 4 | Ensembl（含新前端与帮助页） |
+| ensembl | 369 | 4 | Ensembl（含新前端与帮助页） |
 | onco | 235 | 9 | TCGA 队列、变异类型、生存统计 |
-| ucsc | 766 | 5 | UCSC Genome Browser（含帮助页整页正文、目录、章节标题与正文段落） |
+| ucsc | 783 | 5 | UCSC Genome Browser（含帮助页整页正文、目录、章节标题与正文段落） |
 | gepia2 | 175 | 9 | GEPIA2 |
 | mirbase | 159 | 22 | miRBase |
 | gtex | 165 | 11 | GTEx Portal |
@@ -142,13 +142,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **10822 条 / 422 条规则**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **10876 条 / 422 条规则 / 98 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（89 条）
+npm test             # 引擎、面板与产物单测（96 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

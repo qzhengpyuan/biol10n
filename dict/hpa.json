@@ -1648,7 +1648,10 @@
   "resource, exploring cell type expression of protein-coding genes in the context of the human metabolic network": "资源，在人体代谢网络背景下探索蛋白质编码基因的细胞类型表达",
   "resource, showing isoform expression in tissues based on bulk RNA-seq": "资源，展示组织中基于 bulk RNA-seq 的异构体表达",
   "resource, showing RNA expression in major organs and tissues across mammalian species": "资源，展示哺乳动物各物种主要器官与组织中的 RNA 表达",
-  "The": "该"
+  "The": "该",
+  "The full publication list is available": "完整出版物列表见",
+  "An interactive pathway explorer, along with information on the spatial organization of metabolism and variation at the subcellular level, is available": "交互式通路探索器，以及代谢的空间组织与亚细胞水平变异信息，见",
+  "More information about the specific content and the generation and analysis of the data in the resource can be found on the": "有关该资源的具体内容以及数据生成与分析方法的更多信息，见"
  },
  "rules": [
   {

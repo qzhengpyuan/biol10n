@@ -854,7 +854,7 @@ function createEngine(options) {
       // 列表项整段替换会连里面的链接一起抹掉，所以只收没有链接的 li
       if (el.tagName === "LI" && el.querySelector("a")) continue;
       var text = normalize(el.textContent || "");
-      if (text.length < 100 || text.length > 900 || hasCJK(text)) continue;
+      if (text.length < 100 || text.length > 1800 || hasCJK(text)) continue;
       var hit = lookupExact(text);
       if (hit === null || !hasCJK(hit)) continue;
       if (!blockOriginals.has(el)) {

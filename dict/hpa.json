@@ -2141,5 +2141,27 @@
    "re": "^Conservation category is a categoric annotation that intends to capture the available pairwise species overlap annotations into one metric\\. The categories range from: Complete, Partial and Minimal Conservation for conserved genes; and Tissue elevation shift, human specific tissue elevated, Non-Human tissue elevated, Human specific detected and Human not detected for non conserved genes\\.$",
    "to": "保守性类别是一种分类注释，旨在将可用的物种两两重叠注释汇总为一个指标。类别包括：保守基因分为完全保守、部分保守、最低保守；非保守基因分为组织升高转移、人类特异组织升高、非人类组织升高、人类特异检出、人类未检出。"
   }
+ ],
+ "templates": [
+  {
+   "pat": "The Tissue resource has implemented a novel protocol for studying protein localization in single-cell types, cell states and subcellular structures in human tissue samples, utilizing multiplex immunohistochemistry-based fluorescence imaging. With the help of single-cell transcriptomics and an iterative staining-stripping method, 8 antibody panels have been developed to profile 9 different tissues. In version 26.0, {{1}} proteins have been analyzed using multiplex tissue profiling. More information about the generation of the multiplex tissue profiling data can be found on the {{2}}。",
+   "zh": "组织资源采用了一种新方法，利用基于多重免疫组织化学的荧光成像技术，研究人体组织样本中单细胞类型、细胞状态和亚细胞结构里的蛋白质定位。借助单细胞转录组学和迭代染色-洗脱方法，已开发出 8 个抗体组合（panel），用于分析 9 种不同的组织。在 26.0 版本中，已使用多重组织分析技术分析了{{1}}个蛋白质。有关多重组织分析数据生成的更多信息，可在{{2}}上找到。"
+  },
+  {
+   "pat": "The colored bars represent number of genes with elevated expression in the associated tissue divided into tissue enriched (red), group enriched (orange) or tissue enhanced (purple) categories according to the transcriptomics based {{1}}. Mouse-over reveals the number of genes in each of the three categories. The length of the bars visualizes the number of elevated genes in each tissue compared to the tissue with the maximum amount of elevated genes (brain).",
+   "zh": "彩色条代表在相关组织中表达升高的基因数目，依据基于转录组学的{{1}}分为组织富集（红色）、组富集（橙色）或组织增强（紫色）类别。将鼠标悬停其上可显示这三个类别各自的基因数。条的长度体现了各组织中升高基因的数量相对于升高基因最多的组织（脑）的情况。"
+  },
+  {
+   "pat": "Bulk Mass spectrometry (MS) data was integrated from two separate data sources (MannLab and ProteinTalks DB), and is here summarized. The MannLab bulk MS data overlaps with the samples used for Deep Visual Proteomics ({{1}}), with additional representation of gastrointestinal tract and spleen. The ProteinTalks DB also includes paired tumor and non-tumour samples, included in the {{2}}。",
+   "zh": "批量质谱（MS）数据整合自两个独立的数据源（MannLab 和 ProteinTalks DB），并在此汇总。MannLab 的批量 MS 数据与用于深度视觉蛋白质组学（{{1}}）的样本有重叠，并额外涵盖胃肠道和脾。ProteinTalks DB 还包含配对的肿瘤与非肿瘤样本，已纳入{{2}}。"
+  },
+  {
+   "pat": "A description about the classification of genes into the tissue enriched and group enriched categories is found {{1}}。",
+   "zh": "关于将基因划分为组织富集和组富集类别的说明见{{1}}。"
+  },
+  {
+   "pat": "Predicted location of the proteins encoded by the genes expressed in each tissue, based on the HPA {{1}} annotation. Each gene is classified from predicted signal peptides and transmembrane regions as intracellular, membrane or secreted. Genes with splice variants predicted in different locations get combined classes (e.g. intracellular/membrane). Immunoglobulin and T-cell receptor genes are shown as separate classes.",
+   "zh": "各组织中表达基因所编码蛋白质的预测定位，基于 HPA 的{{1}}注释。每个基因根据预测的信号肽和跨膜区被分类为胞内、膜或分泌型。其剪接变异体被预测位于不同位置的基因会得到合并的类别（如胞内/膜）。免疫球蛋白和 T 细胞受体基因显示为单独的类别。"
+  }
  ]
 }

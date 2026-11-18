@@ -393,5 +393,51 @@
    "re": "^Genome browser — Ensembl$",
    "to": "基因组浏览器 — Ensembl"
   }
+ ],
+ "templates": [
+  {
+   "pat": "You can download via a browser from our {{1}}, use a script, or even use {{2}} from the command line.",
+   "zh": "您可以通过浏览器从我们的{{1}}下载，也可以使用脚本，甚至直接在命令行中使用{{2}}。"
+  },
+  {
+   "pat": "For rapid bulk download of files, the Ensembl FTP site is available as an end point in the {{1}}. In order to access the data you need to sign up for an account with Globus, install the Globus Connect Personal software and setup a personal endpoint to download the data. The Ensembl data is hosted at the EMBL-EBI end point called \"EMBL-EBI Public Data\". Data from the Ensembl FTP site can then be found under the {{2}}. You can also {{3}}.",
+   "zh": "如需快速批量下载文件，可将 Ensembl FTP 站点作为{{1}}中的一个端点。要访问这些数据，您需要注册一个 Globus 账户、安装 Globus Connect Personal 软件，并设置一个个人端点来下载数据。Ensembl 数据托管在名为“EMBL-EBI Public Data”的 EMBL-EBI 端点下。随后，来自 Ensembl FTP 站点的数据可在{{2}}下找到。您也可以{{3}}。"
+  },
+  {
+   "pat": "If you want to filter or customise your download, please try {{1}}, a web-based querying tool.",
+   "zh": "如果您想筛选或自定义下载内容，请试用{{1}}，这是一个基于网页的查询工具。"
+  },
+  {
+   "pat": "Popular species are listed first. You can customise this list via our {{1}}.",
+   "zh": "常用物种会列在前面。您可以通过我们的{{1}}自定义此列表。"
+  },
+  {
+   "pat": "To facilitate storage and download all databases are {{1}} (gzip, *.gz) compressed.",
+   "zh": "为便于存储和下载，所有数据库均以{{1}}（gzip，*.gz）压缩。"
+  },
+  {
+   "pat": "{{1}} and unmasked genome sequences associated with the assembly (contigs, chromosomes etc.).",
+   "zh": "与该组装相关的{{1}}和未掩蔽基因组序列（重叠群、染色体等）。"
+  },
+  {
+   "pat": "Coding sequences for Ensembl or {{1}} {{2}}.",
+   "zh": "Ensembl 或{{1}}{{2}}的编码序列。"
+  },
+  {
+   "pat": "cDNA sequences for Ensembl or {{1}} {{2}}.",
+   "zh": "Ensembl 或{{1}}{{2}}的 cDNA 序列。"
+  },
+  {
+   "pat": "Protein sequences for Ensembl or {{1}} {{2}}.",
+   "zh": "Ensembl 或{{1}}{{2}}的蛋白质序列。"
+  },
+  {
+   "pat": "Ensembl database dumps in {{1}} nucleotide sequence {{2}}",
+   "zh": "Ensembl 数据库转储，采用{{1}}核苷酸序列{{2}}。"
+  },
+  {
+   "pat": "Genome and annotation data in JSON format for each species. This file format is described {{1}}.",
+   "zh": "各物种的基因组与注释数据，JSON 格式。该文件格式的说明见{{1}}。"
+  }
  ]
 }

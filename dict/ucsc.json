@@ -881,7 +881,10 @@
   "Determine Exon Relevance": "判定外显子相关性",
   "Return to": "返回到",
   "Default": "默认",
-  "browser tracks.": "浏览器轨道。"
+  "browser tracks.": "浏览器轨道。",
+  "New to the Genome Browser? See our short (2-3 minute) guided tutorial. All tutorials can be found in the top blue bar menu under": "第一次用基因组浏览器？先看我们的 2-3 分钟上手教程。全部教程都在顶部蓝色菜单栏的",
+  "Problematic Regions": "问题区域",
+  "GRC Patches": "GRC 补丁"
  },
  "rules": [
   {

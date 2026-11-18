@@ -777,7 +777,8 @@
   "Produced by alternative promoter usage.": "由选择性启动子使用产生。",
   "mapped to this entry": "映射到本条目",
   "3D-structure": "三维结构",
-  "Different termination.": "终止位点不同。"
+  "Different termination.": "终止位点不同。",
+  "Uncertain": "不确定"
  },
  "rules": [
   {

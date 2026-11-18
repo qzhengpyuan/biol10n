@@ -1325,7 +1325,8 @@
   "Sorry, can't find the page or item you're requesting.": "抱歉，找不到您请求的页面或项目。",
   "in view": "在视图中",
   "Showing GCF_000001405.40 instead of undefined": "显示 GCF_000001405.40 而非 undefined",
-  "for details of assembly revision history": "查看组装修订历史详情"
+  "for details of assembly revision history": "查看组装修订历史详情",
+  "(Submitter supplied)": "（提交者提供）"
  },
  "rules": [
   {

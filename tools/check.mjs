@@ -44,7 +44,20 @@ for (const f of files) {
     try { new RegExp(r.re); } catch (e) { err(f + " 规则无法编译: " + r.re); }
     if (CJK.test(r.re)) err(f + " 规则含中文: " + r.re);
   }
-  console.log("    " + f.padEnd(22) + keys.length + " 条 / " + (d.rules || []).length + " 条规则");
+  // 模板词条：pat 是带 {{n}} 占位符的英文整段，zh 是同样占位符的中文；占位符必须 1..N 一一对应
+  for (const t of d.templates || []) {
+    if (!t || typeof t.pat !== "string" || typeof t.zh !== "string") { err(f + " 模板缺 pat/zh"); continue; }
+    if (CJK.test(t.pat)) err(f + " 模板 pat 含中文: " + t.pat.slice(0, 60));
+    if (!CJK.test(t.zh)) err(f + " 模板 zh 不含中文: " + t.pat.slice(0, 60));
+    if (BAD_VALUE.test(t.zh)) err(f + " 模板 zh 含本机信息: " + t.pat.slice(0, 60));
+    const nums = (s) => (s.match(/\{\{(\d+)\}\}/g) || []).map((x) => Number(x.replace(/\D/g, "")));
+    const a = nums(t.pat), b = nums(t.zh);
+    if (!a.length) err(f + " 模板 pat 没有占位符: " + t.pat.slice(0, 60));
+    if (a.slice().sort((x, y) => x - y).join(",") !== b.slice().sort((x, y) => x - y).join(",")) {
+      err(f + " 模板占位符不一致: " + t.pat.slice(0, 50) + " / " + t.zh.slice(0, 50));
+    }
+  }
+  console.log("    " + f.padEnd(22) + keys.length + " 条 / " + (d.rules || []).length + " 条规则 / " + (d.templates || []).length + " 条模板");
 }
 console.log("    合计 " + totalExact + " 条 exact");
 

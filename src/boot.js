@@ -70,6 +70,7 @@
     timing.dict = Math.round(((typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now()) - t0);
     var exact = {};
     var rules = [];
+    var templates = [];
     var dictInfo = [];
     (site.dicts || ["common"]).forEach(function (id) {
       var d = parsedDicts[id];
@@ -77,6 +78,7 @@
       dictInfo.push({ id: id, count: Object.keys(d.exact || {}).length });
       Object.keys(d.exact || {}).forEach(function (k) { exact[k] = d.exact[k]; });
       if (d.rules) rules = rules.concat(d.rules);
+      if (d.templates) templates = templates.concat(d.templates);
     });
 
     // 面板先建好：引擎第一次扫描就会产生"漏翻"回调，晚建会丢掉首页那一批。
@@ -89,7 +91,7 @@
     var engine = createEngine({
       document: document,
       window: window,
-      data: { exact: exact, rules: rules },
+      data: { exact: exact, rules: rules, templates: templates },
       site: {
         scope: site.scope || "",
         block: (SITES.defaults && SITES.defaults.block) || "",
@@ -137,6 +139,7 @@
         disable: function () { engine.disable(); },
         enable: function () { engine.enable(); },
         ui: ui,
+        tpl: function () { return { count: templates.length }; },
         timing: function () { return timing; }
       };
     } catch (e) { /* 页面可能禁止写 window */ }

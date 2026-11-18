@@ -38,6 +38,21 @@ function createEngine(options) {
     try { rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit }); } catch (e) { /* 坏规则直接跳过 */ }
   });
 
+  // 模板通道：段落被 <a>/<code>/<em> 切成片段时，逐节点翻会半中半英、整段替换会丢链接。
+  // 词条存成带 {{n}} 占位符的模板，运行时按占位符把原来的内联元素放回新译文里，链接与事件都保留。
+  var INLINE_TAGS = {
+    A: 1, ABBR: 1, B: 1, BDI: 1, BDO: 1, BR: 1, CITE: 1, CODE: 1, DATA: 1, DEL: 1, DFN: 1,
+    EM: 1, I: 1, INS: 1, KBD: 1, MARK: 1, Q: 1, S: 1, SAMP: 1, SMALL: 1, SPAN: 1,
+    STRONG: 1, SUB: 1, SUP: 1, TIME: 1, U: 1, VAR: 1, WBR: 1
+  };
+  var tplMap = new Map();
+  (data.templates || []).forEach(function (t) {
+    if (!t || typeof t.pat !== "string" || typeof t.zh !== "string") return;
+    var key = normalize(t.pat);
+    if (!key || !hasCJK(t.zh)) return;
+    tplMap.set(key, t.zh);
+  });
+
   var attrs = site.attrs && site.attrs.length ? site.attrs : DEFAULT_ATTRS;
   var processed = new WeakSet();
   var originals = new WeakMap();
@@ -46,7 +61,7 @@ function createEngine(options) {
   var svgTexts = []; // SVG <text> 的逐节点原文（元素不在文本节点还原范围内，单独记）
   var misses = new Set();
   // enabled 放在 stats 上而不是只做闭包变量：boot 的 toggle 靠它判断该开还是该关
-  var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, enabled: true };
+  var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, tpl: 0, enabled: true };
   var enabled = true;
   var observer = null;
   var queue = new Set();
@@ -852,6 +867,71 @@ function createEngine(options) {
     }
   }
 
+  /** 把块拆成「文本片段 + 内联元素占位符」的模板串；只收纯内联结构，遇到嵌套块/嵌套内联返回 null。 */
+  function buildTemplate(el) {
+    if (!el || !el.firstChild) return null;
+    var parts = [], slots = [];
+    for (var c = el.firstChild; c; c = c.nextSibling) {
+      if (c.nodeType === 3) { parts.push(String(c.nodeValue || "")); continue; }
+      if (c.nodeType !== 1) return null;
+      var tn = c.tagName;
+      if (!tn || !INLINE_TAGS[tn]) return null;
+      // <span><a>…</a></span> 这种嵌套会带来占位符归属歧义，直接放弃
+      if (tn !== "BR" && c.querySelector && c.querySelector("*")) return null;
+      slots.push(c);
+      parts.push("{{" + slots.length + "}}");
+    }
+    if (!slots.length) return null;
+    var pat = normalize(parts.join(""));
+    if (!pat || hasCJK(pat)) return null;
+    if (pat.length < 20 || pat.length > 2200) return null;
+    return { pat: pat, slots: slots };
+  }
+
+  /** 模板通道：整段命中带占位符的模板后，把 {{n}} 换成原来的内联元素，其余换成译文文本。
+   *  占位符必须是 1..N 的一一对应，否则不替换（宁可留英文，也不丢链接）。 */
+  function translateTemplates(root) {
+    if (!root || !root.querySelectorAll || !tplMap.size) return;
+    var els;
+    try { els = root.querySelectorAll("p, dd, li"); } catch (e) { return; }
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.getAttribute && (el.getAttribute("data-biol10n-tpl") || el.getAttribute("data-biol10n-block"))) continue;
+      if (inBlock(el) || inSkip(el)) continue;
+      if (el.querySelector("p, li, ul, ol, div, table, pre, textarea")) continue;
+      var t = buildTemplate(el);
+      if (!t) continue;
+      var zh = tplMap.get(t.pat);
+      if (!zh) continue;
+      var used = [], m, re = /\{\{(\d+)\}\}/g;
+      while ((m = re.exec(zh))) used.push(Number(m[1]));
+      if (used.length !== t.slots.length) continue;
+      var sorted = used.slice().sort(function (a, b) { return a - b; });
+      var ok = true;
+      for (var u = 0; u < sorted.length; u++) if (sorted[u] !== u + 1) { ok = false; break; }
+      if (!ok) continue;
+
+      // 先备份整块子节点，disable 时原样挂回
+      if (!blockOriginals.has(el)) {
+        blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+      }
+      var frag = doc.createDocumentFragment();
+      var last = 0;
+      re.lastIndex = 0;
+      while ((m = re.exec(zh))) {
+        var txt = zh.slice(last, m.index);
+        if (txt) frag.appendChild(doc.createTextNode(txt));
+        frag.appendChild(t.slots[Number(m[1]) - 1]);
+        last = m.index + m[0].length;
+      }
+      if (last < zh.length) frag.appendChild(doc.createTextNode(zh.slice(last)));
+      while (el.firstChild) el.removeChild(el.firstChild);
+      el.appendChild(frag);
+      try { el.setAttribute("data-biol10n-tpl", "1"); } catch (e) { /* ignore */ }
+      stats.tpl++;
+    }
+  }
+
   // 整块替换：给被拆成逐字母 span / 被内嵌链接切碎的块用（词条打不中时）
   function applyBlocks() {
     var list = site.blocks;
@@ -907,6 +987,7 @@ function createEngine(options) {
     var roots = scopeRoots();
     T.push(now());
     for (var q = 0; q < roots.length; q++) translateParagraphs(roots[q]);
+    for (var tq = 0; tq < roots.length; tq++) translateTemplates(roots[tq]);
     T.push(now());
     for (var i = 0; i < roots.length; i++) walk(roots[i]);
     T.push(now());
@@ -995,6 +1076,14 @@ function createEngine(options) {
         for (var i = 0; i < kids.length; i++) el.appendChild(kids[i]);
       }
       try { el.removeAttribute("data-biol10n-block"); } catch (e) { /* ignore */ }
+    });
+    doc.querySelectorAll("[data-biol10n-tpl]").forEach(function (el) {
+      var kids = blockOriginals.get(el);
+      if (kids) {
+        while (el.firstChild) el.removeChild(el.firstChild);
+        for (var i = 0; i < kids.length; i++) el.appendChild(kids[i]);
+      }
+      try { el.removeAttribute("data-biol10n-tpl"); } catch (e) { /* ignore */ }
     });
     var nodes = [];
     var w = doc.createTreeWalker(doc.body, 4, null, false), n;

@@ -795,5 +795,203 @@
    "re": "^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\\.? (\\d{4}) \\((.+)\\)$",
    "to": "$2 年 $1（$3）"
   }
+ ],
+ "templates": [
+  {
+   "pat": "{{1}} - a tool that allows you to upload and display genome-wide data sets such as the results of genome-wide SNP association studies, linkage studies and homozygosity mapping. {{2}}。",
+   "zh": "{{1}}：一种可上传并显示全基因组数据集的工具，例如全基因组 SNP 关联研究、连锁研究和纯合性定位的结果。{{2}}。"
+  },
+  {
+   "pat": "{{1}} - expression, homology, and other information on groups of genes that can be related in many ways. {{2}}.",
+   "zh": "{{1}}：提供可按多种方式关联的基因群的表达、同源及其他信息。{{2}}."
+  },
+  {
+   "pat": "Specify the genome location you'd like the Genome Browser to open to. To select a location, enter a valid position query in the {{1}} text box at the top of the Gateway page or accept the default position already displayed. The search supports several different types of {{2}}: gene symbols, mRNA or EST accession numbers, chromosome bands, descriptive terms likely to occur in GenBank text, or specific chromosomal ranges.",
+   "zh": "指定您希望基因组浏览器打开的基因组位置。要选择位置，请在网关页面顶部的{{1}}文本框中输入有效的位置查询式，或接受已显示的默认位置。检索支持多种不同类型的{{2}}：基因符号、mRNA 或 EST 登录号、染色体条带、可能出现在 GenBank 文本中的描述性词语，或特定的染色体范围。"
+  },
+  {
+   "pat": "Click the {{1}} button to open up the Genome Browser window to the requested location. In cases where a specific term (accession, gene name, etc.) was queried, the item will be highlighted in the display.",
+   "zh": "单击{{1}}按钮，即可将基因组浏览器窗口打开到所请求的位置。如果查询的是特定词语（登录号、基因名称等），该条目将在显示中高亮。"
+  },
+  {
+   "pat": "{{1}} If an annotation track does not display correctly when you attempt to upload it, you may need to reset the Genome Browser to its default settings, then reload the track. For information on troubleshooting display problems with custom annotation tracks, refer to the troubleshooting section in the {{2}} section.",
+   "zh": "{{1}}如果注释轨道在上传时无法正确显示，您可能需要将基因组浏览器重置为默认设置，然后重新加载该轨道。有关自定义注释轨道显示问题的故障排除信息，请参阅{{2}}部分中的故障排除章节。"
+  },
+  {
+   "pat": "{{1}}{{2}} Aligning regions (usually exons when the query is cDNA) are shown as black blocks. In dense display mode, the degree of darkness corresponds to the number of features aligning to the region or the degree of quality of the match. In pack or full display mode, the aligning regions are connected by lines representing gaps in the alignment (typically spliced-out introns), with arrowheads indicating the orientation of the alignment, pointing right if the query sequence was aligned to the forward strand of the genome and left if aligned to the reverse strand. Two parallel lines are drawn over double-sided alignment gaps, which skip over unalignable sequence in both target and query. For alignments of ESTs, the arrows may be reversed to show the apparent direction of transcription deduced from splice junction sequences. In situations where no gap lines are visible, the arrowheads are displayed on the block itself. To prevent display problems, the Genome Browser imposes an upper limit on the number of alignments that can be viewed simultaneously within the tracks image. When this limit is exceeded, the Browser displays the best several hundred alignments in a condensed display mode, then lists the number of undisplayed alignments in the last row of the track. In this situation, try zooming in to display more entries or to return the track to full display mode. For some PSL tracks, {{3}} to indicate mismatching bases and query-only gaps may be available.",
+   "zh": "{{1}}{{2}}比对区域（当查询为 cDNA 时通常为外显子）显示为黑色块。在密集显示模式下，颜色的深浅程度对应比对到该区域的特征数量或匹配质量的高低。在紧凑或完整显示模式下，比对区域之间由代表比对缺口的线条连接（通常是被剪接掉的内含子），箭头指示比对方向：如果查询序列比对到基因组正链，箭头向右；如果比对到负链，箭头向左。对于双侧比对缺口（即目标序列和查询序列中都含有无法比对的序列），会在缺口上方绘制两条平行线。对于 EST 的比对，箭头可能反转，以显示根据剪接位点序列推断出的表观转录方向。在看不到缺口线的情况下，箭头直接显示在块本身之上。为防止显示问题，基因组浏览器对轨道图像中可同时查看的比对数量设了上限。超过该上限时，浏览器会以压缩显示模式显示最好的几百条比对，并在轨道的最后一行列出未显示的比对数量。遇到这种情况，请尝试放大以显示更多条目，或将轨道恢复为完整显示模式。对于某些 PSL 轨道，可能提供{{3}}来标识错配碱基和仅存在于查询序列中的缺口。"
+  },
+  {
+   "pat": "{{1}}{{2}} Chain tracks display boxes joined together by either single or double lines. The boxes represent aligning regions. Single lines indicate gaps that are largely due to a deletion in the genome of the first species or an insertion in the genome of the second species. Double lines represent more complex gaps that involve substantial sequence in both species. This may result from inversions, overlapping deletions, an abundance of local mutation, or an unsequenced gap in one species. In cases where there are multiple chains over a particular portion of the genome, chains with single-lined gaps are often due to processed pseudogenes, while chains with double-lined gaps are more often due to paralogs and unprocessed pseudogenes. In the fuller display modes, the individual feature names indicate the chromosome, strand, and location (in thousands) of the match for each matching alignment.",
+   "zh": "{{1}}{{2}}Chain 轨道显示由单线或双线连接的框。这些框代表比对区域。单线表示缺口，这类缺口主要源于第一个物种基因组中的缺失或第二个物种基因组中的插入。双线表示更为复杂的缺口，涉及两个物种中都有大量序列。这可能由倒位、重叠缺失、大量局部突变或某个物种中未测序的缺口造成。如果在基因组的某个特定区域存在多条链，则带单线缺口的链通常来自加工型假基因，而带双线缺口的链更常来自旁系同源基因和未加工型假基因。在更完整的显示模式下，各个特征的名称会指出每条匹配比对的染色体、链和位置（以千为单位）。"
+  },
+  {
+   "pat": "To scroll (pan) the view of the entire tracks image horizontally, click on the image and drag the cursor to the left or right, then release the mouse button, to shift the displayed region in the corresponding direction. The view may be scrolled by up to one image width. To scroll the annotation tracks horizontally by set increments of 10%, 50%, or 95% of the displayed size (as given in base pairs), click the corresponding {{1}} arrow. It is also possible to scroll the left or right side of the tracks by a specified number of vertical gridlines while keeping the position of the opposite side fixed. To do this, click the appropriate {{2}} or {{3}} arrow, located under the annotation tracks window. For example, to keep the left-hand display coordinate fixed but increase the right-hand coordinate, you would click the right-hand {{4}} arrow. To increase or decrease the gridline scroll interval, edit the value in the {{5}} or {{6}} text box.",
+   "zh": "要水平滚动（平移）整个轨道图像的视图，请单击图像并向左或向右拖动光标，然后松开鼠标键，即可将显示区域向相应方向移动。视图最多可滚动一个图像宽度。要以显示大小（以碱基对计）的 10%、50% 或 95% 为固定增量水平滚动注释轨道，请单击相应的{{1}}箭头。也可以在保持另一侧位置不变的情况下，将轨道的左侧或右侧滚动指定的竖网格线数。为此，请单击位于注释轨道窗口下方的相应{{2}}或{{3}}箭头。例如，若要保持左侧显示坐标不变而增大右侧坐标，则应单击右侧的{{4}}箭头。要增大或减小网格线滚动间隔，请编辑{{5}}或{{6}}文本框中的值。"
+  },
+  {
+   "pat": "When the {{1}} configuration option is toggled on, on the Track Configuration page, gray double-headed arrows display in the Genome Browser tracks image on both sides of the track labels of gene, mRNA and EST tracks (or any standard tracks based on BED, PSL or genePred format). Clicking on the gray arrows shifts the image window toward that end of the chromosome so that the next item in the track is displayed. Similarly, the {{2}} configuration option displays white double-headed arrows on the end of any item that extends off the edge of the current image. Clicking on one of the white arrows shifts the image window to the next exon in the indicated direction, unless the image window interrupts an exon, in which case the window shifts to the edge of the current exon. If the image window happens to be within a 5' or 3' UTR, then clicking the arrows shifts the image window towards the start or end of the next coding region, not the end of the exon.",
+   "zh": "在「轨道配置」页面上启用{{1}}配置选项后，基因组浏览器轨道图像中会在基因、mRNA 和 EST 轨道（或任何基于 BED、PSL 或 genePred 格式的标准轨道）的轨道标签两侧显示灰色双向箭头。单击灰色箭头会使图像窗口朝染色体的该端移动，从而显示轨道中的下一个条目。类似地，{{2}}配置选项会在任何超出当前图像边缘的条目的末端显示白色双向箭头。单击某个白色箭头会使图像窗口朝指示方向移动到下一个外显子，除非图像窗口截断了一个外显子，此时窗口会移动到当前外显子的边缘。如果图像窗口恰好位于 5' 或 3' UTR 内，则单击箭头会使图像窗口朝下一个编码区的起点或终点移动，而不是外显子的末端。"
+  },
+  {
+   "pat": "display the entire tracks image in a separate window for inclusion in spreadsheets or other documents. The Genome Browser {{1}} option under the View menu can also be used to generate a high-quality annotation tracks image suitable for printing.",
+   "zh": "在单独的窗口中显示整个轨道图像，以便插入电子表格或其他文档。也可以使用基因组浏览器「视图」菜单下的{{1}}选项生成适合打印的高质量注释轨道图像。"
+  },
+  {
+   "pat": "Open the {{1}} by clicking on the \"Tools\" pulldown in the top blue menu bar of the Genome Browser.",
+   "zh": "在基因组浏览器顶部蓝色菜单栏中单击「工具」下拉菜单，即可打开{{1}}。"
+  },
+  {
+   "pat": "{{1}} – Select the genome, assembly, query type, output sort order, and output type. To order the search results based on the closeness of the sequence match, choose one of the score options in the {{2}} menu. The score is determined by the number of matches vs. mismatches in the final alignment of the query to the genome. {{3}} {{4}} – The \"Search ALL\" checkbox above the Genome drop-down list allows you to search the genomes of the default assemblies for all of our organisms. This shows you an ordered list of the default assemblies having the greatest similarity with your query sequence. Additionally, the {{5}} feature searches any attached hubs' blat servers, meaning you can search your user-generated assembly hubs.",
+   "zh": "{{1}}：选择基因组、组装、查询类型、输出排序方式和输出类型。若要按序列匹配的接近程度对检索结果排序，请在{{2}}菜单中选择一个评分选项。评分由查询序列与基因组最终比对中的匹配数与错配数决定。{{3}}{{4}}：基因组下拉列表上方的「全部检索」复选框允许您检索我们所有生物默认组装的基因组，从而显示与您的查询序列相似度最高的默认组装的有序列表。此外，利用{{5}}功能还能检索所有已挂接 Hub 的 BLAT 服务器，也就是说您可以检索自己创建的组装 Hub。"
+  },
+  {
+   "pat": "If the sequence to be uploaded is in an unformatted plain text file, enter the file name in the {{1}} text box, then click the {{2}} button. Otherwise, paste the sequence or fasta-formatted list into the large edit box, and then click the {{3}} button. Input sequence can be obtained from the Genome Browser as well as from a custom annotation track.",
+   "zh": "如果要上传的序列位于未格式化的纯文本文件中，请在{{1}}文本框中输入文件名，然后单击{{2}}按钮。否则，请将序列或 fasta 格式的列表粘贴到大编辑框中，然后单击{{3}}按钮。输入序列既可以从基因组浏览器获取，也可以从自定义注释轨道获取。"
+  },
+  {
+   "pat": "{{1}} Program-driven BLAT use is limited to a maximum of one hit every 15 seconds and no more than 5000 hits per day.",
+   "zh": "{{1}}程序驱动的 BLAT 使用限制为每 15 秒最多一次命中，每天不超过 5000 次命中。"
+  },
+  {
+   "pat": "To quickly toggle between {{1}} and {{2}} or {{3}} display modes, click on the track's center label.",
+   "zh": "要在{{1}}、{{2}}或{{3}}显示模式之间快速切换，请单击轨道的中心标签。"
+  },
+  {
+   "pat": "Track data can be viewed as text tables using the {{1}}。",
+   "zh": "使用{{1}}即可将轨道数据作为文本表格查看。"
+  },
+  {
+   "pat": "{{1}} goes to many individuals and institutions for generously contributing the tracks. For specific information about the contributors of a given track, look at the Credits section on a track's description page.",
+   "zh": "{{1}}归于众多慷慨贡献轨道的个人和机构。要了解某个特定轨道贡献者的具体信息，请查看该轨道描述页面上的「致谢」部分。"
+  },
+  {
+   "pat": "For information on using the Table Browser features, refer to the {{1}}。",
+   "zh": "有关使用表格浏览器功能的信息，请参阅{{1}}。"
+  },
+  {
+   "pat": "For more detailed information on using the Session tool, see the {{1}}。",
+   "zh": "有关使用会话工具的详细信息，请参阅{{1}}。"
+  },
+  {
+   "pat": "For information on using the Genome Graphs features, refer to the {{1}}。",
+   "zh": "有关使用基因组图谱功能的信息，请参阅{{1}}。"
+  },
+  {
+   "pat": "To start the VisiGene browser, click the VisiGene link in the left-hand sidebar menu on the {{1}} home page.",
+   "zh": "要启动 VisiGene 浏览器，请在{{1}}主页左侧边栏菜单中单击 VisiGene 链接。"
+  },
+  {
+   "pat": "High-quality high-resolution images of eight-week-old male mouse sagittal brain slices with reverse-complemented mRNA hybridization probes from the {{1}}, courtesy of the {{2}}",
+   "zh": "八周龄雄性小鼠矢状脑切片的高质量高分辨率图像，采用反向互补的 mRNA 杂交探针，图像来自{{1}}，由{{2}}提供"
+  },
+  {
+   "pat": "{{1}} images from the {{2}} (NIBB) XDB project",
+   "zh": "来自{{2}}（NIBB）XDB 项目的{{1}}图像"
+  },
+  {
+   "pat": "{{1}} It is not recommeneded to use LiftOver to convert SNPs between assemblies, and more information about how to convert SNPs between assemblies can be found on the following {{2}}。",
+   "zh": "{{1}}不建议使用 LiftOver 在不同组装之间转换 SNP，有关如何在不同组装之间转换 SNP 的更多信息，请参见以下{{2}}。"
+  },
+  {
+   "pat": "Select the Data Format option: Browser Extensible Data format ({{1}}) or position (coordinates of the form {{2}}).",
+   "zh": "选择数据格式选项：浏览器可扩展数据格式（{{1}}）或位置（形如{{2}}的坐标）。"
+  },
+  {
+   "pat": "For more information please click {{1}}。",
+   "zh": "更多信息请点击{{1}}。"
+  },
+  {
+   "pat": "The {{1}} can be used to query both annotation and sequence data from any UCSC genome assembly or hub.",
+   "zh": "{{1}}可用于查询任何 UCSC 基因组组装或 Hub 的注释数据和序列数据。"
+  },
+  {
+   "pat": "{{1}} a hyperlink to the Update Custom Track page where you can update your track configuration and data.",
+   "zh": "{{1}}：指向“更新自定义轨道”页面的超链接，您可以在该页面更新轨道配置和数据。"
+  },
+  {
+   "pat": "{{1}}the value of the \"description\" attribute from the track line, if present. If no description is included in the input file, this field contains the track name.",
+   "zh": "{{1}}：轨道行中“description”属性的值（如果存在）。如果输入文件中没有包含描述，则此字段包含轨道名称。"
+  },
+  {
+   "pat": "For example, if the browser line {{1}} is included in the annotation file, the Genome Browser window will initially display the first 20000 bases of chr 22.",
+   "zh": "例如，如果注释文件中包含浏览器行{{1}}，基因组浏览器窗口最初将显示 chr 22 的前 20000 个碱基。"
+  },
+  {
+   "pat": "A track line begins with the word {{1}}, followed by one or more {{2}} pairs.",
+   "zh": "轨道行以单词{{1}}开头，后面跟一个或多个{{2}}对。"
+  },
+  {
+   "pat": "Upload your tracks as discussed in the {{1}} section.",
+   "zh": "按照{{1}}一节的说明上传您的轨道。"
+  },
+  {
+   "pat": "Create a named session that includes your custom tracks. Detailed instructions for creating a named session can be found on the {{1}} section of the Sessions help page.",
+   "zh": "创建包含您的自定义轨道的命名会话。创建命名会话的详细说明可在“会话”帮助页面的{{1}}一节中找到。"
+  },
+  {
+   "pat": "The {{1}} on which your annotation data is based. To automatically display the most recent assembly for a given organism, set the {{2}} parameter: {{3}} {{4}}. To specify a particular genome assembly for an organism, use the {{5}} parameter, {{6}}, where {{7}} is the UCSC code for the genome assembly. For a list of these codes, see the Genome Browser {{8}}. Examples of this include: db=hg38 (Human Dec. 2013 assembly = GRCh38), db=mm10 (Mouse Dec. 2011 assembly = GRCm38).",
+   "zh": "您的注释数据所基于的{{1}}。要自动显示给定物种的最新组装，请设置{{2}}参数，写法为{{4}}（{{3}}）。要为某个物种指定特定的基因组组装，请使用{{5}}参数，即{{6}}，其中{{7}}是该基因组组装的 UCSC 代码。这些代码的列表请参见基因组浏览器{{8}}。示例包括：db=hg38（人类 2013 年 12 月组装 = GRCh38）、db=mm10（小鼠 2011 年 12 月组装 = GRCm38）。"
+  },
+  {
+   "pat": "Additionally, particular genome assemblies, including assemblies in assembly hubs, can be specified using the {{1}} parameter, {{2}}, which acts in the same manner as the {{3}} parameter. Here is an example using the house mouse ({{4}}, 129S1_SvImJ) assembly hub: {{5}}",
+   "zh": "此外，特定的基因组组装（包括组装 Hub 中的组装）可以使用{{1}}参数（即{{2}}）来指定，它的作用方式与{{3}}参数相同。下面是一个使用小家鼠（{{4}}，129S1_SvImJ）组装 Hub 的示例：{{5}}"
+  },
+  {
+   "pat": "The {{1}} to which the Genome Browser should initially open. This information is of the form {{2}}, where {{3}} is a chromosome number, with or without a set of coordinates. Examples of this include: position=chr22, position=chr22:15916196-31832390.",
+   "zh": "基因组浏览器初始应打开的{{1}}。此信息的格式为{{2}}，其中{{3}}是染色体编号，可以带或不带一组坐标。示例包括：position=chr22、position=chr22:15916196-31832390。"
+  },
+  {
+   "pat": "The {{1}} on your web-accessible location. This information is of the form {{2}} or {{3}}, where {{4}} points to the annotation file on your website. An example of an annotation file URL is {{5}}.",
+   "zh": "位于您的网络可访问位置的{{1}}。此信息的格式为{{2}}或{{3}}，其中{{4}}指向您网站上的注释文件。注释文件 URL 的一个示例是{{5}}。"
+  },
+  {
+   "pat": "If you created a {{1}}, that stable link can be freely shared.",
+   "zh": "如果您创建了{{1}}，该稳定链接可以自由分享。"
+  },
+  {
+   "pat": "hgRenderTracks returns a PNG image by default. Add {{1}}, the same parameter used by the {{2}} then {{3}} menu item, to get a scalable PDF instead:",
+   "zh": "hgRenderTracks 默认返回 PNG 图像。要改为获得可缩放的 PDF，请添加{{1}}，该参数与通过{{2}}菜单选择{{3}}菜单项时所用的参数相同："
+  },
+  {
+   "pat": "A special blog post discusses and provides examples of many of these parameters such as {{1}}, {{2}}, {{3}}, and {{4}} to attach custom tracks, track hubs, assembly hubs, and even track hubs to assembly hubs, all in a single URL. Read an overview of ways to share Genome Browser data views in the {{5}} blog post. {{6}}",
+   "zh": "一篇专题博客文章讨论并举例说明了其中许多参数，例如{{1}}、{{2}}、{{3}}和{{4}}，可在一个 URL 中附加自定义轨道、轨道 Hub、组装 Hub，甚至把轨道 Hub 附加到组装 Hub 上。有关共享基因组浏览器数据视图的各种方式概述，请阅读{{5}}博客文章。{{6}}"
+  },
+  {
+   "pat": "{{1}} {{2}} do not load the user's existing settings saved in the internet browser's UCSC Genome Browser cookie. This means that the link will show the Genome Browser default settings such as track selections, custom tracks, and track hubs. Any changes you make in this new session will, however, affect the user's settings. E.g., if you add a track in this new window, and come back to the genome browser later, the track will still be there. This setting is useful if a website wants to link to the Genome Browser, starting with a \"clean slate\" but believes the user will come back to the Genome Browser expecting the changes to still be there.",
+   "zh": "{{1}}{{2}}不会加载用户保存在网络浏览器 UCSC 基因组浏览器 cookie 中的现有设置。这意味着该链接会显示基因组浏览器的默认设置，例如轨道选择、自定义轨道和轨道 Hub。不过，您在这个新会话中所做的任何更改都会影响用户的设置。例如，如果您在这个新窗口中添加一条轨道，之后再次回到基因组浏览器，该轨道仍然存在。如果某个网站想要链接到基因组浏览器，从“干净状态”开始，但又认为用户会回到基因组浏览器并期望这些更改依然存在，那么此设置就很有用。"
+  },
+  {
+   "pat": "{{1}} {{2}} show your current tracks, adding a track and set it to full, pack or dense visibility or hide it, respectively{{3}}- {{4}} to show the Chromosome Bands track set to \"pack\" and added to your view as saved in your cart. Please note that for this feature to work with custom tracks you must use the unique name and identifier number {{5}} assigned by our system. You can determine the name for a custom track using the url, {{6}}.",
+   "zh": "{{1}}{{2}}显示您当前的轨道，分别用于添加一条轨道并将其设为完整、紧凑或密集可见性，或将其隐藏{{3}}-{{4}}用于显示已设为“紧凑”并作为您购物车中保存的视图添加的染色体条带轨道。请注意，要使此功能对自定义轨道生效，您必须使用我们系统分配的唯一名称和标识编号{{5}}。您可以通过{{6}}确定自定义轨道的名称。"
+  },
+  {
+   "pat": "The custom track mechanism supports plain BED files (not bigBed) that are of the type {{1}} or {{2}}.",
+   "zh": "自定义轨道机制支持类型为{{1}}或{{2}}的纯 BED 文件（非 bigBed）。"
+  },
+  {
+   "pat": "Dropbox recently removed their Public Folder feature, which means all links to files hosted there are inaccessible to the browser. For more information, please refer to {{1}}.",
+   "zh": "Dropbox 最近移除了其公共文件夹（Public Folder）功能，这意味着托管在该处的文件的所有链接都无法被浏览器访问。更多信息请参阅{{1}}。"
+  },
+  {
+   "pat": "Please see the {{1}} section of the Track Hub help page for more information on hosting your data at CyVerse and other alternatives.",
+   "zh": "有关在 CyVerse 托管数据及其他替代方案的更多信息，请参见轨道 Hub 帮助页面的{{1}}一节。"
+  },
+  {
+   "pat": "For example, if a bigBed file has nine columns, which would include an itemRgb field to display a R,G,B color value (e.g. 255,0,0), specify the type as {{1}} or if the bigBed contains additional {{2}}, use {{3}}.",
+   "zh": "例如，如果 bigBed 文件有九列，其中包含用于显示 R,G,B 颜色值（例如 255,0,0）的 itemRgb 字段，请将类型指定为{{1}}；如果 bigBed 包含额外的{{2}}，请使用{{3}}。"
+  },
+  {
+   "pat": "If you would like to share a URL that your colleague can click on directly, rather than loading it in the Custom Track tool (as in Example #5), then the URL will need a few extra parameters. Let's assume that your data is on a server at your institution in one of the large data formats: {{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}}, {{10}}, {{11}}, {{12}}, or {{13}}. In this case, the URL must include an {{14}} parameter, which simulates the text box on the Custom Tracks page. Also, the URL must include the {{15}} that points to the data file on your server. So, a clickable URL that opens a remote bigBed track for the hg18 assembly to a certain location on chr21 would look like this:",
+   "zh": "如果您想分享一个同事可以直接点击的 URL，而不是在自定义轨道工具中加载它（如示例 #5 所示），那么该 URL 需要几个额外参数。假设您的数据位于所在机构的服务器上，且属于以下大型数据格式之一：{{1}}、{{2}}、{{3}}、{{4}}、{{5}}、{{6}}、{{7}}、{{8}}、{{9}}、{{10}}、{{11}}、{{12}}或{{13}}。在这种情况下，URL 必须包含{{14}}参数，它模拟自定义轨道页面上的文本框。此外，URL 还必须包含指向您服务器上数据文件的{{15}}。因此，一个可点击的 URL，用于为 hg18 组装打开 chr21 上某个位置的远程 bigBed 轨道，看起来会像这样："
+  },
+  {
+   "pat": "{{1}} Multiple tracks can be placed into one custom track submission. To do so, create a new file that contains the {{2}} to each file that will be included. To submit this custom set of tracks, merely use the URL to this new file.",
+   "zh": "{{1}}：一次自定义轨道提交可以放入多条轨道。为此，请创建一个新文件，其中包含指向将要包含的每个文件的{{2}}。要提交这组自定义轨道，只需使用指向这个新文件的 URL。"
+  },
+  {
+   "pat": "Unfortunately, the {{1}} setting limits the hub to one assembly. The {{2}} setting works by having the genomes.txt file point to only one trackDb.txt file, which is the file itself. Although this method limits you to one genome assembly, using the setting grants the advantage of not embedding file names in the hub architecture. So a simple name change to a hub file will no longer require editing the contents inside the hub.txt and genomes.txt files.",
+   "zh": "遗憾的是，{{1}}设置会将 Hub 限制为只能有一个组装。{{2}}设置的工作原理是让 genomes.txt 文件只指向一个 trackDb.txt 文件，也就是该文件本身。尽管这种方法将您限制为只能使用一个基因组组装，但使用该设置的好处是不必在 Hub 架构中嵌入文件名。因此，对 Hub 文件做简单的重命名将不再需要编辑 hub.txt 和 genomes.txt 文件内部的内容。"
+  }
  ]
 }

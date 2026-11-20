@@ -136,8 +136,20 @@ function createEngine(options) {
     return seg;
   }
 
+  /** 规则替换会把任意 "X: Y" 的冒号换成全角，连 "09:15" 里的时间冒号也一起吃掉
+   *  （cBio 的 ^(.+): (.+)$ 命中 "Time: 09:15" 后，$2 又被 ^(.+):\s*([\d,]+)$ 咬掉）。
+   *  做法：进规则前把 数字:数字 的冒号临时换成占位符，出规则再还原。 */
+  var TIME_COLON = "\u0001";
+  function maskTimeColons(s) { return s.replace(/(\d):(\d)/g, "$1" + TIME_COLON + "$2"); }
+  function unmaskTimeColons(s) { return s.indexOf(TIME_COLON) < 0 ? s : s.split(TIME_COLON).join(":"); }
+
   function translate(s, depth) {
-    depth = depth || 0;
+    var masked = /\d:\d/.test(s);
+    var out = translateRules(masked ? maskTimeColons(s) : s, depth || 0);
+    return masked && out !== null ? unmaskTimeColons(out) : out;
+  }
+
+  function translateRules(s, depth) {
     var hitOnce = lookupExact(s);
     if (hitOnce !== null) { stats.hitExact++; return hitOnce; }
     for (var j = 0; j < rules.length; j++) {

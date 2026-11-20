@@ -488,7 +488,10 @@
   "RNA-Seq": "RNA 测序",
   "ATAC-Seq": "ATAC 测序",
   "miRNA-Seq": "miRNA 测序",
-  "FOIA": "《信息自由法》"
+  "FOIA": "《信息自由法》",
+  "copy number variation": "拷贝数变异",
+  "dna methylation": "DNA 甲基化",
+  "scRNA-Seq": "单细胞 RNA 测序"
  },
  "rules": [
   {

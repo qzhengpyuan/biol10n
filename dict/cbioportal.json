@@ -1128,7 +1128,9 @@
   "Capecitabine": "卡培他滨",
   "Bevacizumab": "贝伐珠单抗",
   "Goserelin": "戈舍瑞林",
-  "All patients": "全部患者"
+  "All patients": "全部患者",
+  "Toggle minimap": "切换缩略图",
+  "Patient order": "患者顺序"
  },
  "rules": [
   {

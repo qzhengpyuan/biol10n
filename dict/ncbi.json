@@ -1354,7 +1354,9 @@
   "navigate to Substances section": "跳转到「物质」部分",
   "navigate to Related informationsection": "跳转到「相关信息」部分",
   "navigate to Grants and funding section": "跳转到「资助与资金」部分",
-  "navigate to LinkOut - more resources section": "跳转到「LinkOut - 更多资源」部分"
+  "navigate to LinkOut - more resources section": "跳转到「LinkOut - 更多资源」部分",
+  "Twitter": "推特",
+  "Facebook": "脸书"
  },
  "rules": [
   {

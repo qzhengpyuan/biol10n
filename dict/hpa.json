@@ -1702,7 +1702,14 @@
   "not detected": "未检出",
   "detected in single": "单一细胞类型检出",
   "detected in some": "部分细胞类型检出",
-  "detected in many": "多种细胞类型检出"
+  "detected in many": "多种细胞类型检出",
+  "The hexagons are clickable and redirect to the corresponding page describing the protein expression characterized by the antibody panel(s).": "六边形可点击，会跳转到描述相应抗体组合所表征蛋白表达的页面。",
+  "Tissues and organs are divided into groups according to functional features they have in common. Each tissue name is clickable and redirects to the selected proteome. If you hold your mouse over a symbol, the corresponding organ will be highlighted in the human figure.": "组织与器官按共同的功能特征分组。点击组织名称会跳转到对应的蛋白质组。将鼠标悬停在某个符号上，人形图上相应的器官会高亮显示。",
+  "The expression for all protein-coding genes in all major tissues and organs in the human body can be explored in this interactive database, including numerous catalogs of proteins expressed in a tissue-restricted manner.": "在人体所有主要组织与器官中，全部蛋白编码基因的表达都可以在这个交互式数据库中查看，其中包含许多以组织限制性方式表达的蛋白质目录。",
+  "Classification of all proteins based on tissue protein detection, determining the number of genes with elevated protein detection (tissue/group enriched, tissue enhanced) in a particular tissue compared to all other tissues. Click on the bars or names for gene lists with more details.": "基于组织蛋白质检测对所有蛋白质进行分类，统计某一组织中蛋白检测水平升高（组织/组富集、组织增强）的基因数量，并与所有其他组织比较。点击条形或名称可查看更详细的基因列表。",
+  "The red circles connected to each tissue name indicates the number of tissue enriched genes associated with that particular tissue. The orange circles indicate the number of genes with enriched expression in a group of tissues, connected by lines.": "与每个组织名称相连的红色圆圈表示与该组织相关的组织富集基因数量。橙色圆圈表示在一组组织中富集表达的基因数量，用连线连接。",
+  "An interactive network plot of the numbers of enriched and group enriched genes in all major organs and tissue types in the human body, connected to their respective enriched tissues. Click to obtain the corresponding list of genes.": "人体所有主要器官与组织类型中富集基因与组富集基因数量的交互式网络图，连接到各自富集的组织。点击可获取相应的基因列表。",
+  "The various subproteomes can be explored in this interactive database including numerous catalogs of protein-coding genes with detailed information regarding expression and localization of the corresponding proteins.": "在这个交互式数据库中可以查看各个子蛋白质组，包括许多蛋白编码基因目录，附有相应蛋白表达与定位的详细信息。"
  },
  "rules": [
   {

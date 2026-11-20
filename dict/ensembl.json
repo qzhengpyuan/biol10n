@@ -388,7 +388,9 @@
   "Bacteria": "细菌",
   "Fungi": "真菌",
   "Green Plants": "绿色植物",
-  "Others": "其他"
+  "Others": "其他",
+  "The image below shows a cartoon of a gene (\"GENE\") with five transcripts, some coding (red) and non-coding (blue).": "下图展示了一个基因（“GENE”）及其五个转录本的示意图，其中一些是编码转录本（红色），一些是非编码转录本（蓝色）。",
+  "Find out more about the different types of gene annotation used by Ensembl, and where we get our data from:": "进一步了解 Ensembl 使用的不同类型基因注释，以及我们的数据来源："
  },
  "rules": [
   {

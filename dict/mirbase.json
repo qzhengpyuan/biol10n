@@ -1,260 +1,260 @@
 {
- "meta": {
-  "family": "mirbase",
-  "version": "0.1.0",
-  "sites": [
-   "mirbase.org"
+  "meta": {
+    "family": "mirbase",
+    "version": "0.1.0",
+    "sites": [
+      "mirbase.org"
+    ]
+  },
+  "exact": {
+    "Home": "首页",
+    "Search": "检索",
+    "Browse": "浏览",
+    "Help": "帮助",
+    "Downloads": "下载",
+    "miRSubmit": "miRSubmit 提交系统",
+    "miRBase: the microRNA database": "miRBase：microRNA 数据库",
+    "the archive for microRNA sequences and annotations": "microRNA 序列与注释的存档库",
+    "More about miRBase": "关于 miRBase 的更多信息",
+    "By identifier or keyword": "按标识符或关键词",
+    "Search miRBase with query": "用关键词检索 miRBase",
+    "By miRNA identifier or keyword": "按 miRNA 标识符或关键词",
+    "Enter a miRNA accession, name or keyword:": "输入 miRNA 登录号、名称或关键词：",
+    "By genomic location": "按基因组位置",
+    "Search by genomic location": "按基因组位置检索",
+    "Select organism, chromosome and start and end coordinates.": "选择物种、染色体以及起止坐标。",
+    "Leave the start/end boxes blank to retrieve all miRNAs on the selected chromosome.": "起止坐标留空即检索所选染色体上的全部 miRNA。",
+    "Organism:": "物种：",
+    "Chromosome:": "染色体：",
+    "By tissue expression": "按组织表达",
+    "Select organism and tissue": "选择物种与组织",
+    "Tissue:": "组织：",
+    "Get experiments": "获取实验记录",
+    "By sequence": "按序列",
+    "Search miRBase": "检索 miRBase",
+    "Search results": "检索结果",
+    "Browse miRBase": "浏览 miRBase",
+    "Jump to:": "快速跳转：",
+    "human": "人",
+    "mouse": "小鼠",
+    "rat": "大鼠",
+    "fly": "果蝇",
+    "worm": "线虫",
+    "Click taxa to expand and collapse the tree. Click species names to list microRNAs.": "点击分类单元可展开或折叠树，点击物种名可列出相应 microRNA。",
+    "Key: species name (miRNA count) [assembly version]": "图例：物种名（miRNA 数量）[组装版本]",
+    "Expand all": "全部展开",
+    "Collapse all": "全部收起",
+    "miRBase - Help": "miRBase - 帮助",
+    "About the miRBase Sequence database and Registry": "关于 miRBase 序列数据库与 Registry",
+    "What does miRBase provide?": "miRBase 提供哪些内容？",
+    "Submitting miRNA sequences for naming": "提交 miRNA 序列以获取命名",
+    "Searching the miRNA database": "检索 miRNA 数据库",
+    "Genome assemblies": "基因组组装版本",
+    "miRNA naming conventions": "miRNA 命名规范",
+    "Who are we?": "关于我们",
+    "References": "参考文献",
+    "miRBase is described in the following articles.": "miRBase 在以下文献中有详细描述。",
+    "If you make use of data presented on miRBase, please cite these articles in addition to the primary data sources:": "若使用 miRBase 的数据，请在引用原始数据来源之外同时引用以下文献：",
+    "The following articles provide guidelines on miRNA annotation:": "以下文献给出 miRNA 注释的指南：",
+    "miRBase - Downloads": "miRBase - 下载",
+    "Go to the FTP site": "前往 FTP 站点",
+    "Previous releases": "历史版本",
+    "README": "说明文件",
+    "Release notes - read these first!": "版本说明 - 请先阅读！",
+    "hairpin.fa": "前体序列文件",
+    "Fasta format sequences of all miRNA hairpins": "全部 miRNA 前体的 FASTA 格式序列",
+    "mature.fa": "成熟体序列文件",
+    "Fasta format sequences of all mature miRNA sequences": "全部成熟 miRNA 的 FASTA 格式序列",
+    "miRNA.diff": "版本差异文件",
+    "Changes between the last release and this": "上一版本与当前版本之间的变化",
+    "Genome coordinates": "基因组坐标文件",
+    "miRSubmit Home": "miRSubmit 首页",
+    "Login": "登录",
+    "Sign Up": "注册",
+    "New Submission": "新建提交",
+    "Submission History": "提交历史",
+    "My miRNAs": "我的 miRNA",
+    "the miRNA Submission System by miRBase": "miRBase 的 miRNA 提交系统",
+    "This system can be used to submit new miRNA sequences to the miRBase Registry for appropriate naming.": "本系统用于向 miRBase Registry 提交新的 miRNA 序列以获得正式命名。",
+    "Comments or questions? Email": "有任何问题或建议请联系",
+    "Wordcloud": "词云",
+    "How is the hairpin structure generated?": "前体发夹结构是如何生成的？",
+    "We have generated a dot-bracket structure for each sequence using RNAfold.": "我们使用 RNAfold 为每条序列生成了点括号结构。",
+    "Unambiguous secondary structure.": "明确的二级结构。",
+    "Parsed and ASCII art drawn.": "解析并绘制为 ASCII 图形。",
+    "Accession": "登录号",
+    "Symbol": "符号",
+    "Description": "描述",
+    "Summary": "摘要",
+    "Caution, this is an AI generated summary based on literature. This may have errors.": "注意：本摘要由 AI 根据文献生成，可能存在错误。",
+    "Literature search": "文献检索",
+    "Sequence": "序列",
+    "Show Histogram": "显示直方图",
+    "Copy Sequence": "复制序列",
+    "Structure": "结构",
+    "Annotation confidence": "注释可信度",
+    "Do you think this miRNA is real?": "你认为该 miRNA 是否真实存在？",
+    "Leave comment": "留下评论",
+    "Please write your comment": "请填写评论内容",
+    "Your email": "电子邮箱",
+    "Your comment": "你的评论",
+    "Leave Comment": "提交评论",
+    "Comments": "评论",
+    "Genome context": "基因组位置",
+    "Disease association": "疾病关联",
+    "Show": "显示",
+    "Hide": "隐藏",
+    "Disease": "疾病",
+    "Category": "类别",
+    "PubMed ID": "PubMed 编号",
+    "Biological pathways": "生物学通路",
+    "Biological reactions": "生物学反应",
+    "Database links": "数据库链接",
+    "Evidence": "证据",
+    "Predicted targets": "预测靶基因",
+    "PubMed ID:": "PubMed 编号：",
+    "Provided by Rfam": "由 Rfam 提供",
+    "Provided by RNAcentral": "由 RNAcentral 提供",
+    "Name": "名称",
+    "RPM": "RPM（每百万读数）",
+    "Start": "起始",
+    "End": "终止",
+    "Strand": "链方向",
+    "Confidence": "可信度",
+    "(current)": "（当前）",
+    "Home (current)": "首页（当前）",
+    "Entries": "条目",
+    "Hairpin": "前体发夹",
+    "Mature": "成熟体",
+    "Precursor": "前体",
+    "Organism": "物种",
+    "Browse by organism": "按物种浏览",
+    "Export": "导出",
+    "Cite": "引用",
+    "More about miRBase →": "更多关于 miRBase →",
+    "Fetch sequences": "获取序列",
+    "High": "高",
+    "Section": "分区",
+    "#hits": "命中数",
+    "Precursor miRNA": "前体 miRNA",
+    "Mature miRNA": "成熟体 miRNA",
+    "Dead": "已废弃",
+    "All matches": "全部匹配",
+    "Download CSV File": "下载 CSV 文件",
+    "Previous ID": "原标识符",
+    "Previous mature ID": "原成熟体标识符",
+    "Dead entry previous ID": "已废弃条目的原标识符",
+    "Site": "位点",
+    "There are no results in this section matching": "本节无匹配结果",
+    "ascending": "升序",
+    "descending": "降序",
+    "Your query": "您的检索",
+    "returned": "返回",
+    "matched": "匹配",
+    "matched previous IDs of": "按原标识符匹配到",
+    "matched the gene symbol(s) of": "按基因符号匹配到",
+    "hairpin entries": "前体条目",
+    "mature entries": "成熟体条目",
+    "Stem-loop": "茎环",
+    "Click": "点击",
+    "here": "此处",
+    "for more.": "了解更多。",
+    "(Source:": "（来源：",
+    "experimental": "实验验证",
+    "Want the script? Email us or visit": "需要该脚本？请发邮件或访问",
+    "or something.": "或类似内容。",
+    "miRBase Homepage": "miRBase 首页",
+    "Source:": "来源：",
+    "Information on various aspects of miRNAs and the miRBase Sequence database and Registry can be accessed using the links below. The field of miRNA biology is rapidly evolving. If you think some of the information here is out-of-date, or if we can add other useful information to these pages, please email us at mirbase@manchester.ac.uk.": "关于 miRNA 的各个方面以及 miRBase 序列数据库和 Registry 的信息，可通过下面的链接访问。miRNA 生物学领域发展迅速。如果您认为这里的某些信息已经过时，或者我们可以向这些页面补充其他有用的信息，请发送电子邮件至 miRBase 团队。"
+  },
+  "rules": [
+    {
+      "re": "^Version ([\\d.]+) released (.+)$",
+      "to": "版本 $1，发布于 $2"
+    },
+    {
+      "re": "^Browse miRBase by species \\((\\d+) organisms\\)$",
+      "to": "按物种浏览 miRBase（$1 个物种）"
+    },
+    {
+      "re": "^miRBase entry: (.+)$",
+      "to": "miRBase 条目：$1"
+    },
+    {
+      "re": "^Stem-loop (.+)$",
+      "to": "$1 的前体发夹结构"
+    },
+    {
+      "re": "^Wordcloud for (.+)$",
+      "to": "$1 词云"
+    },
+    {
+      "re": "^(\\d+) open access papers mention (.+)$",
+      "to": "有 $1 篇开放获取论文提及 $2"
+    },
+    {
+      "re": "^([\\d.]+) reads per million, (\\d+) experiments$",
+      "to": "每百万读数 $1，共 $2 个实验"
+    },
+    {
+      "re": "^(.+) miRNAs$",
+      "to": "$1 的 miRNA"
+    },
+    {
+      "re": "^\\((\\d+) sentences\\)$",
+      "to": "（$1 个句子）"
+    },
+    {
+      "re": "^Showing (\\d+) to (\\d+) of ([\\d,]+) entries$",
+      "to": "显示第 $1 至 $2 条，共 $3 条"
+    },
+    {
+      "re": "^(.+): activate to sort column (ascending|descending)$",
+      "to": "$1：点击按列$2排序"
+    },
+    {
+      "re": "^mention (.+)$",
+      "to": "提及 $1"
+    },
+    {
+      "re": "^(\\d+) open access papers$",
+      "to": "$1 篇开放获取论文"
+    },
+    {
+      "re": "^reads per million, (\\d+) experiments$",
+      "to": "每百万读数（RPM），$1 个实验"
+    },
+    {
+      "re": "^Yes \\(\\+(\\d+)\\)$",
+      "to": "是（+$1）"
+    },
+    {
+      "re": "^No \\(-(\\d+)\\)$",
+      "to": "否（-$1）"
+    },
+    {
+      "re": "^(.+) is associated with one or more human diseases in the$",
+      "to": "$1 与一种或多种人类疾病相关，见"
+    },
+    {
+      "re": "^(.+) is involved in one or more biological pathways:$",
+      "to": "$1 参与一条或多条生物学通路："
+    },
+    {
+      "re": "^(.+) is involved in one or more regulation/signalling events:$",
+      "to": "$1 参与一项或多项调控/信号事件："
+    },
+    {
+      "re": "^(.+) precursor miRNA (.+)$",
+      "to": "$1 前体 miRNA $2"
+    },
+    {
+      "re": "^(.+) mature miRNA$",
+      "to": "$1 成熟体 miRNA"
+    },
+    {
+      "re": "^page for (.+)$",
+      "to": "$1 的页面"
+    }
   ]
- },
- "exact": {
-  "Home": "首页",
-  "Search": "检索",
-  "Browse": "浏览",
-  "Help": "帮助",
-  "Downloads": "下载",
-  "miRSubmit": "miRSubmit 提交系统",
-  "miRBase: the microRNA database": "miRBase：microRNA 数据库",
-  "the archive for microRNA sequences and annotations": "microRNA 序列与注释的存档库",
-  "More about miRBase": "关于 miRBase 的更多信息",
-  "By identifier or keyword": "按标识符或关键词",
-  "Search miRBase with query": "用关键词检索 miRBase",
-  "By miRNA identifier or keyword": "按 miRNA 标识符或关键词",
-  "Enter a miRNA accession, name or keyword:": "输入 miRNA 登录号、名称或关键词：",
-  "By genomic location": "按基因组位置",
-  "Search by genomic location": "按基因组位置检索",
-  "Select organism, chromosome and start and end coordinates.": "选择物种、染色体以及起止坐标。",
-  "Leave the start/end boxes blank to retrieve all miRNAs on the selected chromosome.": "起止坐标留空即检索所选染色体上的全部 miRNA。",
-  "Organism:": "物种：",
-  "Chromosome:": "染色体：",
-  "By tissue expression": "按组织表达",
-  "Select organism and tissue": "选择物种与组织",
-  "Tissue:": "组织：",
-  "Get experiments": "获取实验记录",
-  "By sequence": "按序列",
-  "Search miRBase": "检索 miRBase",
-  "Search results": "检索结果",
-  "Browse miRBase": "浏览 miRBase",
-  "Jump to:": "快速跳转：",
-  "human": "人",
-  "mouse": "小鼠",
-  "rat": "大鼠",
-  "fly": "果蝇",
-  "worm": "线虫",
-  "Click taxa to expand and collapse the tree. Click species names to list microRNAs.": "点击分类单元可展开或折叠树，点击物种名可列出相应 microRNA。",
-  "Key: species name (miRNA count) [assembly version]": "图例：物种名（miRNA 数量）[组装版本]",
-  "Expand all": "全部展开",
-  "Collapse all": "全部收起",
-  "miRBase - Help": "miRBase - 帮助",
-  "About the miRBase Sequence database and Registry": "关于 miRBase 序列数据库与 Registry",
-  "What does miRBase provide?": "miRBase 提供哪些内容？",
-  "Submitting miRNA sequences for naming": "提交 miRNA 序列以获取命名",
-  "Searching the miRNA database": "检索 miRNA 数据库",
-  "Genome assemblies": "基因组组装版本",
-  "miRNA naming conventions": "miRNA 命名规范",
-  "Who are we?": "关于我们",
-  "References": "参考文献",
-  "miRBase is described in the following articles.": "miRBase 在以下文献中有详细描述。",
-  "If you make use of data presented on miRBase, please cite these articles in addition to the primary data sources:": "若使用 miRBase 的数据，请在引用原始数据来源之外同时引用以下文献：",
-  "The following articles provide guidelines on miRNA annotation:": "以下文献给出 miRNA 注释的指南：",
-  "miRBase - Downloads": "miRBase - 下载",
-  "Go to the FTP site": "前往 FTP 站点",
-  "Previous releases": "历史版本",
-  "README": "说明文件",
-  "Release notes - read these first!": "版本说明 - 请先阅读！",
-  "hairpin.fa": "前体序列文件",
-  "Fasta format sequences of all miRNA hairpins": "全部 miRNA 前体的 FASTA 格式序列",
-  "mature.fa": "成熟体序列文件",
-  "Fasta format sequences of all mature miRNA sequences": "全部成熟 miRNA 的 FASTA 格式序列",
-  "miRNA.diff": "版本差异文件",
-  "Changes between the last release and this": "上一版本与当前版本之间的变化",
-  "Genome coordinates": "基因组坐标文件",
-  "miRSubmit Home": "miRSubmit 首页",
-  "Login": "登录",
-  "Sign Up": "注册",
-  "New Submission": "新建提交",
-  "Submission History": "提交历史",
-  "My miRNAs": "我的 miRNA",
-  "the miRNA Submission System by miRBase": "miRBase 的 miRNA 提交系统",
-  "This system can be used to submit new miRNA sequences to the miRBase Registry for appropriate naming.": "本系统用于向 miRBase Registry 提交新的 miRNA 序列以获得正式命名。",
-  "Comments or questions? Email": "有任何问题或建议请联系",
-  "Wordcloud": "词云",
-  "How is the hairpin structure generated?": "前体发夹结构是如何生成的？",
-  "We have generated a dot-bracket structure for each sequence using RNAfold.": "我们使用 RNAfold 为每条序列生成了点括号结构。",
-  "Unambiguous secondary structure.": "明确的二级结构。",
-  "Parsed and ASCII art drawn.": "解析并绘制为 ASCII 图形。",
-  "Accession": "登录号",
-  "Symbol": "符号",
-  "Description": "描述",
-  "Summary": "摘要",
-  "Caution, this is an AI generated summary based on literature. This may have errors.": "注意：本摘要由 AI 根据文献生成，可能存在错误。",
-  "Literature search": "文献检索",
-  "Sequence": "序列",
-  "Show Histogram": "显示直方图",
-  "Copy Sequence": "复制序列",
-  "Structure": "结构",
-  "Annotation confidence": "注释可信度",
-  "Do you think this miRNA is real?": "你认为该 miRNA 是否真实存在？",
-  "Leave comment": "留下评论",
-  "Please write your comment": "请填写评论内容",
-  "Your email": "电子邮箱",
-  "Your comment": "你的评论",
-  "Leave Comment": "提交评论",
-  "Comments": "评论",
-  "Genome context": "基因组位置",
-  "Disease association": "疾病关联",
-  "Show": "显示",
-  "Hide": "隐藏",
-  "Disease": "疾病",
-  "Category": "类别",
-  "PubMed ID": "PubMed 编号",
-  "Biological pathways": "生物学通路",
-  "Biological reactions": "生物学反应",
-  "Database links": "数据库链接",
-  "Evidence": "证据",
-  "Predicted targets": "预测靶基因",
-  "PubMed ID:": "PubMed 编号：",
-  "Provided by Rfam": "由 Rfam 提供",
-  "Provided by RNAcentral": "由 RNAcentral 提供",
-  "Name": "名称",
-  "RPM": "RPM（每百万读数）",
-  "Start": "起始",
-  "End": "终止",
-  "Strand": "链方向",
-  "Confidence": "可信度",
-  "(current)": "（当前）",
-  "Home (current)": "首页（当前）",
-  "Entries": "条目",
-  "Hairpin": "前体发夹",
-  "Mature": "成熟体",
-  "Precursor": "前体",
-  "Organism": "物种",
-  "Browse by organism": "按物种浏览",
-  "Export": "导出",
-  "Cite": "引用",
-  "More about miRBase →": "更多关于 miRBase →",
-  "Fetch sequences": "获取序列",
-  "High": "高",
-  "Section": "分区",
-  "#hits": "命中数",
-  "Precursor miRNA": "前体 miRNA",
-  "Mature miRNA": "成熟体 miRNA",
-  "Dead": "已废弃",
-  "All matches": "全部匹配",
-  "Download CSV File": "下载 CSV 文件",
-  "Previous ID": "原标识符",
-  "Previous mature ID": "原成熟体标识符",
-  "Dead entry previous ID": "已废弃条目的原标识符",
-  "Site": "位点",
-  "There are no results in this section matching": "本节无匹配结果 ",
-  "ascending": "升序",
-  "descending": "降序",
-  "Your query": "您的检索",
-  "returned": "返回",
-  "matched": "匹配",
-  "matched previous IDs of": "按原标识符匹配到",
-  "matched the gene symbol(s) of": "按基因符号匹配到",
-  "hairpin entries": "前体条目",
-  "mature entries": "成熟体条目",
-  "Stem-loop": "茎环",
-  "Click": "点击",
-  "here": "此处",
-  "for more.": "了解更多。",
-  "(Source:": "（来源：",
-  "experimental": "实验验证",
-  "Want the script? Email us or visit": "需要该脚本？请发邮件或访问",
-  "or something.": "或类似内容。",
-  "miRBase Homepage": "miRBase 首页",
-  "Source:": "来源：",
-  "Information on various aspects of miRNAs and the miRBase Sequence database and Registry can be accessed using the links below. The field of miRNA biology is rapidly evolving. If you think some of the information here is out-of-date, or if we can add other useful information to these pages, please email us at mirbase@manchester.ac.uk.": "关于 miRNA 的各个方面以及 miRBase 序列数据库和 Registry 的信息，可通过下面的链接访问。miRNA 生物学领域发展迅速。如果您认为这里的某些信息已经过时，或者我们可以向这些页面补充其他有用的信息，请发送电子邮件至 miRBase 团队。"
- },
- "rules": [
-  {
-   "re": "^Version ([\\d.]+) released (.+)$",
-   "to": "版本 $1，发布于 $2"
-  },
-  {
-   "re": "^Browse miRBase by species \\((\\d+) organisms\\)$",
-   "to": "按物种浏览 miRBase（$1 个物种）"
-  },
-  {
-   "re": "^miRBase entry: (.+)$",
-   "to": "miRBase 条目：$1"
-  },
-  {
-   "re": "^Stem-loop (.+)$",
-   "to": "$1 的前体发夹结构"
-  },
-  {
-   "re": "^Wordcloud for (.+)$",
-   "to": "$1 词云"
-  },
-  {
-   "re": "^(\\d+) open access papers mention (.+)$",
-   "to": "有 $1 篇开放获取论文提及 $2"
-  },
-  {
-   "re": "^([\\d.]+) reads per million, (\\d+) experiments$",
-   "to": "每百万读数 $1，共 $2 个实验"
-  },
-  {
-   "re": "^(.+) miRNAs$",
-   "to": "$1 的 miRNA"
-  },
-  {
-   "re": "^\\((\\d+) sentences\\)$",
-   "to": "（$1 个句子）"
-  },
-  {
-   "re": "^Showing (\\d+) to (\\d+) of ([\\d,]+) entries$",
-   "to": "显示第 $1 至 $2 条，共 $3 条"
-  },
-  {
-   "re": "^(.+): activate to sort column (ascending|descending)$",
-   "to": "$1：点击按列$2排序"
-  },
-  {
-   "re": "^mention (.+)$",
-   "to": "提及 $1"
-  },
-  {
-   "re": "^(\\d+) open access papers$",
-   "to": "$1 篇开放获取论文"
-  },
-  {
-   "re": "^reads per million, (\\d+) experiments$",
-   "to": "每百万读数（RPM），$1 个实验"
-  },
-  {
-   "re": "^Yes \\(\\+(\\d+)\\)$",
-   "to": "是（+$1）"
-  },
-  {
-   "re": "^No \\(-(\\d+)\\)$",
-   "to": "否（-$1）"
-  },
-  {
-   "re": "^(.+) is associated with one or more human diseases in the$",
-   "to": "$1 与一种或多种人类疾病相关，见"
-  },
-  {
-   "re": "^(.+) is involved in one or more biological pathways:$",
-   "to": "$1 参与一条或多条生物学通路："
-  },
-  {
-   "re": "^(.+) is involved in one or more regulation/signalling events:$",
-   "to": "$1 参与一项或多项调控/信号事件："
-  },
-  {
-   "re": "^(.+) precursor miRNA (.+)$",
-   "to": "$1 前体 miRNA $2"
-  },
-  {
-   "re": "^(.+) mature miRNA$",
-   "to": "$1 成熟体 miRNA"
-  },
-  {
-   "re": "^page for (.+)$",
-   "to": "$1 的页面"
-  }
- ]
 }

@@ -33,9 +33,10 @@
    ],
    "dicts": [
     "common",
-    "ncbi"
+    "ncbi",
+    "ncbi-help"
    ],
-   "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner",
+   "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
    "name": "PubMed",
    "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li"
@@ -50,7 +51,7 @@
     "common",
     "ncbi"
    ],
-   "scope": "main, #maincontent, .content",
+   "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
    "name": "NCBI GEO/GDS"
   },
@@ -430,7 +431,7 @@
    "scope": "main, #root, .cbioportal-frontend",
    "spa": true,
    "waitFor": "#root",
-   "skip": ".newsContent li",
+   "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1)",
    "translateNoAllow": [
     ".msk-tabs div[translate=\"no\"]"
    ],
@@ -713,7 +714,7 @@
     "spa",
     "ensembl"
    ],
-   "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static",
+   "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3",
    "spa": true,
    "waitFor": "header, .root__Root__8fRu3, #content",
    "proseExempt": "section[class*=privacyBanner]",

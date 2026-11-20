@@ -1326,7 +1326,15 @@
   "in view": "在视图中",
   "Showing GCF_000001405.40 instead of undefined": "显示 GCF_000001405.40 而非 undefined",
   "for details of assembly revision history": "查看组装修订历史详情",
-  "(Submitter supplied)": "（提交者提供）"
+  "(Submitter supplied)": "（提交者提供）",
+  "Title & authors": "标题与作者",
+  "Comment on": "对本文的评论",
+  "Related information": "相关信息",
+  "PubMed Disclaimer": "PubMed 免责声明",
+  "See all similar articles": "查看所有相似文献",
+  "Full Text Sources": "全文来源",
+  "Other Literature Sources": "其他文献来源",
+  "Miscellaneous": "其他"
  },
  "rules": [
   {

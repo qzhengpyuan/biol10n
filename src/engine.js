@@ -14,7 +14,10 @@ function createEngine(options) {
   var LETTER = /[A-Za-z]/;
   var SKIP_TAGS = {
     SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, CODE: 1, PRE: 1, KBD: 1, SAMP: 1,
-    TEXTAREA: 1, SVG: 1, MATH: 1, TITLE_IGNORE: 0
+    TEXTAREA: 1, SVG: 1, MATH: 1,
+    // <title> 只走 translateTitle 一条路：让文本漫游再翻一遍，rules 会把
+    // "breast cancer - GEO DataSets - NCBI" 局部替换成半中半英（检查方 P0-3）。
+    TITLE: 1
   };
   var DEFAULT_ATTRS = ["placeholder", "title", "aria-label", "alt"];
   // 下载格式名：这些词既是选项文字又是提交值，翻了只会让下载格式变成中文（List → 列表）
@@ -1122,13 +1125,62 @@ function createEngine(options) {
   // 现在记住"我们写进去的那一版"，只要标题变了就重新翻。
   var origTitle = null;
   var translatedTitle = null;
+  /** 标题按 " — " / " | " / ": " 分段翻译。
+   *  整串只查 exact，不跑 rules——旧实现让 ^(.+): (.+)$ 这类规则局部替换标题，
+   *  结果是中文品牌名后面挂一截英文（"…in Breast Invasive Carcinoma（TCGA，泛癌图谱）"）。
+   *  分段时每段也只用 exact：命中的段换成中文，没命中的（品牌名）原样留着。 */
+  function titleBySegments(t) {
+    var seps = [" — ", " – ", " | ", " :: ", " · ", ": ", " - "];
+    for (var s = 0; s < seps.length; s++) {
+      var sep = seps[s];
+      if (t.indexOf(sep) < 0) continue;
+      var parts = t.split(sep);
+      if (parts.length < 2 || parts.length > 4) continue;
+      var out = [], ok = true, changed = false;
+      for (var i = 0; i < parts.length; i++) {
+        var p = String(parts[i]).trim();
+        if (!p || p.length > 60) { ok = false; break; }
+        var tr = lookupExact(p);
+        if (tr !== null) { out.push(tr); changed = true; } else { out.push(p); }
+      }
+      if (ok && changed) return out.join(sep === ": " ? "：" : sep);
+    }
+    return null;
+  }
+
+  var TITLE_BRANDS = {
+    NCBI: 1, NLM: 1, PubMed: 1, GEO: 1, GDS: 1, GSE: 1, GDV: 1, BLAST: 1, SRA: 1, PMC: 1,
+    Ensembl: 1, UniProt: 1, UniProtKB: 1, "RCSB": 1, PDB: 1, HPA: 1, UALCAN: 1, TIMER: 1,
+    GTEx: 1, GDC: 1, "cBioPortal": 1, cBioPortal: 1, GEPIA: 1, KEGG: 1, UCSC: 1,
+    miRBase: 1, TCGA: 1, EMBL: 1, EBI: 1, HGNC: 1, NCI: 1, "GEO DataSets": 1
+  };
+  /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
+  function titleAcceptable(v) {
+    if (!hasCJK(v)) return false;
+    var words = String(v).match(/[A-Za-z][A-Za-z0-9.+#-]*/g) || [];
+    for (var i = 0; i < words.length; i++) {
+      var w = words[i];
+      if (TITLE_BRANDS[w]) continue;
+      if (/\d/.test(w)) continue;
+      if (w.length <= 2) continue;
+      if (w === w.toUpperCase()) continue;
+      return false;
+    }
+    return true;
+  }
+
   function translateTitle() {
     if (!enabled) return;
     var t = doc.title;
     if (!t) return;
     if (translatedTitle !== null && t === translatedTitle) return;
+    if (hasCJK(t)) { translatedTitle = t; return; }
     var v = lookupExact(t);
+    if (v === null) v = titleBySegments(t);
     if (v === null) v = translate(t);
+    // 规则兜底也只接受"没剩下英文单词"的结果：剩下 ≥3 字母的小写单词说明只翻了半截
+    // （"breast cancer - GEO 数据集 - NCBI"），宁可整条不动。
+    if (v !== null && !titleAcceptable(v)) v = null;
     if (v === null) return;
     origTitle = t;
     translatedTitle = v;

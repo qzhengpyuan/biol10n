@@ -320,8 +320,6 @@
   "RefSeq match": "RefSeq 匹配",
   "Flags": "标记",
   "Ensembl canonical": "Ensembl 规范转录本",
-  "Twitter": "Twitter",
-  "Facebook": "Facebook",
   "genomes": "个基因组",
   "Remove this genome from selected genomes": "从所选基因组中移除此基因组",
   "nonsense_mediated_decay": "无义介导的衰变",
@@ -381,7 +379,16 @@
   "An Ensembl gene (with a unique ENSG... ID) includes any spliced transcripts (ENST...) with overlapping coding sequence, with the exception of manually annotated readthrough genes which are annotated as a separate locus. Transcripts from the Ensembl annotation process, the Havana/Vega set and the Consensus Coding Sequence (CCDS project) set may all be clustered into the same gene. Transcripts that belong to the same gene ID may differ in transcription start and end sites, splice events and exons, and can give rise to very different proteins. Transcript clusters with no overlapping coding sequence are annotated as separate genes. Two transcripts may overlap in non-coding sequence (ie intronic sequence or UnTranslated Region (UTR), and be classified under two separate genes. After the Ensembl gene and transcript sequences are defined, the gene and transcript names are assigned.": "一个 Ensembl 基因（带唯一的 ENSG… 编号）包含所有编码序列相互重叠的剪接转录本（ENST…），但人工注释的读通（readthrough）基因除外，此类基因被注释为独立位点。来自 Ensembl 注释过程、Havana/Vega 集合与共识编码序列（CCDS 项目）集合的转录本都可能被聚到同一基因下。属于同一基因编号的转录本在转录起始与终止位点、剪接事件与外显子上可以不同，可能产生差异很大的蛋白质。编码序列不重叠的转录本簇会被注释为不同基因。两个转录本可以在非编码序列（如内含子序列或非翻译区 UTR）上重叠，此时分别归入两个不同基因。Ensembl 的基因与转录本序列确定之后，再为其分配基因名与转录本名。",
   "The sequence of any gene or transcript shown in Ensembl is the sequence in the underlying genome assembly, where the sequence of any protein is the translated genomic sequence. This is to prevent any mismatch between the genes and the genome. For this reason, sequences of genes, transcripts and proteins in Ensembl may differ from other databases, who may use sequence from other individuals than were used to produce the genome.": "Ensembl 中展示的任何基因或转录本序列，都是底层基因组组装中的序列；任何蛋白质序列则是翻译后的基因组序列。这样做是为了避免基因与基因组之间出现不一致。正因如此，Ensembl 中的基因、转录本与蛋白质序列可能与其他数据库不同——后者可能使用了产生该基因组的个体之外的其他个体的序列。",
   "Perl API Documentation": "Perl API 文档",
-  "Ensembl Software Support": "Ensembl 软件支持"
+  "Ensembl Software Support": "Ensembl 软件支持",
+  "Select a tab to see a Genome home page": "选择一个标签页以查看基因组主页",
+  "Popular species": "常见物种",
+  "External projects": "外部项目",
+  "Animals": "动物",
+  "Archaea": "古菌",
+  "Bacteria": "细菌",
+  "Fungi": "真菌",
+  "Green Plants": "绿色植物",
+  "Others": "其他"
  },
  "rules": [
   {

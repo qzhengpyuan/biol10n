@@ -1697,7 +1697,12 @@
   "if a gene is enriched in a particular immune cell type (specificity)": "某基因是否在特定免疫细胞类型中富集（特异性）",
   "which genes have a similar expression profile across the immune cells (expression cluster)": "哪些基因在免疫细胞中具有相似的表达谱（表达聚类）",
   "the catalogue of genes elevated in each of the immune cell types": "各类免疫细胞中表达升高的基因清单",
-  "THE HUMAN IMMUNE CELLS": "人类免疫细胞"
+  "THE HUMAN IMMUNE CELLS": "人类免疫细胞",
+  "low tissue specificity": "低组织特异性",
+  "not detected": "未检出",
+  "detected in single": "单一细胞类型检出",
+  "detected in some": "部分细胞类型检出",
+  "detected in many": "多种细胞类型检出"
  },
  "rules": [
   {

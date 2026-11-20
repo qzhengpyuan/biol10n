@@ -553,7 +553,29 @@ function createEngine(options) {
       var rci = translate(cands[ci]);
       if (rci !== null) { out = rci; full = cands[ci]; break; }
     }
-    if (out === null) { recordMiss(full); return true; }
+    if (out === null) {
+      recordMiss(full);
+      // 整段没命中时按 tspan 兜底：只翻首尾无空格的完整词，
+      // 避免把 Bone + marrow 这种跨节点断词翻成半个。
+      // UCSC 网关的物种树是 <text><tspan>Human</tspan><tspan>Homo sapiens</tspan></text>，
+      // 整段 HumanHomo sapiens 不可能命中，但 Human 本身有词条。
+      try {
+        var w2 = doc.createTreeWalker(t, 4, null, false);
+        var kid;
+        while ((kid = w2.nextNode())) {
+          var rawv = String(kid.nodeValue || "");
+          var trv = rawv.trim();
+          if (!trv || trv !== rawv || /\s/.test(trv) || !LETTER.test(trv) || hasCJK(trv)) continue;
+          var vv = translate(trv);
+          if (vv === null) continue;
+          if (!originals.has(kid)) originals.set(kid, rawv);
+          kid.nodeValue = vv;
+          processed.add(kid);
+          stats.svg = (stats.svg || 0) + 1;
+        }
+      } catch (e2) { /* 兜底失败不影响其它节点 */ }
+      return true;
+    }
     var nodes = [];
     var w = doc.createTreeWalker(t, 4, null, false);
     var n;

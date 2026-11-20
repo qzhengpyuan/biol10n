@@ -735,7 +735,7 @@
    ],
    "scope": "body",
    "proseExempt": "#descriptionText",
-   "skip": "div[style*=\"background-color: #f0f8ff\"], p[style*=\"font-size: smaller\"], .gbsPage > h1 + p",
+   "skip": ".gbsPage > h1 + p",
    "valueText": true,
    "rescan": [
     3000,

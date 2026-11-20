@@ -155,9 +155,18 @@ function createEngine(options) {
     return masked && out !== null ? unmaskTimeColons(out) : out;
   }
 
+  // 命中计数按通道分开：属性与 title 也会走 translate()，混在一个 hitExact 里会出现
+  // 「hitExact 大于 nodes」（nodes 只统计文本通道），看报告时无法判断到底哪一类在涨。
+  var hitChannel = "text";
+  function bumpHit(rule) {
+    if (hitChannel === "attr") { if (rule) stats.attrRule = (stats.attrRule || 0) + 1; else stats.attrHit = (stats.attrHit || 0) + 1; }
+    else if (hitChannel === "title") { if (rule) stats.titleRule = (stats.titleRule || 0) + 1; else stats.titleHit = (stats.titleHit || 0) + 1; }
+    else if (rule) stats.hitRule++; else stats.hitExact++;
+  }
+
   function translateRules(s, depth) {
     var hitOnce = lookupExact(s);
-    if (hitOnce !== null) { stats.hitExact++; return hitOnce; }
+    if (hitOnce !== null) { bumpHit(false); return hitOnce; }
     for (var j = 0; j < rules.length; j++) {
       var m = rules[j].re.exec(s);
       if (m) {
@@ -174,7 +183,7 @@ function createEngine(options) {
           }
           if (!anyHit || !allOk) continue;
         }
-        stats.hitRule++;
+        bumpHit(true);
         var to = rules[j].to;
         return to.replace(/\$(\d)/g, function (_, d) {
           var seg = m[Number(d)];
@@ -345,6 +354,10 @@ function createEngine(options) {
       var badge = null;
       try { badge = el.closest("strong, em, b"); } catch (e) { badge = null; }
       if (badge && badge.closest("li")) return false;
+      // 结果列表里的「more...」是链接的标签文字（GEO 搜索结果 18 处），不是句子成分。
+      // 只放行以省略号结尾的链接标签：正文里「… browser. Contact Us」这种链接必须继续挡，
+      // 否则一句英文里会冒出「联系我们」。
+      try { if (el.closest("a") && /(\.\.\.|…)$/.test(own)) return false; } catch (e) { /* ignore */ }
       // 表格单元格里的短标签：HPA 的 td.summary_info 整块几千字符，标签（DNA sequence）
       // 却是独立单元格，整条命中词库就该翻；单元格里的长句仍被正文保护挡住。
       try { if (el.closest("td, th, dt")) return false; } catch (e) { /* ignore */ }
@@ -848,6 +861,12 @@ function createEngine(options) {
   }
 
   function handleAttributes(el) {
+    var prev = hitChannel;
+    hitChannel = "attr";
+    try { handleAttributesInner(el); } finally { hitChannel = prev; }
+  }
+
+  function handleAttributesInner(el) {
     if (!enabled || !el || !el.getAttribute) return;
     for (var i = 0; i < attrs.length; i++) {
       var name = attrs[i];
@@ -918,10 +937,22 @@ function createEngine(options) {
   function scopeRoots() {
     var sel = site.scope;
     if (!sel) return [doc.body];
-    var roots = [];
+    var roots = [], zeros = [];
+    // 逐个选择器统计：站点的 scope 里写了一个当前页根本不存在的选择器时（GDV 的
+    // #universal_header / #gdv-root），页头页脚会整块漏翻而没有任何提示。
+    // 这里把 0 命中的选择器记进 stats.scopeZero，配 tools/scope-check.mjs 一起看。
     try {
-      doc.querySelectorAll(sel).forEach(function (el) { roots.push(el); });
-    } catch (e) { /* 选择器写错就当全域 */ }
+      var parts = String(sel).split(",");
+      for (var i = 0; i < parts.length; i++) {
+        var one = parts[i].trim();
+        if (!one) continue;
+        var n = 0;
+        try { n = doc.querySelectorAll(one).length; } catch (e2) { zeros.push(one + "（非法）"); continue; }
+        if (!n) { zeros.push(one); continue; }
+        doc.querySelectorAll(one).forEach(function (el) { roots.push(el); });
+      }
+    } catch (e) { /* 站点 scope 整体坏掉时退回 body */ }
+    if (zeros.length) stats.scopeZero = zeros;
     return roots.length ? roots : [doc.body];
   }
 
@@ -1252,6 +1283,12 @@ function createEngine(options) {
   }
 
   function translateTitle() {
+    var prev = hitChannel;
+    hitChannel = "title";
+    try { translateTitleInner(); } finally { hitChannel = prev; }
+  }
+
+  function translateTitleInner() {
     if (!enabled) return;
     var t = doc.title;
     if (!t) return;

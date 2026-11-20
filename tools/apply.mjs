@@ -8,9 +8,10 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { execFileSync, spawn } from "node:child_process";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const port = process.env.CDP_PORT || "9227";
 const server = process.env.DIST_SERVER || "http://127.0.0.1:8765";
 const lockPath = "/tmp/biol10n-apply.lock";

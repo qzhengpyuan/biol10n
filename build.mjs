@@ -1,9 +1,10 @@
 // 构建：把引擎、站点配置与全部词库合成一个离线 .user.js
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import zlib from "node:zlib";
 
-const root = path.dirname(new URL(import.meta.url).pathname);
+const root = path.dirname(fileURLToPath(import.meta.url));
 const read = (p) => fs.readFileSync(path.join(root, p), "utf8");
 const readJSON = (p) => JSON.parse(read(p));
 

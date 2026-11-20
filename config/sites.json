@@ -54,7 +54,8 @@
    ],
    "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
-   "name": "NCBI GEO/GDS"
+   "name": "NCBI GEO/GDS",
+   "skip": "p.title, div.resc, #results .title"
   },
   {
    "id": "ncbi-gdv",
@@ -66,7 +67,7 @@
     "common",
     "ncbi"
    ],
-   "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner",
+   "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
    "spa": true,
    "waitFor": "#gdv-root",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",

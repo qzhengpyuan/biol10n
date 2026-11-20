@@ -3,8 +3,9 @@
 // 用法: node tools/aclass.mjs <siteId> [missFile]
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const [siteId, missArg] = process.argv.slice(2);
 if (!siteId) { console.error("用法: node tools/aclass.mjs <siteId> [missFile]"); process.exit(2); }
 const missFile = missArg || path.join(root, "research", "miss-" + siteId + ".json");

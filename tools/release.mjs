@@ -3,8 +3,9 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.dirname(path.dirname(new URL(import.meta.url).pathname));
+const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const file = path.join(root, "dist/biol10n.user.js");
 if (!fs.existsSync(file)) {
   console.error("dist/biol10n.user.js 不存在，先 npm run build");

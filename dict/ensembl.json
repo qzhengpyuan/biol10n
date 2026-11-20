@@ -395,7 +395,8 @@
   "site search": "站内检索",
   "facility to try and locate information you require.": "功能查找你需要的信息。",
   "If you think an error has occurred, please": "如果你认为出现了错误，请",
-  "Page not found": "页面未找到"
+  "Page not found": "页面未找到",
+  "Search for your feature or use one of the example links": "搜索你的特征，或使用下面的示例链接"
  },
  "rules": [
   {
@@ -413,6 +414,18 @@
   {
    "re": "^Genome browser — Ensembl$",
    "to": "基因组浏览器 — Ensembl"
+  },
+  {
+   "re": "^We do not recognise \"(.+)\"$",
+   "to": "无法识别“$1”"
+  },
+  {
+   "re": "^We do not recognise “(.+)”$",
+   "to": "无法识别“$1”"
+  },
+  {
+   "re": "^We do not recognise '(.+)'$",
+   "to": "无法识别“$1”"
   }
  ],
  "templates": [

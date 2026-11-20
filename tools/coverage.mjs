@@ -1,9 +1,10 @@
 // 用真实页面统计词库覆盖率与未命中短语：node tools/coverage.mjs <html文件> [站点id]
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { JSDOM } from "jsdom";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const file = process.argv[2];
 const siteId = process.argv[3];
 if (!file) { console.error("用法: node tools/coverage.mjs <html> [站点id]"); process.exit(2); }

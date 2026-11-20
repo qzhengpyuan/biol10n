@@ -2,9 +2,10 @@
 // 用法: node tools/smoke.mjs <html文件> <站点url> [条数]
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { JSDOM } from "jsdom";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const file = process.argv[2];
 const url = process.argv[3] || "https://example.org/";
 const limit = Number(process.argv[4] || 40);

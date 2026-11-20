@@ -3,9 +3,10 @@
 // 依赖 CDP 9227 上的浏览器实例与 /mnt/E/临时文件/probe.mjs 的调用约定。
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const PROBE = process.env.PROBE || "/mnt/E/临时文件/probe.mjs";
 const [siteId, url, waitArg] = process.argv.slice(2);
 if (!siteId || !url) { console.error("用法: node tools/scope-check.mjs <siteId> <url> [waitMs]"); process.exit(2); }

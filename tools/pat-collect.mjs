@@ -7,9 +7,10 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const port = process.env.CDP_PORT || "9227";
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const [siteId, url, waitArg] = process.argv.slice(2);
 if (!siteId || !url) {
   console.error("用法: node tools/pat-collect.mjs <siteId> <url> [waitMs]");

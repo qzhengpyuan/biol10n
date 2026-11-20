@@ -1,8 +1,9 @@
 // 术语一致性校验：站点词库不得对全局词条另译（allowOverride 除外）
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const terms = JSON.parse(fs.readFileSync(path.join(root, "docs/terms.json"), "utf8"));
 const canonical = terms.canonical || {};
 const allow = new Set(terms.allowOverride || []);

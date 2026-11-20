@@ -1,8 +1,9 @@
 // 项目自检：词库格式、词条质量、代码红线、站点配置
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.dirname(new URL(import.meta.url).pathname) + "/..";
+const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const R = (p) => path.join(root, p);
 let errors = 0;
 let warns = 0;

@@ -178,8 +178,12 @@ function createEngine(options) {
           for (var k = 1; k < m.length; k++) {
             var segK = m[k];
             if (segK === undefined) continue;
-            if (translateCapture(segK, depth) !== segK) anyHit = true;
-            else if (/[A-Za-z]/.test(segK)) allOk = false;
+            if (translateCapture(segK, depth) !== segK) { anyHit = true; continue; }
+            if (!/[A-Za-z]/.test(segK)) continue;           // 纯数字/标点不参与
+            // 单个大写标识（TCGA、GSE331160、H3C2）算"不必翻"，不能算没命中；
+            // 但带空格的大写短语（ALVEOLAR TYPE I）仍要挡住，否则又出「上皮细胞（ALVEOLAR TYPE I）」。
+            if (/^[A-Za-z0-9][A-Za-z0-9._\-\/]{0,11}$/.test(segK.trim())) continue;
+            allOk = false;
           }
           if (!anyHit || !allOk) continue;
         }
@@ -1180,6 +1184,9 @@ function createEngine(options) {
         }
       }
     });
+    // 脚本也可能被注入到 SVG 图片帧（HPA 的 man.svg / woman.svg）：那里没有 documentElement，
+    // 直接 observe(null) 会在控制台刷 "parameter 1 is not of type 'Node'"。
+    if (!doc.documentElement) return;
     observer.observe(doc.documentElement, {
       childList: true, subtree: true, characterData: true,
       attributes: true, attributeFilter: attrs

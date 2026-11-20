@@ -164,6 +164,16 @@ function createEngine(options) {
     else if (rule) stats.hitRule++; else stats.hitExact++;
   }
 
+  // 「不必翻」的标识：带数字或 . _ - /（GSE331160、P04637、rs587780073、H3C2），
+  // 或 6 个字母以内的全大写缩写（TCGA、DNA、CSV、QTL）。普通英文单词一律不算，
+  // 否则 Study: TCGA 这种能翻的规则会误伤成「研究：LYMPHATIC」（0.9.32 的 GTEx 问题）。
+  function isIdentifier(s) {
+    if (!s) return false;
+    if (/[0-9._\-\/]/.test(s)) return /^[A-Za-z0-9][A-Za-z0-9._\-\/]{0,23}$/.test(s);
+    if (/^[A-Z]{1,6}$/.test(s)) return true;
+    return false;
+  }
+
   function translateRules(s, depth) {
     var hitOnce = lookupExact(s);
     if (hitOnce !== null) { bumpHit(false); return hitOnce; }
@@ -187,7 +197,7 @@ function createEngine(options) {
             // 括号模板（$1（$2））例外：GTEx 的「Endothelial cells (LYMPHATIC)」里 $2 是
             // 纯字母大写词，不是标识，放行会拼出「内皮细胞（LYMPHATIC）」。
             if (/^[A-Z]{4,}$/.test(segK.trim()) && /[（）]/.test(rules[j].to)) { allOk = false; break; }
-            if (/^[A-Za-z0-9][A-Za-z0-9._\-\/]{0,11}$/.test(segK.trim())) continue;
+            if (isIdentifier(segK.trim())) continue;
             allOk = false;
           }
           if (!anyHit || !allOk) continue;

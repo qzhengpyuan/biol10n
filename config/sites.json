@@ -432,7 +432,7 @@
    "scope": "main, #root, .cbioportal-frontend",
    "spa": true,
    "waitFor": "#root",
-   "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1)",
+   "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1), .headBlock, [class*=summary] h1, [class*=summary] h3",
    "translateNoAllow": [
     ".msk-tabs div[translate=\"no\"]"
    ],

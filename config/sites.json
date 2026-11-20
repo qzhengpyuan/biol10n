@@ -714,7 +714,7 @@
     "spa",
     "ensembl"
    ],
-   "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3",
+   "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3, body",
    "spa": true,
    "waitFor": "header, .root__Root__8fRu3, #content",
    "proseExempt": "section[class*=privacyBanner]",

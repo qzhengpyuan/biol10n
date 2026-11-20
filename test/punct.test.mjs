@@ -51,3 +51,10 @@ test("跨元素的重复句号被吞掉、中文之间的换行缩进被裁掉",
   const p = dom.window.document.querySelector("p").textContent;
   assert.equal(p, "肿瘤缩写。");
 });
+test("时间里的冒号不变成全角", () => {
+  const out = run("<p><b>时间</b>: <span>09</span>:<span>15</span></p>");
+  // 时间后面的冒号正常全角化
+  assert.match(out, /时间<\/b>：/);
+  // 09:15 中间的冒号必须保持半角（否则时间被毁成 09：15）
+  assert.match(out, /09<\/span>:<span>15/);
+});

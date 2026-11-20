@@ -393,7 +393,20 @@ function createEngine(options) {
     // 时间 / 比例里的冒号绝不能全角化：DOM 若把 "09:15" 拆成 09 + ":" + 15，
     // 前面的"时间"已翻成中文、下面的数字跳过逻辑又会回看到上一步刚换的"："
     // 判成中文语境，于是 "09:15" 变成 "09：15"（检查方回归用例 1）。
-    if (raw === ":" && /\d$/.test(nearPrev) && /^\d/.test(nearNext)) return;
+    // 邻居要把元素也算进来：<span>09</span>:<span>15</span> 两侧都是元素，
+    // 只看文本兄弟节点会拿到空串，守卫就失效了。
+    if (raw === ":") {
+      var pAny = "", nAny = "";
+      for (var pa = node.previousSibling; pa; pa = pa.previousSibling) {
+        var ps = pa.nodeType === 3 ? String(pa.nodeValue || "").trim() : String(pa.textContent || "").trim();
+        if (ps) { pAny = ps; break; }
+      }
+      for (var na = node.nextSibling; na; na = na.nextSibling) {
+        var ns = na.nodeType === 3 ? String(na.nodeValue || "").trim() : String(na.textContent || "").trim();
+        if (ns) { nAny = ns; break; }
+      }
+      if (/\d$/.test(pAny) && /^\d/.test(nAny)) return;
+    }
     // 标点紧跟一个刚被翻译的元素（<a>More information</a>.）时，前一个"文本"其实是元素内容
     var prevEl = node.previousSibling;
     while (prevEl && prevEl.nodeType === 3 && !String(prevEl.nodeValue || "").trim()) prevEl = prevEl.previousSibling;

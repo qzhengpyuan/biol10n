@@ -108,6 +108,9 @@
   "New Documentation for Local cBioPortal Installations": "本地 cBioPortal 安装的新文档",
   "See more updates": "查看更多更新",
   "Study View": "研究视图",
+  "Move up": "上移",
+  "Move down": "下移",
+  "Remove track": "移除轨道",
   "Patient View": "患者视图",
   "Results View": "结果视图",
   "Example": "示例",
@@ -1233,11 +1236,13 @@
   },
   {
    "re": "^(.+):\\s*([\\d,]+)\\s*\\(([\\d.]+)%\\)$",
-   "to": "$1：$2（$3%）"
+   "to": "$1：$2（$3%）",
+   "requireHit": true
   },
   {
    "re": "^(.+):\\s*([\\d,]+)$",
-   "to": "$1：$2"
+   "to": "$1：$2",
+   "requireHit": true
   },
   {
    "re": "^Queried gene is altered in ([\\d,]+) \\(([\\d.]+|NaN)%\\) of queried patients/samples$",
@@ -1253,7 +1258,8 @@
   },
   {
    "re": "^(.+):\\s*([\\d,]+)\\s*\\(<([\\d.]+)%\\)$",
-   "to": "$1：$2（<$3%）"
+   "to": "$1：$2（<$3%）",
+   "requireHit": true
   },
   {
    "re": "^and (\\d+) more$",

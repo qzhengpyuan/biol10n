@@ -36,3 +36,21 @@ test("独立的时间文本不被规则改成全角", () => {
   assert.match(out, /09:15/);
   assert.equal(out.includes("09：15"), false);
 });
+test("标签没有命中词表时，冒号保持半角", () => {
+  const dom = new JSDOM("<body><p>BRCA_LumA: 499</p><p>Time: 499</p></body>", { url: "https://example.org/" });
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: {
+      exact: { "Time": "时间" },
+      rules: [
+        { re: "^(.+):\\s*([\\d,]+)$", to: "$1：$2", requireHit: true }
+      ]
+    },
+    site: { attrs: [], block: "", proseGuard: true }
+  });
+  engine.start();
+  const ps = [...dom.window.document.querySelectorAll("p")].map(p => p.textContent);
+  assert.equal(ps[0], "BRCA_LumA: 499");
+  assert.equal(ps[1], "时间：499");
+});

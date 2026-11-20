@@ -36,7 +36,7 @@
     "ncbi",
     "ncbi-help"
    ],
-   "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar",
+   "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
    "name": "PubMed",
    "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li"

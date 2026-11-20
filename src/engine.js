@@ -358,6 +358,9 @@ function createEngine(options) {
       // 只放行以省略号结尾的链接标签：正文里「… browser. Contact Us」这种链接必须继续挡，
       // 否则一句英文里会冒出「联系我们」。
       try { if (el.closest("a") && /(\.\.\.|…)$/.test(own)) return false; } catch (e) { /* ignore */ }
+      // 页脚/图注里的短标签（Web Policies、Careers、Data source）是导航不是正文，
+      // 整条命中词表就翻；页脚里的长句仍按正文处理。
+      try { if (el.closest("footer, figcaption, .copyright") && own.length <= 40 && lookupExact(own) !== null) return false; } catch (e) { /* ignore */ }
       // 表格单元格里的短标签：HPA 的 td.summary_info 整块几千字符，标签（DNA sequence）
       // 却是独立单元格，整条命中词库就该翻；单元格里的长句仍被正文保护挡住。
       try { if (el.closest("td, th, dt")) return false; } catch (e) { /* ignore */ }

@@ -51,7 +51,7 @@
     "common",
     "ncbi"
    ],
-   "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm",
+   "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
    "name": "NCBI GEO/GDS"
   },

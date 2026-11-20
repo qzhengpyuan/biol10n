@@ -1136,7 +1136,11 @@
   "No alterations": "无改变",
   "Profiled in Mutations": "在突变中被分析",
   "Tabular": "表格",
-  "Open in Oncoprinter": "在 Oncoprinter 中打开"
+  "Open in Oncoprinter": "在 Oncoprinter 中打开",
+  "cBioPortal for Cancer Genomics": "cBioPortal 癌症基因组学",
+  "cBioPortal for Cancer Genomics::Datasets": "cBioPortal 癌症基因组学::数据集",
+  "Datasets": "数据集",
+  "Study": "研究"
  },
  "rules": [
   {

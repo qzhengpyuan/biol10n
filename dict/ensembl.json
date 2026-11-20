@@ -424,6 +424,18 @@
     {
       "re": "^We do not recognise '(.+)'$",
       "to": "无法识别“$1”"
+    },
+    {
+      "re": "^We do not recognise \"(.+)\" in (.+)$",
+      "to": "无法识别“$1”（$2）"
+    },
+    {
+      "re": "We do not recognise “(.+)” in (.+)$",
+      "to": "无法识别“$1”（$2）"
+    },
+    {
+      "re": "We do not recognise '(.+)' in (.+)$",
+      "to": "无法识别“$1”（$2）"
     }
   ],
   "templates": [

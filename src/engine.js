@@ -244,7 +244,9 @@ function createEngine(options) {
         var t = pe && pe.closest ? pe.closest("text,tspan,title,desc") : null;
         return !t;
       }
-      if (SKIP_TAGS[p.tagName] === 1) return true;
+      // SVG 里的 <style> 是 SVG 命名空间元素，tagName 是小写 "style"，
+      // 用大写比较才能挡住 <style>.cls-1{fill:#737373}</style> 这种被当正文的 CSS。
+      if (SKIP_TAGS[String(p.tagName || "").toUpperCase()] === 1) return true;
       if (p.isContentEditable) return true;
       if (p.dataset && p.dataset.l10nScope === "off") return true;
       // 设置面板自己的文字（BioL10n 等英文标签）永远不参与翻译
@@ -789,7 +791,7 @@ function createEngine(options) {
       if (text.length < 2 || text.length > 60 || hasCJK(text) || !LETTER.test(text)) continue;
       if (processed.has(n)) continue;
       var el = n.parentElement;
-      if (!el || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|PRE|CODE)$/.test(el.tagName)) continue;
+      if (!el || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|PRE|CODE)$/i.test(el.tagName)) continue;
       var block = null;
       try { block = el.closest("p, li, dd, dt, td, th, figcaption"); } catch (e) { block = null; }
       if (!block) continue;
@@ -1322,6 +1324,9 @@ function createEngine(options) {
     if (!t) return;
     if (translatedTitle !== null && t === translatedTitle) return;
     if (hasCJK(t)) { translatedTitle = t; return; }
+    // 标题被 titleAcceptable 拒掉时，translate() 里已给 titleHit/titleRule 记了账。
+    // 记的是"尝试过"而不是"翻成了"，会让 GEO 这种整条没翻的页面也显示 titleRule:8，回滚掉。
+    var prevTitleHit = stats.titleHit || 0, prevTitleRule = stats.titleRule || 0;
     var v = lookupExact(t);
     // 分段结果不合格时不能直接放弃：整条标题规则（HPA 的
     // "^Tissue expression of (.+) - Summary - The Human Protein Atlas$"）往往能一次翻完，
@@ -1334,7 +1339,11 @@ function createEngine(options) {
     // 规则兜底也只接受"没剩下英文单词"的结果：剩下 ≥3 字母的小写单词说明只翻了半截
     // （"breast cancer - GEO 数据集 - NCBI"），宁可整条不动。
     if (v !== null && !titleAcceptable(v)) v = null;
-    if (v === null) return;
+    if (v === null) {
+      stats.titleHit = prevTitleHit || undefined;
+      stats.titleRule = prevTitleRule || undefined;
+      return;
+    }
     origTitle = t;
     translatedTitle = v;
     doc.title = v;

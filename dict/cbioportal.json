@@ -1137,7 +1137,8 @@
     "cBioPortal for Cancer Genomics": "cBioPortal 癌症基因组学",
     "cBioPortal for Cancer Genomics::Datasets": "cBioPortal 癌症基因组学::数据集",
     "Datasets": "数据集",
-    "Study": "研究"
+    "Study": "研究",
+    "Tracks": "轨道"
   },
   "rules": [
     {

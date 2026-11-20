@@ -651,7 +651,13 @@
     "MyPDB Login": "MyPDB 登录",
     "Structure Determination Methodology": "结构测定方法",
     "Protein Modifications": "蛋白质修饰",
-    "Symmetry Type": "对称类型"
+    "Symmetry Type": "对称类型",
+    "Jump to First Page": "跳到第一页",
+    "Jump to Last Page": "跳到最后一页",
+    "Step to Previous Page": "上一页",
+    "Step to Next Page": "下一页",
+    "Download All Files": "下载全部文件",
+    "Download Selected Files": "下载选定文件"
   },
   "rules": [
     {

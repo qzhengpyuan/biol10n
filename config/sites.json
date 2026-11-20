@@ -814,7 +814,8 @@
           "text": "使用来自各种本体与层级分类方案的注释检索 PDB 结构，例如疾病本体、分子功能。"
         }
       ],
-      "name": "RCSB PDB"
+      "name": "RCSB PDB",
+      "valueText": true
     }
   ]
 }

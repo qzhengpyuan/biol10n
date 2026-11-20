@@ -941,6 +941,12 @@ function createEngine(options) {
       if (!store) { store = {}; originals.set(el, store); }
       if (!(name in store)) store[name] = v;
       el.setAttribute(name, out);
+      // React 受控输入：属性改了但 property 没改，用户看到的还是英文
+      // （RCSB 检索框 value 属性已是中文，input.value 仍是 Text search inside all attributes）。
+      // 只同步 property，不派发 input/change 事件，避免触发站点的 onChange 去发请求。
+      if (name === "value" && site.valueText && el.tagName === "INPUT") {
+        try { el.value = out; } catch (e3) {}
+      }
       stats.attrs++;
     }
   }

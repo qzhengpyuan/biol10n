@@ -657,7 +657,9 @@
     "Step to Previous Page": "上一页",
     "Step to Next Page": "下一页",
     "Download All Files": "下载全部文件",
-    "Download Selected Files": "下载选定文件"
+    "Download Selected Files": "下载选定文件",
+    "Download All/Selected Files": "下载全部/选定文件",
+    "Download Selection": "下载选定项"
   },
   "rules": [
     {

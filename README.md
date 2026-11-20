@@ -62,7 +62,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **613 KB**（优化前 812 KB，−25%）；gzip 后 434 KB；词库里 19 本共 12014 条词条 + 113 条模板，压缩前纯 JSON 有 1135 KB
+- 单文件产物 **615 KB**（优化前 812 KB，−24%）；gzip 后 445 KB；词库里 19 本共 12021 条词条 + 113 条模板，压缩前纯 JSON 有 1109 KB
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -142,13 +142,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **12014 条 / 439 条规则 / 113 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **12021 条 / 439 条规则 / 113 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（98 条）
+npm test             # 引擎、面板与产物单测（102 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）
@@ -163,6 +163,8 @@ git push origin release
 
 ```bash
 node tools/miss-report.mjs ensembl "https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000141510"
+node tools/aclass.mjs ensembl        # 词库里有、页面却没翻的 A 类缺口
+node tools/scope-check.mjs ensembl "https://www.ensembl.org/"  # scope 选择器命中数，0 命中会告警
 node tools/coverage.mjs research/pubmed.html pubmed
 node tools/smoke.mjs research/pubmed.html "https://pubmed.ncbi.nlm.nih.gov/?term=brca1" 40
 ```

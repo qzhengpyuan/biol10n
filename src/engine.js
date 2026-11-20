@@ -1344,6 +1344,9 @@ function createEngine(options) {
       stats.titleRule = prevTitleRule || undefined;
       return;
     }
+    // 命中走的是 lookupExact / titleBySegments 时没有经过 translate()，
+    // 不补一次记账，统计里只看得到规则命中、看不到直译命中（GTEx 标题就是这样漏的）。
+    if (v !== t && (stats.titleHit || 0) === prevTitleHit && (stats.titleRule || 0) === prevTitleRule) bumpHit(false);
     origTitle = t;
     translatedTitle = v;
     doc.title = v;

@@ -231,6 +231,9 @@ function createEngine(options) {
       // 设置面板自己的文字（BioL10n 等英文标签）永远不参与翻译
       if (p.hasAttribute && p.hasAttribute("data-biol10n-ui")) return true;
       if (p.hasAttribute && p.hasAttribute("data-biol10n-block")) return true;
+      // 页面/用户自己标注的数据区：<div data-biol10n-skip> 里的内容一律不翻。
+      // 给「数据集名、专有名词、动态渲染的列表」留一个不依赖站点配置的出口。
+      if (p.hasAttribute && p.hasAttribute("data-biol10n-skip")) return true;
       // 站点自己声明"这段别翻"（UniProt 的示例检索词按钮就是 <span translate="no">Human</span>）
       if (!skipTranslateNo && p.getAttribute && p.getAttribute("translate") === "no") {
         if (!allowInsideNo(node, p)) return true;

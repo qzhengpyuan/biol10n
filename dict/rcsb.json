@@ -641,7 +641,14 @@
   "Text search inside all attributes 🔍": "在全部属性中检索 🔍",
   "Enter one or more search terms.": "输入一个或多个检索词。",
   "↓ Score": "↓ 得分",
-  "Score": "得分"
+  "Score": "得分",
+  "Summary View": "摘要视图",
+  "Gallery View": "图库视图",
+  "Compact View": "紧凑视图",
+  "Summary View (selected)": "摘要视图（已选）",
+  "Gallery View (selected)": "图库视图（已选）",
+  "Compact View (selected)": "紧凑视图（已选）",
+  "Text search inside all attributes": "在所有属性中搜索"
  },
  "rules": [
   {

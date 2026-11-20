@@ -787,7 +787,7 @@
     "spa",
     "rcsb"
    ],
-   "scope": "header, nav, main, footer, #root",
+   "scope": "header, nav, main, footer, #root, .visually-hidden-focusable, .skip-link",
    "spa": true,
    "waitFor": "#root",
    "blocks": [

@@ -248,7 +248,8 @@
     "Differential Expression": "差异表达",
     "Profile": "表达谱",
     "Isoform Usage": "异构体使用",
-    "Pathological Stage Plot": "病理分期图"
+    "Pathological Stage Plot": "病理分期图",
+    "NOS": "非特指"
   },
   "rules": [
     {

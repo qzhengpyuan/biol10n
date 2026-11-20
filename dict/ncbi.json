@@ -1356,7 +1356,10 @@
   "navigate to Grants and funding section": "跳转到「资助与资金」部分",
   "navigate to LinkOut - more resources section": "跳转到「LinkOut - 更多资源」部分",
   "Twitter": "推特",
-  "Facebook": "脸书"
+  "Facebook": "脸书",
+  "Full Text Links Dialog": "全文链接对话框",
+  "Elsevier Science full text link": "Elsevier Science 全文链接",
+  "Related information in MedGen": "MedGen 中的相关信息"
  },
  "rules": [
   {
@@ -1582,6 +1585,54 @@
   {
    "re": "^(\\d+) selected items?: (.+)$",
    "to": "已选 $1 项：$2"
+  },
+  {
+   "re": "^Toggle dropdown menu for keyword (.+)$",
+   "to": "展开关键词 $1 的下拉菜单"
+  },
+  {
+   "re": "^Dropdown menu for keyword (.+)$",
+   "to": "关键词 $1 的下拉菜单"
+  },
+  {
+   "re": "^Toggle dropdown menu for journal (.+)$",
+   "to": "展开期刊 $1 的下拉菜单"
+  },
+  {
+   "re": "^Dropdown menu for journal (.+)$",
+   "to": "期刊 $1 的下拉菜单"
+  },
+  {
+   "re": "^Toggle dropdown menu for (.+)$",
+   "to": "展开 $1 的下拉菜单"
+  },
+  {
+   "re": "^Dropdown menu for (.+)$",
+   "to": "$1 的下拉菜单"
+  },
+  {
+   "re": "^navigate to selected section$",
+   "to": "跳转到所选部分"
+  },
+  {
+   "re": "^Navigate to page section$",
+   "to": "跳转到页面部分"
+  },
+  {
+   "re": "^Open dialog with full text links$",
+   "to": "打开全文链接对话框"
+  },
+  {
+   "re": "^PubMed ID$",
+   "to": "PubMed 编号"
+  },
+  {
+   "re": "^external, opens in new tab\\. (.+)$",
+   "to": "外部链接，在新标签页打开。$1"
+  },
+  {
+   "re": "^All articles for grant (.+)$",
+   "to": "资助 $1 的全部文章"
   }
  ]
 }

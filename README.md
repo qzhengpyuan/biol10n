@@ -62,7 +62,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **609 KB**（优化前 812 KB，−25%）；gzip 后 432 KB；词库里 19 本共 11944 条词条 + 113 条模板，压缩前纯 JSON 有 1144 KB
+- 单文件产物 **611 KB**（优化前 812 KB，−25%）；gzip 后 433 KB；词库里 19 本共 12003 条词条 + 113 条模板，压缩前纯 JSON 有 1148 KB
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -127,14 +127,14 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ncbi | 1350 | 68 | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | ncbi-help | 1704 | 1 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | anatomy | 574 | 6 | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl） |
-| kegg | 544 | 16 | KEGG（含通路图查看页控件） |
+| kegg | 546 | 16 | KEGG（含通路图查看页控件） |
 | gdc | 485 | 20 | GDC Data Portal |
 | rcsb | 632 | 31 | RCSB PDB |
 | uniprot | 773 | 16 | UniProt（含条目页 GO 术语、化学修饰名、亚细胞定位） |
-| cbioportal | 1127 | 47 | cBioPortal（含首页队列列表标签、新闻条目与图表控件） |
+| cbioportal | 1126 | 47 | cBioPortal（含首页队列列表标签、新闻条目与图表控件） |
 | ensembl | 389 | 4 | Ensembl（含新前端、帮助页与 API 文档） |
 | onco | 238 | 9 | TCGA 队列、变异类型、生存统计 |
-| ucsc | 879 | 5 | UCSC Genome Browser（含帮助页正文、浏览器工具栏与上岗提示、检索框提示、轨道可见性与快捷键面板） |
+| ucsc | 937 | 5 | UCSC Genome Browser（含帮助页正文、浏览器工具栏与上岗提示、检索框提示、轨道可见性与快捷键面板） |
 | gepia2 | 175 | 9 | GEPIA2 |
 | mirbase | 159 | 22 | miRBase |
 | gtex | 165 | 11 | GTEx Portal |
@@ -142,7 +142,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ualcan | 128 | 4 | UALCAN |
 | timer | 123 | 8 | TIMER2.0 / TIMER3 |
 
-合计 **11944 条 / 439 条规则 / 113 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
+合计 **12003 条 / 439 条规则 / 113 条模板**。词库按家族复用，加一个站通常只增 50–200 条。
 
 ## 开发
 

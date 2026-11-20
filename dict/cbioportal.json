@@ -1132,7 +1132,11 @@
   "Goserelin": "戈舍瑞林",
   "All patients": "全部患者",
   "Toggle minimap": "切换缩略图",
-  "Patient order": "患者顺序"
+  "Patient order": "患者顺序",
+  "No alterations": "无改变",
+  "Profiled in Mutations": "在突变中被分析",
+  "Tabular": "表格",
+  "Open in Oncoprinter": "在 Oncoprinter 中打开"
  },
  "rules": [
   {

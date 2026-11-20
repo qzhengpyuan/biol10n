@@ -171,7 +171,8 @@
   "Protocols used for tissue sampling are available here: GTEx Tissue Harvesting Work Instruction . Histology images and pathology QC notes are available here.": "组织采样所用的方案可在此处获取：GTEx Tissue Harvesting Work Instruction。组织学图像和病理 QC 记录可在此处获取。",
   "A subset of tissues from 16 donors were also characterized using single-cell RNA sequencing, as described in: Eraslen, et al. (2022) .": "来自 16 名供者的部分组织还通过单细胞 RNA 测序进行了表征，详见：Eraslen 等（2022）。",
   "All remaining collected tissue samples and derived nucleic acids are in a biobank and are available to be requested for future studies.": "所有其余已采集的组织样本和提取的核酸均保存在生物样本库中，可供申请用于未来的研究。",
-  "The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health , and by the National Cancer Institute , the National Human Genome Research Institute , the National Heart, Lung, and Blood Institute , the National Institute on Drug Abuse , the National Institute of Mental Health , the National Institute of Neurological Disorders and Stroke .": "基因型-组织表达（GTEx）项目由美国国立卫生研究院院长办公室共同基金资助，并得到美国国家癌症研究所、美国国家人类基因组研究所、美国国家心肺血液研究所、美国国家药物滥用研究所、美国国家精神卫生研究所和美国国家神经疾病与中风研究所的支持。"
+  "The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health , and by the National Cancer Institute , the National Human Genome Research Institute , the National Heart, Lung, and Blood Institute , the National Institute on Drug Abuse , the National Institute of Mental Health , the National Institute of Neurological Disorders and Stroke .": "基因型-组织表达（GTEx）项目由美国国立卫生研究院院长办公室共同基金资助，并得到美国国家癌症研究所、美国国家人类基因组研究所、美国国家心肺血液研究所、美国国家药物滥用研究所、美国国家精神卫生研究所和美国国家神经疾病与中风研究所的支持。",
+  "GTEx Portal": "GTEx 门户"
  },
  "rules": [
   {

@@ -639,7 +639,9 @@
   "In the meantime, please use the button below to send a prefilled feedback email to info@rcsb.org.": "在此期间，请使用下方按钮发送已预填的反馈邮件。",
   "Clicking the button will open your email app with your feedback details already filled in.": "点击按钮将打开你的邮件客户端，反馈内容已预填。",
   "Text search inside all attributes 🔍": "在全部属性中检索 🔍",
-  "Enter one or more search terms.": "输入一个或多个检索词。"
+  "Enter one or more search terms.": "输入一个或多个检索词。",
+  "↓ Score": "↓ 评分",
+  "Score": "评分"
  },
  "rules": [
   {

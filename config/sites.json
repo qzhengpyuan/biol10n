@@ -39,7 +39,8 @@
    "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
    "name": "PubMed",
-   "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li"
+   "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li",
+   "skip": ".docsum-title, h1.heading-title"
   },
   {
    "id": "ncbi-geo",
@@ -65,7 +66,7 @@
     "common",
     "ncbi"
    ],
-   "scope": "main, #gdv-root, #universal_header, .usa-banner",
+   "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner",
    "spa": true,
    "waitFor": "#gdv-root",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -431,7 +432,7 @@
    "scope": "main, #root, .cbioportal-frontend",
    "spa": true,
    "waitFor": "#root",
-   "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1)",
+   "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1), .headBlock",
    "translateNoAllow": [
     ".msk-tabs div[translate=\"no\"]"
    ],
@@ -772,7 +773,8 @@
    ],
    "translateNoAllow": [
     "button.evidence-tag",
-    "a[href=\"/align\"]"
+    "a[href=\"/align\"]",
+    "section tbody[translate=\"no\"]"
    ],
    "name": "UniProt"
   },

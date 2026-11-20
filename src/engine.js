@@ -56,7 +56,13 @@ function createEngine(options) {
     tplMap.set(key, t.zh);
   });
 
-  var attrs = site.attrs && site.attrs.length ? site.attrs : DEFAULT_ATTRS;
+  // 站级 attrs 是追加，不是覆盖：覆盖会让站点漏掉 title/aria-label 之外的默认通道。
+  var attrs = DEFAULT_ATTRS.slice();
+  if (site.attrs && site.attrs.length) {
+    for (var ai = 0; ai < site.attrs.length; ai++) {
+      if (attrs.indexOf(site.attrs[ai]) < 0) attrs.push(site.attrs[ai]);
+    }
+  }
   var processed = new WeakSet();
   var originals = new WeakMap();
   var propOriginals = new WeakMap(); // 通过 el.value 写入的默认文字
@@ -156,11 +162,17 @@ function createEngine(options) {
       var m = rules[j].re.exec(s);
       if (m) {
         if (rules[j].requireHit) {
-          var anyHit = false;
+          // 带字母的捕获组必须全部命中，否则整条放弃：
+          // 只要求任一命中，会把「上皮细胞（ALVEOLAR TYPE I）」拼成半中半英。
+          // 纯数字/标点的捕获组（$2 = 499）不参与这条判断。
+          var anyHit = false, allOk = true;
           for (var k = 1; k < m.length; k++) {
-            if (m[k] !== undefined && translateCapture(m[k], depth) !== m[k]) { anyHit = true; break; }
+            var segK = m[k];
+            if (segK === undefined) continue;
+            if (translateCapture(segK, depth) !== segK) anyHit = true;
+            else if (/[A-Za-z]/.test(segK)) allOk = false;
           }
-          if (!anyHit) continue;
+          if (!anyHit || !allOk) continue;
         }
         stats.hitRule++;
         var to = rules[j].to;
@@ -477,7 +489,7 @@ function createEngine(options) {
     if (inLongProse(node.parentElement)) {
       // 只放行"整句/整段"级别的命中（>= 40 字符）。英文句子里的短链接（"… browser. Contact Us"）
       // 即使词典里有 Contact Us，也不能在一句英文中间冒出一小块中文。
-      if (text.length < 40 || lookupExact(text, false) === null) { recordMiss(text, node, true); return; }
+      if (text.length < 40 || lookupExact(text) === null) { recordMiss(text, node, true); return; }
     }
 
     stats.nodes++;
@@ -716,7 +728,7 @@ function createEngine(options) {
     if (!root || !root.querySelectorAll) return;
     var w = doc.createTreeWalker(root, 4, null, false), n;
     while ((n = w.nextNode())) {
-      if (!n.isConnected === false) { /* ignore */ }
+      if (!n.isConnected) continue;
       var raw = n.nodeValue;
       if (!raw) continue;
       var text = normalize(raw);
@@ -1227,7 +1239,13 @@ function createEngine(options) {
     if (translatedTitle !== null && t === translatedTitle) return;
     if (hasCJK(t)) { translatedTitle = t; return; }
     var v = lookupExact(t);
-    if (v === null) v = titleBySegments(t);
+    // 分段结果不合格时不能直接放弃：整条标题规则（HPA 的
+    // "^Tissue expression of (.+) - Summary - The Human Protein Atlas$"）往往能一次翻完，
+    // 原来 titleBySegments 返回半中半英后就被 titleAcceptable 丢掉，规则永远轮不到。
+    if (v === null) {
+      var segT = titleBySegments(t);
+      if (segT !== null && titleAcceptable(segT)) v = segT;
+    }
     if (v === null) v = translate(t);
     // 规则兜底也只接受"没剩下英文单词"的结果：剩下 ≥3 字母的小写单词说明只翻了半截
     // （"breast cancer - GEO 数据集 - NCBI"），宁可整条不动。

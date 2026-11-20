@@ -51,7 +51,7 @@
     "common",
     "ncbi"
    ],
-   "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer",
+   "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
    "name": "NCBI GEO/GDS"
   },
@@ -65,7 +65,7 @@
     "common",
     "ncbi"
    ],
-   "scope": "main, #gdv-root",
+   "scope": "main, #gdv-root, #universal_header, .usa-banner",
    "spa": true,
    "waitFor": "#gdv-root",
    "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",

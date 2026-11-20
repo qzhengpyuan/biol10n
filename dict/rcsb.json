@@ -640,8 +640,8 @@
   "Clicking the button will open your email app with your feedback details already filled in.": "点击按钮将打开你的邮件客户端，反馈内容已预填。",
   "Text search inside all attributes 🔍": "在全部属性中检索 🔍",
   "Enter one or more search terms.": "输入一个或多个检索词。",
-  "↓ Score": "↓ 评分",
-  "Score": "评分"
+  "↓ Score": "↓ 得分",
+  "Score": "得分"
  },
  "rules": [
   {

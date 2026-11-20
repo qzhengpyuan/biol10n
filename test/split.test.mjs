@@ -60,3 +60,17 @@ test('translate="no" 里的拆分子句仍然不翻', () => {
   const { doc } = boot(html);
   assert.equal(doc.querySelector("span").textContent, "Horizontal\nAxis");
 });
+
+test("子元素全是内联标签时也拼成一串（UALCAN 校名被 <font> 切段）", () => {
+  const html = '<div id="u"><font>University</font> of <font>Alabama</font> at <font>Birmingham</font></div>';
+  const { doc } = boot(html, { "University of Alabama at Birmingham": "阿拉巴马大学伯明翰分校" });
+  assert.equal(doc.querySelector("#u").textContent, "阿拉巴马大学伯明翰分校");
+});
+
+test("含 <a> 的容器不拍平，链接保留", () => {
+  const html = '<div id="l"><a href="/x">Protein</a> Atlas Info</div>';
+  const { doc } = boot(html, { "Protein Atlas Info": "蛋白质图谱信息" });
+  assert.equal(doc.querySelector("#l a") !== null, true);
+  assert.equal(doc.querySelector("#l a").textContent, "Protein");
+});
+

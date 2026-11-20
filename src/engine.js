@@ -46,7 +46,7 @@ function createEngine(options) {
   var INLINE_TAGS = {
     A: 1, ABBR: 1, B: 1, BDI: 1, BDO: 1, BR: 1, CITE: 1, CODE: 1, DATA: 1, DEL: 1, DFN: 1,
     EM: 1, I: 1, INS: 1, KBD: 1, MARK: 1, Q: 1, S: 1, SAMP: 1, SMALL: 1, SPAN: 1,
-    STRONG: 1, SUB: 1, SUP: 1, TIME: 1, U: 1, VAR: 1, WBR: 1
+    FONT: 1, STRONG: 1, SUB: 1, SUP: 1, TIME: 1, U: 1, VAR: 1, WBR: 1
   };
   var tplMap = new Map();
   (data.templates || []).forEach(function (t) {
@@ -620,28 +620,44 @@ function createEngine(options) {
    *  整串比对才命得中词表。只在元素没有子元素时动手，替换后按整块记录，disable 能还原。 */
   function handleSplitText(node) {
     var el = node.parentElement;
-    if (!el || el.children.length || el.childNodes.length < 2) return false;
+    if (!el || el.childNodes.length < 2) return false;
     if (skipNode(node) || inBlock(el) || inSkip(el)) return false;
+    // 子元素全是内联标签时也拼（UALCAN 的校名被 <font> 切成 6 段、PubMed 的
+    // <span>09</span>:<span>15</span>）；<a> 与表单控件不在此列——把链接/input 拍平成文本
+    // 等于拆掉站点的可点区域，而且关脚本也回不来。
     var parts = [], raw = "";
     for (var i = 0; i < el.childNodes.length; i++) {
       var c = el.childNodes[i];
-      if (c.nodeType !== 3) return false;
-      raw += c.nodeValue || "";
-      var t = String(c.nodeValue || "").trim();
-      if (t) parts.push(t);
+      if (c.nodeType === 3) {
+        raw += c.nodeValue || "";
+        var t = String(c.nodeValue || "").trim();
+        if (t) parts.push(t);
+        continue;
+      }
+      if (c.nodeType !== 1) return false;
+      if (!INLINE_TAGS[c.tagName] || /^(A|INPUT|BUTTON|SELECT|TEXTAREA|IMG|SVG)$/.test(c.tagName)) return false;
+      var ct = String(c.textContent || "");
+      raw += ct;
+      var tt = ct.trim();
+      if (tt) parts.push(tt);
     }
     if (parts.length < 2) return false;
-    var full = parts.join(" ");
+    // 拼接时不能一律补空格：UALCAN 的标题被 <font> 从单词中间切开
+    //（"The " + <font>U</font> + "niversity of " …），补空格会变成 "U niversity"。
+    // 所以先用原样拼接（空白归一）当主候选，查不到再退到「逐段加空格」的旧拼法（cBio 的换行分段）。
     var flat = raw.replace(/\s+/g, " ").trim();
+    var full = parts.join(" ");
+    var alt = flat !== full ? full : null;
+    full = flat;
     if (full.length < 3 || full.length > 120) return false;
     if (hasCJK(full) || !LETTER.test(full)) return false;
     // 长句只在整条命中词表时才拼（脚注被站点拆成「¹ 」+ 句子两段）；
     // 短标签仍允许走规则，避免长正文靠规则拼出半中半英。
     var out = lookupExact(full);
-    if (out === null && flat !== full) out = lookupExact(flat);
+    if (out === null && alt !== null) out = lookupExact(alt);
     if (out === null && full.length <= 60) {
       out = translate(full);
-      if (out === null && flat !== full) out = translate(flat);
+      if (out === null && alt !== null) out = translate(alt);
     }
     if (out === null) return false;
     if (!blockOriginals.has(el)) blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
@@ -673,7 +689,7 @@ function createEngine(options) {
     // 「Interacting gene (ensg_id)<br><input>」会把 <input> 一起删掉，且关脚本也回不来）。
     var kids = el.children, guardTag = 0;
     for (var k = 0; k < kids.length; k++) {
-      if (!/^(BR|SPAN|B|I|EM|STRONG|SMALL|SUP|SUB)$/.test(kids[k].tagName)) { guardTag = 1; break; }
+      if (!/^(BR|SPAN|B|I|EM|STRONG|SMALL|SUP|SUB|FONT|U)$/.test(kids[k].tagName)) { guardTag = 1; break; }
     }
     if (guardTag) return false;
     brDone.add(el);
@@ -864,6 +880,9 @@ function createEngine(options) {
       try { inSvg = !!(el.closest && el.closest("svg")); } catch (e) { inSvg = false; }
       // 属性是界面提示（title/aria-label），即使元素标了 translate="no" 也该翻
       if (!inSvg && skipNode(el, true)) continue;
+      // 站点 skip 是"这一块整体别碰"：cBio 数据集名在 table.simple-table td:nth-child(1) 里，
+      // 文本已经跳过了，但同一条 <a> 的 aria-label 之前还会被翻成中文（半中半英的元数据）。
+      if (inSkip(el)) continue;
       var out = translate(text);
       if (out === null) continue;
       if (fromProp) {

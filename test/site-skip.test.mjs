@@ -65,3 +65,14 @@ test("括号规则两侧都命中时正常替换", () => {
   });
   assert.equal(doc.querySelector("span").textContent, "上皮细胞（基底角质细胞）");
 });
+
+test("data-biol10n-skip 子树保持英文（文本与属性都不动）", () => {
+  const html =
+    '<div data-biol10n-skip><h3>Breast Invasive Carcinoma</h3><a aria-label="Open study page" href="/s">Study</a></div>' +
+    '<p><span>Save</span></p>';
+  const { doc } = boot(html, { exact: { "Breast Invasive Carcinoma": "乳腺浸润性癌", Study: "研究", Save: "保存", "Open study page": "打开研究页面" }, site: {} });
+  assert.equal(doc.querySelector("h3").textContent, "Breast Invasive Carcinoma");
+  assert.equal(doc.querySelector("a").getAttribute("aria-label"), "Open study page");
+  assert.equal(doc.querySelector("p span").textContent, "保存");
+});
+

@@ -77,3 +77,15 @@ test("data-biol10n-skip 子树保持英文（文本与属性都不动）", () =>
   assert.equal(doc.querySelector("p span").textContent, "保存");
 });
 
+
+// 回归：GDV 页面用模板拼出「Showing GCF_… instead of undefined」，
+// 捕获组里出现 undefined 时整条规则放弃，保持英文，不产出「…而非 undefined」。
+test("站点模板残句里的 undefined 让规则整条放弃", () => {
+  const rules = [{ re: "^Showing (.+) instead of (.+)$", to: "显示 $1 而非 $2", requireHit: true }];
+  const { doc } = boot("<div><span>Showing GCF_000001405.40 instead of undefined</span></div>", {
+    exact: { Showing: "显示" },
+    rules
+  });
+  assert.equal(doc.querySelector("span").textContent, "Showing GCF_000001405.40 instead of undefined");
+});
+

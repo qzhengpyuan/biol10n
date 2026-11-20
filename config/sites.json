@@ -1,818 +1,820 @@
 {
- "version": "0.1.0",
- "defaults": {
-  "attrs": [
-   "placeholder",
-   "title",
-   "aria-label",
-   "alt",
-   "value"
-  ],
-  "block": "pre, code, kbd, samp, textarea, [contenteditable='true'], .highlight, .blob-code, .code"
- },
- "sites": [
-  {
-   "id": "pubmed-help",
-   "name": "PubMed 帮助中心",
-   "hosts": [
-    "pubmed.ncbi.nlm.nih.gov"
-   ],
-   "path": "^/help",
-   "dicts": [
-    "common",
-    "ncbi",
-    "ncbi-help"
-   ],
-   "scope": "body",
-   "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+  "version": "0.1.0",
+  "defaults": {
+    "attrs": [
+      "placeholder",
+      "title",
+      "aria-label",
+      "alt",
+      "value"
+    ],
+    "block": "pre, code, kbd, samp, textarea, [contenteditable='true'], .highlight, .blob-code, .code"
   },
-  {
-   "id": "pubmed",
-   "hosts": [
-    "pubmed.ncbi.nlm.nih.gov"
-   ],
-   "dicts": [
-    "common",
-    "ncbi",
-    "ncbi-help"
-   ],
-   "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
-   "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
-   "name": "PubMed",
-   "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li",
-   "skip": ".docsum-title, h1.heading-title"
-  },
-  {
-   "id": "ncbi-geo",
-   "hosts": [
-    "www.ncbi.nlm.nih.gov"
-   ],
-   "path": "^/(geo|gds|gap|sra|snp|clinvar|variation)",
-   "dicts": [
-    "common",
-    "ncbi"
-   ],
-   "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
-   "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
-   "name": "NCBI GEO/GDS",
-   "skip": "p.title, div.resc, #results .title"
-  },
-  {
-   "id": "ncbi-gdv",
-   "hosts": [
-    "www.ncbi.nlm.nih.gov"
-   ],
-   "path": "^/gdv",
-   "dicts": [
-    "common",
-    "ncbi"
-   ],
-   "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
-   "spa": true,
-   "waitFor": "#gdv-root",
-   "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
-   "name": "NCBI GDV"
-  },
-  {
-   "id": "ncbi-blast",
-   "hosts": [
-    "blast.ncbi.nlm.nih.gov"
-   ],
-   "dicts": [
-    "common",
-    "ncbi"
-   ],
-   "scope": "main, #blastapp, .blastpage",
-   "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
-   "valueText": true,
-   "name": "NCBI BLAST"
-  },
-  {
-   "id": "kegg",
-   "hosts": [
-    "www.genome.jp",
-    "www.kegg.jp"
-   ],
-   "dicts": [
-    "common",
-    "kegg"
-   ],
-   "scope": "body",
-   "name": "KEGG"
-  },
-  {
-   "id": "hpa",
-   "hosts": [
-    "www.proteinatlas.org"
-   ],
-   "dicts": [
-    "common",
-    "hpa",
-    "anatomy",
-    "onco"
-   ],
-   "scope": "main, #content, .content",
-   "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
-   "blocks": [
+  "sites": [
     {
-     "sel": "#help_2221 .helpText p",
-     "match": "P-value of",
-     "text": "Kaplan-Meier 分析的 P 值，适用于所有「基因高表达与患者生存期良好预后（绿色）或不良预后（红色）相关」的癌症。"
+      "id": "pubmed-help",
+      "name": "PubMed 帮助中心",
+      "hosts": [
+        "pubmed.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/help",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-help"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
     },
     {
-     "sel": "#help_3050 .helpText p",
-     "match": "The RNA specificity category",
-     "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEx 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
+      "id": "pubmed",
+      "hosts": [
+        "pubmed.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-help"
+      ],
+      "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "name": "PubMed",
+      "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li",
+      "skip": ".docsum-title, h1.heading-title"
     },
     {
-     "sel": "#help_333100 .helpText p",
-     "match": "A summary of the overall protein expression profile",
-     "text": "基于对已分析正常组织的知识注释，对整体蛋白质表达谱所作的汇总，展示于「组织」资源中。"
+      "id": "ncbi-geo",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/(geo|gds|gap|sra|snp|clinvar|variation)",
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "name": "NCBI GEO/GDS",
+      "skip": "p.title, div.resc, #results .title"
     },
     {
-     "sel": "#help_333100 .helpText p",
-     "match": "Estimation of protein expression could not be performed",
-     "text": "当可用的 RNA-seq 数据、基因/蛋白质特征数据与免疫组化数据经评估不足以可靠估计蛋白质表达谱时，会显示「无法进行蛋白质表达估计，请查看原始数据」。"
+      "id": "ncbi-gdv",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/gdv",
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
+      "spa": true,
+      "waitFor": "#gdv-root",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "name": "NCBI GDV"
     },
     {
-     "sel": "#help_101 .helpText p",
-     "match": "General description of the gene and the encoded protein",
-     "text": "基于 HGNC 与 Ensembl 的信息以及人类蛋白质图谱项目的预测，对基因及其编码蛋白质的总体描述。"
+      "id": "ncbi-blast",
+      "hosts": [
+        "blast.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "main, #blastapp, .blastpage",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "valueText": true,
+      "name": "NCBI BLAST"
     },
     {
-     "sel": "#help_106 .helpText",
-     "match": "All transcripts of all genes have been analyzed",
-     "text": "所有基因的全部转录本均已依据信号肽与跨膜区的预测方法，分析相应蛋白质的定位。依据预测方法或 UniProt 定位数据，至少有一个转录本预测编码分泌蛋白的基因，已进一步注释并分类，以判定相应蛋白质是分泌、还是实际滞留于胞内位置或附着于膜上；其余没有转录本预测编码分泌蛋白的基因，则采用基于预测的定位。注释定位优先于预测定位，因此若某基因编码的预测分泌蛋白已被注释为胞内，其最终定位即为胞内。"
+      "id": "kegg",
+      "hosts": [
+        "www.genome.jp",
+        "www.kegg.jp"
+      ],
+      "dicts": [
+        "common",
+        "kegg"
+      ],
+      "scope": "body",
+      "name": "KEGG"
     },
     {
-     "sel": "#help_310 .helpText p",
-     "match": "Summary of RNA expression analysis and annotation data",
-     "text": "人类蛋白质图谱项目中生成的 RNA 表达分析与注释数据的汇总。"
+      "id": "hpa",
+      "hosts": [
+        "www.proteinatlas.org"
+      ],
+      "dicts": [
+        "common",
+        "hpa",
+        "anatomy",
+        "onco"
+      ],
+      "scope": "main, #content, .content",
+      "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
+      "blocks": [
+        {
+          "sel": "#help_2221 .helpText p",
+          "match": "P-value of",
+          "text": "Kaplan-Meier 分析的 P 值，适用于所有「基因高表达与患者生存期良好预后（绿色）或不良预后（红色）相关」的癌症。"
+        },
+        {
+          "sel": "#help_3050 .helpText p",
+          "match": "The RNA specificity category",
+          "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEx 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
+        },
+        {
+          "sel": "#help_333100 .helpText p",
+          "match": "A summary of the overall protein expression profile",
+          "text": "基于对已分析正常组织的知识注释，对整体蛋白质表达谱所作的汇总，展示于「组织」资源中。"
+        },
+        {
+          "sel": "#help_333100 .helpText p",
+          "match": "Estimation of protein expression could not be performed",
+          "text": "当可用的 RNA-seq 数据、基因/蛋白质特征数据与免疫组化数据经评估不足以可靠估计蛋白质表达谱时，会显示「无法进行蛋白质表达估计，请查看原始数据」。"
+        },
+        {
+          "sel": "#help_101 .helpText p",
+          "match": "General description of the gene and the encoded protein",
+          "text": "基于 HGNC 与 Ensembl 的信息以及人类蛋白质图谱项目的预测，对基因及其编码蛋白质的总体描述。"
+        },
+        {
+          "sel": "#help_106 .helpText",
+          "match": "All transcripts of all genes have been analyzed",
+          "text": "所有基因的全部转录本均已依据信号肽与跨膜区的预测方法，分析相应蛋白质的定位。依据预测方法或 UniProt 定位数据，至少有一个转录本预测编码分泌蛋白的基因，已进一步注释并分类，以判定相应蛋白质是分泌、还是实际滞留于胞内位置或附着于膜上；其余没有转录本预测编码分泌蛋白的基因，则采用基于预测的定位。注释定位优先于预测定位，因此若某基因编码的预测分泌蛋白已被注释为胞内，其最终定位即为胞内。"
+        },
+        {
+          "sel": "#help_310 .helpText p",
+          "match": "Summary of RNA expression analysis and annotation data",
+          "text": "人类蛋白质图谱项目中生成的 RNA 表达分析与注释数据的汇总。"
+        },
+        {
+          "sel": "#help_25314 .helpText p",
+          "match": "The RNA data was used to cluster genes according to their expression across tissues",
+          "text": "RNA 数据用于按基因在各组织中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+        },
+        {
+          "sel": "#help_109 .helpText p",
+          "match": "The RNA specificity category is based on mRNA expression levels in the",
+          "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEx 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
+        },
+        {
+          "sel": "#help_4047 .helpText p",
+          "match": "Tau specificity score is a numerical indicator",
+          "text": "Tau 特异性评分是基因表达在细胞或组织间特异性的数值指标，取值范围为 0 到 1：0 表示在所有细胞/组织类型中表达相同，1 表示仅在单一细胞/组织类型中表达。"
+        },
+        {
+          "sel": "#help_130 .helpText p",
+          "match": "is based on mRNA expression levels in the analyzed samples based on a combination of data",
+          "text": "RNA 分布类别基于所分析样本中的 mRNA 表达水平，综合 HPA 与 GTEx 的数据计算。类别包括：全部检出、多数检出、部分检出、单一检出、未检出。"
+        },
+        {
+          "sel": "#help_110 .helpText p",
+          "match": "Evidence score for genes based on UniProt protein existence",
+          "text": "基因的证据评分，依据 UniProt 蛋白质存在性（UniProt 证据）、neXtProt 蛋白质存在性（neXtProt 证据），以及人类蛋白质图谱基于抗体或 RNA 的评分（HPA 证据）。可用评分包括：蛋白质水平证据、转录本水平证据、无证据、不可用。"
+        },
+        {
+          "sel": "#help_3052 .helpText p",
+          "match": "The regional specificity category is based on mRNA expression levels",
+          "text": "脑区特异性类别基于所分析脑样本中的 mRNA 表达水平，样本归入 13 个主要脑区，并分别对三个物种计算。所有脑表达谱均基于 HPA 的数据。特异性类别包括：脑区富集、组富集、脑区增强、低脑区特异性、未检出。分类规则与组织特异性类别相同。"
+        },
+        {
+          "sel": "#help_1512 .helpText p",
+          "match": "A summary of the protein localization in the current human tissue",
+          "text": "基于所选组织中的多重免疫组化分析，对当前人体组织中蛋白质定位的汇总，仅对已开展该分析的基因显示。"
+        },
+        {
+          "sel": "#help_113 .helpText p",
+          "match": "Standardized explanatory sentences with additional information",
+          "text": "为完整理解蛋白质表达谱所需的补充信息而提供的标准化说明句，依据基于知识的注释与基于分泌组的注释生成。"
+        },
+        {
+          "sel": "#help_129 .helpText p",
+          "match": "Antibodies used for this assay",
+          "text": "本检测所用的抗体。点击某个抗体可查看更多信息。"
+        },
+        {
+          "sel": "#help_11118 .helpText p",
+          "match": "Overview of protein localization based on",
+          "text": "基于所选组织中多重免疫组化分析的蛋白质定位概览。每张图像及对应句子概述了主要的蛋白质定位。点击图像可查看详细数据。"
+        },
+        {
+          "sel": "#help_26005 .helpText p",
+          "match": "ID of the expression cluster of the neighboring gene",
+          "text": "邻近基因所属表达聚类的编号。"
+        },
+        {
+          "sel": "#help_114 .helpText",
+          "match": "A reliability score is manually set for all genes",
+          "text": "可靠性评分对所有基因人工设定，表示所分析蛋白质表达模式的可靠程度，依据可用的 RNA-seq 数据、蛋白质/基因特征数据，以及来自一种或多种表位互不重叠的抗体的免疫组化数据综合判断。可靠性评分基于所分析的 44 种正常组织；若有多于一种抗体的数据，评估时会将所有抗体的染色模式纳入考量。可靠性评分分为增强、支持、认可或不确定四档，并在组织资源与癌症资源中同时显示。"
+        },
+        {
+          "sel": "#help_11121 .helpText p",
+          "match": "Links to data of the different assays available in the Tissue resource",
+          "text": "指向人类蛋白质图谱组织资源中各项检测数据的链接。点击缩略图可直接跳转到相应小节。"
+        },
+        {
+          "sel": "#help_115 .helpText",
+          "match": "Below is an overview of RNA and protein expression data",
+          "text": "以下为人类蛋白质图谱项目中生成的 RNA 与蛋白质表达数据概览。所分析的组织按共有的功能特征划分为若干色标分组。点击组名、组别符号、RNA 条或蛋白质条，可查看该组包含的组织列表；再在列表中选择某个组织，即会跳转到相应的图像数据页面。右侧的免疫组化图像面板展示了可直观概括蛋白质表达谱的若干选定组织。左侧两幅人体图以解剖方式展示所分析器官中 mRNA 的表达水平与检出情况。点击两图之间的按钮可在这两种视图间切换。"
+        },
+        {
+          "sel": "#help_116 .helpText p",
+          "match": "RNA expression summary shows the consensus data based on normalized expression",
+          "text": "RNA 表达汇总展示基于归一化表达（nTPM）值的共识数据，其来源为两类数据：人类蛋白质图谱自行生成的 HPA RNA-seq 数据，以及基因型-组织表达（GTEx）项目的 RNA-seq 数据。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。"
+        },
+        {
+          "sel": "#help_26001 .helpText p",
+          "match": "The RNA data was used to cluster genes according to their expression across samples",
+          "text": "RNA 数据用于按基因在各样本中的表达进行聚类。所得聚类均已人工注释，以描述其在功能与特异性方面的共同特征。聚类注释与基因归入该聚类的置信度一并显示。置信度按重复计算中该基因被归入此聚类的比例计算，取值 0 到 1，1 表示最高可能的置信度。聚类结果以 UMAP 展示，该基因所属的聚类以彩色区域高亮，聚类中的大多数基因位于其中。表格列出表达谱最相似的 15 个基因。"
+        },
+        {
+          "sel": "#help_26111 .helpText p",
+          "match": "Confidence is the fraction of times a gene was assigned to the cluster",
+          "text": "置信度是重复聚类中基因被归入该聚类的比例，反映其与该聚类的关联强度。置信度为 1 表示在所有重复聚类中该基因都被归入此聚类。"
+        },
+        {
+          "sel": "#help_26004 .helpText p",
+          "match": "Correlation between the selected gene and neighboring gene",
+          "text": "所选基因与邻近基因之间的相关性，按基于 RNA-seq 表达数据在 PCA 空间中计算的 Spearman 相关系数得出。"
+        },
+        {
+          "sel": "#help_170 .helpText",
+          "match": "The consensus dataset consists of normalized expression",
+          "text": "共识数据集包含 51 种组织类型的归一化表达（nTPM）水平，由 HPA 与 GTEx 转录组数据集经内部归一化流程整合而成。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。关于数据集如何整合为共识归一化表达水平的更多说明见此处。"
+        },
+        {
+          "sel": "#help_123 .helpText",
+          "match": "The HPA RNA-seq tissue data is reported as nTPM",
+          "text": "HPA RNA-seq 组织数据以 nTPM（归一化的每百万蛋白编码转录本数）表示，对应各组织不同单一样本的均值。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。HPA RNA-seq 检测方法的详细说明见此处。"
+        },
+        {
+          "sel": "#help_124 .helpText",
+          "match": "The RNA-seq tissue data generated by the Genotype-Tissue Expression",
+          "text": "基因型-组织表达（GTEx）项目生成的 RNA-seq 组织数据以 nTPM（归一化的每百万蛋白编码转录本数）表示，对应各组织不同单一样本的均值。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。GTEx RNA-seq 检测方法的详细说明见此处。"
+        },
+        {
+          "sel": "#help_125 .helpText",
+          "match": "The tissue data for RNA expression obtained through Cap Analysis",
+          "text": "由 FANTOM5 项目通过基因表达帽分析（CAGE）获得的 RNA 表达组织数据以每百万标签数（Scaled Tags Per Million）表示。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。CAGE 方法的详细说明见此处。"
+        },
+        {
+          "sel": "#help_149 .helpText p",
+          "text": "基于 TCGA 数据集，21 种癌症类型的 RNA 表达特异性分为：癌症富集、组富集、癌症增强、低癌症特异性、未检出。"
+        },
+        {
+          "sel": "#help_418273 .helpText p",
+          "text": "通过质谱（ProteinTalks DB 数据集）测定的 25 种癌症类型肿瘤样本中蛋白质丰度的特异性，分为：癌症富集、组富集、癌症增强、低癌症特异性、未检出。"
+        },
+        {
+          "sel": "#help_1903 .helpText p",
+          "text": "RNA 特异性类别基于人类蛋白质图谱中按癌症类型分组的癌细胞系 RNA 测序数据。基因依据其在细胞系集合中的 RNA 表达水平分为六类（富集、组富集、增强、低特异性、未检出）。"
+        },
+        {
+          "sel": "#help_3031 .helpText p",
+          "text": "表示该蛋白质是否已使用 Olink Explore HT 邻近延伸分析平台测定（有数据 / 无数据）。"
+        },
+        {
+          "sel": "#help_3031785 .helpText p",
+          "text": "表示该蛋白质是否已使用 SomaScan 11K 平台测定（有数据 / 无数据）。"
+        },
+        {
+          "sel": "#help_111 .helpText",
+          "text": "对已分析正常组织中整体蛋白质表达模式的汇总，基于知识注释。对于采用知识注释分析的基因，若可用的 RNA-seq 与基因/蛋白质特征数据经评估与免疫组化数据结合后仍不足以可靠估计蛋白质表达谱，则显示「无法进行蛋白质表达估计，请查看原始数据」。"
+        },
+        {
+          "sel": "#help_118 .helpText",
+          "text": "基于知识注释展示全部 44 种组织中每一种的蛋白质表达数据。配色依据组织分组，每组由功能特征相同的组织组成。鼠标悬停可显示所选组织中已分析细胞类型的蛋白质评分。点击组织名称或柱条可查看图像数据。蛋白质表达的注释详见此处。对于有蛋白质数据但知识注释结果不确定的基因，蛋白质表达数据概览中不显示蛋白质表达数据；不过所有免疫组化图像仍可查看，注释数据可在「原始数据」中找到。"
+        },
+        {
+          "sel": "#help_9542123 .helpText",
+          "text": "来自 Yue L 等（2026）的批量质谱蛋白质组学数据，已映射到基因 ID 并整合进 HPA 结构。ProteinTalks-DB"
+        },
+        {
+          "sel": "#help_2948521 .helpText",
+          "text": "来自 MannLab 的批量质谱蛋白质组学数据（基于 Weiss 等），已映射到基因 ID 并整合进 HPA 结构。样本与 DVP 样本存在重叠。"
+        },
+        {
+          "sel": "#help_26100 .helpText p",
+          "text": "RNA 数据用于按基因在各组织中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+        },
+        {
+          "sel": "#help_71223 .helpText p",
+          "text": "保守性类别是一种分类注释，旨在将可用的物种两两重叠注释汇总为一个指标。类别包括：保守基因分为完全保守、部分保守、最低保守；非保守基因分为组织升高转移、人类特异组织升高、非人类组织升高、人类特异检出、人类未检出。"
+        },
+        {
+          "sel": "#help_4000 .helpText p",
+          "text": "RNA 特异性类别基于正常组织 scRNA-seq 数据中所分析细胞类型的 mRNA 表达水平。类别包括：细胞类型富集、组富集、细胞类型增强、低细胞类型特异性、未检出。"
+        },
+        {
+          "sel": "#help_26101 .helpText p",
+          "text": "RNA 数据用于按基因在各单细胞类型中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+        },
+        {
+          "sel": "#help_4041 .helpText p",
+          "text": "基因可在一种或多种组织的不同细胞类型中具有富集特异性，也可在多种不同组织共有的核心细胞类型中富集。"
+        },
+        {
+          "sel": "#help_3023 .helpText p",
+          "text": "RNA 特异性类别基于所分析样本中的 mRNA 表达水平，数据来自 HPA。类别包括：细胞类型富集、组富集、细胞类型增强、低细胞类型特异性、未检出。"
+        },
+        {
+          "sel": "#help_4120 .helpText p",
+          "text": "RNA 数据用于按基因在各单细胞类型中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+        },
+        {
+          "sel": "#help_1933 .helpText p",
+          "text": "RNA 数据用于按基因在各细胞系中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+        },
+        {
+          "sel": "#help_3300 .helpText p",
+          "text": "若某疾病全部样本的平均浓度显著高于所有疾病样本的平均浓度（校正 P 值 < 0.005 且 NPX 差值 ≥ 1，以 PEA 测定），则该基因在该疾病中被归类为上调。对于性别特异性疾病，分析仅纳入其他疾病中相同性别的样本。"
+        },
+        {
+          "sel": "#help_3301 .helpText p",
+          "text": "依据 glmnet 预测模型，该基因所关联且能够预测的疾病。基因须在差异表达分析中呈上调，且在预测模型中显示超过 50% 的总体重要性，才会被纳入。"
+        },
+        {
+          "sel": "#help_3025 .helpText p",
+          "text": "血液免疫检测类别适用于主动分泌的蛋白质，基于文献检索汇编的、以酶联免疫吸附试验测定的血浆或血清蛋白浓度。类别包括：检出与未检出，其中检出指文献检索中发现的浓度。"
+        },
+        {
+          "sel": "#help_3026 .helpText p",
+          "text": "该基因在血液中是否检出，基于自 PeptideAtlas 获取的公开质谱血浆蛋白质组数据集的谱计数估计。"
+        },
+        {
+          "sel": "#help_1901 .helpText p",
+          "text": "基于人类蛋白质图谱项目内生成的数据，对 RNA 表达与蛋白质定位的汇总。"
+        },
+        {
+          "sel": "#help_3022 .helpText p",
+          "text": "RNA 数据用于按基因在各单细胞类型中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+        },
+        {
+          "sel": "#help_302400 .helpText p",
+          "text": "RNA 特异性类别基于脑样本 snRNA-seq 数据中所分析细胞聚类类型的 mRNA 表达水平。类别包括：细胞类型富集、组富集、细胞类型增强、低细胞类型特异性、未检出。「细胞类型」指用于归纳脑细胞图谱中 250 万个细胞的 34 个聚类名称之一。"
+        },
+        {
+          "sel": "#help_16000 .helpText p",
+          "text": "单细胞资源中所含各数据集的概览。"
+        },
+        {
+          "sel": "#help_117 .helpText p",
+          "text": "每个柱条代表某一组织组中最高的表达评分。蛋白质表达评分基于知识注释对「真实」蛋白质表达的最佳估计，详见此处。对于使用了多种抗体的基因，会设定一个综合评分以展示估计的真实蛋白质表达。"
+        },
+        {
+          "sel": "#help_119 .helpText p",
+          "text": "RNA 表达概览展示来自两个不同来源的 RNA 数据：人类蛋白质图谱内部生成的 RNA-seq 数据，以及基因型-组织表达（GTEx）项目的 RNA-seq 数据，还包括基于两者组合的共识数据集。配色依据组织分组，每组由功能特征相同的组织组成。要查看样本数据，请点击组织名称或柱条。"
+        },
+        {
+          "sel": "#help_4011 .helpText p",
+          "text": "对所有单细胞类型的归一化单细胞 RNA（nCPM）的汇总。配色依据细胞类型分组，每组由功能特征相同的细胞类型组成。"
+        },
+        {
+          "sel": "#help_511637 .helpText",
+          "text": "此图展示基于上方单细胞类型汇总中所选单细胞/细胞核类型聚类的表达谱（RNAseq），以归一化 CPM（nCPM）表示。有关聚类选择的更多说明见此处。注意：此 RNA 概览基于上方数据中的选定部分（覆盖全身及更多细胞类型），目的是与 DVP 数据相匹配。"
+        },
+        {
+          "sel": "#help_7211755 .helpText",
+          "text": "此图展示使用深度视觉蛋白质组学（DVP）进行的定量蛋白质检测。有关蛋白质强度的更多说明见此处。"
+        },
+        {
+          "sel": "#help_5022 .helpText p",
+          "text": "组织细胞类型部分为所有蛋白编码基因提供细胞类型特异性预测。有关可用数据的更多信息见此处，分析的说明见此处。"
+        },
+        {
+          "sel": "#help_5023 .helpText p",
+          "match": "core cell type table displays",
+          "text": "核心细胞类型表展示八种存在于多种组织中的细胞类型的数据。"
+        },
+        {
+          "sel": "#help_5023 .helpText p",
+          "match": "Colored dots",
+          "text": "彩色圆点表示所选基因在对应组织中具有核心细胞类型特异性；灰色圆点表示该组织中存在该细胞类型，但所选基因在该处未预测为富集。"
+        },
+        {
+          "sel": "#help_5024 .helpText p",
+          "match": "This plot shows the enrichment score",
+          "text": "此图展示所选基因在所有已分析组织内的非核心细胞类型中的富集评分，便于比较不同组织内不同细胞类型之间的差异。"
+        },
+        {
+          "sel": "#help_5024 .helpText p",
+          "match": "An enlarged symbol",
+          "text": "放大的符号表示该基因在对应细胞类型中被归类为细胞类型富集。"
+        }
+      ],
+      "name": "Human Protein Atlas"
     },
     {
-     "sel": "#help_25314 .helpText p",
-     "match": "The RNA data was used to cluster genes according to their expression across tissues",
-     "text": "RNA 数据用于按基因在各组织中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
+      "id": "mirbase",
+      "hosts": [
+        "www.mirbase.org",
+        "mirbase.org"
+      ],
+      "dicts": [
+        "common",
+        "mirbase"
+      ],
+      "scope": "main, .container, body",
+      "name": "miRBase"
     },
     {
-     "sel": "#help_109 .helpText p",
-     "match": "The RNA specificity category is based on mRNA expression levels in the",
-     "text": "RNA 特异性类别基于共识数据集中归一化后的 mRNA 表达水平；该数据集依据 HPA 与 GTEx 样本的 RNA 表达水平计算。类别包括：组织富集、组富集、组织增强、低组织特异性、未检出。"
+      "id": "cbioportal",
+      "hosts": [
+        "www.cbioportal.org"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "anatomy",
+        "cbioportal"
+      ],
+      "scope": "main, #root, .cbioportal-frontend",
+      "spa": true,
+      "waitFor": "#root",
+      "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1), .headBlock, [class*=summary] h1, [class*=summary] h3",
+      "translateNoAllow": [
+        ".msk-tabs div[translate=\"no\"]"
+      ],
+      "blocks": [
+        {
+          "sel": "h4.tab-title",
+          "match": "Horizontal Axis",
+          "text": "横轴"
+        },
+        {
+          "sel": "h4.tab-title",
+          "match": "Vertical Axis",
+          "text": "纵轴"
+        },
+        {
+          "sel": "div[style*='margin-top: 5px']",
+          "match": "Driver annotation settings",
+          "text": "* 驱动注释设置位于页面顶部的设置菜单中（滑块图标处）。"
+        }
+      ],
+      "rescan": [
+        3000,
+        8000,
+        15000,
+        22000
+      ],
+      "name": "cBioPortal"
     },
     {
-     "sel": "#help_4047 .helpText p",
-     "match": "Tau specificity score is a numerical indicator",
-     "text": "Tau 特异性评分是基因表达在细胞或组织间特异性的数值指标，取值范围为 0 到 1：0 表示在所有细胞/组织类型中表达相同，1 表示仅在单一细胞/组织类型中表达。"
+      "id": "gdc",
+      "hosts": [
+        "portal.gdc.cancer.gov"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "onco",
+        "spa",
+        "gdc"
+      ],
+      "scope": "",
+      "spa": true,
+      "waitFor": "",
+      "proseExempt": "footer",
+      "attrs": [
+        "placeholder",
+        "title",
+        "aria-label",
+        "alt"
+      ],
+      "blocks": [
+        {
+          "sel": "a[href=\"/analysis_page?app=Projects\"] p",
+          "match": "View the Projects available within the GDC",
+          "text": "查看 GDC 中可用的项目，并选择以进一步探索与分析。"
+        },
+        {
+          "sel": "a[href=\"/analysis_page?app=CohortBuilder\"] p",
+          "match": "Build and define your custom cohorts",
+          "text": "使用多种临床与生物样本特征构建并定义自定义队列。"
+        },
+        {
+          "sel": "a[href=\"/analysis_page?app=Downloads\"] p",
+          "match": "Browse and download the files associated with your cohort",
+          "text": "浏览并下载你队列关联的文件，以便进一步深入分析。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Download a BAM slice",
+          "text": "下载 BAM 切片。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Use clinical variables to perform basic statistical analysis",
+          "text": "使用临床变量对队列进行基础统计分析。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Combine and download cohort level MAF data",
+          "text": "合并并下载队列级 MAF 数据。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize copy number variation over a gene or region",
+          "text": "可视化基因或区域上的拷贝数变异。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize correlations between clinical and genomic variables",
+          "text": "可视化临床变量与基因组变量之间的相关性。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize the top most variably expressed genes",
+          "text": "可视化队列中表达变异最大的基因。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize most frequently mutated genes and somatic mutations",
+          "text": "可视化最高频的突变基因与体细胞突变。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize the top most mutated cases and genes affected",
+          "text": "可视化队列中突变最多的病例，以及受高影响等级突变影响的基因。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize mutations in protein-coding genes by consequence type",
+          "text": "按后果类型与蛋白结构域可视化蛋白编码基因中的突变。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize sequencing reads for a given gene",
+          "text": "可视化指定基因、位置、SNP 或变异的测序读段。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Display a Venn diagram and compare/contrast",
+          "text": "以维恩图展示并比较同类型的队列或集合。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Visualize single-cell RNA-Seq data",
+          "text": "以聚类图和基因表达叠加可视化单细胞 RNA 测序数据。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "Display the survival analysis of your cohorts",
+          "text": "展示队列的生存分析，并比较出生性别、生存状态、诊断年龄等特征。"
+        },
+        {
+          "sel": "[data-testid=\"text-description-tool\"] p",
+          "match": "View histopathology and radiology images",
+          "text": "使用影像数据共享平台（IDC）图像查看器查看当前队列的组织病理与影像图像。"
+        },
+        {
+          "sel": "main#main p.py-1.font-content",
+          "match": "The Cancer Genomic Atlas",
+          "text": "高质量数据集，涵盖 50,571 例病例，来自癌症基因组研究计划，如癌症基因组图谱（TCGA）、人类癌症模型计划（HCMI）、Foundation Medicine 公司（FMI）与临床蛋白质组肿瘤分析联盟（CPTAC）。"
+        },
+        {
+          "sel": "main#main p.py-1.font-content",
+          "match": "Contact our knowledgeable",
+          "text": "联系我们的专家团队以获取数据与基因组数据共享平台各项功能的帮助。发送问题、建议或问题描述，团队将及时回复。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "A repository and computational platform",
+          "text": "面向需要了解癌症、其临床进展与治疗反应的癌症研究者的数据仓库与计算平台。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "Clinical data, including demographics",
+          "text": "临床数据（包括人口学、诊断与治疗信息）已在数百个不同属性上完成标准化。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "State-of-the-art bioinformatics workflows",
+          "text": "采用先进的生物信息学流程比对测序读段，覆盖从全基因组到单细胞 RNA，并生成高层级衍生数据。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "Create and refine custom cohorts",
+          "text": "在队列构建器中使用多种临床与生物样本筛选条件，为计算机模拟研究创建并精修癌症患者定制队列。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "Analyze your custom cohorts",
+          "text": "应用 GDC 的工具集分析你的定制队列，可视化临床特征、基因组改变与其他癌症驱动因素。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "Seamlessly download clinical",
+          "text": "从你的队列无缝下载临床、生物样本与基因组数据，以供进一步分析。"
+        },
+        {
+          "sel": "main#main p",
+          "match": "Find the files you want with the filters",
+          "text": "借助可用的筛选条件找到所需文件，无论是体细胞变异、基因表达数据、切片图像，还是特定工作流产出的文件。"
+        },
+        {
+          "sel": "[role=\"dialog\"] div.border-y p",
+          "match": "You are accessing a U.S. Government",
+          "text": "你正在访问一个美国政府网站，该网站可能包含受《美国隐私法》或其他敏感信息规定保护、仅供政府授权使用之信息。"
+        },
+        {
+          "sel": "[role=\"dialog\"] div.border-y p",
+          "match": "Unauthorized attempts to upload",
+          "text": "未经授权上传信息、修改信息或使用本网站，可能导致纪律处分、民事和/或刑事处罚。未经授权访问本网站的用户，不应对本网站处理或传输的任何通信或数据抱有隐私期待。"
+        },
+        {
+          "sel": "[role=\"dialog\"] div.border-y p",
+          "match": "Anyone accessing this web site",
+          "text": "任何访问本网站者均明确同意其行为及在本网站传输、存储或与之相关的所有通信或数据受到监控；并被告知，若此类监控发现可能的犯罪证据，NIH 可将其提供执法官员。"
+        },
+        {
+          "sel": "[role=\"dialog\"] div.border-y p",
+          "match": "Please be advised that some features",
+          "text": "请注意，在较高的隐私设置下（例如禁用 Cookie），部分功能可能无法使用。"
+        },
+        {
+          "sel": "[role=\"dialog\"] div.border-y p",
+          "match": "Data in the GDC is considered provisional",
+          "text": "警告：GDC 数据被视为临时性数据，因为 GDC 采用的分析流程会随时间演进。访问本站前请阅读《GDC 数据发布说明》，其中提供数据更新、已知问题与变通方法的详情。"
+        }
+      ],
+      "name": "GDC 数据门户"
     },
     {
-     "sel": "#help_130 .helpText p",
-     "match": "is based on mRNA expression levels in the analyzed samples based on a combination of data",
-     "text": "RNA 分布类别基于所分析样本中的 mRNA 表达水平，综合 HPA 与 GTEx 的数据计算。类别包括：全部检出、多数检出、部分检出、单一检出、未检出。"
+      "id": "gepia2",
+      "hosts": [
+        "gepia2.cancer-pku.cn"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "gepia2"
+      ],
+      "scope": "body",
+      "protocols": [
+        "http"
+      ],
+      "name": "GEPIA2"
     },
     {
-     "sel": "#help_110 .helpText p",
-     "match": "Evidence score for genes based on UniProt protein existence",
-     "text": "基因的证据评分，依据 UniProt 蛋白质存在性（UniProt 证据）、neXtProt 蛋白质存在性（neXtProt 证据），以及人类蛋白质图谱基于抗体或 RNA 的评分（HPA 证据）。可用评分包括：蛋白质水平证据、转录本水平证据、无证据、不可用。"
+      "id": "ualcan",
+      "hosts": [
+        "ualcan.path.uab.edu"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "ualcan"
+      ],
+      "scope": "body",
+      "name": "UALCAN"
     },
     {
-     "sel": "#help_3052 .helpText p",
-     "match": "The regional specificity category is based on mRNA expression levels",
-     "text": "脑区特异性类别基于所分析脑样本中的 mRNA 表达水平，样本归入 13 个主要脑区，并分别对三个物种计算。所有脑表达谱均基于 HPA 的数据。特异性类别包括：脑区富集、组富集、脑区增强、低脑区特异性、未检出。分类规则与组织特异性类别相同。"
+      "id": "timer2",
+      "hosts": [
+        "timer.comp-genomics.org",
+        "timer.cistrome.org",
+        "compbio.cn"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "timer"
+      ],
+      "scope": "body",
+      "name": "TIMER2.0/3.0"
     },
     {
-     "sel": "#help_1512 .helpText p",
-     "match": "A summary of the protein localization in the current human tissue",
-     "text": "基于所选组织中的多重免疫组化分析，对当前人体组织中蛋白质定位的汇总，仅对已开展该分析的基因显示。"
+      "id": "gtex",
+      "hosts": [
+        "gtexportal.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa",
+        "gtex"
+      ],
+      "scope": "main, #root",
+      "spa": true,
+      "waitFor": "#root",
+      "name": "GTEx Portal"
     },
     {
-     "sel": "#help_113 .helpText p",
-     "match": "Standardized explanatory sentences with additional information",
-     "text": "为完整理解蛋白质表达谱所需的补充信息而提供的标准化说明句，依据基于知识的注释与基于分泌组的注释生成。"
+      "id": "ensembl",
+      "hosts": [
+        "www.ensembl.org",
+        "ensembl.org",
+        "*.archive.ensembl.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa",
+        "ensembl"
+      ],
+      "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3, body",
+      "spa": true,
+      "waitFor": "header, .root__Root__8fRu3, #content",
+      "proseExempt": "section[class*=privacyBanner]",
+      "valueText": true,
+      "name": "Ensembl"
     },
     {
-     "sel": "#help_129 .helpText p",
-     "match": "Antibodies used for this assay",
-     "text": "本检测所用的抗体。点击某个抗体可查看更多信息。"
+      "id": "ucsc",
+      "hosts": [
+        "genome.ucsc.edu"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa",
+        "ucsc"
+      ],
+      "scope": "body",
+      "proseExempt": "#descriptionText",
+      "skip": ".gbsPage > h1 + p",
+      "valueText": true,
+      "rescan": [
+        3000,
+        8000,
+        15000,
+        25000
+      ],
+      "name": "UCSC Genome Browser"
     },
     {
-     "sel": "#help_11118 .helpText p",
-     "match": "Overview of protein localization based on",
-     "text": "基于所选组织中多重免疫组化分析的蛋白质定位概览。每张图像及对应句子概述了主要的蛋白质定位。点击图像可查看详细数据。"
+      "id": "uniprot",
+      "hosts": [
+        "www.uniprot.org",
+        "uniprot.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa",
+        "uniprot"
+      ],
+      "scope": "main, #root",
+      "spa": true,
+      "waitFor": "main",
+      "proseExempt": "",
+      "blocks": [
+        {
+          "sel": "h1.x-huge",
+          "text": "查找你的蛋白质"
+        },
+        {
+          "sel": ".message__title small",
+          "text": "超过 26,000 条 UniProtKB 未审阅/TrEMBL 条目现已包含由 Google DeepMind 合作伙伴开发的蛋白质自然语言模型 ProtNLM2 生成的机器学习/人工智能（AI）注释。其中包括对功能注释、亚细胞定位、关键词和基因本体（GO）术语的预测。查看 ProtNLM2 帮助页面以了解更多，并获取当前由该模型注释的 UniProtKB 未审阅/TrEMBL 条目列表。"
+        }
+      ],
+      "translateNoAllow": [
+        "button.evidence-tag",
+        "a[href=\"/align\"]",
+        "section tbody[translate=\"no\"]",
+        "a.button span[translate=\"no\"]",
+        "button.button span[translate=\"no\"]"
+      ],
+      "name": "UniProt"
     },
     {
-     "sel": "#help_26005 .helpText p",
-     "match": "ID of the expression cluster of the neighboring gene",
-     "text": "邻近基因所属表达聚类的编号。"
-    },
-    {
-     "sel": "#help_114 .helpText",
-     "match": "A reliability score is manually set for all genes",
-     "text": "可靠性评分对所有基因人工设定，表示所分析蛋白质表达模式的可靠程度，依据可用的 RNA-seq 数据、蛋白质/基因特征数据，以及来自一种或多种表位互不重叠的抗体的免疫组化数据综合判断。可靠性评分基于所分析的 44 种正常组织；若有多于一种抗体的数据，评估时会将所有抗体的染色模式纳入考量。可靠性评分分为增强、支持、认可或不确定四档，并在组织资源与癌症资源中同时显示。"
-    },
-    {
-     "sel": "#help_11121 .helpText p",
-     "match": "Links to data of the different assays available in the Tissue resource",
-     "text": "指向人类蛋白质图谱组织资源中各项检测数据的链接。点击缩略图可直接跳转到相应小节。"
-    },
-    {
-     "sel": "#help_115 .helpText",
-     "match": "Below is an overview of RNA and protein expression data",
-     "text": "以下为人类蛋白质图谱项目中生成的 RNA 与蛋白质表达数据概览。所分析的组织按共有的功能特征划分为若干色标分组。点击组名、组别符号、RNA 条或蛋白质条，可查看该组包含的组织列表；再在列表中选择某个组织，即会跳转到相应的图像数据页面。右侧的免疫组化图像面板展示了可直观概括蛋白质表达谱的若干选定组织。左侧两幅人体图以解剖方式展示所分析器官中 mRNA 的表达水平与检出情况。点击两图之间的按钮可在这两种视图间切换。"
-    },
-    {
-     "sel": "#help_116 .helpText p",
-     "match": "RNA expression summary shows the consensus data based on normalized expression",
-     "text": "RNA 表达汇总展示基于归一化表达（nTPM）值的共识数据，其来源为两类数据：人类蛋白质图谱自行生成的 HPA RNA-seq 数据，以及基因型-组织表达（GTEx）项目的 RNA-seq 数据。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。"
-    },
-    {
-     "sel": "#help_26001 .helpText p",
-     "match": "The RNA data was used to cluster genes according to their expression across samples",
-     "text": "RNA 数据用于按基因在各样本中的表达进行聚类。所得聚类均已人工注释，以描述其在功能与特异性方面的共同特征。聚类注释与基因归入该聚类的置信度一并显示。置信度按重复计算中该基因被归入此聚类的比例计算，取值 0 到 1，1 表示最高可能的置信度。聚类结果以 UMAP 展示，该基因所属的聚类以彩色区域高亮，聚类中的大多数基因位于其中。表格列出表达谱最相似的 15 个基因。"
-    },
-    {
-     "sel": "#help_26111 .helpText p",
-     "match": "Confidence is the fraction of times a gene was assigned to the cluster",
-     "text": "置信度是重复聚类中基因被归入该聚类的比例，反映其与该聚类的关联强度。置信度为 1 表示在所有重复聚类中该基因都被归入此聚类。"
-    },
-    {
-     "sel": "#help_26004 .helpText p",
-     "match": "Correlation between the selected gene and neighboring gene",
-     "text": "所选基因与邻近基因之间的相关性，按基于 RNA-seq 表达数据在 PCA 空间中计算的 Spearman 相关系数得出。"
-    },
-    {
-     "sel": "#help_170 .helpText",
-     "match": "The consensus dataset consists of normalized expression",
-     "text": "共识数据集包含 51 种组织类型的归一化表达（nTPM）水平，由 HPA 与 GTEx 转录组数据集经内部归一化流程整合而成。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。关于数据集如何整合为共识归一化表达水平的更多说明见此处。"
-    },
-    {
-     "sel": "#help_123 .helpText",
-     "match": "The HPA RNA-seq tissue data is reported as nTPM",
-     "text": "HPA RNA-seq 组织数据以 nTPM（归一化的每百万蛋白编码转录本数）表示，对应各组织不同单一样本的均值。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。HPA RNA-seq 检测方法的详细说明见此处。"
-    },
-    {
-     "sel": "#help_124 .helpText",
-     "match": "The RNA-seq tissue data generated by the Genotype-Tissue Expression",
-     "text": "基因型-组织表达（GTEx）项目生成的 RNA-seq 组织数据以 nTPM（归一化的每百万蛋白编码转录本数）表示，对应各组织不同单一样本的均值。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。GTEx RNA-seq 检测方法的详细说明见此处。"
-    },
-    {
-     "sel": "#help_125 .helpText",
-     "match": "The tissue data for RNA expression obtained through Cap Analysis",
-     "text": "由 FANTOM5 项目通过基因表达帽分析（CAGE）获得的 RNA 表达组织数据以每百万标签数（Scaled Tags Per Million）表示。配色依据组织分组，每组由功能特征相同的组织组成。点击组织名称或柱条可查看样本数据。CAGE 方法的详细说明见此处。"
-    },
-    {
-     "sel": "#help_149 .helpText p",
-     "text": "基于 TCGA 数据集，21 种癌症类型的 RNA 表达特异性分为：癌症富集、组富集、癌症增强、低癌症特异性、未检出。"
-    },
-    {
-     "sel": "#help_418273 .helpText p",
-     "text": "通过质谱（ProteinTalks DB 数据集）测定的 25 种癌症类型肿瘤样本中蛋白质丰度的特异性，分为：癌症富集、组富集、癌症增强、低癌症特异性、未检出。"
-    },
-    {
-     "sel": "#help_1903 .helpText p",
-     "text": "RNA 特异性类别基于人类蛋白质图谱中按癌症类型分组的癌细胞系 RNA 测序数据。基因依据其在细胞系集合中的 RNA 表达水平分为六类（富集、组富集、增强、低特异性、未检出）。"
-    },
-    {
-     "sel": "#help_3031 .helpText p",
-     "text": "表示该蛋白质是否已使用 Olink Explore HT 邻近延伸分析平台测定（有数据 / 无数据）。"
-    },
-    {
-     "sel": "#help_3031785 .helpText p",
-     "text": "表示该蛋白质是否已使用 SomaScan 11K 平台测定（有数据 / 无数据）。"
-    },
-    {
-     "sel": "#help_111 .helpText",
-     "text": "对已分析正常组织中整体蛋白质表达模式的汇总，基于知识注释。对于采用知识注释分析的基因，若可用的 RNA-seq 与基因/蛋白质特征数据经评估与免疫组化数据结合后仍不足以可靠估计蛋白质表达谱，则显示「无法进行蛋白质表达估计，请查看原始数据」。"
-    },
-    {
-     "sel": "#help_118 .helpText",
-     "text": "基于知识注释展示全部 44 种组织中每一种的蛋白质表达数据。配色依据组织分组，每组由功能特征相同的组织组成。鼠标悬停可显示所选组织中已分析细胞类型的蛋白质评分。点击组织名称或柱条可查看图像数据。蛋白质表达的注释详见此处。对于有蛋白质数据但知识注释结果不确定的基因，蛋白质表达数据概览中不显示蛋白质表达数据；不过所有免疫组化图像仍可查看，注释数据可在「原始数据」中找到。"
-    },
-    {
-     "sel": "#help_9542123 .helpText",
-     "text": "来自 Yue L 等（2026）的批量质谱蛋白质组学数据，已映射到基因 ID 并整合进 HPA 结构。ProteinTalks-DB"
-    },
-    {
-     "sel": "#help_2948521 .helpText",
-     "text": "来自 MannLab 的批量质谱蛋白质组学数据（基于 Weiss 等），已映射到基因 ID 并整合进 HPA 结构。样本与 DVP 样本存在重叠。"
-    },
-    {
-     "sel": "#help_26100 .helpText p",
-     "text": "RNA 数据用于按基因在各组织中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
-    },
-    {
-     "sel": "#help_71223 .helpText p",
-     "text": "保守性类别是一种分类注释，旨在将可用的物种两两重叠注释汇总为一个指标。类别包括：保守基因分为完全保守、部分保守、最低保守；非保守基因分为组织升高转移、人类特异组织升高、非人类组织升高、人类特异检出、人类未检出。"
-    },
-    {
-     "sel": "#help_4000 .helpText p",
-     "text": "RNA 特异性类别基于正常组织 scRNA-seq 数据中所分析细胞类型的 mRNA 表达水平。类别包括：细胞类型富集、组富集、细胞类型增强、低细胞类型特异性、未检出。"
-    },
-    {
-     "sel": "#help_26101 .helpText p",
-     "text": "RNA 数据用于按基因在各单细胞类型中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
-    },
-    {
-     "sel": "#help_4041 .helpText p",
-     "text": "基因可在一种或多种组织的不同细胞类型中具有富集特异性，也可在多种不同组织共有的核心细胞类型中富集。"
-    },
-    {
-     "sel": "#help_3023 .helpText p",
-     "text": "RNA 特异性类别基于所分析样本中的 mRNA 表达水平，数据来自 HPA。类别包括：细胞类型富集、组富集、细胞类型增强、低细胞类型特异性、未检出。"
-    },
-    {
-     "sel": "#help_4120 .helpText p",
-     "text": "RNA 数据用于按基因在各单细胞类型中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
-    },
-    {
-     "sel": "#help_1933 .helpText p",
-     "text": "RNA 数据用于按基因在各细胞系中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
-    },
-    {
-     "sel": "#help_3300 .helpText p",
-     "text": "若某疾病全部样本的平均浓度显著高于所有疾病样本的平均浓度（校正 P 值 < 0.005 且 NPX 差值 ≥ 1，以 PEA 测定），则该基因在该疾病中被归类为上调。对于性别特异性疾病，分析仅纳入其他疾病中相同性别的样本。"
-    },
-    {
-     "sel": "#help_3301 .helpText p",
-     "text": "依据 glmnet 预测模型，该基因所关联且能够预测的疾病。基因须在差异表达分析中呈上调，且在预测模型中显示超过 50% 的总体重要性，才会被纳入。"
-    },
-    {
-     "sel": "#help_3025 .helpText p",
-     "text": "血液免疫检测类别适用于主动分泌的蛋白质，基于文献检索汇编的、以酶联免疫吸附试验测定的血浆或血清蛋白浓度。类别包括：检出与未检出，其中检出指文献检索中发现的浓度。"
-    },
-    {
-     "sel": "#help_3026 .helpText p",
-     "text": "该基因在血液中是否检出，基于自 PeptideAtlas 获取的公开质谱血浆蛋白质组数据集的谱计数估计。"
-    },
-    {
-     "sel": "#help_1901 .helpText p",
-     "text": "基于人类蛋白质图谱项目内生成的数据，对 RNA 表达与蛋白质定位的汇总。"
-    },
-    {
-     "sel": "#help_3022 .helpText p",
-     "text": "RNA 数据用于按基因在各单细胞类型中的表达进行聚类。每个聚类包含表达模式相似的基因，且各聚类均已人工注释，以描述其在功能与特异性方面的共同特征。"
-    },
-    {
-     "sel": "#help_302400 .helpText p",
-     "text": "RNA 特异性类别基于脑样本 snRNA-seq 数据中所分析细胞聚类类型的 mRNA 表达水平。类别包括：细胞类型富集、组富集、细胞类型增强、低细胞类型特异性、未检出。「细胞类型」指用于归纳脑细胞图谱中 250 万个细胞的 34 个聚类名称之一。"
-    },
-    {
-     "sel": "#help_16000 .helpText p",
-     "text": "单细胞资源中所含各数据集的概览。"
-    },
-    {
-     "sel": "#help_117 .helpText p",
-     "text": "每个柱条代表某一组织组中最高的表达评分。蛋白质表达评分基于知识注释对「真实」蛋白质表达的最佳估计，详见此处。对于使用了多种抗体的基因，会设定一个综合评分以展示估计的真实蛋白质表达。"
-    },
-    {
-     "sel": "#help_119 .helpText p",
-     "text": "RNA 表达概览展示来自两个不同来源的 RNA 数据：人类蛋白质图谱内部生成的 RNA-seq 数据，以及基因型-组织表达（GTEx）项目的 RNA-seq 数据，还包括基于两者组合的共识数据集。配色依据组织分组，每组由功能特征相同的组织组成。要查看样本数据，请点击组织名称或柱条。"
-    },
-    {
-     "sel": "#help_4011 .helpText p",
-     "text": "对所有单细胞类型的归一化单细胞 RNA（nCPM）的汇总。配色依据细胞类型分组，每组由功能特征相同的细胞类型组成。"
-    },
-    {
-     "sel": "#help_511637 .helpText",
-     "text": "此图展示基于上方单细胞类型汇总中所选单细胞/细胞核类型聚类的表达谱（RNAseq），以归一化 CPM（nCPM）表示。有关聚类选择的更多说明见此处。注意：此 RNA 概览基于上方数据中的选定部分（覆盖全身及更多细胞类型），目的是与 DVP 数据相匹配。"
-    },
-    {
-     "sel": "#help_7211755 .helpText",
-     "text": "此图展示使用深度视觉蛋白质组学（DVP）进行的定量蛋白质检测。有关蛋白质强度的更多说明见此处。"
-    },
-    {
-     "sel": "#help_5022 .helpText p",
-     "text": "组织细胞类型部分为所有蛋白编码基因提供细胞类型特异性预测。有关可用数据的更多信息见此处，分析的说明见此处。"
-    },
-    {
-     "sel": "#help_5023 .helpText p",
-     "match": "core cell type table displays",
-     "text": "核心细胞类型表展示八种存在于多种组织中的细胞类型的数据。"
-    },
-    {
-     "sel": "#help_5023 .helpText p",
-     "match": "Colored dots",
-     "text": "彩色圆点表示所选基因在对应组织中具有核心细胞类型特异性；灰色圆点表示该组织中存在该细胞类型，但所选基因在该处未预测为富集。"
-    },
-    {
-     "sel": "#help_5024 .helpText p",
-     "match": "This plot shows the enrichment score",
-     "text": "此图展示所选基因在所有已分析组织内的非核心细胞类型中的富集评分，便于比较不同组织内不同细胞类型之间的差异。"
-    },
-    {
-     "sel": "#help_5024 .helpText p",
-     "match": "An enlarged symbol",
-     "text": "放大的符号表示该基因在对应细胞类型中被归类为细胞类型富集。"
+      "id": "rcsb-pdb",
+      "hosts": [
+        "www.rcsb.org",
+        "rcsb.org"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "rcsb"
+      ],
+      "scope": "header, nav, main, footer, #root, .visually-hidden-focusable, .skip-link",
+      "spa": true,
+      "waitFor": "#root",
+      "blocks": [
+        {
+          "sel": "div.col-12.col-lg-3 > p",
+          "match": "Computed Structure Models",
+          "text": "检索 PDB 结构与计算结构模型（CSM），组合本套件中各工具的查询条件：属性检索、序列相似性、序列基序、三维相似性、三维基序，并以「AND」逻辑组合。"
+        },
+        {
+          "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(1) p",
+          "text": "通过组合本套件中各工具的查询条件检索 PDB 结构与计算结构模型（CSM）：结构属性、序列相似性、序列基序、三维相似性、三维基序，并以「AND」逻辑组合。"
+        },
+        {
+          "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(3) p",
+          "text": "通过组合本套件中各工具的查询条件检索小分子：化学属性与化学相似性检索，并使用「AND」逻辑。"
+        },
+        {
+          "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(4) p",
+          "text": "使用来自各种本体与层级分类方案的注释检索 PDB 结构，例如疾病本体、分子功能。"
+        }
+      ],
+      "name": "RCSB PDB"
     }
-   ],
-   "name": "Human Protein Atlas"
-  },
-  {
-   "id": "mirbase",
-   "hosts": [
-    "www.mirbase.org",
-    "mirbase.org"
-   ],
-   "dicts": [
-    "common",
-    "mirbase"
-   ],
-   "scope": "main, .container, body",
-   "name": "miRBase"
-  },
-  {
-   "id": "cbioportal",
-   "hosts": [
-    "www.cbioportal.org"
-   ],
-   "dicts": [
-    "common",
-    "onco",
-    "anatomy",
-    "cbioportal"
-   ],
-   "scope": "main, #root, .cbioportal-frontend",
-   "spa": true,
-   "waitFor": "#root",
-   "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1), .headBlock, [class*=summary] h1, [class*=summary] h3",
-   "translateNoAllow": [
-    ".msk-tabs div[translate=\"no\"]"
-   ],
-   "blocks": [
-    {
-     "sel": "h4.tab-title",
-     "match": "Horizontal Axis",
-     "text": "横轴"
-    },
-    {
-     "sel": "h4.tab-title",
-     "match": "Vertical Axis",
-     "text": "纵轴"
-    },
-    {
-     "sel": "div[style*='margin-top: 5px']",
-     "match": "Driver annotation settings",
-     "text": "* 驱动注释设置位于页面顶部的设置菜单中（滑块图标处）。"
-    }
-   ],
-   "rescan": [
-    3000,
-    8000,
-    15000,
-    22000
-   ],
-   "name": "cBioPortal"
-  },
-  {
-   "id": "gdc",
-   "hosts": [
-    "portal.gdc.cancer.gov"
-   ],
-   "dicts": [
-    "common",
-    "anatomy",
-    "onco",
-    "spa",
-    "gdc"
-   ],
-   "scope": "",
-   "spa": true,
-   "waitFor": "",
-   "proseExempt": "footer",
-   "attrs": [
-    "placeholder",
-    "title",
-    "aria-label",
-    "alt"
-   ],
-   "blocks": [
-    {
-     "sel": "a[href=\"/analysis_page?app=Projects\"] p",
-     "match": "View the Projects available within the GDC",
-     "text": "查看 GDC 中可用的项目，并选择以进一步探索与分析。"
-    },
-    {
-     "sel": "a[href=\"/analysis_page?app=CohortBuilder\"] p",
-     "match": "Build and define your custom cohorts",
-     "text": "使用多种临床与生物样本特征构建并定义自定义队列。"
-    },
-    {
-     "sel": "a[href=\"/analysis_page?app=Downloads\"] p",
-     "match": "Browse and download the files associated with your cohort",
-     "text": "浏览并下载你队列关联的文件，以便进一步深入分析。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Download a BAM slice",
-     "text": "下载 BAM 切片。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Use clinical variables to perform basic statistical analysis",
-     "text": "使用临床变量对队列进行基础统计分析。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Combine and download cohort level MAF data",
-     "text": "合并并下载队列级 MAF 数据。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize copy number variation over a gene or region",
-     "text": "可视化基因或区域上的拷贝数变异。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize correlations between clinical and genomic variables",
-     "text": "可视化临床变量与基因组变量之间的相关性。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize the top most variably expressed genes",
-     "text": "可视化队列中表达变异最大的基因。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize most frequently mutated genes and somatic mutations",
-     "text": "可视化最高频的突变基因与体细胞突变。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize the top most mutated cases and genes affected",
-     "text": "可视化队列中突变最多的病例，以及受高影响等级突变影响的基因。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize mutations in protein-coding genes by consequence type",
-     "text": "按后果类型与蛋白结构域可视化蛋白编码基因中的突变。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize sequencing reads for a given gene",
-     "text": "可视化指定基因、位置、SNP 或变异的测序读段。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Display a Venn diagram and compare/contrast",
-     "text": "以维恩图展示并比较同类型的队列或集合。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Visualize single-cell RNA-Seq data",
-     "text": "以聚类图和基因表达叠加可视化单细胞 RNA 测序数据。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "Display the survival analysis of your cohorts",
-     "text": "展示队列的生存分析，并比较出生性别、生存状态、诊断年龄等特征。"
-    },
-    {
-     "sel": "[data-testid=\"text-description-tool\"] p",
-     "match": "View histopathology and radiology images",
-     "text": "使用影像数据共享平台（IDC）图像查看器查看当前队列的组织病理与影像图像。"
-    },
-    {
-     "sel": "main#main p.py-1.font-content",
-     "match": "The Cancer Genomic Atlas",
-     "text": "高质量数据集，涵盖 50,571 例病例，来自癌症基因组研究计划，如癌症基因组图谱（TCGA）、人类癌症模型计划（HCMI）、Foundation Medicine 公司（FMI）与临床蛋白质组肿瘤分析联盟（CPTAC）。"
-    },
-    {
-     "sel": "main#main p.py-1.font-content",
-     "match": "Contact our knowledgeable",
-     "text": "联系我们的专家团队以获取数据与基因组数据共享平台各项功能的帮助。发送问题、建议或问题描述，团队将及时回复。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "A repository and computational platform",
-     "text": "面向需要了解癌症、其临床进展与治疗反应的癌症研究者的数据仓库与计算平台。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "Clinical data, including demographics",
-     "text": "临床数据（包括人口学、诊断与治疗信息）已在数百个不同属性上完成标准化。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "State-of-the-art bioinformatics workflows",
-     "text": "采用先进的生物信息学流程比对测序读段，覆盖从全基因组到单细胞 RNA，并生成高层级衍生数据。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "Create and refine custom cohorts",
-     "text": "在队列构建器中使用多种临床与生物样本筛选条件，为计算机模拟研究创建并精修癌症患者定制队列。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "Analyze your custom cohorts",
-     "text": "应用 GDC 的工具集分析你的定制队列，可视化临床特征、基因组改变与其他癌症驱动因素。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "Seamlessly download clinical",
-     "text": "从你的队列无缝下载临床、生物样本与基因组数据，以供进一步分析。"
-    },
-    {
-     "sel": "main#main p",
-     "match": "Find the files you want with the filters",
-     "text": "借助可用的筛选条件找到所需文件，无论是体细胞变异、基因表达数据、切片图像，还是特定工作流产出的文件。"
-    },
-    {
-     "sel": "[role=\"dialog\"] div.border-y p",
-     "match": "You are accessing a U.S. Government",
-     "text": "你正在访问一个美国政府网站，该网站可能包含受《美国隐私法》或其他敏感信息规定保护、仅供政府授权使用之信息。"
-    },
-    {
-     "sel": "[role=\"dialog\"] div.border-y p",
-     "match": "Unauthorized attempts to upload",
-     "text": "未经授权上传信息、修改信息或使用本网站，可能导致纪律处分、民事和/或刑事处罚。未经授权访问本网站的用户，不应对本网站处理或传输的任何通信或数据抱有隐私期待。"
-    },
-    {
-     "sel": "[role=\"dialog\"] div.border-y p",
-     "match": "Anyone accessing this web site",
-     "text": "任何访问本网站者均明确同意其行为及在本网站传输、存储或与之相关的所有通信或数据受到监控；并被告知，若此类监控发现可能的犯罪证据，NIH 可将其提供执法官员。"
-    },
-    {
-     "sel": "[role=\"dialog\"] div.border-y p",
-     "match": "Please be advised that some features",
-     "text": "请注意，在较高的隐私设置下（例如禁用 Cookie），部分功能可能无法使用。"
-    },
-    {
-     "sel": "[role=\"dialog\"] div.border-y p",
-     "match": "Data in the GDC is considered provisional",
-     "text": "警告：GDC 数据被视为临时性数据，因为 GDC 采用的分析流程会随时间演进。访问本站前请阅读《GDC 数据发布说明》，其中提供数据更新、已知问题与变通方法的详情。"
-    }
-   ],
-   "name": "GDC 数据门户"
-  },
-  {
-   "id": "gepia2",
-   "hosts": [
-    "gepia2.cancer-pku.cn"
-   ],
-   "dicts": [
-    "common",
-    "onco",
-    "gepia2"
-   ],
-   "scope": "body",
-   "protocols": [
-    "http"
-   ],
-   "name": "GEPIA2"
-  },
-  {
-   "id": "ualcan",
-   "hosts": [
-    "ualcan.path.uab.edu"
-   ],
-   "dicts": [
-    "common",
-    "onco",
-    "ualcan"
-   ],
-   "scope": "body",
-   "name": "UALCAN"
-  },
-  {
-   "id": "timer2",
-   "hosts": [
-    "timer.comp-genomics.org",
-    "timer.cistrome.org",
-    "compbio.cn"
-   ],
-   "dicts": [
-    "common",
-    "onco",
-    "timer"
-   ],
-   "scope": "body",
-   "name": "TIMER2.0/3.0"
-  },
-  {
-   "id": "gtex",
-   "hosts": [
-    "gtexportal.org"
-   ],
-   "dicts": [
-    "common",
-    "anatomy",
-    "spa",
-    "gtex"
-   ],
-   "scope": "main, #root",
-   "spa": true,
-   "waitFor": "#root",
-   "name": "GTEx Portal"
-  },
-  {
-   "id": "ensembl",
-   "hosts": [
-    "www.ensembl.org",
-    "ensembl.org",
-    "*.archive.ensembl.org"
-   ],
-   "dicts": [
-    "common",
-    "anatomy",
-    "spa",
-    "ensembl"
-   ],
-   "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3, body",
-   "spa": true,
-   "waitFor": "header, .root__Root__8fRu3, #content",
-   "proseExempt": "section[class*=privacyBanner]",
-   "valueText": true,
-   "name": "Ensembl"
-  },
-  {
-   "id": "ucsc",
-   "hosts": [
-    "genome.ucsc.edu"
-   ],
-   "dicts": [
-    "common",
-    "anatomy",
-    "spa",
-    "ucsc"
-   ],
-   "scope": "body",
-   "proseExempt": "#descriptionText",
-   "skip": ".gbsPage > h1 + p",
-   "valueText": true,
-   "rescan": [
-    3000,
-    8000,
-    15000,
-    25000
-   ],
-   "name": "UCSC Genome Browser"
-  },
-  {
-   "id": "uniprot",
-   "hosts": [
-    "www.uniprot.org",
-    "uniprot.org"
-   ],
-   "dicts": [
-    "common",
-    "anatomy",
-    "spa",
-    "uniprot"
-   ],
-   "scope": "main, #root",
-   "spa": true,
-   "waitFor": "main",
-   "proseExempt": "",
-   "blocks": [
-    {
-     "sel": "h1.x-huge",
-     "text": "查找你的蛋白质"
-    },
-    {
-     "sel": ".message__title small",
-     "text": "超过 26,000 条 UniProtKB 未审阅/TrEMBL 条目现已包含由 Google DeepMind 合作伙伴开发的蛋白质自然语言模型 ProtNLM2 生成的机器学习/人工智能（AI）注释。其中包括对功能注释、亚细胞定位、关键词和基因本体（GO）术语的预测。查看 ProtNLM2 帮助页面以了解更多，并获取当前由该模型注释的 UniProtKB 未审阅/TrEMBL 条目列表。"
-    }
-   ],
-   "translateNoAllow": [
-    "button.evidence-tag",
-    "a[href=\"/align\"]",
-    "section tbody[translate=\"no\"]"
-   ],
-   "name": "UniProt"
-  },
-  {
-   "id": "rcsb-pdb",
-   "hosts": [
-    "www.rcsb.org",
-    "rcsb.org"
-   ],
-   "dicts": [
-    "common",
-    "spa",
-    "rcsb"
-   ],
-   "scope": "header, nav, main, footer, #root, .visually-hidden-focusable, .skip-link",
-   "spa": true,
-   "waitFor": "#root",
-   "blocks": [
-    {
-     "sel": "div.col-12.col-lg-3 > p",
-     "match": "Computed Structure Models",
-     "text": "检索 PDB 结构与计算结构模型（CSM），组合本套件中各工具的查询条件：属性检索、序列相似性、序列基序、三维相似性、三维基序，并以「AND」逻辑组合。"
-    },
-    {
-     "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(1) p",
-     "text": "通过组合本套件中各工具的查询条件检索 PDB 结构与计算结构模型（CSM）：结构属性、序列相似性、序列基序、三维相似性、三维基序，并以「AND」逻辑组合。"
-    },
-    {
-     "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(3) p",
-     "text": "通过组合本套件中各工具的查询条件检索小分子：化学属性与化学相似性检索，并使用「AND」逻辑。"
-    },
-    {
-     "sel": "#helpModal .modal-body .col-12.col-lg-3:nth-child(4) p",
-     "text": "使用来自各种本体与层级分类方案的注释检索 PDB 结构，例如疾病本体、分子功能。"
-    }
-   ],
-   "name": "RCSB PDB"
-  }
- ]
+  ]
 }

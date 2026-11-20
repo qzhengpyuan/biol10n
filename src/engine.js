@@ -178,6 +178,8 @@ function createEngine(options) {
           for (var k = 1; k < m.length; k++) {
             var segK = m[k];
             if (segK === undefined) continue;
+            // 站点模板拼出来的残句（"instead of undefined"）整条放弃，翻出来只会更怪。
+            if (/^(undefined|null|NaN)$/i.test(segK.trim())) { allOk = false; break; }
             if (translateCapture(segK, depth) !== segK) { anyHit = true; continue; }
             if (!/[A-Za-z]/.test(segK)) continue;           // 纯数字/标点不参与
             // 单个大写标识（TCGA、GSE331160、H3C2）算"不必翻"，不能算没命中；

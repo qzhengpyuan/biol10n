@@ -89,3 +89,24 @@ test("站点模板残句里的 undefined 让规则整条放弃", () => {
   assert.equal(doc.querySelector("span").textContent, "Showing GCF_000001405.40 instead of undefined");
 });
 
+
+// 回归：GTEx 「Endothelial cells (LYMPHATIC)」里 $2 是纯字母大写词（不是标识），
+// 括号模板不得把 $1 翻掉后留下「内皮细胞（LYMPHATIC）」。
+test("括号模板遇到纯字母大写词整条放弃", () => {
+  const rules = [{ re: "^(.+?)\\s*\\((.+)\\)$", to: "$1（$2）", requireHit: true }];
+  const { doc } = boot("<div><span>Endothelial cells (LYMPHATIC)</span></div>", {
+    exact: { "Endothelial cells": "内皮细胞", Endothelial: "内皮" },
+    rules
+  });
+  assert.equal(doc.querySelector("span").textContent, "Endothelial cells (LYMPHATIC)");
+});
+
+test("括号模板两侧都是真词时照旧替换", () => {
+  const rules = [{ re: "^(.+?)\\s*\\((.+)\\)$", to: "$1（$2）", requireHit: true }];
+  const { doc } = boot("<div><span>Kidney (Cortex)</span></div>", {
+    exact: { Kidney: "肾脏", Cortex: "皮质" },
+    rules
+  });
+  assert.equal(doc.querySelector("span").textContent, "肾脏（皮质）");
+});
+

@@ -184,6 +184,9 @@ function createEngine(options) {
             if (!/[A-Za-z]/.test(segK)) continue;           // 纯数字/标点不参与
             // 单个大写标识（TCGA、GSE331160、H3C2）算"不必翻"，不能算没命中；
             // 但带空格的大写短语（ALVEOLAR TYPE I）仍要挡住，否则又出「上皮细胞（ALVEOLAR TYPE I）」。
+            // 括号模板（$1（$2））例外：GTEx 的「Endothelial cells (LYMPHATIC)」里 $2 是
+            // 纯字母大写词，不是标识，放行会拼出「内皮细胞（LYMPHATIC）」。
+            if (/^[A-Z]{4,}$/.test(segK.trim()) && /[（）]/.test(rules[j].to)) { allOk = false; break; }
             if (/^[A-Za-z0-9][A-Za-z0-9._\-\/]{0,11}$/.test(segK.trim())) continue;
             allOk = false;
           }

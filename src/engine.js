@@ -390,6 +390,10 @@ function createEngine(options) {
     }
     var cnEnd = /[\u3400-\u9fff，。：；、）」】]$/.test(nearPrev);
     var cnStart = /^[（「【\u3400-\u9fff]/.test(nearNext);
+    // 时间 / 比例里的冒号绝不能全角化：DOM 若把 "09:15" 拆成 09 + ":" + 15，
+    // 前面的"时间"已翻成中文、下面的数字跳过逻辑又会回看到上一步刚换的"："
+    // 判成中文语境，于是 "09:15" 变成 "09：15"（检查方回归用例 1）。
+    if (raw === ":" && /\d$/.test(nearPrev) && /^\d/.test(nearNext)) return;
     // 标点紧跟一个刚被翻译的元素（<a>More information</a>.）时，前一个"文本"其实是元素内容
     var prevEl = node.previousSibling;
     while (prevEl && prevEl.nodeType === 3 && !String(prevEl.nodeValue || "").trim()) prevEl = prevEl.previousSibling;

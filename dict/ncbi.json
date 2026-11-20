@@ -1334,7 +1334,27 @@
   "See all similar articles": "查看所有相似文献",
   "Full Text Sources": "全文来源",
   "Other Literature Sources": "其他文献来源",
-  "Miscellaneous": "其他"
+  "Miscellaneous": "其他",
+  "Save citation to file": "保存引文到文件",
+  "Email citation": "用邮件发送引文",
+  "Create file for external citation manager": "为外部文献管理软件创建文件",
+  "Change format": "更改格式",
+  "Show article permalink": "显示文章永久链接",
+  "Copy article permalink": "复制文章永久链接",
+  "Article permalink": "文章永久链接",
+  "Open dialog with citation text in different styles": "打开对话框，可查看不同格式的引文",
+  "Save article in MyNCBI collections.": "将文章保存到 MyNCBI 收藏集",
+  "navigate to Title & authors section": "跳转到「标题与作者」部分",
+  "navigate to Abstract section": "跳转到「摘要」部分",
+  "navigate to Comment on section": "跳转到「对本文的评论」部分",
+  "navigate to Similar articlessection": "跳转到「相似文章」部分",
+  "navigate to Cited bysection": "跳转到「被引用」部分",
+  "navigate to Publication types section": "跳转到「出版类型」部分",
+  "navigate to MeSH terms section": "跳转到「MeSH 主题词」部分",
+  "navigate to Substances section": "跳转到「物质」部分",
+  "navigate to Related informationsection": "跳转到「相关信息」部分",
+  "navigate to Grants and funding section": "跳转到「资助与资金」部分",
+  "navigate to LinkOut - more resources section": "跳转到「LinkOut - 更多资源」部分"
  },
  "rules": [
   {
@@ -1552,6 +1572,14 @@
   {
    "re": "^Last update: (.+)$",
    "to": "最后更新：$1"
+  },
+  {
+   "re": "^See full text options at (.+)$",
+   "to": "查看 $1 的全文选项"
+  },
+  {
+   "re": "^(\\d+) selected items?: (.+)$",
+   "to": "已选 $1 项：$2"
   }
  ]
 }

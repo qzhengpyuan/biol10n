@@ -663,7 +663,10 @@
   "Thurs": "周四",
   "Fri": "周五",
   "Sat": "周六",
-  "Sun": "周日"
+  "Sun": "周日",
+  "see below": "见下文",
+  "see above": "见上文",
+  "Note: see below": "说明：见下文"
  },
  "rules": [
   {

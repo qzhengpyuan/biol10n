@@ -43,7 +43,8 @@ for (const f of files) {
     if (!r.re || !r.to) { err(f + " 规则缺 re/to"); continue; }
     if (!/^\^/.test(r.re) || !/\$$/.test(r.re)) warn(f + " 规则未锚定: " + r.re);
     try { new RegExp(r.re); } catch (e) { err(f + " 规则无法编译: " + r.re); }
-    if (CJK.test(r.re)) err(f + " 规则含中文: " + r.re);
+    // repair 规则是"修半翻文本"的，键里本来就带中文（cBio 的「（非特指：」），不算违规
+    if (CJK.test(r.re) && !r.repair) err(f + " 规则含中文: " + r.re);
   }
   // 模板词条：pat 是带 {{n}} 占位符的英文整段，zh 是同样占位符的中文；占位符必须 1..N 一一对应
   for (const t of d.templates || []) {

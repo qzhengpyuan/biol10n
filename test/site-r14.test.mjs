@@ -59,3 +59,18 @@ test("中文标签 + tab + 英文正文 能被补翻", () => {
   );
   assert.equal(doc.querySelector("dd").textContent, "通路图\t更改通路类型");
 });
+test("skip 块里的界面标签通过 skipFree 放行，块内其它文字仍跳过", () => {
+  const dom = new JSDOM(
+    '<div class="resc"><p class="title">Breast cancer dataset</p><dl class="rprtid"><dt>Accession:</dt><dd>GSE331160</dd></dl></div>'
+  );
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: { exact: { "Accession:": "登录号：", "Breast cancer dataset": "乳腺癌数据集" }, rules: [] },
+    site: { scope: "body", block: "pre, code", skip: ".resc", skipFree: [".rprtid dt"] }
+  });
+  engine.start();
+  const doc = dom.window.document;
+  assert.equal(doc.querySelector("dt").textContent, "登录号：");
+  assert.equal(doc.querySelector("p.title").textContent, "Breast cancer dataset");
+});

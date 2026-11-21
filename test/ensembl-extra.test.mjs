@@ -154,10 +154,10 @@ test("FTP 下载页：表格列头与格式说明", () => {
   assert.deepEqual(
     [...doc.querySelectorAll("th")].map((e) => e.textContent),
     [
-      "DNA（FASTA）",
-      "cDNA（FASTA）",
-      "CDS（FASTA）",
-      "ncRNA（FASTA）",
+      "DNA（FASTA 格式）",
+      "cDNA（FASTA 格式）",
+      "CDS（FASTA 格式）",
+      "ncRNA（FASTA 格式）",
       "基因集",
       "其他注释",
       "完整数据库",
@@ -165,7 +165,7 @@ test("FTP 下载页：表格列头与格式说明", () => {
       "数据文件"
     ]
   );
-  assert.equal(doc.querySelector("th").getAttribute("title"), "DNA（FASTA）");
+  assert.equal(doc.querySelector("th").getAttribute("title"), "DNA（FASTA 格式）");
   // 文件格式名保持英文，不能翻
   assert.deepEqual(
     [...doc.querySelectorAll("td")].map((e) => e.textContent),

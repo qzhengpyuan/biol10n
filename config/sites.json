@@ -73,7 +73,11 @@
       "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "name": "NCBI GEO/GDS",
-      "skip": "p.title, div.resc, #results .title"
+      "skip": "p.title, div.resc, #results .title",
+      "skipFree": [
+        ".rprtid dt",
+        ".rprtid th"
+      ]
     },
     {
       "id": "ncbi-gdv",

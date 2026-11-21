@@ -51,6 +51,15 @@ test("SRA 结果区旁的固定提示句与下拉选项翻成中文", () => {
   assert.equal(d.querySelector("p").textContent, "未找到条目。");
 });
 
+test("SRA 页顶提示句：链接两侧的固定片段各自翻成中文", () => {
+  const d = run(
+    "<p>Read our recent <a>NCBI Insights blog</a> for more details.</p>" +
+      "<a>Controlled</a>"
+  );
+  assert.equal(d.querySelector("p").textContent, "阅读我们近期的 NCBI Insights 博客了解更多详情。");
+  assert.equal(d.querySelectorAll("a")[1].textContent, "受控访问");
+});
+
 test("GEO 高级检索构建器：字段名、按钮与检索历史操作", () => {
   const d = run(
     "<h3>Builder</h3><label>Select Operation</label><label>Field Value</label>" +

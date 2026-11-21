@@ -153,7 +153,10 @@
     "Examples include:": "示例包括：",
     "GEO accepts": "GEO 接受",
     "GEO does not accept": "GEO 不接受",
-    "No items found.": "未找到条目。"
+    "No items found.": "未找到条目。",
+    "Read our recent": "阅读我们近期的",
+    "for more details.": "了解更多详情。",
+    "Controlled": "受控访问"
   },
   "rules": [
     {

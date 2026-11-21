@@ -462,7 +462,16 @@ function createEngine(options) {
   /** 站点配置里的 skip 选择器：这些区块里的文字不翻（长正文/中英混排源） */
   function inSkip(el) {
     if (!site.skip || !el || !el.closest) return false;
-    try { return !!el.closest(site.skip); } catch (e) { return false; }
+    var hit = false;
+    try { hit = !!el.closest(site.skip); } catch (e) { return false; }
+    if (!hit) return false;
+    // skip 是"整块别碰"，但块里常夹着纯界面元素（GEO 结果行的 dt「Accession:」标签）。
+    // site.skipFree 列出"即使祖先在 skip 里也照翻"的选择器。
+    var free = site.skipFree || [];
+    for (var i = 0; i < free.length; i++) {
+      try { if (el.closest(free[i])) return false; } catch (e2) {}
+    }
+    return true;
   }
 
   /** 中文语境下的标点本地化：链接/按钮被单独包在元素里时，紧跟的 "." "," 常常是独立文本节点 */

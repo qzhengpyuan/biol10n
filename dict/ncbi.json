@@ -1372,7 +1372,16 @@
     "navigate to Cite, save, and share section": "跳转到「引用、保存与分享」部分",
     "navigate to Advanced Search section": "跳转到「高级检索」部分",
     "navigate to Other services section": "跳转到「其他服务」部分",
-    "navigate to Appendices section": "跳转到「附录」部分"
+    "navigate to Appendices section": "跳转到「附录」部分",
+    "NCBI on Facebook": "NCBI 的 Facebook",
+    "NCBI on X (formerly known as Twitter)": "NCBI 的 X（原 Twitter）",
+    "NCBI on LinkedIn": "NCBI 的 LinkedIn",
+    "NCBI on GitHub": "NCBI 的 GitHub",
+    "NCBI on YouTube": "NCBI 的 YouTube",
+    "NCBI RSS feed": "NCBI RSS 订阅",
+    "NLM on Facebook": "NLM 的 Facebook",
+    "NLM on X (formerly known as Twitter)": "NLM 的 X（原 Twitter）",
+    "NLM on YouTube": "NLM 的 YouTube"
   },
   "rules": [
     {

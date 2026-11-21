@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "family": "gene",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ]
+  },
+  "exact": {
+    "- Visualize gene across multiple species": "- 跨物种可视化基因",
+    "(human)": "（人）",
+    "3D structure of a gene": "基因的三维结构",
+    "3D structures": "三维结构",
+    "About Gene": "关于 Gene",
+    "Accession and Version": "登录号与版本",
+    "Additional links": "其他链接",
+    "Aliases": "别名",
+    "all": "全部",
+    "Also known as": "又名",
+    "Also known as:": "又名：",
+    "Alternate T2T-CHM13v2.0": "替代 T2T-CHM13v2.0",
+    "Alternatively spliced": "可变剪接",
+    "Annotated genes": "已注释基因",
+    "Associated conditions": "相关疾病",
+    "Bibliography": "参考文献",
+    "BioAssay by Target (List)": "按靶标划分的生物测定（列表）",
+    "BioAssay by Target (Summary)": "按靶标划分的生物测定（摘要）",
+    "BioAssay, by Gene target": "生物测定，按基因靶标",
+    "BioAssays, RNAi Target, Active": "RNAi 靶标生物测定（活性）",
+    "BioAssays, RNAi Target, Tested": "RNAi 靶标生物测定（已测试）",
+    "Books": "图书",
+    "Chemical Information": "化学信息",
+    "Chr": "染色体",
+    "Chromosome locations": "染色体位置",
+    "ClinGen Genome Curation Page": "ClinGen 基因组整理页面",
+    "Clone Names": "克隆名称",
+    "Compare labs": "比较实验室",
+    "Complex": "复合物",
+    "Component": "组分",
+    "Consensus CDS": "一致性编码序列",
+    "Contact Help Desk": "联系帮助台",
+    "Copy number response": "拷贝数反应",
+    "Correction": "更正",
+    "Create File": "创建文件",
+    "curated": "人工整理",
+    "current": "当前",
+    "Current": "当前",
+    "current page number": "当前页码",
+    "Display": "显示",
+    "Download Datasets": "下载数据集",
+    "EBI GWAS Catalog": "EBI GWAS 目录",
+    "Error: Incomplete data returned by back-end service": "错误：后端服务返回的数据不完整",
+    "et al": "等",
+    "Evidence Code": "证据代码",
+    "Exon count": "外显子数",
+    "Exon count:": "外显子数：",
+    "Explain": "说明",
+    "Feature viewer": "特征视图",
+    "Feed name:": "源名称：",
+    "File name": "文件名",
+    "Find tests for this gene in the NIH Genetic Testing Registry (GTR)": "在 NIH 遗传检测登记库（GTR）中查找该基因的检测",
+    "Full Report": "完整报告",
+    "Full Report (text)": "完整报告（文本）",
+    "Gene ID:": "基因 ID：",
+    "Gene LinkOut": "基因外部链接",
+    "Gene neighbors": "邻近基因",
+    "Gene Ontology": "基因本体",
+    "Gene page": "基因页面",
+    "Gene Sequences (FASTA)": "基因序列（FASTA）",
+    "Gene sources": "基因来源",
+    "Gene summary": "基因摘要",
+    "Gene Table": "基因表",
+    "Gene Table (text)": "基因表（文本）",
+    "Gene type": "基因类型",
+    "Gene Weight": "基因权重",
+    "General gene information": "基因一般信息",
+    "General information": "一般信息",
+    "General protein information": "蛋白质一般信息",
+    "GeneReviews:": "GeneReviews 综述：",
+    "GeneRIF": "基因功能参考文献",
+    "GeneRIFs": "基因功能参考文献",
+    "GeneRIFs: Gene References Into Functions": "GeneRIF：基因功能参考文献",
+    "Genes and mapped phenotypes": "基因与定位表型",
+    "Genome Browsers": "基因组浏览器",
+    "Genomic context": "基因组上下文",
+    "Genomic Context describing neighboring genes": "描述相邻基因的基因组上下文",
+    "Genomic regions, transcripts, and products": "基因组区域、转录本与产物",
+    "Genomic Sequence:": "基因组序列：",
+    "GenPept Link": "GenPept 链接",
+    "Go to": "前往",
+    "Go to nucleotide:": "前往核酸序列：",
+    "Go to the HIV-1, Human Interaction Database": "前往 HIV-1 人类相互作用数据库",
+    "Go to the top of the page": "回到页面顶部",
+    "Goto Last Page": "末页",
+    "Goto Next Page": "下一页",
+    "Graphics": "图形",
+    "Haploinsufficency": "单倍剂量不足",
+    "Heading": "标题",
+    "Hide sidebar >>": "隐藏侧栏 >>",
+    "HIV-1 interactions": "HIV-1 相互作用",
+    "HUGO Gene Nomenclature Committee": "HUGO 基因命名委员会",
+    "Inactive Goto First Page": "首页（不可用）",
+    "Inactive Goto Previous Page": "上一页（不可用）",
+    "Inferred from Biological aspect of Ancestor": "祖先的生物学特征推断",
+    "Inferred from Direct Assay": "直接实验推断",
+    "Inferred from Electronic Annotation": "电子注释推断",
+    "Inferred from Experiment": "实验推断",
+    "Inferred from Expression Pattern": "表达模式推断",
+    "Inferred from Genetic Interaction": "遗传相互作用推断",
+    "Inferred from High Throughput Direct Assay": "高通量直接实验推断",
+    "Inferred from High Throughput Expression Pattern": "高通量表达模式推断",
+    "Inferred from Mutant Phenotype": "突变表型推断",
+    "Inferred from Physical Interaction": "物理相互作用推断",
+    "Inferred from Sequence Alignment": "序列比对推断",
+    "Inferred from Sequence Model": "序列模型推断",
+    "Inferred from Sequence or Structural Similarity": "序列或结构相似性推断",
+    "Interactant": "相互作用分子",
+    "Interactions": "相互作用",
+    "Isoform": "异构体",
+    "Items": "项目",
+    "Lineage": "谱系",
+    "Links": "链接",
+    "Links to other resources": "其他资源链接",
+    "Location:": "位置：",
+    "Locus-specific Databases": "基因座特异性数据库",
+    "MANE Select": "MANE 精选转录本",
+    "Markers": "标记",
+    "MedGen:": "MedGen 条目：",
+    "Medical": "医学",
+    "Mitochondria": "线粒体",
+    "Molecular Biology Databases": "分子生物学数据库",
+    "mRNA and Protein(s)": "mRNA 与蛋白质",
+    "Name/Gene ID": "名称/基因 ID",
+    "Names": "名称",
+    "National Center for Biotechnology Information": "美国国家生物技术信息中心",
+    "NCBI Orthologs": "NCBI 直系同源",
+    "NCBI Reference Sequences (RefSeq)": "NCBI 参考序列（RefSeq）",
+    "New": "新增",
+    "New GeneRIF": "新建 GeneRIF",
+    "No biological data available": "无生物学数据",
+    "Non-coding": "非编码",
+    "Non-traceable Author Statement": "不可溯源作者陈述",
+    "Nucleotide FASTA report": "核酸 FASTA 报告",
+    "Nucleotide GenBank report": "核酸 GenBank 报告",
+    "Nucleotide Graphic report": "核酸图形报告",
+    "Official Full Name": "官方全名",
+    "Official Symbol": "官方符号",
+    "OMIM:": "OMIM 条目：",
+    "Organelles": "细胞器",
+    "Orthologs": "直系同源",
+    "Orthologs from OrthoDB": "来自 OrthoDB 的直系同源",
+    "Other Gene": "其他基因",
+    "Pathways from PubChem": "PubChem 通路",
+    "Pathways in which the gene target is involved": "基因靶点参与的通路",
+    "Phenotypes": "表型",
+    "Plasmids": "质粒",
+    "Preferred Names": "首选名称",
+    "previous assembly": "上一组装",
+    "Primary source": "主要来源",
+    "Process": "过程",
+    "Products": "产物",
+    "Professional guideline": "专业指南",
+    "Professional guidelines": "专业指南",
+    "Protein Accession": "蛋白质登录号",
+    "protein coding": "蛋白编码",
+    "Protein interactions": "蛋白相互作用",
+    "Protein sequences(FASTA)": "蛋白质序列（FASTA）",
+    "Protein-coding": "蛋白编码",
+    "provided by": "来源：",
+    "Provided by GOA": "由 GOA 提供",
+    "PROVISIONAL": "临时",
+    "Pseudogene": "假基因",
+    "PubChem Compound": "PubChem 化合物",
+    "PubChem Substance": "PubChem 物质",
+    "Pubs": "文献",
+    "Range": "范围",
+    "Reference sequence details": "参考序列详情",
+    "RefSeq products": "RefSeq 产物",
+    "RefSeq Sequences": "RefSeq 序列",
+    "RefSeq status": "RefSeq 状态",
+    "RefSeqs maintained independently of Annotated Genomes": "独立于注释基因组维护的 RefSeq",
+    "Related": "相关",
+    "Related articles in PubMed": "PubMed 相关文章",
+    "Related sequences": "相关序列",
+    "Related sites": "相关站点",
+    "Replication interactions": "复制相互作用",
+    "Research Materials": "研究材料",
+    "Review eQTL and phenotype association data in this region using PheGenI": "使用 PheGenI 查看该区域的 eQTL 与表型关联数据",
+    "REVIEWED": "已审核",
+    "RSS Settings": "RSS 设置",
+    "Search Gene. Use up and down arrows to choose an item from the autocomplete.": "搜索基因。使用上下方向键从自动补全中选择一项。",
+    "See details": "查看详情",
+    "See more": "查看更多",
+    "See related": "参见相关",
+    "See studies and variants in dbVar": "在 dbVar 中查看研究与变异",
+    "See variants in ClinVar": "在 ClinVar 中查看变异",
+    "Select an organism by typing or scrolling": "输入或滚动选择物种",
+    "Send to:": "发送至：",
+    "Sequence content": "序列内容",
+    "Sequence information": "序列信息",
+    "Sequence Viewer (Graphics)": "序列查看器（图形）",
+    "Show sidebar >>": "显示侧栏 >>",
+    "Source sequence(s)": "来源序列",
+    "Status: REVIEWED": "状态：已审核",
+    "Submit Correction": "提交更正",
+    "Submit GeneRIF": "提交 GeneRIF",
+    "Subscription": "订阅服务",
+    "SUPPRESSED": "已抑制",
+    "Table of contents": "目录",
+    "Tabular": "表格",
+    "Tabular (text)": "表格（文本）",
+    "Tests": "检测",
+    "These reference sequences exist independently of genome builds.": "这些参考序列独立于基因组组装版本。",
+    "Traceable Author Statement": "可溯源作者陈述",
+    "Transcript sequences (FASTA)": "转录本序列（FASTA）",
+    "Transcript table": "转录本表",
+    "Transcripts and proteins table": "转录本与蛋白质表",
+    "Triplosensitivity": "三倍体敏感性",
+    "Try the new": "试用新版",
+    "UI List": "UI 列表",
+    "UniProtKB Link": "UniProtKB 链接",
+    "VALIDATED": "已验证",
+    "View full table": "查看完整表格",
+    "Was this helpful?": "这对您有帮助吗？",
+    "What's a GeneRIF?": "什么是 GeneRIF？",
+    "WITHDRAWN": "已撤消"
+  },
+  "rules": [
+    {
+      "re": "^Gene ID: ?(\\d+)$",
+      "to": "基因 ID：$1"
+    },
+    {
+      "re": "^Gene ID: ?(\\d+), updated on (.+)$",
+      "to": "基因 ID：$1，更新于 $2"
+    },
+    {
+      "re": "^See all (\\d+) citations in Pubmed$",
+      "to": "查看 PubMed 中全部 $1 条引用"
+    },
+    {
+      "re": "^See all \\(([\\d,]+)\\) citations in PubMed$",
+      "to": "查看 PubMed 中全部（$1）条引用"
+    },
+    {
+      "re": "^See all GeneRIFs \\(([\\d,]+)\\)$",
+      "to": "查看全部 GeneRIF（$1）"
+    },
+    {
+      "re": "^See all ([\\d,]+) GeneRIFs$",
+      "to": "查看全部 $1 条 GeneRIF"
+    },
+    {
+      "re": "^Showing (\\d+) of ([\\d,]+) \\(by status, accession number\\)$",
+      "to": "显示 $1 条，共 $2 条（按状态、登录号）"
+    },
+    {
+      "re": "^See also ([\\d,]+) discontinued or replaced items?\\.$",
+      "to": "另见 $1 条已停用或替换的条目。"
+    },
+    {
+      "re": "^(.+): activate to sort column ascending$",
+      "to": "$1：升序排序",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+): activate to sort column descending$",
+      "to": "$1：降序排序",
+      "requireHit": true
+    },
+    {
+      "re": "^PubMed Id\\(s\\): (.+)$",
+      "to": "PubMed 编号：$1"
+    },
+    {
+      "re": "^PubMed ID (\\d+)$",
+      "to": "PubMed 编号 $1"
+    },
+    {
+      "re": "^Status: (REVIEWED|PROVISIONAL|VALIDATED|SUPPRESSED|WITHDRAWN)$",
+      "to": "状态：$1",
+      "requireHit": true
+    },
+    {
+      "re": "^Chromosome (\\d+) - (NC_\\d+\\.\\d+)$",
+      "to": "染色体 $1 - $2"
+    },
+    {
+      "re": "^Chromosome (\\d+), (NC_\\d+\\.\\d+) \\((\\d+)\\.\\.(\\d+), complement\\)$",
+      "to": "染色体 $1，$2（$3..$4，互补链）"
+    },
+    {
+      "re": "^Chromosome (\\d+), (NC_\\d+\\.\\d+) \\((\\d+)\\.\\.(\\d+)\\)$",
+      "to": "染色体 $1，$2（$3..$4）"
+    },
+    {
+      "re": "^(NC_\\d+\\.\\d+) Chromosome (\\d+) Reference (.+) Primary Assembly$",
+      "to": "$1 染色体 $2 参考 $3 主要组装"
+    },
+    {
+      "re": "^(NC_\\d+\\.\\d+) Chromosome (\\d+) Alternate (.+)$",
+      "to": "$1 染色体 $2 替代 $3"
+    },
+    {
+      "re": "^Reference (.+) Primary Assembly$",
+      "to": "参考 $1 主要组装"
+    },
+    {
+      "re": "^RefSeqs of Annotated Genomes: (.+)$",
+      "to": "注释基因组的 RefSeq：$1"
+    },
+    {
+      "re": "^See Variation Viewer \\((.+)\\)$",
+      "to": "查看变异查看器（$1）"
+    },
+    {
+      "re": "^See (\\w+) in$",
+      "to": "查看 $1 的相关资源"
+    },
+    {
+      "re": "^(.+) \\(e-PCR\\)$",
+      "to": "$1（电子 PCR）"
+    },
+    {
+      "re": "^Also known as: (.+)$",
+      "to": "又名：$1"
+    },
+    {
+      "re": "^Source: (.+)$",
+      "to": "来源：$1"
+    },
+    {
+      "re": "^Items (\\d+) - (\\d+) of ([\\d,]+)$",
+      "to": "第 $1–$2 项，共 $3 项"
+    },
+    {
+      "re": "^Showing (\\d+) of ([\\d,]+) items$",
+      "to": "显示 $1 项，共 $2 项"
+    },
+    {
+      "re": "^([\\d,]+) items?$",
+      "to": "$1 项"
+    },
+    {
+      "re": "^Genes, MANE Project \\(release (.+)\\)$",
+      "to": "基因，MANE 项目（版本 $1）"
+    },
+    {
+      "re": "^See identical proteins and their annotated locations for (NP_\\d+\\.\\d+)$",
+      "to": "查看 $1 的相同蛋白质及其注释位置"
+    },
+    {
+      "re": "^Variation Viewer \\((GRCh[\\d.]+(?:p\\d+)?)\\)$",
+      "to": "变异查看器（$1）"
+    }
+  ],
+  "templates": []
+}

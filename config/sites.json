@@ -67,7 +67,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "gene"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -81,7 +82,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "seq"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -95,7 +97,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "seq"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -109,13 +112,14 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "seq"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-assembly",
       "name": "NCBI Assembly",
-      "path": "^/assembly"
+      "path": "^/(assembly|datasets/genome)"
     },
     {
       "hosts": [
@@ -171,6 +175,26 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-pmc",
       "name": "NCBI PMC"
+    },
+    {
+      "id": "ncbi-snp",
+      "name": "NCBI dbSNP",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/snp",
+      "dicts": [
+        "common",
+        "ncbi",
+        "snp"
+      ],
+      "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "skipFree": [
+        ".rprtid dt",
+        ".rprtid th",
+        ".resc .src"
+      ]
     },
     {
       "id": "ncbi-geo",
@@ -232,7 +256,8 @@
       ],
       "dicts": [
         "common",
-        "kegg"
+        "kegg",
+        "kegg-docs"
       ],
       "scope": "body",
       "name": "KEGG",

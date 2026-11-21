@@ -113,3 +113,59 @@ test("变异名/登录号等数据不翻", () => {
   const tds = [...doc.querySelectorAll("td")].map((e) => e.textContent);
   assert.deepEqual(tds, ["NM_000314.8:c.395G>T", "VCV000007105", "PTEN"]);
 });
+test("审核状态页：体细胞说明整段、多重性列表项与冲突分类尾句翻成中文", () => {
+  const doc = mount(
+    '<div id="maincontent">' +
+      "<p>It differs from the calculation for germline and oncogenicity in that consensus in the classification is not considered. The rationale is that for a given variant, it will be typical for different tiers to be reported for different types of assertions (therapeutic, diagnostic, or prognostic) and different tumor types, so conflicts are not informative. Thus the review status for somatic clinical impact is based on the following data provided in the contributing SCVs:</p>" +
+      "<ul><li>otherwise, the review status is based on a. transparency: whether any submitted record provided assertion criteria and evidence for the classification (or a public contact) b. multiplicity: whether there are multiple submitted records (consensus is not required)</li></ul>" +
+      "<table><tbody><tr><td>and evidence for the classification (or a public contact) were provided. However there are conflicting classifications. The conflicting values for the classification are enumerated.</td></tr></tbody></table>" +
+      "</div>"
+  );
+  const p = doc.querySelector("p").textContent;
+  assert.match(p, /不考虑分类中的一致性/);
+  assert.match(p, /临床影响的体细胞分类的审核状态/);
+  assert.match(doc.querySelector("li").textContent, /多重性，即是否存在多条提交记录/);
+  assert.match(doc.querySelector("td").textContent, /但存在相互冲突的分类/);
+});
+
+test("星数表英文数词 four/three/two/one 翻成中文", () => {
+  const doc = mount(
+    '<div id="maincontent"><table><tbody>' +
+      "<tr><th>Number of gold stars</th><th>Review status</th></tr>" +
+      "<tr><td>four</td><td>practice guideline</td></tr>" +
+      "<tr><td>three</td><td>reviewed by expert panel</td></tr>" +
+      "<tr><td>two</td><td>criteria provided, multiple submitters</td></tr>" +
+      "<tr><td>one</td><td>criteria provided, single submitter</td></tr>" +
+      "</tbody></table></div>"
+  );
+  const stars = [...doc.querySelectorAll("tbody tr td:first-child")].map((td) => td.textContent);
+  assert.deepEqual(stars, ["四", "三", "二", "一"]);
+});
+
+test("字面 markdown 链接整句翻成中文，URL 原样保留", () => {
+  const doc = mount(
+    '<div id="maincontent"><table><tbody>' +
+      "<tr><td>There is a submitted record with a classification from a [practice guideline](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_guidelines/)</td></tr>" +
+      "<tr><td>There is a submitted record with a classification from an [expert panel](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_guidelines/)</td></tr>" +
+      "</tbody></table></div>"
+  );
+  const tds = [...doc.querySelectorAll("td")].map((e) => e.textContent);
+  assert.equal(
+    tds[0],
+    "有一条提交记录的分类来自 [实践指南](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_guidelines/)"
+  );
+  assert.equal(
+    tds[1],
+    "有一条提交记录的分类来自 [专家组](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_guidelines/)"
+  );
+});
+
+test("断言标准示例说明整段翻成中文", () => {
+  const doc = mount(
+    '<div id="maincontent"><p>The following table provides examples to help submitters understand what is meant by documentation of assertion criteria and to guide you in creating your own documentation for your specific assertion criteria. These example documents are not intended to be submitted to ClinVar by other groups; please do not include either of these documents in your submission (unless your group provided the sample documentation).</p></div>'
+  );
+  const text = doc.querySelector("p").textContent;
+  assert.match(text, /下表提供示例/);
+  assert.match(text, /断言标准的文档/);
+  assert.ok(!/assertion criteria/.test(text), "不应残留英文 assertion criteria");
+});

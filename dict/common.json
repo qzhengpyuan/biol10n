@@ -900,8 +900,8 @@
   ],
   "templates": [
     {
-      "pat": "The {{1}} ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.",
-      "zh": "{{1}} 可确保你连接的是官方网站，且你提供的信息会被加密并安全传输。"
+      "pat": "{{1}} {{2}} The {{3}} ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.",
+      "zh": "{{1}}{{2}} {{3}} 可确保你连接的是官方网站，且你提供的信息会被加密并安全传输。"
     }
   ]
 }

@@ -63,7 +63,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **852 KB**；词库里 35 本共 15251 条词条 + 388 条模板
+- 单文件产物 **862 KB**；词库里 36 本共 15341 条词条 + 390 条模板
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -124,27 +124,27 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ## 词库
 
-35 本词库按站点分文件，一个站点只加载自己那几本。
+36 本词库按站点分文件，一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
-| anatomy | 574 | 6 |  | 解剖、组织、细胞类型（HPA / GTEx / UCSC / Ensembl / GEPIA2 / UALCAN） |
-| cbioportal | 1135 | 53 |  | cBioPortal（含首页队列列表标签、新闻条目与图表控件） |
-| clinvar-core | 252 | 38 |  | ClinVar 首页、检索页、变异记录页 |
+| anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
+| cbioportal | 1135 | 53 |  | cBioPortal |
+| clinvar-core | 256 | 38 | 1 | ClinVar 首页、检索页、变异记录页 |
 | clinvar-frag | 86 | 0 | 36 | ClinVar 被链接切碎的整句（模板通道） |
-| clinvar-help | 548 | 3 |  | ClinVar 文档与教程页（FAQ、审核状态、字段词典） |
+| clinvar-help | 561 | 3 | 1 | ClinVar 文档与教程页（FAQ、审核状态、字段词典） |
 | clinvar-submit | 214 | 8 |  | ClinVar 提交门户、高级检索、统计与下载页 |
 | clinvar-tip | 41 | 0 |  | ClinVar 字段说明与悬停提示句 |
-| common | 673 | 47 |  | 跨站通用界面词与规范化规则 |
-| ensembl-extra | 310 | 2 |  | Ensembl 补漏（文档左栏、API/compara/variation 文档、VEP、FTP、镜像安装） |
+| common | 675 | 47 |  | 跨站通用界面词与规范化规则 |
+| ensembl-extra | 310 | 2 |  | Ensembl 补漏（文档左栏、API、VEP、FTP、镜像安装） |
 | ensembl-tpl | 116 | 0 | 71 | Ensembl 文档长句（模板通道） |
 | ensembl | 394 | 10 | 16 | Ensembl（含新前端、帮助页与 API 文档） |
 | gdc | 482 | 20 |  | GDC Data Portal |
 | gene | 217 | 31 |  | NCBI Gene（筛选面板、Send to 对话框、区块标题与表头） |
-| geo-extra | 150 | 5 |  | GEO/GDS/SRA 补漏（检索构建器、结果页表头、记录页区块、GEO 帮助） |
+| geo-extra | 150 | 5 |  | GEO/GDS/SRA 补漏 |
 | gepia2 | 180 | 9 |  | GEPIA2 |
 | gtex | 300 | 13 |  | GTEx Portal |
-| hpa | 1708 | 117 | 26 | Human Protein Atlas（含 About 与脑/单细胞/细胞/免疫/亚细胞资源页正文） |
+| hpa | 1708 | 117 | 26 | Human Protein Atlas |
 | kegg-docs | 107 | 1 | 3 | KEGG 帮助与文档页（检索说明、weblinks、标识符、DBGET） |
 | kegg | 556 | 16 |  | KEGG（含通路图查看页控件） |
 | mirbase | 159 | 22 |  | miRBase |
@@ -153,24 +153,25 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ncbi-help | 1705 | 1 | 19 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | ncbi | 1381 | 68 |  | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | onco | 239 | 9 |  | TCGA 队列、变异类型、生存统计 |
+| pmc | 71 | 16 |  | NCBI PMC 页眉页脚、文章骨架与期刊列表 |
 | rcsb | 722 | 34 | 3 | RCSB PDB |
-| seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly（序列页骨架与操作） |
+| seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | snp | 121 | 4 | 5 | NCBI dbSNP（首页、检索结果、RefSNP 记录页） |
 | spa | 136 | 0 |  | 各站共用的单页应用骨架词 |
 | timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
-| ucsc-extra | 229 | 12 |  | UCSC 补漏（hgTracks 工具栏与轨道名、hgGene、hgTables、hgGateway） |
+| ucsc-extra | 229 | 12 |  | UCSC 补漏（hgTracks、hgGene、hgTables、hgGateway） |
 | ucsc-tpl | 80 | 7 | 74 | UCSC 被链接/换行切碎的整句（模板通道） |
 | ucsc | 997 | 8 | 49 | UCSC Genome Browser |
 | uniprot | 773 | 16 |  | UniProt（含条目页 GO 术语、化学修饰名、亚细胞定位） |
 
-合计 **15251 条 / 592 条规则 / 499 条模板**（词库 388 + 站点 111）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **15341 条 / 608 条规则 / 501 条模板**（词库 390 + 站点 111）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（304 条）
+npm test             # 引擎、面板、站点与产物单测（317 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

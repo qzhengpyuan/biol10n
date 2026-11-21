@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "family": "pubmed",
+    "version": "0.1.0",
+    "sites": [
+      "pubmed.ncbi.nlm.nih.gov"
+    ],
+    "area": "pubmed/ui-results+record+advanced"
+  },
+  "exact": {
+    "PMCID:": "PMCID：",
+    "REFERENCES": "参考文献",
+    "Supplementary info": "补充信息",
+    "Proceed to details": "前往详情",
+    "Medical": "医学",
+    "Warnings": "警告",
+    "Terms not found:": "未找到的词条：",
+    "No results were found.": "未找到结果。",
+    "Your search was processed without automatic term mapping because it retrieved zero results.": "由于检索结果为零，本次检索未进行自动词条映射。",
+    "Filters on the sidebar will be reset to the default list and any currently applied filters will be cleared.": "侧边栏的筛选条件将恢复为默认列表，当前已应用的所有筛选条件都会被清除。",
+    "Table representation of search results timeline featuring number of search results per year.": "以表格形式呈现检索结果时间线，列出每年的检索结果数量。",
+    "Your history is currently empty! As you use PubMed your recent searches will appear here.": "检索历史目前为空！使用 PubMed 后，最近的检索会显示在这里。",
+    "Review, Free full text": "综述、免费全文",
+    "Publication types, MeSH terms": "出版类型、MeSH 主题词",
+    "Publication types, MeSH terms, Substances": "出版类型、MeSH 主题词、物质",
+    "Publication types, MeSH terms, Substances, Supplementary concepts": "出版类型、MeSH 主题词、物质、补充概念",
+    "See all \"Cited by\" articles": "查看所有被引文献",
+    "Preprint notice": "预印本说明",
+    "[Preprint]": "[预印本]",
+    "This is a preprint.": "这是一篇预印本。",
+    "It has not yet been peer reviewed by a journal.": "尚未经过期刊同行评审。",
+    "running a pilot": "开展试点"
+  },
+  "rules": [
+    {
+      "re": "^The following terms were ignored: (.+)$",
+      "to": "以下检索词已被忽略：$1"
+    },
+    {
+      "re": "^Cited by ([\\d,]+) articles?$",
+      "to": "被引 $1 次"
+    },
+    {
+      "re": "^Show all ([\\d,]+) references?$",
+      "to": "显示全部 $1 条参考文献"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The National Library of Medicine is {{1}} to include preprints that result from research funded by NIH in PMC and PubMed.",
+      "zh": "美国国家医学图书馆正在{{1}}，将 NIH 资助研究产生的预印本纳入 PMC 和 PubMed。"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "family": "ensembl2",
+    "version": "0.1.0",
+    "sites": [
+      "www.ensembl.org",
+      "ensembl.org",
+      "*.archive.ensembl.org"
+    ],
+    "area": "biomart/docs+martview"
+  },
+  "exact": {
+    "BioMart tutorials and FAQs": "BioMart 教程与常见问题",
+    "Extracting data with BioMart": "使用 BioMart 提取数据",
+    "BioMart data mining tool": "BioMart 数据挖掘工具",
+    "BioMart tutorials": "BioMart 教程",
+    ": BioMart short videos and written materials.": "：BioMart 短视频与书面材料。",
+    "BioMart FAQs": "BioMart 常见问题",
+    ": BioMart Frequently Asked Questions.": "：BioMart 常见问题。",
+    "How can I download all the proteins in the human proteome? Do I use BioMart?": "如何下载人类蛋白质组中的全部蛋白质？我需要用 BioMart 吗？",
+    "Ensembl BioMart shows results for protein-coding genes when protein-associated attributes are chosen. Non-coding genes that pass filters will not be shown in the results if certain protein-associated attributes are chosen. Why does this occur?": "选择与蛋白质相关的属性时，Ensembl BioMart 只显示蛋白编码基因的结果。若选择了某些与蛋白质相关的属性，通过筛选的非编码基因也不会出现在结果中。为什么会这样？",
+    "Combining multiple species datasets": "合并多个物种数据集",
+    ": Example on how to combine multiple mart datasets inside one mart or accross different marts.": "：说明如何在同一个 mart 内或跨不同 mart 合并多个 mart 数据集。",
+    "BioMart R package, RESTful access and API": "BioMart R 包、RESTful 访问与 API",
+    "BiomaRt, Bioconductor R package": "BiomaRt：Bioconductor R 包",
+    "BioMart RESTful access (Perl and wget)": "BioMart RESTful 访问（Perl 与 wget）",
+    "What is BioMart": "什么是 BioMart",
+    "Select a mart database (a type of data)": "选择 mart 数据库（一类数据）",
+    "Select a mart dataset (a species)": "选择 mart 数据集（一个物种）",
+    "Filter your mart query (query restriction and input data)": "筛选 mart 查询（限制条件与输入数据）",
+    "Select mart attributes (desired output)": "选择 mart 属性（所需输出）",
+    "Display and retrieve your query": "显示并获取查询结果",
+    "BioMart is an easy-to-use web-based tool that allows extraction of data without any programming knowledge or understanding of the underlying database structure. You can navigate through the BioMart web interface using the left panel. Filters and attributes can be selected in the right panel. A summary of your choices is also displayed in the left panel.": "BioMart 是一个易用的网页工具，无需编程知识，也不必了解底层数据库结构即可提取数据。你可以通过左侧面板浏览 BioMart 网页界面，在右侧面板选择筛选条件与属性，所作选择也会在左侧面板中汇总显示。",
+    "1. Select a mart database (a type of data)": "1. 选择 mart 数据库（一类数据）",
+    "First, select a mart database which will correspond to the type of data you are interested in. In Ensembl, you can choose data from one of our four mart databases:": "首先选择一个 mart 数据库，它对应你感兴趣的数据类型。在 Ensembl 中，你可以从以下四个 mart 数据库中选择其一：",
+    "Ensembl Genes: This mart contains the Ensembl gene set and allows you to retrieve Ensembl genes, transcripts and proteins as well as external references, microarrays, protein domains, structure, sequences, variants (only variants mapped to Ensembl Transcripts) and homology data.": "Ensembl Genes：该 mart 包含 Ensembl 基因集，可获取 Ensembl 基因、转录本与蛋白质，以及外部参考、微阵列、蛋白质结构域、结构、序列、变异（仅限比对到 Ensembl 转录本的变异）与同源数据。",
+    "Ensembl Variation: This mart allows you to retrieve germline and somatic variants as well as germline and somatic structural variants. This mart also contains variants' phenotypes, citations, synomyms, consequences and flanking sequences; you can also retrieve Ensembl genes, transcripts, regulatory and motif features mapped to variants.": "Ensembl Variation：该 mart 可获取生殖系与体细胞变异，以及生殖系与体细胞结构变异。该 mart 还包含变异的表型、文献引用、同义词、后果与侧翼序列；你也可以获取比对到变异上的 Ensembl 基因、转录本、调控与基序特征。",
+    "Ensembl Regulation: This mart allows you to retrieve regulatory features.": "Ensembl Regulation：该 mart 可获取调控特征。",
+    "Vega: This mart contains the Ensembl Vega gene set (manual annotation coming from Havana) and allows you to retrieve Ensembl Vega genes, transcripts and proteins as well as external references, structures, sequences and protein domains": "Vega：该 mart 包含 Ensembl Vega 基因集（来自 Havana 的人工注释），可获取 Ensembl Vega 基因、转录本与蛋白质，以及外部参考、结构、序列与蛋白质结构域",
+    "2. Select a mart dataset (a species)": "2. 选择 mart 数据集（一个物种）",
+    "Next, select a mart dataset which correspond to the species you are interested in and want to retrieve data from.": "接着选择一个 mart 数据集，它对应你感兴趣、想从中获取数据的物种。",
+    "The marts are available for the following species:": "这些 mart 适用于以下物种：",
+    "Ensembl Regulation: We have regulation data available for human and mouse.": "Ensembl Regulation：人类与小鼠有调控数据。",
+    "Vega: We have data available for human, mouse, rat, pig and zebrafish.": "Vega：人类、小鼠、大鼠、猪与斑马鱼有数据。",
+    "3. Filter your mart query (query restriction and input data)": "3. 筛选 mart 查询（限制条件与输入数据）",
+    "BioMart allows you to restrict your query with information that you know, e.g: input a list of IDs, restrict to a region. You can access the filter page by clicking on the \"Filters\" button located on the left panel. Filters are organised into different sections, clicking on the \"+/-\" boxes will expand/collapse a section and display its content.": "BioMart 允许用你已知的信息限制查询，例如输入一组 ID、限定到某个区域。点击左侧面板的「筛选」按钮即可进入筛选页面。筛选条件按不同小节组织，点击「+/-」框可展开或收起某一小节并显示其内容。",
+    "In the following image, I have expanded the \"Region\" section by clicking on the \"+\" box as indicated by the number 1. Then, I have selected \"1\" in the chromosome list to restrict my query to all the genes located on human chromosome 1. The left panel now displays \"Chromosome: 1\" as indicated by the number 2. Clicking on the \"Count\" button as indicated by number 3 will display the number of Ensembl genes that the query will return next to \"Dataset\" as indicated by the number 4. This mean that we have 5406 Ensembl Genes located on the human chromosome 1.": "下图中，我点击标记为 1 的「+」框展开了「区域」小节，然后在染色体列表中选择「1」，把查询限定到人类 1 号染色体上的所有基因。左侧面板现在显示「染色体：1」，即标记为 2 的位置。点击标记为 3 的「计数」按钮，会在标记为 4 的「数据集」旁显示该查询将返回的 Ensembl 基因数量。这意味着人类 1 号染色体上有 5406 个 Ensembl 基因。",
+    "4. Select mart attributes (desired output)": "4. 选择 mart 属性（所需输出）",
+    "By clicking on the \"Attributes\" button on the left panel, you will access the mart attribute page. This page allows you to select your desired output; the default output is \"Ensembl Gene ID\" and \"Ensembl Transcript ID\" in the Ensembl Genes mart. The attributes are organised in pages that you can access by selecting the radio buttons as displayed by the red box on the image below.": "点击左侧面板的「属性」按钮即可进入 mart 属性页面。该页面用于选择你想要的输出；在 Ensembl Genes mart 中，默认输出为「Ensembl 基因 ID」与「Ensembl 转录本 ID」。属性按分页组织，可通过选择下图红框所示的分页单选按钮切换。",
+    "5. Display and retrieve your query": "5. 显示并获取查询结果",
+    "Clicking on the \"Results\" button will bring you to the mart result page. This page will, by default, show you a preview of the first 10 results of your query in HTML format. The number of results previewed and format can be changed as indicated by number 1 on the image below. You can also automatically remove all the duplicated results from your query by clicking on the \"Unique results only\" button as indicated by number 2. If you are happy with your query, you can use the \"Export all results to\" section as indicated by number 3 (select a format and click on the \"Go\" button) to download your results.": "点击「结果」按钮即可进入 mart 结果页面。该页面默认以 HTML 格式预览查询的前 10 条结果。预览条数与格式可按下图标记为 1 的位置修改。点击标记为 2 的「仅保留唯一结果」按钮，还可自动去除查询结果中的重复项。如果对查询结果满意，可使用标记为 3 的「导出全部结果到」区域（选择格式并点击「执行」按钮）下载结果。",
+    "You can also request the results of your query to be sent to you by email. To do this, select \"Compressed web file (notify by email)\" in the first dropdown in the red box on the image below, then select your desired format, type your email address in the \"Email notification to\" box and press the \"Go\" button. BioMart will compile the result of your query in the background and send you a link to the compressed file by email.": "你也可以要求把查询结果通过电子邮件发送给你。具体做法：在下图红框的第一个下拉框中选择「压缩网页文件（邮件通知）」，然后选择所需格式，在「邮件通知发送至」框中填入你的电子邮箱地址，并按下「执行」按钮。BioMart 会在后台汇总查询结果，并把压缩文件的链接通过邮件发给你。",
+    "species page": "物种页面",
+    "variation species page": "变异物种页面",
+    "the following page": "以下页面",
+    "using our web form": "我们的网页表单",
+    "The BioMart interface allow you to link two different species datasets together but also to query two different marts at the same time.": "BioMart 界面允许你把两个不同的物种数据集关联起来，也可以同时查询两个不同的 mart。",
+    "How to combine two Ensembl gene mart species datasets": "如何合并两个 Ensembl 基因 mart 的物种数据集",
+    "How to combine two mart species datasets located in two different Ensembl marts": "如何合并位于两个不同 Ensembl mart 中的物种数据集",
+    "Ensembl BioMart page": "Ensembl BioMart 页面",
+    "filter on human chromosome 1 and select the Ensembl Gene and Transcript IDs, HGNC IDs and symbols attributes.": "筛选人类 1 号染色体，并选择 Ensembl 基因与转录本 ID、HGNC ID 与符号属性。",
+    "Click on the second \"Dataset\" button indicated by the Arrow 1 in the image below.": "点击下图箭头 1 所指的第二个「数据集」按钮。",
+    "You will noticed a new dropdown (indicated by the Arrow 2 in the image above), click on it to select the second species dataset that you are interested in.": "你会看到一个新的下拉框（上图箭头 2 所指），点击它选择你感兴趣的第二个物种数据集。",
+    "In this example, select \"Mus musculus genes\" in the dropdown as indicated by the red arrow in the image below.": "在本例中，按下图红色箭头所示，在下拉框中选择「Mus musculus genes」。",
+    "Finally, you will be fetching all the Ensembl Gene and Transcript IDs, MGI IDs and symbols located on mouse chromosome 1. Click on the result page. You can see on the image below that the red box represent the human attributes selected in the first dataset and the green box the mouse attributes selected in the second dataset.": "最后，你会取到小鼠 1 号染色体上所有的 Ensembl 基因与转录本 ID、MGI ID 与符号。点击进入结果页面，可从下图看到红框代表在第一个数据集中选择的人类属性，绿框代表在第二个数据集中选择的小鼠属性。",
+    "The BioMart interface allows you to go further and query species datasets from two different marts.": "BioMart 界面还可更进一步，查询来自两个不同 mart 的物种数据集。",
+    "As in the previous example, you will click on the second \"Dataset\" button and select \"Homo sapiens Short Variation (SNPs and indels)\" the dropdown as indicated by the red arrow in the image below.": "与上一个例子一样，点击第二个「数据集」按钮，并按下图红色箭头所示，在下拉框中选择「Homo sapiens Short Variation (SNPs and indels)」。",
+    "Finally, filter on human chromosome 1 and select the Variation Names, sources and descriptions, Variant Alleles and Minor alleles (ALL) attributes. Click on the result page. You can see on the image below that the red box represent the human attributes selected in the Ensembl gene mart and the green box the human short variation attributes selected in the Ensembl Variation mart.": "最后，筛选人类 1 号染色体，并选择变异名称、来源与描述、变异等位基因与次要等位基因（ALL）属性。点击进入结果页面，可从下图看到红框代表在 Ensembl 基因 mart 中选择的人类属性，绿框代表在 Ensembl Variation mart 中选择的人类短变异属性。",
+    "The Bioconductor BiomaRt R package is a quick, easy and powerful way to access BioMart right from your R software terminal.": "Bioconductor 的 BiomaRt R 包是一种快速、简便且强大的方式，可直接在 R 终端中访问 BioMart。",
+    "The following documention is using R 2.2 and Bioconductor version 3.1.": "以下文档使用 R 2.2 与 Bioconductor 3.1 版。",
+    "How to install the Bioconductor BiomaRt R package": "如何安装 Bioconductor 的 BiomaRt R 包",
+    "Bioconductor BiomaRt R package documentation": "Bioconductor BiomaRt R 包文档",
+    "Bioconductor BiomaRt R examples with the Ensembl Gene mart": "使用 Ensembl 基因 mart 的 Bioconductor BiomaRt R 示例",
+    "R software": "R 软件",
+    "Then, run the following commands to install the Bioconductor BiomaRt R package:": "然后运行以下命令安装 Bioconductor 的 BiomaRt R 包：",
+    "BiomaRt Bioconductor page": "BiomaRt Bioconductor 页面",
+    "To get the list of all the Ensembl mart availables on the ensembl.org website, run the \"listEnsembl\" function:": "要获取 ensembl.org 网站上所有可用的 Ensembl mart 列表，请运行「listEnsembl」函数：",
+    "You can give an Ensembl archive version as a parameter to get the list of archived Ensembl marts, for example for the Ensembl GRCh37 or release 78 marts:": "你也可以把一个 Ensembl 存档版本作为参数传入，以获取存档的 Ensembl mart 列表，例如 Ensembl GRCh37 或第 78 版 mart：",
+    "The \"listDatasets\" function will give you the list of all the species available (mart datasets) for a given mart:": "「listDatasets」函数会给出某个 mart 下所有可用物种（mart 数据集）的列表：",
+    "You can also use listDatasets with the Ensembl GRCh37 and archived marts:": "你也可以对 Ensembl GRCh37 与存档 mart 使用 listDatasets：",
+    "The \"useEnsembl\" function allow you to connect to a an ensembl website mart by specifying a BioMart and dataset parameters. For example, to connect to the Ensembl live gene mart human dataset (GRCh38):": "「useEnsembl」函数允许你通过指定 BioMart 与数据集参数来连接某个 Ensembl 网站的 mart。例如，连接到 Ensembl 现行基因 mart 的人类数据集（GRCh38）：",
+    "To connect to the human dataset of the Ensembl GRCh37 or release 78 gene marts:": "要连接 Ensembl GRCh37 或第 78 版基因 mart 的人类数据集：",
+    "You can connect to the following Ensembl mirrors using the listMarts, listDatasets and useMart functions:": "你可以使用 listMarts、listDatasets 与 useMart 函数连接以下 Ensembl 镜像站：",
+    "For example to connect to the Ensembl US East mirror:": "例如，连接到 Ensembl 美国东部镜像站：",
+    "Please note that the useMart function will always require a biomart and host parameters when connecting to an Ensembl mirror website.": "请注意，连接 Ensembl 镜像站时，useMart 函数始终需要 biomart 与 host 参数。",
+    "The \"listFilters\" function will give you the list of available filters for a given mart and species:": "「listFilters」函数会给出某个 mart 与物种下可用的筛选条件列表：",
+    "The \"listAttributes\" function will give you the list of the available attributes for a given mart and species:": "「listAttributes」函数会给出某个 mart 与物种下可用的属性列表：",
+    "The \"getBM\" function allow you to build a BioMart query using a list of mart filters and attributes.": "「getBM」函数允许你用一组 mart 筛选条件与属性构建 BioMart 查询。",
+    "Example query: Fetch all the Ensembl gene, transcript IDs, HGNC symbols and chromosome locations located on the human chromosome 1": "示例查询：获取人类 1 号染色体上所有 Ensembl 基因、转录本 ID、HGNC 符号与染色体位置",
+    "Example query: Fetch Ensembl Gene, Transcript IDs, HGNC symbols and Uniprot Swissprot accessions mapped to the human Ensembl Gene ID \"ENSG00000139618\"": "示例查询：获取映射到人类 Ensembl 基因 ID「ENSG00000139618」的 Ensembl 基因、转录本 ID、HGNC 符号与 Uniprot Swissprot 登录号",
+    "BioMart RESTful access is a quick and easy way to query the Ensembl marts using wget or perl and doesn't require any programing knowledge.": "BioMart RESTful 访问是一种用 wget 或 perl 查询 Ensembl mart 的快捷简便方式，无需任何编程知识。",
+    "Obtaining the BioMart xml from the BioMart website": "从 BioMart 网站获取 BioMart xml",
+    "Using the wget UNIX command": "使用 wget UNIX 命令",
+    "Using the BioMart PERL API script": "使用 BioMart PERL API 脚本",
+    "The xml Completion Stamp": "xml 完成标记",
+    "navigate to the Ensembl gene mart on the Ensembl website": "在 Ensembl 网站上进入 Ensembl 基因 mart",
+    "As shown in the example below, filter on the human Ensembl Gene ID \"ENSG00000139618\" and select the Ensembl Gene, Transcript IDs, HGNC symbols and Uniprot Swissprot accessions attribute": "如下例所示，筛选人类 Ensembl 基因 ID「ENSG00000139618」，并选择 Ensembl 基因、转录本 ID、HGNC 符号与 Uniprot Swissprot 登录号属性",
+    "The xml button will open a new browser window and display the BioMart query in xml format, the text will be similar to the following image.": "xml 按钮会打开新的浏览器窗口，以 xml 格式显示 BioMart 查询，内容与下图类似。",
+    "Just save the content of this page in a new file on your computer, e.g 'hgnc_swissprot.xml' in our example.": "把该页面的内容保存为电脑上的一个新文件，例如本例中的「hgnc_swissprot.xml」。",
+    "Type the following command in your terminal:": "在终端中输入以下命令：",
+    "Then copy the content of the previouly saved xml file all in one line after the \"query=\", you should now have the following:": "然后把先前保存的 xml 文件内容全部复制为一行，接在「query=」之后，现在应得到如下内容：",
+    "Finally, just run the command to get the BioMart data stored inside the \"result.txt\" file. In our example, we get the following result.txt file:": "最后运行该命令，即可得到保存在「result.txt」文件中的 BioMart 数据。本例得到如下 result.txt 文件：",
+    "First, you will need to download the BioMart API, to do this you can follow the command below:": "首先需要下载 BioMart API，可执行以下命令：",
+    "To use the Ensembl marts from the ensembl.org website, just edit the path variable in the biomart-perl/scripts/webExample.pl Perl script to the following:": "要使用 ensembl.org 网站上的 Ensembl mart，只需把 biomart-perl/scripts/webExample.pl 这个 Perl 脚本中的 path 变量改为以下内容：",
+    "\"Obtaining the BioMart xml\"": "「获取 BioMart xml」",
+    "You should get an output similar to the following:": "应得到与下方类似的输出：",
+    "The above command should be paste in the location indicated by the red box in the image below:": "上述命令应粘贴到下图红框所示的位置：",
+    "the wget command": "wget 命令",
+    "the BioMart Perl script": "BioMart Perl 脚本",
+    "The BioMart Perl API allow you to go a step further with BioMart and allow you to integrate BioMart Perl Code into custom Perl scripts.": "BioMart Perl API 让你可以更进一步，把 BioMart Perl 代码集成到自定义的 Perl 脚本中。",
+    "Obtaining the BioMart Perl script from the BioMart website": "从 BioMart 网站获取 BioMart Perl 脚本",
+    "Download the BioMart PERL API": "下载 BioMart PERL API",
+    "BioMart PERL API set up": "配置 BioMart PERL API",
+    "As shown in the example below, filter on the human Ensembl Gene ID \"ENSG00000139618\" and select the Ensembl Gene, Transcript IDs, HGNC IDs and symbols and Uniprot Swissprot accessions attribute": "如下例所示，筛选人类 Ensembl 基因 ID「ENSG00000139618」，并选择 Ensembl 基因、转录本 ID、HGNC ID 与符号，以及 Uniprot Swissprot 登录号属性",
+    "The Perl button will open a new browser window and display the BioMart query in Perl, the text will be similar to the following image:": "Perl 按钮会打开新的浏览器窗口，以 Perl 形式显示 BioMart 查询，内容与下图类似：",
+    "Just save the content of this page in a new file on your computer, e.g 'hgnc_swissprot.pl' in our example.": "把该页面的内容保存为电脑上的一个新文件，例如本例中的「hgnc_swissprot.pl」。",
+    "To run the BioMart Perl script, you will need to download the BioMart API from our GitHub Repository. To to do this you can follow the command below:": "要运行 BioMart Perl 脚本，需从我们的 GitHub 仓库下载 BioMart API。可执行以下命令：",
+    "following URL": "以下 URL",
+    "Add biomart perl to your $PERL5LIB variable:": "把 biomart perl 加入 $PERL5LIB 变量：",
+    "previously obtained on the Ensembl website": "先前在 Ensembl 网站上获取的",
+    "Edit the \"$confFile\" variable with the path to your registry file (e.g: biomart-perl/conf/martURLLocation.xml) as indicated by the number 1 in the image below.": "按下图标记 1 的位置，把「$confFile」变量改为你的注册表文件路径（例如 biomart-perl/conf/martURLLocation.xml）。",
+    "Edit the \"$action\" variable to \"clean\" as indicated by the 2 in the image below. The variable need to be set up to \"clean\" everytime the \"biomart-perl/conf/martURLLocation.xml\" get updated as some data will be cached on your computer.": "按下图标记 2 的位置，把「$action」变量设为「clean」。每当「biomart-perl/conf/martURLLocation.xml」更新时，都需要把该变量设为「clean」，因为部分数据会缓存到你的电脑上。",
+    "Run the Perl script to get the data from BioMart:": "运行 Perl 脚本以从 BioMart 获取数据：",
+    "IMPORTANT: the first will run of the script will take some time since BioMart will cache some data on your computer.": "重要提示：脚本首次运行会花费一些时间，因为 BioMart 会在你的电脑上缓存部分数据。",
+    "Once you have run your script once, you can update the \"$action\" variable from \"clean\" to \"cached\". The run will be faster and you should get the following output:": "脚本运行过一次后，可把「$action」变量从「clean」改为「cached」。之后运行会更快，并应得到如下输出：",
+    "None selected": "未选择",
+    "[None selected]": "[未选择]",
+    "- CHOOSE DATABASE -": "- 选择数据库 -",
+    "- CHOOSE DATASET -": "- 选择数据集 -",
+    "BioMart tutorial": "BioMart 教程",
+    "View in archive site": "在存档站点查看",
+    "In order to maintain service for all users, BioMart browser sessions running for more than 5 minutes are terminated. If you have queries that you think will run longer than this, please choose have the results emailed to you.": "为保障所有用户的服务，BioMart 浏览器会话运行超过 5 分钟即会终止。如果你的查询预计需要更长时间，请选择通过电子邮件接收结果。",
+    "Note that queries that run for longer than 6 hours will be terminated even when submitted this way. If this happens please reformat your query or contact us for details on how to approach this.": "请注意，即使以这种方式提交，运行超过 6 小时的查询也会被终止。若遇到这种情况，请重新组织查询，或联系我们了解处理方式。",
+    "Datasets -> Filters (filtering and inputs) -> Attributes (desired output) -> Results": "数据集 -> 筛选（筛选条件与输入） -> 属性（所需输出） -> 结果",
+    "First, go to the": "首先进入",
+    ". As shown in the image below, filter on human chromosome 1 and select the Ensembl Gene and Transcript IDs, HGNC IDs and symbols attributes.": ". 如下图所示，筛选人类 1 号染色体，并选择 Ensembl 基因与转录本 ID、HGNC ID 与符号属性。",
+    "Combining species datasets": "合并物种数据集",
+    "following page": "以下页面",
+    "listMarts, listDatasets and useMart for the Ensembl mirrors": "用于 Ensembl 镜像站的 listMarts、listDatasets 与 useMart",
+    "Ensembl US East:": "Ensembl 美国东部：",
+    "Ensembl Asia:": "Ensembl 亚洲："
+  },
+  "rules": [
+    {
+      "re": "^New$",
+      "to": "新建"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Tables of Ensembl data can be downloaded via the highly customisable {{1}}. The easy-to-use web-based tool allows extraction of data without any programming knowledge or understanding of the underlying database structure.",
+      "zh": "Ensembl 数据表可通过高度可定制的 {{1}} 下载。这个易用的网页工具无需编程知识，也不必了解底层数据库结构即可提取数据。"
+    },
+    {
+      "pat": "BioMart tutorials, multiple dataset query, Perl API, RESTful and Bioconductor R package access documentations can be found on {{1}}. If you have any questions, you can email Ensembl helpdesk {{2}}.",
+      "zh": "BioMart 教程、多数据集查询、Perl API、RESTful 与 Bioconductor R 包访问文档见 {{1}}。如有任何疑问，可通过 {{2}} 向 Ensembl 帮助台发邮件。"
+    },
+    {
+      "pat": "Ensembl Genes: All the Ensembl species, full list on the {{1}}.",
+      "zh": "Ensembl Genes：Ensembl 全部物种，完整列表见 {{1}}。"
+    },
+    {
+      "pat": "Ensembl Variation: We only have a subset of our species which have variation data available, full list on the {{1}}.",
+      "zh": "Ensembl Variation：我们只有部分物种有变异数据，完整列表见 {{1}}。"
+    },
+    {
+      "pat": "The BioMart interface allow you to link two different species datasets together to get combined results back from BioMart. First, go to the {{1}}. As shown in the image below, {{2}}",
+      "zh": "BioMart 界面允许你把两个不同的物种数据集关联起来，从而获得合并后的结果。首先进入 {{1}}。如下图所示，{{2}}"
+    },
+    {
+      "pat": "You can easily obtain a BioMart xml file from the BioMart interface. For example, {{1}}, apply your required filters and select the attribute you are insterested in. {{2}}. The BioMart xml file can be downloaded from the BioMart result page accessible via the \"Results\" button. To get your BioMart query in xml, just click on the xml button as indicated by the red box in the image below.",
+      "zh": "在 BioMart 界面中可以轻松获取 BioMart xml 文件。例如，{{1}}，应用所需的筛选条件并选择你感兴趣的属性。{{2}}。BioMart xml 文件可从通过「结果」按钮进入的 BioMart 结果页下载。要获取 xml 格式的 BioMart 查询，只需点击下图红框所示的 xml 按钮。"
+    },
+    {
+      "pat": "Finally run the biomart-perl/scripts/webExample.pl Perl script with the xml file obtained in the {{1}} section:",
+      "zh": "最后用通过 {{1}} 一节获得的 xml 文件运行 biomart-perl/scripts/webExample.pl 这个 Perl 脚本："
+    },
+    {
+      "pat": "If you want to make sure you are getting all the data from your BioMart query, you can add a \"CompletionStamp\" to the xml file. To do this, just open the previously obtained xml file in the {{1}} section and add the following text in the query tag:",
+      "zh": "如果你想确认已取得 BioMart 查询的全部数据，可以在 xml 文件中加入「CompletionStamp」。具体做法：在 {{1}} 一节中打开先前得到的 xml 文件，并在 query 标签中加入以下文本："
+    },
+    {
+      "pat": "Then either use {{1}} or {{2}}. If the query successfuly ran, you will get a \"[success]\" after running the wget or BioMart perl script:",
+      "zh": "然后使用 {{1}} 或 {{2}}。如果查询运行成功，运行 wget 或 BioMart Perl 脚本后会看到「[success]」："
+    },
+    {
+      "pat": "You can easily obtain a BioMart Perl script from the BioMart interface. For example, {{1}}, apply your required filters and select the attribute you are interested in. {{2}}. The BioMart Perl script can be downloaded from the BioMart result page accessible via the \"Results\" button. To get your BioMart query in Perl, just click on the \"Perl\" button as indicated by the red box in the image below:",
+      "zh": "在 BioMart 界面中可以轻松获取 BioMart Perl 脚本。例如，{{1}}，应用所需的筛选条件并选择你感兴趣的属性。{{2}}。BioMart Perl 脚本可从通过「结果」按钮进入的 BioMart 结果页下载。要获取 Perl 形式的 BioMart 查询，只需点击下图红框所示的「Perl」按钮："
+    },
+    {
+      "pat": "By default the biomart-perl API will be looking at the biomart.org website, this can be changed in the \"biomart-perl/conf/martURLLocation.xml\" file. The {{1}} will give you the Ensembl.org Mart registry information. For example in release 79:",
+      "zh": "默认情况下，biomart-perl API 会访问 biomart.org 网站，这可在「biomart-perl/conf/martURLLocation.xml」文件中修改。{{1}} 会给出 Ensembl.org 的 Mart 注册信息。例如在第 79 版中："
+    },
+    {
+      "pat": "Paste the text obtained on the {{1}} into the biomart-perl/conf/martURLLocation.xml file.",
+      "zh": "把在 {{1}} 上获取的文本粘贴到 biomart-perl/conf/martURLLocation.xml 文件中。"
+    },
+    {
+      "pat": "Copy the Perl file {{1}} to \"biomart-perl/scripts\" and make the following modifications:",
+      "zh": "把 {{1}} 的 Perl 文件复制到「biomart-perl/scripts」，并做以下修改："
+    },
+    {
+      "pat": "First make sure you have installed the {{1}} on your computer.",
+      "zh": "首先请确认你的电脑上已安装 {{1}}。"
+    },
+    {
+      "pat": "More information regarding the Bioconductor BiomaRt, R package and documentation can be found on the {{1}}.",
+      "zh": "关于 Bioconductor BiomaRt、R 包与文档的更多信息，见 {{1}}。"
+    }
+  ]
+}

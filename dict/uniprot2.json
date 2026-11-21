@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "family": "uniprot",
+    "version": "0.1.0",
+    "sites": [
+      "www.uniprot.org"
+    ],
+    "area": "entry/deep"
+  },
+  "exact": {
+    "Ligand": "配体",
+    "Short name": "简称",
+    "ORF names": "ORF 名称",
+    "Segment": "片段",
+    "Sequence processing": "序列加工",
+    "Genomic RNA": "基因组 RNA",
+    "Hide reaction details": "隐藏反应详情",
+    "EC number": "EC 编号",
+    "UniRule Annotation": "UniRule 注释",
+    "PROSITE-ProRule Annotation": "PROSITE-ProRule 注释",
+    "Imported": "导入",
+    "Sequence Analysis": "序列分析",
+    "Sequence analysis": "序列分析",
+    "Approximate": "近似",
+    "Sequence problems.": "序列问题。",
+    "The displayed sequence is further processed into a mature form.": "所显示的序列会进一步加工为成熟形式。",
+    "Disease susceptibility is associated with variants affecting the gene represented in this entry": "疾病易感性与本条目所代表基因的变异相关",
+    "Any medical or genetic information present in this entry is provided for research, educational and informational purposes only. It is not in any way intended to be used as a substitute for professional medical advice, diagnosis, treatment or care. Our staff consists of biologists and biochemists that are not trained to give medical advice.": "本条目中的任何医学或遗传学信息仅供研究、教育与参考之用，绝不可替代专业医疗建议、诊断、治疗或照护。我们的工作人员由生物学家和生物化学家组成，未接受过提供医疗建议的培训。",
+    "No title available.": "暂无标题。",
+    "Submission": "提交",
+    "Submitted to EMBL/GenBank/DDBJ databases": "提交至 EMBL/GenBank/DDBJ 数据库",
+    "Study type": "研究类型",
+    "Computationally mapped": "计算映射",
+    "Large scale": "大规模",
+    "Small scale": "小规模",
+    "Cited in": "被引用",
+    "Mapped to": "映射到",
+    "PDB ENTRY": "PDB 条目",
+    "RESOLUTION": "分辨率",
+    "X-ray": "X 射线",
+    "NMR": "核磁共振",
+    "The buzz": "热点",
+    "Please interact with the page to view the Feature Viewer": "请与页面交互以查看特征视图",
+    "Coiled coil": "卷曲螺旋",
+    "coiled coil": "卷曲螺旋",
+    "Endosome membrane": "内体膜",
+    "Secreted": "分泌型",
+    "Virion membrane": "病毒颗粒膜",
+    "Endoplasmic reticulum membrane": "内质网膜",
+    "Golgi apparatus membrane": "高尔基体膜",
+    "Nucleus membrane": "核膜",
+    "Host cell membrane": "宿主细胞膜",
+    "Esophageal cancer (ESCR)": "食管癌（ESCR）",
+    "Lung cancer (LNCR)": "肺癌（LNCR）",
+    "Breast cancer (BC)": "乳腺癌（BC）",
+    "Ovarian cancer (OC)": "卵巢癌（OC）",
+    "Fanconi anemia, complementation group S (FANCS)": "范可尼贫血 S 互补群（FANCS）",
+    "Incontinentia pigmenti (IP)": "色素失禁症（IP）",
+    "Autoinflammatory disease, systemic, X-linked (SAIDX)": "X 连锁系统性自身炎症性疾病（SAIDX）",
+    "Neonatal nephrocutaneous inflammatory syndrome (NNCIS)": "新生儿肾皮肤炎症综合征（NNCIS）",
+    "#Activator": "激活因子",
+    "#DNA-binding": "DNA 结合",
+    "#Repressor": "阻遏因子",
+    "#Apoptosis": "凋亡",
+    "#Necrosis": "坏死",
+    "#Zinc": "锌",
+    "#DNA damage": "DNA 损伤",
+    "#DNA repair": "DNA 修复",
+    "#DNA recombination": "DNA 重组",
+    "#Transcription": "转录",
+    "#Transferase": "转移酶",
+    "#Kinase": "激酶",
+    "#Receptor": "受体",
+    "#Tyrosine-protein kinase": "酪氨酸蛋白激酶",
+    "#ATP-binding": "ATP 结合",
+    "#Nucleotide-binding": "核苷酸结合",
+    "#Developmental protein": "发育蛋白",
+    "#Host cell receptor for virus entry": "病毒入侵宿主细胞受体",
+    "#Coiled coil": "卷曲螺旋",
+    "#Signal": "信号肽",
+    "#Transmembrane helix": "跨膜螺旋",
+    "#Membrane": "膜",
+    "#Zinc-finger": "锌指",
+    "#Superantigen": "超抗原",
+    "#Host cell membrane": "宿主细胞膜",
+    "#Host membrane": "宿主膜",
+    "#Viral envelope protein": "病毒包膜蛋白",
+    "#Virion": "病毒颗粒",
+    "#Endosome": "内体",
+    "#Fanconi anemia": "范可尼贫血",
+    "#Ectodermal dysplasia": "外胚层发育不良",
+    "#Osteopetrosis": "骨硬化症",
+    "#Transcription regulation": "转录调控",
+    "#Proto-oncogene": "原癌基因",
+    "#Fusion of virus membrane with host endosomal membrane": "病毒膜与宿主内体膜融合",
+    "#Fusion of virus membrane with host membrane": "病毒膜与宿主膜融合",
+    "#Inhibition of host innate immune response by virus": "病毒抑制宿主先天免疫应答",
+    "#Inhibition of host tetherin by virus": "病毒抑制宿主 tetherin",
+    "Breast-ovarian cancer, familial, 1 (BROVCA1)": "家族性乳腺癌-卵巢癌 1 型（BROVCA1）",
+    "Pancreatic cancer 4 (PNCA4)": "胰腺癌 4 型（PNCA4）",
+    "Ectodermal dysplasia and immunodeficiency 1 (EDAID1)": "外胚层发育不良与免疫缺陷 1 型（EDAID1）",
+    "Immunodeficiency 33 (IMD33)": "免疫缺陷 33 型（IMD33）",
+    "Host endoplasmic reticulum-Golgi intermediate compartment membrane": "宿主内质网-高尔基体中间区室膜"
+  },
+  "rules": [
+    {
+      "re": "^Chromosome ([0-9]{1,2}|X|Y|MT)$",
+      "to": "$1 号染色体"
+    },
+    {
+      "re": "^Computationally mapped \\(([\\d,]+)\\)$",
+      "to": "计算映射（$1）"
+    },
+    {
+      "re": "^Large scale \\(([\\d,]+)\\)$",
+      "to": "大规模（$1）"
+    },
+    {
+      "re": "^Small scale \\(([\\d,]+)\\)$",
+      "to": "小规模（$1）"
+    },
+    {
+      "re": "^Cited in ([\\d,+]+)$",
+      "to": "被引用 $1 次"
+    },
+    {
+      "re": "^Mapped to ([\\d,+]+)$",
+      "to": "映射到 $1"
+    },
+    {
+      "re": "^(\\d+) GO annotations? based on evolutionary models$",
+      "to": "$1 条基于演化模型的 GO 注释"
+    },
+    {
+      "re": "^(\\d+) NDEx IQuery Curated Pathways$",
+      "to": "$1 条 NDEx IQuery 精选通路"
+    },
+    {
+      "re": "^(\\d+) evidence items across (\\d+) molecular profiles$",
+      "to": "$1 条证据，覆盖 $2 个分子谱"
+    },
+    {
+      "re": "^(\\d+) hits in (\\d+) CRISPR screens$",
+      "to": "$1 个命中，来自 $2 项 CRISPR 筛选"
+    },
+    {
+      "re": "^(\\d+) antibodies from (\\d+) providers$",
+      "to": "$1 个抗体，来自 $2 家供应商"
+    },
+    {
+      "re": "^(\\d+) sequenced antibodies$",
+      "to": "$1 个已测序抗体"
+    },
+    {
+      "re": "^([\\d,]+) antibodies$",
+      "to": "$1 个抗体"
+    }
+  ],
+  "templates": []
+}

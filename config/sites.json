@@ -34,7 +34,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-help"
+        "ncbi-help",
+        "pubmed2"
       ],
       "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -237,7 +238,8 @@
         "common",
         "ncbi",
         "geo-extra",
-        "seq"
+        "seq",
+        "gdv"
       ],
       "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
       "spa": true,
@@ -320,7 +322,8 @@
         "common",
         "hpa",
         "anatomy",
-        "onco"
+        "onco",
+        "hpa2"
       ],
       "scope": "body",
       "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
@@ -642,12 +645,13 @@
         "common",
         "onco",
         "anatomy",
-        "cbioportal"
+        "cbioportal",
+        "cbioportal2"
       ],
       "scope": "main, #root, .cbioportal-frontend",
       "spa": true,
       "waitFor": "#root",
-      "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), table.simple-table th:nth-child(1), [class*=summary] h1, [class*=summary] h3, .headBlock .studyName, .headBlock [class*=summary] h3",
+      "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), [class*=summary] h1, [class*=summary] h3, .headBlock .studyName, .headBlock [class*=summary] h3",
       "translateNoAllow": [
         ".msk-tabs div[translate=\"no\"]"
       ],
@@ -691,7 +695,8 @@
         "anatomy",
         "onco",
         "spa",
-        "gdc"
+        "gdc",
+        "gdc2"
       ],
       "scope": "",
       "spa": true,
@@ -944,7 +949,8 @@
         "spa",
         "ensembl",
         "ensembl-extra",
-        "ensembl-tpl"
+        "ensembl-tpl",
+        "ensembl2"
       ],
       "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3, body",
       "spa": true,
@@ -991,7 +997,8 @@
         "common",
         "anatomy",
         "spa",
-        "uniprot"
+        "uniprot",
+        "uniprot2"
       ],
       "scope": "main, #root",
       "spa": true,

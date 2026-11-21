@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "family": "hpa",
+    "version": "0.1.0",
+    "sites": [
+      "www.proteinatlas.org"
+    ],
+    "area": "record/about/atlas"
+  },
+  "exact": {
+    "SPECIFICITY": "特异性",
+    "DISTRIBUTION": "分布",
+    "EXPRESSION": "表达",
+    "RELIABILITY": "可靠性",
+    "SUMMARY": "摘要",
+    "INFOGRAPHIC": "信息图",
+    "Expression levels for all proteins with human orthologs in regions and subregions of the pig and mouse brain": "所有在猪和小鼠大脑各区域与亚区中具有人类直系同源蛋白的表达水平",
+    "Regional enriched genes with higher expression in a single or few regions of the brain": "在大脑单个或少数区域中表达更高的区域富集基因",
+    "Cell-type and cell-compartment distribution of selected proteins in the human and mouse brain": "选定蛋白质在人脑与小鼠脑中的细胞类型与细胞区室分布",
+    "if a gene is enriched in a particular cell type (specificity)": "基因是否在特定细胞类型中富集（特异性）",
+    "which genes have a similar expression profile across cell types (expression cluster)": "哪些基因在各细胞类型间具有相似的表达谱（表达聚类）",
+    "if a gene is predicted to have cell type specificity within a given tissue": "基因是否被预测在给定组织内具有细胞类型特异性",
+    "which genes have a common cell type specificity prediction within each tissue": "哪些基因在各组织内具有共同的细胞类型特异性预测",
+    "the catalogue of genes with predicted specificity in core cell types across tissues": "在各组织核心细胞类型中具有预测特异性的基因目录",
+    "The subcellular distribution of proteins in human cell lines, including ciliated cells and iPSCs.": "蛋白质在人类细胞系（包括纤毛细胞与 iPSC）中的亚细胞分布。",
+    "Single-cell variability in the expression levels and/or localizations of proteins.": "蛋白质表达水平和/或定位的单细胞变异。",
+    "genes and proteins enriched in particular cancer types": "在特定癌症类型中富集的基因与蛋白质",
+    "differences in protein abundance between tumor and adjacent non-tumor tissue": "肿瘤与邻近非肿瘤组织之间的蛋白质丰度差异",
+    "genes with expression associated with patient survival": "表达与患者生存相关的基因",
+    "A pan-disease cohort was profiled using Olink Explore 1536, including samples from individuals across 59 diseases, including cardiovascular, metabolic, cancer, psychiatric, autoimmune, infectious, and pediatric conditions, as well as healthy adults.": "使用 Olink Explore 1536 对泛疾病队列进行了分析，样本来自涵盖 59 种疾病的个体，包括心血管、代谢、癌症、精神、自身免疫、感染与儿科疾病，以及健康成人。",
+    "Targeted mass spectrometry was applied to 12 cancer types and a longitudinal pregnancy cohort.": "靶向质谱分析应用于 12 种癌症类型以及一个纵向妊娠队列。",
+    "the plasma levels of blood proteins in a longitudinal study of healthy individuals": "健康个体纵向研究中血液蛋白的血浆水平",
+    "the levels of plasma proteins using immune assays and mass spectrometry-based proteomics": "基于免疫测定与质谱蛋白质组学的血浆蛋白水平",
+    "if a gene is enriched in cellines from a particular cancer type (specificity)": "基因是否在特定癌症类型的细胞系中富集（特异性）",
+    "which genes have a similar expression profile across the cell lines (expression cluster)": "哪些基因在各细胞系间具有相似的表达谱（表达聚类）",
+    "the catalogue of genes elevated in each of the cell lines": "各细胞系中表达升高的基因目录",
+    "which cell line has the most consistent expression profile to its corresponding TCGA disease cohort (i.e., the best cell lines for cancer study)": "哪个细胞系的表达谱与其对应的 TCGA 疾病队列最一致（即为最适合癌症研究的细胞系）",
+    "cancer-related pathway and cytokine activity of each cell line": "各细胞系的癌症相关通路与细胞因子活性",
+    "the predicted 3D structure of proteins and their related isoforms": "蛋白质及其相关异构体的预测三维结构",
+    "the predicted structure of selected protein features": "选定蛋白质特征的预测结构",
+    "the known and predicted PTMs for the proteins": "蛋白质的已知与预测 PTM",
+    "the known and predicted missense variants with clinical significance": "具有临床意义的已知与预测错义变异",
+    "the known population variants and predicted benign missense variants": "已知人群变异与预测的良性错义变异",
+    "the interaction partners of proteins": "蛋白质的相互作用伴侣",
+    "the predicted 3D structure of consensus interactions": "共识相互作用的预测三维结构",
+    "the predicted and subcellular location of the proteins in the network": "网络中蛋白质的预测定位与亚细胞定位",
+    "the expression specificity of the proteins in the network": "网络中蛋白质的表达特异性",
+    "the interaction partners expressed in the same single cell type clusters": "在同一单细胞类型聚类中表达的相互作用伴侣",
+    "known heterodimers from ComplexPortal": "来自 ComplexPortal 的已知异二聚体",
+    "the expression profiles of individual isoforms": "各异构体的表达谱",
+    "the tissue specificity of individual isoforms": "各异构体的组织特异性",
+    "the predicted location across tissues based on isoform expression": "基于异构体表达的跨组织预测定位",
+    "sex and age differences in isoform expression": "异构体表达中的性别与年龄差异",
+    "isoform specific protein expression": "异构体特异性蛋白质表达",
+    "the catalogue of genes with a dominant isoform or other categories based on aggregated data": "基于汇总数据、具有优势异构体或其他类别的基因目录",
+    "RNA expression profiles across major organs and tissues in different mammalian species": "不同哺乳动物物种主要器官与组织中的 RNA 表达谱",
+    "Conservation and divergence of gene expression patterns during mammalian evolution": "哺乳动物演化过程中基因表达模式的保守与分化"
+  },
+  "rules": [],
+  "templates": [
+    {
+      "pat": "The {{1}} resource, showing the distribution of the proteins across all major tissues and organs in the human body",
+      "zh": "{{1}}资源，展示蛋白质在人体所有主要组织与器官中的分布"
+    },
+    {
+      "pat": "The {{1}} resource, exploring the distribution of proteins in various regions of the mammalian brain",
+      "zh": "{{1}}资源，探索蛋白质在哺乳动物大脑各区域中的分布"
+    },
+    {
+      "pat": "The {{1}} resource, showing gene expression in human single cell types from bulk,single cell and single nuclei RNA-seq",
+      "zh": "{{1}}资源，展示基于 bulk、单细胞与单细胞核 RNA-seq 的人体单细胞类型基因表达"
+    },
+    {
+      "pat": "The {{1}} resource, showing gene expression in immune cells based on single cell type RNA-seq",
+      "zh": "{{1}}资源，展示基于单细胞类型 RNA-seq 的免疫细胞基因表达"
+    },
+    {
+      "pat": "The {{1}} resource, showing the subcellular localization of proteins in single cells",
+      "zh": "{{1}}资源，展示蛋白质在单细胞中的亚细胞定位"
+    },
+    {
+      "pat": "The {{1}} resource, showing the impact of protein levels for the survival of patients with cancer",
+      "zh": "{{1}}资源，展示蛋白质水平对癌症患者生存的影响"
+    },
+    {
+      "pat": "The {{1}} resource, describing proteins detected in blood and showing protein levels in blood in patients with different diseases",
+      "zh": "{{1}}资源，描述在血液中检测到的蛋白质，并展示不同疾病患者血液中的蛋白质水平"
+    },
+    {
+      "pat": "The {{1}} resource, showing gene expression in human cancer cell lines and the best models for common cancers",
+      "zh": "{{1}}资源，展示人类癌细胞系中的基因表达以及常见癌症的最佳模型"
+    },
+    {
+      "pat": "The {{1}} resource, showing predicted 3D structures for most protein isoforms highlighting PTMs, variants and antigen sites",
+      "zh": "{{1}}资源，展示大多数蛋白质异构体的预测三维结构，并标出 PTM、变异与抗原位点"
+    },
+    {
+      "pat": "The {{1}} resource, showing protein-protein and metabolic interaction networks including AF3 predicted 3D structures",
+      "zh": "{{1}}资源，展示蛋白质-蛋白质与代谢相互作用网络，包括 AF3 预测的三维结构"
+    },
+    {
+      "pat": "The {{1}} resource, exploring cell type expression of protein-coding genes in the context of the human metabolic network",
+      "zh": "{{1}}资源，在人体代谢网络背景下探索蛋白质编码基因的细胞类型表达"
+    },
+    {
+      "pat": "The {{1}} resource, showing isoform expression in tissues based on bulk RNA-seq",
+      "zh": "{{1}}资源，展示基于 bulk RNA-seq 的组织中异构体表达"
+    },
+    {
+      "pat": "The {{1}} resource, showing RNA expression in major organs and tissues across mammalian species",
+      "zh": "{{1}}资源，展示哺乳动物各物种主要器官与组织中的 RNA 表达"
+    },
+    {
+      "pat": "Based on transcriptomics analysis across all major organs and tissue types in the human body, all putative 20162 protein coding genes have been classified with regard to abundance and distribution of transcribed mRNA molecules, including {{1}} proteins showing a significantly elevated level of expression in a particular tissue or a group of related tissues and {{2}} proteins {{3}} organs and tissues. Read more about the different categories of elevated expression {{4}}.",
+      "zh": "基于对人体所有主要器官与组织类型的转录组学分析，全部 20162 个假定蛋白编码基因已按转录 mRNA 分子的丰度与分布完成分类：其中 {{1}} 个蛋白在某一组织或一组相关组织中表达显著升高，{{2}} 个蛋白在{{3}}的器官与组织中检出。进一步了解各类升高表达的类别请见{{4}}。"
+    },
+    {
+      "pat": "Tissue {{1}} was calculated, and is here shown as piecharts and bar plot, clickable for target lists, for the two datasets respectively. Protein detection (intensity) is displayed at gene-summary pages for more detailed exploration of the data.",
+      "zh": "组织{{1}}已计算，并在此分别以饼图和柱状图展示两个数据集的结果，点击图表可查看靶标列表。蛋白质检测（强度）显示于基因摘要页，便于更细致地探索数据。"
+    },
+    {
+      "pat": "The UMAP was generated by clustering genes based on expression patterns. The colored areas represent the area in the UMAP where most of the genes of each cluster reside. Click on a cluster or {{1}} to view an interactive UMAP and details about all cluster annotations.",
+      "zh": "UMAP 由基于表达模式的基因聚类生成。彩色区域表示各聚类中大多数基因在 UMAP 中所处的区域。点击某个聚类或{{1}}，即可查看交互式 UMAP 及所有聚类注释的详情。"
+    }
+  ]
+}

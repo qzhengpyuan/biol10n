@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "family": "cbioportal2",
+    "version": "0.1.0",
+    "sites": [
+      "cbioportal.org"
+    ],
+    "area": "cBioPortal 剩余英文：/webAPI 静态文档页、/datasets 表头与说明句、结果页「下载」「突变」两个标签页、首页页脚与用户评价"
+  },
+  "exact": {
+    "HELP": "帮助",
+    "INFO": "信息",
+    "CONTACT": "联系",
+    "Linking to Us": "链接到我们",
+    "Once you have a cancer_study_id, it is very easy to create stable links from your web site to the cBio Portal. Stable links must point to ln, and can include the following parameters:": "有了 cancer_study_id 之后，从您的网站创建指向 cBio Portal 的稳定链接非常容易。稳定链接必须指向 ln，并可包含以下参数：",
+    "For example, here is a link to the TCGA GBM data for EGFR and NF1:": "例如，以下是指向 EGFR 与 NF1 的 TCGA GBM 数据的链接：",
+    "And a link to TP53 mutations across a curated set of non-redundant studies:": "以下是指向精选的非冗余研究集中 TP53 突变的链接：",
+    "Onco Query Language": "Onco 查询语言",
+    "Download Documentation": "下载文档",
+    "Columns": "列",
+    "Tumor mRNA (microarray)": "肿瘤 mRNA（微阵列）",
+    "Tumor miRNA": "肿瘤 miRNA",
+    "Protein Mass Spectrometry": "蛋白质质谱",
+    "Treatment Count": "治疗数",
+    "\"Whenever bench scientists ask me how they can look at TCGA data, I've never had a good answer for them. Now I do. The cBio Portal meets a critical need--it is the interface that the cancer research community needs to access the wealth of TCGA. Even as a computational biologist, I use it to follow-up on genes of interest. It makes querying the data much less painful.\"": "“每当一线实验科学家问我怎样才能查看 TCGA 数据时，我一直给不出好的答案。现在我有了。cBio Portal 满足了这一关键需求——它是癌症研究界获取 TCGA 丰富数据所必需的界面。即使作为一名计算生物学家，我也会用它追踪感兴趣的基因。它让数据查询轻松了许多。”",
+    "Downloadable Data Files": "可下载的数据文件",
+    "Download Help": "下载帮助",
+    "Copy-number Alterations (OQL is not in effect)": "拷贝数改变（OQL 未生效）",
+    "Mutations (OQL is not in effect)": "突变（OQL 未生效）",
+    "Structural Variants (OQL is not in effect)": "结构变异（OQL 未生效）",
+    "Altered samples": "发生改变的样本",
+    "Unaltered samples": "未改变的样本",
+    "Sample matrix: List of all samples where 1=altered and 0=unaltered": "样本矩阵：列出所有样本，1 表示发生改变，0 表示未改变",
+    "Tab Delimited Format": "制表符分隔格式",
+    "Transposed Matrix": "转置矩阵",
+    "Virtual Study": "虚拟研究",
+    "Tracks added in the OncoPrint tab can be downloaded here.": "在 OncoPrint 标签页中添加的轨道可在此下载。",
+    "Gene Alteration Frequency": "基因改变频率",
+    "Type of Genetic Alterations Across All Samples": "所有样本中遗传改变的类型",
+    "Gene Symbol": "基因符号",
+    "Num Samples Altered": "改变样本数",
+    "Percent Samples Altered": "改变样本占比",
+    "Altered": "已改变",
+    "Compare": "比较",
+    "Custom Driver": "自定义驱动",
+    "Custom Driver Tiers": "自定义驱动分级",
+    "Functional Impact": "功能影响",
+    "Variant Type": "变异类型",
+    "Center": "中心",
+    "Start Pos": "起始位置",
+    "End Pos": "终止位置",
+    "Variant Reads": "变异读数",
+    "Ref Reads": "参考读数",
+    "Oncogenic / Likely Oncog. / Resistance": "致癌 / 可能致癌 / 耐药",
+    "Likely Neutral": "可能中性",
+    "Inconclusive": "不确定",
+    "Recurrent (or recurrent + 3D) hotspot": "复发性（或复发性 + 3D）热点",
+    "3D clustered hotspot": "3D 聚集热点",
+    "Not a known hotspot": "非已知热点",
+    "In CIViC, with oncogenic activity info": "CIViC 中有致癌活性信息",
+    "In CIViC, no oncogenic activity info": "CIViC 中无致癌活性信息"
+  },
+  "rules": [
+    {
+      "re": "^Level (R?\\d[A-Z]?)$",
+      "to": "$1 级"
+    },
+    {
+      "re": "^Open the study summary page for undefined in a new tab$",
+      "to": "在新标签页中打开研究摘要页面"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The table below lists the number of available samples per cancer study and data type. It also provides links to download the data for each study. For alternative ways of downloading, see the {{1}}.",
+      "zh": "下表列出每项癌症研究与每种数据类型可用的样本数，并提供每项研究的数据下载链接。其他下载方式请参见 {{1}}。"
+    },
+    {
+      "pat": "API documentation is now at {{1}}",
+      "zh": "API 文档现已移至 {{1}}"
+    },
+    {
+      "pat": "{{1}}=[a query following {{2}}, e.g. a space separated list of HUGO gene symbols] (required)",
+      "zh": "{{1}}=[遵循{{2}}的查询，例如以空格分隔的 HUGO 基因符号列表]（必填）"
+    },
+    {
+      "pat": "{{1}}=[cancer study ID] (if not specified, do a cross cancer query)",
+      "zh": "{{1}}=[癌症研究 ID]（未指定时进行跨癌种查询）"
+    },
+    {
+      "pat": "{{1}}=[report to display; can be one of: full (default), oncoprint_html]",
+      "zh": "{{1}}=[要显示的报表；可为：full（默认）、oncoprint_html]"
+    }
+  ]
+}

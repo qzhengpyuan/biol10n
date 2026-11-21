@@ -111,7 +111,7 @@
         "anatomy",
         "onco"
       ],
-      "scope": "main, #content, .content",
+      "scope": "body",
       "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
       "blocks": [
         {

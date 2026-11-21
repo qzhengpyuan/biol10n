@@ -293,9 +293,14 @@ function createBioL10nUI(opts) {
     var s = statLine();
     var on = !engine || !engine.stats || engine.stats.enabled !== false;
     badge.className = "bl-badge" + (on ? "" : " bl-off");
-    badge.textContent = on ? "中" : "英";
-    badge.title = "BioL10n" + (on ? "：本页已汉化 " + s.nodes + " 处" : "：本页已切回英文") +
+    var mark = on ? "中" : "英";
+    if (badge.textContent !== mark) badge.textContent = mark;
+    // 计数要按通道求和：RCSB/GTEx 这类页面大部分命中走规则与属性，
+    // 只看 nodes 会让徽标长期显示 0（检查方反馈）。
+    var total = (s.nodes || 0) + (s.attrHit || 0) + (s.titleHit || 0);
+    var tip = "BioL10n" + (on ? "：本页已汉化 " + total + " 处" : "：本页已切回英文") +
       (settings.log ? " · 记录中（" + entries.length + " 条）" : "");
+    if (badge.title !== tip) badge.title = tip;
   }
 
   function renderList() {
@@ -374,7 +379,8 @@ function createBioL10nUI(opts) {
     updateTitle();
     doc.addEventListener("keydown", onKey, true);
     // 统计与漏翻列表是活的：面板开着时每秒刷新一次
-    win.setInterval(function () { if (settingsOpen) refresh(); }, 1000);
+    // 徽标计数与面板统计都是活数据：每秒刷一次（徽标只在文案变化时才写 DOM）
+    win.setInterval(function () { updateTitle(); if (settingsOpen) refresh(); }, 1000);
   }
 
   function attach(eng) {

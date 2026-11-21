@@ -512,8 +512,6 @@
     "access the": "请访问",
     "OneDep Communication panel": "OneDep 通信面板",
     "For questions/corrections to specific PDB entries, including citation updates:": "如需咨询特定 PDB 条目或提出更正（包括引文更新）：",
-    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（最多",
-    "files max)": "个文件）",
     "I agree to the": "我同意",
     "Help Desk Privacy Policy": "帮助台隐私政策",
     "Optional: To help us learn more about our users, what is your:": "可选：为了帮助我们进一步了解用户，请问您的：",
@@ -669,7 +667,9 @@
     "Eukaryota": "真核生物",
     "Bacteria": "细菌",
     "Archaea": "古菌",
-    "Riboviria": "核糖病毒域"
+    "Riboviria": "核糖病毒域",
+    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件 ",
+    "files max)": "（文件数上限）"
   },
   "rules": [
     {

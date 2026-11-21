@@ -120,7 +120,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | TIMER2.0 / 3.0 | <https://timer.cistrome.org/> · <https://compbio.cn/timer3/> | 免疫浸润分析 |
 | PubMed 帮助中心 | <https://pubmed.ncbi.nlm.nih.gov/help/> | 使用文档（FAQ / 检索语法 / 附录） |
 
-中文资料目前只存在于社区写的教程里，站点本身没有中文界面。
+中文资料目前只存在于社区写的教程里，站点本身没有中文界面。各站已翻到的范围与**刻意保留英文**的部分（数据、编号、品牌）见 [docs/coverage.md](docs/coverage.md)。
 
 ## 词库
 

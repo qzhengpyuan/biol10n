@@ -278,7 +278,7 @@
     "ENDOTHELIAL CELL (SK. MUSCLE, CYTOPLASMIC)": "内皮细胞（骨骼肌（胞质））",
     "EPITHELIAL CELL (SK. MUSCLE, CYTOPLASMIC)": "上皮细胞（骨骼肌（胞质））",
     "IMMUNE (SK. MUSCLE, CYTOPLASMIC)": "免疫细胞（骨骼肌（胞质））",
-    "MYOCYTE (SK. MUSCLE, CYTOPLASMIC)": "肌细胞（骨骼肌（胞质））",
+    "MYOCYTE (SK. MUSCLE, CYTOPLASMIC)": "肌细胞（骨骼肌，胞质）",
     "ENDOTHELIAL CELL (SMOOTH MUSCLE)": "内皮细胞（平滑肌）",
     "EPITHELIAL CELL (SMOOTH MUSCLE)": "上皮细胞（平滑肌）",
     "IMMUNE (SMOOTH MUSCLE)": "免疫细胞（平滑肌）",
@@ -290,7 +290,9 @@
     "PERICYTE/SMC": "周细胞/平滑肌细胞",
     "SCHWANN CELL": "施万细胞",
     "SEBACEOUS GLAND CELL": "皮脂腺细胞",
-    "SWEAT GLAND CELL": "汗腺细胞"
+    "SWEAT GLAND CELL": "汗腺细胞",
+    "IMMUNE (DC/MACROPHAGE)": "免疫细胞（树突状/巨噬细胞）",
+    "ICCS": "ICCS 细胞"
   },
   "rules": [
     {

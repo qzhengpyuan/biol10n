@@ -38,7 +38,7 @@ function createEngine(options) {
   (data.rules || []).forEach(function (r) {
     // requireHit：句式里带全角标点或中文模板时，至少有一个捕获组得真的命中词表才替换，
     // 否则 "Pan-Lung Cancer (TCGA, Nat Genet 2016)" 这类纯英文专名会被套上全角括号（半中半英）。
-    try { rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit }); } catch (e) { /* 坏规则直接跳过 */ }
+    try { rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit, mixed: !!r.mixed }); } catch (e) { /* 坏规则直接跳过 */ }
   });
 
   // 模板通道：段落被 <a>/<code>/<em> 切成片段时，逐节点翻会半中半英、整段替换会丢链接。
@@ -172,6 +172,21 @@ function createEngine(options) {
     if (/[0-9._\-\/]/.test(s)) return /^[A-Za-z0-9][A-Za-z0-9._\-\/]{0,23}$/.test(s);
     if (/^[A-Z]{1,6}$/.test(s)) return true;
     return false;
+  }
+
+  // 只跑词库里显式标了 mixed:true 的规则，用于「中文（英文缩写）」这种半翻节点。
+  function translateMixed(s) {
+    for (var j = 0; j < rules.length; j++) {
+      if (!rules[j].mixed) continue;
+      var m = rules[j].re.exec(s);
+      if (!m) continue;
+      var out = rules[j].to.replace(/\$(\d)/g, function (_, d) {
+        var seg = m[Number(d)];
+        return seg === undefined ? "" : translateCapture(seg, 0);
+      });
+      if (out !== s) return out;
+    }
+    return null;
   }
 
   function translateRules(s, depth) {
@@ -508,7 +523,19 @@ function createEngine(options) {
     if (!raw) return;
     var text = normalize(raw);
     if (text.length < 2) { localizePunct(node, text); return; }
-    if (hasCJK(text)) return;
+    if (hasCJK(text)) {
+      // 已经翻过一半的节点（「乳腺浸润性癌（NOS）」）按 hasCJK 整条跳过，
+      // 词库里只有 NOS 这种键就永远改不到里面。给词条留一个显式的 mixed 规则通道：
+      // 只跑标了 mixed 的锚定规则，其它规则一律不碰含中文的节点。
+      var mixedOut = translateMixed(text);
+      if (mixedOut !== null) {
+        if (!originals.has(node)) originals.set(node, raw);
+        node.nodeValue = mixedOut;
+        stats.mixed = (stats.mixed || 0) + 1;
+        processed.add(node);
+      }
+      return;
+    }
     if (!LETTER.test(text)) return;
     // 下载格式名（FASTA/TSV/List…）是约定俗成的标识，不翻；其余 <option> 照翻文字、
     // 但绝不碰 value 属性——筛选器的 value 和显示文字常常一模一样，按 value 一刀切会把

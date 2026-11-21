@@ -1138,9 +1138,26 @@
     "cBioPortal for Cancer Genomics::Datasets": "cBioPortal 癌症基因组学::数据集",
     "Datasets": "数据集",
     "Study": "研究",
-    "Tracks": "轨道"
+    "Tracks": "轨道",
+    "Mixed Histology": "混合组织学",
+    "Infiltrating Carcinoma": "浸润性癌"
   },
   "rules": [
+    {
+      "re": "^(.+?) \\(NOS\\):(\\d+)$",
+      "to": "$1（非特指）：$2",
+      "mixed": true
+    },
+    {
+      "re": "^(.+?)（NOS）(.*)$",
+      "to": "$1（非特指）$2",
+      "mixed": true
+    },
+    {
+      "re": "^(.+?)\\(NOS\\)(.*)$",
+      "to": "$1（非特指）$2",
+      "mixed": true
+    },
     {
       "re": "^(\\d+) studies available \\(\\s*$",
       "to": "$1 项研究可用（"

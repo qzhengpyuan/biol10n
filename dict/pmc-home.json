@@ -53,7 +53,8 @@
     "Select custom date range": "选择自定义日期范围",
     "Enter a search in the search field to view results.": "在检索框中输入检索词以查看结果。",
     "12.6 million articles are archived in PMC.": "PMC 已归档 1260 万篇文章。",
-    "- Select -": "请选择"
+    "- Select -": "请选择",
+    "PMC Home": "PMC 首页"
   },
   "rules": [
     {

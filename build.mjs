@@ -32,7 +32,11 @@ if (missing.length) {
   process.exit(1);
 }
 const unused = Object.keys(dict).filter((d) => !refs.has(d)).sort();
-if (unused.length) console.error("警告：dict/ 下这些册没有被任何站点引用:", unused.join(", "));
+if (unused.length) {
+  // 有册没挂站 = 这一册永远不进产物，等于白写；0.9.96 与 0.9.99 各漏过一次，故这里直接失败。
+  console.error("构建中止：dict/ 下这些册没有被任何站点引用:", unused.join(", "));
+  process.exit(1);
+}
 
 const hosts = new Set();
 for (const s of sites.sites) for (const h of s.hosts) hosts.add(h);

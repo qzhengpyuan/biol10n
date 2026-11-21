@@ -1037,6 +1037,14 @@ function createEngine(options) {
     while ((n = w.nextNode())) {
       var v = String(n.nodeValue || "");
       if (!v) continue;
+      // 页面把转义标签当文本渲染出来（NCBI MeSH 的 brieflinkpopdesc 里是字面 <br/>）：
+      // 不清理的话用户看到的是「…factors.<br/>Year introduced: 1966」。
+      if (/<\s*br\s*\/?>/i.test(v) && !inBlock(n.parentElement) && !inSkip(n.parentElement)) {
+        var fixed = v.replace(/\s*<\s*br\s*\/?>\s*/gi, " ");
+        if (!originals.has(n)) originals.set(n, v);
+        n.nodeValue = fixed;
+        v = fixed;
+      }
       var repaired = repairText(v);
       if (repaired !== v) {
         if (!originals.has(n)) originals.set(n, v);
@@ -1583,7 +1591,10 @@ function createEngine(options) {
     GTEx: 1, GDC: 1, "cBioPortal": 1, cBioPortal: 1, GEPIA: 1, KEGG: 1, UCSC: 1,
     miRBase: 1, TCGA: 1, EMBL: 1, EBI: 1, HGNC: 1, NCI: 1, "GEO DataSets": 1,
     ClinVar: 1, Clinvar: 1, HGVS: 1, MANE: 1, SPDI: 1, GMAF: 1, VCV: 1, RCV: 1, SCV: 1,
-    dbSNP: 1, RefSeq: 1, "ClinGen": 1, "OMIM": 1, PharmGKB: 1
+    dbSNP: 1, RefSeq: 1, "ClinGen": 1, "OMIM": 1, PharmGKB: 1,
+    // 新站与 NCBI 目录站：标题里保留这些品牌名，否则整条标题会被 titleAcceptable 丢掉
+    MedGen: 1, Medgen: 1, dbVar: 1, MeSH: 1, ORFfinder: 1, PubChem: 1, dbGaP: 1,
+    BioSample: 1, CCDS: 1, STRING: 1, gnomAD: 1, ClinPGx: 1, GXA: 1, GenBank: 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
   function titleAcceptable(v) {

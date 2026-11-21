@@ -202,3 +202,11 @@ test("公式碎片不单独翻（Log<sub>2</sub> 保持原样）", () => {
   assert.match(dom.window.document.body.textContent, /^Log2/);
   assert.doesNotMatch(dom.window.document.body.textContent, /对数/);
 });
+// MeSH 范围注释会把转义标签当文本渲染出来，用户看到的是字面 <br/>。
+test("文本里的字面 <br/> 被清理成空格", () => {
+  const { engine, doc } = boot('<div class="brieflinkpopdesc">effects of these factors...&lt;br/&gt;Year introduced: 1966</div>');
+  engine.start();
+  const t = doc.querySelector(".brieflinkpopdesc").textContent;
+  assert.ok(!/<br\s*\/?>/i.test(t), "不应再出现字面 <br/>");
+  assert.match(t, /effects of these factors\.\.\. Year introduced: 1966/);
+});

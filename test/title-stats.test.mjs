@@ -43,3 +43,18 @@ test("标题整条命中时记 titleHit", () => {
   assert.equal(doc.title, "GTEx 门户");
   assert.equal(engine.stats.titleHit, 1);
 });
+// 目录站标题：品牌名（dbVar / MeSH / MedGen / ORFfinder）在 TITLE_BRANDS 里才放行，
+// 否则 titleAcceptable 会把「首页 - dbVar - NCBI」整条丢掉。
+test("目录站标题的分段品牌名放行", () => {
+  const { doc } = boot("<p>hi</p>", "Home - dbVar - NCBI", { exact: { Home: "首页" } });
+  assert.equal(doc.title, "首页 - dbVar - NCBI");
+});
+
+test("MeSH / ORFfinder / MedGen 标题同样放行", () => {
+  const a = boot("<p>hi</p>", "Home - MeSH - NCBI", { exact: { Home: "首页" } });
+  assert.equal(a.doc.title, "首页 - MeSH - NCBI");
+  const b = boot("<p>hi</p>", "ORFfinder Home - NCBI", { exact: { "ORFfinder Home": "ORFfinder 首页" } });
+  assert.equal(b.doc.title, "ORFfinder 首页 - NCBI");
+  const c = boot("<p>hi</p>", "Medgen web - NCBI", { exact: { "Medgen web": "MedGen 网页" } });
+  assert.equal(c.doc.title, "MedGen 网页 - NCBI");
+});

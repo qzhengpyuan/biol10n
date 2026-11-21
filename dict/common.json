@@ -691,9 +691,19 @@
     "Try one of these options instead:": "可以试试下面这些方式：",
     "Contact Help Desk": "联系帮助台",
     "Report an error": "报告错误",
-    "Ask a question": "提问"
+    "Ask a question": "提问",
+    "AND": "且",
+    "NOT": "非",
+    "Subheadings Category": "副主题词类别",
+    "Subheading Category": "副主题词类别",
+    "MyNCBI": "我的 NCBI",
+    "Medgen web": "MedGen 网页"
   },
   "rules": [
+    {
+      "re": "^Error: (.+) is not found in (.+) Database$",
+      "to": "错误：$1 未在 $2 数据库中找到"
+    },
     {
       "re": "^((?:Mon|Tue|Tues|Wed|Thu|Thur|Thurs|Fri|Sat|Sun|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)),?\\s+(.+)$",
       "to": "$2（$1）",

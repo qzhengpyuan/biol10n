@@ -169,7 +169,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "mesh"
+        "mesh",
+        "clinvar-help"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -235,7 +236,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "medgen-gtr"
+        "medgen-gtr",
+        "clinvar-core"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -265,7 +267,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "dbvar-bioproject"
+        "dbvar-bioproject",
+        "ncbi-help"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",

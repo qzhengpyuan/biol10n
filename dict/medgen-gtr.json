@@ -319,7 +319,12 @@
     "Skin": "皮肤",
     "Sputum": "痰",
     "Urine": "尿液",
-    "White blood cell prep": "白细胞制备物"
+    "White blood cell prep": "白细胞制备物",
+    "Tested Conditions": "检测的疾病",
+    "Tested Genes": "检测的基因",
+    "Tests": "检测项目",
+    "Molecular": "分子",
+    "here": "此处"
   },
   "rules": [
     {

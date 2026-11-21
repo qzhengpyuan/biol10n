@@ -1381,7 +1381,8 @@
     "NCBI RSS feed": "NCBI RSS 订阅",
     "NLM on Facebook": "NLM 的 Facebook",
     "NLM on X (formerly known as Twitter)": "NLM 的 X（原 Twitter）",
-    "NLM on YouTube": "NLM 的 YouTube"
+    "NLM on YouTube": "NLM 的 YouTube",
+    "Accession:": "登录号："
   },
   "rules": [
     {

@@ -76,7 +76,8 @@
       "skip": "p.title, div.resc, #results .title",
       "skipFree": [
         ".rprtid dt",
-        ".rprtid th"
+        ".rprtid th",
+        ".resc .src"
       ]
     },
     {
@@ -477,7 +478,8 @@
       "dicts": [
         "common",
         "mirbase",
-        "mirbase-extra"
+        "mirbase-extra",
+        "misc-extra"
       ],
       "scope": "main, .container, body",
       "name": "miRBase"
@@ -721,7 +723,8 @@
         "common",
         "onco",
         "gepia2",
-        "gepia2-extra"
+        "gepia2-extra",
+        "misc-extra"
       ],
       "scope": "body",
       "protocols": [
@@ -738,7 +741,8 @@
         "common",
         "onco",
         "ualcan",
-        "ualcan-extra"
+        "ualcan-extra",
+        "misc-extra"
       ],
       "scope": "body",
       "name": "UALCAN"
@@ -754,7 +758,8 @@
         "common",
         "onco",
         "timer",
-        "timer-extra"
+        "timer-extra",
+        "misc-extra"
       ],
       "scope": "body",
       "name": "TIMER2.0/3.0"

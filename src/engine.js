@@ -38,7 +38,7 @@ function createEngine(options) {
   (data.rules || []).forEach(function (r) {
     // requireHit：句式里带全角标点或中文模板时，至少有一个捕获组得真的命中词表才替换，
     // 否则 "Pan-Lung Cancer (TCGA, Nat Genet 2016)" 这类纯英文专名会被套上全角括号（半中半英）。
-    try { rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit, mixed: !!r.mixed }); } catch (e) { /* 坏规则直接跳过 */ }
+    try { rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit, mixed: !!r.mixed, repair: !!r.repair }); } catch (e) { /* 坏规则直接跳过 */ }
   });
 
   // 模板通道：段落被 <a>/<code>/<em> 切成片段时，逐节点翻会半中半英、整段替换会丢链接。

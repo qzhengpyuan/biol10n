@@ -149,7 +149,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板与产物单测（103 条）
+npm test             # 引擎、面板与产物单测（118 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

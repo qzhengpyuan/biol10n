@@ -1000,7 +1000,10 @@
     "GTF - gene transfer format (limited)": "GTF - 基因转移格式（有限）",
     "BED - browser extensible data": "BED - 浏览器可扩展数据",
     "Custom track": "自定义轨道",
-    "Hyperlinks to Genome Browser": "指向基因组浏览器的超链接"
+    "Hyperlinks to Genome Browser": "指向基因组浏览器的超链接",
+    "DNA Sequence": "DNA 序列",
+    "Gap": "间隙",
+    "Rearrangements": "重排"
   },
   "rules": [
     {

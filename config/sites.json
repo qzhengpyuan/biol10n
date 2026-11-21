@@ -478,7 +478,8 @@
         "common",
         "mirbase",
         "misc-extra",
-        "misc-tpl"
+        "misc-tpl",
+        "anatomy"
       ],
       "scope": "main, .container, body",
       "name": "miRBase"
@@ -722,7 +723,8 @@
         "onco",
         "gepia2",
         "misc-extra",
-        "misc-tpl"
+        "misc-tpl",
+        "anatomy"
       ],
       "scope": "body",
       "protocols": [
@@ -740,7 +742,8 @@
         "onco",
         "ualcan",
         "misc-extra",
-        "misc-tpl"
+        "misc-tpl",
+        "anatomy"
       ],
       "scope": "body",
       "name": "UALCAN"
@@ -757,7 +760,8 @@
         "onco",
         "timer",
         "misc-extra",
-        "misc-tpl"
+        "misc-tpl",
+        "anatomy"
       ],
       "scope": "body",
       "name": "TIMER2.0/3.0"

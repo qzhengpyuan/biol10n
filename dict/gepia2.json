@@ -181,7 +181,11 @@
     "descending": "降序",
     "Structure": "结构",
     "Gene Symbol": "基因符号",
-    "Gene ID": "基因 ID"
+    "Gene ID": "基因 ID",
+    "Log Scale": "对数刻度",
+    "Utilities": "工具",
+    "Subtypes": "亚型",
+    "Features": "功能"
   },
   "rules": [
     {

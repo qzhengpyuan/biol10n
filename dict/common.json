@@ -685,7 +685,13 @@
     "All": "全部",
     "The requested resource was not found on this server.": "请求的资源在此服务器上不存在。",
     "Page not available": "页面不可用",
-    "The page you have requested is not available.": "你请求的页面不可用。"
+    "The page you have requested is not available.": "你请求的页面不可用。",
+    "Sorry, we can’t find the requested web page.": "抱歉，找不到你请求的网页。",
+    "Sorry, we can't find the requested web page.": "抱歉，找不到你请求的网页。",
+    "Try one of these options instead:": "可以试试下面这些方式：",
+    "Contact Help Desk": "联系帮助台",
+    "Report an error": "报告错误",
+    "Ask a question": "提问"
   },
   "rules": [
     {
@@ -890,6 +896,12 @@
     {
       "re": "^Error: (.+) is not found in the (.+) Database$",
       "to": "错误：$2 数据库中找不到 $1"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The {{1}} ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.",
+      "zh": "{{1}} 可确保你连接的是官方网站，且你提供的信息会被加密并安全传输。"
     }
   ]
 }

@@ -367,7 +367,7 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer], #mmdb-update-banner, .pop-warnning",
       "id": "ncbi-structure",
       "name": "NCBI Structure",
-      "path": "^/structure"
+      "path": "^/(structure|Structure)"
     },
     {
       "hosts": [

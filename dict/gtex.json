@@ -299,7 +299,8 @@
     "Junction read counts": "剪接点读取计数",
     "median read count per base": "每个碱基的读取计数中位数",
     "Total cells": "细胞总数",
-    "Cell fraction": "细胞比例"
+    "Cell fraction": "细胞比例",
+    "Close": "关闭"
   },
   "rules": [
     {

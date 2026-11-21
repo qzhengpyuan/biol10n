@@ -662,7 +662,14 @@
     "Download Selection": "下载选定项",
     "Download Multiple Files:": "下载多个文件：",
     "All": "全部",
-    "Selected": "选定"
+    "Selected": "选定",
+    "experimental": "实验解析",
+    "integrative": "整合",
+    "other sequences": "其他序列",
+    "Eukaryota": "真核生物",
+    "Bacteria": "细菌",
+    "Archaea": "古菌",
+    "Riboviria": "核糖病毒域"
   },
   "rules": [
     {
@@ -788,6 +795,11 @@
     {
       "re": "^Anisotropic B\\[(\\d)\\]\\[(\\d)\\]$",
       "to": "各向异性 B[$1][$2]"
+    },
+    {
+      "re": "^(.+?) \\(([\\d,]+)\\)$",
+      "to": "$1（$2）",
+      "requireHit": true
     }
   ],
   "templates": [

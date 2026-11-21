@@ -558,7 +558,11 @@
     "Reference pathway (EC): blue boxes are hyperlinked to ENZYME entries that are selected from the original version.": "参考通路（EC）：蓝色方框超链接到从原始版本中选出的 ENZYME 条目。",
     "Reference pathway (Reaction): blue boxes are hyperlinked to REACTION entries that are selected from the original version.": "参考通路（反应）：蓝色方框超链接到从原始版本中选出的 REACTION 条目。",
     "Organism-specific pathway: green boxes are hyperlinked to GENES entries by converting K numbers (KO identifiers) to gene identifiers in the reference pathway, indicating the presence of genes in the genome and also the completeness of the pathway.": "物种特异性通路：绿色方框通过把参考通路中的 K 编号（KO 标识符）转换为基因标识符，超链接到 GENES 条目，从而指示基因组中是否存在这些基因以及通路的完整性。",
-    "Use the \"Download\" link to obtain an image file of the pathway map as it appears on the screen (with coloring, etc.), optionally as a double (2x) sized image. In order to generate a publication-quality image, convert the resolution from 72 dpi to around 350 dpi using a software tool such as Photoshop or an online tool.": "使用“下载”链接可获得与屏幕上显示一致的通路图图像文件（含着色等），可选双倍（2x）尺寸。要生成出版质量的图像，请用 Photoshop 等软件或在线工具把分辨率从 72 dpi 转换到约 350 dpi。"
+    "Use the \"Download\" link to obtain an image file of the pathway map as it appears on the screen (with coloring, etc.), optionally as a double (2x) sized image. In order to generate a publication-quality image, convert the resolution from 72 dpi to around 350 dpi using a software tool such as Photoshop or an online tool.": "使用“下载”链接可获得与屏幕上显示一致的通路图图像文件（含着色等），可选双倍（2x）尺寸。要生成出版质量的图像，请用 Photoshop 等软件或在线工具把分辨率从 72 dpi 转换到约 350 dpi。",
+    "synteny analysis": "共线性分析",
+    "KEGG modules": "KEGG 模块",
+    "KEGG networks": "KEGG 网络",
+    "taxonomic groups": "分类群"
   },
   "rules": [
     {

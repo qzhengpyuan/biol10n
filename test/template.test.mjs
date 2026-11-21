@@ -124,3 +124,14 @@ test("段落里夹注释节点不影响模板匹配", () => {
   assert.equal(engine.stats.tpl, 1);
   dom.window.close();
 });
+test("只有图标的内联元素不占模板槽位", () => {
+  const html = '<p>We are planning the future of MedGen.  Contact us at <a href="mailto:a@b.org">a@b.org</a> <a class="copy" href="#"><svg width="14" height="14"></svg></a> to tell us how it can work better for you.</p>';
+  const tpl = { pat: "We are planning the future of MedGen. Contact us at {{1}} to tell us how it can work better for you.", zh: "我们正在规划 MedGen 的未来。请通过{{1}}告诉我们如何做得更好。" };
+  const { engine, doc, dom } = boot(html, { templates: [tpl] });
+  engine.start();
+  const p = doc.querySelector("p");
+  assert.match(p.textContent, /规划 MedGen 的未来/, "整段应翻成中文");
+  assert.equal(p.querySelectorAll("a").length, 2, "两个链接节点都要保留");
+  assert.match(p.querySelector("a.copy").innerHTML, /<svg/, "图标仍在");
+  dom.window.close();
+});

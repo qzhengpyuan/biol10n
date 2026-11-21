@@ -1269,7 +1269,6 @@
     "PMID:": "PMID：",
     "Per": "根据",
     "Executive Order 14434": "第 14434 号行政令",
-    ", federal agencies are now using \"Super Intelligence\" (SI) in place of \"Artificial Intelligence\" (AI). You may see both terms across NIH content during this transition.": "，联邦机构现以「超级智能」（SI）替代「人工智能」（AI）。过渡期间 NIH 内容中可能同时出现这两个术语。",
     "Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.": "联邦政府网站通常以 .gov 或 .mil 结尾。在共享敏感信息前，请确认你位于联邦政府站点。",
     "ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.": "可确保你连接的是官方网站，且你提供的任何信息都会被加密并安全传输。",
     "Comparative Genome Viewer (CGV)": "比较基因组查看器（CGV）",
@@ -1683,6 +1682,12 @@
     {
       "re": "^All articles for grant (.+)$",
       "to": "资助 $1 的全部文章"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Per {{1}}, federal agencies are now using \"Super Intelligence\" (SI) in place of \"Artificial Intelligence\" (AI). You may see both terms across NIH content during this transition.",
+      "zh": "根据{{1}}，联邦机构现以「超级智能」（SI）替代「人工智能」（AI）。过渡期间 NIH 内容中可能同时出现这两个术语。"
     }
   ]
 }

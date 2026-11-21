@@ -1280,7 +1280,7 @@ function createEngine(options) {
   /** 把块拆成「文本片段 + 内联元素占位符」的模板串；只收纯内联结构，遇到嵌套块返回 null。 */
   function buildTemplate(el) {
     if (!el || !el.firstChild) return null;
-    var parts = [], slots = [];
+    var parts = [], slots = [], extras = [];
     for (var c = el.firstChild; c; c = c.nextSibling) {
       if (c.nodeType === 3) { parts.push(String(c.nodeValue || "")); continue; }
       // 注释节点不渲染，但不该让整段模板失配（NCBI 的 <p> 里夹着 <!-- ... -->，
@@ -1290,6 +1290,13 @@ function createEngine(options) {
       if (c.nodeType !== 1) return null;
       var tn = c.tagName;
       if (!tn || !INLINE_TAGS[tn]) return null;
+      // 只有图标的空内联元素（<a><svg/></a>、复制邮箱按钮）不占槽位：否则模板里多出一个
+      // 空 {{n}}，写的模板永远对不上（MedGen 公告条尾部那个复制图标就是这种）。
+      // 必须在 isInlineSubtree 之前判：<a> 里是 <svg>，它不是内联文本标签，否则整段模板直接作废。
+      if (tn !== "BR" && !String(c.textContent || "").trim()) {
+        extras.push({ after: slots.length, node: c });
+        continue;
+      }
       // <a><em>x</em></a> 允许（整节点当一个槽位）；<a><div>…</div></a> 拒绝
       if (tn !== "BR" && !isInlineSubtree(c)) return null;
       slots.push(c);
@@ -1299,7 +1306,7 @@ function createEngine(options) {
     var pat = normalize(parts.join(""));
     if (!pat || hasCJK(pat)) return null;
     if (pat.length < 20 || pat.length > 2200) return null;
-    return { pat: pat, slots: slots };
+    return { pat: pat, slots: slots, extras: extras };
   }
 
   /** 模板通道：整段命中带占位符的模板后，把 {{n}} 换成原来的内联元素，其余换成译文文本。
@@ -1333,10 +1340,18 @@ function createEngine(options) {
       var frag = doc.createDocumentFragment();
       var last = 0;
       re.lastIndex = 0;
+      // 空图标元素（复制邮箱按钮之类）不占槽位，但要留在原地：挂在前面那个槽位后面
+      var extras = t.extras || [], ei = 0, slotCount = 0;
+      function pushExtras(after) {
+        while (ei < extras.length && extras[ei].after <= after) { frag.appendChild(extras[ei].node); ei++; }
+      }
+      pushExtras(0);
       while ((m = re.exec(zh))) {
         var txt = zh.slice(last, m.index);
         if (txt) frag.appendChild(doc.createTextNode(txt));
         frag.appendChild(t.slots[Number(m[1]) - 1]);
+        slotCount++;
+        pushExtras(slotCount);
         last = m.index + m[0].length;
       }
       if (last < zh.length) frag.appendChild(doc.createTextNode(zh.slice(last)));

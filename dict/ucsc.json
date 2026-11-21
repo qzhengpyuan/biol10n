@@ -961,7 +961,22 @@
     "csv (for excel)": "csv（供 Excel 使用）",
     "Plain text": "纯文本",
     "Gzip compressed": "Gzip 压缩",
-    "limited gene transfer format": "有限基因传递格式"
+    "limited gene transfer format": "有限基因传递格式",
+    "Sequence and Links": "序列与链接",
+    "UniProtKB Comments": "UniProtKB 注释",
+    "Primers": "引物",
+    "RNA-Seq Expression": "RNA-Seq 表达",
+    "Microarray Expression": "微阵列表达",
+    "RNA Structure": "RNA 结构",
+    "Protein Structure": "蛋白质结构",
+    "Other Species": "其他物种",
+    "GO Annotations": "GO 注释",
+    "mRNA Descriptions": "mRNA 描述",
+    "Other Names": "其他名称",
+    "mRNA (may differ from genome)": "mRNA（可能与基因组不同）",
+    "Gene Sorter": "基因排序器",
+    "Other Species FASTA": "其他物种 FASTA",
+    "Table Schema": "表格模式"
   },
   "rules": [
     {
@@ -983,6 +998,16 @@
     {
       "re": "^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\\.? (\\d{4}) \\((.+)\\)$",
       "to": "$2 年 $1（$3）"
+    },
+    {
+      "re": "^Genomic Sequence \\((.+)\\)$",
+      "to": "基因组序列（$1）",
+      "requireHit": false
+    },
+    {
+      "re": "^Protein \\((\\d+) aa\\)$",
+      "to": "蛋白质（$1 个氨基酸）",
+      "requireHit": false
     }
   ],
   "templates": [

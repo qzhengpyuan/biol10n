@@ -977,7 +977,10 @@
     "Gene Sorter": "基因排序器",
     "Other Species FASTA": "其他物种 FASTA",
     "Table Schema": "表格模式",
-    "Sequence and Links to Tools and Databases": "序列与工具数据库链接"
+    "Sequence and Links to Tools and Databases": "序列与工具数据库链接",
+    "All fields from selected table": "所选表格的全部字段",
+    "All Tracks": "全部轨道",
+    "All Tables": "全部表格"
   },
   "rules": [
     {

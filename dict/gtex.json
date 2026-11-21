@@ -347,7 +347,7 @@
       "to": "$1：点击按列升序排序"
     },
     {
-      "re": "^Exon Expression of (.+?):(.+)$",
+      "re": "^Exon Expression of (.+?):\\s*(.+)$",
       "to": "$1 的外显子表达：$2",
       "requireHit": false
     },

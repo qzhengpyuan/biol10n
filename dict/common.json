@@ -668,7 +668,18 @@
     "see above": "见上文",
     "Note: see below": "说明：见下文",
     "More...": "更多...",
-    "LinkedIn": "领英"
+    "LinkedIn": "领英",
+    "Category Type": "分类类型",
+    "Cancer Study": "癌症研究",
+    "Min. % Altered Patients": "改变患者的最小百分比",
+    "Sort X-Axis By": "X 轴排序依据",
+    "Count By": "计数方式",
+    "Y-Axis Value": "Y 轴数值",
+    "Show Genomic Alteration Types": "显示基因组改变类型",
+    "No data to plot.": "无可绘制的数据。",
+    "Occurrence": "发生次数",
+    "Cancer Type Summary Help": "癌症类型汇总帮助",
+    "Samples with mutation and CNA data": "有突变与拷贝数数据的样本"
   },
   "rules": [
     {

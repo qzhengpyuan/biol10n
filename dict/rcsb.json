@@ -800,6 +800,10 @@
       "re": "^(.+?) \\(([\\d,]+)\\)$",
       "to": "$1（$2）",
       "requireHit": true
+    },
+    {
+      "re": "^Use CTRL or Shift keys to select more than one file\\s*\\((\\d+) files max\\)$",
+      "to": "使用 CTRL 或 Shift 键可选择多个文件（最多 $1 个文件）"
     }
   ],
   "templates": [

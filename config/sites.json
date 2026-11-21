@@ -120,8 +120,7 @@
       ],
       "dicts": [
         "common",
-        "kegg",
-        "kegg-extra"
+        "kegg"
       ],
       "scope": "body",
       "name": "KEGG",
@@ -172,8 +171,7 @@
         "common",
         "hpa",
         "anatomy",
-        "onco",
-        "hpa-extra"
+        "onco"
       ],
       "scope": "body",
       "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
@@ -479,7 +477,6 @@
       "dicts": [
         "common",
         "mirbase",
-        "mirbase-extra",
         "misc-extra",
         "misc-tpl"
       ],
@@ -544,8 +541,7 @@
         "anatomy",
         "onco",
         "spa",
-        "gdc",
-        "gdc-extra"
+        "gdc"
       ],
       "scope": "",
       "spa": true,
@@ -725,7 +721,6 @@
         "common",
         "onco",
         "gepia2",
-        "gepia2-extra",
         "misc-extra",
         "misc-tpl"
       ],
@@ -744,7 +739,6 @@
         "common",
         "onco",
         "ualcan",
-        "ualcan-extra",
         "misc-extra",
         "misc-tpl"
       ],
@@ -762,7 +756,6 @@
         "common",
         "onco",
         "timer",
-        "timer-extra",
         "misc-extra",
         "misc-tpl"
       ],
@@ -778,8 +771,7 @@
         "common",
         "anatomy",
         "spa",
-        "gtex",
-        "gtex-extra"
+        "gtex"
       ],
       "scope": "main, #root",
       "spa": true,
@@ -846,8 +838,7 @@
         "common",
         "anatomy",
         "spa",
-        "uniprot",
-        "uniprot-extra"
+        "uniprot"
       ],
       "scope": "main, #root",
       "spa": true,
@@ -881,8 +872,7 @@
       "dicts": [
         "common",
         "spa",
-        "rcsb",
-        "rcsb-extra"
+        "rcsb"
       ],
       "scope": "header, nav, main, footer, #root, .visually-hidden-focusable, .skip-link",
       "spa": true,

@@ -1365,7 +1365,14 @@
     "Cancer Biology": "癌症生物学",
     "Department": "部门",
     "Bookshelf": "书架",
-    "NCBI Bookshelf": "NCBI 书架"
+    "NCBI Bookshelf": "NCBI 书架",
+    "navigate to FAQs section": "跳转到「常见问题」部分",
+    "navigate to Search PubMed section": "跳转到「检索 PubMed」部分",
+    "navigate to Display, sort and navigate section": "跳转到「显示、排序与浏览」部分",
+    "navigate to Cite, save, and share section": "跳转到「引用、保存与分享」部分",
+    "navigate to Advanced Search section": "跳转到「高级检索」部分",
+    "navigate to Other services section": "跳转到「其他服务」部分",
+    "navigate to Appendices section": "跳转到「附录」部分"
   },
   "rules": [
     {

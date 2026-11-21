@@ -679,7 +679,9 @@
     "No data to plot.": "无可绘制的数据。",
     "Occurrence": "发生次数",
     "Cancer Type Summary Help": "癌症类型汇总帮助",
-    "Samples with mutation and CNA data": "有突变与拷贝数数据的样本"
+    "Samples with mutation and CNA data": "有突变与拷贝数数据的样本",
+    "MANE Select": "MANE 精选转录本",
+    "Link": "链接"
   },
   "rules": [
     {

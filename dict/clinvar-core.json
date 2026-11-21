@@ -259,7 +259,9 @@
     "Submitters Per Country": "各国提交者",
     "ClinVar welcomes submissions": "ClinVar 欢迎提交数据",
     "Variation Search": "变异检索",
-    "Gene Search": "基因检索"
+    "Gene Search": "基因检索",
+    "expert panel submission": "专家组的提交",
+    "practice guideline submission": "实践指南的提交"
   },
   "rules": [
     {
@@ -416,6 +418,12 @@
     {
       "re": "^([\\d,]+) variants? for$",
       "to": "$1 条变异："
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Classification is based on the {{1}}",
+      "zh": "分类依据{{1}}"
     }
   ]
 }

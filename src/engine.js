@@ -756,14 +756,24 @@ function createEngine(options) {
     return true;
   }
 
-  /** 屏幕阅读器专用 / tooltip 子树：不进 <br> 拼接的文本（ClinVar 的 dt 里藏着一整段帮助说明） */
+  /** 屏幕阅读器专用 / tooltip 子树：不进 <br> 拼接的文本（ClinVar 的 dt 里藏着一整段帮助说明）。
+   *  ClinVar 的字段说明挂在 .total-help-icon > .pointer-triangle-parent > p 里，
+   *  只认 usa-sr-only 不够，会把整段中文说明拼进标签，导致 hasCJK 判成「已是中文」而弃权。 */
   function isHiddenSubtree(el) {
     try {
       var cl = el.classList;
-      if (cl && (cl.contains("usa-sr-only") || cl.contains("sr-only") || cl.contains("visually-hidden") || cl.contains("visuallyhidden"))) return true;
+      if (cl) {
+        if (cl.contains("usa-sr-only") || cl.contains("sr-only") || cl.contains("visually-hidden") || cl.contains("visuallyhidden")) return true;
+        if (cl.contains("tooltip") || cl.contains("popover") || cl.contains("pointer-triangle-parent")) return true;
+        var cn = String(el.className || "");
+        if (/help-(icon|text|tip)|-help-icon|total-help|help-icon/.test(cn)) return true;
+      }
       if (el.getAttribute) {
         if (el.getAttribute("role") === "tooltip") return true;
         if (el.getAttribute("aria-hidden") === "true") return true;
+        var id = String(el.id || "");
+        if (/-icon$|help-icon/.test(id)) return true;
+        if (el.hasAttribute("data-biol10n-block") && /help|tooltip/i.test(String(el.className || "") + " " + id)) return true;
         var st = el.getAttribute("style") || "";
         if (/display\s*:\s*none|visibility\s*:\s*hidden/.test(st)) return true;
       }
@@ -772,17 +782,30 @@ function createEngine(options) {
   }
 
   /** <br> 拆开的标题（"The Housekeeping" + <br> + "Proteome"）：整段拼接后再查表 */
-  var brDone = new WeakSet();
-  function brJoinedText(el) {
-    var parts = [];
+  function hasHiddenDescendant(el) {
     for (var c = el.firstChild; c; c = c.nextSibling) {
-      if (c.nodeType === 3) parts.push(c.nodeValue);
+      if (c.nodeType !== 1) continue;
+      if (isHiddenSubtree(c)) return true;
+      if (hasHiddenDescendant(c)) return true;
+    }
+    return false;
+  }
+
+  var brDone = new WeakSet();
+  /** 递归拼可见文本：tooltip / 屏幕阅读器子树可能嵌在多层容器里（ClinVar 的 dt），
+   *  只在直接子节点上判 isHiddenSubtree 会把整段中文说明拼进标签。 */
+  function visibleJoinedText(el, acc) {
+    for (var c = el.firstChild; c; c = c.nextSibling) {
+      if (c.nodeType === 3) acc.push(c.nodeValue);
       else if (c.nodeType === 1) {
-        if (c.tagName === "BR") parts.push(" ");
-        else if (!isHiddenSubtree(c)) parts.push(c.textContent || "");
+        if (c.tagName === "BR") acc.push(" ");
+        else if (!isHiddenSubtree(c)) visibleJoinedText(c, acc);
       }
     }
-    return normalize(parts.join(""));
+    return acc;
+  }
+  function brJoinedText(el) {
+    return normalize(visibleJoinedText(el, []).join(""));
   }
   /** 同一元素里的文本被站点拆成多个文本节点（cBioPortal 的 <h4>Horizontal\nAxis</h4>），
    *  整串比对才命得中词表。只在元素没有子元素时动手，替换后按整块记录，disable 能还原。 */
@@ -861,6 +884,25 @@ function createEngine(options) {
     if (labelHits && labelHits.length >= 2) return false;
     var out = translate(full);
     if (out === null) return false;
+    // dt 里挂着 tooltip/帮助图标（ClinVar 的 GMAF）：整块 textContent 覆盖会把说明气泡和
+    // 图标一起删掉。这种元素只改可见文本节点，隐藏子树原样留在 DOM 里。
+    if (hasHiddenDescendant(el)) {
+      var seen = false;
+      (function writeVisible(node) {
+        for (var c = node.firstChild; c; ) {
+          var next = c.nextSibling;
+          if (c.nodeType === 3) {
+            if (!seen) { if (!originals.has(c)) originals.set(c, c.nodeValue); c.nodeValue = out; seen = true; }
+            else { if (!originals.has(c)) originals.set(c, c.nodeValue); c.nodeValue = ""; }
+          } else if (c.nodeType === 1) {
+            if (c.tagName === "BR") { node.removeChild(c); }
+            else if (!isHiddenSubtree(c)) writeVisible(c);
+          }
+          c = next;
+        }
+      })(el);
+      if (seen) { brDone.add(el); stats.br = (stats.br || 0) + 1; return true; }
+    }
     // 只有拼接成功才记账：早期版本在查表前就 brDone.add，拼接失败的元素后半段
     // 会被 brDone 永久跳过（HPA 的 Total<br>elevated → 「总计elevated」）
     // 容器里若还有输入框/按钮/链接这类活控件，绝不能 textContent 覆盖（HPA 的

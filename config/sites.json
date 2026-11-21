@@ -169,7 +169,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "pmc"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",

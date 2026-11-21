@@ -261,7 +261,9 @@
     "Variation Search": "变异检索",
     "Gene Search": "基因检索",
     "expert panel submission": "专家组的提交",
-    "practice guideline submission": "实践指南的提交"
+    "practice guideline submission": "实践指南的提交",
+    "ClinVar is built from data that is voluntarily shared by organizations around the world. Get to know our community.": "ClinVar 的数据由世界各地的机构自愿共享。了解我们的社区。",
+    "Register your organization, get familiar with the ClinVar submission process, and select a submission method that fits your needs.": "注册你的机构，熟悉 ClinVar 提交流程，并选择适合你需求的提交方式。"
   },
   "rules": [
     {

@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "family": "pmc",
+    "version": "0.1.0",
+    "sites": [
+      "pmc.ncbi.nlm.nih.gov"
+    ],
+    "area": "header/footer"
+  },
+  "exact": {
+    "Search NCBI": "检索 NCBI",
+    "Primary site navigation": "主导航",
+    "Search PMC Full-Text Archive": "检索 PMC 全文库",
+    "Search in PMC": "在 PMC 中检索",
+    "Journal List": "期刊列表",
+    "PMC Journal List": "PMC 期刊列表",
+    "PERMALINK": "固定链接",
+    "ACTIONS": "操作",
+    "RESOURCES": "资源",
+    "View on publisher site": "在出版商网站查看",
+    "Download PDF": "下载 PDF",
+    "View in NLM Catalog": "在 NLM 目录中查看",
+    "Find articles by": "查找该作者的文章",
+    "Article notes": "文章注释",
+    "Copyright and License information": "版权与许可信息",
+    "PMC Disclaimer": "PMC 免责声明",
+    "PMC Copyright Notice": "PMC 版权声明",
+    "PMC Copyright notice": "PMC 版权声明",
+    "Open in a new tab": "在新标签页中打开",
+    "Full Text": "全文",
+    "Permissions": "许可",
+    "Abbreviations": "缩略语",
+    "Supplementary information": "补充信息",
+    "Supplementary Information": "补充信息",
+    "Data availability": "数据可用性",
+    "Acknowledgements": "致谢",
+    "Acknowledgments": "致谢",
+    "Funding": "资助",
+    "Author Contributions": "作者贡献",
+    "Conflict of interest": "利益冲突",
+    "Conflict of Interest": "利益冲突",
+    "Publisher’s Note": "出版者说明",
+    "On this page": "本页内容",
+    "Cited by other articles": "其他文章的引用",
+    "Links to NCBI Databases": "NCBI 数据库链接",
+    "Name your collection": "为收藏命名",
+    "Choose a collection": "选择收藏夹",
+    "As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with, the contents by NLM or the National Institutes of Health.": "作为图书馆，NLM 提供科学文献的访问。文献收录于 NLM 数据库，并不表示 NLM 或美国国立卫生研究院认可或同意其内容。",
+    "Learn more in our User Guide": "在我们的用户指南中了解更多",
+    "Search for journals": "检索期刊",
+    "Search Journal List": "检索期刊列表",
+    "Download full journal list": "下载完整期刊列表",
+    "Download results": "下载结果",
+    "Reset to Full Journal List": "重置为完整期刊列表",
+    "See all articles in PMC from this journal": "查看该期刊在 PMC 中的全部文章",
+    "NLM Title Abbreviation:": "NLM 刊名缩写：",
+    "ISSN (print):": "ISSN（印刷版）：",
+    "ISSN (online):": "ISSN（在线版）：",
+    "NLM Unique ID:": "NLM 唯一标识：",
+    "Earliest:": "最早收录：",
+    "Release Delay (Embargo):": "发布延迟（禁运期）：",
+    "Agreement Status:": "协议状态：",
+    "Agreement to Deposit:": "存缴协议：",
+    "Agreement Status": "协议状态",
+    "Agreement to Deposit": "存缴协议",
+    "Release delay (Embargo)": "发布延迟（禁运期）",
+    "Immediate release": "立即开放",
+    "Less than 12 months": "少于 12 个月",
+    "More than 12 months": "超过 12 个月",
+    "12 months": "12 个月",
+    "All articles": "全部文章",
+    "NIH-funded articles": "NIH 资助文章",
+    "Journal added in last 30 days": "近 30 天新增期刊",
+    "No longer published": "已停止出版",
+    "No longer participating": "已不再参与",
+    "Predecessor title": "前身刊名",
+    "Title History": "刊名沿革",
+    "Journal Note": "期刊说明",
+    "About the PMC Journal List": "关于 PMC 期刊列表",
+    "FILTERS": "筛选",
+    "PubMed Central (PMC) Home Page": "PubMed Central（PMC）主页"
+  },
+  "rules": [
+    {
+      "re": "^Figure (\\d+[A-Za-z]?)\\.$",
+      "to": "图 $1."
+    },
+    {
+      "re": "^Table (\\d+[A-Za-z]?)\\.$",
+      "to": "表 $1."
+    },
+    {
+      "re": "^PDF \\((.+)\\)$",
+      "to": "PDF（$1）"
+    },
+    {
+      "re": "^Articles from (.+) are provided here courtesy of$",
+      "to": "以下文章由 $1 提供，承蒙以下机构惠允："
+    },
+    {
+      "re": "^Edited by: (.+)$",
+      "to": "编辑：$1"
+    },
+    {
+      "re": "^Reviewed by: (.+)$",
+      "to": "审稿：$1"
+    },
+    {
+      "re": "^\\*Correspondence: (.+)$",
+      "to": "通讯作者：$1"
+    },
+    {
+      "re": "^Immediate release \\((\\d[\\d,]*)\\)$",
+      "to": "立即开放（$1）"
+    },
+    {
+      "re": "^Less than 12 months \\((\\d[\\d,]*)\\)$",
+      "to": "少于 12 个月（$1）"
+    },
+    {
+      "re": "^12 months \\((\\d[\\d,]*)\\)$",
+      "to": "12 个月（$1）"
+    },
+    {
+      "re": "^More than 12 months \\((\\d[\\d,]*)\\)$",
+      "to": "超过 12 个月（$1）"
+    },
+    {
+      "re": "^No longer published \\((\\d[\\d,]*)\\)$",
+      "to": "已停止出版（$1）"
+    },
+    {
+      "re": "^No longer participating \\((\\d[\\d,]*)\\)$",
+      "to": "已不再参与（$1）"
+    },
+    {
+      "re": "^All articles \\((\\d[\\d,]*)\\)$",
+      "to": "全部文章（$1）"
+    },
+    {
+      "re": "^NIH-funded articles \\((\\d[\\d,]*)\\)$",
+      "to": "NIH 资助文章（$1）"
+    },
+    {
+      "re": "^Journal added in last 30 days \\((\\d[\\d,]*)\\)$",
+      "to": "近 30 天新增期刊（$1）"
+    }
+  ]
+}

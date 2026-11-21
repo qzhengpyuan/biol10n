@@ -938,7 +938,8 @@ function createEngine(options) {
       var lead = v.match(/^\s+/), trail = v.match(/\s+$/);
       if (!lead && !trail) continue;
       var changed = v;
-      if (lead && /[\u3400-\u9fff，。、；：！？）]$/.test(neighborChar(n, -1)) && /^[\u3400-\u9fff，。、；：！？）]/.test(changed.replace(/^\s+/, ""))) {
+      // 前一个字符是「（」也要吃掉后面的空格：「…多个文件（ 文件数上限）」
+      if (lead && /[\u3400-\u9fff，。、；：！？）（]$/.test(neighborChar(n, -1)) && /^[\u3400-\u9fff，。、；：！？）]/.test(changed.replace(/^\s+/, ""))) {
         changed = changed.replace(/^\s+/, "");
       }
       if (trail && /^[\u3400-\u9fff（，。、；：！？]/.test(neighborChar(n, 1)) && /[\u3400-\u9fff，。、；：！？]$/.test(changed.replace(/\s+$/, ""))) {

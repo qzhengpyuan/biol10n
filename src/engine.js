@@ -422,7 +422,7 @@ function createEngine(options) {
     // 是状态徽标不是句子成分，整条命中词库就该翻；但正文段落里的普通 <a>（"…browser. Contact Us"）
     // 保持英文，否则会变成半中半英。所以只放行 strong/em/b 且挂在列表项下的短节点。
     var own = String(node && node.nodeType === 3 ? node.nodeValue : el.textContent || "").trim();
-    if (own && own.length <= 24 && lookupExact(own) !== null) {
+    if (own && own.length <= 32 && lookupExact(own) !== null) {
       var badge = null;
       try { badge = el.closest("strong, em, b"); } catch (e) { badge = null; }
       if (badge && badge.closest("li")) return false;
@@ -443,7 +443,7 @@ function createEngine(options) {
     // 已经变成中文的句子：块里还有零星英文单词（RCSB 检索构建器的
     // 「选择一个 attribute 进行检索（例如：物种，实验方法，Resolution）」），
     // 这些短词整条命中词库、且前后都不像被夹在英文句中，就该补翻，否则永远半中半英。
-    if (own && own.length <= 24 && lookupExact(own) !== null && /[\u3400-\u9fff]/.test(blockText)) {
+    if (own && own.length <= 32 && lookupExact(own) !== null && /[\u3400-\u9fff]/.test(blockText)) {
       var midAfter = !!nxt && /^[a-z]/.test(nxt);
       var midBefore = !!prv && /[A-Za-z]$/.test(prv);
       // 两侧都得是中文语境：否则英文句子里的 <a>contact us</a> 会被单独翻成半中半英
@@ -747,6 +747,21 @@ function createEngine(options) {
     return true;
   }
 
+  /** 屏幕阅读器专用 / tooltip 子树：不进 <br> 拼接的文本（ClinVar 的 dt 里藏着一整段帮助说明） */
+  function isHiddenSubtree(el) {
+    try {
+      var cl = el.classList;
+      if (cl && (cl.contains("usa-sr-only") || cl.contains("sr-only") || cl.contains("visually-hidden") || cl.contains("visuallyhidden"))) return true;
+      if (el.getAttribute) {
+        if (el.getAttribute("role") === "tooltip") return true;
+        if (el.getAttribute("aria-hidden") === "true") return true;
+        var st = el.getAttribute("style") || "";
+        if (/display\s*:\s*none|visibility\s*:\s*hidden/.test(st)) return true;
+      }
+    } catch (e) { /* 判定失败就当可见 */ }
+    return false;
+  }
+
   /** <br> 拆开的标题（"The Housekeeping" + <br> + "Proteome"）：整段拼接后再查表 */
   var brDone = new WeakSet();
   function brJoinedText(el) {
@@ -755,7 +770,7 @@ function createEngine(options) {
       if (c.nodeType === 3) parts.push(c.nodeValue);
       else if (c.nodeType === 1) {
         if (c.tagName === "BR") parts.push(" ");
-        else parts.push(c.textContent || "");
+        else if (!isHiddenSubtree(c)) parts.push(c.textContent || "");
       }
     }
     return normalize(parts.join(""));
@@ -795,6 +810,10 @@ function createEngine(options) {
     full = flat;
     if (full.length < 3 || full.length > 120) return false;
     if (hasCJK(full) || !LETTER.test(full)) return false;
+    // 与 handleBrJoin 同一个坑：「Accession: … First in ClinVar: … Last updated: …」
+    // 拍平后一条贪婪规则会把后面几个「标签: 值」全吞进 $1，然后整块锁定成单节点。
+    var splitLabels = full.match(/(?:^|\s)[A-Z][A-Za-z0-9 ()]{1,28}:\s/g);
+    if (splitLabels && splitLabels.length >= 2) return false;
     // 长句只在整条命中词表时才拼（脚注被站点拆成「¹ 」+ 句子两段）；
     // 短标签仍允许走规则，避免长正文靠规则拼出半中半英。
     var out = lookupExact(full);
@@ -825,6 +844,12 @@ function createEngine(options) {
     if (brDone.has(el)) return false;
     var full = brJoinedText(el);
     if (!full || full.length > 120 || hasCJK(full) || !LETTER.test(full)) return false;
+    // 元数据块（ClinVar 提交块的 "Accession: SCV… First in ClinVar: … Last updated: …"）：
+    // 拼接后一条 ^Accession: (.+)$ 会把后面两个「标签: 值」一起吞进 $1，
+    // 然后整块被替换并打 data-biol10n-block，子节点永远没机会翻。
+    // 同一块里出现 ≥2 个「标签:」时放弃拼接，让每个子节点各自走 exact/规则。
+    var labelHits = full.match(/(?:^|\s)[A-Z][A-Za-z0-9 ()]{1,28}:\s/g);
+    if (labelHits && labelHits.length >= 2) return false;
     var out = translate(full);
     if (out === null) return false;
     // 只有拼接成功才记账：早期版本在查表前就 brDone.add，拼接失败的元素后半段
@@ -1166,7 +1191,7 @@ function createEngine(options) {
   function translateParagraphs(root) {
     if (!root || !root.querySelectorAll) return;
     var els;
-    try { els = root.querySelectorAll("p, dd, li"); } catch (e) { return; }
+    try { els = root.querySelectorAll("p, dd, li, td, th, span"); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
@@ -1227,7 +1252,8 @@ function createEngine(options) {
   function translateTemplates(root) {
     if (!root || !root.querySelectorAll || !tplMap.size) return;
     var els;
-    try { els = root.querySelectorAll("p, dd, li"); } catch (e) { return; }
+    // 模板会把内联元素放回中文里，所以 div 也安全；段落通道不行（它会整块换成纯文本，链路就没了）。
+    try { els = root.querySelectorAll("p, dd, li, td, th, span, div"); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.getAttribute && (el.getAttribute("data-biol10n-tpl") || el.getAttribute("data-biol10n-block"))) continue;
@@ -1474,7 +1500,9 @@ function createEngine(options) {
     NCBI: 1, NLM: 1, PubMed: 1, GEO: 1, GDS: 1, GSE: 1, GDV: 1, BLAST: 1, SRA: 1, PMC: 1,
     Ensembl: 1, UniProt: 1, UniProtKB: 1, "RCSB": 1, PDB: 1, HPA: 1, UALCAN: 1, TIMER: 1,
     GTEx: 1, GDC: 1, "cBioPortal": 1, cBioPortal: 1, GEPIA: 1, KEGG: 1, UCSC: 1,
-    miRBase: 1, TCGA: 1, EMBL: 1, EBI: 1, HGNC: 1, NCI: 1, "GEO DataSets": 1
+    miRBase: 1, TCGA: 1, EMBL: 1, EBI: 1, HGNC: 1, NCI: 1, "GEO DataSets": 1,
+    ClinVar: 1, Clinvar: 1, HGVS: 1, MANE: 1, SPDI: 1, GMAF: 1, VCV: 1, RCV: 1, SCV: 1,
+    dbSNP: 1, RefSeq: 1, "ClinGen": 1, "OMIM": 1, PharmGKB: 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
   function titleAcceptable(v) {

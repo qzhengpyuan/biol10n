@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "family": "misc-tpl",
+    "version": "1.0.0",
+    "sites": [
+      "ualcan.path.uab.edu",
+      "timer.comp-genomics.org",
+      "www.mirbase.org",
+      "gepia2.cancer-pku.cn"
+    ]
+  },
+  "exact": {
+    "Functions": "功能",
+    "Extras": "更多",
+    "Subtypes": "亚型",
+    "Updates": "更新",
+    "Differential genes": "差异基因",
+    "Chromosomal distribution plots": "染色体分布图",
+    "Box Plots": "箱线图",
+    "Survival Plots": "生存图",
+    "Similar genes detection": "相似基因检测",
+    "Differential methods": "差异分析方法",
+    "GEPIA update": "GEPIA 更新",
+    "GEPIA2 unique features": "GEPIA2 特色",
+    "Gene Expression:": "基因表达：",
+    "Cancer Type:": "癌症类型：",
+    "computed by a standard pipeline": "由标准流程计算",
+    "Immunotherapy Response Prediction Module: Modules exploring differential expression between immunotherapy and non-immunotherapy in Bulk RNA-seq gene expression data:": "免疫治疗应答预测模块：探索 Bulk RNA-seq 基因表达数据中免疫治疗与非免疫治疗之间差异表达的模块：",
+    "Supported in part by NIH/NCI - Comprehensive Partnerships to Advance Cancer Health - 5U54CA118948": "部分由 NIH/NCI 资助 - 推进癌症健康综合伙伴关系 - 5U54CA118948",
+    "TIMER is a comprehensive resource for systematical analysis of immune infiltrates across diverse cancer types. This version of webserver provides immune infiltrates' abundances estimated by multiple immune deconvolution methods, and allows users to generate high-quality figures dynamically to explore tumor immunological, clinical and genomic features comprehensively.": "TIMER 是一个用于系统分析多种癌症类型中免疫浸润的综合资源。本版本网页服务器提供由多种免疫去卷积方法估计的免疫浸润丰度，并允许用户动态生成高质量图形，以全面探索肿瘤的免疫学、临床与基因组特征。",
+    "The pop-up function by click the cell will display Kaplan-Meier curves for the corresponding immune infiltrates and cancer types. The infiltration level is divided into low and high levels which could be adjusted by a user-defined slider. The hazard ratio and p value for Cox model and the log-rank p value for KM curve will be shown on the KM curve plot.": "点击单元格弹出的功能将显示对应免疫浸润与癌症类型的 Kaplan-Meier 曲线。浸润水平分为低与高两个水平，可通过用户自定义滑块调整。Cox 模型的风险比与 p 值，以及 KM 曲线的 log-rank p 值，都会显示在 KM 曲线图上。",
+    "GEPIA2 is a web server for analyzing the RNA sequencing expression data of 9,736 tumors and 8,587 normal samples from the TCGA and the GTEx projects, using a standard processing pipeline.": "GEPIA2 是一个网页服务器，使用标准处理流程分析来自 TCGA 与 GTEx 项目的 9,736 个肿瘤样本和 8,587 个正常样本的 RNA 测序表达数据。",
+    "This function allows users to perform all expression analyses such as survival analysis and differential analysis at the isoform level. Usage of different transcripts across all cancer types can also be profiled. Users could easily analyze the expression of ERBB2-001 or ERBB2-002 isoforms instead of ERBB2 gene.": "该功能允许用户在转录本水平进行生存分析、差异分析等全部表达分析。还可以分析不同转录本在所有癌症类型中的使用情况。用户可以方便地分析 ERBB2-001 或 ERBB2-002 转录本的表达，而不再局限于 ERBB2 基因。",
+    "The subtype information on GEPIA2 allows users to select their subtype of interest for further analysis, or compare different subtypes for expression and survival. For instance, users now could analyze the EGFR expression in the triple-negative, LuminaA, LuminaB and HER2+ breast cancer, separately.": "GEPIA2 的亚型信息允许用户选择感兴趣的亚型做进一步分析，或比较不同亚型之间的表达与生存。例如，用户现在可以分别分析 EGFR 在三阴性、LuminaA、LuminaB 和 HER2+ 乳腺癌中的表达。",
+    "This function analyzes the prevalence of a gene signature in TCGA and GTEx samples, and provides tools such as correlation analysis and survival analysis to investigate the signature scores. For example, the T-cell exhausted markers (HAVCR2, TIGIT, LAG3, PDCD1, CXCL13, LAYN) could be calculated as T-cell exhausted signature score for comparison across different cancer types.": "该功能分析基因特征在 TCGA 与 GTEx 样本中的普遍程度，并提供相关性分析、生存分析等工具来研究特征得分。例如，可将 T 细胞耗竭标志物（HAVCR2、TIGIT、LAG3、PDCD1、CXCL13、LAYN）计算为 T 细胞耗竭特征得分，以便在不同癌症类型之间比较。",
+    "This feature provides expression matrix plots based on a given gene list. The density of color in each block represents the median expression value of a gene in a given tissue, normalized by the maximum median expression value across all blocks. Different genes in same tumors or normal tissues can be compared in one plot.": "该功能基于给定的基因列表提供表达矩阵图。每个区块中颜色的深浅表示某基因在特定组织中的中位表达值，并以所有区块中最大的中位表达值进行标准化。同一肿瘤或正常组织中的不同基因可以在同一张图中比较。",
+    "GEPIA performs overall survival (OS) or disease free survival (DFS, also called relapse-free survival and RFS) analysis based on gene expression. GEPIA uses Log-rank test, a.k.a the Mantel–Cox test, for hypothesis test. Cohorts thresholds can be adjusted, and gene-pairs can be used. The cox proportional hazard ratio and the 95% confidence interval information can also be included in the survival plot. Genes most associated with patient survival can be searched.": "GEPIA 基于基因表达进行总生存期（OS）或无病生存期（DFS，也称无复发生存期与 RFS）分析。GEPIA 使用 Log-rank 检验（又称 Mantel–Cox 检验）进行假设检验。分组阈值可以调整，也可以使用基因对。生存图中还可以包含 Cox 比例风险比与 95% 置信区间信息。可以检索与患者生存最相关的基因。",
+    "GEPIA performs Principal Component Analysis (PCA) for a given gene list using custom TCGA and/or GTEx expression data. First, GEPIA presents a 3D plot of top three principal components (PC) and generates a bar plot for variances interpreted by each PC. Second, GEPIA presents 2D plot or 3D plot based on user-specified PCs.": "GEPIA 使用自定义的 TCGA 和/或 GTEx 表达数据，对给定基因列表进行主成分分析（PCA）。首先，GEPIA 展示前三个主成分（PC）的 3D 图，并生成各主成分所解释方差的条形图。其次，GEPIA 根据用户指定的主成分展示 2D 图或 3D 图。",
+    "TCGA produced 9,736 tumor samples across 33 cancer types, while this project only provides 726 normal samples. The imbalance between the tumor and normal data can cause inefficiency in various differential analyses. Fortunately, GTEx project produced RNA sequencing data for ~8,000 normal samples. Meanwhile, UCSC Xena project recomputed the TCGA and GTEx raw RNA-Seq data using a standard pipeline, which makes two datasets compatible. As a result, the TCGA and GTEx data could be integrated for very comprehensive expression analysis.": "TCGA 在 33 种癌症类型中产生了 9,736 个肿瘤样本，而本项目仅提供 726 个正常样本。肿瘤与正常数据之间的不平衡会导致各种差异分析效率不高。幸运的是，GTEx 项目为约 8,000 个正常样本产生了 RNA 测序数据。同时，UCSC Xena 项目使用标准流程重新计算了 TCGA 与 GTEx 的原始 RNA-Seq 数据，使这两个数据集相互兼容。因此，TCGA 与 GTEx 数据可以整合起来进行非常全面的表达分析。",
+    "Considering the different stratifications of sex, age, ethnicity in tumor and normal samples, we applied four-way analysis of variance (ANOVA), using sex, age, ethnicity and disease state (Tumor or Normal) as variables for calculating differential expression:": "考虑到肿瘤与正常样本在性别、年龄、种族上的不同分层，我们采用四因素方差分析（ANOVA），以性别、年龄、种族和疾病状态（肿瘤或正常）为变量计算差异表达：",
+    "For an alternative method, we use the linear model and the empirical Bayes method implemented by the R package limma, with adjusted p-value (Benjamini and Hochberg FDR). The limma method leverages the highly parallel nature of genomic data, borrowing information between the gene-wise models.": "作为另一种方法，我们使用 R 包 limma 实现的线性模型与经验贝叶斯方法，并采用校正后的 p 值（Benjamini 与 Hochberg FDR）。limma 方法利用基因组数据高度并行的特性，在各基因模型之间借用信息。",
+    "◕ Survival Analysis": "◕ 生存分析",
+    "UAB is an Equal Opportunity/Affirmative Action Employer committed to fostering a diverse, equitable and family-friendly environment in which all faculty and staff can excel and achieve work/life balance irrespective of race, national origin, age, genetic or family medical history, gender, faith, gender identity and expression as well as sexual orientation. UAB also encourages applications from individuals with disabilities and veterans.": "UAB 是机会均等/平权行动雇主，致力于营造多元、公平且家庭友好的环境，使全体教职员工无论种族、国籍、年龄、遗传或家族病史、性别、信仰、性别认同与表达以及性取向如何，都能在其中发挥所长并实现工作与生活的平衡。UAB 也鼓励残障人士与退伍军人申请。",
+    "Introduction": "简介"
+  },
+  "rules": [],
+  "templates": [
+    {
+      "pat": "Statement: All the datasets on the server are {{1}} and are compatible with each other. Use the {{2}}browser for best visualization quality.",
+      "zh": "声明：服务器上的所有数据集{{1}}，彼此兼容。为获得最佳可视化质量，请使用{{2}}浏览器。"
+    },
+    {
+      "pat": "{{1}}: Input a gene of interest.",
+      "zh": "{{1}}：输入感兴趣的基因。"
+    },
+    {
+      "pat": "{{1}}: Select a cancer type of interest.",
+      "zh": "{{1}}：选择感兴趣的癌症类型。"
+    },
+    {
+      "pat": "{{1}}: Input a list of isoforms of interest.",
+      "zh": "{{1}}：输入感兴趣的转录本列表。"
+    },
+    {
+      "pat": "{{1}}: Select a cancer type of interest, immune subtype or pan-cancer subtype for molecular subtype prediction, immune subtype prediction or TCGA immune subtype prediction.",
+      "zh": "{{1}}：选择感兴趣的癌症类型、免疫亚型或泛癌亚型，用于分子亚型预测、免疫亚型预测或 TCGA 免疫亚型预测。"
+    },
+    {
+      "pat": "{{1}}: Select “Over-expressed”, “Under-expressed” or “Both” for chromosomal distribution plots.",
+      "zh": "{{1}}：为染色体分布图选择“过表达”“低表达”或“两者”。"
+    },
+    {
+      "pat": "{{1}}: [See detail of differential analysis methods {{2}}]",
+      "zh": "{{1}}：［差异分析方法详情见{{2}}］"
+    },
+    {
+      "pat": "{{1}}: Select a method for differential analysis.",
+      "zh": "{{1}}：选择差异分析方法。"
+    },
+    {
+      "pat": "{{1}}: Set custom fold-change threshold.",
+      "zh": "{{1}}：设置自定义倍数变化阈值。"
+    },
+    {
+      "pat": "{{1}}: Set custom q-value threshold.",
+      "zh": "{{1}}：设置自定义 q 值阈值。"
+    },
+    {
+      "pat": "{{1}}: Set custom percentage threshold.",
+      "zh": "{{1}}：设置自定义百分比阈值。"
+    },
+    {
+      "pat": "For the ANOVA and LIMMA options, genes with higher |log{{1}}FC| values and lower q values than pre-set thresholds are considered differentially expressed genes.",
+      "zh": "对于 ANOVA 和 LIMMA 选项，|log{{1}}FC| 值高于预设阈值且 q 值低于预设阈值的基因被视为差异表达基因。"
+    },
+    {
+      "pat": "For the Top 10 option, genes with higher log{{1}}FC values and higher percentage value than the thresholds are considered over-expressed genes; thus, only over-expressed genes will be presented in the list and the chromosomal plot.",
+      "zh": "对于 Top 10 选项，log{{1}}FC 值高于阈值且百分比值高于阈值的基因被视为过表达基因；因此，列表中只呈现过表达基因，染色体图中也只显示过表达基因。"
+    },
+    {
+      "pat": "Click the “List” button: GEPIA will generate a list of differentially expressed genes [by default, the list sorted in descending order of log{{1}}FC] based on input parameters.",
+      "zh": "点击“List”按钮：GEPIA 将根据输入的参数生成差异表达基因列表［默认按 log{{1}}FC 降序排列］。"
+    },
+    {
+      "pat": "{{1}}: Select cancer types of interest in the “Dataset” field and click “add” or “all” to build a dataset list in the “Tissue Order” field. Manual input of cancer types split by comma (e.g. ACC,BRCA,BLCA) is also acceptable. The x-axis of the plot will follow the order of datasets.",
+      "zh": "{{1}}：在“Dataset”字段中选择感兴趣的癌症类型，点击“add”或“all”在“Tissue Order”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 ACC,BRCA,BLCA）。图的 x 轴将按数据集的顺序排列。"
+    },
+    {
+      "pat": "{{1}}: Choose whether to use linear or log{{2}}(TPM + 1) transformed expression data for plotting.",
+      "zh": "{{1}}：选择作图使用线性还是 log{{2}}(TPM + 1) 转换后的表达数据。"
+    },
+    {
+      "pat": "{{1}}: Select “TCGA normal + GTEx normal”, “Only TCGA normal” or “None” for matched normal data in plotting. [The matched normal samples for differential analysis are “TCGA normal + GTEx normal”]",
+      "zh": "{{1}}：作图时选择“TCGA 正常 + GTEx 正常”“仅 TCGA 正常”或“无”作为匹配的正常数据。［差异分析所用的匹配正常样本为“TCGA 正常 + GTEx 正常”］"
+    },
+    {
+      "pat": "{{1}}: Set custom plot width.",
+      "zh": "{{1}}：设置自定义图宽。"
+    },
+    {
+      "pat": "{{1}}: Statistical methods used for differential gene expression analysis.",
+      "zh": "{{1}}：用于差异基因表达分析的统计方法。"
+    },
+    {
+      "pat": "For the Top 10 option, genes with higher log{{1}}FC values and higher percentage value than the thresholds are considered over-expressed genes.",
+      "zh": "对于 Top 10 选项，log{{1}}FC 值高于阈值且百分比值高于阈值的基因被视为过表达基因。"
+    },
+    {
+      "pat": "{{1}}: Select cancer types of interest in the “Dataset Selection” field and click “add” to build a dataset list in the “Dataset” field. Manual input of cancer types split by comma (e.g. ACC,BRCA,BLCA) is also acceptable. The x-axis of the plot will follow the order of datasets.",
+      "zh": "{{1}}：在“Dataset Selection”字段中选择感兴趣的癌症类型，点击“add”在“Dataset”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 ACC,BRCA,BLCA）。图的 x 轴将按数据集的顺序排列。"
+    },
+    {
+      "pat": "{{1}}: Set the box color of tumor dataset.",
+      "zh": "{{1}}：设置肿瘤数据集的箱体颜色。"
+    },
+    {
+      "pat": "{{1}}: Set the box color of normal dataset.",
+      "zh": "{{1}}：设置正常数据集的箱体颜色。"
+    },
+    {
+      "pat": "{{1}}: Set the size of jitter across the box.",
+      "zh": "{{1}}：设置箱体上抖动点的大小。"
+    },
+    {
+      "pat": "{{1}}: Set custom p-value threshold.",
+      "zh": "{{1}}：设置自定义 p 值阈值。"
+    },
+    {
+      "pat": "{{1}}: Select “TCGA normal + GTEx normal”, “Only TCGA normal” for differential analysis and plotting.",
+      "zh": "{{1}}：选择“TCGA 正常 + GTEx 正常”或“仅 TCGA 正常”，用于差异分析与作图。"
+    },
+    {
+      "pat": "{{1}} (“TCGA tumors vs TCGA normal + GTEx normal” or “TCGA tumors vs TCGA normal”). The method for differential analysis is one-way ANOVA, using disease state (Tumor or Normal) as variable for calculating differential expression:",
+      "zh": "{{1}}（“TCGA 肿瘤 vs TCGA 正常 + GTEx 正常”或“TCGA 肿瘤 vs TCGA 正常”）。差异分析采用单因素方差分析，以疾病状态（肿瘤或正常）为变量计算差异表达："
+    },
+    {
+      "pat": "The expression data are first log{{1}}(TPM+1) transformed for differential analysis and the log{{2}}FC is defined as median(Tumor) - median(Normal).",
+      "zh": "表达数据首先经 log{{1}}(TPM+1) 转换用于差异分析，log{{2}}FC 定义为 median(Tumor) - median(Normal)。"
+    },
+    {
+      "pat": "Genes with higher |log{{1}}FC| values and lower q values than pre-set thresholds are considered differentially expressed genes.",
+      "zh": "|log{{1}}FC| 值高于预设阈值且 q 值低于预设阈值的基因被视为差异表达基因。"
+    },
+    {
+      "pat": "{{1}}: Select one or multiple cancer types of interest in the “Dataset Selection” field and click “add” to build dataset list in the “Datasets” field. Manual input of cancer types split by comma (e.g. COAD,READ) is also acceptable.",
+      "zh": "{{1}}：在“Dataset Selection”字段中选择一个或多个感兴趣的癌症类型，点击“add”在“Datasets”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 COAD,READ）。"
+    },
+    {
+      "pat": "{{1}}: Choose pathological major stages or sub stages for plotting.",
+      "zh": "{{1}}：选择用于作图的病理主要分期或亚分期。"
+    },
+    {
+      "pat": "{{1}}: Set the violin color in the plot.",
+      "zh": "{{1}}：设置图中小提琴的颜色。"
+    },
+    {
+      "pat": "The expression data are first log{{1}}(TPM+1) transformed for differential analysis.",
+      "zh": "表达数据首先经 log{{1}}(TPM+1) 转换，用于差异分析。"
+    },
+    {
+      "pat": "{{1}}: Input a gene list of interest. Manual input of genes split by comma (e.g. {{2}},{{3}}) is also acceptable.",
+      "zh": "{{1}}：输入感兴趣的基因列表。也可以手动输入以逗号分隔的基因（例如 {{2}},{{3}}）。"
+    },
+    {
+      "pat": "{{1}}: Select cancer types of interest in the “Dataset” field and click “add” or “all” to build a dataset list in the “Tissue Order” field. Also, manual input of cancer types split by comma (e.g. ACC,BRCA,BLCA) is also acceptable.",
+      "zh": "{{1}}：在“Dataset”字段中选择感兴趣的癌症类型，点击“add”或“all”在“Tissue Order”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 ACC,BRCA,BLCA）。"
+    },
+    {
+      "pat": "{{1}}: Select “Only TCGA tumor”, “TCGA tumor + TCGA normal + GTEx normal” or “TCGA tumor + TCGA normal” for plotting.",
+      "zh": "{{1}}：作图时选择“仅 TCGA 肿瘤”“TCGA 肿瘤 + TCGA 正常 + GTEx 正常”或“TCGA 肿瘤 + TCGA 正常”。"
+    },
+    {
+      "pat": "{{1}}: Set the gene used for normalizing in “Gene” field.",
+      "zh": "{{1}}：在“Gene”字段中设置用于标准化的基因。"
+    },
+    {
+      "pat": "{{1}}: Select the OS or DFS survival method.",
+      "zh": "{{1}}：选择 OS 或 DFS 生存分析方法。"
+    },
+    {
+      "pat": "{{1}}: Select Month or Day unit for plotting.",
+      "zh": "{{1}}：选择作图时使用月或天为单位。"
+    },
+    {
+      "pat": "{{1}}: Select one or multiple cancer types of interest in the “Dataset Selection” field and click “add” to build dataset list in the “Datasets” field. Also, manual input of cancer types split by comma (e.g. COAD,READ) is also acceptable.",
+      "zh": "{{1}}：在“Dataset Selection”字段中选择一个或多个感兴趣的癌症类型，点击“add”在“Datasets”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 COAD,READ）。"
+    },
+    {
+      "pat": "{{1}}: Choose whether to reverse the default color.",
+      "zh": "{{1}}：选择是否反转默认配色。"
+    },
+    {
+      "pat": "{{1}}: Select a suitable expression threshold for splitting the high-expression and low-expression cohorts.",
+      "zh": "{{1}}：选择合适的表达阈值，将样本划分为高表达组与低表达组。"
+    },
+    {
+      "pat": "{{1}}: Samples with expression level higher than this threshold are considered as the high-expression cohort.",
+      "zh": "{{1}}：表达水平高于该阈值的样本被视为高表达组。"
+    },
+    {
+      "pat": "{{1}}: Samples with expression level lower than this threshold are considered the low-expression cohort.",
+      "zh": "{{1}}：表达水平低于该阈值的样本被视为低表达组。"
+    },
+    {
+      "pat": "{{1}}: Select a suitable expression threshold for splitting high-expression and low-expression cohorts.",
+      "zh": "{{1}}：选择合适的表达阈值，划分高表达组与低表达组。"
+    },
+    {
+      "pat": "{{1}}: List top # most similar genes. (Maximum: 200)",
+      "zh": "{{1}}：列出相似度最高的前 # 个基因。（最多 200 个）"
+    },
+    {
+      "pat": "{{1}}: Select cancer types of interest in the “TCGA Tumor”, “TCGA Normal” or “GTEx\" field and click “add” to build dataset list in the “Used Expression Datasets” field. Also, manual input of cancer types split by comma (e.g. COAD Tumor,READ Tumor) is also acceptable. The similar genes are detected based on the datasets list.",
+      "zh": "{{1}}：在“TCGA Tumor”“TCGA Normal”或“GTEx”字段中选择感兴趣的癌症类型，点击“add”在“Used Expression Datasets”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 COAD Tumor,READ Tumor）。相似基因基于该数据集列表检测。"
+    },
+    {
+      "pat": "{{1}}: Input a gene A of interest. [For x-axis]",
+      "zh": "{{1}}：输入感兴趣的基因 A。［用于 x 轴］"
+    },
+    {
+      "pat": "{{1}}: Input a gene B of interest. [For y-axis]",
+      "zh": "{{1}}：输入感兴趣的基因 B。［用于 y 轴］"
+    },
+    {
+      "pat": "{{1}}: Set the gene used for normalizing Gene A and Gene B.",
+      "zh": "{{1}}：设置用于标准化基因 A 与基因 B 的基因。"
+    },
+    {
+      "pat": "{{1}}: The method for calculating the correlation coefficient.",
+      "zh": "{{1}}：计算相关系数所用的方法。"
+    },
+    {
+      "pat": "{{1}}: Select cancer types of interest in the “TCGA Tumor”, “TCGA Normal” or “GTEx\" field and click “add” to build dataset list in the “Used Expression Datasets” field. Also, manual input of cancer types split by comma (e.g. COAD Tumor,READ Tumor) is also acceptable. The correlation analysis is based on the datasets list.",
+      "zh": "{{1}}：在“TCGA Tumor”“TCGA Normal”或“GTEx”字段中选择感兴趣的癌症类型，点击“add”在“Used Expression Datasets”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 COAD Tumor,READ Tumor）。相关性分析基于该数据集列表。"
+    },
+    {
+      "pat": "{{1}}: Choose whether to use Z-scores instead of the expression levels as input for PCA analysis.",
+      "zh": "{{1}}：选择是否使用 Z 分数代替表达水平作为 PCA 分析的输入。"
+    },
+    {
+      "pat": "{{1}}: Select cancer types of interest in the “TCGA Tumor”, “TCGA Normal” or “GTEx\" field and click “add” to build dataset list in the “Used Expression Datasets” field. Also, manual input of cancer types split by comma (e.g. COAD Tumor,READ Tumor) is also acceptable. Principal components analysis is based on the datasets list.",
+      "zh": "{{1}}：在“TCGA Tumor”“TCGA Normal”或“GTEx”字段中选择感兴趣的癌症类型，点击“add”在“Used Expression Datasets”字段中建立数据集列表。也可以手动输入以逗号分隔的癌症类型（例如 COAD Tumor,READ Tumor）。主成分分析基于该数据集列表。"
+    },
+    {
+      "pat": "{{1}}: Select the PCs for 2D (set x and y values) or 3D scatter (set x, y and z values) plots.",
+      "zh": "{{1}}：选择主成分，用于 2D 散点图（设置 x 与 y 值）或 3D 散点图（设置 x、y 与 z 值）。"
+    },
+    {
+      "pat": "The expression data are first log{{1}}(TPM+1) transformed and the log{{2}}FC is defined as median(Tumor) - median(Normal).",
+      "zh": "表达数据首先经 log{{1}}(TPM+1) 转换，log{{2}}FC 定义为 median(Tumor) - median(Normal)。"
+    },
+    {
+      "pat": "Similarly, the expression data are first log{{1}}(TPM+1) transformed and the log{{2}}FC is defined as median(Tumor) - median(Normal).",
+      "zh": "同样，表达数据首先经 log{{1}}(TPM+1) 转换，log{{2}}FC 定义为 median(Tumor) - median(Normal)。"
+    },
+    {
+      "pat": "Cancer drug targets such as {{1}}, {{2}}, are over-expressed in a subset (10-20%) of tumors and lowly expressed in all normal tissues. When discovering cancer drug targets, genes like {{3}} and {{4}} are ideal candidates as therapeutic targets. For this purpose, we implemented a method for detecting the genes that are over-expressed in only a subset of tumors for a given cancer type.",
+      "zh": "诸如{{1}}、{{2}}等抗癌药物靶点在部分（10-20%）肿瘤中过表达，而在所有正常组织中低表达。在发现抗癌药物靶点时，像{{3}}和{{4}}这样的基因是理想的治疗靶点候选。为此，我们实现了一种方法，用于检测在特定癌症类型中仅在一部分肿瘤里过表达的基因。"
+    },
+    {
+      "pat": "For each cancer type, we choose tumor samples that have the top 10% expression level for a given gene. For comparison, we choose the same number of normal samples that have the highest expression level for the same gene. We rank the tumor and normal samples by expression level and calculate the percentage of tumor samples in top 50% ranked list as the percentage value. The expression data are first log{{1}}(TPM+1) scaled and the log{{2}}FC is defined as median(Tumor) - median(Normal).",
+      "zh": "对于每种癌症类型，我们选取某基因表达水平最高的前 10% 肿瘤样本。作为对照，我们选取该基因表达水平最高的同等数量正常样本。我们按表达水平对肿瘤与正常样本排序，并将肿瘤样本在前 50% 排序列表中所占的比例作为百分比值。表达数据首先经 log{{1}}(TPM+1) 缩放，log{{2}}FC 定义为 median(Tumor) - median(Normal)。"
+    },
+    {
+      "pat": "log{{1}}FC > 1, percentage > 0.9.",
+      "zh": "log{{1}}FC > 1，百分比 > 0.9。"
+    },
+    {
+      "pat": "For example, {{1}} is over expressed in breast cancer and lowly expressed in all normal tissues as the profile below:",
+      "zh": "例如，{{1}} 在乳腺癌中过表达，而在所有正常组织中低表达，如下方图谱所示："
+    },
+    {
+      "pat": "For the ANOVA and LIMMA methods, genes with higher |log{{1}}FC| values and lower q values than pre-set thresholds are considered differentially expressed genes.",
+      "zh": "对于 ANOVA 和 LIMMA 方法，|log{{1}}FC| 值高于预设阈值且 q 值低于预设阈值的基因被视为差异表达基因。"
+    },
+    {
+      "pat": "GEPIA2 is a updated version of {{1}} for analyzing the RNA sequencing expression data of 9,736 tumors and 8,587 normal samples from the TCGA and the GTEx projects, using a standard processing pipeline.",
+      "zh": "GEPIA2 是{{1}}的升级版本，使用标准处理流程分析来自 TCGA 与 GTEx 项目的 9,736 个肿瘤样本和 8,587 个正常样本的 RNA 测序表达数据。"
+    },
+    {
+      "pat": "This tool is developed by Zefang Tang, Tianxiang Chen, Chenwei Li and Boxi Kang of {{1}}, Peking University.",
+      "zh": "本工具由北京大学{{1}}的 Zefang Tang、Tianxiang Chen、Chenwei Li 和 Boxi Kang 开发。"
+    },
+    {
+      "pat": "If any question about the GEPIA2, please contact us: {{1}}",
+      "zh": "如对 GEPIA2 有任何问题，请联系我们：{{1}}"
+    },
+    {
+      "pat": "The {{1}}niversity of {{2}}abama at Birmingham {{3}}cer data analysis Portal",
+      "zh": "{{1}}niversity of {{2}}abama at Birmingham {{3}}cer 数据分析门户"
+    },
+    {
+      "pat": "{{1}} Go to analysis page of UALCAN and choose cancer of interest from left panel by clicking it.",
+      "zh": "{{1}}前往 UALCAN 分析页面，从左侧面板点击选择感兴趣的癌症。"
+    },
+    {
+      "pat": "{{1}} UALCAN lists top 250 over-/under-expressed genes in cancer of interest compared to normal samples.",
+      "zh": "{{1}}UALCAN 列出所关注癌症中相对于正常样本表达最高/最低的前 250 个基因。"
+    },
+    {
+      "pat": "{{1}} User can analyze gene expression and survival profiles of individual gene by clicking the on the heat map.",
+      "zh": "{{1}}用户可点击热图上的单元格，分析单个基因的表达与生存曲线。"
+    },
+    {
+      "pat": "{{1}} UALCAN also enables user to view top 250 over-/under-expressed genes in major cancer subtypes compared to normal samples.",
+      "zh": "{{1}}UALCAN 还支持查看主要癌症亚型中相对于正常样本表达最高/最低的前 250 个基因。"
+    },
+    {
+      "pat": "{{1}} Go to analysis page of UALCAN and enter offical symbol of gene(s) in the text area",
+      "zh": "{{1}}前往 UALCAN 分析页面，在文本区域输入基因的官方符号"
+    },
+    {
+      "pat": "{{1}} Choose the TCGA data set of interest from the drop down menu and click \"Explore\" button to submit.",
+      "zh": "{{1}}从下拉菜单中选择感兴趣的 TCGA 数据集，点击“Explore”按钮提交。"
+    },
+    {
+      "pat": "{{1}}Output page provides links to analysis results and external database links.",
+      "zh": "{{1}}输出页面提供分析结果链接与外部数据库链接。"
+    },
+    {
+      "pat": "{{1}}Go to analysis page of UALCAN",
+      "zh": "{{1}}前往 UALCAN 分析页面"
+    },
+    {
+      "pat": "{{1}}Query UALCAN for pre-compiled gene classes",
+      "zh": "{{1}}在 UALCAN 中查询预编译的基因类别"
+    },
+    {
+      "pat": "{{1}}Select gene class of interest (e.g. Kinase coding genes) and click \"Explore\" to see results",
+      "zh": "{{1}}选择感兴趣的基因类别（例如激酶编码基因），点击“Explore”查看结果"
+    },
+    {
+      "pat": "{{1}}UALCAN lists all kinase coding genes and indicates their expression status and survival effect in different cancers.",
+      "zh": "{{1}}UALCAN 列出所有激酶编码基因，并显示它们在不同癌症中的表达状态与生存效应。"
+    },
+    {
+      "pat": "{{1}} User can click on any of these link to visualize expression and survival profiles",
+      "zh": "{{1}}用户可点击任意链接，可视化表达与生存曲线"
+    },
+    {
+      "pat": "Previous version: {{1}} {{2}} {{3}} Tumor Immune Single-cell Hub: {{4}} {{5}} Human Universal Single-cell Hub: {{6}}",
+      "zh": "先前版本：{{1}} {{2}} {{3}} 肿瘤免疫单细胞中心：{{4}} {{5}} 人类通用单细胞中心：{{6}}"
+    },
+    {
+      "pat": "1. TIMER3 integrates 15 state-of-the-art immune deconvolution algorithms, including both human-specific and mouse-specific methods. {{1}} 2. TIMER3 integrates 32 immunotherapy-related public RNA-seq datasets and enables ROC curve-based evaluation of immune biomarker predictive efficacy. {{2}} 3. TIMER3 has introduced an updated gene signature analysis module, enabling comprehensive analysis of GO:BP, KEGG, and HALLMARK gene signatures. {{3}} 4. TIMER3 now features updates, including customizable cancer type selection, gene alias search functionality, and expanded prognostic analysis metrics. {{4}}",
+      "zh": "1. TIMER3 整合了 15 种最先进的免疫去卷积算法，涵盖人类专用与小鼠专用方法。{{1}}2. TIMER3 整合了 32 个免疫治疗相关的公共 RNA-seq 数据集，并可基于 ROC 曲线评估免疫生物标志物的预测效力。{{2}}3. TIMER3 引入了更新后的基因特征分析模块，可对 GO:BP、KEGG 和 HALLMARK 基因特征进行全面分析。{{3}}4. TIMER3 现已更新，包括可自定义的癌症类型选择、基因别名搜索功能以及扩展的预后分析指标。{{4}}"
+    },
+    {
+      "pat": "{{1}} of expression profiles for five TCGA LUAD tumors",
+      "zh": "五个 TCGA LUAD 肿瘤表达谱的{{1}}"
+    },
+    {
+      "pat": "{{1}} for all TCGA tumors",
+      "zh": "所有 TCGA 肿瘤的{{1}}"
+    },
+    {
+      "pat": "{{1}} in West China School of Stomatology at Sichuan University · 2025",
+      "zh": "{{1}} 四川大学华西口腔医学院 · 2025"
+    }
+  ]
+}

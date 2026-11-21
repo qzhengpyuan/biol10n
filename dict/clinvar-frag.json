@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "family": "clinvar-frag",
+    "version": "0.2.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ],
+    "area": "home/docs frag"
+  },
+  "exact": {
+    "latest release notes and articles about new features.": "最新发布说明与介绍新功能的文章。",
+    "Get help from a ClinVar expert. Send an email to": "如需 ClinVar 专家协助，请发送电子邮件至",
+    "2. Why are there different classification for the same variant?": "2. 为什么同一变异会有不同的分类？",
+    "4. I'm interested in a variant that was submitted with the condition \"not specified\". What does that mean?": "4. 我对以「not specified」（未指定）为条件提交的变异感兴趣，这是什么意思？",
+    "5. What does it mean if a ClinVar record is \"criteria provided, single submitter\" but has more than one submission?": "5. ClinVar 记录显示「criteria provided, single submitter」（已提供断言标准、单个提交者）但有不止一条提交，是什么意思？",
+    "11. My browser does not display the file documenting Assertion Method. What do I do?": "11. 浏览器无法显示记录 Assertion Method 的文件，该怎么办？",
+    "2. Where can I find who has submitted to ClinVar and statistics about number of ClinVar submissions?": "2. 在哪里可以查到向 ClinVar 提交数据的机构，以及 ClinVar 提交数量的统计？",
+    "ClinVar does not currently support a batch query interface, but there are several approaches that might still meet your needs:": "ClinVar 目前不支持批量查询接口，但有以下几种方式可能仍能满足你的需求：",
+    "Query ClinVar by listing the genes using the Boolean OR, and download the results interactively or using E-utilities": "用布尔 OR 列出基因来检索 ClinVar，再以交互方式或通过 E-utilities 下载结果",
+    "Use the same approach as for genes, but use instead a list of identifiers such as MIM numbers or Concept UIDs (CUI) from MedGen. The file variant_summary.txt reports identifiers for conditions, but not their names.": "采用与基因相同的方式，但改用标识符列表，例如 MIM 编号或 MedGen 中的概念 UID（CUI）。variant_summary.txt 文件报告的是疾病的标识符，而不是名称。",
+    "A VCV record may also have different classifications for the same variant for different conditions. Looking at RCV records may help distinguish these cases. See the next question for more information.": "同一条 VCV 记录也可能因疾病不同而对同一变异给出不同分类。查看 RCV 记录有助于区分这些情况。更多信息请见下一个问题。",
+    "Some variants have more than one RCV because the variant is in a gene that is associated with distinct disorders. For example, variants in RYR1 may have different classifications for malignant hyperthermia and for central core myopathy.": "某些变异有多条 RCV，是因为该变异所在基因与多种不同疾病相关。例如 RYR1 的变异在恶性高热与中央轴空肌病中可能有不同分类。",
+    "There are several situations in which a variation may be considered to have a relationship to more than one gene. The reported gene or genes, and the preferred designations, are selected as follows:": "在多种情况下，一个变异可能被认为与不止一个基因相关。所报告的基因与首选命名按以下方式确定：",
+    "the gene as submitted or calculated from the cDNA, and preferred name as calculated from the cDNA reference standard for that gene": "按提交内容或由 cDNA 计算得到的基因，以及按该基因的 cDNA 参考标准计算得到的首选名称",
+    "all calculated genes in the region based on the most recent NCBI annotation release. The preferred designation is a genomic HGVS expression without a gene symbol.": "依据最新 NCBI 注释版本计算出的该区域全部基因。首选命名是不带基因符号的基因组 HGVS 表达式。",
+    "This variant may represent a 1-nt deletion in genomic DNA that results in exon skipping, and therefore a larger deletion in the mRNA.": "该变异可能代表基因组 DNA 中 1 nt 的缺失，导致外显子跳跃，因而在 mRNA 中表现为更大的缺失。",
+    "Settings in some browsers may need to be adjusted to display files provided as pdf. There are several options you can use to display the contents of the file:": "某些浏览器的设置可能需要调整才能显示以 pdf 形式提供的文件。可用以下几种方式显示文件内容：",
+    "From the ClinVar homepage, click on the Statistics link in the navigation bar at the top of the page, then click \"List of submitters\". This takes you to a summary of ClinVar's submitters.": "在 ClinVar 首页，点击页面顶部导航栏中的 Statistics 链接，再点击「List of submitters」，即可进入 ClinVar 提交者汇总页面。",
+    "Allele information from HGMD is not publicly available, so ClinVar is unable to connect variants accurately to the appropriate record in HGMD.": "HGMD 的等位基因信息未公开，因此 ClinVar 无法将变异准确关联到 HGMD 中的相应记录。",
+    "ClinVar's VCF files are currently limited to variants in ClinVar that have a precise genomic location. Variants with imprecise start and stop, such as exon deletions and CNVs detected by microarray, are not included in ClinVar's VCF files at this time.": "目前 ClinVar 的 VCF 文件仅包含基因组位置精确的变异。起止位置不精确的变异（例如外显子缺失和芯片检测到的 CNV）暂不包含在 ClinVar 的 VCF 文件中。",
+    "If you wish to reference a specific submitted record, please cite the SCV accession and version.": "如需引用某条具体的提交记录，请引用 SCV 登录号及版本号。",
+    "If you wish to reference a aggregate ClinVar record, please cite the VCV or RCVaccession and version.": "如需引用汇总的 ClinVar 记录，请引用 VCV 或 RCV 登录号及版本号。",
+    "variants in genes on the minus strand of the chromosome are in descending order; at this time we do not have an option to make these variants sort in the opposite order": "位于染色体负链上的基因中的变异按降序排列；目前我们无法让这些变异按相反顺序排序",
+    "Please see": "请参阅",
+    "for questions about the submission process.": "，了解提交流程相关的问题。",
+    ", ClinVar can be searched with terms like": "，ClinVar 可用以下类型的检索词进行检索：",
+    "Download the file, and then use your own tools to display": "请下载该文件，然后用你自己的工具打开显示",
+    "are members of a single set and are counted in the statistics as one variation.": "属于同一集合，在统计中按一个变异计数。",
+    "VCF file": "VCF 文件",
+    "There are one or more submitted records with a classification but without": "存在一条或多条已给出分类但缺少",
+    "Review status for each submitted record (SCV) is reported as:": "每条提交记录（SCV）的审核状态报告如下：",
+    "otherwise, the review status is based on a. transparency: whether any submitted record provided assertion criteria and evidence for the classification (or a public contact) and b. consensus: whether the submitted records agree on the classification": "否则，审核状态取决于：a. 透明度，即是否有提交记录提供了断言标准与分类证据（或公开联系方式）；b. 一致性，即各提交记录的分类是否一致",
+    "The review statuses for germline classification and oncogenicity on aggregate records are as follows:": "汇总记录上胚系分类与致癌性的审核状态如下：",
+    "The variant was not classified directly in any submitted record; it was submitted to ClinVar only as part of a haplotype or a genotype.": "该变异未在任何提交记录中直接分类；它仅作为单倍型或基因型的一部分提交至 ClinVar。",
+    "Review status for somatic classification of clinical impact on aggregate records (VCV and RCV) is assigned based on data provided in the contributing SCVs.": "汇总记录（VCV 与 RCV）上体细胞临床影响分类的审核状态，依据相关 SCV 提供的数据确定。",
+    "The review statuses for somatic classification of clinical impact on aggregate records are as follows:": "汇总记录上体细胞临床影响分类的审核状态如下：",
+    "The aggregate review status for each type of classification for a VCV record is displayed at the top the VCV page in the Classification summary, with words and with gold stars.": "VCV 记录中每类分类的汇总审核状态显示在 VCV 页面顶部的「Classification summary」中，以文字和金星表示。",
+    "The review status for each of a pair of conflicting submissions is reported as Submitter1_ReviewStatus and Submitter2_ReviewStatus.": "互相冲突的两条提交各自的审核状态以 Submitter1_ReviewStatus 与 Submitter2_ReviewStatus 报告。",
+    "Assertion criteria refers to a citation (PubMed ID, PubMedCentral ID, or DOI) or an electronic document (a Word document or PDF) that describes:": "断言标准指引用（PubMed ID、PubMedCentral ID 或 DOI）或电子文档（Word 文档或 PDF），用以说明：",
+    "the variant classification terms used by the submitter (e.g. pathogenic, uncertain significance, benign, or appropriate terms for other types of variation) and": "提交者使用的变异分类术语（例如致病、意义不明、良性，或其他类型变异的相应术语），以及",
+    "include a version number or a date; assertion criteria are likely to be updated over time and ClinVar requires distinct names for distinct files": "应包含版本号或日期；断言标准可能会随时间更新，且 ClinVar 要求不同文件使用不同名称",
+    "if you have multiple documents for different scenarios, for example one document for autosomal recessive variants and one for autosomal dominant variants, include that information in the name": "如果你针对不同情形有多个文档，例如一个用于常染色体隐性变异、一个用于常染色体显性变异，请在名称中包含该信息",
+    "if your methods are published but not open access, please excerpt the variant interpretation methods from the publication and submit with reference to the full publication": "如果你的方法已发表但非开放获取，请摘录该出版物中变异解读方法的片段，并连同完整出版物的引用一起提交",
+    "A submission must reference one set of assertion criteria only, and these criteria must apply to every variant classification in the submission.": "每条提交只能引用一套断言标准，且该标准必须适用于该提交中的每一个变异分类。",
+    "Remember that the review status of \"criteria provided, single submitter\" requires this documentation AND either the evidence for each interpretation OR a public contact for your organization.": "请注意，「criteria provided, single submitter」审核状态既需要上述文档，也需要每次解读的证据或你所在机构的公开联系方式。",
+    "Links to assertion criteria for each submission are displayed on the Variation ID pages in the \"Submitted interpretations and evidence\" section of the \"Variant details\" tab as shown in Figure 2.": "每条提交的断言标准链接显示在 Variation ID 页面的「Variant details」选项卡中「Submitted interpretations and evidence」一节，如图 2 所示。",
+    "Assertion criteria can also be accessed per organization on each submitter page as shown in Figure 3.": "断言标准也可按机构在各提交者页面查看，如图 3 所示。",
+    "Assertion criteria are availabe in the RCV and VCV XML files as shown in the following table.": "断言标准可在 RCV 与 VCV XML 文件中获取，如下表所示。",
+    "If you make selections for more than one filter, the results will include records that match the combination of filters selected.": "如果选择了多个筛选条件，结果将包含同时满足所选条件组合的记录。",
+    "Pathogenic under Classification": "在 Classification 下选择 Pathogenic",
+    "Likely pathogenic under Classification": "在 Classification 下选择 Likely pathogenic",
+    "Copy number gain under Variation type": "在 Variation type 下选择 Copy number gain",
+    "The first query above is processed as (\"clinsig pathogenic\"[Properties] AND \"copy number gain\"[Type of variation]).": "上面的第一个查询按 (\"clinsig pathogenic\"[Properties] AND \"copy number gain\"[Type of variation]) 处理。",
+    "The second query above is processed as (\"clinsig likely pathogenic\"[Properties] OR \"clinsig pathogenic\"[Properties]).": "上面的第二个查询按 (\"clinsig likely pathogenic\"[Properties] OR \"clinsig pathogenic\"[Properties]) 处理。",
+    "Advanced search is useful when you want to construct a query that combines several concepts and/or restricts values to specific fields.": "当你需要构造组合多个概念、和/或将取值限定在特定字段的查询时，高级检索很有用。",
+    "Browse for terms that may be anywhere in the database (All Fields) or in a particular field (selected from the menu of field names).": "可浏览可能出现在数据库任意位置（All Fields）或特定字段（从字段名菜单中选择）中的词语。",
+    "The ClinVar identifier for an individual nucleotide change. e.g. for a haplotype of five SNPs, each individual SNP has its own Allele ID.": "单个核苷酸改变的 ClinVar 标识符。例如由五个 SNP 组成的单倍型，每个 SNP 各自有独立的 Allele ID。",
+    "A common name for a variant that does not follow a standard like HGVS. For example, deltaF508 or APOE4.": "不遵循 HGVS 等标准的变异常用名称，例如 deltaF508 或 APOE4。",
+    "Identifiers for alleles/variants from sources other than ClinVar, such as OMIM allelic variant ID, IDs from LSDBs, rs#, or dbVar identifiers.": "来自 ClinVar 之外来源的等位基因/变异标识符，例如 OMIM 等位变异 ID、LSDB 中的 ID、rs# 或 dbVar 标识符。",
+    "These filters represent the infrastructure to link between ClinVar and other Entrez databases.": "这些筛选条件用于在 ClinVar 与其他 Entrez 数据库之间建立链接。",
+    "The date that a variant was last interpreted by a submitter. In other words, the date is for each submission or SCV, not the aggregate record.": "提交者最近一次解释该变异的日期。也就是说，该日期针对每条提交或 SCV，而非汇总记录。",
+    "The length of the variant. For insertions and duplications, this is the length of the inserted or duplicated sequence.": "变异的长度。对于插入和重复，指插入或重复序列的长度。",
+    "The consequence of the variant on the transcript, as predicted by the sequence change, e.g. missense, frameshift, intron variant. Molecular consequence is calculated by NCBI, not submitted.": "由序列改变预测的变异对转录本的影响，例如错义、移码、内含子变异。分子后果由 NCBI 计算，而非提交者提供。",
+    "Scientific and common names of organism. All ClinVar records are for human variants and conditions.": "生物体的学名与常用名。所有 ClinVar 记录均为人类变异与疾病。",
+    "The name of a batch of submissions from a submitter. This corresponds to the \"Submission name\" registered by the submitter in the ClinVar Submission Portal.": "提交者一批提交的名称，对应提交者在 ClinVar 提交门户中登记的「Submission name」。",
+    "Identifier for the species in the NCBI Taxonomy database. All ClinVar records are for human variants and disorders/phenotypes.": "NCBI Taxonomy 数据库中的物种标识符。所有 ClinVar 记录均为人类变异与疾病/表型。",
+    "A name for the variant, including HGVS expressions, protein changes like V600E, legacy names like Factor V Cambridge.": "变异的名称，包括 HGVS 表达式、V600E 之类的蛋白改变、Factor V Cambridge 之类的旧称。",
+    "When you search ClinVar, you are searching for variants, specifically the aggregate variant record (VCV), not for individual submissions (SCVs). For example:": "检索 ClinVar 时，检索的是变异，具体是变异的汇总记录（VCV），而不是单条提交（SCV）。例如：",
+    "“Creation date” is the date that the VCV record was first created, not the date that an individual submission (SCV) was created.": "「Creation date」指 VCV 记录首次创建的日期，而不是单条提交（SCV）的创建日期。",
+    "The last column for \"Classification, Review status\" includes an icon indicating what type of classifications have been submitted for the variant: G for germline; S for somatic clinical impact; and O for oncogenicity.": "「Classification, Review status」最后一列包含一个图标，表示该变异已提交的分类类型：G 表示胚系；S 表示体细胞临床影响；O 表示致癌性。",
+    "When the assembly isn’t specified, like chr2:136937000-146682000, the results are for GRCh37 by default. When the assembly is included, like GRCh38:2:136937000-146682000, the results are on the specified assembly.": "未指定组装版本时（如 chr2:136937000-146682000），结果默认基于 GRCh37。指定了组装版本时（如 GRCh38:2:136937000-146682000），结果基于所指定的组装版本。",
+    "to find the submitter's page, e.g.": "查找提交者页面，例如",
+    "and follow the link for total submissions": "，然后点击「total submissions」链接",
+    "for an SNV": "，表示单核苷酸变异（SNV）",
+    "for an insertion": "，表示插入",
+    "for a deletion": "，表示缺失",
+    "\"gnomAD format\", e.g.": "「gnomAD 格式」，例如",
+    "if you select": "如果你选择",
+    "For example:": "例如：",
+    "You can also use the": "你也可以使用",
+    "Sort options": "排序选项",
+    "to show": "显示",
+    "The following term": "以下术语",
+    "s were": "在 ClinVar 中未找到",
+    "was": "在 ClinVar 中未找到",
+    "not found in ClinVar:": "："
+  },
+  "rules": [],
+  "templates": [
+    {
+      "pat": "{{1}} from clinical testing labs, research labs, genetics clinics, patient registries, locus-specific databases, expert panels, and groups establishing practice guidelines.",
+      "zh": "{{1}}，来源包括临床检测实验室、研究实验室、遗传学诊所、患者登记库、位点特异性数据库、专家小组以及制定实践指南的团体。"
+    },
+    {
+      "pat": "The information on this website is not intended for direct diagnostic use or medical decision-making without review by a genetics professional. Individuals should not change their health behavior solely on the basis of information contained on this website. NIH does not independently verify the submitted information. If you have questions about the information contained on this website, please see a health care professional. More information about {{1}} is available.",
+      "zh": "本网站的信息未经遗传学专业人员审核，不用于直接诊断或医疗决策。个人不应仅依据本网站所载信息改变自身健康行为。NIH 不独立核实所提交的信息。如对本网站所载信息有疑问，请咨询医疗保健专业人员。有关{{1}}的更多信息可查阅。"
+    },
+    {
+      "pat": "Get help from a ClinVar expert. Send an email to {{1}}.",
+      "zh": "如需 ClinVar 专家协助，请发送电子邮件至{{1}}。"
+    },
+    {
+      "pat": "{{1}} {{2}} The {{3}} ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.",
+      "zh": "{{1}}{{2}}使用{{3}}可确保你连接的是官方网站，且你提供的任何信息都会被加密并安全传输。"
+    },
+    {
+      "pat": "Please see {{1}} for questions about the submission process.",
+      "zh": "有关提交流程的问题，请参阅{{1}}。"
+    },
+    {
+      "pat": "As documented in more detail {{1}} , ClinVar can be searched with terms like",
+      "zh": "详细的说明见{{1}}，ClinVar 可用以下类型的检索词进行检索："
+    },
+    {
+      "pat": "location on a chromosome, {{1}} {{2}}",
+      "zh": "染色体上的位置，{{1}} {{2}}"
+    },
+    {
+      "pat": "Note that by default, searching uses the exact search terms provided; for example, searching for \"Noonan\" finds records that include the word Noonan but does not find records with the word \"Noonan's\". Consider doing a wild-card search like \"Noonan*\" if you want to expand your search. Also, ClinVar queries search all fields of data by default. More information on how to narrow your query by searching particular fields in available in the {{1}} . If you have favorite queries that you will do periodically, you can login to {{2}} and save your searches. Saved searches can be run on-the-fly or you can receive regular email updates with results of the search.",
+      "zh": "请注意，默认情况下检索会按所给检索词精确匹配；例如检索「Noonan」会找到包含 Noonan 一词的记录，但找不到包含「Noonan's」的记录。如果想扩大检索范围，可考虑使用通配符检索，例如「Noonan*」。此外，ClinVar 查询默认会检索所有字段。有关如何通过检索特定字段来缩小查询范围的更多信息，见{{1}}。如果你有会定期执行的常用查询，可以登录{{2}}保存检索。保存的检索可即时运行，也可定期接收包含检索结果的邮件更新。"
+    },
+    {
+      "pat": "Or you can get the data from the FTP site. You can look in the {{1}} or the {{2}} file for your gene of interest and parse the protein expressions to order by protein location.",
+      "zh": "或者你也可以从 FTP 站点获取数据。可在{{1}}或{{2}}文件中查找你感兴趣的基因，并解析蛋白表达以便按蛋白位置排序。"
+    },
+    {
+      "pat": "{{1}} reports gene-disease relationships used in ClinVar with attribution to the source. Current sources are OMIM®, GeneReviews®, and some from NCBI staff curation. This report includes all genes with variants asserted to result in a disease and submitted to ClinVar.",
+      "zh": "{{1}}报告 ClinVar 中使用的基因-疾病关系，并标注来源。当前来源为 OMIM®、GeneReviews®，以及部分来自 NCBI 工作人员整理的内容。该报告涵盖所有在 ClinVar 中带有被断言导致疾病并已提交的变异的基因。"
+    },
+    {
+      "pat": "{{1}} is recommended for searching based on location. From a ClinVar record, click on the Variation Viewer link in the Browser views section on the right-hand side. This browser shows all the variation in ClinVar, dbSNP, and dbVar in the region of the variant of interest. Other variants that cause the same protein change can be searched using the protein HGVS expression, or by querying for the gene symbol and the one- or three-letter protein change.",
+      "zh": "基于位置检索时推荐使用{{1}}。在 ClinVar 记录中，点击右侧「Browser views」部分的 Variation Viewer 链接。该浏览器会显示感兴趣变异所在区域内 ClinVar、dbSNP 与 dbVar 中的全部变异。导致相同蛋白改变的其他变异，可用蛋白 HGVS 表达式检索，也可用基因符号加单字母或三字母蛋白改变进行查询。"
+    },
+    {
+      "pat": "ClinVar is an archive for classification made by our submitters. Submitters may disagree on how a variant should be classified; read more about {{1}}. ClinVar does not arbitrate and resolve these conflicts. However, if we have a submission for that variant from an expert panel or a professional society, the assertion made by the expert panel or professional society is displayed and different interpretations from other submitters are not reported as conflicts.",
+      "zh": "ClinVar 是收录提交者所做分类的档案库。不同提交者可能对同一变异应如何分类存在分歧；请进一步阅读{{1}}。ClinVar 不对这些冲突进行仲裁或解决。不过，如果该变异有来自专家小组或专业学会的提交，则会显示专家小组或专业学会的断言，其他提交者的不同解读不会作为冲突报告。"
+    },
+    {
+      "pat": "An RCV accession in ClinVar is based on a variant-condition combination, not the variant alone. This representation was selected so that distinct accessions could be assigned to variants that result in distinct disorders. Each submitted classification is assigned an accession of the format SCV000000000.0 and versioned if the submitter updates a record ( {{1}} SCV000000001.1 would be updated to SCV000000001.2). Each unique combination of variant-condition relationship is aggregated into a ClinVar record with an accession of the format RCV000000000.0.",
+      "zh": "ClinVar 中的 RCV 登录号基于「变异-疾病」组合，而不是仅基于变异。采用这种表示方式，是为了能把不同的登录号分配给导致不同疾病的变异。每条提交的分类都会获得形如 SCV000000000.0 的登录号，并在提交者更新记录时更新版本号（{{1}} SCV000000001.1 会更新为 SCV000000001.2）。每一对唯一的「变异-疾病」关系汇总为一条 ClinVar 记录，其登录号形如 RCV000000000.0。"
+    },
+    {
+      "pat": "Some submitters want to assert that a variant is benign with respect to a specific condition, which leaves the possibility that it is clinically relevant for a different condition. Other submitters want to report that the variant is generally benign, in that it does not appear to cause any genetic disorder that should be observable because it is highly penetrant. ClinVar, in collaboration with members of the ClinGen project, requests that submitters provide {{1}} as the condition to indicate that they are not specifying any single condition but rather that the variant is generally benign. Use of this term for this kind of submission may be re-evaluated in the future.",
+      "zh": "有些提交者希望断言某变异对特定疾病为良性，这就留下了该变异对其他疾病可能具有临床相关性的可能。另一些提交者希望报告该变异总体上为良性，即它似乎不会导致任何因高度外显而应可观察到的遗传病。ClinVar 与 ClinGen 项目成员合作，要求提交者提供{{1}}作为疾病，以表明他们没有指定任何单一疾病，而是认为该变异总体上为良性。未来可能会重新评估对此类提交使用该术语的做法。"
+    },
+    {
+      "pat": "The review status \"classified by single submitter\" is based on non-expert panel submissions which include a classification, assertion criteria, and evidence for the variant classification. Some submissions to ClinVar lack assertion criteria, evidence for the classification, or less frequently the variant classification itself. These submissions are included in the count of submissions for a variant, but they may not contribute to the variant's review status. Read {{1}}.",
+      "zh": "审核状态「classified by single submitter」基于非专家小组的提交，这些提交包含分类、断言标准以及该变异分类的证据。部分提交至 ClinVar 的记录缺少断言标准、分类证据，或较少见地缺少变异分类本身。这些提交会计入某变异的提交数量，但可能不影响该变异的审核状态。请阅读{{1}}。"
+    },
+    {
+      "pat": "The goal of the ClinVar database is to represent the classifications provided by our submitters; therefore, ClinVar staff cannot change the classification that is submitted to us. If you think a variant in ClinVar has been classified incorrectly, we encourage you to submit your own classification of the variant along with your evidence, such as recent publications. The {{1}} can be used to submit a single variant classification with minimal time commitment. Although your submission will not change the classification from other submitters, it will change the overall classification to indicate that there are conflicting reports of pathogenicity and users should look at all the available evidence. ClinVar records with conflicts may also prompt the previous submitters or expert panels to review the variant classification.",
+      "zh": "ClinVar 数据库的目标是呈现我们提交者提供的分类；因此 ClinVar 工作人员无法更改提交给我们的分类。如果你认为 ClinVar 中某变异的分类有误，我们鼓励你提交自己对它的分类及证据，例如近期发表的文献。使用{{1}}可以用最少的时间提交单个变异分类。虽然你的提交不会改变其他提交者的分类，但会改变总体分类，以表明存在致病性冲突报告，用户应查看所有可用证据。存在冲突的 ClinVar 记录也可能促使此前的提交者或专家小组重新审视该变异的分类。"
+    },
+    {
+      "pat": "ClinVar reports the level of review supporting the variant classification for the variation as review status. Gold stars provide a graphical representation of the {{1}}. Review status is reported only in text format in ClinVar's products available by {{2}}.",
+      "zh": "ClinVar 将支持该变异分类的审核水平作为审核状态报告。金星在网页上以图形方式表示{{1}}。审核状态仅在 ClinVar 通过{{2}}提供的产品中以文本形式报告。"
+    },
+    {
+      "pat": "This document describes the categories and criteria that are used by the submitter to guide their classification process, not the specific evidence for an individual variant classification. This document is made available to ClinVar users on {{1}}.",
+      "zh": "本文档介绍提交者用于指导其分类过程的类别与标准，而非单个变异分类的具体证据。本文档通过{{1}}提供给 ClinVar 用户。"
+    },
+    {
+      "pat": "Note that when assertion criteria are provided, it is presumed that the submitter attests that the variant was classified according to a comprehensive review of evidence consistent with, or more thorough than, current practice guidelines. Read more details about meeting the {{1}}.",
+      "zh": "请注意，提供断言标准时，即推定提交者声明该变异是依据与现行实践指南一致或更全面的证据审查而分类的。有关满足{{1}}的更多细节，请阅读相关说明。"
+    },
+    {
+      "pat": "API submission: a citation is provided in the JSON, as described in the {{1}}.",
+      "zh": "API 提交：JSON 中会提供引用信息，详见{{1}}。"
+    },
+    {
+      "pat": "Files for assertion criteria are uploaded independent of submissions. On your organization's landing page in the ClinVar Submission Portal use the button \"View/add assertion criteria files\" below your organization's name to upload a new file. ClinVar generates a URL to make the file publicly accessible on {{1}}.",
+      "zh": "断言标准文件的上传独立于提交。在 ClinVar 提交门户中你所在机构的落地页上，使用机构名称下方的「View/add assertion criteria files」按钮上传新文件。ClinVar 会生成一个 URL，使该文件可在{{1}}上公开访问。"
+    },
+    {
+      "pat": "{{1}} a citation or URL for a file already uploaded in the Submission Portal is provided in the JSON, as described in the {{2}}.",
+      "zh": "{{1}}已上传至提交门户的文件的引用或 URL 会提供在 JSON 中，详见{{2}}。"
+    },
+    {
+      "pat": "Assertion criteria are availabe in the RCV and VCV XML files as shown in the following table. {{1}}{{2}}",
+      "zh": "断言标准可在 RCV 与 VCV XML 文件中获取，如下表所示。{{1}}{{2}}"
+    },
+    {
+      "pat": "You may get multiple results, if the gene has multiple transcripts with a variant with that c. description, e.g. {{1}}",
+      "zh": "如果该基因有多个转录本都带有该 c. 描述的变异，可能会得到多条结果，例如{{1}}"
+    },
+    {
+      "pat": "e.g. {{1}} or {{2}} for an insertion",
+      "zh": "例如插入可写作 {{1}} 或 {{2}}"
+    },
+    {
+      "pat": "e.g. {{1}} or {{2}} for a deletion",
+      "zh": "例如缺失可写作 {{1}} 或 {{2}}"
+    },
+    {
+      "pat": "\"UCSC-style\" chromosome coordinates, e.g. {{1}} or {{2}}",
+      "zh": "「UCSC 风格」染色体坐标，例如 {{1}} 或 {{2}}"
+    },
+    {
+      "pat": "\"gnomAD-style\" chromosome coordinates, e.g. {{1}} or {{2}}",
+      "zh": "「gnomAD 风格」染色体坐标，例如 {{1}} 或 {{2}}"
+    },
+    {
+      "pat": "Entrez format, e.g. {{1}}",
+      "zh": "Entrez 格式，例如 {{1}}"
+    },
+    {
+      "pat": "You can also use the {{1}} to find the submitter's page, e.g. {{2}} and follow the link for total submissions",
+      "zh": "你也可以通过{{1}}找到提交者页面，例如{{2}}，然后点击「total submissions」链接"
+    },
+    {
+      "pat": "See the section below on {{1}} for other options.",
+      "zh": "其他选项请参见下文关于{{1}}的一节。"
+    },
+    {
+      "pat": "You can also use the {{1}} search function to construct complex queries like these.",
+      "zh": "你也可以使用{{1}}检索功能构造这类复杂查询。"
+    },
+    {
+      "pat": "We provide {{1}}。",
+      "zh": "我们提供{{1}}。"
+    },
+    {
+      "pat": "The canonical SPDI notation for the variant. See {{1}} for more information about SPDI.",
+      "zh": "该变异的标准 SPDI 记法。有关 SPDI 的更多信息，请参阅{{1}}。"
+    },
+    {
+      "pat": "Combine your search term with others using {{1}} , {{2}} or {{3}} in the menu to the left of the next query term.",
+      "zh": "使用下一个检索词左侧菜单中的{{1}}、{{2}}或{{3}}，可将检索词与其他条件组合。"
+    },
+    {
+      "pat": "Transcripts from the Matched Annotation from the NCBI and EMBL-EBI ({{1}}) collaboration.",
+      "zh": "转录本来自 NCBI 与 EMBL-EBI 的匹配注释（{{1}}）协作项目。"
+    }
+  ]
+}

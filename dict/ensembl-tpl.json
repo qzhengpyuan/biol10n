@@ -1,0 +1,416 @@
+{
+  "meta": {
+    "family": "ensembl-tpl",
+    "version": "0.1.0",
+    "sites": [
+      "www.ensembl.org",
+      "ensembl.org",
+      "*.archive.ensembl.org"
+    ]
+  },
+  "exact": {
+    "Gene trees, homologies, multiple and pairwise genomic alignments": "基因树、同源关系、多重与两两基因组比对",
+    "The Registry system allows to tell your programs where to find the EnsEMBL databases and how to connect to them. It has been implemented for the Ensembl Core and Compara APIs.": "Registry 系统让您告诉程序到哪里查找 Ensembl 数据库以及如何连接它们。它已为 Ensembl Core 和 Compara API 实现。",
+    "Create an installation directory and download the distributions:": "创建安装目录并下载分发包：",
+    "Rename the bioperl-live directory. In the Unix command line, type:": "重命名 bioperl-live 目录。在 Unix 命令行中输入：",
+    "In Perl (we do not recommend creating hard-coded dependencies in Perl scripts):": "在 Perl 中（我们不建议在 Perl 脚本里硬编码依赖）：",
+    "To retrieve genotype, frequency and linkage disequilibrium (LD) data for 1000 Genomes phase 3 variants, it is necessary to install a couple of extra dependencies:": "要获取 1000 Genomes 第 3 阶段变异的基因型、频率和连锁不平衡（LD）数据，需要额外安装几个依赖：",
+    "Set up environment; use the path output from the \"make && make install\" command for the PERL5LIB variable, e.g.": "设置环境；把 \"make && make install\" 命令输出的路径用于 PERL5LIB 变量，例如",
+    "ensembl-io perl modules (only if you didn't use Git Ensembl tools to install the API):": "ensembl-io Perl 模块（仅当您没有用 Git Ensembl 工具安装 API 时）：",
+    "If you are working with non vertebrate genomes, you will also need the ensembl-metadata modules (only if you didn't use Git Ensembl tools to install the API):": "如果您要处理非脊椎动物基因组，还需要 ensembl-metadata 模块（仅当您没有用 Git Ensembl 工具安装 API 时）：",
+    "Create an installation directory": "创建安装目录",
+    "Take a clone of BioPerl from GitHub and change to the correct version:": "从 GitHub 克隆 BioPerl 并切换到正确的版本：",
+    "Install the APIs that you need. You can install all the APIs using the git ensembl command:": "安装您需要的 API。可以用 git ensembl 命令安装所有 API：",
+    "Or you can install APIs individually as needed:": "也可以按需逐个安装 API：",
+    "APIs installed this way will automatically be on the release/116 branch.": "这样安装的 API 会自动位于 release/116 分支。",
+    "In case you want to update the Perl APIs to a more recent version, keep in mind that the API and database versions must be identical; you can use a simple Git command to achieve this.": "如果想把 Perl API 更新到更近的版本，请记住 API 与数据库的版本必须一致；可以用一条简单的 Git 命令做到。",
+    "Change the working directory to the directory into which you originally installed the APIs.": "把工作目录切换到您最初安装 API 的目录。",
+    "Use the git ensembl command to change branches:": "用 git ensembl 命令切换分支：",
+    "Or update each repo individually:": "或者逐个更新每个仓库：",
+    "Git will automatically add, modify or delete files so that your working directory will resemble the branch you selected.": "Git 会自动添加、修改或删除文件，使您的工作目录与所选分支一致。",
+    "This tutorial demonstrates general API concepts, applicable across all parts of the Ensembl API.": "本教程演示通用的 API 概念，适用于 Ensembl API 的各个部分。",
+    "The Perl API provides a level of abstraction over the Ensembl databases and is used by the Ensembl web interface, pipeline, and internal annotation systems. To external users the API may be useful to automate the extraction of particular data, to customise Ensembl to fulfil a particular purpose, or to store additional data in Ensembl.": "Perl API 在 Ensembl 数据库之上提供了一层抽象，Ensembl 网页界面、流程和内部注释系统都在使用它。对外部用户来说，API 可用于自动提取特定数据、为特定目的定制 Ensembl，或把额外数据存入 Ensembl。",
+    "The LookUp module allows you to find species more easily, without necessarily knowing the alias used by the API, for example searching for species that have an alias that match a regular expression (such as part of a species name), or species which are derived from a specific ENA/INSDC accession, or species that belong to a particular part of the taxonomy, using NCBI taxon IDs.": "LookUp 模块让您可以更轻松地查找物种，不必事先知道 API 使用的别名，例如搜索别名匹配某个正则表达式的物种（例如物种名的一部分）、源自特定 ENA/INSDC 登录号的物种，或通过 NCBI 分类号查找属于分类学某一特定分支的物种。",
+    "This page uses release 116 as a version example. We recommend always using the latest versions of code and data.": "本页以版本 116 作为版本示例。我们建议始终使用最新的代码和数据版本。",
+    "Each Ensembl release has an integer version number associated with it which is used to identify the correct versions of the API, web code and databases that make up that release. The idea is that components with the same release version should work together - i.e. any web site built with 'version 116' API and web code, and 'version 116' databases should work correctly.": "每个 Ensembl 版本都有一个整数版本号，用于标识构成该版本的 API、网页代码和数据库的正确版本。其想法是，版本号相同的组件应当可以协同工作——也就是说，用“版本 116”的 API 和网页代码构建的网站，配上“版本 116”的数据库，应当正常工作。",
+    "A letter suffix to the data version indicates a change in data without a change in assembly; e.g. a new gene build.": "数据版本后的字母后缀表示组装未变而数据有变化，例如新的基因构建。",
+    "For each organism supported by Ensembl, a species-specific Ensembl Core database stores the bulk of annotation information. Some of the key features are:": "对 Ensembl 支持的每个生物，都有一个物种专用的 Ensembl Core 数据库存储大部分注释信息。其中一些关键内容包括：",
+    "The unmasked genome sequence is stored on the sequence-level i.e. in form of BAC clones or whole genome shotgun scaffolds.": "未掩蔽的基因组序列以序列层级存储，即以 BAC 克隆或全基因组鸟枪法 scaffold 的形式。",
+    "Assembly information to generate top-level sequences like chromosomes from sequence-level entities.": "用于从序列层级实体生成染色体等顶层序列的组装信息。",
+    "Sequence tagged sites (STS) marker information on physical sequence and genetic map locations.": "序列标签位点（STS）标记在物理序列和遗传图谱位置上的信息。",
+    "External references to other databases of biological information.": "指向其他生物信息数据库的外部引用。",
+    "cDNA and protein alignments supporting the transcript models that have been built. The cDNA alignments found in the core database are a subset of the cDNA alignments found in the cDNA database (for human and mouse) or otherfeatures database (all other species).": "支持已构建转录本模型的 cDNA 与蛋白质比对。核心数据库中的 cDNA 比对是 cDNA 数据库（人类和小鼠）或 otherfeatures 数据库（其他所有物种）中 cDNA 比对的一个子集。",
+    "Human and Mouse have a separate cDNA database, containing alignments of all species-specific cDNAs to the genome sequence, which serve as source of biological evidence in the Ensembl annotation strategy. The alignments are updated every release and should therefore include even the most recently submitted cDNA sequences.": "人类和小鼠有单独的 cDNA 数据库，包含所有物种特异性 cDNA 与基因组序列的比对，它们作为 Ensembl 注释策略中的生物学证据来源。这些比对每个版本都会更新，因此应包含最近提交的 cDNA 序列。",
+    "For human and mouse, the otherfeatures database contains the full set of species-specific EST alignments to the genome. For all other species with enough species-specific data, the otherfeatures database contains the full set of species-specific cDNA and EST alignments to the genome. Some RNA-seq data may also be stored in the otherfeatures database.": "对人和小鼠，otherfeatures 数据库包含物种特异性 EST 与基因组的全部比对。对其他有足够物种特异性数据的物种，otherfeatures 数据库包含物种特异性 cDNA 和 EST 与基因组的全部比对。部分 RNA-seq 数据也可能存放在 otherfeatures 数据库中。",
+    "For well-characterised species with a reasonable amount of biological sequence records as supporting evidence Ensembl provides an independent EST gene set, which is solely based on EST information.": "对于已有相当数量生物序列记录作为支持证据、特征研究较充分的物种，Ensembl 提供一个独立的 EST 基因集，完全基于 EST 信息。",
+    "Please note that Ensembl OtherFeatures databases do not contain genome sequences. This saves disk space and by connecting to Core and the OtherFeatures databases simultaneously, it is still possible to retrieve sequence information.": "请注意，Ensembl OtherFeatures 数据库不含基因组序列。这样可以节省磁盘空间，同时连接 Core 与 OtherFeatures 数据库后仍可获取序列信息。",
+    "The rnaseq database contains RNA-seq based gene models generated using our in-house RNA-seq pipeline. This database may also point to BAM files.": "rnaseq 数据库包含用我们自研 RNA-seq 流程生成的基于 RNA-seq 的基因模型。该数据库还可能指向 BAM 文件。",
+    "The layout of Ensembl Core and OtherFeature databases is identical so that schema descriptions and API access apply similarly. The database table layout is explained in the following document:": "Ensembl Core 与 OtherFeature 数据库的布局完全相同，因此模式描述和 API 访问方式也同样适用。数据库的表结构在以下文档中说明：",
+    "Cytogenetic banding patterns if a reliable banding pattern has been established for the organism.": "如果已为该生物建立了可靠的显带模式，则包含细胞遗传学显带模式。",
+    "Note that if your file URL contains semicolons, ampersands (&) or equals signs, these will need to be URL-encoded.": "请注意，如果文件 URL 中含有分号、& 符号或等号，这些字符需要进行 URL 编码。",
+    "As you can see, you don't need to know the name of the species that the ID belongs to; the website will work that out automatically based on the 3-6 letter prefix.": "可以看到，您不必知道该 ID 属于哪个物种；网站会根据 3 至 6 个字母的前缀自动判断。",
+    "If you simply wish to link to a gene, transcript, protein or gene tree page, particularly for automated links, you can do so using the following template:": "如果您只是想链接到某个基因、转录本、蛋白质或基因树页面，尤其是用于自动生成的链接，可以使用下面的模板：",
+    "Views based on a gene, transcript or variation need the parameter of that type in their URL - a location alone is insufficient:": "基于基因、转录本或变异的视图需要在 URL 中带上相应类型的参数——只给位置是不够的：",
+    "The Ensembl codebase is highly complex, consisting of many hundreds of modules. The following notes should help you begin to find your way around!": "Ensembl 代码库非常复杂，由数百个模块组成。下面的说明可以帮助您开始熟悉它！",
+    "Ensembl now uses URL routing, that is, URLs do not necessarily correspond to physical directories but are parsed into their components and passed to a generic script that constructs an appropriate page.": "Ensembl 现在使用 URL 路由，也就是说，URL 不一定对应物理目录，而是被解析为各个组成部分并传给一个通用脚本，由它构建相应的页面。",
+    "The exception to this is the static content, i.e. simple HTML pages used to hold documentation about the site and project - like this page. As a general rule, if the URL is in lower case, it is static content; if the \"directories\" have initial capitals, the page is dynamically generated.": "例外是静态内容，即用来承载站点和项目文档的简单 HTML 页面——就像本页。一般规则是：如果 URL 为小写，就是静态内容；如果各“目录”以大写字母开头，页面就是动态生成的。",
+    "This is the type of data being displayed on the page, e.g. Location, Gene, etc for genomic data, or Help, Account, etc for general web pages.": "这是页面上显示的数据类型，例如基因组数据用 Location、Gene 等，一般网页用 Help、Account 等。",
+    "A typical dynamic URL is shown below:": "一个典型的动态 URL 如下所示：",
+    "The URL is split on '/' into the following parts:": "URL 按 '/' 拆分为以下部分：",
+    "The URL is parsed in E::W::Apache::SpeciesHandler - this module should be left well alone unless you know exactly what you are doing!": "URL 在 E::W::Apache::SpeciesHandler 中解析——除非您完全清楚自己在做什么，否则不要改动这个模块！",
+    "The Ensembl webcode is designed to be extensible, so that you can customize your own installation without your changes being overwritten when you update to a new release.": "Ensembl 网页代码设计为可扩展的，因此您可以定制自己的安装，而升级到新版本时您的改动不会被覆盖。",
+    "By creating your own plugin, you can completely change the available species, alter the colour scheme or page template, or add your own views and static content.": "通过创建自己的插件，您可以完全更改可用的物种、修改配色方案或页面模板，或添加自己的视图和静态内容。",
+    "Used to configure the current set of Ensembl species (as seen on www.ensembl.org) - without this or a similar plugin, no data will appear on your site.": "用于配置当前的 Ensembl 物种集合（即 www.ensembl.org 上所见）——没有它或类似的插件，您的站点上不会出现任何数据。",
+    "Most public plugins have a README file giving more detailed and up-to-date information on how to use them.": "大多数公开插件都带有 README 文件，提供更详细、更新的使用说明。",
+    "Any other directories in your checkout will contain the Perl API, and after server startup you will see some additional autogenerated directories used to cache images and other files.": "您检出的其他目录将包含 Perl API；服务器启动后，您还会看到一些自动生成的目录，用于缓存图像和其他文件。",
+    "The following directories are typically replicated inside plugins in order to override \"core\" functionality:": "以下目录通常会在插件中复制一份，以覆盖“核心”功能：",
+    "The following directories contain web-related code:": "以下目录包含与网页相关的代码：",
+    "The following call will load all the \"latest\" databases from the public EnsEMBL MySQL server ensembldb.ensembl.org:": "下面的调用会从公共 EnsEMBL MySQL 服务器 ensembldb.ensembl.org 加载所有“最新”数据库：",
+    "This method loads the Registry from the configuration file passed as an argument. If no argument is supplied, it tries to use the file defined in the environment variable ENSEMBL_REGISTRY. It uses the file .ensembl_init if all the previous fail.": "该方法从作为参数传入的配置文件加载 Registry。如果未提供参数，它会尝试使用环境变量 ENSEMBL_REGISTRY 中定义的文件；若前述都失败，则使用 .ensembl_init 文件。",
+    "The Registry configuration file for the Perl API is a Perl file which defines the DBAdaptors you will need in your scripts. You should start with a:": "Perl API 的 Registry 配置文件是一个 Perl 文件，用于定义脚本中需要的 DBAdaptor。您应当以这样的语句开头：",
+    "The first one will allow you to define some aliases for the databases. The second module is needed if you want to configure EnsEMBL core databases and the third one is needed for the EnsEMBL Compara databases. You may need other DBAdaptors for connecting to an EnsEMBL Variation database for instance.": "第一个模块让您可以为数据库定义一些别名。第二个模块用于配置 EnsEMBL 核心数据库，第三个模块用于 EnsEMBL Compara 数据库。您可能还需要其他 DBAdaptor，例如连接 EnsEMBL Variation 数据库。",
+    "If you want this file to be your default configuration file, you probably want to save it as .ensembl_init in your home directory. You can also save it elsewhere and point the ENSEMBL_REGISTRY environment variable to that location. Here are a couple of examples of how to configure your environment depending on your shell:": "如果想让这个文件成为默认配置文件，您大概会把它保存为家目录下的 .ensembl_init。也可以保存在别处，并把 ENSEMBL_REGISTRY 环境变量指向该位置。下面举几个按所用 shell 配置环境的例子：",
+    "Port and Password are the other allowed parameters to this subroutine. The latest database is the one with the highest release for each species.": "Port 和 Password 是该子程序允许的其他参数。每个物种中版本号最高的数据库即为最新数据库。",
+    "A comprehensive Perl Application Program Interface (API) provides efficient access to the Ensembl Variation database.": "一套全面的 Perl 应用程序接口（API）可高效访问 Ensembl Variation 数据库。",
+    "See below links to some overviews of the Variation API to illustrate what data/objects you can fetch from the classes:": "下面的链接是 Variation API 的一些概览，用于说明您可以从各类中获取哪些数据/对象：",
+    "Note: not all the objects of the Ensembl Variation API are represented in these diagrams. They are only overviews to help you to understand the main classes in Ensembl Variation API.": "注意：并非 Ensembl Variation API 的所有对象都出现在这些图中。它们只是帮助您理解 Ensembl Variation API 主要类的概览。",
+    "The table layout of the database is explained in the following document:": "数据库的表结构在以下文档中说明：",
+    "A comprehensive Perl Application Program Interface (API) provides efficient access to the Ensembl Compara database.": "一套全面的 Perl 应用程序接口（API）可高效访问 Ensembl Compara 数据库。",
+    "If you do not have access to git, you can obtain our latest API code as a gzipped tarball:": "如果您无法访问 git，可以把最新的 API 代码作为 gzip 压缩的 tarball 获取：",
+    "The entire Ensembl API is gzipped and concatenated into a single TAR file. This is updated daily.": "整个 Ensembl API 经 gzip 压缩并合并成一个 TAR 文件。该文件每天更新。",
+    "Even if you don't need to install Ensembl yourself, you may want to link to it from your own website.": "即使您不需要自己安装 Ensembl，也可能想从自己的网站链接到它。",
+    "The Ensembl website is written in Perl and can be installed locally. The code is modular and extensible so it can be customized for local demands.": "Ensembl 网站用 Perl 编写，可以在本地安装。代码模块化且可扩展，因此可以按本地需求定制。",
+    "This section covers the more technical aspects of customizing Ensembl, and is recommended for advanced Perl users only.": "本节介绍定制 Ensembl 中较偏技术的内容，仅建议高级 Perl 用户参考。",
+    "If you use Ensembl VEP, please cite our most recent publication to help us continue to support development:": "如果您使用了 Ensembl VEP，请引用我们最新的论文，以帮助我们持续支持开发：",
+    "GitHub repository": "GitHub 仓库",
+    "module-by-module POD": "逐模块 POD",
+    "virtual machine": "虚拟机",
+    "document on our FTP site": "我们 FTP 站点上的文档",
+    "clone it from GitHub using Git": "用 Git 从 GitHub 克隆",
+    "debugging installation guide": "安装调试指南",
+    "Ensembl git tools": "Ensembl git 工具",
+    "basic installation instructions": "基本安装说明",
+    "Perl API Installation instructions": "Perl API 安装说明",
+    "supported file format": "支持的文件格式",
+    "advanced customisation tips": "高级定制技巧",
+    "standard URL structure": "标准 URL 结构",
+    "Region in detail": "区域详情",
+    "Exon Intron markup": "外显子内含子标注",
+    "IMPORTANT:": "重要：",
+    "must": "必须",
+    "Note on bedGraph format": "关于 bedGraph 格式的说明",
+    "Extending the Ensembl web code": "扩展 Ensembl 网页代码",
+    "EnsEMBL Bacteria": "Ensembl 细菌",
+    "How to change your logo and colour scheme": "如何更改徽标与配色方案",
+    "Adding and removing species": "添加与移除物种",
+    "remove unwanted views": "移除不需要的视图",
+    "Tips on how to create HTML pages": "创建 HTML 页面的技巧",
+    "Accessing regulatory data": "访问调控数据",
+    "Funcgen API Documentation": "Funcgen API 文档",
+    "Funcgen API Tutorial": "Funcgen API 教程",
+    "variant identifier": "变异标识符",
+    "HGVS notation": "HGVS 写法",
+    "haplotype": "单倍型",
+    "phased genotype": "定相基因型",
+    "Gene documentation": "Gene 文档",
+    "the documentation page for the GeneAdaptor": "GeneAdaptor 的文档页",
+    "LookUp module": "LookUp 模块",
+    "web-browsable": "可在网页中浏览的",
+    "connect": "连接",
+    "N.B.": "注：",
+    "BioPerl 1.6.924 core modules": "BioPerl 1.6.924 核心模块",
+    "available here": "在此处",
+    "lazy loaded": "惰性加载",
+    "installing our codebase": "安装我们的代码库",
+    "mailing list": "邮件列表",
+    "Ensembl databases": "Ensembl 数据库",
+    "here": "此处"
+  },
+  "rules": [],
+  "templates": [
+    {
+      "pat": "All of the software created by the Ensembl project is open source and freely available to download from our {{1}}.",
+      "zh": "Ensembl 项目创建的所有软件都是开源的，可从我们的{{1}}免费下载。"
+    },
+    {
+      "pat": "The Perl API provides an abstraction layer for accessing the genomic databases. Our {{1}} includes tutorials for typical tasks, and you can also browse the {{2}} output in the Doxygen web format. If you are unable to install the API, you might prefer to use our {{3}} which comes with the API and Ensembl VEP (see below) pre-installed. The Ensembl API is compatible with Perl version 5.26+.",
+      "zh": "Perl API 为访问基因组数据库提供了抽象层。我们的{{1}}包含常见任务的教程，您也可以按 Doxygen 网页格式浏览{{2}}的输出。如果您无法安装 API，可以改用我们的{{3}}，其中已预装 API 与 Ensembl VEP（见下文）。Ensembl API 兼容 Perl 5.26 及以上版本。"
+    },
+    {
+      "pat": "The Ensembl {{1}} server allows you access to Ensembl data using any programming language. We provide a second REST server - {{2}} - for access to data on the human GRCh37 assembly.",
+      "zh": "Ensembl {{1}}服务器让您可以用任何编程语言访问 Ensembl 数据。我们还提供第二个 REST 服务器——{{2}}——用于访问人类 GRCh37 组装的数据。"
+    },
+    {
+      "pat": "In addition to the API, we provide a number of Perl scripts that use the API to run common data analyses, such as the {{1}} (Ensembl Variant Effect Predictor). All of these can be run on the command line, and some can also be run via a web front end, so you don't even need to install any software! {{2}}...",
+      "zh": "除 API 之外，我们还提供若干使用该 API 的 Perl 脚本，用于常见的数据分析，例如{{1}}（Ensembl 变异效应预测器）。这些脚本都可以在命令行运行，部分还可通过网页前端运行，因此您甚至无需安装任何软件！{{2}}……"
+    },
+    {
+      "pat": "Many of our pipelines and back-end data processing is managed using {{1}}, a job flow system written in Perl.",
+      "zh": "我们的许多流程和后端数据处理都由{{1}}管理，这是一个用 Perl 编写的作业流系统。"
+    },
+    {
+      "pat": "You can also run a local copy of this website by {{1}} and associated Perl dependencies. Please note that this is a non-trivial task, and we only support installation on Linux. For help with other operating systems as well as general support with custom development, we recommend joining our developers' {{2}}. The web code runs on Perl version 5.26.",
+      "zh": "您也可以先{{1}}，再装好相关 Perl 依赖，从而在本地运行本网站的一份副本。请注意这并非简单的任务，我们只支持在 Linux 上安装。如果需要其他操作系统上的安装帮助，或需要定制开发方面的支持，建议加入我们开发者的{{2}}。网页代码运行于 Perl 5.26。"
+    },
+    {
+      "pat": "All data sets in the Ensembl system are stored in relational databases (MySQL). For each of the {{1}} the project provides a specific Perl API. As Ensembl takes also advantage of code provided by the {{2}} project; installation of the BioPerl package is included in these instructions. The Ensembl API is compatible with Perl version 5.14 through to 5.26.",
+      "zh": "Ensembl 系统中的所有数据集都存放在关系型数据库（MySQL）中。针对每个{{1}}，项目都提供专用的 Perl API。由于 Ensembl 也使用了{{2}}项目提供的代码，因此这些安装说明中包含了 BioPerl 软件包的安装。Ensembl API 兼容 Perl 5.14 至 5.26。"
+    },
+    {
+      "pat": "Ensembl has produced a video tutorial about how to install the API. Its content is based on this document so you can follow both resources when performing an installation. All commands in this video can be found from the following {{1}}.",
+      "zh": "Ensembl 制作了一段关于如何安装 API 的视频教程。其内容基于本文档，因此安装时可以同时参照两者。视频中的所有命令都可以在下面的{{1}}中找到。"
+    },
+    {
+      "pat": "There are two ways of installing the Perl API. You can {{1}} if you have that available, or you can download the files in gzipped TAR format from our {{2}}. You will also need {{3}} (bioperl-live).",
+      "zh": "安装 Perl API 有两种方式。如果您能{{1}}，就用它；也可以从我们的{{2}}获取 gzip 压缩的 TAR 格式文件。您还需要{{3}}（bioperl-live）。"
+    },
+    {
+      "pat": "{{1}} We recommend waiting until a few days after a release before downloading the new API (or re-downloading after a few days), as there may be post-release bug fixes added to the code.",
+      "zh": "{{1}}建议在版本发布几天后再下载新的 API（或过几天重新下载），因为发布后可能还会向代码中加入错误修复。"
+    },
+    {
+      "pat": "In Windows, you will need an unzipping utility such as {{1}}.",
+      "zh": "在 Windows 下，您需要解压工具，例如{{1}}。"
+    },
+    {
+      "pat": "In classic Windows command line, use {{1}} instead of {{2}}.",
+      "zh": "在传统 Windows 命令行中，请用{{1}}代替{{2}}。"
+    },
+    {
+      "pat": "You have to tell Perl where to find the modules you just installed. You can do this by using the {{1}} clause in your script but if you want to make these modules available for all your scripts, the best way is to add them into the {{2}} environment variable.",
+      "zh": "您必须告诉 Perl 到哪里查找刚安装的模块。可以在脚本中使用{{1}}语句来实现；但如果想让所有脚本都能用到这些模块，最好的办法是将其加入{{2}}环境变量。"
+    },
+    {
+      "pat": "Under {{1}}, {{2}}, or any {{3}}-derived shell:",
+      "zh": "在{{1}}、{{2}}或任何基于{{3}}的 shell 中："
+    },
+    {
+      "pat": "Sometimes installations can go wrong. You should follow our {{1}} to help diagnose and resolve installation issues.",
+      "zh": "安装有时会出问题。您可以按照我们的{{1}}来诊断并解决安装问题。"
+    },
+    {
+      "pat": "Ensembl can be installed on both Windows and Mac machines however installation is not as straightforward as installing on Linux. We recommend you consult our two blog posts detailing how you can install Ensembl on {{1}} and on {{2}}. The fastest way to get up and running with Ensembl on these operating systems is to use our {{3}}.",
+      "zh": "Ensembl 可以安装在 Windows 和 Mac 机器上，但安装不如在 Linux 上那么直接。建议您参阅我们的两篇博客文章，其中详细介绍了如何在{{1}}和{{2}}上安装 Ensembl。在这些操作系统上最快上手 Ensembl 的方式是使用我们的{{3}}。"
+    },
+    {
+      "pat": "There is also an Ensembl Virtual Machine available for download which comes with the latest API pre-installed. You may download this and get started immediately with the API without having to go through the steps below. Full instructions are {{1}}",
+      "zh": "此外还有可下载的 Ensembl 虚拟机，其中已预装最新的 API。您可以下载它并立即开始使用 API，无需执行下面的步骤。完整说明{{1}}。"
+    },
+    {
+      "pat": "Install the {{1}} to allow easy management of the Ensembl repos.",
+      "zh": "安装{{1}}，以便轻松管理 Ensembl 仓库。"
+    },
+    {
+      "pat": "Set up your environment as described in the {{1}}.",
+      "zh": "请按{{1}}中所述设置您的环境。"
+    },
+    {
+      "pat": "The Perl API is only one of many ways of accessing the data stored in Ensembl. Additionally there is a genome browser web interface, and the BioMart system. {{1}} may be a more appropriate tool for certain types of data mining.",
+      "zh": "Perl API 只是访问 Ensembl 中所存数据的众多方式之一。此外还有基因组浏览器网页界面和 BioMart 系统。对某些类型的数据挖掘，{{1}}可能更合适。"
+    },
+    {
+      "pat": "The Ensembl Perl APIs have easy-to-use {{1}} documentation, which provides access to all modules, listing the possible Objects and Adaptors, the functions that can be called on them and the type of output. There is also standard Perl POD (Plain Old Documentation) mixed in with the actual code, but can be automatically extracted and formatted using some software tools.",
+      "zh": "Ensembl Perl API 提供{{1}}文档，可以查阅所有模块，列出可用的对象与适配器、可对其调用的函数以及输出类型。实际代码中还混有标准的 Perl POD（Plain Old Documentation），可以用一些软件工具自动提取并排版。"
+    },
+    {
+      "pat": "The first step for working with the Perl APIs is to install the APIs and ensure your {{1}} environment variable is set up correctly (see the {{2}})",
+      "zh": "使用 Perl API 的第一步是安装 API，并确保{{1}}环境变量设置正确（参见{{2}}）"
+    },
+    {
+      "pat": "For additional information you can contact {{1}}, the Ensembl development mailing list.",
+      "zh": "如需更多信息，可以联系 Ensembl 开发邮件列表{{1}}。"
+    },
+    {
+      "pat": "All data used and created by Ensembl is stored in MySQL relational databases. If you want to access this database the first thing you have to do is to {{1}} to it. This is done behind the scenes by Ensembl using the standard Perl DBI module. However, if your computer is behind a firewall, you need to allow outgoing connections to the corresponding ports. You will need to know two things before you start:",
+      "zh": "Ensembl 使用和创建的所有数据都存放在 MySQL 关系型数据库中。如果想访问该数据库，首先要{{1}}它。Ensembl 在后台使用标准的 Perl DBI 模块完成这一连接。不过，如果您的计算机位于防火墙之后，需要允许向相应端口的出站连接。开始之前您需要了解两件事："
+    },
+    {
+      "pat": "We've made a connection to an Ensembl Registry and passed parameters using the {{1}} syntax present in many of the Ensembl object constructors. Formatted correctly, this syntax lets you see exactly what arguments and values you are passing.",
+      "zh": "我们已经连接到一个 Ensembl 注册表，并使用 Ensembl 许多对象构造函数中都有的{{1}}语法传递参数。正确排版后，这种语法能让您清楚看到传入的参数和值。"
+    },
+    {
+      "pat": "Object adaptors are obtained from the Registry via a method named {{1}}. This is followed by the species, API and adaptor you're looking for, like:",
+      "zh": "对象适配器通过名为{{1}}的方法从注册表获取。其后面依次是您要找的物种、API 和适配器，例如："
+    },
+    {
+      "pat": "For example, to obtain a Slice adaptor or a Variation adaptor (which retrieve Slice and Variation objects respectively) for Human, do the following after having loaded the Registry, here called {{1}}, as above:",
+      "zh": "例如，要为人类获取 Slice 适配器或 Variation 适配器（分别用于获取 Slice 与 Variation 对象），请在加载注册表（此处称为{{1}}）之后按上面的方式执行以下操作："
+    },
+    {
+      "pat": "You can find the exact phrases needed to specify that adaptor in the documentation page for that adaptor. For example, {{1}} gives the code to get a gene adaptor.",
+      "zh": "您可以在该适配器的文档页中找到指定它所需的确切写法。例如，{{1}}给出了获取基因适配器的代码。"
+    },
+    {
+      "pat": "Most Objects in the API are hashes, consisting of a number of key-value pairs. You can then call a number of methods on the Objects which fetch the values. Some of these will return other Objects, some will return arrays (lists) of other Objects and some will return strings. The documentation for each Object type (for example, the {{1}}) lists the methods available, including how to call the method, any optional parameters and what type of thing will be returned.",
+      "zh": "API 中的大多数对象都是哈希，由若干键值对组成。随后您可以对对象调用若干方法来获取这些值。其中一些方法会返回其他对象，一些会返回其他对象的数组（列表），一些会返回字符串。每种对象类型的文档（例如{{1}}）会列出可用的方法，包括如何调用方法、有哪些可选参数以及将返回什么类型的内容。"
+    },
+    {
+      "pat": "For some non-vertebrates, it can be easier to get Adaptors using the {{1}}. This is part of {{2}}, which will need to installed alongside the rest of the API.",
+      "zh": "对某些非脊椎动物，使用{{1}}获取适配器可能更方便。它属于{{2}}，需要与 API 的其余部分一起安装。"
+    },
+    {
+      "pat": "Some of the data that makes up the objects returned from the Ensembl API is {{1}}. By using lazy loading, we are able to minimise the number of database queries and only \"fill in\" the data in the object that the program actually asked for. This makes the code faster and its memory footprint smaller, but it also means that the more data that the program requests from an object the larger it becomes. The consequence of this is that looping over a large number of these objects in some cases might grow the memory footprint of the program considerably. It also has the consequence that some objects do not load enough information and the lazy-loading can be counter productive.",
+      "zh": "从 Ensembl API 返回的对象中，有些数据是{{1}}的。通过惰性加载，我们可以尽量减少数据库查询次数，只“填入”程序真正请求的对象数据。这使代码更快、内存占用更小，但也意味着程序从对象请求的数据越多，对象就越大。其后果是，在某些情况下循环遍历大量此类对象会显著增加程序的内存占用。另一个后果是，有些对象没有加载足够的信息，惰性加载反而可能适得其反。"
+    },
+    {
+      "pat": "By using a {{1}}-{{2}} loop rather than a {{3}} loop, the growth of the memory footprint due to lazy loading of data is more likely to stay small. This is why the comment on the last loop above says that it is a \"more memory efficient way\", and this is also why we use this convention for most similar loop constructs in the remainder of this API tutorial.",
+      "zh": "使用{{1}}-{{2}}循环而不是{{3}}循环，因惰性加载数据而导致的内存占用增长更有可能保持较小。这就是为什么上面最后一个循环的注释说它是“更省内存的方式”，也是为什么在本 API 教程余下部分中，大多数类似的循环结构都采用这种写法。"
+    },
+    {
+      "pat": "BioMart code will branch less frequently than Ensembl, and the release number bears no relation to that of Ensembl.{{1}} Biomart data release cycle instead follows Ensembl's and the release number agrees with the latter one.",
+      "zh": "BioMart 代码的分支频率低于 Ensembl，其发布号与 Ensembl 的发布号并无关联。{{1}}BioMart 数据的发布周期反而跟随 Ensembl，发布号也与后者一致。"
+    },
+    {
+      "pat": "The non-redundant set of Ensembl gene, transcript and protein models annotated by the automated genome analysis and {{1}}.",
+      "zh": "由自动化基因组分析和{{1}}注释得到的 Ensembl 基因、转录本与蛋白质模型的非冗余集合。"
+    },
+    {
+      "pat": "Ensembl is an open project and we would like to encourage correspondence and discussions on any subject on any aspect of Ensembl. Please see the {{1}} page for suitable options getting in touch with us.",
+      "zh": "Ensembl 是一个开放项目，我们希望就 Ensembl 的任何方面、任何话题与大家通信和讨论。联系我们请见{{1}}页面所列的方式。"
+    },
+    {
+      "pat": "{{1}}: A complete reference to the objects and methods used in the Core and EST database API.",
+      "zh": "{{1}}：Core 与 EST 数据库 API 中所用对象与方法的完整参考。"
+    },
+    {
+      "pat": "{{1}}: An introduction to the underlying concepts of the Core and EST database API.",
+      "zh": "{{1}}：Core 与 EST 数据库 API 基本概念介绍。"
+    },
+    {
+      "pat": "{{1}}: A diagram showing the key objects and relationships in the Core API.",
+      "zh": "{{1}}：展示 Core API 中关键对象及其关系的示意图。"
+    },
+    {
+      "pat": "{{1}}: A step-by-step installation guide for all Ensembl Perl APIs.",
+      "zh": "{{1}}：所有 Ensembl Perl API 的分步安装指南。"
+    },
+    {
+      "pat": "You can quickly and easily attach any {{1}} to Region in Detail using the following URL pattern:",
+      "zh": "您可以按照下面的 URL 模式，轻松把任何{{1}}附加到 Region in Detail 视图："
+    },
+    {
+      "pat": "For attaching data to other images or pages, see the {{1}} below.",
+      "zh": "如需把数据附加到其他图像或页面，请参阅下面的{{1}}。"
+    },
+    {
+      "pat": "Note however that you do have to use Ensembl stable IDs; you cannot substitute a gene symbol such as FOXP2, as that is found in many species. To link on a gene symbol, see the {{1}} section, below.",
+      "zh": "但请注意，您必须使用 Ensembl 稳定 ID；不能用 FOXP2 这样的基因符号代替，因为该符号在许多物种中都存在。如需按基因符号建立链接，请参阅下文的{{1}}一节。"
+    },
+    {
+      "pat": "Many of the customisation options available to users of the website in the {{1}} can be manipulated using specially constructed URLs. This allows configuration settings to be shared with colleagues, for example to highlight a particular data track. This includes:",
+      "zh": "网站用户在{{1}}中可用的许多定制选项，都可以通过专门构造的 URL 来操控。这样就能与同事共享配置设置，例如高亮某个特定的数据轨道。包括："
+    },
+    {
+      "pat": "Global page settings are changed using the {{1}} key. For example, to turn off the top image on Location > Region in detail:",
+      "zh": "全局页面设置通过 {{1}} 键修改。例如，要关闭 Location > Region in detail 顶部的图像："
+    },
+    {
+      "pat": "Appending this to the URL for the {{1}} page, the final URL is:",
+      "zh": "把它附加到{{1}}页面的 URL 后，最终 URL 为："
+    },
+    {
+      "pat": "To link directly to the {{1}} panel (Transcript > Exons), to show full introns, only 60bp flanking sequence AND turn the display to be 60bp wide:",
+      "zh": "要直接链接到{{1}}面板（Transcript > Exons），显示完整内含子、仅保留 60bp 侧翼序列，并把显示宽度设为 60bp："
+    },
+    {
+      "pat": "{{1}} You {{2}} encode any = & or ; characters in your URL for the attachment to work correctly.",
+      "zh": "{{1}}为了让附加正常工作，您{{2}}对 URL 中的 =、&、; 字符进行编码。"
+    },
+    {
+      "pat": "{{1}} If attaching a bedGraph file, please add the parameter 'format=bedGraph' to the URL, e.g.",
+      "zh": "{{1}}：如果要附加 bedGraph 文件，请在 URL 中加上参数 \"format=bedGraph\"，例如："
+    },
+    {
+      "pat": "To collapse the Ensembl genes track down to a single line per gene AND turn off the top panel in {{1}}:",
+      "zh": "要把 Ensembl 基因轨道折叠成每个基因一行，并在{{1}}中关闭顶部面板："
+    },
+    {
+      "pat": "Most of the web code generated by the Ensembl web team lives in the EnsEMBL::Web namespace. You will not normally want to edit this code, but you can extend it by replicating the namespace in your own plugin and adding or overriding methods as required. See {{1}} for more details.",
+      "zh": "Ensembl 网页团队生成的大部分网页代码位于 EnsEMBL::Web 命名空间。通常您不需要修改这些代码，但可以在自己的插件中复制该命名空间，并按需添加或覆盖方法以扩展它。更多细节见{{1}}。"
+    },
+    {
+      "pat": "Usually just a single \"directory\", e.g. 'Homo_sapiens', although on some Ensembl-powered sites such as {{1}}, a multi-directory structure may be used to group closely related species or strains. Other possible values are 'Multi' (for pages that allow access to multiple species' data, e.g. BLAST) or undef (empty) if the page is not connected to any species (e.g. user account management).",
+      "zh": "通常只是一个“目录”，例如 'Homo_sapiens'；但在某些由 Ensembl 驱动的站点（如{{1}}）上，可能使用多目录结构来归组亲缘关系较近的物种或品系。其他可能的值是 'Multi'（用于可访问多个物种数据的页面，如 BLAST）或 undef（空），如果页面不与任何物种关联（例如用户账户管理）。"
+    },
+    {
+      "pat": "This script definition takes place in the {{1}} hash in conf/SiteDefs.pm (which can be extended in your plugin if you want to add data Types to Ensembl):",
+      "zh": "这一脚本定义在 conf/SiteDefs.pm 的{{1}}哈希中完成（如果要在自己的插件中给 Ensembl 添加数据类型，可以扩展它）："
+    },
+    {
+      "pat": "See {{1}} (below) for instructions on how to configure plugins in Ensembl.",
+      "zh": "关于如何在 Ensembl 中配置插件，见{{1}}（下文）。"
+    },
+    {
+      "pat": "The module {{1}} controls which plugins are used by an instance of Ensembl and their order of precedence. In a standard Ensembl mirror, the module will define a plugin array as follows:",
+      "zh": "{{1}}模块控制一个 Ensembl 实例使用哪些插件以及它们的优先级顺序。在标准的 Ensembl 镜像中，该模块会定义一个插件数组，如下所示："
+    },
+    {
+      "pat": "You may find it useful to do something similar with an Ensembl mirror, so that your users know they are looking at a local copy and not the actual Ensembl site. {{1}}...",
+      "zh": "您可能希望对 Ensembl 镜像做类似的定制，让用户知道自己看的是本地副本而不是真正的 Ensembl 站点。{{1}}……"
+    },
+    {
+      "pat": "You don't need to install every Ensembl species in order to have a working website, but conversely you can add your own species if you have created the necessary databases using our pipelines. {{1}}.",
+      "zh": "您不必安装 Ensembl 的每个物种就能拥有可用的网站；反过来，如果您已用我们的流程创建了必要的数据库，也可以加入自己的物种。{{1}}。"
+    },
+    {
+      "pat": "You can also run Ensembl without any variation, comparative genomics or regulation data (though you must install all the APIs, as there are code dependencies). Learn how to {{1}}.",
+      "zh": "您也可以在没有变异、比较基因组学或调控数据的情况下运行 Ensembl（但必须安装所有 API，因为代码之间存在依赖）。了解如何{{1}}。"
+    },
+    {
+      "pat": "You may wish to include information about your own project on your Ensembl website. All the navigation for the static pages within the /info directory is automatically generated, so all you need to do is write the pages and put them in your plugin. {{1}}.",
+      "zh": "您可能想在 Ensembl 网站上加入自己项目的信息。/info 目录下静态页面的所有导航都是自动生成的，因此您只需写好页面并放进自己的插件。{{1}}。"
+    },
+    {
+      "pat": "If you intend to use the compara API, you need to use the species' production name. This is normally the binomial name lowercased with spaces replaced by underscores e.g. {{1}} should be {{2}}. Check your database's meta table for the meta key {{3}}",
+      "zh": "如果要使用 compara API，需要使用物种的生产名称。通常是把双名法的名称转为小写并用下划线替换空格，例如{{1}}应写作{{2}}。请查看数据库的 meta 表中键为{{3}}的记录。"
+    },
+    {
+      "pat": "As of release 113, it is no longer recommended to access funcgen data via the Perl API or the funcgen DB. See {{1}} for alternative options.",
+      "zh": "从版本 113 起，不再建议通过 Perl API 或 funcgen 数据库访问 funcgen 数据。替代方案见{{1}}。"
+    },
+    {
+      "pat": "If the Funcgen Perl API or database is important to your research, please let us know about your use case by emailing {{1}}.",
+      "zh": "如果 Funcgen Perl API 或数据库对您的研究很重要，请发邮件至{{1}}告知您的使用场景。"
+    },
+    {
+      "pat": "{{1}}: A complete reference to the objects and methods used in the Funcgen database API, through the Doxygen tool.",
+      "zh": "{{1}}：通过 Doxygen 工具提供的 Funcgen 数据库 API 中对象与方法的完整参考。"
+    },
+    {
+      "pat": "{{1}}: An introduction to the underlying concepts of the Funcgen database API.",
+      "zh": "{{1}}：Funcgen 数据库 API 基本概念介绍。"
+    },
+    {
+      "pat": "{{1}}: page describing every column of every table of the Ensembl Funcgen database schema.",
+      "zh": "{{1}}：逐列说明 Ensembl Funcgen 数据库模式中每张表的每个字段。"
+    },
+    {
+      "pat": "{{1}}: A step-by-step installation guide for all Perl Ensembl APIs.",
+      "zh": "{{1}}：所有 Perl Ensembl API 的分步安装指南。"
+    },
+    {
+      "pat": "The Ensembl regulation database and API are developed and maintained by the Ensembl Regulation team. The main focus of the 'funcgen' database is on experimental data which may elucidate transcriptional regulation. The schema was originally designed to support ChIP on Chip tiling array experiments but soon expanded to support other sequencing-based technologies. The original requirements supported use as a local data storage and analysis platform, as such the regulation data bases supports multiple coordinate systems. There is also support for micro array designs and externally curated data sets. See {{1}} for a summary of the data base content.",
+      "zh": "Ensembl 调控数据库与 API 由 Ensembl Regulation 团队开发维护。'funcgen' 数据库的主要关注点是可阐明转录调控的实验数据。该模式最初是为支持 ChIP on Chip 芯片实验而设计，但很快扩展到支持其他基于测序的技术。最初的需求是把它用作本地数据存储与分析平台，因此调控数据库支持多种坐标系。此外还支持微阵列设计和外部整理的数据集。数据库内容概览见{{1}}。"
+    },
+    {
+      "pat": "{{1}}: A complete reference to the objects and methods used in the Variation database API, through the Doxygen tool.",
+      "zh": "{{1}}：通过 Doxygen 工具提供的 Variation 数据库 API 中对象与方法的完整参考。"
+    },
+    {
+      "pat": "{{1}}: A complete reference to the objects and methods used in the Compara database API.",
+      "zh": "{{1}}：Compara 数据库 API 中所用对象与方法的完整参考。"
+    },
+    {
+      "pat": "{{1}} (SNPs, insertions, deletions, CNVs or structural variants) on gene transcripts and protein sequence, as well as regulatory regions. It reports reference data including gene and variant phenotype associations and population allele frequencies to facilitate variant prioritisation and interpretation.",
+      "zh": "{{1}}（SNP、插入、缺失、CNV 或结构变异）对基因转录本与蛋白质序列以及调控区域的影响。它会报告参考数据，包括基因与变异的表型关联和群体等位基因频率，以便对变异进行优先级排序和解读。"
+    },
+    {
+      "pat": "Translate a {{1}} or {{2}} to all possible variant IDs and HGVS",
+      "zh": "把{{1}}或{{2}}转换为所有可能的变异 ID 与 HGVS"
+    },
+    {
+      "pat": "Computes observed transcript {{1}} sequences based on {{2}} data",
+      "zh": "计算观察到的转录本{{1}}序列（基于{{2}}数据）"
+    }
+  ]
+}

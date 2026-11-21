@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "family": "ucsc-tpl",
+    "version": "1.0.0",
+    "sites": [
+      "genome.ucsc.edu"
+    ],
+    "note": "UCSC 页面被 <a>/<span>/<b> 切碎的句子走 templates；hgTables 帮助条目、轨道说明页固定句走 exact。"
+  },
+  "exact": {
+    "JavaScript is disabled in your web browser": "您的浏览器已禁用 JavaScript",
+    "You must have JavaScript enabled in your web browser to use the Genome Browser": "必须启用浏览器的 JavaScript 才能使用基因组浏览器",
+    "Display mode:": "显示模式：",
+    "Duplicate track": "复制轨道",
+    "Filter items by:": "筛选条目依据：",
+    "Variation Type": "变异类型",
+    "Alelle Origin": "等位基因来源",
+    "Molecular Consequence": "分子后果",
+    "Show Label:": "显示标签：",
+    "Display data as a density graph:": "以密度图显示数据：",
+    "Type of graph:": "图形类型：",
+    "Graph configuration help": "图形配置帮助",
+    "Track height:": "轨道高度：",
+    "Data view scaling:": "数据视图缩放：",
+    "Use vertical viewing range setting": "使用垂直查看范围设置",
+    "Auto-scale to data view": "自动缩放到数据视图",
+    "Group auto-scale": "分组自动缩放",
+    "Always include zero:": "始终包含零：",
+    "Vertical viewing range:": "垂直查看范围：",
+    "Transform function:": "变换函数：",
+    "Windowing function:": "窗口函数：",
+    "Smoothing window:": "平滑窗口：",
+    "Negate values:": "取负值：",
+    "Draw y indicator lines:": "绘制 y 指示线：",
+    "Override track color:": "覆盖轨道颜色：",
+    "Data schema/format description and download": "数据模式/格式说明与下载",
+    "Decoration settings": "装饰设置",
+    "decorator documentation page": "装饰器文档页面",
+    "add .csv extension if opening in Excel,": "若用 Excel 打开请添加 .csv 扩展名，",
+    "leave blank to keep output in browser)": "留空则输出保留在浏览器中）",
+    "Show only items with score at or above:": "仅显示评分达到或高于以下值的条目：",
+    "Show only transcripts with these accessions:": "仅显示这些 accession 的转录本：",
+    "Display Conventions and Configuration": "显示约定与配置",
+    "Hide non-coding genes:": "隐藏非编码基因：",
+    "Color track by codons:": "按密码子给轨道着色：",
+    "Help on codon coloring": "密码子着色帮助",
+    "Show codon numbering": "显示密码子编号",
+    "genomic codons": "基因组密码子",
+    "Codon coloring:": "密码子着色：",
+    "UCSC annotations of RefSeq RNAs (NM_* and NR_*)": "RefSeq RNA 的 UCSC 注释（NM_* 与 NR_*）",
+    "UCSC RefSeq Configuration": "UCSC RefSeq 配置",
+    "Number of transcripts shown at full height (ranked by": "以完整高度显示的转录本数量（按以下排序：",
+    "We would like to thank all the labs that have contributed to this resource:": "感谢为本资源做出贡献的所有实验室：",
+    "The RefSeq Genes track shows known human protein-coding and non-protein-coding genes taken from the NCBI RNA reference sequences collection (RefSeq). The data underlying this track are updated weekly.": "RefSeq Genes 轨道显示取自 NCBI RNA 参考序列集合（RefSeq）的人类已知蛋白质编码与非蛋白质编码基因。该轨道所依据的数据每周更新。",
+    "The item labels and display colors of features within this track can be configured through the controls at the top of the track description page.": "本轨道内条目的标签与显示颜色可通过轨道说明页顶部的控件配置。",
+    "RefSeq RNAs were aligned against the human genome using BLAT. Those with an alignment of less than 15% were discarded. When a single RNA aligned in multiple places, the alignment having the highest base identity was identified. Only alignments having a base identity level within 0.1% of the best and at least 95% base identity with the genomic sequence were kept.": "RefSeq RNA 已用 BLAT 比对到人类基因组。比对率低于 15% 的被丢弃。当一条 RNA 比对到多个位置时，取碱基一致性最高的比对。只有与最佳结果相差在 0.1% 以内、且与基因组序列碱基一致性至少 95% 的比对被保留。",
+    "BAC clone placements in the human sequence are determined at UCSC using a combination of full BAC clone sequence, BAC end sequence, and STS marker information.": "人类序列中的 BAC 克隆定位由 UCSC 结合完整 BAC 克隆序列、BAC 末端序列与 STS 标记信息确定。",
+    "For some of our older assemblies, greater than 10 years old, the tracks were created as detailed below and in Furey and Haussler, 2003.": "对于部分超过 10 年的较早组装体，轨道按下文及 Furey 与 Haussler（2003）所述方式制作。",
+    "Feedback for Gene and Reference Sequences (RefSeq)": "基因与参考序列（RefSeq）反馈",
+    "Genes FAQ": "基因常见问题",
+    "gene prediction tracks": "基因预测轨道",
+    "Color track by codons": "按密码子给轨道着色",
+    "Coloring Gene Predictions and Annotations by Codon": "按密码子为基因预测与注释着色",
+    "RefSeq project": "RefSeq 项目",
+    "GENCODE project": "GENCODE 项目",
+    "GENCODE site": "GENCODE 网站",
+    "GENCODE transcript ranking": "GENCODE 转录本排名",
+    "Coloring": "着色",
+    "downloaded from NCBI": "从 NCBI 下载",
+    "assembly creation documentation": "组装体创建文档",
+    "Human BAC Resource": "人类 BAC 资源",
+    "track": "轨道",
+    "group": "分组",
+    "30 conference posters": "30 张会议海报",
+    "variant interpretation": "变异解读",
+    "track hub storage": "轨道 Hub 存储",
+    "pangenome data": "泛基因组数据",
+    "transposable elements": "转座元件",
+    "GTEx Portal Tissue Summary": "GTEx Portal 组织汇总",
+    "our downloads server": "我们的下载服务器",
+    "the JSON API": "JSON API",
+    "NIH Genotype-Tissue Expression (GTEx) project": "NIH 基因型-组织表达（GTEx）项目",
+    "Multiz Alignments of 100 Vertebrates": "100 种脊椎动物的 Multiz 比对",
+    "100 vertebrates Basewise Conservation by PhyloP": "100 种脊椎动物的逐碱基保守性（PhyloP）",
+    "Repeating Elements by RepeatMasker": "RepeatMasker 重复元件",
+    "OMIM Allelic Variant Phenotypes": "OMIM 等位变异表型",
+    "OMIM Gene Phenotypes - Dark Green Can Be Disease-causing": "OMIM 基因表型 - 深绿色可能为致病",
+    "MANE Select Plus Clinical: Representative transcript from RefSeq & GENCODE": "MANE Select Plus Clinical：来自 RefSeq 与 GENCODE 的代表性转录本",
+    "Base Position Controls": "碱基位置控件",
+    "ENCODE4 Registry of candidate Cis-Regulatory Elements (cCREs)": "ENCODE4 候选顺式调控元件（cCRE）登记表"
+  },
+  "rules": [
+    {
+      "re": "^This track is part of the track container \"(.+)\"\\.$",
+      "to": "本轨道属于轨道容器“$1”。"
+    },
+    {
+      "re": "^to display the \"(.+)\" container configuration page\\.$",
+      "to": "以显示“$1”容器的配置页面。"
+    },
+    {
+      "re": "^(.+) Track Settings$",
+      "to": "$1 轨道设置"
+    },
+    {
+      "re": "^pixels \\(range: (\\d+) to (\\d+)\\)$",
+      "to": "像素（范围：$1 至 $2）"
+    },
+    {
+      "re": "^NCBI RefSeq genes, curated subset \\((.+)\\) - Annotation Release (.+)$",
+      "to": "NCBI RefSeq 基因，精选子集（$1）- 注释版本 $2"
+    },
+    {
+      "re": "^Common \\((.+)\\) Short Genetic Variants from dbSNP Release (.+)$",
+      "to": "常见（$1）短遗传变异，来自 dbSNP Release $2"
+    },
+    {
+      "re": "^Gene Expression in (.+) tissues from GTEx RNA-seq of (.+) samples, (.+) donors \\((.+)\\)$",
+      "to": "GTEx RNA-seq 基因表达：$1 种组织、$2 份样本、$3 名供体（$4）"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "{{1}}Selects the type of tracks to be displayed in the {{2}} list. The options correspond to the track groupings shown in the Genome Browser. Select 'All Tracks' for an alphabetical list of all available tracks in all groups. Select 'All Tables' to see all tables including those not associated with a track.",
+      "zh": "{{1}}选择要在{{2}}列表中显示的轨道类型。选项对应基因组浏览器中显示的轨道分组。选择“All Tracks”可按字母顺序列出所有分组中的全部可用轨道；选择“All Tables”可列出所有表，包括未与轨道关联的表。"
+    },
+    {
+      "pat": "{{1}} (with \"All Tables\" group option) Determines which database should be used for options in table menu.",
+      "zh": "{{1}}（配合“All Tables”分组选项）决定表菜单中的选项应使用哪个数据库。"
+    },
+    {
+      "pat": "{{1}}Selects the annotation track data to work with. This list displays all tracks belonging to the group specified in the {{2}} list. Some tracks are not available when the region is set to {{3}} due to the data provider's restrictions on sharing.",
+      "zh": "{{1}}选择要处理的注释轨道数据。此列表显示属于{{2}}列表中所指定分组的全部轨道。当区域设为{{3}}时，部分轨道因数据提供方的共享限制而不可用。"
+    },
+    {
+      "pat": "{{1}}Selects the SQL table data to use. This list shows all tables associated with the track specified in the {{2}} list. Some tables may be unavailable due to the data provider's restrictions on sharing.",
+      "zh": "{{1}}选择要使用的 SQL 表数据。此列表显示与{{2}}列表中所指定轨道关联的全部表。部分表可能因数据提供方对共享的限制而不可用。"
+    },
+    {
+      "pat": "{{1}}Restricts the query to a particular chromosome or region. Select {{2}} to apply the query to the entire genome (not available for certain tracks with restrictions on data sharing). In some Human assemblies, you may select {{3}} to examine only the ENCODE Pilot regions. To limit the query to a specific position, type a chromosome name, e.g. {{4}}, or a chromosome coordinate range, such as chrX:100000-200000, or a gene name or other id in the text box. You can select multiple genomic regions by clicking the \"define regions\" button and entering up to 1,000 regions in a 3- or 4-field {{5}} file format.",
+      "zh": "{{1}}把查询限定到特定的染色体或区域。选择{{2}}可把查询应用到整个基因组（对某些有数据共享限制的轨道不可用）。在部分人类组装体中，可选择{{3}}以仅检查 Pilot 区域。要把查询限定到特定位置，可在文本框中输入染色体名（如{{4}}）、染色体坐标范围（如 chrX:100000-200000）或基因名/其他标识符。点击“define regions”按钮并输入最多 1,000 个区域（3 列或 4 列的{{5}}文件格式）可选中多个基因组区域。"
+    },
+    {
+      "pat": "{{1}} Press this button after typing in a gene name or other id in the position text box to look up the chromosome position",
+      "zh": "{{1}}在位置文本框中输入基因名或其他标识符后，按此按钮查询染色体位置"
+    },
+    {
+      "pat": "{{1}} (selected tracks only){{2}}Restricts the output to table data that match a list of identifiers, for instance RefSeq accessions for the RefSeq track. If no identifiers are entered, all table data within the specified region will be displayed.",
+      "zh": "{{1}}（仅限所选轨道）{{2}}把输出限定为与标识符列表匹配的表数据，例如 RefSeq 轨道的 RefSeq accession。若未输入标识符，则输出指定区域内的全部表数据。"
+    },
+    {
+      "pat": "{{1}}Restricts the query to only those items that match certain criteria, e.g. genes with a single exon. Click the {{2}} button to add a filter, the {{3}} button to modify an existing filter, or the {{4}} button to remove an existing filter.",
+      "zh": "{{1}}把查询限定为仅匹配特定条件的条目，例如仅含单个外显子的基因。点击{{2}}按钮可添加筛选器，点击{{3}}按钮可修改现有筛选器，点击{{4}}按钮可删除现有筛选器。"
+    },
+    {
+      "pat": "{{1}} (selected tracks only){{2}}Combines the output of two queries into a single set of data based on specific join criteria. For example, this can be used to find all SNPs that intersect with RefSeq coding regions. The intersection can be configured to retain the existing alignment structure of the table with a specified amount of overlap, or discard the structure in favor of a simple list of position ranges using a base-pair intersection or union of the two data sets. The button functionalities are similar to those of the {{3}} option.",
+      "zh": "{{1}}（仅限所选轨道）{{2}}按特定连接条件把两个查询的输出合并为一个数据集。例如，可用它找出与 RefSeq 编码区相交的全部 SNP。交集可配置为在保留表原有比对结构的前提下指定重叠量，或改用碱基对交集/并集以简单的位置区间列表取代该结构。各按钮的功能与{{3}}选项相似。"
+    },
+    {
+      "pat": "{{1}} - data from the selected table displayed in a tab-separated format suitable for import into spreadsheets and relational databases. The ASCII format may be read in any web browser or text editor.",
+      "zh": "{{1}} - 以制表符分隔格式显示所选表的数据，适合导入电子表格和关系数据库。ASCII 格式可在任意网页浏览器或文本编辑器中查看。"
+    },
+    {
+      "pat": "{{1}} - user-selected set of tab-separated fields from the selected table and (optionally) other related tables as well.",
+      "zh": "{{1}} - 从所选表（以及可选的其他相关表）中由用户选定的一组制表符分隔字段。"
+    },
+    {
+      "pat": "{{1}} - DNA (or protein sequence, in some cases) associated with the table.",
+      "zh": "{{1}} - 与该表关联的 DNA（某些情况下为蛋白质）序列。"
+    },
+    {
+      "pat": "{{1}} - positions of data items in a standard UCSC Browser format with the {{2}} column containing exon information separated by underscores.",
+      "zh": "{{1}} - 按标准 UCSC 浏览器格式给出的数据项位置，其中{{2}}列包含以下划线分隔的外显子信息。"
+    },
+    {
+      "pat": "{{1}} - customized Genome Browser annotation track based on the results of the query.",
+      "zh": "{{1}} - 基于查询结果生成的自定义基因组浏览器注释轨道。"
+    },
+    {
+      "pat": "{{1}} - returns a page full of hyperlinks to the UCSC Genome Browser, one for each item in the table.",
+      "zh": "{{1}} - 返回一个满是超链接的页面，每个链接对应表中的一项，指向 UCSC 基因组浏览器。"
+    },
+    {
+      "pat": "{{1}} - the data points that make up a graph (aka wiggle) track.",
+      "zh": "{{1}} - 构成图形（即 wiggle）轨道的数据点。"
+    },
+    {
+      "pat": "{{1}} displays results of query in {{2}}, a framework for interactive genome analysis.",
+      "zh": "{{1}}把查询结果显示在{{2}}（一个交互式基因组分析框架）中。"
+    },
+    {
+      "pat": "{{1}} displays the functional enrichments of the query results in {{2}}, a tool for analysis of the biological function of cis-regulatory regions.",
+      "zh": "{{1}}把查询结果的功能富集结果显示在{{2}}（用于分析顺式调控区生物学功能的工具）中。"
+    },
+    {
+      "pat": "{{1}} - data is in ASCII format",
+      "zh": "{{1}} - 数据为 ASCII 格式"
+    },
+    {
+      "pat": "{{1}} - data is compressed in gzip format",
+      "zh": "{{1}} - 数据以 gzip 格式压缩"
+    },
+    {
+      "pat": "{{1}} - positions of all data items in a {{2}} (both BED and GTF formats can be used as the basis for custom tracks).",
+      "zh": "{{1}} - 以{{2}}给出全部数据项的位置（BED 与 GTF 格式均可作为自定义轨道的基础）。"
+    },
+    {
+      "pat": "{{1}} - FASTA alignments of the CDS regions of a gene prediction track using any of the multiple alignment tracks for the current database. Output sequence can be in either nucleotide-space or translated to protein-space. Available only for genePred tracks.",
+      "zh": "{{1}} - 使用当前数据库的任一条多比对轨道，为基因预测轨道的 CDS 区域生成 FASTA 比对。输出序列可为核苷酸空间或翻译为蛋白质空间。仅适用于 genePred 轨道。"
+    },
+    {
+      "pat": "{{1}} - multiple alignments in MAF format",
+      "zh": "{{1}} - MAF 格式的多重比对"
+    },
+    {
+      "pat": "{{1}} By default, items are labeled by gene name. Click the appropriate Label option to display the accession name instead of the gene name, show both the gene and accession names, or turn off the label completely.",
+      "zh": "{{1}}默认按基因名标注条目。点击相应的 Label 选项可改为显示 accession 名、同时显示基因名与 accession 名，或完全关闭标签。"
+    },
+    {
+      "pat": "{{1}} This track contains an optional codon coloring feature that allows users to quickly validate and compare gene predictions. To display codon colors, select the {{2}} option from the {{3}} pull-down menu. For more information about this feature, go to the {{4}} page.",
+      "zh": "{{1}}本轨道包含可选的密码子着色功能，便于用户快速验证和比较基因预测。要显示密码子颜色，请从{{3}}下拉菜单中选择{{2}}选项。有关此功能的更多信息，请访问{{4}}页面。"
+    },
+    {
+      "pat": "Please visit the {{1}} page to make suggestions, submit additions and corrections, or ask for help concerning RefSeq records.",
+      "zh": "请访问{{1}}页面，就 RefSeq 记录提出建议、提交补充与更正或寻求帮助。"
+    },
+    {
+      "pat": "For more information on the different gene tracks, see our {{1}}.",
+      "zh": "有关不同基因轨道的更多信息，请参阅我们的{{1}}。"
+    },
+    {
+      "pat": "This track follows the display conventions for {{1}}. The color shading indicates the level of review the RefSeq record has undergone: predicted (light), provisional (medium), reviewed (dark).",
+      "zh": "本轨道遵循{{1}}的显示约定。颜色深浅表示 RefSeq 记录所经过的审核级别：预测（浅）、暂定（中）、已审核（深）。"
+    },
+    {
+      "pat": "{{1}} By default, both the protein-coding and non-protein-coding genes are displayed. If you wish to see only the coding genes, click this box.",
+      "zh": "{{1}}默认同时显示蛋白质编码基因与非蛋白质编码基因。若只想查看编码基因，请勾选此框。"
+    },
+    {
+      "pat": "This track was produced at UCSC from RNA sequence data generated by scientists worldwide and curated by the NCBI {{1}}.",
+      "zh": "本轨道由 UCSC 利用全球科学家产生的 RNA 序列数据制作，并由 NCBI {{1}}整理。"
+    },
+    {
+      "pat": "{{1}} - Rapidly align sequences to the genome",
+      "zh": "{{1}} - 把序列快速比对到基因组"
+    },
+    {
+      "pat": "{{1}} - Rapidly align PCR primer pairs to the genome",
+      "zh": "{{1}} - 把 PCR 引物对快速比对到基因组"
+    },
+    {
+      "pat": "{{1}} - Returns data requested in JSON format",
+      "zh": "{{1}} - 以 JSON 格式返回所请求的数据"
+    },
+    {
+      "pat": "{{1}} -- San Diego, CA. January 11, 2027",
+      "zh": "{{1}} -- 圣迭戈（加利福尼亚州），2027 年 1 月 11 日"
+    },
+    {
+      "pat": "{{1}} - A powerful tool for displaying your own or viewing other data annotations",
+      "zh": "{{1}} - 展示自有数据注释或查看其他数据注释的强大工具"
+    },
+    {
+      "pat": "Our {{1}} collects more than {{2}} we have presented since 2015, each a one page tour of a set of features. Topics include {{3}}, {{4}}, {{5}}, {{6}}, and {{7}}, and every one is free to download.",
+      "zh": "我们的{{1}}汇集了自 2015 年以来我们展示的{{2}}，每张都是对一组功能的一页式导览。主题包括{{3}}、{{4}}、{{5}}、{{6}}与{{7}}，全部可免费下载。"
+    },
+    {
+      "pat": "Feel free to {{1}} if you are interested in attending a workshop, or meeting someone from the team to collaborate, get help, or ask any questions at the meetings. See our {{2}}.",
+      "zh": "欢迎{{1}}——若您有兴趣参加工作坊，或在会议上与团队成员交流合作、寻求帮助或提出任何问题。请参阅我们的{{2}}。"
+    },
+    {
+      "pat": "The chromosome band track represents the approximate location of bands seen on Giemsa-stained chromosomes. Chromosomes are displayed in the browser with the short arm first. Cytologically identified bands on the chromosome are numbered outward from the centromere on the short (p) and long (q) arms. At low resolution, bands are classified using the nomenclature [{{1}}][{{2}}][{{3}}], where {{4}} is a single digit. Examples of bands on chromosome 3 include 3p2, 3p1, cen, 3q1, and 3q2. At a finer resolution, some of the bands are subdivided into sub-bands, adding a second digit to the {{5}} number, e.g. 3p26. This resolution produces about 500 bands. A final subdivision into a total of 862 sub-bands is made by adding a period and another digit to the {{6}}, resulting in 3p26.3, 3p26.2, etc.",
+      "zh": "染色体带轨道表示 Giemsa 染色染色体上所见的带的近似位置。浏览器中显示染色体时短臂在前。染色体上经细胞学鉴定的带从着丝粒向外、在短臂（p）和长臂（q）上依次编号。低分辨率下，带按 [{{1}}][{{2}}][{{3}}] 命名法分类，其中{{4}}为单个数字。3 号染色体上的带例如 3p2、3p1、cen、3q1 和 3q2。分辨率更细时，部分带再细分为亚带，在{{5}}编号后增加第二位数字，例如 3p26。此分辨率约产生 500 条带。最终再细分出共 862 条亚带，做法是在{{6}}后加一个句点和另一位数字，得到 3p26.3、3p26.2 等。"
+    },
+    {
+      "pat": "Chromosome band information was {{1}} using the ideogram.gz file for the respective assembly. These data were then transformed into our visualization format. See our {{2}} for the organism of interest to see the specific steps taken to transform these data. Band lengths are typically estimated based on FISH or other molecular markers interpreted via microscopy.",
+      "zh": "染色体带信息是用各组装体对应的 ideogram.gz 文件{{1}}获得的。这些数据随后被转换为我们自己的可视化格式。请参阅目标生物的{{2}}，了解转换这些数据的具体步骤。带长通常是根据 FISH 或其他经显微镜判读的分子标记估算的。"
+    },
+    {
+      "pat": "Barbara Trask, Vivian Cheung, Norma Nowak and others in the BAC Resource Consortium used fluorescent in-situ hybridization (FISH) to determine a cytogenetic location for large genomic clones on the chromosomes. The results from these experiments are the primary source of information used in estimating the chromosome band locations. For more information about the process, see the paper, Cheung, {{1}}, 2001. and the accompanying web site, {{2}}.",
+      "zh": "Barbara Trask、Vivian Cheung、Norma Nowak 以及 BAC 资源联盟的其他成员使用荧光原位杂交（FISH）确定大片段基因组克隆在染色体上的细胞遗传学位置。这些实验结果是估算染色体带位置所依据的主要信息来源。有关该过程的更多信息，请参阅论文 Cheung, {{1}}, 2001，以及配套网站{{2}}。"
+    },
+    {
+      "pat": "{{1}}: View previous versions of GENCODE Genes",
+      "zh": "{{1}}：查看 GENCODE Genes 的以往版本"
+    },
+    {
+      "pat": "This track also includes a variety of labels which identify the transcripts when visibility is set to \"full\" or \"pack\". Gene symbols (e.g. NIPA1) are displayed by default, but additional options include GENCODE Transcript ID (ENST00000561183.5), UCSC Known Gene ID (uc001yve.4), UniProt Display ID (Q7RTP0). Additional information about gene and transcript names can be found in our {{1}}.",
+      "zh": "本轨道还包含多种标签，用于在可见性设为“full”或“pack”时标识转录本。默认显示基因符号（如 NIPA1），其他可选项包括 GENCODE Transcript ID（ENST00000561183.5）、UCSC Known Gene ID（uc001yve.4）、UniProt Display ID（Q7RTP0）。有关基因与转录本名称的更多信息，可参阅我们的{{1}}。"
+    },
+    {
+      "pat": "Within a gene using the {{1}} display mode, transcripts below a specified rank will be condensed into a view similar to {{2}} mode. The {{3}} approach is preliminary and will change in future releases. The transcripts rankings are defined by the following criteria for protein-coding and non-coding genes:",
+      "zh": "在基因内部使用{{1}}显示模式时，排名低于指定值的转录本会被压缩为类似{{2}}模式的视图。{{3}}方法为初步方案，后续版本仍会调整。转录本排名依据以下针对蛋白质编码基因与非编码基因的标准确定："
+    },
+    {
+      "pat": "One can see a full list of the associated tables in the {{1}} by selecting GENCODE Genes from the {{2}} menu; this list is then available on the {{3}} menu.",
+      "zh": "可在{{1}}中查看关联表的完整列表：从{{2}}菜单中选择 GENCODE Genes，该列表随后会出现在{{3}}菜单中。"
+    },
+    {
+      "pat": "GENCODE Genes and its associated tables can be explored interactively using the {{1}}, the {{2}} or the {{3}}. The genePred format files for hg38 are available from our {{4}} or in our {{5}}. All the tables can also be queried directly from our public MySQL servers, with more information available on our {{6}} as well as on {{7}}.",
+      "zh": "可利用{{1}}、{{2}}或{{3}}交互式浏览 GENCODE Genes 及其关联表。hg38 的 genePred 格式文件可从我们的{{4}}获取，也可在我们的{{5}}中获得。所有表还可通过我们的公共 MySQL 服务器直接查询，更多信息见我们的{{6}}以及{{7}}。"
+    },
+    {
+      "pat": "{{1}}: Official gene symbols and names from the HGNC, with previous symbols and aliases",
+      "zh": "{{1}}：来自 HGNC 的官方基因符号与名称，含以往符号与别名"
+    },
+    {
+      "pat": "{{1}}: One representative transcript per gene, agreed between RefSeq and GENCODE",
+      "zh": "{{1}}：每个基因一个代表性转录本，由 RefSeq 与 GENCODE 共同认定"
+    },
+    {
+      "pat": "The GENCODE Genes track (version 50, June 2026) shows high-quality manual annotations merged with evidence-based automated annotations across the entire human genome generated by the {{1}}. By default, only the basic gene set is displayed, which is a subset of the comprehensive gene set. The basic set represents transcripts that GENCODE believes will be useful to the majority of users.",
+      "zh": "GENCODE Genes 轨道（版本 50，2026 年 6 月）显示了由{{1}}生成的、覆盖整个人类基因组的高质量人工注释与基于证据的自动注释的合并结果。默认只显示 basic 基因集，它是 comprehensive 基因集的子集。basic 集代表 GENCODE 认为对大多数用户有用的转录本。"
+    },
+    {
+      "pat": "The v50 release was derived from the GTF file that contains annotations only on the main chromosomes. Statistics for this build and information on how they were generated can be found on the {{1}}.",
+      "zh": "v50 版本源自仅包含主染色体注释的 GTF 文件。该构建的统计信息及生成方式见{{1}}。"
+    },
+    {
+      "pat": "This track, in general, follows the display conventions for {{1}}. The exons for putative non-coding genes and untranslated regions are represented by relatively thin blocks, while those for coding open reading frames are thicker.",
+      "zh": "本轨道总体上遵循{{1}}的显示约定。推定非编码基因及非翻译区的外显子以相对较细的块表示，而编码开放阅读框的外显子则较粗。"
+    },
+    {
+      "pat": "{{1}} for the gene annotations is mostly based on the annotation type:",
+      "zh": "基因注释的{{1}}主要取决于注释类型："
+    },
+    {
+      "pat": "{{1}}: MANE Select Plus Clinical transcripts. For non-MANE transcripts, the following conventions apply.",
+      "zh": "{{1}}：MANE Select Plus Clinical 转录本。非 MANE 转录本适用以下约定。"
+    },
+    {
+      "pat": "{{1}}: protein coding transcripts, including polymorphic pseudogenes",
+      "zh": "{{1}}：蛋白质编码转录本，包括多态性假基因"
+    },
+    {
+      "pat": "{{1}}: non-protein coding transcripts",
+      "zh": "{{1}}：非蛋白质编码转录本"
+    },
+    {
+      "pat": "{{1}}: pseudogene transcript annotations",
+      "zh": "{{1}}：假基因转录本注释"
+    },
+    {
+      "pat": "{{1}}: problem transcripts (Biotypes of retained_intron, TEC, or disrupted_domain)",
+      "zh": "{{1}}：问题转录本（保留内含子、TEC 或结构域破坏等 biotype）"
+    },
+    {
+      "pat": "This track contains an optional {{1}} that allows users to quickly validate and compare gene predictions. There is also an option to display the data as a {{2}}, which can be helpful for visualizing the distribution of items over a region.",
+      "zh": "本轨道包含可选的{{1}}，便于用户快速验证和比较基因预测。还可选择把数据以{{2}}显示，有助于观察条目在区域内的分布。"
+    },
+    {
+      "pat": "The GENCODE v50 track was built from the {{1}} file {{2}}. Data from other sources were correlated with the GENCODE data to build association tables.",
+      "zh": "GENCODE v50 轨道由{{1}}文件{{2}}构建。来自其他来源的数据与 GENCODE 数据关联，以构建关联表。"
+    },
+    {
+      "pat": "The GENCODE Genes transcripts are annotated in numerous tables, each of which is also available as a {{1}}.",
+      "zh": "GENCODE Genes 转录本注释在众多表中，每个表也以{{1}}形式提供。"
+    },
+    {
+      "pat": "A full list of GENCODE publications is available at {{1}}.",
+      "zh": "GENCODE 出版物的完整列表见{{1}}。"
+    },
+    {
+      "pat": "RNA-seq was performed by the GTEx Laboratory, Data Analysis and Coordinating Center (LDACC) at the Broad Institute. The Illumina TruSeq protocol was used to create an unstranded polyA+ library sequenced on the Illumina HiSeq 2000 platform to produce 76-bp paired end reads at a depth averaging 50M aligned reads per sample. Sequence reads were aligned to the hg19/GRCh37 human genome using Tophat v1.4.1 assisted by the GENCODE v19 transcriptome definition. Gene annotations were produced by taking the union of the GENCODE exons for each gene. Gene expression levels in RPKM were called via the RNA-SeQC tool, after filtering for unique mapping, proper pairing, and exon overlap. For further method details, see the {{1}} page.",
+      "zh": "RNA-seq 由 Broad Institute 的 GTEx Laboratory, Data Analysis and Coordinating Center（LDACC）完成。采用 Illumina TruSeq 方案构建非链特异性 polyA+ 文库，在 Illumina HiSeq 2000 平台上测序，产生 76 bp 双端读长，平均每个样本 50M 比对读长。序列读长用 Tophat v1.4.1 并借助 GENCODE v19 转录组定义比对到 hg19/GRCh37 人类基因组。基因注释通过合并每个基因的 GENCODE 外显子生成。在过滤唯一比对、正确配对与外显子重叠后，用 RNA-SeQC 工具计算以 RPKM 表示的基因表达水平。方法细节见{{1}}页面。"
+    },
+    {
+      "pat": "Additional summary plots of GTEx sample characteristics are available at the {{1}} page.",
+      "zh": "GTEx 样本特征的更多汇总图见{{1}}页面。"
+    },
+    {
+      "pat": "The raw data for the GTEx Gene expression track can be accessed interactively through the {{1}} or {{2}}. Metadata can be found in the connected tables below.",
+      "zh": "GTEx Gene 表达轨道的原始数据可通过{{1}}或{{2}}交互式获取。元数据见下方关联表。"
+    },
+    {
+      "pat": "For automated analysis and downloads, the track data files can be downloaded from {{1}} or {{2}}. Individual regions or the whole genome annotation can be accessed as text using our utility {{3}}. Instructions for downloading the utility can be found {{4}}. That utility can also be used to obtain features within a given range, e.g. {{5}}",
+      "zh": "如需自动化分析与下载，轨道数据文件可从{{1}}或{{2}}下载。单个区域或全基因组注释可用我们的{{3}}工具以文本形式获取。该工具的下载说明见{{4}}。该工具还可用于获取给定范围内的特征，例如{{5}}"
+    },
+    {
+      "pat": "{{1}}: The newer GTEx release, 54 tissues from 948 donors",
+      "zh": "{{1}}：较新的 GTEx 发布版，来自 948 名供体的 54 种组织"
+    },
+    {
+      "pat": "The {{1}} was created to establish a sample and data resource for studies on the relationship between genetic variation and gene expression in multiple human tissues. This track shows median gene expression levels in 51 tissues and 2 cell lines, based on RNA-seq data from the GTEx midpoint milestone data release (V6, October 2015). This release is based on data from 8555 tissue samples obtained from 570 adult post-mortem individuals.",
+      "zh": "{{1}}的建立是为了提供样本与数据资源，用于研究多种人体组织中遗传变异与基因表达的关系。本轨道显示基于 GTEx 中期里程碑数据发布版（V6，2015 年 10 月）RNA-seq 数据的 51 种组织和 2 个细胞系的中位基因表达水平。该发布版基于来自 570 名成年尸检个体的 8555 份组织样本。"
+    },
+    {
+      "pat": "The GTEx transcript model used to quantify expression level is displayed below the graph, colored to indicate the transcript class ({{1}}, {{2}}, {{3}}, {{4}}), following GENCODE conventions.",
+      "zh": "用于量化表达水平的 GTEx 转录本模型显示在图表下方，按转录本类别（{{1}}、{{2}}、{{3}}、{{4}}）着色，遵循 GENCODE 约定。"
+    },
+    {
+      "pat": "{{1}} describes the gene names and coordinates in genePred format.",
+      "zh": "{{1}}以 genePred 格式描述基因名称与坐标。"
+    },
+    {
+      "pat": "{{1}} lists each of the 53 tissues in alphabetical order, corresponding to the comma separated expression values in gtexGene.",
+      "zh": "{{1}}按字母顺序列出全部 53 种组织，对应 gtexGene 中以逗号分隔的表达值。"
+    },
+    {
+      "pat": "{{1}} has RPKM expression scores for each individual gene-sample data point, connected to gtexSample.",
+      "zh": "{{1}}包含每个基因-样本数据点的 RPKM 表达评分，与 gtexSample 关联。"
+    },
+    {
+      "pat": "{{1}} contains metadata about sample time, collection site, and tissue, connected to the donor field in the gtexDonor table.",
+      "zh": "{{1}}包含样本时间、采集地点与组织的元数据，与 gtexDonor 表中的 donor 字段关联。"
+    },
+    {
+      "pat": "{{1}} has anonymized information on the tissue donor.",
+      "zh": "{{1}}包含组织供体的匿名化信息。"
+    },
+    {
+      "pat": "Data can also be obtained directly from GTEx at the following link: {{1}}",
+      "zh": "数据也可通过以下链接直接从 GTEx 获取：{{1}}"
+    },
+    {
+      "pat": "Decorators are optional sub-annotations shown in addition to the rectangular annotations of this track. They can either have the shape of rectangular blocks transparently overlaid or shown beneath features. Or they can be glyphs, symbols such as triangles, stars, etc. drawn on top of onto existing annotations. See the {{1}}.",
+      "zh": "装饰器是可选子注释，在该轨道的矩形注释之外额外显示。它们既可以是以透明方式覆盖在特征上或显示在特征下方的矩形块，也可以是绘制在现有注释之上的字形符号，如三角形、星形等。请参阅{{1}}。"
+    }
+  ]
+}

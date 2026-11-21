@@ -595,8 +595,8 @@
       "zh": "按照 HGVS 记法惯例，ClinVar 会把序列改变的位置记在最右侧位置。但 VCF 的标准是 {{1}} 。因此，dbSNP rs 号表示的位置可能位于 HGVS 记法所表示位置的左侧。"
     },
     {
-      "pat": "ClinVar reports {{1}} for the number of submissions, genes, and variants from ClinVar submissions. We also provide a list of submitters, with counts per submitter. Note that variation is represented according to the ClinVar data model, in that a variation is represented as a set which may have one or more members. For example, two variations submitted together in {{2}} are counted as one variation.",
-      "zh": "ClinVar 报告{{1}}，统计 ClinVar 提交的记录数、基因数与变异数。我们还提供提交者列表及各提交者的计数。注意：按 ClinVar 数据模型，一个变异表示为一个集合，可包含一个或多个成员。例如，两个以 {{2}} 形式一起提交的变异按一个变异计数。"
+      "pat": "ClinVar reports {{1}} for the number of submissions, genes, and variants from ClinVar submissions. We also provide a list of submitters, with counts per submitter. Note that variation is represented according to the ClinVar data model, in that a variation is represented as a set which may have one or more members. For example, two variations submitted together in {{2}} are members of a single set and are counted in the statistics as one variation.",
+      "zh": "ClinVar 报告{{1}}，统计 ClinVar 提交的记录数、基因数与变异数。我们还提供提交者列表及各提交者的计数。注意：按 ClinVar 数据模型，一个变异表示为一个集合，可包含一个或多个成员。例如，两个以 {{2}} 形式一起提交的变异属于同一集合，在统计中按一个变异计数。"
     }
   ]
 }

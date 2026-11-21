@@ -74,3 +74,14 @@ test("mixed 通道多轮修复被翻坏的图例括号", () => {
   assert.equal(doc.getElementById("b").textContent, "浸润性癌（非特指）：1（<0.1%）");
 });
 
+
+// 回归：坏串在翻译阶段就已写进节点，repair 规则必须在 cleanup 里再跑一遍
+test("cleanup 阶段修复已落盘的坏括号串", () => {
+  const rules = [
+    { re: "^(.+?)（非特指：(\\d.*)$", to: "$1（非特指）：$2", mixed: true, repair: true },
+    { re: "^(.+?)\\s*\\(([<\\d.]+)%[)）]$", to: "$1（$2%）", mixed: true, repair: true }
+  ];
+  const { doc } = boot("<p id=a>混合组织学（非特指：30 (2.8%）</p>", { exact: {}, rules });
+  assert.equal(doc.getElementById("a").textContent, "混合组织学（非特指）：30（2.8%）");
+});
+

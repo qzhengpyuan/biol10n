@@ -849,12 +849,41 @@ function createEngine(options) {
     }
   }
 
+  /** 只修「已经被翻坏」的中文串（括号错配、半角残留）。
+   *  cleanupPass 跑在翻译之后，且不看 processed 标记——坏串往往是上一轮
+   *  就已经写进节点的，普通规则不会再碰它。 */
+  function repairText(s) {
+    var cur = String(s || "");
+    if (!hasCJK(cur)) return cur;
+    for (var pass = 0; pass < 4; pass++) {
+      var changed = false;
+      for (var j = 0; j < rules.length; j++) {
+        if (!rules[j].repair) continue;
+        var m = rules[j].re.exec(cur);
+        if (!m) continue;
+        var out = rules[j].to.replace(/\$(\d)/g, function (_, d) {
+          var seg = m[Number(d)];
+          return seg === undefined ? "" : seg;
+        });
+        if (out !== cur) { cur = out; changed = true; break; }
+      }
+      if (!changed) break;
+    }
+    return cur;
+  }
+
   function cleanupPass(root) {
     if (!root || !root.querySelectorAll) return;
     var w = doc.createTreeWalker(root, 4, null, false), n;
     while ((n = w.nextNode())) {
       var v = String(n.nodeValue || "");
       if (!v) continue;
+      var repaired = repairText(v);
+      if (repaired !== v) {
+        if (!originals.has(n)) originals.set(n, v);
+        n.nodeValue = repaired;
+        v = repaired;
+      }
       fixUnpairedParen(n);
       v = String(n.nodeValue || "");
       if (/^\s+$/.test(v)) {

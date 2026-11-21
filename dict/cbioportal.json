@@ -1362,12 +1362,14 @@
     {
       "re": "^(.+?)（非特指：(\\d.*)$",
       "to": "$1（非特指）：$2",
-      "mixed": true
+      "mixed": true,
+      "repair": true
     },
     {
       "re": "^(.+?)\\s*\\(([<\\d.]+)%[)）]$",
       "to": "$1（$2%）",
-      "mixed": true
+      "mixed": true,
+      "repair": true
     }
   ]
 }

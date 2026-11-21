@@ -48,7 +48,7 @@ test("RCSB 带数字的多选提示整条翻译", () => {
     site: { scope: "", block: "pre, code", attrs: [] }
   });
   engine.start();
-  assert.equal(dom.window.document.getElementById("s").textContent, "使用 CTRL 或 Shift 键可选择多个文件（上限：2 个）");
+  assert.equal(dom.window.document.getElementById("s").textContent, "使用 CTRL 或 Shift 键可选择多个文件（最多 2 个文件）");
 });
 
 test("GTEx 外显子图题冒号后不留空格", () => {

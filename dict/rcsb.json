@@ -668,8 +668,8 @@
     "Bacteria": "细菌",
     "Archaea": "古菌",
     "Riboviria": "核糖病毒域",
-    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（上限：",
-    "files max)": " 个）",
+    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（最多 ",
+    "files max)": "个文件）",
     "Scientific Name of Source Organism": "来源生物的科学名称",
     "ELECTRON MICROSCOPY": "电子显微镜",
     "SOLUTION NMR": "溶液核磁共振",
@@ -863,7 +863,7 @@
     },
     {
       "re": "^Use CTRL or Shift keys to select more than one file\\s*\\((\\d+) files max\\)$",
-      "to": "使用 CTRL 或 Shift 键可选择多个文件（上限：$1 个）"
+      "to": "使用 CTRL 或 Shift 键可选择多个文件（最多 $1 个文件）"
     },
     {
       "re": "^Refinement Resolution \\(\\s*Å\\s*\\)$",

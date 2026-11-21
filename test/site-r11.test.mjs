@@ -101,7 +101,7 @@ test("RCSB 多选提示拆条只留一个空格", () => {
   });
   engine.start();
   const text = doc.body.textContent.replace(/\s+/g, " ").trim();
-  assert.equal(text, "使用 CTRL 或 Shift 键可选择多个文件（上限：25 个）");
+  assert.equal(text, "使用 CTRL 或 Shift 键可选择多个文件（最多 25 个文件）");
 });
 
 test("GTEx 纯缩写标签按约定保留英文", () => {

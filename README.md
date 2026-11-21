@@ -63,7 +63,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **921 KB**（943,174 字节）；词库里 50 本共 16341 条词条 + 446 条模板
+- 单文件产物 **993 KB**（1,016,780 字节）；词库里 59 个文件共 17695 条词条 + 506 条模板
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -124,54 +124,51 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ## 词库
 
-36 本词库按站点分文件，一个站点只加载自己那几本。
+33 组词库按站点分文件（59 个文件），一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
 | anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
-| cbioportal | 1135 | 53 |  | cBioPortal |
-| clinvar-core | 256 | 38 | 1 | ClinVar 首页、检索页、变异记录页 |
-| clinvar-frag | 86 | 0 | 36 | ClinVar 被链接切碎的整句（模板通道） |
-| clinvar-help | 561 | 3 | 1 | ClinVar 文档与教程页（FAQ、审核状态、字段词典） |
-| clinvar-submit | 214 | 8 |  | ClinVar 提交门户、高级检索、统计与下载页 |
-| clinvar-tip | 41 | 0 |  | ClinVar 字段说明与悬停提示句 |
-| common | 675 | 47 |  | 跨站通用界面词与规范化规则 |
-| ensembl-extra | 310 | 2 |  | Ensembl 补漏（文档左栏、API、VEP、FTP、镜像安装） |
-| ensembl-tpl | 116 | 0 | 71 | Ensembl 文档长句（模板通道） |
-| ensembl | 394 | 10 | 16 | Ensembl（含新前端、帮助页与 API 文档） |
-| gdc | 482 | 20 |  | GDC Data Portal |
-| gene | 217 | 31 |  | NCBI Gene（筛选面板、Send to 对话框、区块标题与表头） |
-| geo-extra | 150 | 5 |  | GEO/GDS/SRA 补漏 |
+| books | 130 | 12 |  | NCBI Bookshelf（书架页、检索） |
+| cbioportal | 1186 | 55 | 5 | cBioPortal |
+| clinvar | 1200 | 53 | 50 | ClinVar（首页/检索/记录/文档/提交/切碎句） |
+| common | 679 | 50 |  | 跨站通用界面词与规范化规则 |
+| dbvar-bioproject | 200 | 19 | 1 | dbVar / BioProject |
+| ensembl | 950 | 13 | 102 | Ensembl（含新前端、文档、API、VEP、切碎句） |
+| gdc | 484 | 22 |  | GDC Data Portal |
+| gdv | 103 | 6 | 1 | NCBI GDV（基因组数据查看器） |
+| gene | 256 | 37 | 2 | NCBI Gene |
+| geo-extra | 150 | 5 |  | GEO / GDS / SRA 补漏 |
 | gepia2 | 180 | 9 |  | GEPIA2 |
-| gtex | 300 | 13 |  | GTEx Portal |
-| hpa | 1708 | 117 | 26 | Human Protein Atlas |
-| kegg-docs | 107 | 1 | 3 | KEGG 帮助与文档页（检索说明、weblinks、标识符、DBGET） |
-| kegg | 556 | 16 |  | KEGG（含通路图查看页控件） |
+| gtex | 520 | 17 | 33 | GTEx Portal（含数据集页与文档） |
+| hpa | 1755 | 117 | 42 | Human Protein Atlas |
+| kegg | 753 | 19 | 6 | KEGG（含帮助文档与通路图查看页） |
+| medgen-gtr | 312 | 71 | 1 | MedGen / GTR |
+| mesh | 82 | 5 |  | NCBI MeSH |
 | mirbase | 159 | 22 |  | miRBase |
-| misc-extra | 217 | 5 | 3 | UALCAN / TIMER / miRBase / GEPIA2 补漏 |
-| misc-tpl | 32 | 0 | 83 | GEPIA2 帮助页与 UALCAN 教程的切碎句（模板通道） |
+| misc | 249 | 5 | 86 | UALCAN / TIMER / miRBase / GEPIA2 补漏与切碎句 |
+| ncbi | 1817 | 100 | 4 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
 | ncbi-help | 1705 | 1 | 19 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
-| ncbi | 1381 | 68 |  | PubMed / GEO / BLAST / GDV（含首页、页脚与 About 静态文案） |
 | onco | 239 | 9 |  | TCGA 队列、变异类型、生存统计 |
-| pmc | 71 | 16 |  | NCBI PMC 页眉页脚、文章骨架与期刊列表 |
+| pmc | 117 | 21 | 4 | NCBI PMC（首页、页眉页脚、文章骨架） |
+| pubmed2 | 22 | 3 | 1 | PubMed 首页与结果页补漏 |
 | rcsb | 722 | 34 | 3 | RCSB PDB |
-| seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
-| snp | 121 | 4 | 5 | NCBI dbSNP（首页、检索结果、RefSNP 记录页） |
+| seq | 199 | 20 | 1 | NCBI Nucleotide / Protein / Assembly |
+| snp | 121 | 4 | 5 | NCBI dbSNP |
 | spa | 136 | 0 |  | 各站共用的单页应用骨架词 |
+| taxonomy | 115 | 6 |  | NCBI Taxonomy |
 | timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
-| ucsc-extra | 229 | 12 |  | UCSC 补漏（hgTracks、hgGene、hgTables、hgGateway） |
-| ucsc-tpl | 80 | 7 | 74 | UCSC 被链接/换行切碎的整句（模板通道） |
-| ucsc | 997 | 8 | 49 | UCSC Genome Browser |
-| uniprot | 773 | 16 |  | UniProt（含条目页 GO 术语、化学修饰名、亚细胞定位） |
+| ucsc | 1459 | 27 | 140 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
+| uniprot | 866 | 29 |  | UniProt |
 
-合计 **16341 条 / 675 条规则 / 557 条模板**（词库 446 + 站点 111）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **17695 条 / 809 条规则 / 506 条模板**（词库里 506 条模板；站点级的切碎句模板另计在覆盖文档里）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（472 条）
+npm test             # 引擎、面板、站点与产物单测（563 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

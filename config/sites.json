@@ -35,9 +35,10 @@
         "common",
         "ncbi",
         "ncbi-help",
-        "pubmed2"
+        "pubmed2",
+        "fill-r19"
       ],
-      "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
+      "scope": "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar, .ncbi-alerts",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "name": "PubMed",
       "logSkip": ".full-docsum, .docsum-citation, .trending-section li, .pubmed-updates-section li, .items-list li",
@@ -500,7 +501,8 @@
         "hpa",
         "anatomy",
         "onco",
-        "hpa2"
+        "hpa2",
+        "fill-r19"
       ],
       "scope": "body",
       "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
@@ -1108,7 +1110,8 @@
         "anatomy",
         "spa",
         "gtex",
-        "gtex-home"
+        "gtex-home",
+        "fill-r19"
       ],
       "scope": "main, #root",
       "spa": true,
@@ -1239,6 +1242,92 @@
       ],
       "name": "RCSB PDB",
       "valueText": true
+    },
+    {
+      "id": "string-db",
+      "name": "STRING",
+      "hosts": [
+        "string-db.org",
+        "www.string-db.org"
+      ],
+      "dicts": [
+        "common",
+        "string-atlas"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
+      "id": "gxa",
+      "name": "Expression Atlas",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/gxa",
+      "dicts": [
+        "common",
+        "string-atlas"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
+      "id": "gnomad",
+      "name": "gnomAD",
+      "hosts": [
+        "gnomad.broadinstitute.org"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "gnomad"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "#root",
+      "proseExempt": ""
+    },
+    {
+      "id": "clingen",
+      "name": "ClinGen",
+      "hosts": [
+        "clinicalgenome.org",
+        "www.clinicalgenome.org",
+        "search.clinicalgenome.org"
+      ],
+      "dicts": [
+        "common",
+        "clingen"
+      ],
+      "scope": "body",
+      "rescan": [
+        3000,
+        8000,
+        15000,
+        30000
+      ],
+      "proseExempt": ""
+    },
+    {
+      "id": "clinpgx",
+      "name": "ClinPGx",
+      "hosts": [
+        "clinpgx.org",
+        "www.clinpgx.org"
+      ],
+      "dicts": [
+        "common",
+        "clingen"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "#app",
+      "rescan": [
+        3000,
+        8000,
+        15000
+      ],
+      "proseExempt": ""
     }
   ]
 }

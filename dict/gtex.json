@@ -299,7 +299,12 @@
     "median read count per base": "每个碱基的读取计数中位数",
     "Total cells": "细胞总数",
     "Cell fraction": "细胞比例",
-    "Close": "关闭"
+    "Close": "关闭",
+    "The Genotype-Tissue Expression (GTEx) Portal is a comprehensive public resource for researchers studying tissue and cell-specific gene expression and regulation across individuals and development, and species, with data from 3 NIH projects.": "基因型-组织表达（GTEx）门户是一个综合性公共资源，供研究人员研究个体、发育与物种间的组织与细胞特异性基因表达及调控，数据来自 3 个 NIH 项目。",
+    "The Adult GTEx project is a comprehensive resource of WGS, RNA-Seq, and QTL data from samples collected from 54 non-diseased tissue sites across ~1000 adult individuals.": "成人 GTEx 项目是一个综合性资源，包含约 1000 名成人个体、54 个无疾病组织部位样本的全基因组测序、RNA-Seq 与 QTL 数据。",
+    "The Developmental GTEx (dGTEx) project is a new effort to study development-specific genetic effects on gene expression and to establish a new data analysis and tissue biobank resource.": "发育型 GTEx（dGTEx）项目是一项新工作，研究发育特异的遗传效应对基因表达的影响，并建立新的数据分析与组织生物样本库资源。",
+    "The Non-Human Primate Developmental GTEx (NHP-dGTEX) project is a complement to dGTEx in 2 translational non-human primate model species: the rhesus macaque and common marmoset.": "非人灵长类发育型 GTEx（NHP-dGTEX）项目是 dGTEx 的补充，涵盖两种用于转化研究的非人灵长类模型物种：恒河猴与普通狨。",
+    "Browse H3K27ac ChIP-seq, m6A methylation, and WGBS DNA methylation data in IGV Browser": "在 IGV 浏览器中浏览 H3K27ac ChIP-seq、m6A 甲基化与 WGBS DNA 甲基化数据"
   },
   "rules": [
     {

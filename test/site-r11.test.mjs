@@ -108,3 +108,7 @@ test("GTEx 纯缩写标签按约定保留英文", () => {
   const doc = run("gtex", '<a class="nav-link" href="/home/qtl">ieQTL/isQTL</a>');
   assert.equal(doc.querySelector("a").textContent, "ieQTL/isQTL");
 });
+test("cBio 冒号规则不得把任意值整条翻掉", () => {
+  const doc = run(["cbioportal", "common"], "<span>Study: Nuclear</span>");
+  assert.equal(doc.querySelector("span").textContent, "Study: Nuclear");
+});

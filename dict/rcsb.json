@@ -675,7 +675,19 @@
     "SOLUTION NMR": "溶液核磁共振",
     "NEUTRON DIFFRACTION": "中子衍射",
     "POWDER DIFFRACTION": "粉末衍射",
-    "NMR data": "NMR 数据"
+    "NMR data": "NMR 数据",
+    "Integrative Input Data": "整合输入数据",
+    "Polymer Entity Type": "聚合物实体类型",
+    "Release Date": "发布日期",
+    "Enzyme Classification Name": "酶分类名称",
+    "Membrane Protein Annotation": "膜蛋白注释",
+    "SCOP Classification": "SCOP 分类",
+    "Refinement Resolution": "精修分辨率",
+    "Macromolecule Type": "大分子类型",
+    "Macromolecule Name": "大分子名称",
+    "Deposition Date": "提交日期",
+    "Molecular Weight": "分子量",
+    "Assembly Type": "装配类型"
   },
   "rules": [
     {

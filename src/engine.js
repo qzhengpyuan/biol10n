@@ -1283,6 +1283,10 @@ function createEngine(options) {
     var parts = [], slots = [];
     for (var c = el.firstChild; c; c = c.nextSibling) {
       if (c.nodeType === 3) { parts.push(String(c.nodeValue || "")); continue; }
+      // 注释节点不渲染，但不该让整段模板失配（NCBI 的 <p> 里夹着 <!-- ... -->，
+      // ClinVar FAQ 的「two variations submitted together in cis ...」就这样整段落空，
+      // 逐节点翻完变成「前缀英文 + 尾巴中文」）。
+      if (c.nodeType === 8) continue;
       if (c.nodeType !== 1) return null;
       var tn = c.tagName;
       if (!tn || !INLINE_TAGS[tn]) return null;

@@ -113,3 +113,14 @@ test("链接里藏块级元素时放弃替换", () => {
   assert.equal(engine.stats.tpl, 0);
   dom.window.close();
 });
+
+test("段落里夹注释节点不影响模板匹配", () => {
+  const html = '<p>ClinVar reports <!-- faq --> <a href="/c/">stats</a> for submissions.</p>';
+  const t = { pat: "ClinVar reports {{1}} for submissions.", zh: "ClinVar 报告{{1}}的提交。" };
+  const { engine, doc, dom } = boot(html, { templates: [t] });
+  engine.start();
+  assert.match(doc.querySelector("p").textContent, /ClinVar 报告/, "注释节点应被忽略，模板照常命中");
+  assert.ok(doc.querySelector("p a"), "链接保留");
+  assert.equal(engine.stats.tpl, 1);
+  dom.window.close();
+});

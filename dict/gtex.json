@@ -282,7 +282,15 @@
     "ENDOTHELIAL CELL (SMOOTH MUSCLE)": "内皮细胞（平滑肌）",
     "EPITHELIAL CELL (SMOOTH MUSCLE)": "上皮细胞（平滑肌）",
     "IMMUNE (SMOOTH MUSCLE)": "免疫细胞（平滑肌）",
-    "MYOCYTE (SMOOTH MUSCLE)": "肌细胞（平滑肌）"
+    "MYOCYTE (SMOOTH MUSCLE)": "肌细胞（平滑肌）",
+    "MUCOUS CELL": "黏液细胞",
+    "MYOEPITHELIAL (BASAL)": "肌上皮（基底型）",
+    "MYOFIBROBLAST": "肌成纤维细胞",
+    "NEUROENDOCRINE": "神经内分泌细胞",
+    "PERICYTE/SMC": "周细胞/平滑肌细胞",
+    "SCHWANN CELL": "施万细胞",
+    "SEBACEOUS GLAND CELL": "皮脂腺细胞",
+    "SWEAT GLAND CELL": "汗腺细胞"
   },
   "rules": [
     {

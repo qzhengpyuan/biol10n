@@ -1,6 +1,6 @@
 # 覆盖情况与已知保留项
 
-> 记录时间：2026-11-21（v0.9.61）。这是快照，不是承诺：站点改版后需重新实测。
+> 记录时间：2026-11-21（v0.9.63）。这是快照，不是承诺：站点改版后需重新实测。
 
 ## 判定口径
 
@@ -9,7 +9,7 @@
 - **数据与专名 → 保持英文**：基因名、accession（GSE/GPL/GSM/PRJNA/rs/P04637）、物种学名（Homo sapiens、Mus musculus）、癌种缩写、细胞系名、作者与单位、DOI、邮箱、文件格式名（BAM/FASTQ/BED/TSV）、工具与数据库品牌（BLAST、GEO、Ensembl、UniProtKB、BioGPS、AlphaFold、Galaxy、GREAT、OncoPrint）。
 - **公式与变量**：ln(counts per 10k + 1)、Log2、p 值符号等不翻。
 
-## 各站状态（v0.9.61 实测）
+## 各站状态（v0.9.63 实测）
 
 | 站点 | 状态 | 已知保留英文 |
 |---|---|---|

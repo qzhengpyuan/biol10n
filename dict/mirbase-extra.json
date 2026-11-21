@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "family": "mirbase",
+    "version": "0.1.0",
+    "sites": [
+      "www.mirbase.org",
+      "mirbase.org"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

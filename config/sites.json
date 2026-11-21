@@ -43,6 +43,23 @@
       "skip": ".docsum-title, h1.heading-title"
     },
     {
+      "id": "ncbi-clinvar",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/clinvar",
+      "dicts": [
+        "common",
+        "ncbi",
+        "clinvar-core",
+        "clinvar-help",
+        "clinvar-submit"
+      ],
+      "scope": "body",
+      "proseExempt": "",
+      "name": "NCBI ClinVar"
+    },
+    {
       "id": "ncbi-geo",
       "hosts": [
         "www.ncbi.nlm.nih.gov"
@@ -50,7 +67,8 @@
       "path": "^/(geo|gds|gap|sra|snp|clinvar|variation)",
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "geo-extra"
       ],
       "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -65,7 +83,8 @@
       "path": "^/gdv",
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "geo-extra"
       ],
       "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
       "spa": true,
@@ -95,7 +114,8 @@
       ],
       "dicts": [
         "common",
-        "kegg"
+        "kegg",
+        "kegg-extra"
       ],
       "scope": "body",
       "name": "KEGG",
@@ -146,7 +166,8 @@
         "common",
         "hpa",
         "anatomy",
-        "onco"
+        "onco",
+        "hpa-extra"
       ],
       "scope": "body",
       "proseExempt": ".infographic_disclaimer, [class*=disclaimer]",
@@ -451,7 +472,8 @@
       ],
       "dicts": [
         "common",
-        "mirbase"
+        "mirbase",
+        "mirbase-extra"
       ],
       "scope": "main, .container, body",
       "name": "miRBase"
@@ -514,7 +536,8 @@
         "anatomy",
         "onco",
         "spa",
-        "gdc"
+        "gdc",
+        "gdc-extra"
       ],
       "scope": "",
       "spa": true,
@@ -693,7 +716,8 @@
       "dicts": [
         "common",
         "onco",
-        "gepia2"
+        "gepia2",
+        "gepia2-extra"
       ],
       "scope": "body",
       "protocols": [
@@ -709,7 +733,8 @@
       "dicts": [
         "common",
         "onco",
-        "ualcan"
+        "ualcan",
+        "ualcan-extra"
       ],
       "scope": "body",
       "name": "UALCAN"
@@ -724,7 +749,8 @@
       "dicts": [
         "common",
         "onco",
-        "timer"
+        "timer",
+        "timer-extra"
       ],
       "scope": "body",
       "name": "TIMER2.0/3.0"
@@ -738,7 +764,8 @@
         "common",
         "anatomy",
         "spa",
-        "gtex"
+        "gtex",
+        "gtex-extra"
       ],
       "scope": "main, #root",
       "spa": true,
@@ -756,7 +783,8 @@
         "common",
         "anatomy",
         "spa",
-        "ensembl"
+        "ensembl",
+        "ensembl-extra"
       ],
       "scope": "main, #wrapper, .ensembl-page, #content, #min_width_container, body.static, .root__Root__8fRu3, body",
       "spa": true,
@@ -774,7 +802,8 @@
         "common",
         "anatomy",
         "spa",
-        "ucsc"
+        "ucsc",
+        "ucsc-extra"
       ],
       "scope": "body",
       "proseExempt": "#descriptionText",
@@ -798,7 +827,8 @@
         "common",
         "anatomy",
         "spa",
-        "uniprot"
+        "uniprot",
+        "uniprot-extra"
       ],
       "scope": "main, #root",
       "spa": true,
@@ -832,7 +862,8 @@
       "dicts": [
         "common",
         "spa",
-        "rcsb"
+        "rcsb",
+        "rcsb-extra"
       ],
       "scope": "header, nav, main, footer, #root, .visually-hidden-focusable, .skip-link",
       "spa": true,

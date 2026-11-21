@@ -151,7 +151,14 @@ function createEngine(options) {
   function unmaskTimeColons(s) { return s.indexOf(TIME_COLON) < 0 ? s : s.split(TIME_COLON).join(":"); }
 
   function translate(s, depth) {
+    // 掩码只服务于规则 pass：d:d 被换成占位符后 exact 表永远查不到
+    // （PubMed 帮助页「…2004;207:4147–4155.」整段因此永不翻译）。
+    // 先用未掩码原文查一次 exact，命中就直接返回；未命中再走掩码后的规则通道。
     var masked = /\d:\d/.test(s);
+    if (masked) {
+      var direct = lookupExact(s);
+      if (direct !== null) { bumpHit(false); return direct; }
+    }
     var out = translateRules(masked ? maskTimeColons(s) : s, depth || 0);
     return masked && out !== null ? unmaskTimeColons(out) : out;
   }
@@ -195,6 +202,20 @@ function createEngine(options) {
       if (!changed) break;
     }
     return cur === s ? null : cur;
+  }
+
+  /** 块模板拼出来的「中文标签 + 字面 tab + 英文正文」（KEGG 帮助页「通路图\t…」）：
+   *  hasCJK 让这种节点第一次之后就再也不处理，正文永远留英文。
+   *  只对「tab 前面有汉字、tab 后面是纯英文」的形态生效，正文必须是词表里收录的整条。 */
+  function translateTabbed(s) {
+    // 传进来的是节点原文（normalize 会把 \t 折叠成空格，必须在归一化之前切）
+    var m = /^\s*([^\t\n]*[\u3400-\u9fff][^\t\n]*)\t([\s\S]+)$/.exec(s);
+    if (!m) return null;
+    var tail = normalize(m[2]);
+    if (!tail || tail.length < 4 || hasCJK(tail) || !LETTER.test(tail)) return null;
+    var out = lookupExact(tail);
+    if (out === null) return null;
+    return m[1] + "\t" + out;
   }
 
   function translateRules(s, depth) {
@@ -540,6 +561,7 @@ function createEngine(options) {
       // 词库里只有 NOS 这种键就永远改不到里面。给词条留一个显式的 mixed 规则通道：
       // 只跑标了 mixed 的锚定规则，其它规则一律不碰含中文的节点。
       var mixedOut = translateMixed(text);
+      if (mixedOut === null && raw.indexOf("\t") >= 0) mixedOut = translateTabbed(raw);
       if (mixedOut !== null) {
         if (!originals.has(node)) originals.set(node, raw);
         node.nodeValue = mixedOut;

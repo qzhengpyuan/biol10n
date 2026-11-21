@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "family": "gdc",
+    "version": "0.1.0",
+    "sites": [
+      "portal.gdc.cancer.gov"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

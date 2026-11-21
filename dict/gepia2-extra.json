@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "family": "gepia2",
+    "version": "0.1.0",
+    "sites": [
+      "gepia2.cancer-pku.cn"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

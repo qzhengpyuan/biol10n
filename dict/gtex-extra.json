@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "family": "gtex",
+    "version": "0.1.0",
+    "sites": [
+      "gtexportal.org"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

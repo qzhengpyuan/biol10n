@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "family": "kegg",
+    "version": "0.1.0",
+    "sites": [
+      "www.genome.jp",
+      "www.kegg.jp"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

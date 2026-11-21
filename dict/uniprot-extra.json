@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "family": "uniprot",
+    "version": "0.1.0",
+    "sites": [
+      "www.uniprot.org",
+      "uniprot.org"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "family": "clinvar",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ],
+    "area": "record/search"
+  },
+  "exact": {
+    "ClinVar Home": "ClinVar 首页",
+    "About ClinVar": "关于 ClinVar",
+    "List of submitters": "提交者列表",
+    "Map of submitters": "提交者分布图",
+    "Website overview": "网站概览",
+    "Understand the Data": "理解数据",
+    "Data authorities": "数据来源机构",
+    "Preferred names": "首选名称",
+    "Review status and assertion criteria": "审核状态与断言标准",
+    "HGVS expressions": "HGVS 表达",
+    "Data validation": "数据校验",
+    "Accessions and identifiers": "登录号与标识符",
+    "Release cycle": "发布周期",
+    "Access the Data": "获取数据",
+    "Web access": "网页访问",
+    "How to search ClinVar": "如何检索 ClinVar",
+    "VCV (variant) pages": "VCV（变异）页面",
+    "RCV (variant-condition) pages": "RCV（变异-疾病）页面",
+    "Linking to ClinVar": "链接到 ClinVar",
+    "Submit Data": "提交数据",
+    "Submission overview": "提交概览",
+    "Get started": "开始",
+    "Submission instructions": "提交说明",
+    "Expert panels and practice guidelines": "专家组与实践指南",
+    "Programmatic access": "程序化访问",
+    "What's in ClinVar?": "ClinVar 收录哪些内容？",
+    "About Us": "关于我们",
+    "In this section": "本节内容",
+    "How ClinVar Models its Data": "ClinVar 如何组织数据",
+    "List of ClinVar Submitters": "ClinVar 提交者列表",
+    "Ways to Access Data": "获取数据的途径",
+    "World-wide Participation in ClinVar": "全球参与 ClinVar",
+    "View Submitters": "查看提交者",
+    "View Methods": "查看方法",
+    "Submission to ClinVar": "向 ClinVar 提交",
+    "Submission Portal": "提交门户",
+    "View Submission Data": "查看提交数据",
+    "View the list of countries": "查看国家/地区列表",
+    "New to Submission": "初次提交",
+    "Get an overview of how submission to ClinVar works and learn what the benefits are.": "了解向 ClinVar 提交的工作流程及其价值。",
+    "See Benefits": "查看优势",
+    "Ready to Get Started?": "准备开始？",
+    "Get Started": "开始使用",
+    "How to Prepare Your Submission Data": "如何准备提交数据",
+    "Learn how to prepare and submit your data.": "了解如何准备并提交您的数据。",
+    "Learn How": "了解方法",
+    "Need Help? Contact ClinVar.": "需要帮助？请联系 ClinVar。",
+    "Get help from a ClinVar expert. Send an email to clinvar@ncbi.nlm.nih.gov.": "向 ClinVar 专家求助，请发送邮件至 clinvar@ncbi.nlm.nih.gov。",
+    "Email ClinVar": "给 ClinVar 发邮件",
+    "Subscribe to our Newsletter and get the latest from ClinVar.": "订阅通讯，获取 ClinVar 最新动态。",
+    "Name*": "姓名*",
+    "Email Address*": "电子邮箱*",
+    "Subscribe": "订阅",
+    "NCBI's disclaimer policy": "NCBI 免责声明政策",
+    "Submitters": "提交者",
+    "On this page": "本页内容",
+    "Modify your search": "修改检索",
+    "Search (all fields optional)": "检索（所有字段均可选填）",
+    "More search options": "更多检索选项",
+    "Genomic Location": "基因组位置",
+    "Any other search term can be entered here. Examples:": "此处可输入任意其他检索词。示例：",
+    "Name of a submitting organization, e.g. Color Diagnostics": "提交机构名称，例如 Color Diagnostics",
+    "PubMed ID, e.g. PMID: 29706350": "PubMed ID，例如 PMID: 29706350",
+    "Clinical feature, e.g. short stature": "临床特征，例如 short stature",
+    "Search ClinVar for gene symbols, HGVS expressions, conditions, and more": "检索 ClinVar：基因符号、HGVS 表达、疾病等",
+    "Search ClinVar": "检索 ClinVar",
+    "The requested page does not exist.": "请求的页面不存在。",
+    "Variant Details": "变异详情",
+    "Classification Summary": "分类摘要",
+    "Conditions": "疾病条件",
+    "Functional Data": "功能数据",
+    "Text-mined Citations": "文献挖掘引用",
+    "Submissions": "提交记录",
+    "Other databases": "其他数据库",
+    "Related variants": "相关变异",
+    "Variation ID": "变异 ID",
+    "Type and length": "类型与长度",
+    "Cytogenetic:": "细胞遗传学位置：",
+    "Timeline in ClinVar": "ClinVar 时间线",
+    "First in ClinVar": "首次收录于 ClinVar",
+    "Last submission": "最近一次提交",
+    "Last evaluated": "最近评估日期",
+    "Protein change": "蛋白改变",
+    "Other names": "其他名称",
+    "Canonical SPDI": "规范 SPDI",
+    "Global minor allele frequency (GMAF)": "全球次要等位基因频率（GMAF）",
+    "Allele frequency": "等位基因频率",
+    "The frequency of the allele represented by this VCV record.": "本 VCV 记录所代表等位基因的频率。",
+    "Molecular consequence": "分子后果",
+    "Links": "链接",
+    "Condition": "疾病",
+    "Submitter": "提交者",
+    "Assertion criteria": "断言标准",
+    "Expand all rows": "展开全部行",
+    "Collapse all rows": "收起全部行",
+    "Expand row": "展开行",
+    "Collapse row": "收起行",
+    "Variation/condition record": "变异/疾病记录",
+    "(# of submissions)": "（提交数）",
+    "(Last evaluated)": "（最近评估）",
+    "(Assertion criteria)": "（断言标准）",
+    "Additional submitter:": "附加提交者：",
+    "Contributing to aggregate classification": "参与汇总分类",
+    "Not contributing to aggregate classification": "不参与汇总分类",
+    "click to load more conditions": "点击加载更多疾病",
+    "click to load more citations": "点击加载更多引用",
+    "click to collapse": "点击收起",
+    "No data submitted for somatic clinical impact": "未提交体细胞临床影响数据",
+    "No data submitted for oncogenicity": "未提交致癌性数据",
+    "HI score": "HI 评分",
+    "TS score": "TS 评分",
+    "Within gene": "基因内",
+    "Sufficient evidence for dosage pathogenicity": "剂量致病性证据充分",
+    "No evidence available": "暂无证据",
+    "ClinGen Gene Dosage Sensitivity Curation": "ClinGen 基因剂量敏感性解读",
+    "Variation Viewer": "变异浏览器",
+    "Links to Variation Viewer, a genome browser to view variation data from NCBI databases.": "链接到变异浏览器，可在其中查看 NCBI 数据库的变异数据。",
+    "Functional data are available for this variant": "该变异有可用的功能数据",
+    "Citations for germline classification of this variant": "本变异胚系分类的引用文献",
+    "Explanation for multiple conditions: Uncertain.": "多疾病解释：不确定。",
+    "Assay description:": "检测方法描述：",
+    "Disease context:": "疾病背景：",
+    "Molecular phenotype measured:": "测定的分子表型：",
+    "Collection method:": "采集方法：",
+    "Platform type": "平台类型",
+    "Platform Type": "平台类型",
+    "Test name": "检测名称",
+    "Testing laboratory": "检测实验室",
+    "Indication for testing": "检测指征",
+    "Date variant was reported to submitter": "变异报告给提交者的日期",
+    "Testing laboratory interpretation": "检测实验室解读",
+    "Zygosity": "杂合性",
+    "Ethnicity/Population group": "族裔/人群",
+    "Geographic origin": "地理来源",
+    "Number of individuals with the variant": "携带该变异的个体数",
+    "Clinical Features": "临床特征",
+    "Family history": "家族史",
+    "Collection method": "采集方法",
+    "Allele origin": "等位基因来源",
+    "Affected status": "患病状态",
+    "Comment on evidence:": "证据评论：",
+    "Comment on evidence": "证据评论",
+    "criteria provided, single submitter": "提供了断言标准，单一提交者",
+    "criteria provided, multiple submitters, no conflicts": "提供了断言标准，多个提交者，无冲突",
+    "criteria provided, conflicting classifications": "提供了断言标准，分类存在冲突",
+    "no assertion criteria provided": "未提供断言标准",
+    "no classification provided": "未提供分类",
+    "reviewed by expert panel": "由专家组审核",
+    "practice guideline": "实践指南",
+    "not provided": "未提供",
+    "not specified": "未指定",
+    "germline": "胚系",
+    "somatic": "体细胞",
+    "clinical testing": "临床检测",
+    "research": "研究",
+    "curation": "解读",
+    "literature only": "仅文献",
+    "phenotyping only": "仅表型",
+    "in vitro": "体外",
+    "next-generation sequencing": "二代测序",
+    "Sanger sequencing": "Sanger 测序",
+    "exome sequencing": "外显子组测序",
+    "ACMG Guidelines, 2015": "ACMG 指南（2015）",
+    "single nucleotide variant": "单核苷酸变异",
+    "Indel": "插入缺失",
+    "Microsatellite": "微卫星",
+    "Haplotype": "单倍型",
+    "Single allele": "单等位基因",
+    "copy number gain": "拷贝数增加",
+    "copy number loss": "拷贝数减少",
+    "Translocation": "易位",
+    "non-coding transcript variant": "非编码转录本变异",
+    "Following": "已关注",
+    "Follow": "关注",
+    "Cite this record": "引用此记录",
+    "Reviewed by expert panel": "由专家组审核",
+    "Learn more about how ClinVar calculates review status.": "了解 ClinVar 如何计算审核状态。",
+    "Read our rules for calculating the aggregate classification": "阅读汇总分类的计算规则",
+    "Read our rules for calculating the review status": "阅读审核状态的计算规则",
+    "The classification is calculated by NCBI based on data from submitters.": "该分类由 NCBI 依据提交者提供的数据计算。",
+    "Classification is based on the expert panel submission": "分类依据专家组的提交",
+    "The date this variant first appeared in ClinVar with each type of classification.": "该变异以各类分类首次出现在 ClinVar 中的日期。",
+    "The date of the most recent submission for each type of classification for this variant.": "该变异各类分类最近一次提交的日期。",
+    "The most recent date that a submitter evaluated this variant for each type of classification.": "提交者针对各类分类评估该变异的最近日期。",
+    "The condition for this variant-condition (RCV) record in ClinVar.": "该变异-疾病（RCV）记录在 ClinVar 中对应的疾病。",
+    "The most recent date that a submitter evaluated this variant for the condition.": "提交者针对该疾病评估此变异的最近日期。",
+    "The submitted germline classification for each SCV record.": "每条 SCV 记录所提交的胚系分类。",
+    "Stars represent the review status, or the level of review supporting the classification.": "星号代表审核状态，即支持该分类的审核级别。",
+    "The number of variants in ClinVar that are co-located with this variant.": "ClinVar 中与该变异共位的变异数。",
+    "Classification type": "分类类型",
+    "Germline classification": "胚系分类",
+    "Types of conflicts": "冲突类型",
+    "Variation type": "变异类型",
+    "Variation size": "变异大小",
+    "Variant length": "变异长度",
+    "Single nucleotide": "单核苷酸",
+    "Short variant (< 50 bps)": "短变异（< 50 bp）",
+    "Structural variant (>= 50 bps)": "结构变异（≥ 50 bp）",
+    "< 1kb, single gene": "< 1 kb，单基因",
+    "> 1kb, single gene": "> 1 kb，单基因",
+    "> 1kb, multiple genes": "> 1 kb，多基因",
+    "Multiple submitters": "多个提交者",
+    "Single submitter": "单一提交者",
+    "At least one star": "至少一颗星",
+    "P/LP vs LB/B": "致病/可能致病 对 可能良性/良性",
+    "P/LP vs VUS": "致病/可能致病 对 意义不明",
+    "VUS vs LB/B": "意义不明 对 可能良性/良性",
+    "Conflicting classifications": "分类存在冲突",
+    "Conflicting classifications of pathogenicity": "致病性分类存在冲突",
+    "Select Columns": "选择列",
+    "Select columns": "选择列",
+    "Select columns to display in the table.": "选择要在表格中显示的列。",
+    "Restore defaults": "恢复默认",
+    "Click and drag to zoom in": "按住并拖动以放大",
+    "Graphical view of search results": "检索结果图形视图",
+    "Update search results to this region": "将检索结果更新到该区域",
+    "filtered by:": "筛选条件：",
+    "VCV accession": "VCV 登录号",
+    "rs ID": "rs 编号",
+    "GRCh37 location": "GRCh37 位置",
+    "GRCh38 location": "GRCh38 位置",
+    "Germline date last evaluated": "胚系最近评估日期",
+    "Somatic clinical impact date last evaluated": "体细胞临床影响最近评估日期",
+    "Oncogenicity date last evaluated": "致癌性最近评估日期",
+    "Classification, Review status": "分类、审核状态",
+    "See cases": "查看病例",
+    "Official websites use .gov": "官方网站使用 .gov",
+    "website belongs to an official government organization in the United States.": "网站属于美国官方政府机构。",
+    "Secure .gov websites use HTTPS": "安全的 .gov 网站使用 HTTPS",
+    "Autosomal dominant inheritance": "常染色体显性遗传",
+    "Autosomal recessive inheritance": "常染色体隐性遗传",
+    "Genetic testing": "基因检测",
+    "Somatic clinical impact": "体细胞临床影响",
+    "Oncogenicity": "致癌性",
+    "Classifications": "分类",
+    "maternal": "母源",
+    "paternal": "父源",
+    "Submissions - Functional Data": "提交记录 - 功能数据",
+    "Technique": "技术",
+    "Observation:": "观察记录：",
+    "Observation": "观察记录",
+    "Primary site navigation": "主导航",
+    "Presymptomatic": "症状前",
+    "Gene Panel Sequencing": "基因 panel 测序",
+    "next-gen sequencing": "二代测序",
+    "(Autosomal dominant inheritance)": "（常染色体显性遗传）",
+    "(Autosomal recessive inheritance)": "（常染色体隐性遗传）",
+    "(Unknown mechanism)": "（机制不明）",
+    "ClinVar aggregates information about genomic variation and its relationship to human health.": "ClinVar 汇集基因组变异及其与人类健康关系的信息。",
+    "Submitters Per Country": "各国提交者",
+    "ClinVar welcomes submissions": "ClinVar 欢迎提交数据"
+  },
+  "rules": [
+    {
+      "re": "^Review status: (.+?) Click for help$",
+      "to": "审核状态：$1，点击查看帮助",
+      "requireHit": true
+    },
+    {
+      "re": "^Review status: (.+)$",
+      "to": "审核状态：$1",
+      "requireHit": true
+    },
+    {
+      "re": "^(Conditions|Submissions|Classifications) - (Germline|Somatic)$",
+      "to": "$1（$2）",
+      "requireHit": true
+    },
+    {
+      "re": "^First in ClinVar: (.+)$",
+      "to": "首次收录于 ClinVar：$1"
+    },
+    {
+      "re": "^Record last updated (.+)$",
+      "to": "记录最后更新于 $1"
+    },
+    {
+      "re": "^Accession: (.+)$",
+      "to": "登录号：$1"
+    },
+    {
+      "re": "^(?:_x000D_ ?)?Criteria applied: (.+)$",
+      "to": "应用标准：$1"
+    },
+    {
+      "re": "^Observation:? ?(\\d+)$",
+      "to": "观察记录 $1"
+    },
+    {
+      "re": "^Text-mined citations for (.+)$",
+      "to": "$1 的文献挖掘引文"
+    },
+    {
+      "re": "^HGVS: (.+)$",
+      "to": "HGVS：$1"
+    },
+    {
+      "re": "^gene and c\\. or p\\.: (.+)$",
+      "to": "基因及 c. 或 p.：$1"
+    },
+    {
+      "re": "^c\\. or p\\.: (.+)$",
+      "to": "c. 或 p.：$1"
+    },
+    {
+      "re": "^c\\./p\\.: (.+)$",
+      "to": "c./p.：$1"
+    },
+    {
+      "re": "^[Pp]rotein change: (.+)$",
+      "to": "蛋白改变：$1"
+    },
+    {
+      "re": "^rs number: (.+)$",
+      "to": "rs 编号：$1"
+    },
+    {
+      "re": "^gnomAD format: (.+)$",
+      "to": "gnomAD 格式：$1"
+    },
+    {
+      "re": "^ClinVar Variation ID: (.+)$",
+      "to": "ClinVar 变异 ID：$1"
+    },
+    {
+      "re": "^ClinVar accession number: (.+)$",
+      "to": "ClinVar 登录号：$1"
+    },
+    {
+      "re": "^Gene symbol: (.+)$",
+      "to": "基因符号：$1"
+    },
+    {
+      "re": "^GeneID: (.+)$",
+      "to": "GeneID：$1"
+    },
+    {
+      "re": "^UCSC: (.+)$",
+      "to": "UCSC：$1"
+    },
+    {
+      "re": "^gnomAD: (.+)$",
+      "to": "gnomAD：$1"
+    },
+    {
+      "re": "^Entrez: (.+)$",
+      "to": "Entrez：$1"
+    },
+    {
+      "re": "^PubMed \\((\\d+)\\):?$",
+      "to": "PubMed（$1）"
+    },
+    {
+      "re": "^PubMed: (.+)$",
+      "to": "PubMed：$1"
+    },
+    {
+      "re": "^DOI: (.+)$",
+      "to": "DOI：$1"
+    },
+    {
+      "re": "^pmc: (.+)$",
+      "to": "PMC：$1"
+    },
+    {
+      "re": "^\\.\\.\\. more (.+)$",
+      "to": "…展开更多 $1"
+    },
+    {
+      "re": "^\\.\\.\\. less (.+)$",
+      "to": "…收起 $1"
+    },
+    {
+      "re": "^\\+(\\d+) more$",
+      "to": "另有 $1 条"
+    },
+    {
+      "re": "^\\+ (\\d+) more$",
+      "to": "另有 $1 条"
+    },
+    {
+      "re": "^\\((more)\\)$",
+      "to": "（更多）"
+    },
+    {
+      "re": "^\\((less)\\)$",
+      "to": "（收起）"
+    },
+    {
+      "re": "^(\\d+) Single Heterozygotes?$",
+      "to": "$1 例单一杂合子"
+    },
+    {
+      "re": "^(\\d+)[-–](\\d+) years$",
+      "to": "$1–$2 岁"
+    },
+    {
+      "re": "^Variation ID: (.+)$",
+      "to": "变异 ID：$1"
+    },
+    {
+      "re": "^Study: (.+)$",
+      "to": "研究：$1"
+    },
+    {
+      "re": "^([\\d,]+) variants? for$",
+      "to": "$1 条变异："
+    }
+  ]
+}

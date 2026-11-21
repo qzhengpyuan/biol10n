@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "family": "rcsb",
+    "version": "0.1.0",
+    "sites": [
+      "www.rcsb.org",
+      "rcsb.org"
+    ]
+  },
+  "exact": {},
+  "rules": []
+}

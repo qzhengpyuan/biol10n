@@ -54,7 +54,8 @@
         "clinvar-core",
         "clinvar-help",
         "clinvar-submit",
-        "clinvar-frag"
+        "clinvar-frag",
+        "clinvar-tip"
       ],
       "scope": "body",
       "proseExempt": "",

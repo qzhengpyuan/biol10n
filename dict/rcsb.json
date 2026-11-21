@@ -687,7 +687,10 @@
     "Macromolecule Name": "大分子名称",
     "Deposition Date": "提交日期",
     "Molecular Weight": "分子量",
-    "Assembly Type": "装配类型"
+    "Assembly Type": "装配类型",
+    "Refinement Resolution (Å)": "精修分辨率（Å）",
+    "ELECTRON CRYSTALLOGRAPHY": "电子晶体学",
+    "HYBRID": "混合方法"
   },
   "rules": [
     {
@@ -822,6 +825,10 @@
     {
       "re": "^Use CTRL or Shift keys to select more than one file\\s*\\((\\d+) files max\\)$",
       "to": "使用 CTRL 或 Shift 键可选择多个文件（最多 $1 个文件）"
+    },
+    {
+      "re": "^Refinement Resolution \\(\\s*Å\\s*\\)$",
+      "to": "精修分辨率（Å）"
     }
   ],
   "templates": [

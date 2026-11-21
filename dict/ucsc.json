@@ -976,7 +976,8 @@
     "mRNA (may differ from genome)": "mRNA（可能与基因组不同）",
     "Gene Sorter": "基因排序器",
     "Other Species FASTA": "其他物种 FASTA",
-    "Table Schema": "表格模式"
+    "Table Schema": "表格模式",
+    "Sequence and Links to Tools and Databases": "序列与工具数据库链接"
   },
   "rules": [
     {

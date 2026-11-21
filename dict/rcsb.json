@@ -669,7 +669,14 @@
     "Archaea": "古菌",
     "Riboviria": "核糖病毒域",
     "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（",
-    "files max)": "文件数上限）"
+    "files max)": "文件数上限）",
+    "Scientific Name of Source Organism": "来源生物的科学名称",
+    "ELECTRON MICROSCOPY": "电子显微镜",
+    "SOLUTION NMR": "溶液核磁共振",
+    "NEUTRON DIFFRACTION": "中子衍射",
+    "POWDER DIFFRACTION": "粉末衍射",
+    "NMR data": "NMR 数据",
+    "ELECTRON MICROSCOPY (": "电子显微镜（"
   },
   "rules": [
     {

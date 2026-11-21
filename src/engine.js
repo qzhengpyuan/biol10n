@@ -35,10 +35,11 @@ function createEngine(options) {
   });
 
   var rules = [];
+  var hasRepairRules = false;
   (data.rules || []).forEach(function (r) {
     // requireHit：句式里带全角标点或中文模板时，至少有一个捕获组得真的命中词表才替换，
     // 否则 "Pan-Lung Cancer (TCGA, Nat Genet 2016)" 这类纯英文专名会被套上全角括号（半中半英）。
-    try { rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit, mixed: !!r.mixed, repair: !!r.repair }); } catch (e) { /* 坏规则直接跳过 */ }
+    try { if (r.repair) hasRepairRules = true; rules.push({ re: new RegExp(r.re), to: r.to, src: r.re, requireHit: !!r.requireHit, mixed: !!r.mixed, repair: !!r.repair }); } catch (e) { /* 坏规则直接跳过 */ }
   });
 
   // 模板通道：段落被 <a>/<code>/<em> 切成片段时，逐节点翻会半中半英、整段替换会丢链接。
@@ -866,6 +867,7 @@ function createEngine(options) {
    *  cleanupPass 跑在翻译之后，且不看 processed 标记——坏串往往是上一轮
    *  就已经写进节点的，普通规则不会再碰它。 */
   function repairText(s) {
+    if (!hasRepairRules) return String(s || "");
     var cur = String(s || "");
     if (!hasCJK(cur)) return cur;
     for (var pass = 0; pass < 4; pass++) {
@@ -889,7 +891,7 @@ function createEngine(options) {
   *  （cBio 饼图图例「混合组织学（非特指：30 (2.8%）」），这类节点已经被
   *  标记为 processed，普通通道不会再碰，只能每轮扫一遍。 */
   function repairSweep(root) {
-    if (!root || !root.querySelectorAll) return;
+    if (!hasRepairRules || !root || !root.querySelectorAll) return;
     var w = doc.createTreeWalker(root, 4, null, false), n;
     while ((n = w.nextNode())) {
       var v = String(n.nodeValue || "");

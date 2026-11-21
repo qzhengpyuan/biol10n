@@ -1357,7 +1357,13 @@
     "Facebook": "脸书",
     "Full Text Links Dialog": "全文链接对话框",
     "Elsevier Science full text link": "Elsevier Science 全文链接",
-    "Related information in MedGen": "MedGen 中的相关信息"
+    "Related information in MedGen": "MedGen 中的相关信息",
+    "GEO Accession viewer": "GEO 登录号查看器",
+    "Relations": "关联",
+    "SRA Run Selector": "SRA 运行选择器",
+    "Raw data are available in SRA": "原始数据可在 SRA 获取",
+    "Cancer Biology": "癌症生物学",
+    "Department": "部门"
   },
   "rules": [
     {

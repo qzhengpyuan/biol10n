@@ -176,17 +176,24 @@ function createEngine(options) {
 
   // 只跑词库里显式标了 mixed:true 的规则，用于「中文（英文缩写）」这种半翻节点。
   function translateMixed(s) {
-    for (var j = 0; j < rules.length; j++) {
-      if (!rules[j].mixed) continue;
-      var m = rules[j].re.exec(s);
-      if (!m) continue;
-      var out = rules[j].to.replace(/\$(\d)/g, function (_, d) {
-        var seg = m[Number(d)];
-        return seg === undefined ? "" : translateCapture(seg, 0);
-      });
-      if (out !== s) return out;
+    // 同一段半翻文本可能要先修括号、再修末尾百分比（cBio 饼图图例），
+    // 所以多跑几轮，直到没有规则再改变它。
+    var cur = s;
+    for (var pass = 0; pass < 5; pass++) {
+      var changed = false;
+      for (var j = 0; j < rules.length; j++) {
+        if (!rules[j].mixed) continue;
+        var m = rules[j].re.exec(cur);
+        if (!m) continue;
+        var out = rules[j].to.replace(/\$(\d)/g, function (_, d) {
+          var seg = m[Number(d)];
+          return seg === undefined ? "" : translateCapture(seg, 0);
+        });
+        if (out !== cur) { cur = out; changed = true; break; }
+      }
+      if (!changed) break;
     }
-    return null;
+    return cur === s ? null : cur;
   }
 
   function translateRules(s, depth) {

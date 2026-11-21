@@ -58,3 +58,19 @@ test("NOS 图例带百分比时括号闭合且全角", () => {
   assert.equal(doc.getElementById("b").textContent, "浸润性癌（非特指）：1（<0.1%）");
 });
 
+
+// 回归：真实页面里 tspan 曾被先翻成「（非特指：30 (2.8%）」（括号错配、半角混排），
+// mixed 通道要多轮修复：先补冒号，再把末尾 (2.8%） 统一成全角。
+test("mixed 通道多轮修复被翻坏的图例括号", () => {
+  const rules = [
+    { re: "^(.+?)（非特指：(\\d.*)$", to: "$1（非特指）：$2", mixed: true },
+    { re: "^(.+?)\\s*\\(([<\\d.]+)%[)）]$", to: "$1（$2%）", mixed: true }
+  ];
+  const { doc } = boot(
+    "<p id=a>混合组织学（非特指：30 (2.8%）</p><p id=b>浸润性癌（非特指：1 (<0.1%）</p>",
+    { exact: {}, rules }
+  );
+  assert.equal(doc.getElementById("a").textContent, "混合组织学（非特指）：30（2.8%）");
+  assert.equal(doc.getElementById("b").textContent, "浸润性癌（非特指）：1（<0.1%）");
+});
+

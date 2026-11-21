@@ -55,7 +55,8 @@
         "clinvar-help",
         "clinvar-submit",
         "clinvar-frag",
-        "clinvar-tip"
+        "clinvar-tip",
+        "clinvar-deep"
       ],
       "scope": "body",
       "proseExempt": "",
@@ -68,7 +69,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "gene"
+        "gene",
+        "gene2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -83,7 +85,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "seq"
+        "seq",
+        "seq2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -98,7 +101,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "seq"
+        "seq",
+        "seq2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -113,7 +117,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "seq"
+        "seq",
+        "seq2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -127,7 +132,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "taxonomy"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -141,7 +147,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "mesh"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -155,13 +162,15 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "books"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-books",
       "name": "NCBI Bookshelf",
-      "path": "^/books"
+      "path": "^/books",
+      "skip": "ul.toc, .bktoc_lst_exp, .chapter-body, .bk_sec, .jig-ncbibookshelf-content"
     },
     {
       "hosts": [
@@ -227,7 +236,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "geo-extra"
+        "geo-extra",
+        "seq"
       ],
       "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
       "spa": true,
@@ -258,7 +268,8 @@
       "dicts": [
         "common",
         "kegg",
-        "kegg-docs"
+        "kegg-docs",
+        "kegg-docs2"
       ],
       "scope": "body",
       "name": "KEGG",

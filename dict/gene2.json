@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "family": "gene",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ]
+  },
+  "exact": {
+    "BioAssays related to the gene by protein target or RNAi target": "与该基因相关的生物测定（按蛋白靶标或 RNAi 靶标）",
+    "BioAssays that contain the gene as the target of a RNAi reagent": "以该基因作为 RNAi 试剂靶标的生物测定",
+    "BioAssays that contain the gene as the target of a RNAi reagent, which is identified as a hit in a RNAi screening and flagged as \"active\" in the corresponding BioAssay record": "以该基因作为 RNAi 试剂靶标的生物测定；该基因在 RNAi 筛选中被识别为命中，并在对应的 BioAssay 记录中标记为「活性」",
+    "Enter text to narrow down the list": "输入文本以缩小列表范围",
+    "GAP Links": "GAP 链接",
+    "Gene links to PubMed derived from omim_pubmed_cited links": "由 omim_pubmed_cited 链接派生的 Gene 到 PubMed 链接",
+    "Goto First Page": "首页",
+    "Goto Previous Page": "上一页",
+    "In addition, your package will include a detailed data report in both TSV and JSONL formats.": "此外，数据包中还会包含一份 TSV 与 JSONL 格式的详细数据报告。",
+    "Inactive Goto Last Page": "末页（不可用）",
+    "Inactive Goto Next Page": "下一页（不可用）",
+    "Link from Gene to dbVar": "从 Gene 到 dbVar 的链接",
+    "Link to Nucleotide RefSeq RNAs": "链接到核酸 RefSeq RNA",
+    "Link to Nucleotide RefSeqGenes": "链接到核酸 RefSeqGene",
+    "Link to Protein RefSeqs": "链接到蛋白质 RefSeq",
+    "Link to related Nucleotide entry": "链接到相关核酸序列条目",
+    "Link to related OMIM entry": "链接到相关 OMIM 条目",
+    "Link to related PubMed article from GeneRIFs": "链接到 GeneRIF 中的相关 PubMed 文章",
+    "Link to related PubMed entry": "链接到相关 PubMed 条目",
+    "Link to related protein entry": "链接到相关蛋白质条目",
+    "Link to related taxonomy entry": "链接到相关分类学条目",
+    "Name your file": "为文件命名",
+    "Overlapping genes and two nearest non-overlapping genes on either side": "重叠基因，以及两侧各两个最近的未重叠基因",
+    "PMC links": "PMC 链接",
+    "Publication:": "文献：",
+    "PubChem BioAssays done on the Gene target": "针对该基因靶标开展的 PubChem 生物测定",
+    "RNA Sequence": "RNA 序列",
+    "RefSeq Proteins": "RefSeq 蛋白质",
+    "RefSeq RNAs": "RefSeq RNA 序列",
+    "Related CDD": "相关保守结构域（CDD）",
+    "Related GEO": "相关 GEO",
+    "Related Genome": "相关基因组",
+    "Related SNP records": "相关 SNP 记录",
+    "Related gene-specific medical variations": "相关基因特异性医学变异",
+    "Related medical variations": "相关医学变异",
+    "Summarized PubChem Data on the gene, showing the active data by default": "该基因的 PubChem 摘要数据，默认显示活性数据",
+    "Tests for this gene in the NIH Genetic Testing Registry": "NIH 遗传检测登记库中该基因的检测",
+    "The following sections contain reference sequences that belong to a specific genome build.": "以下各节包含属于特定基因组组装版本的参考序列。",
+    "View selected attributes for an input list of genes and download datasets containing genomic, transcript and protein sequences along with a detailed data report.": "查看为输入的基因列表所选定的属性，并下载包含基因组、转录本与蛋白质序列以及详细数据报告的数据集。"
+  },
+  "rules": [
+    {
+      "re": "^(NC_\\d+\\.\\d+) \\((\\d+\\.\\.\\d+), complement\\)$",
+      "to": "$1（$2，互补链）"
+    },
+    {
+      "re": "^(\\d+\\.\\.\\d+) complement$",
+      "to": "$1 互补链"
+    },
+    {
+      "re": "^(NC_\\d+\\.\\d+) Reference (.+) Primary Assembly$",
+      "to": "$1 参考 $2 主要组装"
+    },
+    {
+      "re": "^(NC_\\d+\\.\\d+) Alternate (.+)$",
+      "to": "$1 替代 $2"
+    },
+    {
+      "re": "^No evidence available \\(Last evaluated (.+)\\)$",
+      "to": "暂无证据（最近评估于 $1）"
+    },
+    {
+      "re": "^Sufficient evidence for dosage pathogenicity \\(Last evaluated (.+)\\)$",
+      "to": "剂量致病性证据充分（最近评估于 $1）"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The following {{1}} resources are supplied by external providers. These providers are responsible for maintaining the links.",
+      "zh": "以下 {{1}} 资源由外部提供方提供，相应链接由这些提供方负责维护。"
+    },
+    {
+      "pat": "These reference sequences are curated independently of the genome annotation cycle, so their versions may not match the RefSeq versions in the current genome build. Identify version mismatches by comparing the version of the RefSeq in this section to the one reported in {{1}} above.",
+      "zh": "这些参考序列独立于基因组注释周期进行整理，因此其版本可能与当前基因组组装中的 RefSeq 版本不一致。可通过比较本节中的 RefSeq 版本与上文 {{1}} 中报告的版本来识别版本不一致。"
+    }
+  ]
+}

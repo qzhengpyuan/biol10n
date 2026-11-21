@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "family": "kegg-docs2",
+    "version": "0.1.0",
+    "sites": [
+      "www.kegg.jp",
+      "www.genome.jp"
+    ],
+    "area": "KEGG docs pages: dbentry, weblinks, kegg2, kegg3, DBGET top page (remaining English after common+kegg+kegg-docs)"
+  },
+  "exact": {
+    "Lineage": "谱系",
+    "Data source": "数据来源",
+    "Original DB": "原始数据库",
+    "Plasmid": "质粒",
+    "(T4 entry)": "（T4 条目）",
+    "Host": "宿主",
+    "Reservoir": "储存宿主",
+    "(Vtax entry)": "（Vtax 条目）",
+    "Pept": "肽",
+    "Mol weight": "分子量",
+    "KCF data": "KCF 数据",
+    "Composition": "组成",
+    "Mass": "质量",
+    "Equation": "方程式",
+    "(blank)": "（空）",
+    "(RC entry)": "（RC 条目）",
+    "Reactant pair": "反应物对",
+    "Related class": "相关类别",
+    "(RM entry)": "（RM 条目）",
+    "Sysname": "系统名",
+    "Reaction(IUBMB)": "反应（IUBMB）",
+    "Reaction(KEGG)": "反应（KEGG）",
+    "Substrate": "底物",
+    "Product": "产物",
+    "Expanded": "展开",
+    "Perturbant": "扰动因子",
+    "Metabolite": "代谢物",
+    "(nt entry)": "（nt 条目）",
+    "Member": "成员",
+    "Variation": "变异",
+    "Disease pathway": "疾病通路",
+    "Pathogen": "病原体",
+    "Abbr": "缩写",
+    "Simcomp": "结构相似性比较",
+    "Component": "组分",
+    "Efficacy": "疗效",
+    "Target": "靶点",
+    "Metabolism": "代谢",
+    "Biosynthesis": "生物合成",
+    "Structure map": "结构图",
+    "Other map": "其他图",
+    "Stem": "母核",
+    "| KEGG Database Entry Format ]": "| KEGG 数据库条目格式 ]",
+    "This document describes the database entry field names in the web page and the corresponding flat file. It also summarizes the fields searched by": "本文档介绍网页中数据库条目的字段名及其对应的平面文件，并汇总以下检索字段，它们由",
+    "The content of each field is described in the link from \"Web page\".": "各字段的内容见「网页」列的链接说明。",
+    "DBGET Search Fields": "DBGET 检索字段",
+    "DBGET name": "DBGET 名称",
+    "has been developed as the backbone retrieval system for the GenomeNet and KEGG services (see the": "是 GenomeNet 与 KEGG 服务的骨干检索系统（参见",
+    "history of development": "发展历程",
+    "). DBGET is based on a flat-file view of molecular biology databases, where the database is considered as a collection of entries. The keyword search is performed against the following fields.": "）。DBGET 基于分子生物学数据库的平面文件视图，即把数据库视为条目集合。关键词检索针对以下字段执行。",
+    "| KEGG WebLinks |": "| KEGG 外部链接 |",
+    "DBGET Search": "DBGET 检索",
+    "is an integrated database retrieval system for major biological databases at": "是一个整合数据库检索系统，可检索主要生物学数据库，站点为",
+    ". It is also used in KEGG as the backbone retrieval system. DBGET is based on a flat-file view of molecular biology databases, where the database is considered as a collection of entries. Thus, each entry of each database can be retrieved by the combination of the database name and the entry name (see the": "。它也是 KEGG 的骨干检索系统。DBGET 基于分子生物学数据库的平面文件视图，即把数据库视为条目集合。因此，每个数据库的每个条目都可以通过数据库名与条目名的组合来检索（参见",
+    "DBGET at GenomeNet": "GenomeNet 上的 DBGET",
+    "KEGG Database in DBGET": "DBGET 中的 KEGG 数据库",
+    "Abbre-": "缩",
+    "viation": "写",
+    "Webpage": "网页",
+    "Genes in KEGG viruses": "KEGG 病毒中的基因",
+    "Chemical compounds": "化合物",
+    "Chemical Reactions": "化学反应",
+    "KEGG Enzyme": "KEGG 酶",
+    "\"kegg\" includes mgenes and mgenome maintained by GenomeNet": "「kegg」包含由 GenomeNet 维护的 mgenes 与 mgenome",
+    "map number": "map 编号",
+    "br number": "br 编号",
+    "M number": "M 编号",
+    "<org> or T number": "<org> 或 T 编号",
+    "vtax number": "vtax 编号",
+    "T4 number": "T4 编号",
+    "G number": "G 编号",
+    "R number": "R 编号",
+    "RC number": "RC 编号",
+    "RM number": "RM 编号",
+    "N number": "N 编号",
+    "nt number": "nt 编号",
+    "H number": "H 编号",
+    "D number": "D 编号",
+    "DG number": "DG 编号"
+  },
+  "rules": [
+    {
+      "re": "^Gn$",
+      "to": "基因名"
+    },
+    {
+      "re": "^Vtax$",
+      "to": "Vtax 标识符"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "KO assignment tools including {{1}} and {{2}}",
+      "zh": "KO 注释工具，包括 {{1}} 与 {{2}}"
+    },
+    {
+      "pat": "KEGG mapping tools including {{1}}, {{2}}, {{3}}, {{4}} and {{5}}",
+      "zh": "KEGG 映射工具，包括 {{1}}、{{2}}、{{3}}、{{4}} 与 {{5}}"
+    },
+    {
+      "pat": "{{1}}, {{2}}, {{3}} and {{4}} tools",
+      "zh": "{{1}}、{{2}}、{{3}} 与 {{4}} 工具"
+    }
+  ]
+}

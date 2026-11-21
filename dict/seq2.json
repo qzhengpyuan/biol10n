@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "family": "seq2",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ],
+    "area": "ncbi-nuccore / ncbi-protein / ncbi-assembly 剩余界面骨架（GenBank 视图导航提示、数据集基因组页的样本/分类学检查/ANI/质控标签）"
+  },
+  "exact": {
+    "Jump to the feature": "跳转到特征",
+    "Jump to the comment section of this record": "跳转到此记录的评论部分",
+    "Jump to the feature table of this record": "跳转到此记录的特征表",
+    "Jump to the sequence of this record": "跳转到此记录的序列",
+    "Complete Genome": "完整基因组",
+    "haploid": "单倍体",
+    "Sample details": "样本详情",
+    "BioSample ID": "BioSample 编号",
+    "Substrain": "亚株",
+    "Sample name": "样本名称",
+    "Pathogen Detection Resource": "病原体检测资源",
+    "Isolate Browser": "分离株浏览器",
+    "SNP Tree Viewer": "SNP 树查看器",
+    "Genotypes identified by AMRFinderPlus": "由 AMRFinderPlus 鉴定的基因型",
+    "Analyze in BRC Analytics": "在 BRC Analytics 中分析",
+    "View RefSeq annotation": "查看 RefSeq 注释",
+    "View GenBank annotation": "查看 GenBank 注释",
+    "Sequences added to RefSeq": "添加到 RefSeq 的序列",
+    "NCBI Eukaryotic Genome Annotation Pipeline (EGAP)": "NCBI 真核基因组注释流程（EGAP）",
+    "Taxonomy check": "分类学检查",
+    "Taxonomy check status": "分类学检查状态",
+    "Best match status": "最佳匹配状态",
+    "Submitted organism name": "提交的生物体名称",
+    "Submitted species name": "提交的物种名称",
+    "Average Nucleotide Identity (ANI) match details": "平均核苷酸一致性（ANI）匹配详情",
+    "Best match type-strain for submitted organism": "提交生物体的最佳匹配模式菌株",
+    "Best match type-strain": "最佳匹配模式菌株",
+    "Type assembly": "模式菌株组装",
+    "Organism name": "生物体名称",
+    "Type category": "模式类别",
+    "Assembly coverage": "组装覆盖度",
+    "Type assembly coverage": "模式菌株组装覆盖度",
+    "CheckM analysis (": "CheckM 分析（",
+    "Completeness": "完整度",
+    "Completeness:": "完整度：",
+    "Contamination:": "污染度：",
+    "Percentile": "百分位"
+  },
+  "rules": [
+    {
+      "re": "^CheckM analysis \\(v([\\d.]+)\\)$",
+      "to": "CheckM 分析（v$1）"
+    },
+    {
+      "re": "^View all ([\\d,]+) in PubMed$",
+      "to": "在 PubMed 中查看全部 $1 篇"
+    },
+    {
+      "re": "^Annotation submitted by (.+)$",
+      "to": "注释由 $1 提交"
+    },
+    {
+      "re": "^Added chromosome (.+)$",
+      "to": "新增染色体 $1"
+    },
+    {
+      "re": "^Jump to ([A-Z]{2}_[0-9]+\\.[0-9]+)$",
+      "to": "跳转到 $1"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Calculated on the Prokaryotic Genome Annotation Pipeline (PGAP) gene set with the Escherichia coli CheckM marker set. For more information on CheckM, see {{1}}.",
+      "zh": "根据原核基因组注释流程（PGAP）基因集与该物种的 CheckM 标记基因集计算。有关 CheckM 的更多信息，请参见 {{1}}。"
+    }
+  ]
+}

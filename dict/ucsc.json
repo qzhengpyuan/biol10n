@@ -980,7 +980,27 @@
     "Sequence and Links to Tools and Databases": "序列与工具数据库链接",
     "All fields from selected table": "所选表格的全部字段",
     "All Tracks": "全部轨道",
-    "All Tables": "全部表格"
+    "All Tables": "全部表格",
+    "Comments and Description Text from UniProtKB": "来自 UniProtKB 的注释与描述文本",
+    "Primer design for this transcript": "该转录本的引物设计",
+    "MalaCards Disease Associations": "MalaCards 疾病关联",
+    "Comparative Toxicogenomics Database (CTD)": "比较毒理基因组学数据库（CTD）",
+    "RNA-Seq Expression Data from GTEx (53 Tissues, 570 Donors)": "来自 GTEx 的 RNA-Seq 表达数据（53 种组织，570 位供体）",
+    "Microarray Expression Data": "芯片表达数据",
+    "mRNA Secondary Structure of 3' and 5' UTRs": "3' 与 5' UTR 的 mRNA 二级结构",
+    "Protein Domain and Structure Information": "蛋白质结构域与结构信息",
+    "Orthologous Genes in Other Species": "其他物种中的直系同源基因",
+    "Gene Ontology (GO) Annotations with Structured Vocabulary": "带结构化词表的基因本体（GO）注释",
+    "Descriptions from all associated GenBank mRNAs": "所有相关 GenBank mRNA 的描述",
+    "Biochemical and Signaling Pathways": "生化与信号通路",
+    "Other Names for This Gene": "该基因的其他名称",
+    "GeneReviews for This Gene": "该基因的 GeneReviews 条目",
+    "Methods, Credits, and Use Restrictions": "方法、致谢与使用限制",
+    "Selected fields from primary and related tables": "主表与相关表中选定的字段",
+    "GTF - gene transfer format (limited)": "GTF - 基因转移格式（有限）",
+    "BED - browser extensible data": "BED - 浏览器可扩展数据",
+    "Custom track": "自定义轨道",
+    "Hyperlinks to Genome Browser": "指向基因组浏览器的超链接"
   },
   "rules": [
     {
@@ -1012,6 +1032,10 @@
       "re": "^Protein \\((\\d+) aa\\)$",
       "to": "蛋白质（$1 个氨基酸）",
       "requireHit": false
+    },
+    {
+      "re": "^Human Gene (\\S+) \\((.+?)\\) from (.+)$",
+      "to": "人类基因 $1（$2，$3）"
     }
   ],
   "templates": [

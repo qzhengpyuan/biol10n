@@ -668,8 +668,8 @@
     "Bacteria": "细菌",
     "Archaea": "古菌",
     "Riboviria": "核糖病毒域",
-    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（最多 ",
-    "files max)": " 个文件）",
+    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（上限：",
+    "files max)": " 个）",
     "Scientific Name of Source Organism": "来源生物的科学名称",
     "ELECTRON MICROSCOPY": "电子显微镜",
     "SOLUTION NMR": "溶液核磁共振",
@@ -720,7 +720,16 @@
     "Small proteins": "小蛋白",
     "Artifacts": "伪影",
     "Carbohydrate": "碳水化合物",
-    "Crosslinker": "交联剂"
+    "Crosslinker": "交联剂",
+    "Experimental model": "实验模型",
+    "Heme/heme-like": "血红素/血红素类",
+    "Named protein modification": "具名蛋白质修饰",
+    "Non-standard residue": "非标准残基",
+    "Covalent chemical modification": "共价化学修饰",
+    "Terminal acetylation": "末端乙酰化",
+    "Non-standard linkage": "非标准连接",
+    "Membrane and cell surface proteins and peptides": "膜蛋白与细胞表面蛋白及肽类",
+    "Multi-domain proteins (alpha and beta)": "多结构域蛋白（α 和 β）"
   },
   "rules": [
     {
@@ -854,7 +863,7 @@
     },
     {
       "re": "^Use CTRL or Shift keys to select more than one file\\s*\\((\\d+) files max\\)$",
-      "to": "使用 CTRL 或 Shift 键可选择多个文件（最多 $1 个文件）"
+      "to": "使用 CTRL 或 Shift 键可选择多个文件（上限：$1 个）"
     },
     {
       "re": "^Refinement Resolution \\(\\s*Å\\s*\\)$",

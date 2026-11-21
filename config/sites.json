@@ -113,7 +113,7 @@
         {
           "sel": "td",
           "match": "The \"Change pathway type\" button is also for changing the prefix",
-          "text": "「Change pathway type」按钮同样用于更改前缀，但它不打开新窗口，而是作为通路图主显示区的控制面板。除更改单个物种代码外，还可输入多个物种代码进行组合或比较。全局图可额外接受一个代码，用于两个物种的三色显示；常规图可接受更多代码进行分色显示，同样支持两个物种的三色显示（详见"
+          "text": "「更改通路类型」按钮同样用于更改前缀，但它不打开新窗口，而是作为通路图主显示区的控制面板。除更改单个物种代码外，还可输入多个物种代码进行组合或比较。全局图可额外接受一个代码，用于两个物种的三色显示；常规图可接受更多代码进行分色显示，同样支持两个物种的三色显示（详见"
         },
         {
           "sel": "td",
@@ -129,6 +129,11 @@
           "sel": "td",
           "match": "The pathway map without coloring is the original version",
           "text": "未着色的通路图是原始版本，由内部软件 KegSketch 人工绘制。其余带颜色的通路图均由计算生成，汇总如下。"
+        },
+        {
+          "sel": "td",
+          "match": "Download - download png image file",
+          "text": "下载 - 下载 PNG 图像文件；除全局图外均提供高分辨率版本"
         }
       ]
     },

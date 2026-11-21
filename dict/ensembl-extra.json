@@ -318,7 +318,8 @@
     "Jobs list": "任务列表",
     "Choose a genome": "选择基因组",
     "Select": "请选择",
-    "Run": "运行"
+    "Run": "运行",
+    "Under Windows (assuming you installed the APIs in C:\\src\\):": "Windows 下（假设 API 安装在 C:\\src\\）："
   },
   "rules": [
     {

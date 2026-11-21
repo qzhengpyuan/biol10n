@@ -133,7 +133,7 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-taxonomy",
       "name": "NCBI Taxonomy",
-      "path": "^/Taxonomy"
+      "path": "^/(Taxonomy|datasets/taxonomy)"
     },
     {
       "hosts": [

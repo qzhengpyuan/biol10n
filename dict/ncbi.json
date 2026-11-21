@@ -1390,7 +1390,21 @@
     "A chart.": "图表。",
     "YYYY": "年份",
     "Linked Discoveries": "关联发现",
-    "experimental resource": "实验资源"
+    "experimental resource": "实验资源",
+    "Browse Titles": "浏览书目",
+    "PubReader": "PubReader 阅读器",
+    "Print View": "打印视图",
+    "Cite this Page": "引用本页",
+    "Bookshelf ID": "Bookshelf 编号",
+    "Other titles in this collection": "本集合中的其他书目",
+    "In this Page": "本页内容",
+    "PubMed search builder options": "PubMed 检索构建器选项",
+    "Subheadings:": "副主题词：",
+    "Year introduced:": "引入年份：",
+    "View annotated genes": "查看注释基因",
+    "haploid with alt loci": "单倍体含替代位点",
+    "MANE Plus Clinical": "MANE Plus Clinical 转录本",
+    "FDA RECOGNIZED DATABASE": "FDA 认可数据库"
   },
   "rules": [
     {

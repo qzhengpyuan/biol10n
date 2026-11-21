@@ -589,6 +589,14 @@
     {
       "pat": "ClinVar records should be referred to with accession and version numbers. It important to include the version number because the classification may change over time; the version number allows you to distinguish between previous and current versions. If you need to build URLs based on a ClinVar accession, please note the instructions for {{1}}.",
       "zh": "引用 ClinVar 记录时应注明登录号与版本号。务必包含版本号，因为分类可能随时间改变；版本号可用于区分先前版本与当前版本。如需基于 ClinVar 登录号构建 URL，请参阅关于{{1}}的说明。"
+    },
+    {
+      "pat": "To conform to conventions of HGVS notation, ClinVar will represent the location of the sequence change at the right-most location. The standard for VCF, however, is {{1}} . For this reason, the location represented by a dbSNP rs number may be left of the location represented by the HGVS notation.",
+      "zh": "按照 HGVS 记法惯例，ClinVar 会把序列改变的位置记在最右侧位置。但 VCF 的标准是 {{1}} 。因此，dbSNP rs 号表示的位置可能位于 HGVS 记法所表示位置的左侧。"
+    },
+    {
+      "pat": "ClinVar reports {{1}} for the number of submissions, genes, and variants from ClinVar submissions. We also provide a list of submitters, with counts per submitter. Note that variation is represented according to the ClinVar data model, in that a variation is represented as a set which may have one or more members. For example, two variations submitted together in {{2}} are counted as one variation.",
+      "zh": "ClinVar 报告{{1}}，统计 ClinVar 提交的记录数、基因数与变异数。我们还提供提交者列表及各提交者的计数。注意：按 ClinVar 数据模型，一个变异表示为一个集合，可包含一个或多个成员。例如，两个以 {{2}} 形式一起提交的变异按一个变异计数。"
     }
   ]
 }

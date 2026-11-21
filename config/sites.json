@@ -98,7 +98,39 @@
         "kegg"
       ],
       "scope": "body",
-      "name": "KEGG"
+      "name": "KEGG",
+      "blocks": [
+        {
+          "sel": "td",
+          "match": "The KEGG PATHWAY database is a collection of manually drawn",
+          "text": "KEGG PATHWAY 数据库收录人工绘制的图形化图谱，称为 KEGG 通路图，涵盖代谢通路、信号通路、参与各类细胞过程与机体系统的通路，以及与人类疾病相关的扰动通路。\n通路图标识符的形式为："
+        },
+        {
+          "sel": "td",
+          "match": "where the number is uniquely assigned to each pathway map",
+          "text": "其中编号唯一对应每一张通路图，前缀表示同一通路图的不同版本，例如「map」表示人工绘制的参考通路，三到四位字母的物种代码表示由计算生成的物种特异性通路。\n顶部的「Pathway 菜单」用于更改五位通路图编号，「Organism 菜单」用于更改前缀（物种代码）。"
+        },
+        {
+          "sel": "td",
+          "match": "The \"Change pathway type\" button is also for changing the prefix",
+          "text": "「Change pathway type」按钮同样用于更改前缀，但它不打开新窗口，而是作为通路图主显示区的控制面板。除更改单个物种代码外，还可输入多个物种代码进行组合或比较。全局图可额外接受一个代码，用于两个物种的三色显示；常规图可接受更多代码进行分色显示，同样支持两个物种的三色显示（详见"
+        },
+        {
+          "sel": "td",
+          "match": "The pathway map viewer comes with a side panel",
+          "text": "通路图查看器配有侧边面板，用于下列各项客户端操作。"
+        },
+        {
+          "sel": "td",
+          "match": "The global maps (map numbers 01100s) and the overview maps",
+          "text": "全局图（map 编号 01100s）与总览图（map 编号 01200s）是一类特殊的代谢通路图。它们以线（或箭头）为主要对象来连接 KO、酶、反应与各个基因，而不像常规代谢通路图那样以方框为主。\n此外，参考全局图还以着色区分 09101 至 09111 的十一个功能类别，见"
+        },
+        {
+          "sel": "td",
+          "match": "The pathway map without coloring is the original version",
+          "text": "未着色的通路图是原始版本，由内部软件 KegSketch 人工绘制。其余带颜色的通路图均由计算生成，汇总如下。"
+        }
+      ]
     },
     {
       "id": "hpa",

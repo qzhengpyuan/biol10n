@@ -87,6 +87,11 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
   都先拼再查表；末尾统一跑一遍空白与标点清理（`cleanupPass`）
 - 整段替换：`p`/`li`/`td` 这类不嵌套块的容器，按整段 `textContent` 查表，命中就整块换成中文
   （词条是被链接切碎的段落时，逐节点永远打不中）
+- mixed 通道：节点里已经含中文（半翻的图例、被站点脚本拼过的串）时，只跑显式标了 `mixed:true`
+  的规则，其它规则一律不碰，避免把中文再翻一次
+- repair 通道：标了 `repair:true` 的规则在每个站点每轮扫描结束后**无条件再跑一遍**（不看
+  `processed` 标记），用来修被站点图表库二次渲染改坏的串（cBio 饼图图例的括号错配就是这么修的）；
+  没有 repair 规则的站点会短路跳过这一步
 
 细节见 [docs/engine-design.md](docs/engine-design.md)。
 

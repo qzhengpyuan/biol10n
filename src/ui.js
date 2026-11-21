@@ -147,7 +147,7 @@ function createBioL10nUI(opts) {
 
   function statLine() {
     var s = (engine && engine.stats) || {};
-    return { nodes: s.nodes || 0, exact: s.hitExact || 0, rule: s.hitRule || 0, attrs: s.attrs || 0, paras: s.paras || 0, tpl: s.tpl || 0, inline: s.inline || 0, miss: s.miss || 0 };
+    return { nodes: s.nodes || 0, exact: s.hitExact || 0, rule: s.hitRule || 0, attrs: s.attrs || 0, attrHit: s.attrHit || 0, titleHit: s.titleHit || 0, paras: s.paras || 0, tpl: s.tpl || 0, inline: s.inline || 0, miss: s.miss || 0 };
   }
 
   function buildPanel() {

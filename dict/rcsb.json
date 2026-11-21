@@ -714,7 +714,13 @@
     "Alpha and beta proteins (a+b)": "α+β 蛋白",
     "Coiled coil proteins": "卷曲螺旋蛋白",
     "Low resolution protein structures": "低分辨率蛋白结构",
-    "Designed proteins": "设计蛋白"
+    "Designed proteins": "设计蛋白",
+    "Dihedral": "二面体",
+    "Helical": "螺旋",
+    "Small proteins": "小蛋白",
+    "Artifacts": "伪影",
+    "Carbohydrate": "碳水化合物",
+    "Crosslinker": "交联剂"
   },
   "rules": [
     {

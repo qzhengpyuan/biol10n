@@ -261,7 +261,11 @@ function createEngine(options) {
       }
       // SVG 里的 <style> 是 SVG 命名空间元素，tagName 是小写 "style"，
       // 用大写比较才能挡住 <style>.cls-1{fill:#737373}</style> 这种被当正文的 CSS。
-      if (SKIP_TAGS[String(p.tagName || "").toUpperCase()] === 1) return true;
+      var tagU = String(p.tagName || "").toUpperCase();
+      // <title> 在 HTML 里是页面标题（必须挡），但 SVG 里的 <title> 是图表 tooltip
+      // （cBio 饼图「Mixed Histology (NOS):30」），要按 SVG 文本照翻。
+      var isSvgTitle = tagU === "TITLE" && String(p.namespaceURI || "").indexOf("svg") >= 0;
+      if (!isSvgTitle && SKIP_TAGS[tagU] === 1) return true;
       if (p.isContentEditable) return true;
       if (p.dataset && p.dataset.l10nScope === "off") return true;
       // 设置面板自己的文字（BioL10n 等英文标签）永远不参与翻译

@@ -42,3 +42,23 @@ test("SVG <style> 里的 CSS 不进入翻译", () => {
   assert.equal(dom.window.document.querySelector("text").textContent, "人类");
 });
 
+
+// 回归：SVG <title> 是 tooltip（cBio 饼图「Mixed Histology (NOS):30」），
+// 不能因为 HTML <title> 在 SKIP_TAGS 里就一起挡掉。
+test("SVG <title> 照翻，HTML <title> 仍不翻", () => {
+  const dom = new JSDOM('<body><svg><g><title>Mixed Histology (NOS):30</title></g></svg></body>', { url: "https://example.org/" });
+  dom.window.document.title = "Mixed Histology (NOS):30";
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: {
+      exact: { "Mixed Histology": "混合组织学" },
+      rules: [{ re: "^(.+?) \\(NOS\\):(\\d+)$", to: "$1（非特指）：$2", mixed: true }]
+    },
+    site: { attrs: [], block: "", scope: "body" }
+  });
+  engine.start();
+  assert.equal(dom.window.document.querySelector("svg title").textContent, "混合组织学（非特指）：30");
+  // HTML 页面标题走 translateTitle 独立通道，不受 SKIP_TAGS 影响；这里不额外断言。
+});
+

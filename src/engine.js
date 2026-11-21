@@ -635,6 +635,27 @@ function createEngine(options) {
     if (!originals.has(node)) originals.set(node, raw);
     node.nodeValue = lead + out + trail;
     processed.add(node);
+    if (/[\u3400-\u9fff]/.test(out)) fixVerticalLabel(node.parentElement);
+  }
+
+  /** ClinVar 的「胚系 / 体细胞」区块标题是 vertical-rl + rotate(180deg) 做的竖排
+   *  （英文旋转 180 后仍能读，汉字转 180 就是倒的）。
+   *  译文含汉字时把最近的竖排祖先的 transform 清掉：竖排照旧、字正过来。 */
+  function fixVerticalLabel(el) {
+    if (!el || !win || !win.getComputedStyle) return;
+    for (var i = 0; i < 3 && el && el.nodeType === 1; i++, el = el.parentElement) {
+      var cs;
+      try { cs = win.getComputedStyle(el); } catch (e) { return; }
+      if (!cs) return;
+      var vertical = /^vertical/.test(String(cs.writingMode || ""));
+      var rotated = /matrix\(-1,\s*0,\s*0,\s*-1|rotate\(180deg\)|rotate\(-180deg\)/.test(String(cs.transform || ""));
+      if (!vertical && !rotated) continue;
+      try {
+        if (cs.transform && cs.transform !== "none") el.style.setProperty("transform", "none", "important");
+        if (vertical && /sideways/.test(String(cs.textOrientation || ""))) el.style.setProperty("text-orientation", "upright", "important");
+      } catch (e2) {}
+      return;
+    }
   }
 
   /** SVG <text> 整块翻：tspan 会把 "Bone marrow" 拆成 "Bone " + "marrow"，

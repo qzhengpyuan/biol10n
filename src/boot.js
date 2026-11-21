@@ -97,6 +97,8 @@
         block: (SITES.defaults && SITES.defaults.block) || "",
         attrs: (SITES.defaults && SITES.defaults.attrs) || [],
         skip: site.skip || "",
+        skipFree: site.skipFree || [],
+        attrSkipFree: site.attrSkipFree || [],
         proseGuard: site.proseGuard !== false,
         proseMax: site.proseMax || 120,
         proseExempt: site.proseExempt || "",

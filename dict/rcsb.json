@@ -675,8 +675,7 @@
     "SOLUTION NMR": "溶液核磁共振",
     "NEUTRON DIFFRACTION": "中子衍射",
     "POWDER DIFFRACTION": "粉末衍射",
-    "NMR data": "NMR 数据",
-    "ELECTRON MICROSCOPY (": "电子显微镜（"
+    "NMR data": "NMR 数据"
   },
   "rules": [
     {

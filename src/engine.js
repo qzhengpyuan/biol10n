@@ -1027,7 +1027,16 @@ function createEngine(options) {
       if (!inSvg && skipNode(el, true)) continue;
       // 站点 skip 是"这一块整体别碰"：cBio 数据集名在 table.simple-table td:nth-child(1) 里，
       // 文本已经跳过了，但同一条 <a> 的 aria-label 之前还会被翻成中文（半中半英的元数据）。
-      if (inSkip(el)) continue;
+      // 站点 skip 有时挡掉整块（cBio 的 h3 数据集名），但块里的按钮/链接说明仍该翻；
+      // site.attrSkipFree 列出「即使祖先在 skip 里，属性也照样处理」的选择器。
+      if (inSkip(el)) {
+        var free = (site && site.attrSkipFree) || [];
+        var rescued = false;
+        for (var fi = 0; fi < free.length; fi++) {
+          try { if (el.closest(free[fi])) { rescued = true; break; } } catch (e5) { /* 选择器写错就当没写 */ }
+        }
+        if (!rescued) continue;
+      }
       var out = translate(text);
       if (out === null) continue;
       if (fromProp) {

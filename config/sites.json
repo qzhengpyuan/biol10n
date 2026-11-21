@@ -499,7 +499,10 @@
         32000,
         45000
       ],
-      "name": "cBioPortal"
+      "name": "cBioPortal",
+      "attrSkipFree": [
+        ".dataset-table-download-link"
+      ]
     },
     {
       "id": "gdc",

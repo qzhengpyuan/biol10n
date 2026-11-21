@@ -1140,7 +1140,8 @@
     "Study": "研究",
     "Tracks": "轨道",
     "Mixed Histology": "混合组织学",
-    "Infiltrating Carcinoma": "浸润性癌"
+    "Infiltrating Carcinoma": "浸润性癌",
+    "Queried": "已查询"
   },
   "rules": [
     {

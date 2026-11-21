@@ -632,6 +632,19 @@ function createEngine(options) {
     var t = null;
     try { t = pe.closest("text"); } catch (e) { return false; }
     if (!t) return false;
+    // 已经被翻过、但翻坏了括号的标签：svgDone 会挡住后续所有处理，
+    // 所以修复必须放在这里，且不受 svgDone 约束。
+    try {
+      var rw = doc.createTreeWalker(t, 4, null, false), rn;
+      while ((rn = rw.nextNode())) {
+        var rv = String(rn.nodeValue || "");
+        var rv2 = repairText(rv);
+        if (rv2 !== rv) {
+          if (!originals.has(rn)) originals.set(rn, rv);
+          rn.nodeValue = rv2;
+        }
+      }
+    } catch (e3) { /* 修复失败不影响后续 */ }
     if (svgDone.has(t)) return true;
     svgDone.add(t);
     // tspan 既可能在空格处断（"Bone " + "marrow"），也可能在词中间断（"Bone" + "marrow"），

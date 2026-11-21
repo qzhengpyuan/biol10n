@@ -659,7 +659,10 @@
     "Download All Files": "下载全部文件",
     "Download Selected Files": "下载选定文件",
     "Download All/Selected Files": "下载全部/选定文件",
-    "Download Selection": "下载选定项"
+    "Download Selection": "下载选定项",
+    "Download Multiple Files:": "下载多个文件：",
+    "All": "全部",
+    "Selected": "选定"
   },
   "rules": [
     {

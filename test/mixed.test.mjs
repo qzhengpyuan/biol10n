@@ -42,3 +42,19 @@ test("mixed 规则不会碰纯中文节点", () => {
   const { doc } = boot("<p id=a>乳腺浸润性癌</p>", { exact: {}, rules });
   assert.equal(doc.getElementById("a").textContent, "乳腺浸润性癌");
 });
+
+// 回归：cBio 饼图图例带计数与百分比（Mixed Histology (NOS):30 (2.8%)），
+// 规则要保留尾部数据并把括号/冒号统一成全角，且不能出现括号错配。
+test("NOS 图例带百分比时括号闭合且全角", () => {
+  const rules = [
+    { re: "^(.+?) \\(NOS\\):(\\d+) \\(([<\\d.]+)%\\)$", to: "$1（非特指）：$2（$3%）", mixed: true },
+    { re: "^(.+?) \\(NOS\\):(\\d+)(.*)$", to: "$1（非特指）：$2$3", mixed: true }
+  ];
+  const { doc } = boot(
+    "<p id=a>Mixed Histology (NOS):30 (2.8%)</p><p id=b>Infiltrating Carcinoma (NOS):1 (<0.1%)</p>",
+    { exact: { "Mixed Histology": "混合组织学", "Infiltrating Carcinoma": "浸润性癌" }, rules }
+  );
+  assert.equal(doc.getElementById("a").textContent, "混合组织学（非特指）：30（2.8%）");
+  assert.equal(doc.getElementById("b").textContent, "浸润性癌（非特指）：1（<0.1%）");
+});
+

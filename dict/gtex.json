@@ -204,7 +204,7 @@
     "IMMUNE (CILIATED)": "免疫细胞（纤毛）",
     "MYOCYTE (CILIATED)": "肌细胞（纤毛）",
     "ENDOTHELIAL CELL (CLUB)": "内皮细胞（棒状（Club））",
-    "EPITHELIAL CELL (CLUB)": "上皮细胞（棒状（Club））",
+    "EPITHELIAL CELL (CLUB)": "上皮细胞（棒状细胞）",
     "IMMUNE (CLUB)": "免疫细胞（棒状（Club））",
     "MYOCYTE (CLUB)": "肌细胞（棒状（Club））",
     "ENDOTHELIAL CELL (HILLOCK)": "内皮细胞（希洛克）",
@@ -292,7 +292,14 @@
     "SEBACEOUS GLAND CELL": "皮脂腺细胞",
     "SWEAT GLAND CELL": "汗腺细胞",
     "IMMUNE (DC/MACROPHAGE)": "免疫细胞（树突状/巨噬细胞）",
-    "ICCS": "ICCS 细胞"
+    "ICCS": "ICCS 细胞",
+    "TPM": "TPM",
+    "Gene Model": "基因模型",
+    "Exon read counts per base": "每个碱基的外显子读取计数",
+    "Junction read counts": "剪接点读取计数",
+    "median read count per base": "每个碱基的读取计数中位数",
+    "Total cells": "细胞总数",
+    "Cell fraction": "细胞比例"
   },
   "rules": [
     {
@@ -342,6 +349,11 @@
     {
       "re": "^Exon Expression of (.+?):(.+)$",
       "to": "$1 的外显子表达：$2",
+      "requireHit": false
+    },
+    {
+      "re": "^Exon (\\d+)$",
+      "to": "外显子 $1",
       "requireHit": false
     }
   ]

@@ -668,8 +668,8 @@
     "Bacteria": "细菌",
     "Archaea": "古菌",
     "Riboviria": "核糖病毒域",
-    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件 ",
-    "files max)": "（文件数上限）"
+    "Use CTRL or Shift keys to select more than one file (": "使用 CTRL 或 Shift 键可选择多个文件（",
+    "files max)": "文件数上限）"
   },
   "rules": [
     {

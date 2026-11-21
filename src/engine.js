@@ -973,6 +973,18 @@ function createEngine(options) {
       // 只同步 property，不派发 input/change 事件，避免触发站点的 onChange 去发请求。
       if (name === "value" && site.valueText && el.tagName === "INPUT") {
         try { el.value = out; } catch (e3) {}
+        // React 受控输入会在下一次 render 把 property 重置回英文（RCSB 检索框）。
+        // 只在「值又变回英文原文、且没有被聚焦」时补写一次；用户手动输入过的不覆盖。
+        var keepWatch = function (delay) {
+          setTimeout(function () {
+            try {
+              if (!el.isConnected || el === doc.activeElement) return;
+              if (el.value === v) el.value = out;
+            } catch (e4) {}
+          }, delay);
+        };
+        keepWatch(60);
+        keepWatch(400);
       }
       stats.attrs++;
     }

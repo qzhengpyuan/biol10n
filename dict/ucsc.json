@@ -945,7 +945,23 @@
     "GRC Patches": "GRC 补丁",
     "gene, chromosome range, search terms, help pages, see": "基因、染色体区间、检索词、帮助页，见",
     "downloads page": "下载页面",
-    "FTP server": "FTP 服务器"
+    "FTP server": "FTP 服务器",
+    "Help on Table Browser": "表浏览器帮助",
+    "Using the Table Browser": "使用表浏览器",
+    "Table Browser User's Guide": "表浏览器用户指南",
+    "public MySQL server": "公共 MySQL 服务器",
+    "Sequence and Annotation Downloads": "序列与注释下载",
+    "Group:": "分组：",
+    "Track:": "轨道：",
+    "Table:": "表格：",
+    "Data Access FAQ": "数据访问常见问题",
+    "Output format:": "输出格式：",
+    "Output filename:": "输出文件名：",
+    "tsv (tab-separated)": "tsv（制表符分隔）",
+    "csv (for excel)": "csv（供 Excel 使用）",
+    "Plain text": "纯文本",
+    "Gzip compressed": "Gzip 压缩",
+    "limited gene transfer format": "有限基因传递格式"
   },
   "rules": [
     {

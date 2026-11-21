@@ -394,7 +394,13 @@
     "facility to try and locate information you require.": "功能查找你需要的信息。",
     "If you think an error has occurred, please": "如果你认为出现了错误，请",
     "Page not found": "页面未找到",
-    "Search for your feature or use one of the example links": "搜索你的特征，或使用下面的示例链接"
+    "Search for your feature or use one of the example links": "搜索你的特征，或使用下面的示例链接",
+    "Transcript consequences": "转录本影响",
+    "Regulatory consequences": "调控影响",
+    "Allele frequency": "等位基因频率",
+    "Variant phenotypes": "变异表型",
+    "Gene phenotypes": "基因表型",
+    "Comparative genomic context": "比较基因组背景"
   },
   "rules": [
     {

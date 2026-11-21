@@ -1444,7 +1444,14 @@ function createEngine(options) {
     queue.clear();
     items.forEach(function (n) {
       if (!n.isConnected && n !== doc) return;
-      walk(n.nodeType === 1 ? n : n.parentNode);
+      var host = n.nodeType === 1 ? n : n.parentNode;
+      // 动态插入的整块（NCBI 的改版公告、MedGen 公告条）必须也过一遍模板通道：
+      // 否则只有 walk 的逐节点命中，会出现「根据第 14434 号行政令, federal agencies are …」这种半中半英。
+      if (host && host.nodeType === 1) {
+        var up = host.parentNode;
+        translateTemplates(up && up.nodeType === 1 && up !== doc.body ? up : host);
+      }
+      walk(host);
     });
     // SPA 路由后 <title> 由 React Helmet 之类改写，改的是 head 里的文本节点：
     // 它不在 scope 内，walk 拿不到，也不会再触发 scan()，标题就停在占位串

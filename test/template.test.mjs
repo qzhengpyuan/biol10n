@@ -135,3 +135,18 @@ test("只有图标的内联元素不占模板槽位", () => {
   assert.match(p.querySelector("a.copy").innerHTML, /<svg/, "图标仍在");
   dom.window.close();
 });
+test("动态插入的公告条也走模板通道", async () => {
+  const { engine, doc, dom } = boot('<div id="host"></div>', {
+    templates: [{ pat: 'Per {{1}}, federal agencies are now using "Super Intelligence" in place of "Artificial Intelligence".', zh: "根据{{1}}，联邦机构现以「超级智能」替代「人工智能」。" }],
+    exact: { Per: "根据", "Super Intelligence": "超级智能" }
+  });
+  engine.start();
+  const li = doc.createElement("li");
+  li.innerHTML = 'Per <a href="/eo">Executive Order 14434</a>, federal agencies are now using "Super Intelligence" in place of "Artificial Intelligence".';
+  doc.getElementById("host").appendChild(li);
+  await new Promise((r) => setTimeout(r, 600));
+  assert.match(doc.getElementById("host").textContent, /根据/, "动态节点应命中模板");
+  assert.match(doc.getElementById("host").textContent, /超级智能/, "整句应翻成中文，而不是只翻开头两个词");
+  assert.ok(li.querySelector("a"), "链接保留");
+  dom.window.close();
+});

@@ -885,6 +885,22 @@ function createEngine(options) {
     return cur;
   }
 
+  /** 无条件修复扫描：站点图表库会在我们翻完之后把标签重组成半翻串
+  *  （cBio 饼图图例「混合组织学（非特指：30 (2.8%）」），这类节点已经被
+  *  标记为 processed，普通通道不会再碰，只能每轮扫一遍。 */
+  function repairSweep(root) {
+    if (!root || !root.querySelectorAll) return;
+    var w = doc.createTreeWalker(root, 4, null, false), n;
+    while ((n = w.nextNode())) {
+      var v = String(n.nodeValue || "");
+      if (!v || !hasCJK(v)) continue;
+      var fixed = repairText(v);
+      if (fixed === v) continue;
+      if (!originals.has(n)) originals.set(n, v);
+      n.nodeValue = fixed;
+      stats.repair = (stats.repair || 0) + 1;
+    }
+  }
   function cleanupPass(root) {
     if (!root || !root.querySelectorAll) return;
     var w = doc.createTreeWalker(root, 4, null, false), n;
@@ -1248,6 +1264,7 @@ function createEngine(options) {
     for (var k = 0; k < roots.length; k++) translateInlineInCJK(roots[k]);
     T.push(now());
     for (var j = 0; j < roots.length; j++) cleanupPass(roots[j]);
+    for (var rj = 0; rj < roots.length; rj++) repairSweep(roots[rj]);
     T.push(now());
     stats.time = {
       blocks: Math.round(T[1] - T[0]),

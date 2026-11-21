@@ -1364,7 +1364,8 @@
     "Raw data are available in SRA": "原始数据可在 SRA 获取",
     "Cancer Biology": "癌症生物学",
     "Department": "部门",
-    "Bookshelf": "书架"
+    "Bookshelf": "书架",
+    "NCBI Bookshelf": "NCBI 书架"
   },
   "rules": [
     {

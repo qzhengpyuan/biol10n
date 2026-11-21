@@ -55,3 +55,9 @@ test("NCBI 页脚 Bookshelf 翻译", () => {
   const doc = boot("ncbi", '<a class="literature-footer-link">Bookshelf</a>');
   assert.equal(doc.querySelector("a").textContent, "书架");
 });
+test("PubMed 帮助页 NCBI Bookshelf 与 HPA 轮播标题", () => {
+  const doc = boot(["ncbi", "common"], '<h4 id="coverage-bookshelf">NCBI Bookshelf</h4><a class="literature-footer-link">NCBI Bookshelf</a>');
+  assert.equal(doc.getElementById("coverage-bookshelf").textContent, "NCBI 书架");
+  const doc2 = boot(["hpa", "anatomy"], '<span class="smallnewsheader">Mapping the human secretome across tissues and blood</span>');
+  assert.equal(doc2.querySelector("span").textContent, "跨组织与血液的人类分泌组图谱");
+});

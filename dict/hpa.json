@@ -1713,7 +1713,8 @@
     "Blood protein levels in health and disease based on affinity and MS-based proteomics": "基于亲和与质谱蛋白质组学的健康与疾病血液蛋白水平",
     "The Human Protein Atlas launches version 26, presenting four new resources, extensive additional data and AI tools to help researchers explore human biology and disease.": "人类蛋白质图谱发布第 26 版，推出四项新资源、大量新增数据与 AI 工具，帮助研究人员探索人类生物学与疾病。",
     "At HUPO 2026 in Singapore, Emmanouil Apostolakis presented research combining protein-localisation predictions, tissue gene-expression data and blood proteomics to explore where secreted and membrane-spanning proteins are found in the human body.": "在新加坡举行的 HUPO 2026 上，Emmanouil Apostolakis 展示了一项结合蛋白质定位预测、组织基因表达数据与血液蛋白质组学的研究，探索分泌蛋白与跨膜蛋白在人体中的分布。",
-    "Spatial, subcellular protein profiles in human cells based on antibodies": "基于抗体的细胞内空间与亚细胞蛋白质图谱"
+    "Spatial, subcellular protein profiles in human cells based on antibodies": "基于抗体的细胞内空间与亚细胞蛋白质图谱",
+    "Mapping the human secretome across tissues and blood": "跨组织与血液的人类分泌组图谱"
   },
   "rules": [
     {

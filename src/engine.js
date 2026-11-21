@@ -1431,6 +1431,10 @@ function createEngine(options) {
       if (!n.isConnected && n !== doc) return;
       walk(n.nodeType === 1 ? n : n.parentNode);
     });
+    // SPA 路由后 <title> 由 React Helmet 之类改写，改的是 head 里的文本节点：
+    // 它不在 scope 内，walk 拿不到，也不会再触发 scan()，标题就停在占位串
+    //（cBioPortal 的 "::Helmet"）。每次 flush 顺手校正一次标题，代价只是字符串比较。
+    translateTitle();
   }
 
   function schedule(node) {

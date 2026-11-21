@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "family": "ncbi-guide",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ]
+  },
+  "exact": {
+    "National Center for Biotechnology Information": "美国国家生物技术信息中心",
+    "Welcome to NCBI": "欢迎访问 NCBI",
+    "The National Center for Biotechnology Information advances science and health by providing access to biomedical and genomic information.": "美国国家生物技术信息中心通过提供生物医学与基因组信息，推动科学与健康事业的发展。",
+    "About the NCBI": "关于 NCBI",
+    "Mission": "使命",
+    "NCBI News & Blog": "NCBI 新闻与博客",
+    "Deposit data or manuscripts into NCBI databases": "向 NCBI 数据库提交数据或稿件",
+    "Transfer NCBI data to your computer": "将 NCBI 数据传输到你的计算机",
+    "Find help documents, attend a class or watch a tutorial": "查找帮助文档、参加课程或观看教程",
+    "Develop": "开发",
+    "Use NCBI APIs and code libraries to build applications": "使用 NCBI API 与代码库构建应用",
+    "Analyze": "分析",
+    "Identify an NCBI tool for your data analysis task": "为你的数据分析任务选择合适的 NCBI 工具",
+    "Research": "研究",
+    "Explore NCBI research and collaborative projects": "浏览 NCBI 的研究与协作项目",
+    "Resource List (A-Z)": "资源列表（A-Z）",
+    "Popular Resources": "常用资源",
+    "About NCBI": "关于 NCBI",
+    "Our Mission": "我们的使命",
+    "NCBI’s contribution to the NIH mission of ‘uncovering new knowledge’": "对 NIH「发现新知识」这一使命的贡献",
+    "Organizational Structure": "组织结构",
+    "The role of the branches within NCBI and the Board of Scientific Counselors.": "NCBI 各分支机构与科学顾问委员会的职责。",
+    "Programs & Activities": "项目与活动",
+    "NCBI’s resources for genomic, genetic, and biomedical data": "NCBI 的基因组、遗传与生物医学数据资源",
+    "Researchers at NCBI": "NCBI 的研究人员",
+    "The basic research program conducted by our intramural investigators": "由本机构内部研究人员开展的基础研究",
+    "health": "健康",
+    "chemicals": "化学",
+    "popular resources ▼": "常用资源 ▼",
+    "Search NCBI": "检索 NCBI"
+  },
+  "rules": [],
+  "templates": []
+}

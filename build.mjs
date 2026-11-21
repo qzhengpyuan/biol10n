@@ -22,6 +22,18 @@ for (const f of fs.readdirSync(dictDir).filter((f) => f.endsWith(".json")).sort(
   }
 }
 
+// 册数校验：sites.json 引用的每一册都必须真的内嵌进产物，否则该站会静默退化一整轮。
+// （0.9.96 踩过：4 册被跳过，pubmed2/hpa2/gdc2/gdv 当轮白跑。）
+const refs = new Set();
+for (const s of sites.sites) for (const d of s.dicts || []) refs.add(d);
+const missing = [...refs].filter((d) => !dict[d]).sort();
+if (missing.length) {
+  console.error("构建中止：sites.json 引用了不存在的词库:", missing.join(", "));
+  process.exit(1);
+}
+const unused = Object.keys(dict).filter((d) => !refs.has(d)).sort();
+if (unused.length) console.error("警告：dict/ 下这些册没有被任何站点引用:", unused.join(", "));
+
 const hosts = new Set();
 for (const s of sites.sites) for (const h of s.hosts) hosts.add(h);
 const matchLines = [];

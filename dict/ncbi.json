@@ -1406,7 +1406,10 @@
     "MANE Plus Clinical": "MANE Plus Clinical 转录本",
     "FDA RECOGNIZED DATABASE": "FDA 认可数据库",
     "Organelle": "细胞器",
-    "Database links": "数据库链接"
+    "Database links": "数据库链接",
+    "(Print)": "（印刷版）",
+    "(Online)": "（在线版）",
+    "Send to:": "发送到："
   },
   "rules": [
     {

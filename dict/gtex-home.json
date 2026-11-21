@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "family": "gtex",
+    "version": "0.1.0",
+    "sites": [
+      "gtexportal.org"
+    ],
+    "note": "GTEx 门户首页 / 数据集页 / 文档页骨架与固定说明句"
+  },
+  "exact": {
+    "Single Cell": "单细胞",
+    "Access biospecimens": "获取生物样本",
+    "EXTERNAL LINKS": "外部链接",
+    "Bulk tissue expression": "批量组织表达",
+    "Long read data": "长读长数据",
+    "Haplotype expression": "单倍型表达",
+    "Additional GTEx datasets": "其他 GTEx 数据集",
+    "Protected Data Downloads page": "受保护数据下载页面",
+    "for instructions on how to request access to those data.": "了解如何申请访问这些数据。",
+    "Note that GTEx protected access data files are housed in": "请注意，GTEx 受保护访问数据文件存放在",
+    "Downloading Adult GTEx data": "下载成人 GTEx 数据",
+    "Additional assays were run on Adult GTEx samples as part of the Enhancing GTEx (eGTEx) project. Select the eGTEx dataset at the top of the page to learn more and to download available data.": "作为增强 GTEx（eGTEx）项目的一部分，成人 GTEx 样本还开展了其他检测。请在页面顶部选择 eGTEx 数据集，以了解更多信息并下载可用数据。",
+    "Citing/acknowledging the GTEx project": "引用与致谢 GTEx 项目",
+    "GTEx data, visualizations, and tools can all be used with acknowledgement. An example acknowledgment statement follows:": "GTEx 数据、可视化结果与工具均可使用，但需致谢。示例致谢声明如下：",
+    "Related pages": "相关页面",
+    "shows more information about our tissue sampling procedures.": "介绍我们组织采样流程的更多信息。",
+    "shows summary statistics about the current release.": "显示当前版本的汇总统计。",
+    "shows the history of our releases.": "显示我们的版本历史。",
+    "shows an overview of our single cell data.": "概述我们的单细胞数据。",
+    "shows information about our methods.": "介绍我们的方法。",
+    "GTEx Analysis V11": "GTEx 分析 V11",
+    "GTEx V11 updates the GTEx V10 data to use GENCODE 47 annotation. It contains no new samples or donors compared to V10.": "GTEx V11 将 GTEx V10 数据更新为使用 GENCODE 47 注释，与 V10 相比不含新样本或新供者。",
+    "GTEx Analysis V10": "GTEx 分析 V10",
+    "The GTEx Analysis V10 release is the most complete analyzed dataset for Adult GTEx. It includes a new data type, smallRNA-seq.": "GTEx 分析 V10 版本是成人 GTEx 最完整的已分析数据集，包含新增数据类型 smallRNA-seq。",
+    "GTEx Analysis V8": "GTEx 分析 V8",
+    "GTEx Analysis V7": "GTEx 分析 V7",
+    "GTEx Analysis V6p": "GTEx 分析 V6p",
+    "GTEx Analysis V6": "GTEx 分析 V6",
+    "GTEx Analysis V4": "GTEx 分析 V4",
+    "GTEx Analysis Pilot V3": "GTEx 分析试点 V3",
+    "GTEx Analysis V9": "GTEx 分析 V9",
+    "Open-access data from the GTEx V9 release (V9 does not include new RNA-seq or QTL data).": "GTEx V9 版本的开放获取数据（V9 不含新的 RNA-seq 或 QTL 数据）。",
+    "Gene read counts by tissue": "按组织统计的基因读取计数",
+    "Gene TPMs by tissue": "按组织统计的基因 TPM",
+    "Small RNA-seq": "小 RNA 测序",
+    "Small RNA": "小 RNA",
+    "Transcript RPKM": "转录本 RPKM",
+    "snRNA-Seq Data": "snRNA 测序数据",
+    "Long Read RNA-Seq Data": "长读长 RNA 测序数据",
+    "Haplotype Expression Matrices": "单倍型表达矩阵",
+    "Structural Variant Data": "结构变异数据",
+    "Protein Truncating Variant (PTV) Data": "蛋白截短变异（PTV）数据",
+    "Reference Tables": "参考表",
+    "Metadata Files": "元数据文件",
+    "Outlier Calls": "离群值判定",
+    "Co-expression Networks": "共表达网络",
+    "Single-Tissue cis-QTL Data": "单组织顺式 QTL 数据",
+    "Single-Tissue trans-QTL Data": "单组织反式 QTL 数据",
+    "Cell Type Interaction QTL Data": "细胞类型互作 QTL 数据",
+    "Sex-Biased Genes and sb-eQTL Data": "性别偏倚基因与 sb-eQTL 数据",
+    "Multi-Tissue QTL Data": "多组织 QTL 数据",
+    "Single Tissue cis-RNA Editing QTL Data": "单组织顺式 RNA 编辑 QTL 数据",
+    "Single-Tissue cis-eQTL Data": "单组织顺式 eQTL 数据",
+    "Single-Tissue eQTL Data": "单组织 eQTL 数据",
+    "Multi-Tissue eQTL Data": "多组织 eQTL 数据",
+    "Small RNA-seq cis-eQTL Data": "小 RNA 测序顺式 eQTL 数据",
+    "Fine-Mapping cis-eQTL Data": "精细定位顺式 eQTL 数据",
+    "eQTL Tissue-Specific All SNP Gene Associations": "eQTL 各组织全部 SNP-基因关联",
+    "sQTL Tissue-Specific All SNP Gene Associations": "sQTL 各组织全部 SNP-基因关联",
+    "Tissue-Specific All SNP Gene Associations": "各组织全部 SNP-基因关联",
+    "editing QTL All Associations": "编辑 QTL 全部关联",
+    "apaQTL (alternative polyadenylation QTL) data": "apaQTL（可变多腺苷酸化 QTL）数据",
+    "Gene Expression Read Counts from RNASeQCv2.4.3 with LCM samples excluded.": "来自 RNASeQCv2.4.3 的基因表达读取计数（不含 LCM 样本）。",
+    "Gene Expression Transcripts Per Million (TPM) from RNASeQCv2.4.3 with LCM samples excluded.": "来自 RNASeQCv2.4.3 的基因表达每百万转录本数（TPM），不含 LCM 样本。",
+    "Gene Expression Read Counts from RNASeQCv2.4.3 of samples used in the Laser Capture Microdissection (LCM) pilot study.": "用于激光捕获显微切割（LCM）试点研究样本的基因表达读取计数（RNASeQCv2.4.3）。",
+    "Gene Expression Transcripts Per Million (TPM) from RNASeQCv2.4.3 of samples used in the Laser Capture Microdissection (LCM) pilot study.": "用于激光捕获显微切割（LCM）试点研究样本的基因表达每百万转录本数（TPM，RNASeQCv2.4.3）。",
+    "Details about the Laser Capture Microdissection (LCM) pilot study.": "激光捕获显微切割（LCM）试点研究的详情。",
+    "Exon-exon junction read counts from STARv2.7.11b.": "来自 STARv2.7.11b 的外显子-外显子接头读取计数。",
+    "Expressed Transcript read counts from RSEMv.1.3.3.": "来自 RSEMv.1.3.3 的表达转录本读取计数。",
+    "Exon read counts.": "外显子读取计数。",
+    "Exon read count.": "外显子读取计数。",
+    "Exon-exon junction read counts.": "外显子-外显子接头读取计数。",
+    "Junction read counts.": "接头读取计数。",
+    "Junction read count.": "接头读取计数。",
+    "Intron read count.": "内含子读取计数。",
+    "Transcript read counts.": "转录本读取计数。",
+    "Transcript read count.": "转录本读取计数。",
+    "Transcript TPMs.": "转录本 TPM。",
+    "Gene read counts.": "基因读取计数。",
+    "Gene read count.": "基因读取计数。",
+    "Gene TPMs.": "基因 TPM。",
+    "Gene RPKM.": "基因 RPKM。",
+    "Fraction of intron that is covered by reads.": "被读取覆盖的内含子比例。",
+    "Gene Expression Read Counts from RNASeQCv2.4.2.": "来自 RNASeQCv2.4.2 的基因表达读取计数。",
+    "Gene Expression Transcripts Per Million (TPM) from RNASeQCv2.4.2.": "来自 RNASeQCv2.4.2 的基因表达每百万转录本数（TPM）。",
+    "Gene Expression Transcripts Per Million (TPM) from RNASeQCv2.4.2. This file contains all the Laser Capture Microdissection (LCM) samples.": "来自 RNASeQCv2.4.2 的基因表达每百万转录本数（TPM）。该文件包含全部激光捕获显微切割（LCM）样本。",
+    "Exon-exon junction read counts from STARv2.7.10a.": "来自 STARv2.7.10a 的外显子-外显子接头读取计数。",
+    "README about small RNA counts data (also see Metadata Tab for annotations file).": "小 RNA 计数数据的 README（注释文件另见 Metadata 选项卡）。",
+    "Gene Expression Read Counts for small RNA-seq (not normalized).": "small RNA-seq 的基因表达读取计数（未标准化）。",
+    "Normalized miRNA (only) TPM matrix.": "标准化 miRNA（仅）TPM 矩阵。",
+    "README file describing the contents of the eQTL, sQTL, and apaQTL files.": "描述 eQTL、sQTL 与 apaQTL 文件内容的 README 文件。",
+    "Covariates used in eQTL analysis. Includes genotyping principal components and PEER factors.": "eQTL 分析所用协变量，包括基因分型主成分与 PEER 因子。",
+    "Covariates used in sQTL analysis. Includes genotyping principal components and PEER factors.": "sQTL 分析所用协变量，包括基因分型主成分与 PEER 因子。",
+    "Covariates used in apaQTL analysis. Includes genotyping principal components and PEER factors.": "apaQTL 分析所用协变量，包括基因分型主成分与 PEER 因子。",
+    "Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL mapping.": "各组织经完整处理、过滤与标准化的基因表达矩阵（BED 格式），用作 FastQTL 进行 eQTL 定位的输入。",
+    "Fully processed, filtered and normalized splice phenotype matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL mapping.": "各组织经完整处理、过滤与标准化的剪接表型矩阵（BED 格式），用作 FastQTL 进行 eQTL 定位的输入。",
+    "Fully processed, filtered and normalized polyadenylation phenotype matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL mapping.": "各组织经完整处理、过滤与标准化的多腺苷酸化表型矩阵（BED 格式），用作 FastQTL 进行 eQTL 定位的输入。",
+    "Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery.": "各组织经完整处理、过滤与标准化的基因表达矩阵（BED 格式），用作 FastQTL 发现 eQTL 的输入。",
+    "Mapping between splicing phenotype IDs and gene IDs for each tissue.": "各组织剪接表型 ID 与基因 ID 之间的对应关系。",
+    "Mapping between polyadenylation phenotype IDs and gene IDs for each tissue.": "各组织多腺苷酸化表型 ID 与基因 ID 之间的对应关系。",
+    "Fine-mapping of eQTLs using the TensorQTL implementation of SuSiE": "使用 SuSiE 的 TensorQTL 实现进行 eQTL 精细定位",
+    "Fine-mapping of sQTLs using the TensorQTL implementation of SuSiE": "使用 SuSiE 的 TensorQTL 实现进行 sQTL 精细定位",
+    "Fine-mapping of apaQTLs using the TensorQTL implementation of SuSiE": "使用 SuSiE 的 TensorQTL 实现进行 apaQTL 精细定位",
+    "README file describing the contents of the small RNAseq eQTL files.": "描述 small RNAseq eQTL 文件内容的 README 文件。",
+    "README file describing the contents of the eQTL and sQTL files.": "描述 eQTL 与 sQTL 文件内容的 README 文件。",
+    "sGene and significant variant-gene associations based on LeafCutter intron excision phenotypes.": "基于 LeafCutter 内含子切除表型的 sGene 与显著变异-基因关联。",
+    "Conditionally independent eQTLs mapped using stepwise regression, for all eGenes of each tissue.": "使用逐步回归定位的条件独立 eQTL，覆盖各组织的全部 eGene。",
+    "Conditionally independent sQTLs mapped using stepwise regression, for all sGenes of each tissue.": "使用逐步回归定位的条件独立 sQTL，覆盖各组织的全部 sGene。",
+    "trans-eQTLs mapped individually in each tissue, at FDR < 0.05": "在各组织中单独定位的反式 eQTL，FDR < 0.05",
+    "trans-sQTLs mapped individually in each tissue, at FDR < 0.05": "在各组织中单独定位的反式 sQTL，FDR < 0.05",
+    "Cell type interaction eQTLs (ieQTLs) for 43 tissue-cell type pairs.": "针对 43 组组织-细胞类型对的细胞类型互作 eQTL（ieQTL）。",
+    "Cell type interaction sQTLs (isQTLs) for 43 tissue-cell type pairs.": "针对 43 组组织-细胞类型对的细胞类型互作 sQTL（isQTL）。",
+    "Sex-differentially expressed genes (sex-biased genes) statistics. A README is included in the archive.": "性别差异表达基因（性别偏倚基因）统计。压缩包内含 README。",
+    "Sex-biased eQTLs in cis (sb-eQTLs) statistics. A README is included in the archive.": "顺式性别偏倚 eQTL（sb-eQTL）统计。压缩包内含 README。",
+    "README file describing edQTL data.": "描述 edQTL 数据的 README 文件。",
+    "Every SNP-gene association test (including non-significant test).": "每一项 SNP-基因关联检验（含不显著检验）。",
+    "Every SNP-gene association test (including non-significant test) for 9 tissues.": "9 个组织的每一项 SNP-基因关联检验（含不显著检验）。",
+    "README file describing the contents of the eQTL files.": "描述 eQTL 文件内容的 README 文件。",
+    "eGene and significant snp-gene associations based on permutations.": "基于置换检验的 eGene 与显著 SNP-基因关联。",
+    "Trans-eQTL results for four different discovery modes. All associations have FDR ≤ 0.1, assessed within tissues.": "四种不同发现模式的反式 eQTL 结果。所有关联的 FDR ≤ 0.1，均在组织内评估。",
+    "P-values for associations where the variant-gene pairs are on the same chromosome, but father apart than 5 Mb or 1 Mb.": "变异-基因对位于同一染色体但相距超过 5 Mb 或 1 Mb 的关联 P 值。",
+    "Archive of eGene and SNP-gene eQTL files for 9 tissues.": "9 个组织的 eGene 与 SNP-基因 eQTL 文件归档。",
+    "README file for sQTLSeeker splicing QTL data.": "sQTLSeeker 剪接 QTL 数据的 README 文件。",
+    "Significant splicing QTL (sQTL) files for 9 tissues using the sQTLseekeR method (variants associated with differences in transcript ratio).": "使用 sQTLSeekeR 方法得到的 9 个组织显著剪接 QTL（sQTL）文件（与转录本比例差异相关的变异）。",
+    "All SNP-gene pair sQTL results (including non-significant ones) for 9 tissues using the sQTLseekeR method.": "使用 sQTLSeekeR 方法得到的 9 个组织全部 SNP-基因对 sQTL 结果（含不显著结果）。",
+    "README file for Altrans splicing QTL data.": "Altrans 剪接 QTL 数据的 README 文件。",
+    "Significant splicing QTL (sQTL) files for 9 tissues using the Altrans method (variants associated with differences in exon junction abundance).": "使用 Altrans 方法得到的 9 个组织显著剪接 QTL（sQTL）文件（与外显子接头丰度差异相关的变异）。",
+    "All SNP-gene pair sQTL results (including non-significant ones) for 9 tissues using the Altrans method.": "使用 Altrans 方法得到的 9 个组织全部 SNP-基因对 sQTL 结果（含不显著结果）。",
+    "README file describing the contents of the Multi-tissue eQTL data.": "描述多组织 eQTL 数据内容的 README 文件。",
+    "eQTL results files from two multi-tissue methods for 9 tissues and a consensus between the two methods.": "9 个组织由两种多组织方法得到的 eQTL 结果文件，以及两种方法的共识结果。",
+    "Raw counts quantification across transcripts for each sample using FLAIR transcripts. Quantifications was carried out using flair quantify.": "使用 FLAIR 转录本对每个样本做跨转录本的原始计数定量，定量由 flair quantify 完成。",
+    "Normalised quantification (TPM) across transcripts for each sample using FLAIR. Quantifications was carried out using flair quantify.": "使用 FLAIR 对每个样本做跨转录本的标准化定量（TPM），定量由 flair quantify 完成。",
+    "Raw counts quantification across transcripts for each sample using GENCODEv26. Quantifications was carried out using flair quantify.": "使用 GENCODEv26 对每个样本做跨转录本的原始计数定量，定量由 flair quantify 完成。",
+    "Normalised quantification (TPM) across transcripts for each sample using GENCODEv26. Quantifications was carried out using flair quantify.": "使用 GENCODEv26 对每个样本做跨转录本的标准化定量（TPM），定量由 flair quantify 完成。",
+    "Gene-wise haplotype counts per sample using the GENCODEv26 annotation. Haplotype counts were obtained by running LORALS calc_asts.": "基于 GENCODEv26 注释的每个样本各基因单倍型计数，单倍型计数通过运行 LORALS calc_asts 获得。",
+    "Haplotype expression matrix.": "单倍型表达矩阵。",
+    "Haplotype expression matrix with phase maintained across genes for the same sample": "同一供者样本跨基因保持相位一致的单倍型表达矩阵",
+    "Haplotype expression matrix, based on WASP-corrected RNA-seq alignments.": "基于 WASP 校正 RNA-seq 比对的单倍型表达矩阵。",
+    "Haplotype expression matrix, based on WASP-corrected RNA-seq alignments, with phase maintained across genes for the same sample.": "基于 WASP 校正 RNA-seq 比对、同一供者样本跨基因保持相位一致的单倍型表达矩阵。",
+    "Readme.": "自述文件。",
+    "README file describing the content of the Structural Variant sites only VCF.": "描述仅含结构变异位点 VCF 内容的 README 文件。",
+    "README file describing the headers of the Structural Variant eQTL table.": "描述结构变异 eQTL 表表头的 README 文件。",
+    "README file for the PTV data.": "PTV 数据的 README 文件。",
+    "README file for the mmPCR data.": "mmPCR 数据的 README 文件。",
+    "README file for the psiQTL data.": "psiQTL 数据的 README 文件。",
+    "Reference and non reference allele read counts for mmPCR-seq validation experiment for Indels and SNPs using local reference mapping.": "使用局部参考比对的 mmPCR-seq 验证实验中插入缺失与 SNP 的参考/非参考等位基因读取计数。",
+    "Reference and non reference allele read counts for mmPCR-seq validation experiment for SNPs only using mapping to the reference genome.": "仅使用参考基因组比对的 mmPCR-seq 验证实验中 SNP 的参考/非参考等位基因读取计数。",
+    "Gene-level model based on the GENCODE 47 transcript model, where isoforms were collapsed to a single transcript per gene.": "基于 GENCODE 47 转录本模型的基因水平模型，其中各基因的异构体已合并为单一转录本。",
+    "Gene-level model based on the GENCODE 39 transcript model, where isoforms were collapsed to a single transcript per gene.": "基于 GENCODE 39 转录本模型的基因水平模型，其中各基因的异构体已合并为单一转录本。",
+    "Gene-level model based on the GENCODE 26 transcript model, where isoforms were collapsed to a single transcript per gene.": "基于 GENCODE 26 转录本模型的基因水平模型，其中各基因的异构体已合并为单一转录本。",
+    "Functional annotation of variants with MAF ≥ 0.01 in the format used by Torus.": "MAF ≥ 0.01 变异的功能注释，采用 Torus 使用的格式。",
+    "Chromosome positions, REF and ALT alleles, RS IDs from dbSNP 147, and GTEx constructed IDs, for all variants in release V7. Only variants +/-1Mb around each gene's TSS were used for eQTL analysis.": "V7 版本中全部变异的染色体位置、REF 与 ALT 等位基因、来自 dbSNP 147 的 RS ID 以及 GTEx 构建的 ID。eQTL 分析仅使用各基因 TSS 上下游 1 Mb 范围内的变异。",
+    "Gene level model based on the GENCODE transcript model. Isoforms have been collapsed to single genes.": "基于 GENCODE 转录本模型的基因水平模型。异构体已合并为单一基因。",
+    "Exon Map giving the exon identifiers used in the GTEx read counts files, as well as genomic coordinates and strand.": "外显子图谱，给出 GTEx 读取计数文件中使用的外显子标识，以及基因组坐标与链方向。",
+    "Transcript model from GENCODE. Only the contig names have been modified.": "来自 GENCODE 的转录本模型。仅 contig 名称经过修改。",
+    "Genome Build (hg19) used for alignment and variant calling.": "用于比对与变异检出的基因组版本（hg19）。",
+    "A de-identified, open access version of the sample annotations available in dbGaP.": "dbGaP 中可用样本注释的去标识化开放获取版本。",
+    "A de-identified, open access version of the subject phenotypes available in dbGaP.": "dbGaP 中可用受试者表型的去标识化开放获取版本。",
+    "Annotation file for small RNAs.": "小 RNA 的注释文件。",
+    "The number of samples gathered and genotyped for each tissue in data release V4.": "V4 数据版本中各组织采集并完成基因分型的样本数。",
+    "The number of samples gathered and genotyped for each tissue in data release V3.": "V3 数据版本中各组织采集并完成基因分型的样本数。",
+    "This file contains the median TPM by tissue. These medians were calculated directly from the file GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.gct.gz.": "该文件包含按组织计算的中位 TPM，中位数直接由文件 GTEx_Analysis_2016-01-15_v7_RNASeQCv1.1.8_gene_tpm.gct.gz 计算得到。",
+    "This file contains the median RPKM by tissue. These medians were calculated from unnormalized RPKMs, directly from the file GTEx_Analysis_v6p_RNA-seq_RNA-SeQCv1.1.8_gene_rpkm.gct.gz.": "该文件包含按组织计算的中位 RPKM，中位数由未经标准化的 RPKM 直接计算，来源文件为 GTEx_Analysis_v6p_RNA-seq_RNA-SeQCv1.1.8_gene_rpkm.gct.gz。",
+    "This file contains the median RPKM by tissue. These medians were calculated from unnormalized RPKMs, directly from the file GTEx_Analysis_v6_RNA-seq_RNA-SeQCv1.1.8_gene_rpkm.gct.gz.": "该文件包含按组织计算的中位 RPKM，中位数由未经标准化的 RPKM 直接计算，来源文件为 GTEx_Analysis_v6_RNA-seq_RNA-SeQCv1.1.8_gene_rpkm.gct.gz。",
+    "Median gene-level TPM by tissue. Median expression was calculated from the file GTEx_Analysis_2025-08-22_v11_RNASeQCv2.4.3_gene_tpm.gct.gz": "按组织计算的中位基因水平 TPM，中位表达量由文件 GTEx_Analysis_2025-08-22_v11_RNASeQCv2.4.3_gene_tpm.gct.gz 计算得到",
+    "Median gene-level TPM by tissue. Median expression was calculated from the file GTEx_Analysis_v10_RNASeQCv2.4.2_gene_tpm.gct.gz": "按组织计算的中位基因水平 TPM，中位表达量由文件 GTEx_Analysis_v10_RNASeQCv2.4.2_gene_tpm.gct.gz 计算得到",
+    "Median gene-level TPM by tissue. Median expression was calculated from the file GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_tpm.gct.gz.": "按组织计算的中位基因水平 TPM，中位表达量由文件 GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_tpm.gct.gz 计算得到。",
+    "The GTEx marker paper.": "GTEx 标志性论文。",
+    "Several studies associated with donor enrollment for the study are described in:": "以下文献描述了该研究供者招募相关的若干研究：",
+    "The main Consortium analyses and associated detailed methods are described in a series of papers:": "联盟的主要分析及相关详细方法在一系列论文中描述：",
+    "A collaborative study between ENCODE and GTEx is described in:": "ENCODE 与 GTEx 之间的合作研究见：",
+    "A complete list of all consortia published papers can be found": "联盟已发表论文的完整列表可在",
+    "and also": "以及",
+    "the GTEx Portal": "GTEx 门户",
+    "# Tissues": "# 组织数",
+    "# Donors": "# 供者数",
+    "# Samples": "# 样本数",
+    "RNA-seq Total": "RNA-seq 合计",
+    "RNA-seq with matched donor Genotype": "RNA-seq（匹配供者基因型）",
+    "V10 Release": "V10 版本",
+    "Please cite usage of GTEx data as follows:": "引用 GTEx 数据时请按以下格式：",
+    "on MM/DD/YY and/or": "（MM/DD/YY）和/或",
+    "accession number": "登录号",
+    "on MM/DD/YYYY.": "（于 MM/DD/YYYY）。",
+    "GTEx Tissue Harvesting Work Instruction": "GTEx 组织采集工作指导书",
+    "Protocols used for tissue sampling are available here:": "组织采样所用方案见：",
+    "An initial pilot study:": "初始试点研究：",
+    "A set of analyses performed at the mid-point of the study:": "研究中期开展的一组分析：",
+    "A final set of analyses performed on the near complete data:": "基于接近完整数据开展的最终一组分析：",
+    "Additional data generation efforts that were funded to enhance the core GTEx data are described in:": "为增强核心 GTEx 数据而资助的额外数据生成工作见：",
+    "Data generation, QC, and analysis methods are described in the Supplementary Material for": "数据生成、质控与分析方法见以下文献的补充材料：",
+    "Much of the GTEx data and metadata are protected access (e.g., sequence data and complete donor metadata, etc.). Access to these data requires users to complete a data access request in": "GTEx 的大量数据与元数据属于受保护访问（例如序列数据与完整供者元数据等）。访问这些数据需要用户在",
+    "and then access the data in": "中完成数据访问申请，然后在",
+    "Open access GTEx data including expression counts and eQTLs are available for visual exploration and download on": "包括表达计数与 eQTL 在内的 GTEx 开放获取数据可在",
+    "A subset of tissues from 16 donors were also characterized using single-cell RNA sequencing, as described in:": "还对来自 16 名供者的部分组织做了单细胞 RNA 测序表征，详见：",
+    "All remaining collected tissue samples and derived nucleic acids are in a": "其余已采集的组织样本与衍生核酸均存放在",
+    "and are available to be requested for future studies.": "中，可申请用于未来研究。",
+    "biobank": "生物样本库",
+    "The project's goals are described in:": "本项目目标见：",
+    "Details about sample collections, exclusion/inclusion criteria, and pathology are described in:": "样本采集、纳入/排除标准与病理学详情见：",
+    "Tissue Sampling Sites page": "组织采样位点页面",
+    "Tissue Summary page": "组织汇总页面",
+    "Single Cell Dataset Overview page": "单细胞数据集概览页面",
+    "Lab and Analysis Methods page": "实验室与分析方法页面",
+    "The main GTEx Consortium paper for this release is:": "本版本主要的 GTEx 联盟论文为：",
+    "Transcript RPKM.": "转录本 RPKM。",
+    "Has eQTL Analysis*": "已做 eQTL 分析",
+    "Gene RPKM": "基因 RPKM",
+    "Open-access data from the GTEx V9 release.": "GTEx V9 版本的开放获取数据。",
+    "Fully processed, normalized and filtered gene expression data, which was used as input into Matrix eQTL for eQTL discovery.": "经完整处理、标准化与过滤的基因表达数据，用作 Matrix eQTL 发现 eQTL 的输入。",
+    "Gene-wise haplotype counts per sample using the FLAIR annotation. Haplotype counts were obtained by running LORALS calc_asts.": "基于 FLAIR 注释的每个样本各基因单倍型计数，单倍型计数通过运行 LORALS calc_asts 获得。",
+    "A data dictionary that describes each variable in the GTEx_Analysis_Annotations_Subject_DS__Pilot_V3.txt file.": "描述 GTEx_Analysis_Annotations_Subject_DS__Pilot_V3.txt 文件中每个变量的数据字典。",
+    "xCell enrichment scores for 7 cell types (adipocytes, epithelial cells, hepatocytes, keratinocytes, myocytes, neurons, neutrophils) across all tissue samples.": "7 种细胞类型（脂肪细胞、上皮细胞、肝细胞、角质形成细胞、肌细胞、神经元、中性粒细胞）在全部组织样本中的 xCell 富集评分。",
+    "Covariates used in edQTL analysis. Includes genotyping principal components and PEER factors. The archive contains a *.combined_covariates.txt file for each tissue.": "edQTL 分析所用协变量，包括基因分型主成分与 PEER 因子。压缩包内每个组织一个 *.combined_covariates.txt 文件。",
+    "All SNP gene associations in tissue-specific files. This fileset contains the tissue-specific files contained in the file GTEx_Analysis_V6p_all-associations.tar.": "组织特异文件中的全部 SNP-基因关联。该文件集包含 GTEx_Analysis_V6p_all-associations.tar 中的组织特异文件。",
+    "All SNP gene associations in tissue-specific files. This fileset contains the tissue-specific files contained in the file GTEx_Analysis_V6_all-snp-gene-associations.tar.": "组织特异文件中的全部 SNP-基因关联。该文件集包含 GTEx_Analysis_V6_all-snp-gene-associations.tar 中的组织特异文件。",
+    ", NOT in the Sequence Read Archive (SRA)": "，而不在序列读取存档（SRA）中",
+    "NOTE: This is a very large file and downloading will take hours. If you only need the significant associations, please download the file GTEx_Analysis_V4_eQTLs.tar.gz instead.": "注意：该文件非常大，下载需要数小时。若只需要显著关联，请改为下载文件 GTEx_Analysis_V4_eQTLs.tar.gz。",
+    "Normalized quantification values for splice junction, exons, and introns described in Rivas et al. (Submitted)": "Rivas 等人（已投稿）所述剪接接头、外显子与内含子的标准化定量值",
+    "Results from the psiQTL analysis for mine main tissues, plus brain, plus multi-tissue that averages the exons where data for three or more tissues is available.": "psiQTL 分析结果，涵盖主要组织、脑，以及在有三种或以上组织数据的外显子上取平均的多组织结果。"
+  },
+  "rules": [
+    {
+      "re": "^Gene read counts for (.+)\\.$",
+      "to": "$1的基因读取计数。",
+      "requireHit": true
+    },
+    {
+      "re": "^Gene TPMs for (.+)\\.$",
+      "to": "$1的基因 TPM。",
+      "requireHit": true
+    },
+    {
+      "re": "^A data dictionary that describes each column in the (GTEx_[A-Za-z0-9_]+\\.[A-Za-z0-9_]+)\\.$",
+      "to": "描述 $1 中每一列的数据字典。"
+    },
+    {
+      "re": "^A data dictionary that describes each variable in the (GTEx_[A-Za-z0-9_]+\\.[A-Za-z0-9_]+)\\.$",
+      "to": "描述 $1 中每个变量的数据字典。"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The project's goals are described in: {{1}}",
+      "zh": "本项目目标见：{{1}}"
+    },
+    {
+      "pat": "Details about sample collections, exclusion/inclusion criteria, and pathology are described in: {{1}}.",
+      "zh": "样本采集、纳入/排除标准与病理学详情见：{{1}}。"
+    },
+    {
+      "pat": "An initial pilot study: {{1}}",
+      "zh": "初始试点研究：{{1}}"
+    },
+    {
+      "pat": "A set of analyses performed at the mid-point of the study: {{1}}",
+      "zh": "研究中期开展的一组分析：{{1}}"
+    },
+    {
+      "pat": "A final set of analyses performed on the near complete data: {{1}}",
+      "zh": "基于接近完整数据开展的最终一组分析：{{1}}"
+    },
+    {
+      "pat": "Additional data generation efforts that were funded to enhance the core GTEx data are described in: {{1}}.",
+      "zh": "为增强核心 GTEx 数据而资助的额外数据生成工作见：{{1}}。"
+    },
+    {
+      "pat": "A collaborative study between ENCODE and GTEx is described in: {{1}}",
+      "zh": "ENCODE 与 GTEx 之间的合作研究见：{{1}}"
+    },
+    {
+      "pat": "A complete list of all consortia published papers can be found {{1}}.",
+      "zh": "联盟已发表论文的完整列表可在{{1}}查看。"
+    },
+    {
+      "pat": "Data generation, QC, and analysis methods are described in the Supplementary Material for {{1}} and also {{2}}.",
+      "zh": "数据生成、质控与分析方法见{{1}}的补充材料，另见{{2}}。"
+    },
+    {
+      "pat": "Much of the GTEx data and metadata are protected access (e.g., sequence data and complete donor metadata, etc.). Access to these data requires users to complete a data access request in {{1}} and then access the data in {{2}}.",
+      "zh": "GTEx 的大量数据与元数据属于受保护访问（例如序列数据与完整供者元数据等）。访问这些数据需要用户在{{1}}中完成数据访问申请，然后在{{2}}中访问数据。"
+    },
+    {
+      "pat": "Open access GTEx data including expression counts and eQTLs are available for visual exploration and download on {{1}}.",
+      "zh": "包括表达计数与 eQTL 在内的 GTEx 开放获取数据可在{{1}}上进行可视化探索与下载。"
+    },
+    {
+      "pat": "Protocols used for tissue sampling are available here: {{1}}. Histology images and pathology QC notes are available {{2}}.",
+      "zh": "组织采样所用方案见{{1}}。组织学图像与病理 QC 记录可在{{2}}获取。"
+    },
+    {
+      "pat": "A subset of tissues from 16 donors were also characterized using single-cell RNA sequencing, as described in: {{1}}.",
+      "zh": "还对来自 16 名供者的部分组织做了单细胞 RNA 测序表征，详见：{{1}}。"
+    },
+    {
+      "pat": "All remaining collected tissue samples and derived nucleic acids are in a {{1}} and are available to be requested for future studies.",
+      "zh": "其余已采集的组织样本与衍生核酸均存放在{{1}}中，可申请用于未来研究。"
+    },
+    {
+      "pat": "The data used for the analyses described in this manuscript [or presentation] were obtained from: [insert, where appropriate] the {{1}} on MM/DD/YY and/or {{2}} accession number {{3}} on MM/DD/YYYY.",
+      "zh": "本手稿（或报告）所述分析所用数据取自：{{1}}（于 MM/DD/YY）和/或{{2}}登录号{{3}}（于 MM/DD/YYYY）。"
+    },
+    {
+      "pat": "All data files generated in the GTEx project are available for download. Only open access data files are available here on the GTEx portal. All raw sequence data files (DNA and RNA), and the full donor metadata files, are protected access data. Please see our {{1}} for instructions on how to request access to those data.",
+      "zh": "GTEx 项目产生的所有数据文件均可下载。GTEx 门户上仅提供开放获取数据文件。所有原始序列数据文件（DNA 与 RNA）以及完整供者元数据文件均为受保护访问数据。请参阅我们的{{1}}，了解如何申请访问这些数据。"
+    },
+    {
+      "pat": "The {{1}} shows more information about our tissue sampling procedures.",
+      "zh": "{{1}}介绍了我们组织采样流程的更多信息。"
+    },
+    {
+      "pat": "The {{1}} shows summary statistics about the current release.",
+      "zh": "{{1}}显示当前版本的汇总统计。"
+    },
+    {
+      "pat": "The {{1}} shows the history of our releases.",
+      "zh": "{{1}}显示我们的版本历史。"
+    },
+    {
+      "pat": "The {{1}} shows an overview of our single cell data.",
+      "zh": "{{1}}概述我们的单细胞数据。"
+    },
+    {
+      "pat": "The {{1}} shows information about our methods.",
+      "zh": "{{1}}介绍我们的方法。"
+    },
+    {
+      "pat": "Fine-mapping results from CAVIAR ({{1}}). A README is included in the archive.",
+      "zh": "使用 CAVIAR 进行的精细定位结果（{{1}}）。压缩包内含 README。"
+    },
+    {
+      "pat": "Fine-mapping results from CaVEMaN ({{1}}). A README is included in the archive.",
+      "zh": "使用 CaVEMaN 进行的精细定位结果（{{1}}）。压缩包内含 README。"
+    },
+    {
+      "pat": "Fine-mapping results from DAP-G ({{1}}). A README is included in the archive.",
+      "zh": "使用 DAP-G 进行的精细定位结果（{{1}}）。压缩包内含 README。"
+    },
+    {
+      "pat": "Metasoft results for all tissues in the V8 release. For information about the column headers, please see {{1}}.",
+      "zh": "V8 版本中所有组织的 Metasoft 结果。关于列标题的说明请见{{1}}。"
+    },
+    {
+      "pat": "Metasoft results for all tissues in the V7 release. For information about the column headers, please see {{1}}.",
+      "zh": "V7 版本中所有组织的 Metasoft 结果。关于列标题的说明请见{{1}}。"
+    },
+    {
+      "pat": "Allelic fold-change (aFC) for all top cis-eQTLs, calculated as described in {{1}}",
+      "zh": "所有顶部顺式 eQTL 的等位基因倍数变化（aFC），计算方法见{{1}}"
+    },
+    {
+      "pat": "Independent eQTLs identified using the stepwise regression procedure described in {{1}}.",
+      "zh": "使用{{1}}所述逐步回归方法鉴定的独立 eQTL。"
+    },
+    {
+      "pat": "snRNA-seq gene expression data and annotations from {{1}} in Scanpy {{2}}.",
+      "zh": "来自{{1}}的 snRNA-seq 基因表达数据与注释，Scanpy {{2}}。"
+    },
+    {
+      "pat": "Haplotype expression matrices produced with phASER v1.0.1 ({{1}}), containing haplotype counts for each sample and gene.",
+      "zh": "使用 phASER v1.0.1（{{1}}）生成的单倍型表达矩阵，包含每个样本与基因的单倍型计数。"
+    },
+    {
+      "pat": "Structural Variant eQTL table (Supplementary table from Chiang {{1}}, Nature Genetics, in review).",
+      "zh": "结构变异 eQTL 表（Chiang {{1}}，Nature Genetics，在审）。"
+    },
+    {
+      "pat": "Expression, splicing, and ASE outlier calls from Ferraro, Strober, et al. Please see {{1}}.",
+      "zh": "来自 Ferraro、Strober 等人的表达、剪接与 ASE 离群值判定。请见{{1}}。"
+    },
+    {
+      "pat": "Co-expression networks generated as described in Saha et al. ({{1}})",
+      "zh": "共表达网络按 Saha 等人（{{1}}）所述方法生成"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "family": "ncbi-home",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ]
+  },
+  "exact": {
+    "The Nucleotide database is a collection of sequences from several sources, including GenBank, RefSeq, TPA and PDB. Genome, gene and transcript sequence data provide the foundation for biomedical research and discovery.": "Nucleotide 数据库汇集了来自 GenBank、RefSeq、TPA 与 PDB 等多个来源的序列。基因组、基因与转录本序列数据是生物医学研究与发现的基础。",
+    "The Protein database is a collection of sequences from several sources, including translations from annotated coding regions in GenBank, RefSeq and TPA, as well as records from SwissProt, PIR, PRF, and PDB. Protein sequences are the fundamental determinants of biological structure and function.": "Protein 数据库汇集了来自多个来源的序列，包括 GenBank、RefSeq 与 TPA 中已注释编码区的翻译产物，以及来自 SwissProt、PIR、PRF 与 PDB 的记录。蛋白质序列是生物结构与功能的根本决定因素。",
+    "Using Nucleotide": "使用 Nucleotide",
+    "Using Protein": "使用 Protein",
+    "Nucleotide Tools": "Nucleotide 工具",
+    "Protein Tools": "Protein 工具",
+    "Other Resources": "其他资源",
+    "Quick Start Guide": "快速入门指南",
+    "Submit to GenBank": "向 GenBank 提交",
+    "GenBank Home": "GenBank 首页",
+    "RefSeq Home": "RefSeq 首页",
+    "Gene Home": "Gene 首页",
+    "SRA Home": "SRA 首页",
+    "A one-stop shop for finding, browsing, and downloading genomic data": "一站式查找、浏览与下载基因组数据的平台",
+    "A one-stop shop for finding, browsing, and downloading genomic sequences, annotations, and metadata": "一站式查找、浏览与下载基因组序列、注释与元数据的平台",
+    "Examples:": "示例：",
+    "How to use NCBI Datasets": "如何使用 NCBI Datasets",
+    "The best way to start is to use the search bar above. But here's an example of the types of resources and data we offer.": "最好的起点是使用上方的检索栏。下面举例说明我们提供的资源与数据类型。",
+    "Looking for basic information?": "想了解基本信息？",
+    "Interested in genomic data?": "对基因组数据感兴趣？",
+    "Searching for gene data?": "在找基因数据？",
+    "Browse the taxonomy tree": "浏览分类树",
+    "BLAST against the reference genome": "对参考基因组运行 BLAST",
+    "More ways to explore": "更多探索方式",
+    "Command-line tools": "命令行工具",
+    "How-to guides": "操作指南",
+    "Step-by-step instructions on installing NCBI Datasets command-line tools to retrieve gene, genome, and coronavirus data": "分步说明如何安装 NCBI Datasets 命令行工具，以获取基因、基因组与冠状病毒数据",
+    "Use NCBI Datasets to gather metadata, download data packages, view reports, and more": "使用 NCBI Datasets 收集元数据、下载数据包、查看报告等",
+    "Request a new feature or submit a bug report by opening an issue in GitHub": "在 GitHub 中提交 issue 以请求新功能或报告缺陷",
+    "This resource is part of the NIH Comparative Genomics Resource (CGR) Toolkit": "本资源是 NIH 比较基因组学资源（CGR）工具包的一部分",
+    "About CGR": "关于 CGR",
+    "Data resources": "数据资源",
+    "Analysis tools": "分析工具",
+    "Data quality tools": "数据质量工具",
+    "Enter a species": "输入物种名",
+    "Search NCBI ...": "检索 NCBI ...",
+    "View the": "查看",
+    "taxonomy page": "分类学页面",
+    "Browse all": "浏览全部",
+    "genomes": "个基因组",
+    "View the reference genome": "查看参考基因组"
+  },
+  "rules": [
+    {
+      "re": "^Browse all (\\d+) genomes?$",
+      "to": "浏览全部 $1 个基因组"
+    },
+    {
+      "re": "^Browse all (.+) genes$",
+      "to": "浏览全部 $1 基因"
+    },
+    {
+      "re": "^View the (.+) taxonomy page$",
+      "to": "查看 $1 分类学页面"
+    },
+    {
+      "re": "^View the reference genome (.+)$",
+      "to": "查看参考基因组 $1"
+    },
+    {
+      "re": "^genes$",
+      "to": "基因"
+    }
+  ],
+  "templates": []
+}

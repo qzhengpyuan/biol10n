@@ -682,7 +682,10 @@
     "Samples with mutation and CNA data": "有突变与拷贝数数据的样本",
     "MANE Select": "MANE 精选转录本",
     "Link": "链接",
-    "All": "全部"
+    "All": "全部",
+    "The requested resource was not found on this server.": "请求的资源在此服务器上不存在。",
+    "Page not available": "页面不可用",
+    "The page you have requested is not available.": "你请求的页面不可用。"
   },
   "rules": [
     {
@@ -859,6 +862,10 @@
       "to": "$1：$2 例"
     },
     {
+      "re": "^(\\d[\\d,]*)\\s+per page$",
+      "to": "每页 $1 条"
+    },
+    {
       "re": "^(\\d[\\d,]*)\\s+(.+)$",
       "to": "$1 $2",
       "requireHit": true
@@ -875,6 +882,14 @@
     {
       "re": "^Table\\s*(\\d+)$",
       "to": "表 $1"
+    },
+    {
+      "re": "^Error: (.+) is not found in the (.+) database$",
+      "to": "错误：$2 数据库中找不到 $1"
+    },
+    {
+      "re": "^Error: (.+) is not found in the (.+) Database$",
+      "to": "错误：$2 数据库中找不到 $1"
     }
   ]
 }

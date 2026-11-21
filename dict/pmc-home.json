@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "family": "pmc-home",
+    "version": "0.1.0",
+    "sites": [
+      "pmc.ncbi.nlm.nih.gov"
+    ],
+    "area": "home/search"
+  },
+  "exact": {
+    "About PMC": "关于 PMC",
+    "Discover a digital archive of scholarly articles, spanning centuries of scientific research.": "探索跨越数百年科学研究的学术文章数字档案。",
+    "Learn how to find and read articles of interest to you.": "了解如何查找并阅读你感兴趣的文章。",
+    "Browse the PMC Journal List or learn about some of PMC's unique collections.": "浏览 PMC 期刊列表，或了解 PMC 的特色馆藏。",
+    "For Authors": "面向作者",
+    "Navigate the PMC submission methods to comply with a funder mandate, expand access, and ensure preservation.": "了解 PMC 的提交方式，以满足资助方要求、扩大访问范围并确保长期保存。",
+    "For Publishers": "面向出版商",
+    "Learn about deposit options for journals and publishers and the PMC selection process.": "了解期刊与出版商的存缴选项及 PMC 的选刊流程。",
+    "For Developers": "面向开发者",
+    "Find tools for bulk download, text mining, and other machine analysis.": "查找批量下载、文本挖掘及其他机器分析工具。",
+    "Content provided in part by:": "内容由以下机构部分提供：",
+    "Journals deposit the complete contents of each issue or volume.": "期刊存缴每期或每卷的全部内容。",
+    "Journals deposit all NIH-funded articles as defined by the NIH Public Access Policy.": "期刊存缴 NIH 公共获取政策界定的全部 NIH 资助文章。",
+    "Publisher deposits a subset of articles from a collection of journals.": "出版商存缴一批期刊中的部分文章。",
+    "New in PMC": "PMC 新动态",
+    "Collections and Saved Search features added to PMC Search": "PMC 检索新增收藏与保存检索功能",
+    "Since launching a modernized PMC full-text search in 2025, NCBI has been adding new search features throughout 2026 based on…": "自 2025 年推出新版 PMC 全文检索以来，NCBI 在 2026 年持续新增检索功能，依据…",
+    "Changes to PMC's Article Dataset Distribution Services Complete": "PMC 文章数据集分发服务变更已完成",
+    "Changes to PMC's Article Dataset Distribution Services announced in February, are now complete. Full documentation of the up…": "2 月公布的 PMC 文章数据集分发服务变更现已完成。更新内容的完整文档…",
+    "highlights": "要点",
+    "Publication stage": "出版阶段",
+    "NIH Preprint Pilot": "NIH 预印本试点",
+    "Published journal article": "已发表期刊文章",
+    "Author manuscript": "作者手稿",
+    "PMC Open Access Subset": "PMC 开放获取子集",
+    "Historical back issues": "历史回溯期刊",
+    "Biomedical Journal Digitization Projects": "生物医学期刊数字化项目",
+    "Include": "包含",
+    "View Search Details": "查看检索详情",
+    "Embargoed Articles:": "禁运期文章：",
+    "Month": "月",
+    "Day": "日",
+    "Table representation of search results timeline featuring number of search results per year.": "检索结果时间线表格，显示每年检索结果的数量。",
+    "PubMed Central (PMC) Search Page": "PubMed Central（PMC）检索页",
+    "Choose how results are displayed.": "选择结果的显示方式。",
+    "The Abstract snippets setting is only supported when Format is Summary": "摘要片段设置仅在格式为「摘要」时可用",
+    "Abstract snippets options": "摘要片段选项",
+    "Save results to a file": "将结果保存到文件",
+    "Results Selection:": "结果选择：",
+    "Selected results": "选中结果",
+    "Please select at least one result to save": "请至少选择一条结果再保存",
+    "PMCID List": "PMCID 列表",
+    "Select custom date range": "选择自定义日期范围",
+    "Enter a search in the search field to view results.": "在检索框中输入检索词以查看结果。",
+    "12.6 million articles are archived in PMC.": "PMC 已归档 1260 万篇文章。",
+    "- Select -": "请选择"
+  },
+  "rules": [
+    {
+      "re": "^([\\d.,]+) million articles are archived in PMC\\.$",
+      "to": "PMC 已归档 $1 百万篇文章。"
+    },
+    {
+      "re": "^(\\d[\\d,]*)\\s+Full Participation Journals$",
+      "to": "$1 完全参与期刊"
+    },
+    {
+      "re": "^(\\d[\\d,]*)\\s+NIH Portfolio Journals$",
+      "to": "$1 NIH 组合期刊"
+    },
+    {
+      "re": "^(\\d[\\d,]*)\\s+Selective Deposit Programs$",
+      "to": "$1 选择性存缴项目"
+    },
+    {
+      "re": "^Only the first ([\\d,]+) items will be saved in your file$",
+      "to": "文件中只保存前 $1 条"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "PubMed Central{{1}} (PMC) is a free full-text archive of biomedical and life sciences journal literature at the U.S. National Institutes of Health's National Library of Medicine (NIH/NLM)",
+      "zh": "PubMed Central{{1}}（PMC）是美国国立卫生研究院（NIH/NLM）下属美国国立医学图书馆免费提供的生物医学与生命科学期刊文献全文档案"
+    },
+    {
+      "pat": "Full documentation of the updated Cloud service is available at: {{1}}",
+      "zh": "更新后云服务的完整文档见：{{1}}"
+    },
+    {
+      "pat": "These filters represent the three primary types of content included in the PMC archive: 1) content published in a scholarly journal 2) peer-reviewed author manuscripts accepted for publication in a journal and 3) preprint versions of articles collected through the {{1}}, made public prior to peer review",
+      "zh": "这些筛选条件对应 PMC 档案库收录的三类主要内容：1）发表于学术期刊的内容；2）已被期刊接收发表的同行评审作者手稿；3）通过 {{1}} 收集、在同行评审前公开的预印本文章"
+    },
+    {
+      "pat": "The {{1}} includes journal articles and preprints that are made available under license terms that allow reuse. Historical back issues refers to digitized content from print journals made available in PMC through the {{2}}.",
+      "zh": "{{1}}收录按允许再利用的许可条款提供的期刊文章与预印本。历史回溯期刊指通过{{2}}提供给 PMC 的印刷版期刊数字化内容。"
+    }
+  ]
+}

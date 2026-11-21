@@ -87,7 +87,8 @@
         "common",
         "ncbi",
         "seq",
-        "seq2"
+        "seq2",
+        "ncbi-home"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -103,7 +104,8 @@
         "common",
         "ncbi",
         "seq",
-        "seq2"
+        "seq2",
+        "ncbi-home"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -149,6 +151,23 @@
       "dicts": [
         "common",
         "ncbi",
+        "ncbi-home"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-datasets",
+      "name": "NCBI Datasets",
+      "path": "^/datasets",
+      "spa": true,
+      "waitFor": "main"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
         "mesh"
       ],
       "scope": "body",
@@ -180,7 +199,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "pmc"
+        "pmc",
+        "pmc-home"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -199,7 +219,7 @@
         "ncbi",
         "snp"
       ],
-      "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
+      "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "skipFree": [
         ".rprtid dt",
@@ -208,11 +228,168 @@
       ]
     },
     {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "medgen-gtr"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-medgen",
+      "name": "NCBI MedGen",
+      "path": "^/medgen"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "medgen-gtr"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-gtr",
+      "name": "NCBI GTR",
+      "path": "^/gtr"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "dbvar-bioproject"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-dbvar",
+      "name": "NCBI dbVar",
+      "path": "^/dbvar"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "dbvar-bioproject"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-bioproject",
+      "name": "NCBI BioProject",
+      "path": "^/bioproject"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-struct"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-cdd",
+      "name": "NCBI CDD",
+      "path": "^/cdd"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-struct"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-ipg",
+      "name": "NCBI IPG",
+      "path": "^/ipg"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-cat"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-orffinder",
+      "name": "NCBI ORFfinder",
+      "path": "^/orffinder",
+      "blocks": [
+        {
+          "sel": "label[for=\"id_orfto\"]",
+          "text": "至："
+        }
+      ]
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-cat",
+        "ncbi-help"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-nlmcatalog",
+      "name": "NCBI NLM Catalog",
+      "path": "^/nlmcatalog"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-struct"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer], #mmdb-update-banner, .pop-warnning",
+      "id": "ncbi-structure",
+      "name": "NCBI Structure",
+      "path": "^/structure"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-guide"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-guide",
+      "name": "NCBI Guide",
+      "path": "^(/guide|/home/about)"
+    },
+    {
       "id": "ncbi-geo",
       "hosts": [
         "www.ncbi.nlm.nih.gov"
       ],
-      "path": "^/(geo|gds|gap|sra|snp|clinvar|variation)",
+      "path": "^/(geo|gds|gap|sra|snp|clinvar|variation|sites/GDSbrowser)",
       "dicts": [
         "common",
         "ncbi",
@@ -923,13 +1100,15 @@
     {
       "id": "gtex",
       "hosts": [
-        "gtexportal.org"
+        "gtexportal.org",
+        "www.gtexportal.org"
       ],
       "dicts": [
         "common",
         "anatomy",
         "spa",
-        "gtex"
+        "gtex",
+        "gtex-home"
       ],
       "scope": "main, #root",
       "spa": true,
@@ -962,7 +1141,8 @@
     {
       "id": "ucsc",
       "hosts": [
-        "genome.ucsc.edu"
+        "genome.ucsc.edu",
+        "www.genome.ucsc.edu"
       ],
       "dicts": [
         "common",
@@ -970,7 +1150,8 @@
         "spa",
         "ucsc",
         "ucsc-extra",
-        "ucsc-tpl"
+        "ucsc-tpl",
+        "ucsc-vai"
       ],
       "scope": "body",
       "proseExempt": "#descriptionText",

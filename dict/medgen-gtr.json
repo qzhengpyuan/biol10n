@@ -1,0 +1,616 @@
+{
+  "meta": {
+    "family": "medgen-gtr",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ],
+    "area": "medgen+gtr"
+  },
+  "exact": {
+    "Official websites use .gov": "官方网站使用 .gov",
+    "Secure .gov websites use HTTPS": "安全的 .gov 网站使用 HTTPS",
+    "Locked padlock icon": "锁定挂锁图标",
+    "Help": "帮助",
+    "Full Report": "完整报告",
+    "Summary (Text)": "摘要（文本）",
+    "Summary (XML)": "摘要（XML）",
+    "Create File": "创建文件",
+    "Careers": "招聘",
+    "Turn off": "关闭",
+    "privacy policy": "隐私政策",
+    "Go to:": "跳转到：",
+    "Previous": "上一页",
+    "Show": "显示",
+    "entries": "条",
+    "MedGen Home": "MedGen 主页",
+    "MedGen Data Processing and Curation": "MedGen 数据处理与审编",
+    "FAQ": "常见问题",
+    "Definition Sources": "定义来源",
+    "List of Professional Guidelines": "专业指南列表",
+    "How to search": "如何检索",
+    "Searching MedGen": "检索 MedGen",
+    "Navigating MedGen records": "浏览 MedGen 记录",
+    "Contact us": "联系我们",
+    "Connecting You to Medical Genetics Information": "为您连接医学遗传学信息",
+    "Access/Download data": "访问/下载数据",
+    "Search for clinical concepts": "检索临床概念",
+    "Disease names, IDs, keywords or genes": "疾病名称、ID、关键词或基因",
+    "More search options": "更多检索选项",
+    "Quick links": "快捷链接",
+    "Phenotypes caused by CFTR": "由 CFTR 引起的表型",
+    "Syndromes with \"trident hand\" as a clinical feature": "以“三叉手”为临床特征的综合征",
+    "Records in Mondo": "Mondo 中的记录",
+    "All MedGen records": "全部 MedGen 记录",
+    "Download MedGen data via FTP reports": "通过 FTP 报告下载 MedGen 数据",
+    "Report of preferred names and identifiers used in GTR and ClinVar:": "GTR 与 ClinVar 中所用首选名称与标识符的报告：",
+    "Report gene-disease relationships used in ClinVar, Gene, GTR and MedGen:": "ClinVar、Gene、GTR 与 MedGen 中所用基因-疾病关系的报告：",
+    "API / programmatic access": "API / 程序化访问",
+    "Coverage of MedGen terms by source": "按来源统计的 MedGen 词条覆盖情况",
+    "Primary Backbone": "主要骨架",
+    "Ontologies & Clinical Sources": "本体与临床来源",
+    "MedGen Curated": "MedGen 审编",
+    "Percentages reflect the portion of MedGen terms mapped by each source; individual terms may map to multiple sources. Last update:": "百分比反映各来源所映射的 MedGen 词条占比；单个词条可能映射到多个来源。最后更新：",
+    "Patients": "患者",
+    "Genetic and Rare Diseases (GARD) Information Center": "遗传与罕见病（GARD）信息中心",
+    "Contact a GARD information specialist": "联系 GARD 信息专家",
+    "Find a genetics professional": "查找遗传学专业人员",
+    "MedlinePlus Genetics (GHR)": "MedlinePlus 遗传学（GHR）",
+    "Clinicians": "临床医生",
+    "NIH Genetic Testing Registry (GTR)": "NIH 遗传检测登记库（GTR）",
+    "Medical Genetics Summaries": "医学遗传学概要",
+    "Need Help? Contact MedGen.": "需要帮助？请联系 MedGen。",
+    "Have a question about MedGen data or need help with your search? Send an email to": "对 MedGen 数据有疑问，或在检索时需要帮助？请发送邮件至",
+    "Our team is here to help.": "我们的团队随时为您提供帮助。",
+    "Email MedGen": "发送邮件给 MedGen",
+    "MedGen UID:": "MedGen UID：",
+    "Concept ID:": "概念 ID：",
+    "Monarch Initiative:": "Monarch Initiative：",
+    "Definition": "定义",
+    "Professional guidelines": "专业指南",
+    "Recent clinical studies": "近期临床研究",
+    "Etiology": "病因学",
+    "Diagnosis": "诊断",
+    "Therapy": "治疗",
+    "Prognosis": "预后",
+    "Clinical prediction guides": "临床预测指南",
+    "Table of contents": "目录",
+    "Clinical resources": "临床资源",
+    "Practice guidelines": "实践指南",
+    "Consumer resources": "消费者资源",
+    "Free PMC Article": "免费 PMC 全文",
+    "View version history": "查看版本历史",
+    "Additional literature that covers other topics related to this disease may be found in": "涵盖该疾病其他相关主题的更多文献可在",
+    "Search results": "检索结果",
+    "Filter your results:": "筛选结果：",
+    "Enter a gene, condition or laboratory and select from the autocomplete menu or enter the text of your search query.": "输入基因、疾病或实验室名称并从自动补全菜单中选择，或直接输入检索词。",
+    "More help": "更多帮助",
+    "IMPORTANT NOTE:": "重要提示：",
+    "Watch how to search GTR": "观看 GTR 检索演示",
+    "About GTR®": "关于 GTR®",
+    "How to use GTR": "如何使用 GTR",
+    "Frequently asked questions": "常见问题",
+    "GTR in the community": "GTR 在社区中",
+    "Contact us and provide feedback": "联系我们并提供反馈",
+    "GTR Data": "GTR 数据",
+    "FTP: Download GTR data and documents": "FTP：下载 GTR 数据与文档",
+    "Worldwide Lab Participation in GTR": "全球实验室参与 GTR 的情况",
+    "GTR labs by country": "按国家/地区列出的 GTR 实验室",
+    "Microbe tests in GTR": "GTR 中的微生物检测",
+    "Find COVID-19 tests": "查找 COVID-19 检测",
+    "Find all microbe tests": "查找全部微生物检测",
+    "Search GeneReviews": "检索 GeneReviews",
+    "Find GTR Content": "查找 GTR 内容",
+    "Biochemical genetic tests": "生化遗传检测",
+    "Cancer tests": "肿瘤检测",
+    "Cardiovascular tests": "心血管检测",
+    "CGH tests": "CGH 检测",
+    "Cytogenetic tests": "细胞遗传学检测",
+    "Human genome and Whole exome tests": "人类基因组与全外显子组检测",
+    "Mitochondrial genome tests": "线粒体基因组检测",
+    "Pharmacogenetic tests": "药物遗传学检测",
+    "Single gene tests": "单基因检测",
+    "All GTR data": "全部 GTR 数据",
+    "Submitting Information to GTR": "向 GTR 提交信息",
+    "Access the Submission User Interface": "访问提交用户界面",
+    "How to submit data": "如何提交数据",
+    "Code of Conduct": "行为准则",
+    "Submission templates": "提交模板",
+    "Locate a Genetics Professional": "查找遗传学专业人员",
+    "ABGC Directory": "ABGC 名录",
+    "ABMGG Directory": "ABMGG 名录",
+    "NSGC Directory": "NSGC 名录",
+    "NCI Cancer Genetics Services Directory": "NCI 肿瘤遗传服务名录",
+    "ACMG Genetics Clinics Database": "ACMG 遗传门诊数据库",
+    "Resources Included in GTR": "GTR 收录的资源",
+    "GTR includes information from resources such as ClinVar and MedGen from within the NIH and many resources from outside the NIH.": "GTR 收录的信息来自 NIH 内部的 ClinVar、MedGen 等资源，以及 NIH 以外的众多资源。",
+    "See a list of all related resources": "查看全部相关资源列表",
+    "NIH Genetic Testing Registry": "NIH 遗传检测登记库",
+    "New filters have been added to narrow your search:": "已新增筛选条件以缩小检索范围：",
+    "Test type": "检测类型",
+    "Test target": "检测靶标",
+    "Labs": "实验室",
+    "Test purpose": "检测目的",
+    "Test method": "检测方法",
+    "Test service": "检测服务",
+    "Specimen type": "样本类型",
+    "Certification": "认证",
+    "Lab service": "实验室服务",
+    "Laboratory location": "实验室所在地",
+    "Other countries": "其他国家",
+    "Finding tests for": "查找满足以下条件的检测：",
+    "Lab name": "实验室名称",
+    "Tests matching your search": "与您检索匹配的检测",
+    "Labs matching your search": "与您检索匹配的实验室",
+    "Tests names and labs": "检测名称与实验室",
+    "Genes, analytes, and microbes": "基因、分析物与微生物",
+    "Clinical": "临床",
+    "Drug Response": "药物反应",
+    "Monitoring": "监测",
+    "Mutation Confirmation": "突变确认",
+    "Pre-symptomatic": "症状前",
+    "Predictive": "预测性",
+    "Recurrence": "复发",
+    "Risk Assessment": "风险评估",
+    "Screening": "筛查",
+    "Therapeutic management": "治疗管理",
+    "Biochemical Genetics": "生化遗传学",
+    "Cytogenetics": "细胞遗传学",
+    "Molecular Genetics": "分子遗传学",
+    "Immunohistochemistry": "免疫组织化学",
+    "Fluorescence in situ hybridization (FISH)": "荧光原位杂交（FISH）",
+    "Deletion/duplication analysis": "缺失/重复分析",
+    "Detection of homozygosity": "纯合性检测",
+    "Methylation analysis": "甲基化分析",
+    "Microsatellite instability testing (MSI)": "微卫星不稳定性检测（MSI）",
+    "Mutation scanning of select exons": "选定外显子的突变扫描",
+    "Mutation scanning of the entire coding region": "整个编码区的突变扫描",
+    "RNA analysis": "RNA 分析",
+    "Sequence analysis of select exons": "选定外显子的序列分析",
+    "Sequence analysis of the entire coding region": "整个编码区的序列分析",
+    "Targeted variant analysis": "靶向变异分析",
+    "Clinical Testing/Confirmation of Mutations Identified Previously": "临床检测/对既往已发现突变的确认",
+    "Confirmation of research findings": "研究结果确认",
+    "Custom Deletion/Duplication Testing": "定制缺失/重复检测",
+    "Custom mutation-specific/Carrier testing": "定制突变特异性/携带者检测",
+    "Custom Prenatal Testing": "定制产前检测",
+    "Custom Sequence Analysis": "定制序列分析",
+    "Data Storage and Backup": "数据存储与备份",
+    "Genetic counseling": "遗传咨询",
+    "Identity Testing": "身份检测",
+    "Maternal cell contamination study (MCC)": "母体细胞污染研究（MCC）",
+    "Preimplantation Genetic Diagnosis (PGD)": "胚胎植入前遗传学诊断（PGD）",
+    "Result interpretation": "结果解读",
+    "Uniparental Disomy (UPD) Testing": "单亲二体（UPD）检测",
+    "X-Chromosome Inactivation Studies": "X 染色体失活研究",
+    "Cord Blood Banking": "脐血储存",
+    "Custom Balanced Chromosome Rearrangement Studies": "定制平衡染色体结构重排研究",
+    "Custom microarray analysis": "定制微阵列分析",
+    "DNA Banking": "DNA 储存",
+    "Insurance appeals support": "保险申诉支持",
+    "Insurance billing": "保险计费",
+    "Insurance preauthorization": "保险预授权",
+    "Insurance preverification": "保险预验证",
+    "Marker Chromosome Identification": "标记染色体鉴定",
+    "RNA Banking": "RNA 储存",
+    "Specimen Source Identification": "样本来源鉴定",
+    "Whole Exome Sequencing": "全外显子组测序",
+    "Whole Genome Sequencing": "全基因组测序",
+    "CLIA certified": "CLIA 认证",
+    "CAP certification": "CAP 认证",
+    "State licensed": "州许可",
+    "State License": "州许可",
+    "NYS CLEP certification": "NYS CLEP 认证",
+    "GTR Home": "GTR 主页",
+    "Classic view of this page": "本页经典视图",
+    "On this page": "本页内容",
+    "At a Glance": "概览",
+    "Ordering Information": "订购信息",
+    "Test Targets": "检测靶标",
+    "Methodology": "方法学",
+    "Clinical Information": "临床信息",
+    "Technical Information": "技术信息",
+    "Regulatory Approval": "监管批准",
+    "Additional Information": "附加信息",
+    "Clinical Genetic Test": "临床遗传检测",
+    "offered by": "提供方",
+    "View lab's test page": "查看实验室检测页面",
+    "View lab's website": "查看实验室网站",
+    "GTR Test Accession:": "GTR 检测登录号：",
+    "Test purpose:": "检测目的：",
+    "Target population:": "目标人群：",
+    "Clinical validity:": "临床有效性：",
+    "Clinical utility:": "临床实用性：",
+    "Offered by:": "提供方：",
+    "Test short name:": "检测简称：",
+    "Specimen Source:": "样本来源：",
+    "View specimen requirements": "查看样本要求",
+    "Who can order:": "可开具者：",
+    "Test Order Code:": "检测订单代码：",
+    "Lab contact:": "实验室联系人：",
+    "Contact Policy:": "联系政策：",
+    "How to Order:": "如何订购：",
+    "Order URL": "订购网址",
+    "Test additional service:": "检测附加服务：",
+    "Test development:": "检测开发情况：",
+    "Informed consent required:": "是否需要知情同意：",
+    "Test strategy:": "检测策略：",
+    "Pre-test genetic counseling required:": "是否需要检测前遗传咨询：",
+    "Post-test genetic counseling required:": "是否需要检测后遗传咨询：",
+    "Decline to answer": "拒绝回答",
+    "Total conditions:": "疾病总数：",
+    "Total genes:": "基因总数：",
+    "Total methods:": "方法总数：",
+    "Condition/Phenotype": "疾病/表型",
+    "Lab-provided information": "实验室提供的信息",
+    "Associated Condition": "相关疾病",
+    "Germline or Somatic": "生殖系或体细胞",
+    "Allele (Lab-provided)": "等位基因（实验室提供）",
+    "Variant in NCBI": "NCBI 中的变异",
+    "Germline": "生殖系",
+    "Method Category": "方法类别",
+    "Instrument": "仪器",
+    "Variant Interpretation:": "变异解读：",
+    "What is the protocol for interpreting a variation as a VUS?": "将变异判定为 VUS 的解读方案是什么？",
+    "Will the lab re-contact the ordering physician if variant interpretation changes?": "若变异解读发生变化，实验室是否会再次联系开具医师？",
+    "Recommended fields not provided:": "未提供的推荐字段：",
+    "Test Procedure:": "检测流程：",
+    "Test Confirmation:": "检测确认：",
+    "Availability:": "可及性：",
+    "Tests performed": "开展的检测",
+    "Entire test performed in-house": "全部检测在实验室内完成",
+    "Test performance comments": "检测性能说明",
+    "Analytical Validity:": "分析有效性：",
+    "Proficiency testing (PT):": "能力验证（PT）：",
+    "Is proficiency testing performed for this test?": "该检测是否开展能力验证？",
+    "Method used for proficiency testing:": "能力验证所用方法：",
+    "Formal PT program": "正式 PT 计划",
+    "PT Provider:": "PT 提供方：",
+    "VUS:": "VUS：",
+    "Software used to interpret novel variations": "用于解读新变异的软件",
+    "Laboratory's policy on reporting novel variations": "实验室报告新变异的政策",
+    "FDA Review:": "FDA 审查：",
+    "Category:": "类别：",
+    "FDA exercises enforcement discretion": "FDA 行使执法自由裁量权",
+    "Reviews:": "综述：",
+    "Reviews in PubMed": "PubMed 中的综述",
+    "Suggested reading:": "推荐阅读：",
+    "Molecular resources:": "分子资源：",
+    "Practice guidelines:": "实践指南：",
+    "Consumer resources:": "消费者资源：",
+    "Like what you see?": "您觉得这些内容有用吗？",
+    "YouTube video": "YouTube 视频",
+    "Genetic Counselor": "遗传咨询师",
+    "Licensed Physician": "执业医师",
+    "Test developed by laboratory (no manufacturer test name)": "由实验室自行开发（无厂商检测名称）",
+    "Exon(s): Full coding sequence and flanking introns": "外显子：完整编码序列及侧翼内含子",
+    "INHERITED DISEASE": "遗传性疾病",
+    "INHERITED DISEASE SUSCEPTIBILITY": "遗传性疾病易感性",
+    "SYNDROMIC DISEASE": "综合征性疾病",
+    "Avoidance of invasive testing": "避免侵入性检查",
+    "Establish or confirm diagnosis": "建立或确认诊断",
+    "Guidance for management": "指导管理",
+    "Predictive risk information for patient and/or family members": "为患者和/或家庭成员提供预测性风险信息",
+    "Autosomal dominant inheritance": "常染色体显性遗传",
+    "loss of function": "功能丧失",
+    "Amniocytes": "羊水细胞",
+    "Amniotic fluid": "羊水",
+    "Bone marrow": "骨髓",
+    "Buccal swab": "口腔拭子",
+    "Buffy coat": "白膜层",
+    "Cell culture": "细胞培养物",
+    "Cell-free DNA": "游离 DNA",
+    "Cerebrospinal fluid": "脑脊液",
+    "Chorionic villi": "绒毛膜绒毛",
+    "Cord blood": "脐带血",
+    "Cystic hygroma fluid": "囊性水瘤液",
+    "Dried blood spot (DBS) card": "干血斑（DBS）卡",
+    "Fetal blood": "胎儿血",
+    "Fibroblasts": "成纤维细胞",
+    "Fresh tissue": "新鲜组织",
+    "Frozen tissue": "冷冻组织",
+    "Isolated DNA": "提取的 DNA",
+    "Paraffin block": "石蜡块",
+    "Peripheral (whole) blood": "外周（全）血",
+    "Plasma": "血浆",
+    "Product of conception (POC)": "妊娠产物（POC）",
+    "Saliva": "唾液",
+    "Serum": "血清",
+    "Skin": "皮肤",
+    "Sputum": "痰",
+    "Urine": "尿液",
+    "White blood cell prep": "白细胞制备物"
+  },
+  "rules": [
+    {
+      "re": "^NCBI's disclaimer policy$",
+      "to": "NCBI 的免责声明政策"
+    },
+    {
+      "re": "^Conditions$",
+      "to": "疾病"
+    },
+    {
+      "re": "^Research$",
+      "to": "科研"
+    },
+    {
+      "re": "^Prognostic$",
+      "to": "预后性"
+    },
+    {
+      "re": "^UI List$",
+      "to": "界面列表"
+    },
+    {
+      "re": "^Primary site navigation$",
+      "to": "主站导航"
+    },
+    {
+      "re": "^CANCER$",
+      "to": "肿瘤"
+    },
+    {
+      "re": "^Items: ([\\d,]+)$",
+      "to": "条目：$1"
+    },
+    {
+      "re": "^All \\(([\\d,]+)\\)$",
+      "to": "全部（$1）"
+    },
+    {
+      "re": "^Records in (.+) \\(([\\d,]+)\\)$",
+      "to": "$1 中的记录（$2）"
+    },
+    {
+      "re": "^Diseases \\(([\\d,]+)\\)$",
+      "to": "疾病（$1）"
+    },
+    {
+      "re": "^Recommended for clinicians \\(([\\d,]+)\\)$",
+      "to": "推荐给临床医生（$1）"
+    },
+    {
+      "re": "^See all \\(([\\d,]+)\\)$",
+      "to": "查看全部（$1）"
+    },
+    {
+      "re": "^All ([\\d,]+) Gene records$",
+      "to": "全部 $1 条基因记录"
+    },
+    {
+      "re": "^See (\\S+) in MedGen \\(([\\d,]+)\\)$",
+      "to": "在 MedGen 中查看 $1（$2）"
+    },
+    {
+      "re": "^Search all ([\\d,]+) tests, ([\\d,]+) conditions, ([\\d,]+) genes, and ([\\d,]+) labs$",
+      "to": "检索全部 $1 项检测、$2 种疾病、$3 个基因和 $4 家实验室"
+    },
+    {
+      "re": "^Page (\\d+) of (\\d+)$",
+      "to": "第 $1 页，共 $2 页"
+    },
+    {
+      "re": "^Single gene tests \\((\\d+)\\)$",
+      "to": "单基因检测（$1）"
+    },
+    {
+      "re": "^Panels \\((\\d+)-(\\d+) genes\\) \\(([\\d,]+)\\)$",
+      "to": "组合检测（$1-$2 个基因）（$3）"
+    },
+    {
+      "re": "^Panels \\(>(\\d+) genes\\) \\(([\\d,]+)\\)$",
+      "to": "组合检测（>$1 个基因）（$2）"
+    },
+    {
+      "re": "^Exomes \\(([\\d,]+)\\)$",
+      "to": "外显子组（$1）"
+    },
+    {
+      "re": "^Genomes \\(([\\d,]+)\\)$",
+      "to": "基因组（$1）"
+    },
+    {
+      "re": "^Clinical \\(([\\d,]+)\\)$",
+      "to": "临床（$1）"
+    },
+    {
+      "re": "^Research \\(([\\d,]+)\\)$",
+      "to": "科研（$1）"
+    },
+    {
+      "re": "^Enter text above to search from ([\\d,]+) gene symbols$",
+      "to": "在上方输入文字，从 $1 个基因符号中检索"
+    },
+    {
+      "re": "^Enter text above to search from ([\\d,]+) condition names$",
+      "to": "在上方输入文字，从 $1 个疾病名称中检索"
+    },
+    {
+      "re": "^Conditions \\(([\\d,]+)\\):$",
+      "to": "疾病（$1）："
+    },
+    {
+      "re": "^Genes \\(([\\d,]+)\\):$",
+      "to": "基因（$1）："
+    },
+    {
+      "re": "^Methods \\(([\\d,]+)\\):$",
+      "to": "方法（$1）："
+    },
+    {
+      "re": "^Last updated in GTR: (.+)$",
+      "to": "GTR 中最后更新：$1"
+    },
+    {
+      "re": "^, last updated: (.+)$",
+      "to": "，最后更新：$1"
+    },
+    {
+      "re": "^, registered in GTR: (.+)$",
+      "to": "，在 GTR 中登记：$1"
+    },
+    {
+      "re": "^Last annual review date for the lab: (.+)$",
+      "to": "实验室上次年度审核日期：$1"
+    },
+    {
+      "re": "^Mode of inheritance: (.+)$",
+      "to": "遗传方式：$1"
+    },
+    {
+      "re": "^Disease mechanism: (.+)$",
+      "to": "疾病机制：$1"
+    },
+    {
+      "re": "^Citations: (.+)$",
+      "to": "参考文献：$1"
+    },
+    {
+      "re": "^Prevalence: (.+)$",
+      "to": "患病率：$1"
+    },
+    {
+      "re": "^Test purpose: (.+)$",
+      "to": "检测目的：$1"
+    },
+    {
+      "re": "^View citations \\((\\d+)\\)$",
+      "to": "查看引用（$1）"
+    },
+    {
+      "re": "^Amniocytes \\(([\\d,]+)\\)$",
+      "to": "羊水细胞（$1）"
+    },
+    {
+      "re": "^Amniotic fluid \\(([\\d,]+)\\)$",
+      "to": "羊水（$1）"
+    },
+    {
+      "re": "^Bone marrow \\(([\\d,]+)\\)$",
+      "to": "骨髓（$1）"
+    },
+    {
+      "re": "^Buccal swab \\(([\\d,]+)\\)$",
+      "to": "口腔拭子（$1）"
+    },
+    {
+      "re": "^Buffy coat \\(([\\d,]+)\\)$",
+      "to": "白膜层（$1）"
+    },
+    {
+      "re": "^Cell culture \\(([\\d,]+)\\)$",
+      "to": "细胞培养物（$1）"
+    },
+    {
+      "re": "^Cell-free DNA \\(([\\d,]+)\\)$",
+      "to": "游离 DNA（$1）"
+    },
+    {
+      "re": "^Cerebrospinal fluid \\(([\\d,]+)\\)$",
+      "to": "脑脊液（$1）"
+    },
+    {
+      "re": "^Chorionic villi \\(([\\d,]+)\\)$",
+      "to": "绒毛膜绒毛（$1）"
+    },
+    {
+      "re": "^Cord blood \\(([\\d,]+)\\)$",
+      "to": "脐带血（$1）"
+    },
+    {
+      "re": "^Cystic hygroma fluid \\(([\\d,]+)\\)$",
+      "to": "囊性水瘤液（$1）"
+    },
+    {
+      "re": "^Dried blood spot \\(DBS\\) card \\(([\\d,]+)\\)$",
+      "to": "干血斑（DBS）卡（$1）"
+    },
+    {
+      "re": "^Fetal blood \\(([\\d,]+)\\)$",
+      "to": "胎儿血（$1）"
+    },
+    {
+      "re": "^Fibroblasts \\(([\\d,]+)\\)$",
+      "to": "成纤维细胞（$1）"
+    },
+    {
+      "re": "^Fresh tissue \\(([\\d,]+)\\)$",
+      "to": "新鲜组织（$1）"
+    },
+    {
+      "re": "^Frozen tissue \\(([\\d,]+)\\)$",
+      "to": "冷冻组织（$1）"
+    },
+    {
+      "re": "^Isolated DNA \\(([\\d,]+)\\)$",
+      "to": "提取的 DNA（$1）"
+    },
+    {
+      "re": "^Paraffin block \\(([\\d,]+)\\)$",
+      "to": "石蜡块（$1）"
+    },
+    {
+      "re": "^Peripheral \\(whole\\) blood \\(([\\d,]+)\\)$",
+      "to": "外周（全）血（$1）"
+    },
+    {
+      "re": "^Plasma \\(([\\d,]+)\\)$",
+      "to": "血浆（$1）"
+    },
+    {
+      "re": "^Product of conception \\(POC\\) \\(([\\d,]+)\\)$",
+      "to": "妊娠产物（POC）（$1）"
+    },
+    {
+      "re": "^Saliva \\(([\\d,]+)\\)$",
+      "to": "唾液（$1）"
+    },
+    {
+      "re": "^Serum \\(([\\d,]+)\\)$",
+      "to": "血清（$1）"
+    },
+    {
+      "re": "^Skin \\(([\\d,]+)\\)$",
+      "to": "皮肤（$1）"
+    },
+    {
+      "re": "^Sputum \\(([\\d,]+)\\)$",
+      "to": "痰（$1）"
+    },
+    {
+      "re": "^Urine \\(([\\d,]+)\\)$",
+      "to": "尿液（$1）"
+    },
+    {
+      "re": "^White blood cell prep \\(([\\d,]+)\\)$",
+      "to": "白细胞制备物（$1）"
+    },
+    {
+      "re": "^CLIA certified \\(([\\d,]+)\\)$",
+      "to": "CLIA 认证（$1）"
+    },
+    {
+      "re": "^CAP certification \\(([\\d,]+)\\)$",
+      "to": "CAP 认证（$1）"
+    },
+    {
+      "re": "^State licensed \\(([\\d,]+)\\)$",
+      "to": "州许可（$1）"
+    },
+    {
+      "re": "^State License \\(([\\d,]+)\\)$",
+      "to": "州许可（$1）"
+    },
+    {
+      "re": "^NYS CLEP certification \\(([\\d,]+)\\)$",
+      "to": "NYS CLEP 认证（$1）"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "We are planning the future of MedGen. Contact us at {{1}} to tell us how it can work better for you.",
+      "zh": "我们正在规划 MedGen 的未来。请通过 {{1}} 告诉我们如何让它更好地为您服务。"
+    }
+  ]
+}

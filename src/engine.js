@@ -102,6 +102,13 @@ function createEngine(options) {
     return out;
   }
 
+  /** 平面文件常量（KEGG dbentry 的 ENTRY / NAME / GENE / SEQUENCE）是固定名称，
+   *  不能靠小写回退查成「条目 / 名称 / 基因」。四个字符以上的纯大写/数字/下划线串
+   *  只认 exact 里登记的大写形态，不回退小写；ID / DOI / PMC 这类 2–3 字符缩写照旧。 */
+  function isCapsConstant(s) {
+    return /^[A-Z0-9_\-]{4,}$/.test(s);
+  }
+
   /** 只在 exact 表里查一次，不进入 rules，避免递归 */
   function lookupExact(s) {
     if (!s) return null;
@@ -111,6 +118,7 @@ function createEngine(options) {
     for (var i = 0; i < cand.length; i++) {
       var hit = exact.get(cand[i]);
       if (hit !== undefined) return hit;
+      if (isCapsConstant(cand[i])) continue;
       var low = lowerIndex.get(cand[i].toLowerCase());
       if (low !== undefined) return low;
     }
@@ -119,6 +127,7 @@ function createEngine(options) {
       for (var k = 0; k < sg.length; k++) {
         var hit2 = exact.get(sg[k]);
         if (hit2 !== undefined) return hit2;
+        if (isCapsConstant(sg[k])) continue;
         var low2 = lowerIndex.get(sg[k].toLowerCase());
         if (low2 !== undefined) return low2;
       }

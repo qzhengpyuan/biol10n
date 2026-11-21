@@ -62,6 +62,117 @@
       "name": "NCBI ClinVar"
     },
     {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-gene",
+      "name": "NCBI Gene",
+      "path": "^/gene"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-nuccore",
+      "name": "NCBI Nucleotide",
+      "path": "^/nuccore"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-protein",
+      "name": "NCBI Protein",
+      "path": "^/protein"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-assembly",
+      "name": "NCBI Assembly",
+      "path": "^/assembly"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-taxonomy",
+      "name": "NCBI Taxonomy",
+      "path": "^/Taxonomy"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-mesh",
+      "name": "NCBI MeSH",
+      "path": "^/mesh"
+    },
+    {
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-books",
+      "name": "NCBI Bookshelf",
+      "path": "^/books"
+    },
+    {
+      "hosts": [
+        "pmc.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
+      "id": "ncbi-pmc",
+      "name": "NCBI PMC"
+    },
+    {
       "id": "ncbi-geo",
       "hosts": [
         "www.ncbi.nlm.nih.gov"

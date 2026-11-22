@@ -138,7 +138,8 @@
     "Expasy is funded by the Swiss State Secretariat for Education, Research and Innovation (SERI).": "Expasy 由瑞士教育、研究与创新国务秘书处（SERI）资助。",
     "&laquo; Previous": "上一页",
     "Next &raquo;": "下一页",
-    "Expasy: Swiss Bioinformatics Resource Portal": "Expasy：瑞士生物信息学资源门户"
+    "Expasy: Swiss Bioinformatics Resource Portal": "Expasy：瑞士生物信息学资源门户",
+    "Hide the news": "隐藏新闻"
   },
   "rules": [
     {

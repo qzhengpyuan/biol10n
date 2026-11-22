@@ -615,6 +615,14 @@
     {
       "re": "^Filter your results \\((\\d+) of ([\\d,]+)\\)$",
       "to": "筛选结果（显示 $1 条，共 $2 条）"
+    },
+    {
+      "re": "^V(\\d+) Released$",
+      "to": "V$1 已发布"
+    },
+    {
+      "re": "^New Publication in (.+):$",
+      "to": "$1 新发表论文："
     }
   ],
   "templates": [

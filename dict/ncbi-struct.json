@@ -197,7 +197,8 @@
     "Features": "特征",
     "Chemical": "化学物质",
     "zinc binding site": "锌结合位点",
-    "dimerization site": "二聚化位点"
+    "dimerization site": "二聚化位点",
+    "DNA binding site": "DNA 结合位点"
   },
   "rules": [
     {
@@ -279,6 +280,10 @@
     {
       "re": "^strand (\\d+-\\d+)$",
       "to": "β 折叠股 $1"
+    },
+    {
+      "re": "^DNA binding site\\((\\d+)\\)$",
+      "to": "DNA 结合位点（$1）"
     }
   ],
   "templates": []

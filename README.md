@@ -63,7 +63,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **1238 KB**（1,267,664 字节）；词库里 83 个文件共 23031 条词条 + 783 条模板
+- 单文件产物 **1238 KB**（1,267,948 字节）；词库里 83 个文件共 23037 条词条 + 783 条模板
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -196,7 +196,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | expasy | 130 | 11 | 48 | Expasy 资源门户（工具目录、帮助、新闻） |
 | nextprot | 11 | 0 | 9 | neXtProt 退役归档页 |
 
-合计 **23031 条 / 1049 条规则 / 783 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **23037 条 / 1055 条规则 / 783 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

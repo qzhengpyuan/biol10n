@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "family": "rcsb",
+    "version": "0.1.0",
+    "sites": [
+      "www.rcsb.org",
+      "rcsb.org"
+    ],
+    "area": "home+new-ui",
+    "note": "RCSB PDB 改版首页（检索帮助卡 / 新闻标题 / 统计卡）与新版检索、结构页补充；旧版字段与 3D 视图按钮见 rcsb 册"
+  },
+  "exact": {
+    "Find structures that contain a similar nucleotide or protein sequence using the MMseqs2 method": "查找包含相似核苷酸或蛋白质序列的结构，使用 MMseqs2 方法",
+    "Find structures that share a similar 3D shape using AI/ML-generated vector embeddings": "查找共享相似三维形状的结构，基于 AI/ML 生成的向量嵌入",
+    "Find structures that contain a similar 3D arrangement of residues with functional significance (catalytic or binding sites)": "查找含有具有功能意义的相似残基三维排布（催化位点或结合位点）的结构",
+    "Use structural properties that have text or numerical values to build complex queries with 'AND/OR' logic": "使用带文本值或数值的结构属性，以“AND/OR”逻辑构建复杂查询",
+    "Find structures with sequences that share small conserved regions (motifs) that have biological meaning": "查找序列中含有具生物学意义的小型保守区域（基序）的结构",
+    "Find PDB structures using annotations from various ontologies and hierarchical classification schemes, e.g. Disease Ontology, Molecular Function": "使用来自各种本体与层级分类方案的注释查找 PDB 结构，例如疾病本体、分子功能",
+    "Graphical summaries of protein features and their relationships with UniProtKB entries": "蛋白质特征及其与 UniProtKB 条目关系的图形化摘要",
+    "Nov 18-24: World Antimicrobial Awareness Week": "11 月 18–24 日：世界提高抗微生物药物认识周",
+    "Harmonization of NMR Data Deposition: Adoption of unified NMR data and PDBx/mmCIF": "NMR 数据存缴的统一：采用统一的 NMR 数据与 PDBx/mmCIF",
+    "Register for Electron Microscopy on PDB’s 55th Birthday": "注册参加 PDB 55 周年电子显微镜专题活动",
+    "Quarterly Newsletter: Fall 2026 | Issue 111": "季度通讯：2026 年秋季 | 第 111 期",
+    "Education Corner: Fall 2026 | Issue 111": "教育角：2026 年秋季 | 第 111 期",
+    "Starting February 2027, OneDep will accept NMR experimental data only as a single combined file in STAR or NEF format, deprecating the use of software specific file uploads.": "自 2027 年 2 月起，OneDep 仅接受以 STAR 或 NEF 格式提交的单个合并文件作为 NMR 实验数据，不再支持按软件特定的文件上传方式。",
+    "Query Summary": "查询摘要",
+    "CSM": "计算结构模型",
+    "Search API": "检索 API",
+    "LOADING": "加载中"
+  },
+  "rules": [
+    {
+      "re": "^: Asymmetric - (.+)$",
+      "to": "：非对称 - $1"
+    },
+    {
+      "re": "^: Homo (\\d+)-mer -$",
+      "to": "：同源 $1 聚体 -"
+    },
+    {
+      "re": "^(X-RAY DIFFRACTION|ELECTRON MICROSCOPY|SOLUTION NMR|SOLID-STATE NMR|NEUTRON DIFFRACTION|ELECTRON CRYSTALLOGRAPHY|FIBER DIFFRACTION|POWDER DIFFRACTION|SOLUTION SCATTERING|EPR)[ ]+([\\d.]+ Å)$",
+      "to": "$1 $2",
+      "requireHit": true
+    },
+    {
+      "re": "^of ([\\d,]+) Structures$",
+      "to": "，共 $1 个结构"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Find {{1}} and {{2}} by combining queries from tools in this suite: Attribute Search, Sequence Similarity, Sequence Motif, 3D Similarity, and 3D Motif with 'AND' logic.",
+      "zh": "通过组合本套件中各工具的查询条件查找{{1}}与{{2}}：属性检索、序列相似性、序列基序、三维相似性、三维基序，并以“AND”逻辑组合。"
+    },
+    {
+      "pat": "Find {{1}} by combining queries from the tools in this suite: Chemical Attributes and Chemical Similarity Search with 'AND' logic.",
+      "zh": "通过组合本套件中各工具的查询条件查找{{1}}：化学属性检索与化学相似性检索，并以“AND”逻辑组合。"
+    },
+    {
+      "pat": "Find {{1}} using annotations from various ontologies and hierarchical classification schemes, e.g. Disease Ontology, Molecular Function.",
+      "zh": "使用来自各种本体与层级分类方案的注释查找{{1}}，例如疾病本体、分子功能。"
+    },
+    {
+      "pat": "This query matches {{1}}.",
+      "zh": "本次查询匹配{{1}}。"
+    },
+    {
+      "pat": "Use {{1}} for questions about {{2}} and RCSB PDB services. {{3}} Please attach a {{4}} when reporting an issue, if possible.",
+      "zh": "请使用{{1}}提出关于{{2}}与 RCSB PDB 服务的问题。{{3}}报告问题时，如有可能请附上{{4}}。"
+    },
+    {
+      "pat": "To update/release {{1}} in-progress structure depositions: {{2}} access the {{3}}.",
+      "zh": "如需更新/发布{{1}}正在进行中的结构存缴：{{2}}请访问{{3}}。"
+    },
+    {
+      "pat": "For questions about structure deposition, biocuration, validation or PDB policies, use the {{1}}.",
+      "zh": "有关结构存缴、人工审编、验证或 PDB 政策的问题，请使用{{1}}。"
+    },
+    {
+      "pat": "For questions/corrections to specific PDB entries, including citation updates: {{1}} email {{2}}.",
+      "zh": "有关特定 PDB 条目（含引文更新）的问题与更正：{{1}}请发送电子邮件至{{2}}。"
+    }
+  ]
+}

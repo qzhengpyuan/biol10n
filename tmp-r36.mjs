@@ -1,0 +1,15 @@
+import fs from "node:fs";
+let md = fs.readFileSync("README.md", "utf8");
+const rows = fs.readFileSync("/tmp/rows2.md", "utf8");
+const start = md.indexOf("37 组词库按站点分文件");
+if (start < 0) throw new Error("no start");
+const endIdx = md.indexOf("合计 **18872 条", start);
+if (endIdx < 0) throw new Error("no end");
+const endLine = md.indexOf("\n", endIdx);
+const head = "40 组词库按站点分文件（67 个文件），一个站点只加载自己那几本。\n\n| 词库 | 条数 | 规则 | 模板 | 覆盖 |\n|---|---|---|---|---|\n";
+md = md.slice(0, start) + head + rows + "\n\n" + md.slice(endLine + 1);
+md = md.replace(/合计 \*\*18872 条 \/ 848 条规则 \/ 591 条模板\*\*[^\n]*\n/, "合计 **20098 条 / 861 条规则 / 648 条模板**。词库按家族复用，加一个站通常只增 50–300 条。\n");
+md = md.replace(/- 单文件产物 \*\*[^*]+\*\*（[^）]*）；词库里 63 个文件/, "- 单文件产物 **1071 KB**（1,096,908 字节）；词库里 67 个文件");
+md = md.replace("（602 条）", "（649 条）");
+fs.writeFileSync("README.md", md);
+console.log("ok");

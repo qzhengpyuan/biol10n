@@ -397,9 +397,10 @@
       "dicts": [
         "common",
         "ncbi",
-        "geo-extra"
+        "geo-extra",
+        "geo-docs"
       ],
-      "scope": "main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
+      "scope": "body, main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "name": "NCBI GEO/GDS",
       "skip": "p.title, div.resc, #results .title",
@@ -1219,7 +1220,8 @@
       "dicts": [
         "common",
         "spa",
-        "rcsb"
+        "rcsb",
+        "rcsb-home"
       ],
       "scope": "header, nav, main, footer, #root, .visually-hidden-focusable, .skip-link",
       "spa": true,
@@ -1331,6 +1333,94 @@
         15000
       ],
       "proseExempt": ""
+    },
+    {
+      "id": "pubchem",
+      "name": "PubChem",
+      "hosts": [
+        "pubchem.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "pubchem-dbgap"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "main"
+    },
+    {
+      "id": "dbgap",
+      "name": "dbGaP",
+      "hosts": [
+        "dbgap.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "pubchem-dbgap"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "ncbi-refseq",
+      "name": "NCBI RefSeq",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/refseq",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-dirs"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+    },
+    {
+      "id": "ncbi-biosample",
+      "name": "NCBI BioSample",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/biosample",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-dirs"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+    },
+    {
+      "id": "ncbi-ccds",
+      "name": "NCBI CCDS",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^(/CCDS|/ccds)",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-dirs"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+    },
+    {
+      "id": "ncbi-submit",
+      "name": "NCBI Submission Portal",
+      "hosts": [
+        "submit.ncbi.nlm.nih.gov",
+        "account.ncbi.nlm.nih.gov"
+      ],
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-dirs"
+      ],
+      "scope": "body",
+      "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
     }
   ]
 }

@@ -352,6 +352,14 @@
     {
       "re": "^Variation Viewer \\((GRCh[\\d.]+(?:p\\d+)?)\\)$",
       "to": "变异查看器（$1）"
+    },
+    {
+      "re": "^Neighboring gene (.+)$",
+      "to": "邻近基因 $1"
+    },
+    {
+      "re": "^PubMed ID ([\\d,\\s]+)$",
+      "to": "PubMed 编号 $1"
     }
   ],
   "templates": []

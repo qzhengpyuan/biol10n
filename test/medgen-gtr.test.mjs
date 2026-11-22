@@ -51,7 +51,7 @@ test("词库结构：family/sites 正确，exact 有足够条目且译文都含�
   for (const [k, v] of Object.entries(dict.exact)) {
     assert.notEqual(v, k, "自映射: " + k);
     if (CJK.test(v)) { cjk++; continue; }
-    // 纯标签类条目（MedGen UID: / PT Provider:）只换全角标点，允许无汉字
+    // 纯标签类条目（MedGen 唯一标识符：/ PT Provider:）只换全角标点，允许无汉字
     assert.match(v, /[：（）]/, "译文既无汉字也无全角标点: " + k + " => " + v);
     assert.match(k, /:$/, "无汉字译文必须是冒号结尾的标签: " + k);
   }
@@ -441,7 +441,7 @@ test("跨册改写条目走规则：Conditions / Send to: / Research / Prognosti
 test("MedGen 记录页渲染：字段标签翻、值（ID / 语义类型 / 疾病名）不翻", () => {
   const { doc } = engineFor(
     '<div id="maincontent"><h1>BRCA1-related cancer predisposition</h1>' +
-      '<dl class="rprt"><dt>MedGen UID:</dt><dd>1053035</dd><dt>Concept ID:</dt><dd>CN377757</dd></dl>' +
+      '<dl class="rprt"><dt>MedGen 唯一标识符：</dt><dd>1053035</dd><dt>Concept ID:</dt><dd>CN377757</dd></dl>' +
       '<div class="rprt_section"><h2>Definition</h2><p>Hereditary cancer predisposition due to variation(s) in the BRCA1 gene.</p></div>' +
       '<div class="rprt_section"><h2>Professional guidelines</h2><p>See all (2)</p></div>' +
       '<div><span class="label">Monarch Initiative:</span> <a href="#">MONDO:0700268</a></div>' +
@@ -450,7 +450,7 @@ test("MedGen 记录页渲染：字段标签翻、值（ID / 语义类型 / 疾�
       '<h2>Supplemental Content</h2><h2>Table of contents</h2><h2>Clinical resources</h2></div>'
   );
   const dts = [...doc.querySelectorAll("dt")].map((x) => x.textContent);
-  assert.deepEqual(dts, ["MedGen UID：", "概念 ID："]);
+  assert.deepEqual(dts, ["MedGen 唯一标识符：", "概念 ID："]);
   assert.equal(doc.querySelector("h1").textContent, "BRCA1-related cancer predisposition", "疾病名不该被翻");
   const heads = [...doc.querySelectorAll("h2, h3")].map((x) => x.textContent);
   assert.ok(heads.includes("定义"), "Definition 未翻: " + heads.join("/"));

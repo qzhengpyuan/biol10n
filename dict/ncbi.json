@@ -1420,7 +1420,28 @@
     "Featured results": "精选结果",
     "RefSeq products": "RefSeq 产物",
     "Was this helpful?": "这有帮助吗？",
-    "View full table": "查看完整表格"
+    "View full table": "查看完整表格",
+    "(marsupials)": "（有袋类）",
+    "Free full text at PubMed Central": "PubMed Central 免费全文",
+    "Explore related research with NLM Linked Discoveries": "借助 NLM Linked Discoveries 探索相关研究",
+    "PubMed links associated with Books": "与 Books 关联的 PubMed 链接",
+    "Link to related CDD entry": "链接到相关 CDD 条目",
+    "Link to related Genes": "链接到相关基因",
+    "Link to Gene for the GeneRIF subcategory": "链接到 GeneRIF 子类别的基因",
+    "Link to Protein RefSeqs": "链接到蛋白质 RefSeq",
+    "Protein family models supported by a particular publication": "特定出版物支持的蛋白家族模型",
+    "navigate to Conflict of interest statement section": "跳转到「利益冲突声明」部分",
+    "navigate to Figures section": "跳转到「图片」部分",
+    "navigate to References section": "跳转到「参考文献」部分",
+    "Figures Dialog": "图片对话框",
+    "show full caption": "显示完整图注",
+    "hide full caption": "隐藏完整图注",
+    "Close (Esc)": "关闭（Esc）",
+    "Toggle fullscreen": "切换全屏",
+    "Zoom in/out": "放大/缩小",
+    "Previous (arrow left)": "上一个（左箭头）",
+    "Next (arrow right)": "下一个（右箭头）",
+    "Atypon full text link": "Atypon 全文链接"
   },
   "rules": [
     {
@@ -1514,6 +1535,10 @@
     {
       "re": "^PMID: (\\d+)$",
       "to": "PMID：$1"
+    },
+    {
+      "re": "^PMID:?$",
+      "to": "PMID："
     },
     {
       "re": "^Showing (\\d+) of ([\\d,]+)$",
@@ -1710,6 +1735,14 @@
     {
       "re": "^Results found in ([\\d,]+) databases?$",
       "to": "在 $1 个数据库中找到结果"
+    },
+    {
+      "re": "^([\\d,]+) entries from ([\\d,]+) species$",
+      "to": "共 $1 条记录，来自 $2 个物种"
+    },
+    {
+      "re": "^Figure (\\d+[A-Za-z]?)\\.$",
+      "to": "图 $1."
     }
   ],
   "templates": [

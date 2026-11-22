@@ -1682,7 +1682,10 @@
       "scope": "body",
       "spa": true,
       "waitFor": "main, .ontology-content, app-root",
-      "proseExempt": ""
+      "proseExempt": "",
+      "attrs": [
+        "mattooltip"
+      ]
     },
     {
       "id": "geneontology",

@@ -7,7 +7,7 @@
       "www.clinicaltrials.gov"
     ],
     "area": "ClinicalTrials.gov 检索页、筛选面板、研究记录（含结果页）与 About 文档",
-    "note": "ClinicalTrials.gov 界面中文化：顶栏/页脚、检索结果页与筛选面板的标签与固定枚举、研究记录的字段名与分区标题、结果页表格标签、About 页小标题与固定说明句。NCT 号、机构名、药名、地点、研究标题不翻。 术语表（#glossary）内的术语定义整句也收在本册：纯文本定义进 exact，被 .term 内联链接切开的定义进 templates（槽位就是原来的术语链接），避免只翻术语、句子半中半英。"
+    "note": "ClinicalTrials.gov 界面中文化：顶栏/页脚、检索结果页与筛选面板的标签与固定枚举、研究记录的字段名与分区标题、结果页表格标签、About 页小标题与固定说明句。NCT 号、机构名、药名、地点、研究标题不翻。 术语表（#glossary）内的术语定义整句也收在本册：纯文本定义进 exact，被 .term 内联链接切开的定义进 templates（槽位就是原来的术语链接），避免只翻术语、句子半中半英。 术语表图标的 aria-label/title（opens glossary for X / Opens glossary for X）与导航、面包屑、页脚机构区的固定 aria-label 也收在本册；术语名走既有 exact 大小写兜底，未收录的术语整条保持英文（requireHit），不拼半中半英。"
   },
   "exact": {
     "PRS Login": "PRS 登录",
@@ -579,7 +579,32 @@
     "The age groups are:": "年龄组包括：",
     "Submission of false or misleading clinical trial information": "提交虚假或误导性的临床试验信息",
     "Failure to submit primary and secondary outcomes": "未提交主要与次要结局",
-    "Relevance: Studies that best match your search terms appear higher in the search results list. This is the default display for all searches.": "相关度：与检索词最匹配的研究在结果列表中位置更靠前。这是所有检索的默认显示方式。"
+    "Relevance: Studies that best match your search terms appear higher in the search results list. This is the default display for all searches.": "相关度：与检索词最匹配的研究在结果列表中位置更靠前。这是所有检索的默认显示方式。",
+    "Official website of the United States government": "美国政府官方网站",
+    "Primary navigation": "主导航",
+    "Footer navigation": "页脚导航",
+    "Breadcrumbs": "面包屑导航",
+    "Pagination": "页码",
+    "Alert": "提示",
+    "Agency identifier": "机构标识",
+    "Agency description": "机构说明",
+    "Important links": "重要链接",
+    "Government information and services": "政府信息与服务",
+    "From Age": "起始年龄",
+    "To Age": "结束年龄",
+    "Title,Title Acronym": "标题,标题缩写",
+    "Sponsor,Collaborator": "申办方,合作方",
+    "Open glossary": "打开术语表",
+    "Close glossary": "关闭术语表",
+    "Download current study": "下载当前研究",
+    "Save current study to My Saved Studies": "将当前研究保存到我的已保存研究",
+    "Protocol Registration Quality Control Review Criteria": "方案注册质量控制审核标准",
+    "Results quality control review criteria": "结果质量控制审核标准",
+    "NIH National Library of Medicine, National Center for Biotechnology Information": "美国国家医学图书馆、美国国家生物技术信息中心",
+    "opens glossary for clinicaltrials.gov identifier (nct number)": "打开 ClinicalTrials.gov 标识符（NCT 编号） 的术语说明",
+    "Opens glossary for clinicaltrials.gov identifier (nct number)": "打开 ClinicalTrials.gov 标识符（NCT 编号） 的术语说明",
+    "opens glossary for interventional study (clinical trial)": "打开 干预性研究（临床试验） 的术语说明",
+    "Opens glossary for interventional study (clinical trial)": "打开 干预性研究（临床试验） 的术语说明"
   },
   "rules": [
     {
@@ -714,6 +739,20 @@
     {
       "re": "^studies for:$",
       "to": "项研究"
+    },
+    {
+      "re": "^opens glossary for (.+)$",
+      "to": "打开 $1 的术语说明",
+      "requireHit": true
+    },
+    {
+      "re": "^Opens glossary for (.+)$",
+      "to": "打开 $1 的术语说明",
+      "requireHit": true
+    },
+    {
+      "re": "^phase$",
+      "to": "研究阶段"
     }
   ],
   "templates": [

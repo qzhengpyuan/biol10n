@@ -50,7 +50,7 @@ function run(html) {
 
 test("词库结构与站点栈：条数、键值形态、规则可编译、模板槽位连续", () => {
   assert.equal(book.meta.family, "pride");
-  assert.equal(book.meta.version, "0.1.0");
+  assert.equal(book.meta.version, "0.2.0");
   assert.ok(book.meta.sites.includes("www.ebi.ac.uk"));
   assert.ok(Object.keys(book.exact).length >= 200, "exact 至少 200 条");
   assert.ok(book.rules.length >= 20, "rules 至少 20 条");
@@ -74,7 +74,7 @@ test("词库结构与站点栈：条数、键值形态、规则可编译、模�
     const re = new RegExp(r.re);
     assert.ok(re.source.length > 0);
     assert.ok(/[\u4e00-\u9fff]/.test(r.to), "规则译文里必须有中文: " + r.re);
-    assert.ok(/\$\d/.test(r.to), "规则要用到捕获组: " + r.re);
+    if (/(^|[^\\])\(/.test(r.re)) assert.ok(/\$\d/.test(r.to), "带捕获组的规则要用到占位符: " + r.re);
   }
   for (const t of book.templates) {
     const used = [...t.pat.matchAll(/\{\{(\d+)\}\}/g)].map((m) => Number(m[1]));
@@ -412,7 +412,7 @@ test("详情页文件表：表头、计数、展开全部与类型枚举", () =>
   assert.equal(doc.querySelector(".ivu-page-total").textContent, "共 9 项");
   // 文件类型枚举、文件名、协议名保持原文
   assert.equal(doc.querySelectorAll("tbody td")[0].textContent, "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw");
-  assert.equal(doc.querySelectorAll("tbody td")[1].textContent, "RAW");
+  assert.equal(doc.querySelectorAll("tbody td")[1].textContent, "原始文件", "文件类型枚举按界面值翻（RAW/PEAK/RESULT/SEARCH 已在册内）");
   assert.deepEqual([...doc.querySelectorAll(".files-toolbar button")].map((e) => e.textContent), ["FTP", "Globus"]);
   assert.equal(doc.querySelectorAll("tbody td")[3].textContent, "FTP", "行内传输协议名保持原文");
 });

@@ -334,7 +334,90 @@
     "Blog": "博客",
     "Cite Us": "引用我们",
     "Columns": "列",
-    "Cell type": "细胞类型"
+    "Cell type": "细胞类型",
+    "Go to OpenTargets twitter": "前往 OpenTargets 的 Twitter",
+    "Go to OpenTargets linkedin": "前往 OpenTargets 的 LinkedIn",
+    "Go to OpenTargets youtube": "前往 OpenTargets 的 YouTube",
+    "Go to OpenTargets github": "前往 OpenTargets 的 GitHub",
+    "Go to previous page": "上一页",
+    "Go to next page": "下一页",
+    "First result page of table": "表格第一页",
+    "Previous result page of table": "表格上一页",
+    "Next result page of table": "表格下一页",
+    "Last result page of table": "表格最后一页",
+    "Rows per page select dropdown": "每页行数下拉选择",
+    "Rows per page:": "每页行数：",
+    "x-axis tick": "X 轴刻度",
+    "y-axis tick": "Y 轴刻度",
+    "x-axis tick label": "X 轴刻度标签",
+    "y-axis tick label": "Y 轴刻度标签",
+    "x-axis label": "X 轴标签",
+    "y-axis label": "Y 轴标签",
+    "x-grid": "X 轴网格",
+    "rule": "参考线",
+    "dot": "数据点",
+    "crosshair rule": "十字准线",
+    "crosshair text": "十字准线文本",
+    "bar": "柱形",
+    "tick": "刻度",
+    "Switch to table view": "切换到表格视图",
+    "Switch to chart view": "切换到图表视图",
+    "toggle view": "切换视图",
+    "simple tabs example": "标签页示例",
+    "open header menu": "打开页头菜单",
+    "Search all columns...": "搜索所有列...",
+    "Subcellular location sources": "亚细胞定位来源",
+    "date-range-slider": "日期范围滑块",
+    "logo": "标志",
+    "creative commons license": "知识共享许可协议",
+    "unspecified role": "未指定角色",
+    "Ensembl variant effect predictor": "Ensembl 变异效应预测器",
+    "SuSiE fine-mapped credible set with in-sample LD": "SuSiE 使用样本内 LD 精细定位的可信集",
+    "Variant effect on protein function": "变异对蛋白功能的影响",
+    "western blot": "蛋白质印迹",
+    "enzyme target": "酶靶点",
+    "enzyme": "酶",
+    "competitor": "竞争物",
+    "ubiquitinase assay": "泛素化酶实验",
+    "ubiquitination": "泛素化",
+    "In vitro": "体外",
+    "UniProt SigP or TMHMM": "UniProt SigP 或 TMHMM",
+    "Beta with respect to the ALT allele": "相对于 ALT 等位基因的 Beta 值",
+    "skin of body": "体表皮肤",
+    "female reproductive organ": "女性生殖器官",
+    "male reproductive organ": "男性生殖器官",
+    "spleen": "脾",
+    "esophagus": "食管",
+    "urinary bladder": "膀胱",
+    "breast": "乳腺",
+    "adipose tissue": "脂肪组织",
+    "prostate gland": "前列腺",
+    "blood vessel": "血管",
+    "heart": "心脏",
+    "thyroid gland": "甲状腺",
+    "saliva-secreting gland": "唾液腺",
+    "small intestine": "小肠",
+    "large intestine": "大肠",
+    "lung": "肺",
+    "stomach": "胃",
+    "adrenal gland": "肾上腺",
+    "kidney": "肾",
+    "blood": "血液",
+    "brain": "脑",
+    "pancreas": "胰腺",
+    "liver": "肝",
+    "muscle tissue": "肌肉组织",
+    "spinal cord": "脊髓",
+    "lymph node": "淋巴结",
+    "thymus": "胸腺",
+    "mouth": "口腔",
+    "trachea": "气管",
+    "eye": "眼",
+    "ear": "耳",
+    "eyelid": "眼睑",
+    "bone element": "骨",
+    "No sequence alteration": "无序列改变",
+    "3 prime utr variant": "3′ UTR 变异"
   },
   "rules": [
     {
@@ -411,6 +494,30 @@
       "re": "^个人资料$",
       "to": "概况",
       "repair": true
+    },
+    {
+      "re": "^Read more about (.+) on this link$",
+      "to": "在链接中进一步了解 $1"
+    },
+    {
+      "re": "^Source: (.+)$",
+      "to": "来源：$1"
+    },
+    {
+      "re": "^Gene body: (.+)$",
+      "to": "基因体：$1"
+    },
+    {
+      "re": "^Canonical transcript: (.+)$",
+      "to": "经典转录本：$1"
+    },
+    {
+      "re": "^cc0 license image (\\d+)$",
+      "to": "CC0 许可标志 $1"
+    },
+    {
+      "re": "^Binned representation of (.+) rank in the loss-function observed/expected upper bound fraction \\(LOEUF\\) distribution\\. Higher scored assessments correspond to strong selection against predicted loss-of-function \\(pLoF\\) variation in the particular gene\\.$",
+      "to": "$1 在功能缺失观测/期望上界分数（LOEUF）分布中的排名分箱示意。得分越高的评估表示该基因对预测功能缺失（pLoF）变异的选择越强。"
     }
   ],
   "templates": [
@@ -537,6 +644,10 @@
     {
       "pat": "Last update: {{1}}",
       "zh": "最近更新：{{1}}"
+    },
+    {
+      "pat": "{{1}} is marked with {{2}}",
+      "zh": "{{1}} 采用 {{2}} 许可协议"
     }
   ]
 }

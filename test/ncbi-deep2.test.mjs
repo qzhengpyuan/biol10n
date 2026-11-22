@@ -266,7 +266,7 @@ test("引擎：MedGen 记录页（标签逐条命中、OMIM 拆分、help 图标
   assert.ok(dd.includes("发现"));
   assert.ok(dd.includes("先天性异常"));
   assert.ok(dd.includes("解剖学异常"));
-  assert.ok(norm(doc.querySelector("dt").textContent).startsWith("MedGen UID"));
+  assert.equal(norm(doc.querySelector("dt").textContent), "MedGen 唯一标识符：");
   assert.match(norm(doc.body.textContent), /参见：\s*Aortic aneurysm/);
   assert.match(norm(doc.body.textContent), /疾病或综合征/);
 });

@@ -19,10 +19,12 @@
     "protein coding": "蛋白编码",
     "Total number of exons:": "外显子总数：",
     "Genomic Sequence": "基因组序列",
+    "Sequence:": "序列：",
     "Graphics": "图形",
     "Triplosensitivity": "三倍体敏感性",
     "Haploinsufficency": "单倍剂量不足",
     "MedGen:": "MedGen 条目：",
+    "MedGen UID:": "MedGen 唯一标识符：",
     "OMIM:": "OMIM 条目：",
     "GeneReviews:": "GeneReviews 综述：",
     "Go to nucleotide": "前往核苷酸记录",
@@ -88,7 +90,8 @@
     "ClinGen Genome Curation Page": "ClinGen 基因组整理页面",
     "Related medical variations": "相关医学变异",
     "Link from Gene to dbVar": "从 Gene 到 dbVar 的链接",
-    "Link to related OMIM entry": "链接到相关 OMIM 条目"
+    "Link to related OMIM entry": "链接到相关 OMIM 条目",
+    "Gene links to PubMed derived from omim_pubmed_cited links": "由 omim_pubmed_cited 链接派生的 Gene 到 PubMed 链接"
   },
   "rules": [
     {
@@ -130,6 +133,22 @@
     {
       "re": "^Release$",
       "to": "版本"
+    },
+    {
+      "re": "^(Curated)$",
+      "to": "人工整理"
+    },
+    {
+      "re": "^Chromosome: ([0-9XYMT]+); (NC_\\d+\\.\\d+) \\((\\d+\\.\\.\\d+), complement\\)$",
+      "to": "染色体：$1；$2（$3，互补链）"
+    },
+    {
+      "re": "^Chromosome: ([0-9XYMT]+); (NC_\\d+\\.\\d+)$",
+      "to": "染色体：$1；$2"
+    },
+    {
+      "re": "^Chromosome: (.+)$",
+      "to": "染色体：$1"
     }
   ],
   "templates": [

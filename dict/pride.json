@@ -1,12 +1,12 @@
 {
   "meta": {
     "family": "pride",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "sites": [
       "www.ebi.ac.uk"
     ],
     "area": "PRIDE Archive：首页、数据集检索/列表、数据集详情（字段区、文件表与表头）、帮助文档与提交入口",
-    "note": "PRIDE Archive（/pride）中文词库：顶部导航（pride-header）、首页各区块与质控说明、检索筛选与排序、数据集卡片标签、详情页字段区与文件表头、文档索引与提交入口、404 与 Cookie 横幅。PXD 登录号、数据集标题、物种与仪器/软件名保持原文。"
+    "note": "PRIDE Archive（/pride）中文词库：顶部导航（pride-header）、首页各区块与质控说明、检索筛选与排序、数据集卡片标签、详情页字段区与文件表头、文档索引与提交入口、404 与 Cookie 横幅。PXD 登录号、数据集标题、物种与仪器/软件名保持原文。 本轮补齐首页 KPI 卡说明与数据集页 QC 指标：KPI 数字/单位、MS 本体 ID、QCPRIDE 指标 ID 保持原文，只翻标签与单位词。"
   },
   "exact": {
     "Archive": "数据归档",
@@ -258,11 +258,148 @@
     "Affinity purification": "亲和纯化",
     "Immunoprecipitation": "免疫沉淀",
     "Interactome": "相互作用组",
-    "Read more": "阅读更多",
     "The PRoteomics IDEntifications database": "PRIDE 蛋白质组鉴定数据库",
-    "PRoteomics IDEntifications Database": "蛋白质组鉴定数据库"
+    "PRoteomics IDEntifications Database": "蛋白质组鉴定数据库",
+    "Files in the archive": "归档中的文件数",
+    "Total volume submitted": "已提交的数据总量",
+    "Submitting countries": "提交国家/地区",
+    "Submissions in the latest complete month": "最近一个完整月份的提交量",
+    "Open in statistics": "在统计页面中打开",
+    "Count by": "统计口径",
+    "Each dataset counts once, with the median (or most common value) of its runs": "每个数据集只计一次，取各次运行的中位数（或最常见值）",
+    "Every raw file counts once; large datasets weigh more": "每个原始文件只计一次；数据集越大权重越高",
+    "Download all:": "全部下载：",
+    "Submitted datasets are 'private' by default. They will be available to you and the reviewers if you are logged-in into PRIDE": "提交的数据集默认为「私有」。登录 PRIDE 后，你与审稿人即可访问。",
+    "After the submission, the dataset metadata is validated and different post-processing are applied.": "提交完成后，数据集元数据会经过校验，并执行多种后续处理。",
+    "Open the complete SDRF on one page: filter by any column, sort, export": "在单页中打开完整 SDRF：可按任意列筛选、排序并导出",
+    "Open the complete run QC on one page: filter, sort, all metrics of each run": "在单页中打开完整运行质控：可筛选、排序，并查看每次运行的全部指标",
+    "Open the complete file list on one page: search, sort, copy URLs — no pagination": "在单页中打开完整文件列表：可检索、排序、复制链接，不分页",
+    "Open all metrics of this run": "打开本次运行的全部指标",
+    "View the file content without downloading it: sort, search and filter columns": "无需下载即可查看文件内容：可排序、检索并筛选列",
+    "Download via FTP": "通过 FTP 下载",
+    "Opens DOI in a new tab": "在新标签页中打开 DOI",
+    "Identification results provided in PSI standard formats (mzIdentML / mzTab), validated by ProteomeXchange (\"complete\" submission) and citable via DOI.": "以 PSI 标准格式（mzIdentML / mzTab）提供的鉴定结果，经 ProteomeXchange 校验（“完整”提交），可通过 DOI 引用。",
+    "Runs with compatible fragment resolution, acquisition method, run duration, MS1/MS2 counts and tolerances. Shared tolerance: the largest per-run suggestion in the group, rounded up (ppm to an integer, Da to 0.001), so one setting covers every run in the group.": "碎片分辨率、采集方式、运行时长、MS1/MS2 谱图数与容差相互兼容的运行。共享容差取组内各次运行建议值的最大者并向上取整（ppm 取整数，Da 取到 0.001），使一组设置即可覆盖组内每一次运行。",
+    "prideQC experiment group: runs with compatible fragment resolution, acquisition method, run duration, MS1/MS2 counts and tolerances (same grouping as the prideQC/pmultiQC report) · prideQC experiment group": "prideQC 实验组：碎片分辨率、采集方式、运行时长、MS1/MS2 谱图数与容差相互兼容的运行（分组方式与 prideQC/pmultiQC 报告一致）· prideQC 实验组",
+    "Shared precursor search tolerance of the experiment group: the largest per-run suggestion in the group, rounded up (ppm to an integer, Da to 0.001), so one setting covers every run. Empty when fewer than 80% of the group runs have an estimate or units differ. · prideQC cohort precursor tolerance": "实验组的共享母离子检索容差：取组内各次运行建议值的最大者并向上取整（ppm 取整数，Da 取到 0.001），使一组设置即可覆盖每一次运行。当组内给出估计值的运行不足 80% 或单位不一致时为空。· prideQC 队列母离子容差",
+    "Shared fragment search tolerance of the experiment group: the largest per-run suggestion in the group, rounded up (ppm to an integer, Da to 0.001), so one setting covers every run. Empty when fewer than 80% of the group runs have an estimate or units differ. · prideQC cohort fragment tolerance": "实验组的共享碎片离子检索容差：取组内各次运行建议值的最大者并向上取整（ppm 取整数，Da 取到 0.001），使一组设置即可覆盖每一次运行。当组内给出估计值的运行不足 80% 或单位不一致时为空。· prideQC 队列碎片离子容差",
+    "MS run duration": "MS 运行时长",
+    "number of MS1 spectra": "MS1 谱图数",
+    "number of MS2 spectra": "MS2 谱图数",
+    "MS1 density quantiles": "MS1 密度分位数",
+    "MS2 density quantiles": "MS2 密度分位数",
+    "fastest frequency for MS level 1 collection": "MS1 采集的最快频率",
+    "fastest frequency for MS level 2 collection": "MS2 采集的最快频率",
+    "MS1 quantile RT fraction": "MS1 保留时间分位点占比",
+    "MS2 quantile RT fraction": "MS2 保留时间分位点占比",
+    "TIC quantile RT fraction": "TIC 保留时间分位点占比",
+    "MS1 observed m/z bounds": "MS1 观测 m/z 范围",
+    "MS1 median cycle time": "MS1 中位循环时间",
+    "mean MS2 precursor charge in all spectra": "全部谱图中 MS2 母离子电荷均值",
+    "median MS2 precursor charge in all spectra": "全部谱图中 MS2 母离子电荷中位数",
+    "ratio of 3+ over 2+ of all MS2 known precursor charges": "全部已知 MS2 母离子电荷中 3+ 与 2+ 之比",
+    "ratio of 4+ over 2+ of all MS2 known precursor charges": "全部已知 MS2 母离子电荷中 4+ 与 2+ 之比",
+    "ObservedMzRange_MS2": "MS2 观测 m/z 范围",
+    "MS1_to_MS2_Ratio": "MS1 与 MS2 谱图数之比",
+    "suggested precursor search tolerance": "建议母离子检索容差",
+    "suggested fragment search tolerance: ppm for high-resolution MS2, Da for low-resolution MS2": "建议碎片离子检索容差：高分辨 MS2 用 ppm，低分辨 MS2 用 Da",
+    "acquisition method inference evidence": "采集方式推断证据",
+    "acquisition method inference evidence (INFERRED_NOT_OBSERVED)": "采集方式推断证据（INFERRED_NOT_OBSERVED）",
+    "shared precursor tolerance": "共享母离子容差",
+    "shared fragment tolerance": "共享碎片离子容差",
+    "suggested precursor tolerance": "建议母离子容差",
+    "suggested fragment tolerance": "建议碎片离子容差",
+    "second": "秒",
+    "count unit": "计数单位",
+    "hertz": "赫兹",
+    "fraction": "比例",
+    "median": "中位数",
+    "[second]": "[秒]",
+    "[count unit]": "[计数单位]",
+    "[hertz]": "[赫兹]",
+    "[fraction]": "[比例]",
+    "EXPERIMENTAL DESIGN": "实验设计",
+    "RAW": "原始文件",
+    "PEAK": "谱图",
+    "RESULT": "结果文件",
+    "SEARCH": "检索结果",
+    "Browse all public datasets": "浏览全部公开数据集",
+    "MS1 quantile RT fraction (Q1)": "MS1 保留时间分位点占比（Q1）",
+    "MS1 quantile RT fraction (Q2)": "MS1 保留时间分位点占比（Q2）",
+    "MS1 quantile RT fraction (Q3)": "MS1 保留时间分位点占比（Q3）",
+    "MS1 quantile RT fraction (Q4)": "MS1 保留时间分位点占比（Q4）",
+    "MS2 quantile RT fraction (Q1)": "MS2 保留时间分位点占比（Q1）",
+    "MS2 quantile RT fraction (Q2)": "MS2 保留时间分位点占比（Q2）",
+    "MS2 quantile RT fraction (Q3)": "MS2 保留时间分位点占比（Q3）",
+    "MS2 quantile RT fraction (Q4)": "MS2 保留时间分位点占比（Q4）",
+    "TIC quantile RT fraction (Q1)": "TIC 保留时间分位点占比（Q1）",
+    "TIC quantile RT fraction (Q2)": "TIC 保留时间分位点占比（Q2）",
+    "TIC quantile RT fraction (Q3)": "TIC 保留时间分位点占比（Q3）",
+    "TIC quantile RT fraction (Q4)": "TIC 保留时间分位点占比（Q4）",
+    "MS1 density quantiles (Q1)": "MS1 密度分位数（Q1）",
+    "MS1 density quantiles (median)": "MS1 密度分位数（中位数）",
+    "MS1 density quantiles (Q3)": "MS1 密度分位数（Q3）",
+    "MS2 density quantiles (Q1)": "MS2 密度分位数（Q1）",
+    "MS2 density quantiles (median)": "MS2 密度分位数（中位数）",
+    "MS2 density quantiles (Q3)": "MS2 密度分位数（Q3）",
+    "MS1 observed m/z bounds (min)": "MS1 观测 m/z 范围（最小值）",
+    "MS1 observed m/z bounds (max)": "MS1 观测 m/z 范围（最大值）",
+    "ObservedMzRange_MS2 (min)": "MS2 观测 m/z 范围（最小值）",
+    "ObservedMzRange_MS2 (max)": "MS2 观测 m/z 范围（最大值）"
   },
   "rules": [
+    {
+      "re": "^(.+) · (QCPRIDE:[0-9A-F]+) / (QCPRIDE:[0-9A-F]+)$",
+      "to": "$1 · $2 或 $3"
+    },
+    {
+      "re": "^(.+) · (MS:\\d+) · unit: (.+)$",
+      "to": "$1 · $2 · 单位：$3"
+    },
+    {
+      "re": "^(.+) · (QCPRIDE:[0-9A-F]+) · unit: (.+)$",
+      "to": "$1 · $2 · 单位：$3"
+    },
+    {
+      "re": "^(.+) · (MS:\\d+)$",
+      "to": "$1 · 本体 $2"
+    },
+    {
+      "re": "^(.+) · (QCPRIDE:[0-9A-F]+)$",
+      "to": "$1 · 本体 $2"
+    },
+    {
+      "re": "^Show only the runs of group (\\d+)$",
+      "to": "仅显示第 $1 组的运行"
+    },
+    {
+      "re": "^Datasets from (.+)$",
+      "to": "来自 $1 的数据集"
+    },
+    {
+      "re": "^Datasets tagged (.+)$",
+      "to": "标记为 $1 的数据集"
+    },
+    {
+      "re": "^Datasets with keyword (.+)$",
+      "to": "含关键词 $1 的数据集"
+    },
+    {
+      "re": "^View ([A-Za-z0-9][A-Za-z0-9._-]*)$",
+      "to": "查看 $1"
+    },
+    {
+      "re": "^file$",
+      "to": "文件"
+    },
+    {
+      "re": "^group$",
+      "to": "组"
+    },
+    {
+      "re": "^OTHER$",
+      "to": "其他"
+    },
     {
       "re": "^Search PRIDE Archive · ([\\d,]+) datasets$",
       "to": "检索 PRIDE Archive · $1 个数据集"
@@ -358,6 +495,14 @@
     {
       "re": "^Files of (PXD\\d+)$",
       "to": "$1 的文件"
+    },
+    {
+      "re": "^Read more$",
+      "to": "阅读更多"
+    },
+    {
+      "re": "^RAW \\((\\d+)\\), SEARCH \\((\\d+)\\), PEAK \\((\\d+)\\), RESULT \\((\\d+)\\), OTHER \\((\\d+)\\)$",
+      "to": "原始文件（$1）、检索结果（$2）、谱图（$3）、结果文件（$4）、其他（$5）"
     }
   ],
   "templates": [

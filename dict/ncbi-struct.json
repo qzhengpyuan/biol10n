@@ -193,7 +193,11 @@
     "CDS Region in Nucleotide": "核苷酸中的 CDS 区域",
     "Strain": "菌株",
     "Search Conserved Domains. Use up and down arrows to choose an item from the autocomplete.": "检索保守结构域。使用上下方向键从自动补全列表中选择条目。",
-    "Clear input": "清除输入"
+    "Clear input": "清除输入",
+    "Features": "特征",
+    "Chemical": "化学物质",
+    "zinc binding site": "锌结合位点",
+    "dimerization site": "二聚化位点"
   },
   "rules": [
     {
@@ -263,6 +267,18 @@
     {
       "re": "^is a member of the superfamily$",
       "to": "属于超家族"
+    },
+    {
+      "re": "^location: (\\d+), residue: (.+)$",
+      "to": "位置：$1，残基：$2"
+    },
+    {
+      "re": "^helix (\\d+-\\d+)$",
+      "to": "螺旋 $1"
+    },
+    {
+      "re": "^strand (\\d+-\\d+)$",
+      "to": "β 折叠股 $1"
     }
   ],
   "templates": []

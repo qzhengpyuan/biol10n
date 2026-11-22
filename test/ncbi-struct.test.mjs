@@ -304,3 +304,19 @@ test("引擎冒烟：真实页面片段渲染成中文", () => {
   // 不该翻的技术词保持原样
   assert.ok(text.includes("CD"), "CD 不应被改写");
 });
+
+test("结构记录页：特征区标签与位点句", () => {
+  const doc = mount(
+    '<div><h3>Features</h3><span class="chem">Chemical</span>' +
+      '<div>DNA binding site</div><div>zinc binding site</div><div>dimerization site</div>' +
+      "<div>location: 146, residue: N</div><div>helix 185-194</div><div>strand 9-12</div></div>"
+  );
+  const txt = doc.body.textContent;
+  assert.match(txt, /特征/);
+  assert.match(txt, /化学物质/);
+  assert.match(txt, /锌结合位点/);
+  assert.match(txt, /二聚化位点/);
+  assert.match(txt, /位置：146，残基：N/);
+  assert.match(txt, /螺旋 185-194/);
+  assert.match(txt, /β 折叠股 9-12/);
+});

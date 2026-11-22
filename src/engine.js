@@ -1211,8 +1211,10 @@ function createEngine(options) {
     if (!root) return;
     if (root.nodeType === 3) { handleTextNode(root); return; }
     if (root.nodeType !== 1 && root.nodeType !== 9 && root.nodeType !== 11) return;
-    if (root.nodeType === 1) {
-      handleAttributes(root);
+    // shadow root 是 DocumentFragment（nodeType 11），没有 handleAttributes 自己那一层，
+    // 但它的后代照样要走属性通道（InterPro 的按钮 title、输入框 placeholder 都在 shadow 里）。
+    if (root.nodeType === 1 || root.nodeType === 11) {
+      if (root.nodeType === 1) handleAttributes(root);
       var sub = root.querySelectorAll ? root.querySelectorAll("*") : [];
       for (var i = 0; i < sub.length; i++) handleAttributes(sub[i]);
     }
@@ -1400,6 +1402,44 @@ function createEngine(options) {
   }
 
   /** 调试：解释某个文本节点为什么没被翻（不改变 DOM）。 */
+  /** 开放 shadow root 里的界面（InterPro 首页 8 个、ClinGen 1 个）：主文档的
+   *  querySelectorAll / TreeWalker 都穿不过 shadow 边界，只能逐个根单独跑一遍。
+   *  shadow root 里的选择器（p/li/td…）在局部同样有效，所以通道可以原样复用。 */
+  var shadowSeen = new WeakSet();
+  function collectShadowRoots(root, out) {
+    if (!root || !root.querySelectorAll) return;
+    var els;
+    try { els = root.querySelectorAll("*"); } catch (e) { return; }
+    for (var i = 0; i < els.length; i++) {
+      var sr = els[i].shadowRoot;
+      if (!sr || shadowSeen.has(sr)) continue;
+      shadowSeen.add(sr);
+      out.push(sr);
+    }
+  }
+
+  function translateShadowRoots(root) {
+    var roots = [];
+    collectShadowRoots(root, roots);
+    if (!roots.length) return;
+    for (var i = 0; i < roots.length; i++) {
+      var sr = roots[i];
+      try {
+        if (observer) {
+          try {
+            observer.observe(sr, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: attrs });
+          } catch (e0) { /* ignore */ }
+        }
+        translateTemplates(sr);
+        walk(sr);
+        translateInlineInCJK(sr);
+        cleanupPass(sr);
+        stats.shadow = (stats.shadow || 0) + 1;
+      } catch (e1) { /* shadow 里的异常不能打断主文档 */ }
+      translateShadowRoots(sr);
+    }
+  }
+
   function debugWhy(node) {
     if (!node || node.nodeType !== 3) return { error: "not a text node" };
     var raw = node.nodeValue, text = normalize(raw);
@@ -1433,6 +1473,8 @@ function createEngine(options) {
     T.push(now());
     for (var j = 0; j < roots.length; j++) cleanupPass(roots[j]);
     for (var rj = 0; rj < roots.length; rj++) repairSweep(roots[rj]);
+    // shadow DOM 里的界面节点在主文档选择器之外，最后单独跑一遍（可嵌套）
+    for (var sj = 0; sj < roots.length; sj++) translateShadowRoots(roots[sj]);
     T.push(now());
     stats.time = {
       blocks: Math.round(T[1] - T[0]),

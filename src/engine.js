@@ -1306,6 +1306,10 @@ function createEngine(options) {
       if (c.nodeType === 8) continue;
       if (c.nodeType !== 1) return null;
       var tn = c.tagName;
+      // 图片按钮（Expression Atlas 下载页「… using the <img> button」）当普通槽位：
+      // 模板里的 {{n}} 就是它的原位，译文放回图片它才不会丢。IMG 不在 INLINE_TAGS 里，
+      // 走 extras 又拿不到位置（extras 没有对应占位符），所以单独放行。
+      if (tn === "IMG") { slots.push(c); parts.push("{{" + slots.length + "}}"); continue; }
       if (!tn || !INLINE_TAGS[tn]) return null;
       // 只有图标的空内联元素（<a><svg/></a>、复制邮箱按钮）不占槽位：否则模板里多出一个
       // 空 {{n}}，写的模板永远对不上（MedGen 公告条尾部那个复制图标就是这种）。

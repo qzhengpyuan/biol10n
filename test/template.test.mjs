@@ -150,3 +150,24 @@ test("动态插入的公告条也走模板通道", async () => {
   assert.ok(li.querySelector("a"), "链接保留");
   dom.window.close();
 });
+
+test("图片按钮占槽位：<img> 留在原位，段落仍能整段翻译", () => {
+  // Expression Atlas 下载页：「… using the <img> button.」IMG 不在内联标签表里，
+  // 曾经让整段模板作废、句子留英文。现在 IMG 当一个槽位，译文里原位放回。
+  const html = '<p>For two-channel microarray experiments you can download the log2 fold changes using the <img alt="" src="/i/x.png"> button.</p>';
+  const tpl = {
+    pat: "For two-channel microarray experiments you can download the log{{1}} fold changes using the {{2}} button.",
+    zh: "对于双通道微阵列实验，可以使用 {{2}} 按钮下载 log{{1}} 倍数变化。"
+  };
+  const { engine, doc, dom } = boot(html, { templates: [tpl] });
+  // boot 里的 sub 槽位靠 <sub> 提供，这里补一个 sub 让 {{1}} 有落点
+  doc.querySelector("p").innerHTML = 'For two-channel microarray experiments you can download the log<sub>2</sub> fold changes using the <img alt="" src="/i/x.png"> button.';
+  engine.start();
+  const par = doc.querySelector("p");
+  assert.match(par.textContent, /双通道微阵列实验/, "段落应换成中文");
+  assert.ok(par.querySelector("img"), "图片按钮必须留在原位");
+  assert.equal(par.querySelector("img").getAttribute("src"), "/i/x.png");
+  assert.ok(par.querySelector("sub"), "下标节点也要保留");
+  assert.equal(engine.stats.tpl, 1);
+  dom.window.close();
+});

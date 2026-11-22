@@ -176,3 +176,23 @@ test("文献标识与期刊名不翻", () => {
   assert.ok(id.includes("10.3389/fimmu.2022.826091"));
   assert.equal(doc.querySelector("p").textContent, "Frontiers in Immunology");
 });
+
+test("PMC 文章页 aria-label：页眉检索、操作栏与内容区块", () => {
+  const doc = mount(
+    '<div class="pmc-header">' +
+      '<button aria-label="Open search"></button>' +
+      '<div aria-label="PMC Header with search box"></div>' +
+      '<button aria-label="Open article navigation"></button>' +
+      "</div>" +
+      '<section aria-label="Article content"><div aria-label="Actions bar"></div></section>' +
+      '<aside aria-label="Article citation and metadata"></aside>' +
+      '<a title="Link to Health Care Science" href="#"></a>'
+  );
+  assert.equal(doc.querySelector('button[aria-label="打开检索"]') !== null, true);
+  assert.equal(doc.querySelector('[aria-label="PMC 页眉与检索框"]') !== null, true);
+  assert.equal(doc.querySelector('[aria-label="打开文章导航"]') !== null, true);
+  assert.equal(doc.querySelector('[aria-label="文章正文"]') !== null, true);
+  assert.equal(doc.querySelector('[aria-label="操作栏"]') !== null, true);
+  assert.equal(doc.querySelector('[aria-label="文章引文与元数据"]') !== null, true);
+  assert.equal(doc.querySelector("a").getAttribute("title"), "链接到 Health Care Science");
+});

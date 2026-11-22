@@ -94,10 +94,9 @@ test("关键条目：导航、数据集页与文档页骨架都命中", () => {
     ["Single Cell", "单细胞"],
     ["Downloading Adult GTEx data", "下载成人 GTEx 数据"],
     ["Related pages", "相关页面"],
-    ["GTEx Analysis V11", "GTEx 分析 V11"],
+    ["V10 Release", "V10 版本"],
     ["Bulk tissue expression", "批量组织表达"],
     ["Metadata Files", "元数据文件"],
-    ["V10 Release", "V10 版本"],
     ["Please cite usage of GTEx data as follows:", "引用 GTEx 数据时请按以下格式："]
   ];
   for (const [en, zh] of cases) assert.equal(dict.exact[en], zh, "缺条目: " + en);
@@ -144,4 +143,14 @@ test("引擎：数据集页 Related pages 列表项整句成中文", () => {
   const li = doc.querySelector("li");
   assert.match(li.textContent, /介绍了我们组织采样流程的更多信息。/);
   assert.ok(li.querySelector("a"), "链接节点必须保留");
+});
+
+test("数据集与版本名不译：GTEx Analysis V*、GENCODE v*、reads 统一为读段", () => {
+  for (const v of ["V11", "V10", "V9", "V8", "V7", "V6p", "V6", "V4"]) {
+    assert.equal(dict.exact["GTEx Analysis " + v], undefined, "数据集名被翻: " + v);
+  }
+  for (const [k, val] of Object.entries(dict.exact)) {
+    assert.ok(!/分析\s*V\d/.test(val), "译文里出现版本名翻译: " + k + " => " + val);
+    assert.ok(!/读取/.test(val), "reads 应统一为读段: " + k + " => " + val);
+  }
 });

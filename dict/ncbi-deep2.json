@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "family": "ncbi-deep2",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ],
+    "area": "ncbi 深页补漏：GTR 基因页、MedGen 记录页、BioSample/CCDS/Datasets 基因组页"
+  },
+  "exact": {
+    "See all available tests in GTR for this gene": "在 GTR 中查看该基因的全部可用检测",
+    "See labs": "查看实验室",
+    "Copy number response": "拷贝数反应",
+    "Genomic context": "基因组上下文",
+    "Related articles in PubMed": "PubMed 相关文章",
+    "Links for this gene": "该基因的相关链接",
+    "Resource": "资源",
+    "Also known as:": "又名：",
+    "protein coding": "蛋白编码",
+    "Total number of exons:": "外显子总数：",
+    "Genomic Sequence": "基因组序列",
+    "Graphics": "图形",
+    "Triplosensitivity": "三倍体敏感性",
+    "Haploinsufficency": "单倍剂量不足",
+    "MedGen:": "MedGen 条目：",
+    "OMIM:": "OMIM 条目：",
+    "GeneReviews:": "GeneReviews 综述：",
+    "Go to nucleotide": "前往核苷酸记录",
+    "Variants reported to ClinVar": "报告至 ClinVar 的变异",
+    "Studies and variants": "研究与变异",
+    "Genome viewer": "基因组查看器",
+    "Explore NCBI-annotated and select non-NCBI annotated genome assemblies": "浏览 NCBI 注释以及部分非 NCBI 注释的基因组组装",
+    "publications in PubMed explicitly cited by the gene record in OMIM.": "OMIM 中该基因记录明确引用的 PubMed 文献。",
+    "publications in PubMed limited specific clinical research.": "限定于特定临床研究的 PubMed 文献。",
+    "sorted by relevance are shown below.": "以下按相关度排序显示。",
+    "Synonyms:": "同义词：",
+    "Synonyms：": "同义词：",
+    "Modes of inheritance:": "遗传方式：",
+    "Modes of inheritance：": "遗传方式：",
+    "Gene (location):": "基因（位置）：",
+    "Gene (location)：": "基因（位置）：",
+    "Orphanet:": "Orphanet：",
+    "Term Hierarchy": "术语层级",
+    "Suggested Reading": "推荐阅读",
+    "Recent systematic reviews": "近期系统综述",
+    "Disease characteristics": "疾病特征",
+    "Additional descriptions": "附加描述",
+    "From OMIM": "来自 OMIM",
+    "Related records in OMIM": "OMIM 中的相关记录",
+    "OMIM(Genes)": "OMIM（基因）",
+    "See:": "参见：",
+    "Search on this feature": "检索该特征",
+    "Feature record": "特征记录",
+    "Finding": "发现",
+    "Congenital Abnormality": "先天性异常",
+    "Anatomical Abnormality": "解剖学异常",
+    "Package": "数据包",
+    "Attributes": "属性",
+    "HapMap (table)": "HapMap（表格）",
+    "Full XML (text)": "完整 XML（文本）",
+    "BioProject links": "BioProject 链接",
+    "Links to SRA experiments": "SRA 实验链接",
+    "Links to Taxonomy": "分类学链接",
+    "Identifiers": "标识符",
+    "for": "查找",
+    "in": "在",
+    "and": "和",
+    "Entrez Gene": "Entrez 基因",
+    "NCBI Datasets": "NCBI 数据集",
+    "Genomic data available from NCBI Datasets": "NCBI Datasets 提供的基因组数据",
+    "Click below to learn more about the genomic data available from NCBI Datasets.": "点击下方了解更多关于 NCBI Datasets 提供的基因组数据。",
+    "Annotated": "已注释",
+    "Latest eukaryotic RefSeq annotations": "最新真核 RefSeq 注释",
+    "NCBI Eukaryotic Genome Annotation Pipeline": "NCBI 真核基因组注释流程",
+    "Annotation in progress": "注释进行中",
+    "Freeze date": "冻结日期",
+    "Release date": "发布日期",
+    "Recently completed": "最近完成",
+    "Try examples:": "试试这些示例：",
+    "All Genomes": "全部基因组",
+    "Search by taxonomic name or ID, Assembly name, BioProject, BioSample, WGS or Nucleotide accession": "按分类学名称或 ID、组装名称、BioProject、BioSample、WGS 或核苷酸登录号检索",
+    "Eukaryota": "真核生物",
+    "Archaea": "古菌",
+    "Bacteria": "细菌",
+    "Viruses": "病毒",
+    "Content on this page": "本页内容",
+    "All related articles in PubMed": "PubMed 中的全部相关文章",
+    "ClinGen Genome Curation Page": "ClinGen 基因组整理页面",
+    "Related medical variations": "相关医学变异",
+    "Link from Gene to dbVar": "从 Gene 到 dbVar 的链接",
+    "Link to related OMIM entry": "链接到相关 OMIM 条目"
+  },
+  "rules": [
+    {
+      "re": "^Gene ID: (\\d+), updated on (.+)$",
+      "to": "基因 ID：$1，更新于 $2"
+    },
+    {
+      "re": "^Gene type: (.+)$",
+      "to": "基因类型：$1"
+    },
+    {
+      "re": "^Go to complete Gene record for (.+)$",
+      "to": "前往 $1 的完整基因记录"
+    },
+    {
+      "re": "^Go to Variation Viewer for (.+) variants$",
+      "to": "前往 $1 变异的变异查看器"
+    },
+    {
+      "re": "^Variation Viewer for (.+) variants$",
+      "to": "$1 变异的变异查看器"
+    },
+    {
+      "re": "^Click to see all \\(([\\d,]+)\\) citations\\.$",
+      "to": "点击查看全部 $1 条引用。"
+    },
+    {
+      "re": "^No evidence available \\(Last evaluated (.+)\\)$",
+      "to": "暂无证据（最后评估：$1）"
+    },
+    {
+      "re": "^Sufficient evidence for dosage pathogenicity \\(Last evaluated (.+)\\)$",
+      "to": "剂量致病性证据充分（最后评估：$1）"
+    },
+    {
+      "re": "^OMIM®:$",
+      "to": "OMIM®："
+    },
+    {
+      "re": "^Release$",
+      "to": "版本"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "From the {{1}} (EGAP)",
+      "zh": "来自{{1}}（EGAP）"
+    }
+  ]
+}

@@ -27,6 +27,23 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
     },
     {
+      "id": "ncbi-search",
+      "name": "NCBI 全库检索",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^/search",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-home",
+        "ncbi-footer"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "main, #search-results"
+    },
+    {
       "id": "pubmed",
       "hosts": [
         "pubmed.ncbi.nlm.nih.gov"
@@ -58,7 +75,8 @@
         "clinvar-submit",
         "clinvar-frag",
         "clinvar-tip",
-        "clinvar-deep"
+        "clinvar-deep",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": "",
@@ -72,7 +90,8 @@
         "common",
         "ncbi",
         "gene",
-        "gene2"
+        "gene2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -89,7 +108,8 @@
         "ncbi",
         "seq",
         "seq2",
-        "ncbi-home"
+        "ncbi-home",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -106,7 +126,8 @@
         "ncbi",
         "seq",
         "seq2",
-        "ncbi-home"
+        "ncbi-home",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -123,7 +144,8 @@
         "ncbi",
         "seq",
         "seq2",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-deep2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -138,7 +160,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "taxonomy"
+        "taxonomy",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -154,7 +177,10 @@
         "common",
         "ncbi",
         "ncbi-home",
-        "ncbi-new2"
+        "ncbi-new2",
+        "taxonomy",
+        "ncbi-footer",
+        "ncbi-deep2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -172,7 +198,8 @@
         "common",
         "ncbi",
         "mesh",
-        "clinvar-help"
+        "clinvar-help",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -187,7 +214,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "books"
+        "books",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -204,12 +232,25 @@
         "common",
         "ncbi",
         "pmc",
-        "pmc-home"
+        "pmc-home",
+        "pubchem-dbgap"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-pmc",
-      "name": "NCBI PMC"
+      "name": "NCBI PMC",
+      "blocks": [
+        {
+          "sel": ".usa-banner__guidance p",
+          "match": "Official websites use .gov",
+          "text": "美国政府官方网站使用 .gov。.gov 网站属于美国官方政府机构。"
+        },
+        {
+          "sel": ".usa-banner__guidance p",
+          "match": "or HTTPS means",
+          "text": "锁形图标或 HTTPS 表示你已安全连接到 .gov 网站。仅在官方安全网站上分享敏感信息。"
+        }
+      ]
     },
     {
       "id": "ncbi-snp",
@@ -221,7 +262,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "snp"
+        "snp",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -240,7 +282,9 @@
         "ncbi",
         "medgen-gtr",
         "clinvar-core",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer",
+        "ncbi-deep2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -256,7 +300,11 @@
         "common",
         "ncbi",
         "medgen-gtr",
-        "ncbi-new2"
+        "ncbi-new2",
+        "gene",
+        "seq",
+        "ncbi-footer",
+        "ncbi-deep2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -273,7 +321,8 @@
         "ncbi",
         "dbvar-bioproject",
         "ncbi-help",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -289,7 +338,8 @@
         "common",
         "ncbi",
         "dbvar-bioproject",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -305,7 +355,8 @@
         "common",
         "ncbi",
         "ncbi-struct",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -321,7 +372,8 @@
         "common",
         "ncbi",
         "ncbi-struct",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -337,7 +389,8 @@
         "common",
         "ncbi",
         "ncbi-cat",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -360,7 +413,8 @@
         "ncbi",
         "ncbi-cat",
         "ncbi-help",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -376,7 +430,8 @@
         "common",
         "ncbi",
         "ncbi-struct",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer], #mmdb-update-banner, .pop-warnning",
@@ -392,7 +447,8 @@
         "common",
         "ncbi",
         "ncbi-guide",
-        "ncbi-new2"
+        "ncbi-new2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -410,7 +466,8 @@
         "common",
         "ncbi",
         "geo-extra",
-        "geo-docs"
+        "geo-docs",
+        "ncbi-footer"
       ],
       "scope": "body, main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -434,7 +491,8 @@
         "geo-extra",
         "seq",
         "gdv",
-        "gdv2"
+        "gdv2",
+        "ncbi-footer"
       ],
       "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
       "spa": true,
@@ -449,7 +507,8 @@
       ],
       "dicts": [
         "common",
-        "ncbi"
+        "ncbi",
+        "ncbi-footer"
       ],
       "scope": "main, #blastapp, .blastpage",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -1292,7 +1351,8 @@
       ],
       "dicts": [
         "common",
-        "string-atlas"
+        "string-atlas",
+        "string-atlas2"
       ],
       "scope": "body",
       "proseExempt": ""
@@ -1306,7 +1366,8 @@
       "path": "^/gxa",
       "dicts": [
         "common",
-        "string-atlas"
+        "string-atlas",
+        "string-atlas2"
       ],
       "scope": "body",
       "proseExempt": ""
@@ -1337,7 +1398,8 @@
       ],
       "dicts": [
         "common",
-        "clingen"
+        "clingen",
+        "clingen2"
       ],
       "scope": "body",
       "rescan": [
@@ -1357,7 +1419,8 @@
       ],
       "dicts": [
         "common",
-        "clingen"
+        "clingen",
+        "clingen2"
       ],
       "scope": "body",
       "spa": true,
@@ -1407,7 +1470,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-dirs"
+        "ncbi-dirs",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
@@ -1422,7 +1486,10 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-dirs"
+        "ncbi-dirs",
+        "ensembl-extra",
+        "ncbi-deep2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
@@ -1437,7 +1504,9 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-dirs"
+        "ncbi-dirs",
+        "ncbi-deep2",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
@@ -1452,7 +1521,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-dirs"
+        "ncbi-dirs",
+        "ncbi-footer"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
@@ -1474,6 +1544,121 @@
       "waitFor": "#root",
       "proseExempt": "p.cite",
       "skip": "span.journal"
+    },
+    {
+      "id": "nextprot",
+      "name": "neXtProt 退役归档页",
+      "hosts": [
+        "www.expasy.org",
+        "expasy.org",
+        "www.nextprot.org",
+        "nextprot.org"
+      ],
+      "path": "^/archives/nextprot",
+      "dicts": [
+        "common",
+        "expasy",
+        "nextprot"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
+      "id": "expasy",
+      "name": "Expasy 资源门户",
+      "hosts": [
+        "www.expasy.org",
+        "expasy.org"
+      ],
+      "dicts": [
+        "common",
+        "expasy"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
+      "id": "pride",
+      "name": "PRIDE Archive",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/pride",
+      "dicts": [
+        "common",
+        "spa",
+        "pride"
+      ],
+      "scope": "body",
+      "spa": true,
+      "proseExempt": ""
+    },
+    {
+      "id": "ena",
+      "name": "ENA Browser",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/ena/",
+      "dicts": [
+        "common",
+        "ena"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "#content app-root",
+      "proseExempt": ""
+    },
+    {
+      "id": "reactome",
+      "name": "Reactome 通路数据库",
+      "hosts": [
+        "reactome.org"
+      ],
+      "dicts": [
+        "common",
+        "reactome"
+      ],
+      "scope": "body",
+      "spa": true,
+      "skip": ".highlighting",
+      "waitFor": "#diagramTitle, .pw-toolbar",
+      "proseExempt": "#cookie-banner, #citationModal, .read-more, .summation, .alert"
+    },
+    {
+      "id": "biostudies",
+      "name": "BioStudies",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/biostudies",
+      "dicts": [
+        "common",
+        "string-atlas",
+        "string-atlas2",
+        "biostudies"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
+      "id": "europepmc",
+      "name": "Europe PMC",
+      "hosts": [
+        "europepmc.org",
+        "www.europepmc.org"
+      ],
+      "dicts": [
+        "common",
+        "europepmc"
+      ],
+      "scope": "body",
+      "proseExempt": "#data-protection-banner-left, .partnership-and-funding, .feature p",
+      "attrs": [
+        "value"
+      ],
+      "spa": true,
+      "waitFor": "#home-page, .search-results, .search-filters, .article-menu, .epmc_pageHolder, #data-protection-banner-left"
     }
   ]
 }

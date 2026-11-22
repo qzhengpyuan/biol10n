@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "family": "europepmc",
+    "version": "0.1.0",
+    "sites": [
+      "europepmc.org",
+      "www.europepmc.org"
+    ],
+    "area": "首页 / 检索结果页 / 文章页 / 帮助与关于页 / 登录页的界面骨架与固定句",
+    "note": "Europe PMC 词库：只收导航、检索过滤与排序、分页、空状态、文章页分区与操作按钮、登录与账号页、关于页与帮助页的固定说明句。题录（标题、作者、期刊、日期、PMID/PMCID/DOI）与摘要正文一概不翻。"
+  },
+  "exact": {
+    "About Europe PMC": "关于 Europe PMC",
+    "Preprints in Europe PMC": "Europe PMC 中的预印本",
+    "Governance & funding": "治理与资助",
+    "Mission & roadmap": "使命与路线图",
+    "Outreach": "外联",
+    "Tools overview": "工具概览",
+    "Article status monitor": "文章状态监控",
+    "ORCID article claiming": "ORCID 文章认领",
+    "Grant finder": "基金检索",
+    "External links service": "外部链接服务",
+    "RSS feeds": "RSS 订阅源",
+    "About SciLite annotations": "关于 SciLite 注释",
+    "Annotations submission service": "注释提交服务",
+    "Developer resources": "开发者资源",
+    "Articles RESTful API": "文章 RESTful API",
+    "Grants RESTful API": "基金 RESTful API",
+    "API case studies": "API 案例研究",
+    "SOAP web service": "SOAP Web 服务",
+    "Annotations API": "注释 API",
+    "OAI service": "OAI 服务",
+    "Bulk downloads": "批量下载",
+    "Developers Forum": "开发者论坛",
+    "Developer Forum": "开发者论坛",
+    "Developer forum": "开发者论坛",
+    "User guide": "用户指南",
+    "Search syntax guide": "检索语法指南",
+    "Contact us": "联系我们",
+    "Helpdesk": "帮助台",
+    "Help desk": "帮助台",
+    "Blog": "博客",
+    "Tech blog": "技术博客",
+    "Technical blog": "技术博客",
+    "Create an account": "创建账户",
+    "Search life-sciences literature": "检索生命科学文献",
+    "Recent history": "最近检索历史",
+    "Follow us": "关注我们",
+    "News blog": "新闻博客",
+    "Partnerships & funding": "合作与资助",
+    "Supported by": "支持方",
+    "privacy notice and cookie policy": "隐私声明与 Cookie 政策",
+    "I agree, dismiss this banner": "我同意，关闭此提示",
+    "Innovative features": "创新功能",
+    "Comprehensive search": "全面检索",
+    "Trusted partnerships": "可信合作",
+    "Learn more about Europe PMC": "进一步了解 Europe PMC",
+    "Save & create alert": "保存并创建提醒",
+    "Times cited": "被引次数",
+    "Research articles": "研究论文",
+    "Review articles": "综述",
+    "Preprints": "预印本",
+    "Reviewed": "已审阅",
+    "Journal published": "期刊发表",
+    "Books & documents": "图书与文档",
+    "Date published": "出版日期",
+    "The last year": "最近一年",
+    "The last 3 years": "最近 3 年",
+    "The last 5 years": "最近 5 年",
+    "Start year": "起始年份",
+    "End year": "结束年份",
+    "Start year to End year": "起始年份至结束年份",
+    "Export citations": "导出引文",
+    "Export citations or IDs": "导出引文或 ID",
+    "Subscribe to RSS": "订阅 RSS",
+    "Add to export list": "加入导出列表",
+    "There are no citations matching your query.": "没有与您的检索式匹配的引文。",
+    "Full text: In Europe PMC:": "全文：Europe PMC 内：",
+    "Full text: Unpaywall link:": "全文：Unpaywall 链接：",
+    "Research articles:": "研究论文：",
+    "Reviews:": "综述：",
+    "Preprints:": "预印本：",
+    "Reviewed:": "已审阅：",
+    "Journal published:": "期刊发表：",
+    "Books & documents:": "图书与文档：",
+    "Citations & impact": "引文与影响力",
+    "Similar Articles": "相似文章",
+    "Funding": "资助",
+    "Author information": "作者信息",
+    "Affiliations": "所属单位",
+    "ORCIDs linked to this article": "关联本文的 ORCID",
+    "Share this article": "分享本文",
+    "Share with email": "通过邮件分享",
+    "Share with twitter": "通过 Twitter 分享",
+    "Share with linkedin": "通过 LinkedIn 分享",
+    "Share with facebook": "通过 Facebook 分享",
+    "Full text links": "全文链接",
+    "Read article at publisher's site:": "在出版商网站阅读原文：",
+    "Get citation": "获取引文",
+    "Claim to ORCID": "认领到 ORCID",
+    "Open PDF": "打开 PDF",
+    "Annotations": "注释",
+    "Free full text in Europe PMC": "在 Europe PMC 免费获取全文",
+    "Funders who supported this work.": "资助本工作的基金机构。",
+    "To arrive at the top five similar articles we use a word-weighted algorithm to compare words from the Title and Abstract of each citation.": "为找出前五篇相似文章，我们用词加权算法比较每条引文的标题与摘要用词。",
+    "Sign in with an Europe PMC account": "使用 Europe PMC 账户登录",
+    "Password": "密码",
+    "Forgotten your password?": "忘记密码？",
+    "Sign in to Europe PMC": "登录 Europe PMC",
+    "New to Europe PMC?": "还没有 Europe PMC 账户？",
+    "Create an account.": "创建账户。",
+    "Or": "或",
+    "Sign in with a different account": "使用其他账户登录",
+    "Sign in with ORCID": "使用 ORCID 登录",
+    "Sign in with Twitter": "使用 Twitter 登录",
+    "Twitter login is not working as expected.": "Twitter 登录暂时无法正常工作。",
+    "Sign in with PMC Plus": "使用 PMC Plus 登录",
+    "Keep me signed in": "保持登录状态",
+    "Advanced search:": "高级检索：",
+    "Switch to classic": "切换到经典版",
+    "Free text topic search": "自由文本主题检索",
+    "SciLite annotations": "SciLite 注释",
+    "Links to data records": "数据记录链接",
+    "Date, publication type or ID": "日期、出版类型或 ID",
+    "Full text access, funding, or license": "全文获取、资助或许可",
+    "Author, affiliation, or journal": "作者、所属单位或期刊",
+    "Search Query": "检索式",
+    "Enter a search query above.": "请在上方输入检索式。",
+    "Expand search by adding synonyms (select OR)": "通过添加同义词扩展检索（选择 OR）",
+    "Narrow search by adding topics (select AND)": "通过添加主题缩小检索（选择 AND）",
+    "Refine search by excluding a word (select NOT)": "通过排除词语精炼检索（选择 NOT）",
+    "Layer concepts to build a more complex query": "叠加概念以构建更复杂的检索式",
+    "Query building tools": "检索式构建工具",
+    "Search technology": "检索技术",
+    "Content in Europe PMC": "Europe PMC 的内容",
+    "Field Tags": "字段标签",
+    "What’s in Europe PMC?": "Europe PMC 有什么？",
+    "Access full text": "获取全文",
+    "Save & get updates": "保存并获取更新",
+    "Copyright & reuse": "版权与再利用",
+    "For help in submitting manuscripts, grant reporting, or using the Europe PMC website, contact the Europe PMC helpdesk.": "如需帮助提交稿件、报告基金或使用 Europe PMC 网站，请联系 Europe PMC 帮助台。",
+    "There are eight types of Europe PMC content available for automated, bulk download:": "Europe PMC 有八类内容可供自动化批量下载：",
+    "Open access subset": "开放获取子集",
+    "Preprints subset": "预印本子集",
+    "Metadata": "元数据",
+    "for all full text articles": "全部全文文章",
+    "Accession numbers": "登录号",
+    "RSS Feeds": "RSS 订阅源",
+    "Europe PMC Blog": "Europe PMC 博客",
+    "Articles supported by Europe PMC funders": "Europe PMC 资助机构支持的文章",
+    "Top 10 viewed articles on Europe PMC in the last 7 days": "近 7 天 Europe PMC 浏览量前 10 的文章",
+    "All latest articles added to Europe PMC in the last 7 days": "近 7 天加入 Europe PMC 的全部最新文章",
+    "Tools": "工具",
+    "Developers": "开发者",
+    "Support": "支持",
+    "Why use Europe PMC": "为什么使用 Europe PMC",
+    "Why use Europe PMC?": "为什么使用 Europe PMC？",
+    "What is Europe PMC?": "什么是 Europe PMC？",
+    "Who is behind Europe PMC?": "Europe PMC 由谁建设？",
+    "How is Europe PMC used?": "Europe PMC 如何被使用？",
+    "What’s next for Europe PMC?": "Europe PMC 的下一步是什么？",
+    "How researchers are using Europe PMC": "研究人员如何使用 Europe PMC",
+    "Help using Europe PMC": "Europe PMC 使用帮助",
+    "Available from publisher site using DOI. A subscription may be required.": "可通过 DOI 在出版商网站获取，可能需要订阅。",
+    "Sign in with your Europe PMC account details. This is not the same as a Europe PMC Plus account.": "使用您的 Europe PMC 账户信息登录。此账户与 Europe PMC Plus 账户不同。",
+    "Date timeline histogram": "日期时间线直方图",
+    "Search Europe PMC": "检索 Europe PMC",
+    "Europe PMC: Popular articles": "Europe PMC：热门文章",
+    "Europe PMC: Recent articles": "Europe PMC：最新文章",
+    "Europe PMC: Latest journals": "Europe PMC：最新期刊",
+    "Europe PMC: Content Holdings": "Europe PMC：内容收录",
+    "Free access articles accessible in, or from Europe PMC may be filtered by:": "可通过以下条件过滤可在 Europe PMC 内或经 Europe PMC 获取的免费文章：",
+    "To limit your search to specific article types, select one or more of the filters below:": "如需限定特定文章类型，请选择下面的一个或多个过滤器：",
+    "To filter for open access license types, see Advanced search.": "如需按开放获取许可类型过滤，请使用高级检索。",
+    "articles presenting the results of experimental research.": "报道实验研究结果的论文。",
+    "reviews on a topic covering a broad set of previously published articles.": "针对某一主题、覆盖大量已发表论文的综述。",
+    "research articles that have not yet undergone formal peer-review and have been submitted to public preprint servers.": "尚未经过正式同行评审、已提交到公共预印本服务器的研究论文。",
+    "preprints that have reviews, recommendations or commentary from expert sources.": "获得专家评审、推荐或评论的预印本。",
+    "journal published articles that have been connected to their previously posted preprints.": "已与其先前发布的预印本建立关联的期刊论文。",
+    "The NCBI bookshelf's collection of books, reports, and databases, etc., in the areas of biology, medicine, and the life sciences.": "NCBI Bookshelf 在生物学、医学与生命科学领域的图书、报告与数据库等合集。",
+    "broadens a search, only one term must be present.": "扩大检索范围，只需其中一个词出现。",
+    "narrows a search, both terms must be present.": "缩小检索范围，两个词必须同时出现。",
+    "To find papers that exclude certain words, Add the excluded term using the NOT drop-down selection. For example you may want to find a paper that includes cat but excludes dog.": "如需查找排除某些词的论文，请用 NOT 下拉选项添加要排除的词。例如您可能想找包含 cat 但不含 dog 的论文。",
+    "For help with issues and requests about Europe PMC APIs, post directly to the Europe PMC Developer Forum.": "如遇 Europe PMC API 相关问题或需求，请直接发布到 Europe PMC 开发者论坛。",
+    "Let us know what you think! Provide feedback on the Europe PMC website.": "告诉我们您的想法！请在 Europe PMC 网站上提供反馈。",
+    "Author manuscript collection": "作者手稿合集",
+    "Author manuscripts uploaded by authors to PubMed Central and Europe PMC, to comply with funders’ Open Access policies, available in XML and Text format via FTP.": "作者为遵守资助机构的开放获取政策而上传到 PubMed Central 与 Europe PMC 的手稿，可通过 FTP 以 XML 与文本格式获取。",
+    "Preprint abstracts or full text, open access preprint articles, available to download using the Europe PMC web services or in XML format via FTP.": "预印本摘要或全文（开放获取预印本文章），可通过 Europe PMC Web 服务下载，或以 XML 格式经 FTP 获取。",
+    "Metadata of all Full-Text Europe PMC articles": "全部 Europe PMC 全文文章的元数据",
+    "This FTP directory contains XML for key metadata for all articles available from Europe PMC (metadata is extracted using the lite response of the Europe PMC API). It is updated weekly.": "该 FTP 目录包含 Europe PMC 全部可用文章的关键元数据 XML（元数据取自 Europe PMC API 的 lite 响应），每周更新。",
+    "PMID-PMCID-DOI mappings": "PMID-PMCID-DOI 对照表",
+    "A file of PMID-PMCID-DOI mappings, or partial mappings, available via FTP. All PMIDs and PMCIDs are included, with the other two IDs shown where available. The file is overwritten on the first of the month.": "可通过 FTP 获取的 PMID-PMCID-DOI 对照（或部分对照）文件。包含全部 PMID 与 PMCID，并在可得时给出另外两个 ID。该文件于每月 1 日覆盖更新。",
+    "Accession numbers in Europe PMC articles": "Europe PMC 文章中的登录号",
+    "This FTP directory contains database accession numbers found in Europe PMC articles, using text mining. It is updated weekly.": "该 FTP 目录包含通过文本挖掘在 Europe PMC 文章中找到的数据库登录号，每周更新。",
+    "Deposition dates for author manuscripts": "作者手稿的提交日期",
+    "A CSV file of deposition dates and other citation details of author manuscripts deposited in Europe PMC via the Europe PMC Plus submission system, for the purposes of HEFCE REF compliance checking. The file is updated monthly.": "包含通过 Europe PMC Plus 投稿系统存入 Europe PMC 的作者手稿的提交日期及其他引文信息的 CSV 文件，用于 HEFCE REF 合规检查。该文件每月更新。",
+    "Latest journal titles added to Europe PMC in the last 60 days": "近 60 天加入 Europe PMC 的最新期刊",
+    "Latest articles added to Europe PMC by funder in the last 30 days": "近 30 天各资助机构加入 Europe PMC 的最新文章",
+    "Let us know what you think!": "告诉我们您的想法！",
+    "Provide feedback on the Europe PMC website": "在 Europe PMC 网站上提供反馈",
+    "Europe PMC is at the heart of open science. We partner with other organisations to build robust public tools to provide access to open content and data, and to advance life sciences research.": "Europe PMC 处于开放科学的核心。我们与其他机构合作，建设稳健的公共工具，以便开放获取内容与数据，并推动生命科学研究。",
+    "Access a wealth of life sciences research, including preprints": "获取海量生命科学研究，包括预印本",
+    "Connect research articles with other research resources": "把研究论文与其他研究资源关联起来",
+    "Examine data behind the paper": "考察论文背后的数据",
+    "Use intuitive and powerful search tools": "使用直观而强大的检索工具",
+    "Showcase your work": "展示您的工作",
+    "Find annotated biological concepts": "查找已注释的生物学概念",
+    "Get results with powerful programmatic tools": "用强大的程序化工具获取结果",
+    "Take advantage of text-mining resources": "利用文本挖掘资源",
+    "Search syntax reference": "检索语法参考",
+    "Publishing innovation": "出版创新",
+    "Reproducible science": "可重复的科学",
+    "Text and data mining": "文本与数据挖掘",
+    "lite response": "lite 响应",
+    "1. Select citations for export?": "1. 选择要导出的引文？",
+    "2. Select format": "2. 选择格式",
+    "Export the first": "导出前",
+    "BibTex (Mendeley, Papers)": "BibTex（Mendeley、Papers）",
+    "RIS (EndNote, Mendeley, Refworks)": "RIS（EndNote、Mendeley、Refworks）",
+    "Text (citation)": "文本（引文）",
+    "XML (abstracts)": "XML（摘要）",
+    "XML (open access full text)": "XML（开放获取全文）",
+    "Excel, comma separated (CSV)": "Excel，逗号分隔（CSV）",
+    "ID list": "ID 列表",
+    "This is determined based on a ranking of criteria including term frequency, rarity of term, recency of article, whether there is a Title or Author field match, etc.": "该排序依据多项条件的综合排名确定，包括词频、词的稀有度、文章时效、标题或作者字段是否匹配等。",
+    "Europe PMC Open access subset": "Europe PMC 开放获取子集",
+    "Funders": "资助机构",
+    "Quick save": "快速保存",
+    "Or, select format and export": "或选择格式并导出",
+    "Footnotes": "脚注",
+    "Author affiliations & information": "作者单位与信息",
+    "Article notes": "文章注释",
+    "Copyright and license information": "版权与许可信息",
+    "Corresponding author.": "通讯作者。",
+    "EPMC Copyright notice": "EPMC 版权声明"
+  },
+  "rules": [
+    {
+      "re": "^Full text: In Europe PMC \\(([\\d,]+)\\)$",
+      "to": "全文：Europe PMC 内（$1）"
+    },
+    {
+      "re": "^Full text: Unpaywall link \\(([\\d,]+)\\)$",
+      "to": "全文：Unpaywall 链接（$1）"
+    },
+    {
+      "re": "^Research articles \\(([\\d,]+)\\)$",
+      "to": "研究论文（$1）"
+    },
+    {
+      "re": "^Review articles \\(([\\d,]+)\\)$",
+      "to": "综述（$1）"
+    },
+    {
+      "re": "^Preprints \\(([\\d,]+)\\)$",
+      "to": "预印本（$1）"
+    },
+    {
+      "re": "^Reviewed \\(([\\d,]+)\\)$",
+      "to": "已审阅（$1）"
+    },
+    {
+      "re": "^Journal published \\(([\\d,]+)\\)$",
+      "to": "期刊发表（$1）"
+    },
+    {
+      "re": "^Books & documents \\(([\\d,]+)\\)$",
+      "to": "图书与文档（$1）"
+    },
+    {
+      "re": "^The last year \\(([\\d,]+)\\)$",
+      "to": "最近一年（$1）"
+    },
+    {
+      "re": "^The last 3 years \\(([\\d,]+)\\)$",
+      "to": "最近 3 年（$1）"
+    },
+    {
+      "re": "^The last 5 years \\(([\\d,]+)\\)$",
+      "to": "最近 5 年（$1）"
+    },
+    {
+      "re": "^(\\d[\\d,]*)-(\\d[\\d,]*) of ([\\d,]+) results$",
+      "to": "第 $1–$2 条，共 $3 条结果"
+    },
+    {
+      "re": "^Cited by: (\\d[\\d,]*) articles?$",
+      "to": "被引：$1 篇"
+    },
+    {
+      "re": "^Articles referenced by this article \\((\\d+)\\)$",
+      "to": "本文引用的文献（$1）"
+    },
+    {
+      "re": "^Show (\\d+) more references \\((\\d+) of (\\d+)\\)$",
+      "to": "再显示 $1 条参考文献（$2/$3）"
+    },
+    {
+      "re": "^In abstract \\((\\d+)\\)$",
+      "to": "摘要中（$1）处"
+    },
+    {
+      "re": "^In full text \\((\\d+)\\)$",
+      "to": "全文中（$1）处"
+    },
+    {
+      "re": "^\\((\\d+) authors?\\)$",
+      "to": "（$1 位作者）"
+    },
+    {
+      "re": "^Nearly ([\\d,.]+[KMkm]?) full text open access articles available to download using the Europe PMC web services or FTP site\\.$",
+      "to": "近 $1 篇全文开放获取文章，可通过 Europe PMC Web 服务或 FTP 站点下载。"
+    },
+    {
+      "re": "^Export list \\((\\d+)\\)$",
+      "to": "导出列表（$1）"
+    },
+    {
+      "re": "^Search results \\(([\\d,]+)\\)$",
+      "to": "检索结果（$1）"
+    },
+    {
+      "re": "^results \\(up to (\\d+)\\)$",
+      "to": "条结果（最多 $1 条）"
+    },
+    {
+      "re": "^Cited by: (\\d[\\d,]*) articles? \\|$",
+      "to": "被引：$1 篇 |"
+    },
+    {
+      "re": "^References \\((\\d+)\\)$",
+      "to": "参考文献（$1）"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Europe PMC is developed by {{1}} with support from the {{2}}, in collaboration with the {{3}}, as part of the {{4}} archive network.",
+      "zh": "Europe PMC 由{{1}}开发，并得到{{2}}的支持，与{{3}}合作，是{{4}}存档网络的一部分。"
+    },
+    {
+      "pat": "Europe PMC is an {{1}}, {{2}}, and conforms with {{3}}.",
+      "zh": "Europe PMC 是{{1}}、{{2}}，并遵循{{3}}。"
+    },
+    {
+      "pat": "This website requires cookies, and the limited processing of your personal data in order to function. By using the site you are agreeing to this as outlined in our {{1}}.",
+      "zh": "本网站需要使用 Cookie 并对您的个人数据作有限处理才能正常运行。使用本网站即表示您同意我们{{1}}中所述的内容。"
+    },
+    {
+      "pat": "Intuitive and powerful search tools, linked resources and author services help you stay on top of the cutting edge of science. To learn more, see {{1}}.",
+      "zh": "直观而强大的检索工具、关联资源与作者服务，让您始终站在科学前沿。了解更多，请参阅{{1}}。"
+    },
+    {
+      "pat": "Search life sciences literature from trusted sources around the globe, all in one search, accessible by anyone anywhere, for free. Learn more {{1}}.",
+      "zh": "一次检索即可查找来自全球可信来源的生命科学文献，任何人、任何地点均可免费使用。进一步了解{{1}}。"
+    },
+    {
+      "pat": "Europe PMC is the partner of {{1}}, an {{2}}, and the repository of choice for many international science {{3}}.",
+      "zh": "Europe PMC 是{{1}}的合作伙伴，是{{2}}，也是众多国际科学{{3}}的首选存储库。"
+    },
+    {
+      "pat": "{{1}}{{2}} Nearly {{3}} full text open access articles available to download using the Europe PMC web services or FTP site.",
+      "zh": "{{1}}{{2}}近{{3}}篇全文开放获取文章，可通过 Europe PMC Web 服务或 FTP 站点下载。"
+    },
+    {
+      "pat": "{{1}}{{2}} This FTP directory contains XML for key metadata for all articles available from Europe PMC (metadata is extracted using the {{3}} of the Europe PMC API). It is updated weekly.",
+      "zh": "{{1}}{{2}}该 FTP 目录包含 Europe PMC 全部可用文章的关键元数据 XML（元数据取自 Europe PMC API 的{{3}}）。每周更新。"
+    },
+    {
+      "pat": "This article is in the {{1}}. Refer to the copyright information in the article for licensing details.",
+      "zh": "本文收录于{{1}}。许可详情请参阅文章中的版权信息。"
+    },
+    {
+      "pat": "{{1}} All articles that are freely available to read within Europe PMC. To filter for open access license types, see {{2}}.",
+      "zh": "{{1}}所有可免费在 Europe PMC 内阅读的文章。如需按开放获取许可类型过滤，请参阅{{2}}。"
+    },
+    {
+      "pat": "{{1}} All articles with a known link to a free and legal copy of the full text, but that are not available to read within Europe PMC. These links are usually provided by {{2}}",
+      "zh": "{{1}}所有已知存在免费且合法的全文副本链接、但无法在 Europe PMC 内阅读的文章。这些链接通常由{{2}}提供。"
+    }
+  ]
+}

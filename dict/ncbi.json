@@ -1408,7 +1408,18 @@
     "Database links": "数据库链接",
     "(Print)": "（印刷版）",
     "(Online)": "（在线版）",
-    "Send to:": "发送到："
+    "Send to:": "发送到：",
+    "404 Error - NCBI": "404 错误 - NCBI",
+    "404 Error": "404 错误",
+    "- NCBI Bookshelf": "- NCBI 书架",
+    "Database of Genotypes and Phenotypes": "基因型与表型数据库",
+    "Search NCBI": "检索 NCBI",
+    "Search for": "检索",
+    "Search results for:": "以下检索词的结果：",
+    "Featured results": "精选结果",
+    "RefSeq products": "RefSeq 产物",
+    "Was this helpful?": "这有帮助吗？",
+    "View full table": "查看完整表格"
   },
   "rules": [
     {
@@ -1682,6 +1693,14 @@
     {
       "re": "^All articles for grant (.+)$",
       "to": "资助 $1 的全部文章"
+    },
+    {
+      "re": "^(.+) - Search Results - PubMed$",
+      "to": "$1 - 检索结果 - PubMed"
+    },
+    {
+      "re": "^Results found in ([\\d,]+) databases?$",
+      "to": "在 $1 个数据库中找到结果"
     }
   ],
   "templates": [

@@ -482,7 +482,6 @@
     "Close navigation menu": "关闭导航菜单",
     "dbGap Authorized Access Portal": "dbGap 授权访问门户",
     "Official websites use .gov": "官方网站使用 .gov",
-    "website belongs to an official government organization in the United States.": "网站属于美国官方政府机构。",
     "Other MS": "其他质谱",
     "IR Spectra": "红外光谱",
     "Raman Spectra": "拉曼光谱",
@@ -503,7 +502,10 @@
     "20.3 ChEBI Ontology": "20.3 ChEBI 本体",
     "20.31 Chemicals in PubChem from Regulatory Sources": "20.31 PubChem 中来自监管来源的化学品",
     "20.33 HTS Classification": "20.33 HTS 分类",
-    "20.38 Aggregated Chemicals of Concern in PubChem": "20.38 PubChem 中汇总的关注化学品"
+    "20.38 Aggregated Chemicals of Concern in PubChem": "20.38 PubChem 中汇总的关注化学品",
+    "Show search overlay": "显示检索浮层",
+    "dbGaP - Database of Genotypes and Phenotypes": "dbGaP - 基因型与表型数据库",
+    "website belongs to an official government organization in the United States.": "网站属于美国官方政府机构。"
   },
   "rules": [
     {

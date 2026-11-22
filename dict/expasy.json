@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "family": "expasy",
+    "version": "0.1.0",
+    "sites": [
+      "www.expasy.org"
+    ],
+    "area": "Expasy 资源门户（首页、工具/资源目录、检索结果、资源详情、帮助、关于、新闻、归档页）",
+    "note": "Expasy 词库：导航与页脚、检索栏、分类/类型枚举、分页、日期句式、帮助页与关于页固定说明句、资源详情页字段与按钮。资源名称及其一句话简介属于数据集描述，不翻。"
+  },
+  "exact": {
+    "Explore high-quality biological data resources": "探索高质量生物数据资源",
+    "Toggle information": "切换信息",
+    "Resource Categories": "资源分类",
+    "Resource Types": "资源类型",
+    "Resource categories and types": "资源分类与类型",
+    "SIB Resources": "SIB 资源",
+    "All Resources": "全部资源",
+    "Filters": "筛选条件",
+    "Back to the top": "返回顶部",
+    "Terms of Use": "使用条款",
+    "Expasy is operated by the": "Expasy 由以下机构运营：",
+    "Cite Expasy": "引用 Expasy",
+    "Expasy Helpdesk": "Expasy 帮助台",
+    "Software tool": "软件工具",
+    "Data sets": "数据集",
+    "Databases or knowledgebases": "数据库或知识库",
+    "Resource name": "资源名称",
+    "Short description": "简短描述",
+    "Long description": "详细描述",
+    "Database or software icon(s)": "数据库或软件图标",
+    "Category icon(s)": "分类图标",
+    "Media URL": "媒体网址",
+    "Documentation URL": "文档网址",
+    "Tutorial URL": "教程网址",
+    "SIB Group": "SIB 研究组",
+    "SIB support": "SIB 支持",
+    "ELIXIR or GCBR badge": "ELIXIR 或 GCBR 徽标",
+    "Information": "信息",
+    "Mandatory (Y/N)": "是否必填（Y/N）",
+    "Card view (Y/N)": "卡片视图（Y/N）",
+    "Detailed view (Y/N)": "详情视图（Y/N）",
+    "ELIXIR Switzerland Service": "ELIXIR 瑞士服务",
+    "ELIXIR Core Data Resource": "ELIXIR 核心数据资源",
+    "Global Core Biodata Resource": "全球核心生物数据资源",
+    "Genes & Genomes": "基因与基因组",
+    "Genomics": "基因组学",
+    "Metagenomics": "宏基因组学",
+    "Transcriptomics": "转录组学",
+    "Proteins & Proteomes": "蛋白质与蛋白质组",
+    "Evolution & Phylogeny": "进化与系统发育",
+    "Evolution biology": "进化生物学",
+    "Population genetics": "群体遗传学",
+    "Structural Biology": "结构生物学",
+    "Drug design": "药物设计",
+    "Medicinal chemistry": "药物化学",
+    "Structural analysis": "结构分析",
+    "Systems Biology": "系统生物学",
+    "System Biology": "系统生物学",
+    "Glycomics": "糖组学",
+    "Lipidomics": "脂质组学",
+    "Metabolomics": "代谢组学",
+    "AI and machine learning": "人工智能与机器学习",
+    "AI & Machine learning": "人工智能与机器学习",
+    "Pagination Navigation": "分页导航",
+    "« Previous": "« 上一页",
+    "Next »": "下一页 »",
+    "Showing": "显示第",
+    "to": "至",
+    "of": "/",
+    "Content": "内容",
+    "Filtering by topic": "按主题筛选",
+    "Searching in Expasy": "在 Expasy 中检索",
+    "You might also be interested in": "你可能还感兴趣",
+    "About Expasy": "关于 Expasy",
+    "Scope": "范围",
+    "Brief history": "简史",
+    "Maintainers": "维护者",
+    "Funding": "资助",
+    "Submissions and Contact": "提交与联系",
+    "Browse the resource website": "浏览资源网站",
+    "Watch the video": "观看视频",
+    "Read the documentation": "阅读文档",
+    "Try the tutorial": "试用教程",
+    "Developed by the": "开发方：",
+    "and supported by the": "支持方：",
+    "What you can do with this resource": "你可以用该资源做什么",
+    "Browse these keywords in Expasy": "在 Expasy 中浏览这些关键词",
+    "This resource is released under a Creative Commons Universal license": "本资源依据知识共享通用（CC0）许可发布",
+    "mature or legacy": "成熟或历史遗留",
+    "News from the resources": "资源新闻",
+    "regular search": "常规检索",
+    "cross-resource search": "跨资源检索",
+    "detail view": "详情视图",
+    "detailed view": "详情视图",
+    "card view": "卡片视图",
+    "cards": "卡片",
+    "resource name": "资源名称",
+    "word": "单词",
+    "SIB group name": "SIB 研究组名称",
+    "protein name": "蛋白质名称",
+    "disease name": "疾病名称",
+    "anatomy term": "解剖学术语",
+    "Enzyme Classification (EC)": "酶分类（EC）",
+    "EDAM Operation term": "EDAM 操作术语",
+    "EDAM Topic term": "EDAM 主题术语",
+    "EDAM Data term": "EDAM 数据术语",
+    "EDAM Format term": "EDAM 格式术语",
+    "Sequence similarity search": "序列相似性检索",
+    "Phylogenetic data": "系统发育数据",
+    "FASTA-like (text)": "类 FASTA（文本）",
+    "Deposition": "数据提交",
+    "Data reference": "数据引用",
+    "Training material": "培训材料",
+    "datasets": "数据集",
+    "deposit data": "提交数据",
+    "training material": "培训材料",
+    "UniProt Knowledgebase": "UniProt 知识库",
+    "Evolutionary Bioinformatics group": "进化生物信息学研究组",
+    "Search results: database and tool description": "检索结果：数据库与工具描述",
+    "Software tools including command line software, graphical user interfaces, desktop and mobile applications, web-based services, application program interfaces (APIs) and infrastructure scripts that help to run services": "软件工具，包括命令行软件、图形界面、桌面与移动应用、Web 服务、应用程序接口（API），以及帮助运行服务的基础设施脚本",
+    "A filter panel is proposed on the left side of the home page. Select one or more categories or sub-categories to view all the resources with those categories or sub-categories. You will need to unselect your choice(s) if you want to filter by different categories. Examples:": "首页左侧提供筛选面板。选择一个或多个分类或子分类，即可查看带有这些分类或子分类的全部资源。若要改按其他分类筛选，需要先取消已选项目。示例：",
+    "Expasy, the Swiss Bioinformatics Resource Portal": "Expasy，瑞士生物信息学资源门户",
+    "Resources in Expasy can either be a database, a software tool, or both. This is indicated by the two icons at the top right. Examples:": "Expasy 中的资源可以是数据库、软件工具，或两者兼有，这由右上角的两个图标标示。示例：",
+    "bioinformatics resources": "生物信息资源",
+    "SIB portfolio": "SIB 资源组合",
+    "\"SIB Resources\"": "「SIB 资源」",
+    "\"supported by the SIB Swiss Institute of Bioinformatics\"": "「由 SIB 瑞士生物信息学研究所支持」",
+    "EDAM ontology": "EDAM 本体",
+    "A few EDAM term are particularly useful:": "有几个 EDAM 术语特别有用：",
+    "et al,": "等",
+    "URL": "网址",
+    "\"You might also be interested in\"": "「你可能还感兴趣」",
+    "\"What you can do with this resource\"": "「你可以用该资源做什么」",
+    "\"Browse these keywords in Expasy\"": "「在 Expasy 中浏览这些关键词」",
+    "In June 2011, it became the SIB Expasy Bioformatics Resources Portal, a catalogue of bioinformatics resources developed by SIB Groups.": "2011 年 6 月，它成为 SIB Expasy 生物信息资源门户，即 SIB 各研究组开发生物信息学资源的目录。",
+    "The current version, Expasy 3.0, was released in October 2020, following a massive user study and taking into account design, user experience and architecture aspects.": "当前版本 Expasy 3.0 于 2020 年 10 月发布，此前进行了大规模用户调研，并综合考虑了设计、用户体验与架构等方面。",
+    "Expasy is funded by the Swiss State Secretariat for Education, Research and Innovation (SERI).": "Expasy 由瑞士教育、研究与创新国务秘书处（SERI）资助。",
+    "&laquo; Previous": "上一页",
+    "Next &raquo;": "下一页",
+    "Expasy: Swiss Bioinformatics Resource Portal": "Expasy：瑞士生物信息学资源门户"
+  },
+  "rules": [
+    {
+      "re": "^Page (\\d+)/(\\d+)$",
+      "to": "第 $1/$2 页"
+    },
+    {
+      "re": "^Go to page (\\d+)$",
+      "to": "转到第 $1 页"
+    },
+    {
+      "re": "^Posted 0(\\d) (.+?) (\\d{4}) -$",
+      "to": "发布于 $3 年 $2 $1 日，"
+    },
+    {
+      "re": "^Posted 0(\\d) (.+?) (\\d{4})$",
+      "to": "发布于 $3 年 $2 $1 日"
+    },
+    {
+      "re": "^Posted (\\d{1,2}) (.+?) (\\d{4}) -$",
+      "to": "发布于 $3 年 $2 $1 日，"
+    },
+    {
+      "re": "^Posted (\\d{1,2}) (.+?) (\\d{4})$",
+      "to": "发布于 $3 年 $2 $1 日"
+    },
+    {
+      "re": "^Last updated: (\\w+) (\\d{1,2}), (\\d{4})$",
+      "to": "最后更新：$3 年 $1 $2 日"
+    },
+    {
+      "re": "^([\\d,]+) hit$",
+      "to": "$1 个命中"
+    },
+    {
+      "re": "^([\\d,]+) hits$",
+      "to": "$1 个命中"
+    },
+    {
+      "re": "^Search results: within a set of (\\d+) databases$",
+      "to": "检索结果：共 $1 个数据库"
+    },
+    {
+      "re": "^(\\d+) resource found for$",
+      "to": "找到 $1 个资源，匹配"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Expasy contains information about {{1}} which are relevant to the life sciences and created and/or maintained by a SIB member. These resources can be either:",
+      "zh": "Expasy 收录了{{1}}的信息，这些资源与生命科学相关，并由 SIB 成员创建和/或维护。这些资源可以是："
+    },
+    {
+      "pat": "{{1}} are also displayed in the Expasy home page.",
+      "zh": "{{1}}也会显示在 Expasy 首页。"
+    },
+    {
+      "pat": "Resources which are in the {{1}} are displayed in the section labelled {{2}} of the Expasy home page. These resources also include the mention {{3}} in their detailed view to indicate that they benefit from SIB support.",
+      "zh": "属于{{1}}的资源会显示在 Expasy 首页标有{{2}}的区块中。这些资源的详情视图还会注明{{3}}，表示其获得了 SIB 的支持。"
+    },
+    {
+      "pat": "Resources in Expasy are either {{1}} resources (Gabella {{2}} 2022). Examples:",
+      "zh": "Expasy 中的资源处于{{1}}状态（Gabella {{2}} 2022）。示例："
+    },
+    {
+      "pat": "The {{1}} resource created in 2003 is a mature resource.",
+      "zh": "2003 年创建的{{1}}资源属于成熟资源。"
+    },
+    {
+      "pat": "The {{1}} resource which has been archived is a legacy state resource.",
+      "zh": "已归档的{{1}}资源属于历史遗留状态。"
+    },
+    {
+      "pat": "{{1}}, an expert-curated knowledgebase of chemical and transport reactions of biological interest, is a database.",
+      "zh": "{{1}}是一个由专家策展、收录具有生物学意义的化学反应与转运反应的知识库，属于数据库。"
+    },
+    {
+      "pat": "The viral genomics pipeline, {{1}}, is a software tool.",
+      "zh": "病毒基因组学流水线 {{1}} 属于软件工具。"
+    },
+    {
+      "pat": "{{1}} includes both a knowledgebase with expert curation (database) and a software tool for gene expression data.",
+      "zh": "{{1}}既包含经专家策展的知识库（数据库），也包含用于基因表达数据的软件工具。"
+    },
+    {
+      "pat": "Depending on their topic, resources in Expasy are assigned to one or more {{1}} (designated by icons) or subcategories:",
+      "zh": "根据主题，Expasy 中的资源会被归入一个或多个{{1}}（以图标标示）或子分类："
+    },
+    {
+      "pat": "{{1}} - subcategories: Genomics, Metagenomics and Transcriptomics",
+      "zh": "{{1}}：子分类为基因组学、宏基因组学与转录组学"
+    },
+    {
+      "pat": "{{1}} - subcategories: Evolution biology and Population genetics",
+      "zh": "{{1}}：子分类为进化生物学与群体遗传学"
+    },
+    {
+      "pat": "{{1}} - subcategories: Drug design, Medicinal chemistry and Structural analysis",
+      "zh": "{{1}}：子分类为药物设计、药物化学与结构分析"
+    },
+    {
+      "pat": "{{1}} - subcategories: Glycomics, Lipidomics and Metabolomics",
+      "zh": "{{1}}：子分类为糖组学、脂质组学与代谢组学"
+    },
+    {
+      "pat": "Resources are assigned one or more {{1}} from the {{2}}. EDAM (Ison {{3}} 2013 ; Black {{4}} 2022) is a domain ontology of data analysis and data management in bio- and other sciences, and science-based applications. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into 4 main sections: Topic, Operation, Data (incl. Identifier), and Format.",
+      "zh": "资源会从{{2}}中分配一个或多个{{1}}。EDAM（Ison {{3}} 2013；Black {{4}} 2022）是一个描述生物科学及其他科学中的数据分析与数据管理、以及基于科学的应用的领域本体。为便于不同用户使用，EDAM 的结构相对简单，分为 4 个主部分：主题（Topic）、操作（Operation）、数据（Data，含标识符）与格式（Format）。"
+    },
+    {
+      "pat": "The EDAM Operation terms are displayed in the section entitled {{1}}, while the other EDAM terms are displayed in the section {{2}}. Note that EDAM topic terms which correspond to a category are excluded.",
+      "zh": "EDAM 操作术语显示在名为{{1}}的区块中，其他 EDAM 术语显示在{{2}}区块中。注意：对应分类的 EDAM 主题术语已排除。"
+    },
+    {
+      "pat": "The following table summarizes the information displayed in Expasy, whether it is mandatory or not, whether it is displayed in the {{1}} or the {{2}} of the resource.",
+      "zh": "下表汇总了 Expasy 中显示的信息，以及各项是否必填、显示在资源的{{1}}还是{{2}}中。"
+    },
+    {
+      "pat": "Select the category {{1}} to view all the resources matching that topic. All the resources found are not SIB resources.",
+      "zh": "选择分类{{1}}可查看与该主题匹配的全部资源。找到的资源并非都是 SIB 资源。"
+    },
+    {
+      "pat": "Select the sub-category {{1}} to view all glycobiology resources. There is one SIB resource, {{2}}, as well as several other resources of SIB groups.",
+      "zh": "选择子分类{{1}}可查看全部糖生物学资源。其中有 1 个 SIB 资源 {{2}}，以及 SIB 各研究组的若干其他资源。"
+    },
+    {
+      "pat": "Select the sub-category {{1}} and the category {{2}} to view all the resources on population genetics and/or AI and machine learning. There are two SIB resources, {{3}} and {{4}}, as well as several other resources of SIB groups.",
+      "zh": "同时选择子分类{{1}}与分类{{2}}，可查看与群体遗传学和/或人工智能与机器学习相关的全部资源。其中有 2 个 SIB 资源 {{3}} 和 {{4}}，以及 SIB 各研究组的若干其他资源。"
+    },
+    {
+      "pat": "Select the sub-categories {{1}} and {{2}} to view all the glycomics and lipidomics resources. There are two SIB resources, {{3}} and {{4}}, as well as several other resources of SIB groups.",
+      "zh": "选择子分类{{1}}与{{2}}，可查看全部糖组学与脂质组学资源。其中有 2 个 SIB 资源 {{3}} 和 {{4}}，以及 SIB 各研究组的若干其他资源。"
+    },
+    {
+      "pat": "A search bar is directly accessible from the top of each page allowing simultaneously two types of search: a {{1}} and a {{2}}. The results are displayed jointly on one page.",
+      "zh": "每个页面顶部都直接提供搜索栏，可同时进行两类检索：{{1}}与{{2}}。结果会在同一页面共同展示。"
+    },
+    {
+      "pat": "The {{1}} returns all resources matching the search criteria. These are listed as {{2}} in the search results. Each card displays the resource’s name, a short description, an icon for the category and a second icon indicating the type of resource (tool or database). Clicking on a card on the result page shows the {{3}} of the corresponding resource. Examples:",
+      "zh": "{{1}}返回与检索条件匹配的全部资源，在结果页中以{{2}}形式列出。每张卡片显示资源名称、简短描述、一个分类图标，以及一个标示资源类型（工具或数据库）的图标。在结果页点击卡片会显示该资源的{{3}}。示例："
+    },
+    {
+      "pat": "Search for the {{1}}, i.e. {{2}}, returns the UniProt BLAST tool.",
+      "zh": "按{{1}}检索，例如{{2}}，会返回 UniProt BLAST 工具。"
+    },
+    {
+      "pat": "Search for a {{1}}, i.e. {{2}}, returns several resources containing the word in the description.",
+      "zh": "按{{1}}检索，例如{{2}}，会返回若干在描述中包含该词的资源。"
+    },
+    {
+      "pat": "Search for a {{1}}, i.e. {{2}}, returns all resources developed by that SIB group.",
+      "zh": "按{{1}}检索，例如{{2}}，会返回该 SIB 研究组开发的全部资源。"
+    },
+    {
+      "pat": "Search for {{1}}, i.e. {{2}}, returns all the GCBR resources.",
+      "zh": "按{{1}}检索，例如{{2}}，会返回全部 GCBR 资源。"
+    },
+    {
+      "pat": "The {{1}} search option allows the content of a various databases to be queried in parallel. The results are the number of hits obtained in each database. To view the results, you may need to select the {{2}} to view these results. Examples:",
+      "zh": "{{1}}选项可并行检索多个数据库的内容，结果给出各数据库中获得的命中数。要查看结果，可能需要点击{{2}}展开。示例："
+    },
+    {
+      "pat": "Search for a {{1}}, i.e. {{2}} returns hits in all four categories of databases.",
+      "zh": "按{{1}}检索，例如{{2}}，会在全部四类数据库中返回命中。"
+    },
+    {
+      "pat": "Search for an {{1}}, i.e. {{2}} returns hits in all four categories of databases.",
+      "zh": "按{{1}}检索，例如{{2}}，会在全部四类数据库中返回命中。"
+    },
+    {
+      "pat": "Search for a {{1}}, i.e. {{2}} corresponding to human insulin, also returns hits in all four categories of databases.",
+      "zh": "按{{1}}检索，例如{{2}}（对应人胰岛素），也会在全部四类数据库中返回命中。"
+    },
+    {
+      "pat": "Search for a {{1}}, i.e. {{2}} corresponding to a 3D structure of human APP protein, only returns hits in databases in the Evolution & Phylogeny and Proteins & Proteomes categories.",
+      "zh": "按{{1}}检索，例如{{2}}（对应人 APP 蛋白的三维结构），只会在「进化与系统发育」与「蛋白质与蛋白质组」分类的数据库中返回命中。"
+    },
+    {
+      "pat": "Search for a {{1}}, i.e. {{2}} corresponding to a mRNA for human BRCA1 protein, only returns hits in databases in Proteins & Proteomes category.",
+      "zh": "按{{1}}检索，例如{{2}}（对应人 BRCA1 蛋白的 mRNA），只会在「蛋白质与蛋白质组」分类的数据库中返回命中。"
+    },
+    {
+      "pat": "Search for an {{1}}, i.e. {{2}} corresponding to human APP protein, only returns hits in databases in the Evolution & Phylogeny and Proteins & Proteomes categories.",
+      "zh": "按{{1}}检索，例如{{2}}（对应人 APP 蛋白），只会在「进化与系统发育」与「蛋白质与蛋白质组」分类的数据库中返回命中。"
+    },
+    {
+      "pat": "Search for an {{1}}, i.e. {{2}} corresponding to caffeine, only returns hits in databases in the Evolution & Phylogeny and Proteins & Proteomes categories.",
+      "zh": "按{{1}}检索，例如{{2}}（对应咖啡因），只会在「进化与系统发育」与「蛋白质与蛋白质组」分类的数据库中返回命中。"
+    },
+    {
+      "pat": "Search for an {{1}}, i.e. {{2}} corresponding to protein kinase C, returns hits in databases in all categories except for Genes & Genomes.",
+      "zh": "按{{1}}检索，例如{{2}}（对应蛋白激酶 C），会在除「基因与基因组」以外的所有分类的数据库中返回命中。"
+    },
+    {
+      "pat": "The {{1}} displayed in the detailed view of an entry can be used to search in Expasy. Examples:",
+      "zh": "条目详情视图中显示的{{1}}可用于在 Expasy 中检索。示例："
+    },
+    {
+      "pat": "Search for resources tagged with the {{1}}, i.e. {{2}}.",
+      "zh": "检索带有{{1}}标签的资源，例如{{2}}。"
+    },
+    {
+      "pat": "To find resources where you can {{1}}, search for the term {{2}}.",
+      "zh": "要查找可以{{1}}的资源，请检索术语{{2}}。"
+    },
+    {
+      "pat": "To find {{1}}, search for the term {{2}}.",
+      "zh": "要查找{{1}}，请检索术语{{2}}。"
+    },
+    {
+      "pat": "To find resources providing {{1}}, search for the term {{2}}.",
+      "zh": "要查找提供{{1}}的资源，请检索术语{{2}}。"
+    },
+    {
+      "pat": "The detailed view for an entry displays a section {{1}} below the resource information. Suggestions of resources that share at least one topic which the resource being displayed are shown.",
+      "zh": "条目详情视图会在资源信息下方显示一个{{1}}区块，列出与当前资源至少共享一个主题的资源建议。"
+    },
+    {
+      "pat": "Expasy is the {{1}} registry of bioinformatics software tools, database/knowledgebase resources, and data sets developed by SIB members. It provides detailed information about software tools, databases and data sets that support a range of life science and clinical research domains, from genomics, proteomics and structural biology, to evolution and phylogeny, systems biology and medical chemistry.",
+      "zh": "Expasy 是 {{1}} 的生物信息学软件工具、数据库/知识库资源与数据集的登记目录，这些资源均由 SIB 成员开发。它提供软件工具、数据库与数据集的详细信息，覆盖从基因组学、蛋白质组学与结构生物学，到进化与系统发育、系统生物学与药物化学等一系列生命科学与临床研究领域。"
+    },
+    {
+      "pat": "Expasy was created in August 1993, at the dawn of the internet era, by two SIB-cofounders {{1}} and {{2}} At the time, it was referred to as 'ExPASy, the Expert Protein Analysis System' as proteins were its primary focus. It was the first life science website - and among the 150 very first websites in the world!",
+      "zh": "Expasy 于 1993 年 8 月、互联网时代初期由两位 SIB 联合创始人 {{1}} 和 {{2}} 创建。当时它被称为「ExPASy，Expert Protein Analysis System」，因为蛋白质是其关注重点。它是第一个生命科学网站，也是全球最早的 150 个网站之一！"
+    },
+    {
+      "pat": "The registry content is freely available to all under the Creative Commons Attribution licence ({{1}}). Please ensure appropriate credit by citing our reference publication.",
+      "zh": "登记目录的内容依据知识共享署名许可（{{1}}）向所有人免费开放。引用时请按我们的参考论文规范署名。"
+    },
+    {
+      "pat": "Please contact the {{1}} if you are a SIB member wishing to submit or update an entry in Expasy, if you experience any issues or simply want to let us know what you think of Expasy.",
+      "zh": "如果你是希望提交或更新 Expasy 条目的 SIB 成员，遇到任何问题，或只是想告诉我们你对 Expasy 的看法，请联系{{1}}。"
+    },
+    {
+      "pat": "Developed by the {{1}} and supported by the {{2}}{{3}}",
+      "zh": "由{{1}}开发，并得到{{2}}的支持{{3}}"
+    },
+    {
+      "pat": "Bgee is an {{1}}, an {{2}} and a {{3}}.",
+      "zh": "Bgee 是{{1}}、{{2}}与{{3}}。"
+    }
+  ]
+}

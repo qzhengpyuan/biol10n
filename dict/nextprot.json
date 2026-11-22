@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "family": "nextprot",
+    "version": "0.1.0",
+    "sites": [
+      "www.expasy.org"
+    ],
+    "area": "neXtProt 退役归档页（/archives/nextprot）：退役说明、数据与源码获取清单、替代资源指引",
+    "note": "neXtProt 官网 www.nextprot.org 已于 2025 年整体 301 到 expasy.org/archives/nextprot（SPA、/entry/NX_*、检索与文档页均已下线），词库只覆盖这个归档页；页头页脚与检索栏由 expasy 册提供，故本册需与 expasy 同栈加载。"
+  },
+  "exact": {
+    "Accessing Archived neXtProt Data and Source Code": "获取已归档的 neXtProt 数据与源代码",
+    "Looking for human protein information?": "想找人类蛋白质信息？",
+    "Please refer to:": "请参阅：",
+    "Retrieve Data on Zenodo": "在 Zenodo 获取数据",
+    "Explore Source Code on GitHub": "在 GitHub 查看源代码",
+    "Established in 2010, the neXtProt knowledgebase was created to capture insights from emerging omics studies by performing deep curation of clinically relevant disease mutations. It employed cutting-edge semantic technologies to integrate data from genomics, transcriptomics, and proteomics.": "neXtProt 知识库创建于 2010 年，旨在通过对临床相关疾病突变进行深度策展，捕捉新兴组学研究中的洞见。它采用前沿的语义技术整合基因组学、转录组学与蛋白质组学数据。",
+    "Additionally, neXtProt developed advanced tools to facilitate the exploration and querying of this data, making it accessible to both general and specialized protein research. Between 2011 and 2023, it was recognized as the primary reference resource for the Human Proteome Project (HPP). These achievements made neXtProt a powerful tool for advancing our understanding of the human proteome and its implications in health and disease.": "此外，neXtProt 还开发了先进工具，便于探索与查询这些数据，使一般研究者与专业蛋白质研究都能使用。2011 年至 2023 年间，它被公认为人类蛋白质组计划（HPP）的主要参考资源。这些成果使 neXtProt 成为推进人类蛋白质组认识及其在健康与疾病中意义的强大工具。",
+    "After 14 years, neXtProt has reached its end of life and no longer provides data or services. Thank you for your support and trust!": "历经 14 年，neXtProt 已终止服务，不再提供数据或服务。感谢你的支持与信任！",
+    "Though neXtProt services have ended, we’ve ensured that its data and tools remain accessible for future research.": "尽管 neXtProt 的服务已经结束，我们已确保其数据与工具仍可供后续研究使用。",
+    "a knowledge hub to support the HPP Grand Challenge": "支持 HPP 宏大挑战的知识枢纽",
+    "Main repository": "主仓库"
+  },
+  "rules": [],
+  "templates": [
+    {
+      "pat": "{{1}}: Latest release (September 2023) with extensive metadata.",
+      "zh": "{{1}}：最新发布（2023 年 9 月），含丰富元数据。"
+    },
+    {
+      "pat": "{{1}}: neXtProt data releases prior to September 2023.",
+      "zh": "{{1}}：2023 年 9 月之前的 neXtProt 数据发布。"
+    },
+    {
+      "pat": "{{1}}: neXtProt functional proteome project .",
+      "zh": "{{1}}：neXtProt 功能蛋白质组项目。"
+    },
+    {
+      "pat": "{{1}}: Protein kinase function portal.",
+      "zh": "{{1}}：蛋白激酶功能门户。"
+    },
+    {
+      "pat": "{{1}}: Cancer variants portal.",
+      "zh": "{{1}}：癌症变异门户。"
+    },
+    {
+      "pat": "{{1}}; Ion channels variants portal.",
+      "zh": "{{1}}：离子通道变异门户。"
+    },
+    {
+      "pat": "{{1}}: Comprehensive neXtProt projects and resources.",
+      "zh": "{{1}}：neXtProt 项目与资源的汇总。"
+    },
+    {
+      "pat": "{{1}}: Interactive protein feature visualization tool.",
+      "zh": "{{1}}：交互式蛋白质特征可视化工具。"
+    },
+    {
+      "pat": "{{1}}, a knowledge hub to support the HPP Grand Challenge",
+      "zh": "{{1}}，支持 HPP 宏大挑战的知识枢纽"
+    }
+  ]
+}

@@ -78,7 +78,18 @@
     "Journal Note": "期刊说明",
     "About the PMC Journal List": "关于 PMC 期刊列表",
     "FILTERS": "筛选",
-    "PubMed Central (PMC) Home Page": "PubMed Central（PMC）主页"
+    "PubMed Central (PMC) Home Page": "PubMed Central（PMC）主页",
+    "PMC Header with search box": "PMC 页眉与检索框",
+    "Open search": "打开检索",
+    "Suggestions": "检索建议",
+    "Actions bar": "操作栏",
+    "Open resources": "打开资源",
+    "Open article navigation": "打开文章导航",
+    "Disclaimer note": "免责声明说明",
+    "Journal banner": "期刊横幅",
+    "Article citation and metadata": "文章引文与元数据",
+    "Article content": "文章正文",
+    "Article resources and navigation": "文章资源与导航"
   },
   "rules": [
     {
@@ -144,6 +155,10 @@
     {
       "re": "^Journal added in last 30 days \\((\\d[\\d,]*)\\)$",
       "to": "近 30 天新增期刊（$1）"
+    },
+    {
+      "re": "^Link to (.+)$",
+      "to": "链接到 $1"
     }
   ]
 }

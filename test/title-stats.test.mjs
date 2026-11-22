@@ -83,3 +83,10 @@ test("功能词不做大小写折叠（from 不匹配 From）", () => {
   assert.equal(ps[0].textContent, "from", "小写正文词不该被折叠命中");
   assert.equal(ps[1].textContent, "从", "同形大写标签仍翻");
 });
+
+// r21 后续：整条标题被规则命中时，槽位里剩下的英文是数据（检索词、基因名），不整条退回。
+test("规则命中的标题保留槽位英文", () => {
+  const rules = [{ re: "^Search ClinicalTrials\\.gov for: (.+) \\| Card Results \\| ClinicalTrials\\.gov$", to: "检索 ClinicalTrials.gov：$1 | 卡片结果 | ClinicalTrials.gov" }];
+  const { doc } = boot("<p>hi</p>", "Search ClinicalTrials.gov for: cancer | Card Results | ClinicalTrials.gov", { exact: {}, rules });
+  assert.equal(doc.title, "检索 ClinicalTrials.gov：cancer | 卡片结果 | ClinicalTrials.gov");
+});

@@ -315,6 +315,10 @@
   },
   "rules": [
     {
+      "re": "^(.+) \\((RF\\d+)\\) - Rfam Database$",
+      "to": "$1 ($2) - Rfam 数据库"
+    },
+    {
       "re": "^Rfam (\\d+\\.\\d+) \\(([A-Za-z]+) (\\d{4}), ([\\d,]+) families\\)$",
       "to": "Rfam $1（$3 年 $2，$4 个家族）",
       "requireHit": true

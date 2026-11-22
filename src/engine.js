@@ -1779,7 +1779,11 @@ function createEngine(options) {
     if (v === null) v = translate(t);
     // 规则兜底也只接受"没剩下英文单词"的结果：剩下 ≥3 字母的小写单词说明只翻了半截
     // （"breast cancer - GEO 数据集 - NCBI"），宁可整条不动。
-    if (v !== null && !titleAcceptable(v, keptTitle)) v = null;
+    // 例外：整条标题被某条规则命中（stats.titleRule 涨了）时，规则已经吃掉了整串，
+    // 剩下的英文是槽位里的数据（ClinicalTrials 的检索词、Open Targets 的基因名），
+    // 不能因为槽位是英文就整条退回。
+    var ruleHit = (stats.titleRule || 0) > prevTitleRule;
+    if (v !== null && !ruleHit && !titleAcceptable(v, keptTitle)) v = null;
     if (v === null) {
       stats.titleHit = prevTitleHit || undefined;
       stats.titleRule = prevTitleRule || undefined;

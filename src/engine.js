@@ -1502,6 +1502,8 @@ function createEngine(options) {
         translateTemplates(up && up.nodeType === 1 && up !== doc.body ? up : host);
       }
       walk(host);
+      // 运行时才挂上的 shadow root（React 组件后插）不会被 scan 看到，flush 里补一次
+      translateShadowRoots(host);
     });
     // SPA 路由后 <title> 由 React Helmet 之类改写，改的是 head 里的文本节点：
     // 它不在 scope 内，walk 拿不到，也不会再触发 scan()，标题就停在占位串

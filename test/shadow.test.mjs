@@ -14,7 +14,7 @@ const DATA = {
     Search: "搜索",
     "Advanced search": "高级检索",
     "Protein families": "蛋白家族",
-    "Explore": "探索"
+    Explore: "探索"
   },
   rules: []
 };
@@ -54,5 +54,16 @@ test("嵌套 shadow root 也会被覆盖", () => {
   engine.scan();
   assert.match(outer.textContent, /探索/);
   assert.match(inner.textContent, /高级检索/, "嵌套的那一层也要翻");
+  dom.window.close();
+});
+
+test("运行时挂上的 shadow root 也会被处理", async () => {
+  const { engine, doc, dom } = boot('<div id="app"></div>');
+  const host = doc.createElement("x-card");
+  const sr = host.attachShadow({ mode: "open" });
+  sr.innerHTML = "<p>Advanced search</p>";
+  doc.getElementById("app").appendChild(host);
+  await new Promise((r) => setTimeout(r, 700));
+  assert.match(sr.textContent, /高级检索/, "后插的 shadow 内容也要翻");
   dom.window.close();
 });

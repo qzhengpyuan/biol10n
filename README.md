@@ -142,7 +142,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
-| alphafold | 251 | 23 | 9 | AlphaFold DB（首页、条目页、检索、下载） |
+| alphafold | 252 | 23 | 9 | AlphaFold DB（首页、条目页、检索、下载） |
 | amigo | 141 | 7 | 2 | AmiGO 2（首页、检索、术语页、浏览） |
 | anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
 | biomart | 336 | 23 |  | Ensembl BioMart（数据集、Filters/Attributes、Results、导出） |
@@ -152,7 +152,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | cbioportal2 | 51 | 2 | 5 | cBioPortal 补漏（研究页、图表、下载对话框） |
 | clingen | 436 | 10 | 27 | ClinGen 与 ClinPGx |
 | clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
-| clinicaltrials | 570 | 33 | 119 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
+| clinicaltrials | 595 | 36 | 119 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
 | clinvar-core | 258 | 38 | 1 | ClinVar 首页/检索/变异记录/筛选器 |
 | clinvar-deep | 40 | 4 | 10 | ClinVar 深页（证据、表型、提交者） |
 | clinvar-frag | 86 | 0 | 36 | ClinVar 切碎句（跨节点拼接） |
@@ -173,7 +173,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | gdc2 | 2 | 2 |  | GDC Data Portal 补漏 |
 | gdv | 103 | 6 | 1 | NCBI GDV（基因组数据查看器） |
 | gdv2 | 60 | 11 |  | GDV 配置轨道面板、轨道集线器、帮助页 |
-| gene | 217 | 31 |  | NCBI Gene |
+| gene | 217 | 33 |  | NCBI Gene |
 | gene2 | 39 | 6 | 2 | NCBI Gene 补漏 |
 | geneontology | 522 | 2 | 4 | 基因本体资源（首页、文档、下载、工具目录） |
 | geo-docs | 411 | 1 | 22 | GEO 文档体系（/geo/info、FAQ、MIAME、提交指南） |
@@ -194,30 +194,30 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | mirbase | 159 | 22 |  | miRBase |
 | misc-extra | 217 | 5 | 3 | UALCAN / GTEx / GEPIA2 补漏 |
 | misc-tpl | 32 | 0 | 83 | 杂项整段模板 |
-| ncbi | 1411 | 72 | 1 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
+| ncbi | 1432 | 75 | 1 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
 | ncbi-cat | 160 | 10 | 4 | NCBI 目录站（Guide、NLM Catalog、ORFfinder） |
-| ncbi-deep2 | 81 | 10 | 1 | GTR 基因页 / MedGen / BioSample / CCDS / Datasets 深页 |
+| ncbi-deep2 | 84 | 14 | 1 | GTR 基因页 / MedGen / BioSample / CCDS / Datasets 深页 |
 | ncbi-dirs | 291 | 4 | 25 | RefSeq / BioSample / CCDS / 提交门户 |
 | ncbi-footer | 73 | 2 |  | NCBI 全站页脚（mega footer、NLM 新版页脚、Structure 字段） |
 | ncbi-guide | 30 | 0 |  | NCBI Guide 深页 |
-| ncbi-help | 1705 | 1 | 19 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
+| ncbi-help | 1707 | 1 | 19 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
 | ncbi-home | 41 | 5 |  | NCBI 首页与全站导航 |
 | ncbi-new2 | 158 | 11 | 2 | MedGen / GTR / dbVar / BioProject / Structure / NLM Catalog / ORFfinder / Guide / Datasets 深页 |
 | ncbi-struct | 192 | 21 |  | Structure / CCD / IPG 记录页 |
 | nextprot | 12 | 0 | 9 | neXtProt 退役归档页 |
 | onco | 239 | 9 |  | TCGA 队列、变异类型、生存统计 |
-| opentargets | 326 | 18 | 31 | Open Targets Platform（靶点页、疾病页、证据面板、下载） |
-| pdbe | 200 | 8 | 2 | PDBe（首页、条目页、检索、下载与文档） |
+| opentargets | 409 | 24 | 32 | Open Targets Platform（靶点页、疾病页、证据面板、下载） |
+| pdbe | 201 | 8 | 2 | PDBe（首页、条目页、检索、下载与文档） |
 | pharmgkb | 73 | 8 | 13 | PharmGKB / ClinPGx（首页、基因页、变异页、说明书注释、下载） |
 | pmc | 82 | 17 |  | NCBI PMC（首页、页眉页脚、文章骨架） |
 | pmc-home | 47 | 5 | 4 | PMC 首页与检索 |
-| pride | 252 | 24 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
+| pride | 337 | 39 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
 | pubchem-dbgap | 496 | 4 | 2 | PubChem 与 dbGaP |
 | pubmed2 | 22 | 3 | 1 | PubMed 首页与结果页补漏 |
 | rcsb | 723 | 34 | 3 | RCSB PDB（含新版首页与检索） |
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
 | reactome | 517 | 56 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
-| rfam | 306 | 29 | 28 | Rfam（首页、家族页、检索、下载、帮助文档） |
+| rfam | 330 | 29 | 28 | Rfam（首页、家族页、检索、下载、帮助文档） |
 | seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
 | snp | 121 | 4 | 5 | NCBI dbSNP |
@@ -228,7 +228,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | taxonomy | 115 | 6 |  | NCBI Taxonomy |
 | timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
-| ucsc | 997 | 9 | 49 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
+| ucsc | 1004 | 9 | 49 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
 | ucsc-extra | 229 | 12 |  | UCSC 补充（hgTracks 工具栏、轨道名、hgTables） |
 | ucsc-hggene | 55 | 6 |  | hgGene / hgGeneGraph 基因页正文与控件 |
 | ucsc-tpl | 80 | 7 | 74 | UCSC 整段模板 |
@@ -236,13 +236,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 773 | 16 |  | UniProt |
 | uniprot2 | 93 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **26016 条 / 1282 条规则 / 997 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **26266 条 / 1315 条规则 / 998 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（1033 条）
+npm test             # 引擎、面板、站点与产物单测（1106 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

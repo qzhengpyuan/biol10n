@@ -1,12 +1,12 @@
 {
   "meta": {
     "family": "expasy",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "sites": [
       "www.expasy.org"
     ],
     "area": "Expasy 资源门户（首页、工具/资源目录、检索结果、资源详情、帮助、关于、新闻、归档页）",
-    "note": "Expasy 词库：导航与页脚、检索栏、分类/类型枚举、分页、日期句式、帮助页与关于页固定说明句、资源详情页字段与按钮。资源名称及其一句话简介属于数据集描述，不翻。"
+    "note": "Expasy 词库：导航与页脚、检索栏、分类/类型枚举、分页、日期句式、帮助页与关于页固定说明句、资源详情页字段与按钮，以及首页/检索结果/资源详情页资源卡的一句话简介（资源名保留英文，EDAM 术语与数据集项目名不翻）。"
   },
   "exact": {
     "Explore high-quality biological data resources": "探索高质量生物数据资源",
@@ -139,7 +139,48 @@
     "&laquo; Previous": "上一页",
     "Next &raquo;": "下一页",
     "Expasy: Swiss Bioinformatics Resource Portal": "Expasy：瑞士生物信息学资源门户",
-    "Hide the news": "隐藏新闻"
+    "Hide the news": "隐藏新闻",
+    "Gene expression expertise": "基因表达专业资源",
+    "Protein-protein interaction networks and enrichment analysis": "蛋白质相互作用网络与富集分析",
+    "Knowledge resource for lipids": "脂质知识资源",
+    "Knowledge resource on cell lines": "细胞系知识资源",
+    "Viral genomic variant detection pipeline": "病毒基因组变异检测流水线",
+    "Real-time tracking of pathogen evolution": "病原体进化的实时追踪",
+    "Microbial taxonomic and population genomic profiler": "微生物分类与群体基因组分析工具",
+    "Protein knowledgebase": "蛋白质知识库",
+    "Expert-curated database of biochemical reactions": "专家策展的生化反应数据库",
+    "One-stop shop for orthologs": "直系同源物一站式资源",
+    "Widening access to computer-aided drug design": "拓宽计算机辅助药物设计的可及性",
+    "Tools and data for regulatory genomics": "调控基因组学的工具与数据",
+    "Protein structure homology-modelling": "蛋白质结构同源建模",
+    "Web-based, cooperative portal for single-cell data analyses": "基于网页的单细胞数据分析协作门户",
+    "Public Swiss pathogen NGS data": "瑞士病原体 NGS 公开数据",
+    "Zooming in on web-based glycoinformatics resources": "聚焦基于网页的糖信息学资源",
+    "Statistical framework for pathogen genome evolution analysis": "病原体基因组进化分析的统计框架",
+    "Protein sequence database": "蛋白质序列数据库",
+    "Database of positive selection": "正选择数据库",
+    "Protein family and domain database": "蛋白质家族与结构域数据库",
+    "Protein structure homology models": "蛋白质结构同源模型",
+    "Docking of small ligands into protein active sites": "小分子配体对接至蛋白质活性位点",
+    "Enzyme nomenclature database": "酶命名数据库",
+    "UniProtKB family classification and annotation": "UniProtKB 家族分类与注释",
+    "Knowledgebase on virus biology and viral proteins": "病毒生物学与病毒蛋白知识库",
+    "Human protein knowledgebase": "人类蛋白质知识库",
+    "Ortholog evolutionary and functional annotations": "直系同源物的进化与功能注释",
+    "Orthology inference among complete genomes": "完整基因组间的直系同源推断",
+    "Metabolic network repository & analysis": "代谢网络存储库与分析",
+    "Portal to venom protein UniProtKB entries": "毒液蛋白 UniProtKB 条目门户",
+    "An integrated software for population genetics data analysis": "群体遗传学数据分析集成软件",
+    "Structural and functional classification of lectins": "凝集素的结构与功能分类",
+    "Glycan structures and associated mass spectrometry data": "聚糖结构及相关质谱数据",
+    "Eukaryotic Promoter Database": "真核启动子数据库",
+    "Target prediction for bioactive small molecules": "生物活性小分子的靶点预测",
+    "Ligand-based virtual screening": "基于配体的虚拟筛选",
+    "Database of non-natural amino acid side chains": "非天然氨基酸侧链数据库",
+    "Genome-wide sequence tag scanner": "全基因组序列标签扫描器",
+    "Database of genome-wide annotations of regulatory sites": "全基因组调控位点注释数据库",
+    "Topology and parameters for small molecules": "小分子的拓扑与参数",
+    "Expasy - SIB Swiss Institute of Bioinformatics": "Expasy - 瑞士生物信息学研究所（SIB）"
   },
   "rules": [
     {

@@ -44,6 +44,9 @@ function createEngine(options) {
 
   // 模板通道：段落被 <a>/<code>/<em> 切成片段时，逐节点翻会半中半英、整段替换会丢链接。
   // 词条存成带 {{n}} 占位符的模板，运行时按占位符把原来的内联元素放回新译文里，链接与事件都保留。
+  // 功能词不做大小写折叠：站点正文里的 "from"/"and" 与词表里的标签 "From"/"AND" 是两个东西。
+  // PubChem 的 "Available from … as of March 10" 就是被 "From => 从" 折叠命中成 "Available 从"。
+  var NO_CASE_FOLD = { from: 1, to: 1, of: 1, and: 1, or: 1, with: 1, in: 1, by: 1, at: 1, as: 1, on: 1, the: 1, a: 1, an: 1, for: 1, is: 1, was: 1 };
   var INLINE_TAGS = {
     A: 1, ABBR: 1, B: 1, BDI: 1, BDO: 1, BR: 1, CITE: 1, CODE: 1, DATA: 1, DEL: 1, DFN: 1,
     EM: 1, I: 1, INS: 1, KBD: 1, MARK: 1, Q: 1, S: 1, SAMP: 1, SMALL: 1, SPAN: 1,
@@ -119,8 +122,10 @@ function createEngine(options) {
       var hit = exact.get(cand[i]);
       if (hit !== undefined) return hit;
       if (isCapsConstant(cand[i])) continue;
-      var low = lowerIndex.get(cand[i].toLowerCase());
-      if (low !== undefined) return low;
+      if (!NO_CASE_FOLD[cand[i].toLowerCase()]) {
+        var low = lowerIndex.get(cand[i].toLowerCase());
+        if (low !== undefined) return low;
+      }
     }
     for (var j = 0; j < cand.length; j++) {
       var sg = singulars(cand[j]);
@@ -128,8 +133,10 @@ function createEngine(options) {
         var hit2 = exact.get(sg[k]);
         if (hit2 !== undefined) return hit2;
         if (isCapsConstant(sg[k])) continue;
-        var low2 = lowerIndex.get(sg[k].toLowerCase());
-        if (low2 !== undefined) return low2;
+        if (!NO_CASE_FOLD[sg[k].toLowerCase()]) {
+          var low2 = lowerIndex.get(sg[k].toLowerCase());
+          if (low2 !== undefined) return low2;
+        }
       }
     }
     return null;
@@ -1671,20 +1678,23 @@ function createEngine(options) {
    *  结果是中文品牌名后面挂一截英文（"…in Breast Invasive Carcinoma（TCGA，泛癌图谱）"）。
    *  分段时每段也只用 exact：命中的段换成中文，没命中的（品牌名）原样留着。 */
   function titleBySegments(t) {
-    var seps = [" — ", " – ", " | ", " :: ", " · ", ": ", " - "];
+    var seps = [" — ", " – ", " | ", " :: ", " · ", ": ", " - ", " < "];
     for (var s = 0; s < seps.length; s++) {
       var sep = seps[s];
       if (t.indexOf(sep) < 0) continue;
       var parts = t.split(sep);
       if (parts.length < 2 || parts.length > 4) continue;
-      var out = [], ok = true, changed = false;
+      var out = [], kept = [], ok = true, changed = false;
       for (var i = 0; i < parts.length; i++) {
         var p = String(parts[i]).trim();
         if (!p || p.length > 60) { ok = false; break; }
         var tr = lookupExact(p);
-        if (tr !== null) { out.push(tr); changed = true; } else { out.push(p); }
+        if (tr !== null) { out.push(tr); changed = true; } else { out.push(p); kept.push(p); }
       }
-      if (ok && changed) return out.join(sep === ": " ? "：" : sep);
+      if (ok && changed) {
+        for (var q = 0; q < kept.length; q++) if (!keptOk(kept[q])) return null;
+        return { text: out.join(sep === ": " ? "：" : sep), kept: kept };
+      }
     }
     return null;
   }
@@ -1698,14 +1708,41 @@ function createEngine(options) {
     dbSNP: 1, RefSeq: 1, "ClinGen": 1, "OMIM": 1, PharmGKB: 1,
     // 新站与 NCBI 目录站：标题里保留这些品牌名，否则整条标题会被 titleAcceptable 丢掉
     MedGen: 1, Medgen: 1, dbVar: 1, MeSH: 1, ORFfinder: 1, PubChem: 1, dbGaP: 1,
-    BioSample: 1, CCDS: 1, STRING: 1, gnomAD: 1, ClinPGx: 1, GXA: 1, GenBank: 1
+    BioSample: 1, CCDS: 1, STRING: 1, gnomAD: 1, ClinPGx: 1, GXA: 1, GenBank: 1,
+    InterPro: 1, BioMart: 1, Europe: 1, Reactome: 1, PRIDE: 1, Expasy: 1, neXtProt: 1,
+    Homepage: 1, Expression: 1, Atlas: 1, Genome: 1, Browser: 1,
+    AmiGO: 1, QuickGO: 1, ClinicalTrials: 1, Targets: 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
-  function titleAcceptable(v) {
+  /** 没有翻译、原样保留的标题分段：只允许"含品牌名/全大写/带数字"的段整段留下，
+   *  避免 "breast cancer - GEO 数据集 - NCBI" 这种半截标题被当成合格结果。 */
+  function keptOk(seg) {
+    if (!seg || seg.length > 60) return false;
+    var ws = seg.match(/[A-Za-z][A-Za-z0-9.+#-]*/g) || [];
+    if (!ws.length) return true;
+    // 段里带登录号（Kringle (IPR000001)、GCF_…）时，首字母大写的专名也算可保留；
+    // 纯词组（breast cancer）没有编号，仍然拒绝，避免接受半截标题。
+    var hasId = /[A-Za-z]*\d/.test(seg) || /\([A-Za-z]{2,}\d/.test(seg);
+    var brandSeen = false;
+    for (var i = 0; i < ws.length; i++) {
+      var w = ws[i];
+      if (TITLE_BRANDS[w] || w === w.toUpperCase() || /\d/.test(w) || w.length <= 2) { brandSeen = true; continue; }
+      if (hasId && /^[A-Z]/.test(w)) { brandSeen = true; continue; }
+      return false;
+    }
+    return brandSeen;
+  }
+  function titleAcceptable(v, kept) {
     if (!hasCJK(v)) return false;
     var words = String(v).match(/[A-Za-z][A-Za-z0-9.+#-]*/g) || [];
+    var allowed = {};
+    (kept || []).forEach(function (seg) {
+      var ws = String(seg).match(/[A-Za-z][A-Za-z0-9.+#-]*/g) || [];
+      ws.forEach(function (w) { allowed[w] = 1; });
+    });
     for (var i = 0; i < words.length; i++) {
       var w = words[i];
+      if (allowed[w]) continue;
       if (TITLE_BRANDS[w]) continue;
       if (/\d/.test(w)) continue;
       if (w.length <= 2) continue;
@@ -1731,17 +1768,18 @@ function createEngine(options) {
     // 记的是"尝试过"而不是"翻成了"，会让 GEO 这种整条没翻的页面也显示 titleRule:8，回滚掉。
     var prevTitleHit = stats.titleHit || 0, prevTitleRule = stats.titleRule || 0;
     var v = lookupExact(t);
+    var keptTitle = null;
     // 分段结果不合格时不能直接放弃：整条标题规则（HPA 的
     // "^Tissue expression of (.+) - Summary - The Human Protein Atlas$"）往往能一次翻完，
     // 原来 titleBySegments 返回半中半英后就被 titleAcceptable 丢掉，规则永远轮不到。
     if (v === null) {
       var segT = titleBySegments(t);
-      if (segT !== null && titleAcceptable(segT)) v = segT;
+      if (segT !== null && titleAcceptable(segT.text, segT.kept)) { v = segT.text; keptTitle = segT.kept; }
     }
     if (v === null) v = translate(t);
     // 规则兜底也只接受"没剩下英文单词"的结果：剩下 ≥3 字母的小写单词说明只翻了半截
     // （"breast cancer - GEO 数据集 - NCBI"），宁可整条不动。
-    if (v !== null && !titleAcceptable(v)) v = null;
+    if (v !== null && !titleAcceptable(v, keptTitle)) v = null;
     if (v === null) {
       stats.titleHit = prevTitleHit || undefined;
       stats.titleRule = prevTitleRule || undefined;

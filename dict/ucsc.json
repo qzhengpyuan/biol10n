@@ -1039,6 +1039,10 @@
     {
       "re": "^Human Gene (\\S+) \\((.+?)\\) from (.+)$",
       "to": "人类基因 $1（$2，$3）"
+    },
+    {
+      "re": "^UCSC Genome Browser Gene Interaction Graph$",
+      "to": "UCSC Genome Browser 基因互作图"
     }
   ],
   "templates": [

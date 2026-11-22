@@ -58,3 +58,28 @@ test("MeSH / ORFfinder / MedGen 标题同样放行", () => {
   const c = boot("<p>hi</p>", "Medgen web - NCBI", { exact: { "Medgen web": "MedGen 网页" } });
   assert.equal(c.doc.title, "MedGen 网页 - NCBI");
 });
+
+// r21：非 NCBI 新站的标题品牌不在白名单，整条标题被丢弃（Europe PMC / InterPro / Reactome / PRIDE / Expasy）。
+test("非 NCBI 新站品牌与保留分段都放行", () => {
+  const { engine, doc } = boot("<p>hi</p>", "Home - Europe PMC", { exact: { Home: "首页" } });
+  assert.match(doc.title, /首页/);
+  assert.match(doc.title, /Europe PMC/);
+});
+
+test("保留分段不含品牌名时仍然拒绝半截标题", () => {
+  const { engine, doc } = boot("<p>hi</p>", "breast cancer - GEO 数据集 - NCBI", { exact: {} });
+  assert.equal(doc.title, "breast cancer - GEO 数据集 - NCBI");
+});
+
+test("< 作为标题分隔符（Plant experiments < Expression Atlas < EMBL-EBI）", () => {
+  const { engine, doc } = boot("<p>hi</p>", "Plant experiments < Expression Atlas < EMBL-EBI", { exact: { "Plant experiments": "植物实验" } });
+  assert.match(doc.title, /植物实验/);
+});
+
+// r21：功能词不能做大小写折叠，否则正文里的 from/and 会被标签词 From/AND 吃掉。
+test("功能词不做大小写折叠（from 不匹配 From）", () => {
+  const { doc } = boot("<p>from</p><p>From</p>", "t", { exact: { From: "从" } });
+  const ps = doc.querySelectorAll("p");
+  assert.equal(ps[0].textContent, "from", "小写正文词不该被折叠命中");
+  assert.equal(ps[1].textContent, "从", "同形大写标签仍翻");
+});

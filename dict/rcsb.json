@@ -729,7 +729,8 @@
     "Terminal acetylation": "末端乙酰化",
     "Non-standard linkage": "非标准连接",
     "Membrane and cell surface proteins and peptides": "膜蛋白与细胞表面蛋白及肽类",
-    "Multi-domain proteins (alpha and beta)": "多结构域蛋白（α 和 β）"
+    "Multi-domain proteins (alpha and beta)": "多结构域蛋白（α 和 β）",
+    "Homepage": "首页"
   },
   "rules": [
     {

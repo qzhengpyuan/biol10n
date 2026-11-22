@@ -232,7 +232,16 @@
     "Article notes": "文章注释",
     "Copyright and license information": "版权与许可信息",
     "Corresponding author.": "通讯作者。",
-    "EPMC Copyright notice": "EPMC 版权声明"
+    "EPMC Copyright notice": "EPMC 版权声明",
+    "to": "至",
+    "Complete Survey": "完成问卷",
+    "Survey": "问卷",
+    "ELIXIR core data resource": "ELIXIR 核心数据资源",
+    "ELIXIR Core Data Resource": "ELIXIR 核心数据资源",
+    "Europe PMC Funders' Group": "Europe PMC 资助方小组",
+    "EMBL-EBI's long term data preservation policies": "EMBL-EBI 的长期数据保存政策",
+    "PubMed Central International": "PubMed Central 国际版",
+    "Global Core Biodata Resource": "全球核心生物数据资源"
   },
   "rules": [
     {

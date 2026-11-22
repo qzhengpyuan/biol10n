@@ -37,7 +37,8 @@
         "common",
         "ncbi",
         "ncbi-home",
-        "ncbi-footer"
+        "ncbi-footer",
+        "gene"
       ],
       "scope": "body",
       "spa": true,
@@ -222,7 +223,7 @@
       "id": "ncbi-books",
       "name": "NCBI Bookshelf",
       "path": "^/books",
-      "skip": "ul.toc, .bktoc_lst_exp, .chapter-body, .bk_sec, .jig-ncbibookshelf-content"
+      "skip": "ul.toc a.toc-item, .bktoc_lst_exp a.toc-item, .chapter-body, .bk_sec, .jig-ncbibookshelf-content"
     },
     {
       "hosts": [
@@ -263,7 +264,8 @@
         "common",
         "ncbi",
         "snp",
-        "ncbi-footer"
+        "ncbi-footer",
+        "clinvar-core"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -1420,7 +1422,8 @@
       "dicts": [
         "common",
         "clingen",
-        "clingen2"
+        "clingen2",
+        "pharmgkb"
       ],
       "scope": "body",
       "spa": true,
@@ -1430,7 +1433,10 @@
         8000,
         15000
       ],
-      "proseExempt": ""
+      "proseExempt": "",
+      "attrs": [
+        "data-tooltip-content"
+      ]
     },
     {
       "id": "pubchem",
@@ -1659,6 +1665,158 @@
       ],
       "spa": true,
       "waitFor": "#home-page, .search-results, .search-filters, .article-menu, .epmc_pageHolder, #data-protection-banner-left"
+    },
+    {
+      "id": "hpo",
+      "name": "人类表型本体 HPO",
+      "hosts": [
+        "hpo.jax.org"
+      ],
+      "dicts": [
+        "common",
+        "hpo"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "main, .ontology-content, app-root",
+      "proseExempt": ""
+    },
+    {
+      "id": "geneontology",
+      "name": "Gene Ontology",
+      "hosts": [
+        "geneontology.org",
+        "www.geneontology.org"
+      ],
+      "dicts": [
+        "common",
+        "geneontology"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
+      "id": "amigo",
+      "name": "AmiGO 2",
+      "hosts": [
+        "amigo.geneontology.org"
+      ],
+      "dicts": [
+        "common",
+        "geneontology",
+        "amigo"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "#amigo-main, main, .container-fluid",
+      "proseExempt": ""
+    },
+    {
+      "id": "opentargets",
+      "name": "Open Targets Platform",
+      "hosts": [
+        "platform.opentargets.org"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "opentargets"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "main, #root",
+      "proseExempt": ""
+    },
+    {
+      "id": "alphafold",
+      "name": "AlphaFold DB",
+      "hosts": [
+        "alphafold.ebi.ac.uk"
+      ],
+      "dicts": [
+        "common",
+        "string-atlas",
+        "alphafold"
+      ],
+      "scope": "body",
+      "proseExempt": "",
+      "spa": true,
+      "waitFor": "app-root, main"
+    },
+    {
+      "id": "pdbe",
+      "name": "PDBe",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/pdbe",
+      "dicts": [
+        "common",
+        "string-atlas",
+        "pdbe"
+      ],
+      "scope": "body",
+      "proseExempt": "",
+      "spa": true,
+      "waitFor": "main#main"
+    },
+    {
+      "id": "rfam",
+      "name": "Rfam",
+      "hosts": [
+        "rfam.org",
+        "www.rfam.org",
+        "docs.rfam.org"
+      ],
+      "dicts": [
+        "common",
+        "rfam"
+      ],
+      "scope": "body",
+      "proseExempt": "",
+      "skip": "#rfam-wiki-article"
+    },
+    {
+      "id": "clinicaltrials",
+      "name": "ClinicalTrials.gov",
+      "hosts": [
+        "clinicaltrials.gov",
+        "www.clinicaltrials.gov"
+      ],
+      "dicts": [
+        "common",
+        "clinicaltrials"
+      ],
+      "scope": "body",
+      "proseExempt": "",
+      "attrs": [
+        "value"
+      ],
+      "spa": true,
+      "waitFor": "app-root ctg-search-input, app-root ctg-search-hit-card, app-root .study-overview-item-title, app-root .records-dates-container"
+    },
+    {
+      "id": "pharmgkb",
+      "name": "PharmGKB",
+      "hosts": [
+        "www.pharmgkb.org",
+        "pharmgkb.org"
+      ],
+      "dicts": [
+        "common",
+        "clingen",
+        "clingen2",
+        "pharmgkb"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "#app",
+      "proseExempt": "",
+      "rescan": [
+        3000,
+        8000,
+        15000
+      ]
     }
   ]
 }

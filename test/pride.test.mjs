@@ -159,8 +159,8 @@ test("首页 hero 与 KPI：固定说明句、示例检索词、统计口径", (
     doc.querySelector(".hero p").textContent,
     "查找、共享并复用质谱蛋白质组学数据（ProteomeXchange 创始成员、ELIXIR 核心数据资源）。"
   );
-  // 项目名保持原文
-  assert.equal(doc.querySelector("h1").textContent, "The PRoteomics IDEntifications database");
+  // 品牌全称按 r21 P2-4 要求译出（PRIDE 是缩写，段落里保留）
+  assert.equal(doc.querySelector("h1").textContent, "PRIDE 蛋白质组鉴定数据库");
   assert.equal(doc.querySelector(".hero-examples span").textContent, "试试：");
   assert.equal(doc.querySelector(".hero-examples a").textContent, "或浏览全部数据集 →");
   assert.equal(doc.querySelector("input").getAttribute("placeholder"), "登录号、关键词、蛋白质、物种、疾病……");
@@ -324,7 +324,7 @@ test("数据集卡片：固定标签翻译，卡片里的数据（标题、物�
   assert.equal([...doc.querySelectorAll(".person-link")][0].textContent, "Nariko Arimura");
   assert.ok(doc.querySelector(".resource-title").textContent.startsWith("DIA-based plasma proteomic profiling"), "数据集标题不翻");
   assert.ok(doc.querySelector(".project-info + span").textContent.includes("This dataset contains"), "项目描述正文（长句）保持英文");
-  assert.equal(doc.querySelectorAll(".more-action")[0].textContent, "Read more", "跨册已有两种译法，Read more 暂不收（见报告）");
+  assert.equal(doc.querySelectorAll(".more-action")[0].textContent, "阅读更多", "r21 P2-4：Read more 收为「阅读更多」，与 ucsc 对齐");
   const dateText = [...doc.querySelectorAll("p span")].map((e) => e.textContent.trim()).find((t) => t === "2026-11-19");
   assert.ok(dateText, "日期保持原文");
   assert.ok(doc.body.textContent.includes("总下载次数：0"), "下载计数标签走规则");

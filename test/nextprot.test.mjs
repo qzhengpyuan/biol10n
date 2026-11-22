@@ -154,7 +154,7 @@ test("源码清单：GitHub 仓库条目 + Main repository 标签", () => {
   assert.equal(text(doc.querySelector("strong")), "在 GitHub 查看源代码");
   const lis = [...doc.querySelectorAll("li")];
   assert.equal(text(lis[0]), "主仓库：neXtProt 项目与资源的汇总。");
-  assert.equal(text(lis[1]), "Feature Viewer：交互式蛋白质特征可视化工具。", "Feature Viewer 是工具名，保持英文");
+  assert.equal(text(lis[1]), "特征查看器：交互式蛋白质特征可视化工具。", "r21 P2-5：Feature Viewer 收为「特征查看器」");
   assert.equal(text(lis[2]), "nextprot-api：neXtProt 功能蛋白质组项目。");
   assert.equal(lis[1].querySelector("a").getAttribute("href"), "https://github.com/calipho-sib/feature-viewer");
 });

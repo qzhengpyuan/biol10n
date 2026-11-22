@@ -1,5 +1,5 @@
 // Expasy（dict/expasy.json）回归：首页检索栏与筛选、分类/类型枚举、帮助页与关于页固定说明句、
-// 资源详情页字段、检索结果与新闻页的分页/日期句式。站点栈按 config/sites.json 里登记的 dicts 取。
+// 资源详情页字段、资源卡一句话简介、检索结果与新闻页的分页/日期句式。站点栈按 config/sites.json 里登记的 dicts 取。
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -296,6 +296,96 @@ test("关于页：分区标题、引用按钮、资助句与页脚", () => {
   assert.equal(text(ps[0]), "Expasy 由瑞士教育、研究与创新国务秘书处（SERI）资助。");
   assert.equal(text(ps[1]), "Expasy 由以下机构运营： SIB Swiss Institute of Bioinformatics");
   assert.deepEqual([...ps[2].querySelectorAll("a")].map((e) => text(e)), ["使用条款", "返回顶部"]);
+});
+
+// 站上资源卡的真实结构（首页/详情页与检索结果页只有 class 不同）：
+// <article class="resource">…<a class="resource__link"><h3 class="h5">名字</h3></a>
+// <div class="text-sm leading-snug mt-1">一句话简介</div></article>
+const CARDS = [
+  ["Bgee", "Gene expression expertise", "基因表达专业资源"],
+  ["STRING", "Protein-protein interaction networks and enrichment analysis", "蛋白质相互作用网络与富集分析"],
+  ["SwissLipids", "Knowledge resource for lipids", "脂质知识资源"],
+  ["Cellosaurus", "Knowledge resource on cell lines", "细胞系知识资源"],
+  ["V-pipe", "Viral genomic variant detection pipeline", "病毒基因组变异检测流水线"],
+  ["Nextstrain", "Real-time tracking of pathogen evolution", "病原体进化的实时追踪"],
+  ["mOTUs", "Microbial taxonomic and population genomic profiler", "微生物分类与群体基因组分析工具"],
+  ["UniProtKB/Swiss-Prot", "Protein knowledgebase", "蛋白质知识库"],
+  ["Rhea", "Expert-curated database of biochemical reactions", "专家策展的生化反应数据库"],
+  ["SwissOrthology", "One-stop shop for orthologs", "直系同源物一站式资源"],
+  ["SwissDrugDesign", "Widening access to computer-aided drug design", "拓宽计算机辅助药物设计的可及性"],
+  ["SwissRegulon Portal", "Tools and data for regulatory genomics", "调控基因组学的工具与数据"],
+  ["SWISS-MODEL", "Protein structure homology-modelling", "蛋白质结构同源建模"],
+  ["ASAP", "Web-based, cooperative portal for single-cell data analyses", "基于网页的单细胞数据分析协作门户"],
+  ["SPSP | Swiss Pathogen Surveillance Platform", "Public Swiss pathogen NGS data", "瑞士病原体 NGS 公开数据"],
+  ["Glyco@Expasy", "Zooming in on web-based glycoinformatics resources", "聚焦基于网页的糖信息学资源"],
+  ["BEAST2", "Statistical framework for pathogen genome evolution analysis", "病原体基因组进化分析的统计框架"],
+  ["UniProtKB", "Protein sequence database", "蛋白质序列数据库"],
+  ["Selectome", "Database of positive selection", "正选择数据库"],
+  ["PROSITE", "Protein family and domain database", "蛋白质家族与结构域数据库"],
+  ["SWISS-MODEL Repository", "Protein structure homology models", "蛋白质结构同源模型"],
+  ["SwissDock", "Docking of small ligands into protein active sites", "小分子配体对接至蛋白质活性位点"],
+  ["ENZYME", "Enzyme nomenclature database", "酶命名数据库"],
+  ["HAMAP", "UniProtKB family classification and annotation", "UniProtKB 家族分类与注释"],
+  ["ViralZone", "Knowledgebase on virus biology and viral proteins", "病毒生物学与病毒蛋白知识库"],
+  ["neXtProt", "Human protein knowledgebase", "人类蛋白质知识库"],
+  ["OrthoDB", "Ortholog evolutionary and functional annotations", "直系同源物的进化与功能注释"],
+  ["OMA", "Orthology inference among complete genomes", "完整基因组间的直系同源推断"],
+  ["MetaNetX", "Metabolic network repository & analysis", "代谢网络存储库与分析"],
+  ["VenomZone", "Portal to venom protein UniProtKB entries", "毒液蛋白 UniProtKB 条目门户"],
+  ["Arlequin", "An integrated software for population genetics data analysis", "群体遗传学数据分析集成软件"],
+  ["UniLectin", "Structural and functional classification of lectins", "凝集素的结构与功能分类"],
+  ["UniCarb-DB", "Glycan structures and associated mass spectrometry data", "聚糖结构及相关质谱数据"],
+  ["EPD", "Eukaryotic Promoter Database", "真核启动子数据库"],
+  ["SwissTargetPrediction", "Target prediction for bioactive small molecules", "生物活性小分子的靶点预测"],
+  ["SwissSimilarity", "Ligand-based virtual screening", "基于配体的虚拟筛选"],
+  ["SwissSidechain", "Database of non-natural amino acid side chains", "非天然氨基酸侧链数据库"],
+  ["TagScan", "Genome-wide sequence tag scanner", "全基因组序列标签扫描器"],
+  ["SwissRegulon", "Database of genome-wide annotations of regulatory sites", "全基因组调控位点注释数据库"],
+  ["SwissParam", "Topology and parameters for small molecules", "小分子的拓扑与参数"]
+];
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const cardHtml = (name, desc) =>
+  '<article class="resource"><div class="flex items-center mb-3"><div class="flex-1"><ul>' +
+  '<li><ul aria-label="Resource Categories"><li class="sr-only">Transcriptomics</li></ul></li>' +
+  '</ul></div><div class="text-neutral-500"><ul><li><ul aria-label="Resource Types">' +
+  '<li class="sr-only">Database</li></ul></li></ul></div></div>' +
+  '<a href="/resources/x" class="resource__link"><h3 class="h5">' + esc(name) + "</h3></a>" +
+  '<div class="text-sm leading-snug mt-1">' + esc(desc) + "</div></article>";
+
+test("资源卡一句话简介：40 条逐条翻成中文，资源名与卡片内枚举各归各位", () => {
+  const doc = run("<div>" + CARDS.map((c) => cardHtml(c[0], c[1])).join("") + "</div>");
+  const arts = [...doc.querySelectorAll("article.resource")];
+  assert.equal(arts.length, CARDS.length);
+  CARDS.forEach(([name, en, zh], i) => {
+    const art = arts[i];
+    assert.equal(text(art.querySelector("h3")), name, "资源名保留英文: " + name);
+    assert.equal(text(art.querySelector("div.text-sm")), zh, "简介要翻: " + en);
+    assert.equal(art.querySelector("ul[aria-label]").getAttribute("aria-label"), "资源分类");
+    const li = art.querySelectorAll("ul[aria-label] li");
+    assert.equal(li.length, 2, "两张枚举表各一个 li");
+    assert.equal(text(li[0]), "转录组学");
+    assert.equal(text(li[1]), "数据库");
+  });
+});
+
+test("检索结果页与资源详情页的同批简介（class 不同、文案相同）", () => {
+  // /search/blast：结果卡片用 text-sm text-neutral-700
+  const doc = run(
+    '<div><div class="flex items-center mb-3">' +
+      '<h4 class="h5">Bgee</h4>' +
+      '<div class="text-sm text-neutral-700">Gene expression expertise</div>' +
+      "</div></div>"
+  );
+  assert.equal(text(doc.querySelector("h4")), "Bgee");
+  assert.equal(text(doc.querySelector("div.text-sm")), "基因表达专业资源");
+
+  // /resources/bgee：详情页下方「你可能还感兴趣」的卡片
+  const detail = run(
+    '<article class="resource"><a href="/resources/viralzone"><h3 class="h5">ViralZone</h3></a>' +
+      '<div class="text-sm leading-snug mt-1">Knowledgebase on virus biology and viral proteins</div></article>'
+  );
+  assert.equal(text(detail.querySelector("h3")), "ViralZone");
+  assert.equal(text(detail.querySelector("div.text-sm")), "病毒生物学与病毒蛋白知识库");
 });
 
 test("数据不动：资源名、基因/登录号、URL、DOI、物种名、机构名", () => {

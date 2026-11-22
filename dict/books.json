@@ -137,7 +137,11 @@
     "Publication Year": "出版年",
     "Resource Type": "资源类型",
     "Table of Content": "目录",
-    "; Last Revision:": "；最后修订："
+    "; Last Revision:": "；最后修订：",
+    "Related Items in Bookshelf": "Bookshelf 中的相关条目",
+    "Editors and Reviewers": "编辑与审稿人",
+    "Available from:": "可从以下地址获取：",
+    "We are experimenting with display styles that make it easier to read books and documents in Bookshelf. Our first effort uses ebook readers, which have several \"ease of reading\" features already built in.": "我们正在试验让浏览器中阅读书籍与文档更轻松的显示样式。第一步采用电子书阅读器，它已内置多项「便于阅读」功能。"
   },
   "rules": [
     {
@@ -187,6 +191,22 @@
     {
       "re": "^PDF \\((.+)\\)$",
       "to": "PDF 版（$1）"
+    },
+    {
+      "re": "^Created: (.+); Last Update: (.+)$",
+      "to": "创建于 $1；最后更新：$2"
+    },
+    {
+      "re": "^Created: (.+)$",
+      "to": "创建于 $1"
+    },
+    {
+      "re": "^(\\d+)(?:st|nd|rd|th) edition$",
+      "to": "第 $1 版"
+    },
+    {
+      "re": "^Available from: (.+)$",
+      "to": "可从以下地址获取：$1"
     }
   ],
   "templates": []

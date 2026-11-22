@@ -1,0 +1,550 @@
+{
+  "meta": {
+    "family": "rfam",
+    "version": "0.1.0",
+    "sites": [
+      "rfam.org",
+      "docs.rfam.org"
+    ],
+    "area": "Rfam 站点 UI（首页 / 家族页 / 检索 / 下载）与 docs.rfam.org 帮助文档",
+    "note": "Rfam 15.x 新站点的导航、标签页、统计标签、检索筛选与排序、下载页、404 与 DocBot 聊天组件界面；帮助文档站补侧栏与固定说明句。RF 登录号、家族名、物种名、文献题录、Wikipedia 正文与数据集名保持原样"
+  },
+  "exact": {
+    "Skip to main content": "跳到主要内容",
+    "Families": "家族",
+    "Projects": "项目",
+    "Release notes": "版本发布说明",
+    "Documentation": "文档",
+    "About Rfam": "关于 Rfam",
+    "Citing Rfam": "引用 Rfam",
+    "Rfam team": "Rfam 团队",
+    "Help & Feedback": "帮助与反馈",
+    "FAQ": "常见问题",
+    "Email Rfam": "给 Rfam 发邮件",
+    "Data Access": "数据获取",
+    "API access": "API 访问",
+    "Public MySQL": "公共 MySQL",
+    "OUR PARTNERS & FUNDERS": "合作伙伴与资助方",
+    "PARTNERS": "合作伙伴",
+    "Cookies & privacy": "Cookie 与隐私",
+    "Got it": "知道了",
+    "dismiss banner": "关闭横幅",
+    "feedback": "反馈",
+    "Privacy Notice (PDF)": "隐私声明（PDF）",
+    "Privacy Notice": "隐私声明",
+    "Other": "其他",
+    "Current": "当前",
+    "Small": "小",
+    "Large": "大",
+    "Hide": "隐藏",
+    "Clear": "清除",
+    "selection": "选择",
+    "or": "或",
+    "Browse Rfam": "浏览 Rfam",
+    "The Rfam database is a collection of RNA families, each represented by multiple sequence alignments, consensus secondary structures and covariance models": "Rfam 数据库收录 RNA 家族，每个家族由多序列比对、共识二级结构和协方差模型表示",
+    "Try:": "试试：",
+    "Browse:": "浏览：",
+    "RNA families by type, name, or accession": "按类型、名称或登录号浏览 RNA 家族",
+    "Related families sharing a common ancestor": "具有共同祖先的相关家族",
+    "Recurrent 3D structural motifs": "反复出现的三维结构基序",
+    "Annotated ncRNA across genomes": "跨基因组注释的 ncRNA",
+    "Genomic and metagenomic sequences with Rfam hits": "命中 Rfam 的基因组与宏基因组序列",
+    "Getting Started": "入门指南",
+    "Sequence Search": "序列检索",
+    "Search for RNA families by nucleotide sequence. FASTA format is supported.": "按核苷酸序列检索 RNA 家族，支持 FASTA 格式。",
+    "Find guides, tutorials, and references to help you get the most out of Rfam.": "查找指南、教程与参考资料，充分利用 Rfam。",
+    "API reference": "API 参考",
+    "Public database": "公共数据库",
+    "Browse documentation": "浏览文档",
+    "If you use Rfam, please cite our latest papers:": "如果您使用 Rfam，请引用我们最新的论文：",
+    "View all Rfam papers →": "查看全部 Rfam 论文 →",
+    "AI Assistant": "AI 助手",
+    "Ask the Rfam AI assistant": "向 Rfam AI 助手提问",
+    "chat button in the bottom-right corner": "聊天按钮",
+    "DocBot project page": "DocBot 项目页面",
+    "Current Projects": "当前项目",
+    "3D Families": "3D 家族",
+    "3D RNA Families": "3D RNA 家族",
+    "Viruses": "病毒",
+    "Viral RNA": "病毒 RNA",
+    "microRNAs": "微小 RNA",
+    "MicroRNA": "微小 RNA",
+    "Exploring the relationship between RNA sequence families and their three-dimensional structures.": "探索 RNA 序列家族与其三维结构之间的关系。",
+    "Comprehensive annotation of structured RNA elements in viral genomes including SARS-CoV-2.": "对病毒基因组（包括 SARS-CoV-2）中的结构化 RNA 元件进行系统注释。",
+    "Rfam families representing microRNA precursors with links to miRBase for mature microRNA annotation.": "代表 microRNA 前体的 Rfam 家族，并链接到 miRBase 以注释成熟 microRNA。",
+    "Collaboration with the Scott Lab (Université de Sherbrooke) to expand and curate the Rfam snoRNA collection using the snoDB pipeline, covering box C/D, H/ACA, and scaRNA families.": "与 Scott Lab（Université de Sherbrooke）合作，利用 snoDB 流程扩充和策展 Rfam snoRNA 集合，涵盖 box C/D、H/ACA 和 scaRNA 家族。",
+    "Featured Families": "精选家族",
+    "Training": "培训",
+    "On-demand training": "点播培训",
+    "Live training": "直播培训",
+    "No on-demand training found.": "未找到点播培训。",
+    "No live training found.": "未找到直播培训。",
+    "Database Statistics": "数据库统计",
+    "Rfam families over time": "Rfam 家族数量变化",
+    "Unable to load chart data right now. Please try again later.": "暂时无法加载图表数据，请稍后重试。",
+    "Rfam is an Elixir service.": "Rfam 是 ELIXIR 的一项服务。",
+    "All Rfam data freely available under the Creative Commons Zero licence (CC0)": "全部 Rfam 数据在知识共享零（CC0）许可下免费可用",
+    "Gene; rRNA": "基因；rRNA",
+    "Gene; sRNA": "基因；sRNA",
+    "Gene; ribozyme": "基因；核酶",
+    "Cis-reg; riboswitch": "顺式调控；核糖开关",
+    "Clan": "家族簇",
+    "Family": "家族",
+    "Seed sequences": "种子序列",
+    "Full sequences": "全长序列",
+    "RNA type": "RNA 类型",
+    "Secondary structure": "二级结构",
+    "Trees": "系统树",
+    "Structures": "结构",
+    "Motif matches": "基序匹配",
+    "Genomic Context": "基因组上下文",
+    "Cross-references": "交叉引用",
+    "Curation": "审编",
+    "Open access publications": "开放获取论文",
+    "Rfam structures": "Rfam 结构",
+    "RFview (interactive)": "RFview（交互式）",
+    "Sunburst": "旭日图",
+    "Species distribution": "物种分布",
+    "Sunburst controls": "旭日图控制",
+    "Weight segments by...": "扇区权重依据……",
+    "number of sequences": "序列数",
+    "number of species": "物种数",
+    "Change the size of the sunburst": "调整旭日图大小",
+    "Colour assignments": "颜色分配",
+    "Selections": "选择",
+    "Currently selected:": "当前已选：",
+    "Tree controls": "树形图控制",
+    "Fully expand tree": "完全展开树",
+    "Fully collapse tree": "完全折叠树",
+    "Expand to depth": "展开到深度：",
+    "Hide summaries": "隐藏汇总",
+    "Hide highlighting of species in seed": "隐藏种子比对中物种的高亮",
+    "Key: species, sequences, regions": "图例：物种、序列、区域",
+    "Selected sequences": "已选序列",
+    "(Uncheck all)": "（全部取消勾选）",
+    "Download as an alignment": "下载为比对",
+    "Download sequence accessions": "下载序列登录号",
+    "Label trees using:": "树标签使用：",
+    "Species names": "物种名称",
+    "Accessions": "登录号",
+    "Loading tree…": "正在加载树……",
+    "Download seed tree (Newick format)": "下载种子树（Newick 格式）",
+    "Clan membership": "家族簇归属",
+    "Wikipedia annotation": "维基百科注释",
+    "Edit Wikipedia article": "编辑维基百科条目",
+    "This family is a member of clan": "该家族属于家族簇",
+    "More…": "更多……",
+    "Seed alignment view": "种子比对视图",
+    "Pfam format": "Pfam 格式",
+    "— full seed alignment": "—— 完整种子比对",
+    "Download all sequences": "下载全部序列",
+    "Download region list": "下载区域列表",
+    "Browse in Rfam": "在 Rfam 中浏览",
+    "Browse in RNAcentral": "在 RNAcentral 中浏览",
+    "Loading sequences…": "正在加载序列……",
+    "Loading species distribution…": "正在加载物种分布……",
+    "Loading species tree…": "正在加载物种树……",
+    "Loading structure data…": "正在加载结构数据……",
+    "Loading motif data…": "正在加载基序数据……",
+    "Click on a node to select that node and its sub-tree.": "点击节点可选中该节点及其子树。",
+    "This visualisation provides a simple graphical representation of the distribution of this family across species.": "此可视化以简明图形展示该家族在各物种间的分布。",
+    "The tree shows the occurrence of this RNA across different species.": "该树展示此 RNA 在不同物种中的出现情况。",
+    "This section shows the predicted phylogenetic tree for the seed alignment.": "本节显示种子比对的预测系统发育树。",
+    "Both approaches use the secondary-structure-informed Rfam covariance model alignment as input. The tree is rooted at its mid-point.": "两种方法都以融入二级结构信息的 Rfam 协方差模型比对为输入。树的根位于其中点。",
+    "The maximum likelihood method optimises the likelihood of the tree topology and branch lengths given the observed sequences. Neighbour-joining builds the tree from a pairwise distance matrix and is substantially faster for large families, though generally less accurate.": "最大似然法在给定观测序列的条件下优化树拓扑与枝长的似然值。邻接法根据两两距离矩阵构建树，对大家族而言速度明显更快，但通常精度较低。",
+    "We do not have tree information for this family. This is most likely due to the size of the family — for very large families it is too computationally expensive to calculate trees.": "我们没有该家族的系统树信息。这很可能与家族规模有关——对于超大 家族，计算系统树的计算成本过高。",
+    "This section shows database cross-references for this Rfam family.": "本节显示该 Rfam 家族的数据库交叉引用。",
+    "Rfam motifs are short, conserved RNA sequence and secondary-structure elements (e.g. kink-turns, C/D-box elements) that occur in multiple RNA families. The table below lists motifs found within the seed alignment of this family.": "Rfam 基序是出现在多个 RNA 家族中的短小、保守的 RNA 序列与二级结构元件（例如扭结转角、C/D 盒元件）。下表列出在该家族种子比对中发现的基序。",
+    "Browse sequences": "浏览序列",
+    "Explore SeqHub": "探索 SeqHub",
+    "Literature references": "文献参考",
+    "Database links": "数据库链接",
+    "External sites": "外部站点",
+    "Sequence Ontology": "序列本体",
+    "Gene Ontology": "基因本体",
+    "Curation and family details": "审编与家族详情",
+    "Alignment source information": "比对来源信息",
+    "Seed source": "种子来源",
+    "Structure source": "结构来源",
+    "Alignment details": "比对详情",
+    "Number of sequences": "序列数",
+    "Full": "完整",
+    "Seed": "种子",
+    "Model information": "模型信息",
+    "Build command": "构建命令",
+    "Calibrate command": "校准命令",
+    "Search command": "检索命令",
+    "Gathering cutoff": "收集阈值",
+    "Trusted cutoff": "可信阈值",
+    "Noise cutoff": "噪声阈值",
+    "Covariance model": "协方差模型",
+    "Download CM file": "下载 CM 文件",
+    "Text Search": "文本检索",
+    "text search documentation": "文本检索文档",
+    "sequence search documentation": "序列检索文档",
+    "Examples:": "示例：",
+    "Search Rfam": "检索 Rfam",
+    "Families with 3D structures": "具有三维结构的家族",
+    "Families with publications": "有相关论文的家族",
+    "Load more": "加载更多",
+    "Searching…": "正在检索……",
+    "◠ Searching…": "◠ 正在检索……",
+    "No results found.": "未找到结果。",
+    "Check your spelling": "检查拼写",
+    "Use full species names (e.g.": "请使用完整物种名（例如",
+    "Use double quotes for field search:": "字段检索请使用双引号：",
+    "There was an error while processing your query. Please try again.": "处理查询时出错，请重试。",
+    "Entry type": "条目类型",
+    "Organisms": "物种",
+    "3D structure": "三维结构",
+    "Pseudoknot": "假结",
+    "Pseudoknot evidence": "假结证据",
+    "Alignment type": "比对类型",
+    "Source publications available": "有来源论文",
+    "Powered by EBI Search": "由 EBI Search 提供支持",
+    "Open Access Publications": "开放获取论文",
+    "cross-references": "交叉引用",
+    "Seed sequences ↓": "种子序列 ↓",
+    "Seed sequences ↑": "种子序列 ↑",
+    "Full sequences ↓": "全长序列 ↓",
+    "Full sequences ↑": "全长序列 ↑",
+    "Species ↓": "物种 ↓",
+    "Species ↑": "物种 ↑",
+    "3D structures ↓": "三维结构 ↓",
+    "3D structures ↑": "三维结构 ↑",
+    "Accession ↓": "登录号 ↓",
+    "Accession ↑": "登录号 ↑",
+    "Families in genome ↓": "基因组内家族数 ↓",
+    "Families in genome ↑": "基因组内家族数 ↑",
+    "RNAs in genome ↓": "基因组内 RNA 数 ↓",
+    "RNAs in genome ↑": "基因组内 RNA 数 ↑",
+    "Genome length ↓": "基因组长度 ↓",
+    "Genome length ↑": "基因组长度 ↑",
+    "Bit score ↓": "比特得分 ↓",
+    "Bit score ↑": "比特得分 ↑",
+    "E-value ↓": "E 值 ↓",
+    "E-value ↑": "E 值 ↑",
+    "ERROR 404": "错误 404",
+    "Go to homepage": "前往首页",
+    "The page you requested could not be found. It may have moved, been removed, or the URL may be incorrect.": "您请求的页面不存在。它可能已被移动或删除，或者 URL 有误。",
+    "Browse FTP Archive": "浏览 FTP 存档",
+    "Current Release": "当前版本",
+    "Accessing the server": "访问服务器",
+    "Current release files": "当前版本文件",
+    "Covariance models": "协方差模型",
+    "Seed alignments": "种子比对",
+    "Full region hits": "全长区域命中",
+    "FASTA sequences": "FASTA 序列",
+    "FTP documentation": "FTP 文档",
+    "Release history": "发布历史",
+    "FTP Directory": "FTP 目录",
+    "See all current files →": "查看全部当前文件 →",
+    "Browse all releases on FTP →": "在 FTP 上浏览全部版本 →",
+    "Rfam Help": "Rfam 帮助",
+    "Data access": "数据获取",
+    "How Rfam families are built": "Rfam 家族如何构建",
+    "Integrating 3D Structures into a SEED Alignment": "将三维结构整合进种子比对",
+    "Glossary": "术语表",
+    "Frequently Asked Questions": "常见问题",
+    "Contact us": "联系我们",
+    "Searching Rfam": "检索 Rfam",
+    "Rfam FTP Site": "Rfam FTP 站点",
+    "Public MySQL Database": "公共 MySQL 数据库",
+    "Genome annotation": "基因组注释",
+    "Extract ncRNA sequences": "提取 ncRNA 序列",
+    "How to link to Rfam?": "如何链接到 Rfam？",
+    "View page source": "查看页面源码",
+    "Contents": "目录",
+    "Text search": "文本检索",
+    "Sequence search": "序列检索",
+    "Other ways to search Rfam": "检索 Rfam 的其他方式",
+    "Sequences, Alignments, Models and Trees": "序列、比对、模型与树",
+    "Rfam database dumps": "Rfam 数据库转储",
+    "Endpoints": "端点",
+    "Sequence searches": "序列检索",
+    "Connection details": "连接信息",
+    "Main tables": "主要数据表",
+    "Example queries": "示例查询",
+    "We choose CC0 because:": "我们选择 CC0 的原因：",
+    "Get in touch": "联系我们",
+    "submit a GitHub issue": "提交 GitHub 问题",
+    "report any issues": "报告问题",
+    "contribute on GitHub": "在 GitHub 上贡献",
+    "policy": "政策",
+    "theme": "主题",
+    "Rfam references": "Rfam 参考文献",
+    "Rfam team.": "Rfam 团队。",
+    "It is most in line with the spirit of EMBL-EBI’s Terms of use and places data in the public domain without constraints. We believe that this approach to research data sharing strengthens open science and scientific progress.": "这与 EMBL-EBI《使用条款》的精神最为一致，并把数据无限制地置于公共领域。我们认为这种研究数据共享方式有助于加强开放科学与科学进步。",
+    "It is the best way to encourage remixing and reuse as it makes clear to any user – academic, commercial, or otherwise – that the data are not owned by anyone and therefore can be used freely.": "这是鼓励混用与再利用的最佳方式，因为它向所有用户（无论学术、商业还是其他）表明：数据不属于任何人，因此可以自由使用。",
+    "It saves researchers time when reusing the data, which speeds up the process of science.": "它节省了研究人员复用数据的时间，从而加快科学进展。",
+    "New conversation": "新建对话",
+    "Download conversation": "下载对话",
+    "Ask me": "问我",
+    "Hello! How can I help you today?": "你好！今天有什么可以帮你？",
+    "Try asking me:": "可以试着问我：",
+    "Please rate responses using the thumbs up/down buttons to help us improve DocBot.": "请使用点赞/点踩按钮评价回答，帮助我们改进 DocBot。",
+    "EMBL-EBI Terms of Use": "EMBL-EBI 使用条款",
+    "Chatbot Disclaimer": "聊天机器人免责声明",
+    "Keep chat open": "保持聊天打开",
+    "Close and delete": "关闭并删除",
+    "Close chat and delete conversation?": "关闭聊天并删除对话？",
+    "Are you sure you want to close the chat?": "确定要关闭聊天吗？",
+    "Your current conversation history will be permanently deleted.": "当前对话历史将被永久删除。",
+    "Submit a new alignment": "提交新比对",
+    "All genome hits for every Rfam family: sequence accession, coordinates, strand, score, and E-value.": "每个 Rfam 家族的全部基因组命中：序列登录号、坐标、链、得分和 E 值。",
+    "Multiple sequence alignments for all families in Stockholm format, including consensus secondary structures.": "以 Stockholm 格式提供全部家族的多序列比对，包含共识二级结构。",
+    "Per-family FASTA files containing all sequences used to build each covariance model.": "按家族划分的 FASTA 文件，包含构建每个协方差模型所用的全部序列。",
+    "Need help with file formats and directory structure? See the": "需要了解文件格式与目录结构？请参阅",
+    "Creative Commons Zero (CC0)": "知识共享零（CC0）",
+    "Creative Commons Zero (“CC0”) licence": "知识共享零（CC0）许可",
+    "cross-reference": "交叉引用",
+    "Funding": "资助",
+    "Fully": "完全",
+    "expand": "展开",
+    "collapse": "折叠",
+    "tree": "树",
+    "summaries": "汇总",
+    "highlighting of species in seed": "种子比对中物种的高亮",
+    "Download as an": "下载为",
+    "alignment": "比对",
+    "sequence accessions": "序列登录号",
+    "Uncheck": "取消勾选",
+    "Other sequences": "其他序列",
+    "Unclassified": "未归类",
+    "Unclassified sequence": "未归类序列"
+  },
+  "rules": [
+    {
+      "re": "^Rfam (\\d+\\.\\d+) \\(([A-Za-z]+) (\\d{4}), ([\\d,]+) families\\)$",
+      "to": "Rfam $1（$3 年 $2，$4 个家族）",
+      "requireHit": true
+    },
+    {
+      "re": "^Rfam Downloads • Latest release: ([\\d.]+)$",
+      "to": "Rfam 下载 • 最新版本：$1"
+    },
+    {
+      "re": "^This tree was built using the (.+) method\\.$",
+      "to": "此树使用 $1 方法构建。"
+    },
+    {
+      "re": "^No genomic context for (.+)$",
+      "to": "没有 $1 的基因组上下文"
+    },
+    {
+      "re": "^\\)?,?\\s*which contains ([\\d,]+) members?:$",
+      "to": "），共 $1 个成员："
+    },
+    {
+      "re": "^Clear selection$",
+      "to": "清除选择"
+    },
+    {
+      "re": "^Go$",
+      "to": "执行"
+    },
+    {
+      "re": "^Archive$",
+      "to": "存档"
+    },
+    {
+      "re": "^Release$",
+      "to": "版本"
+    },
+    {
+      "re": "^Read more$",
+      "to": "了解更多"
+    },
+    {
+      "re": "^([\\d,]+) seed sequences$",
+      "to": "$1 条种子序列"
+    },
+    {
+      "re": "^([\\d,]+) full sequences$",
+      "to": "$1 条全长序列"
+    },
+    {
+      "re": "^([\\d,]+) species$",
+      "to": "$1 个物种"
+    },
+    {
+      "re": "^([\\d,]+) structures$",
+      "to": "$1 个结构"
+    },
+    {
+      "re": "^Showing ([\\d,]+) of ([\\d,]+) results$",
+      "to": "显示 $1 条，共 $2 条结果"
+    },
+    {
+      "re": "^([\\d,]+) of ([\\d,]+)$",
+      "to": "$1 / $2 条"
+    },
+    {
+      "re": "^predicted no covariation support \\((\\d+)\\)$",
+      "to": "预测，无共变支持（$1）"
+    },
+    {
+      "re": "^predicted with covariation support \\((\\d+)\\)$",
+      "to": "预测，有共变支持（$1）"
+    },
+    {
+      "re": "^seed with covariation support \\((\\d+)\\)$",
+      "to": "种子，有共变支持（$1）"
+    },
+    {
+      "re": "^seed no covariation support \\((\\d+)\\)$",
+      "to": "种子，无共变支持（$1）"
+    },
+    {
+      "re": "^all\\)$",
+      "to": "全部）"
+    },
+    {
+      "re": "^riboswitch \\(([\\d,]+)\\)$",
+      "to": "核糖开关（$1）"
+    },
+    {
+      "re": "^Cis-reg \\(([\\d,]+)\\)$",
+      "to": "顺式调控（$1）"
+    },
+    {
+      "re": "^([\\d,]+) 种子序列$",
+      "to": "$1 条种子序列",
+      "repair": true
+    },
+    {
+      "re": "^([\\d,]+) 全长序列$",
+      "to": "$1 条全长序列",
+      "repair": true
+    },
+    {
+      "re": "^([\\d,]+) 物种$",
+      "to": "$1 个物种",
+      "repair": true
+    },
+    {
+      "re": "^([\\d,]+) 结构$",
+      "to": "$1 个结构",
+      "repair": true
+    },
+    {
+      "re": "^([\\d,]+) 交叉引用$",
+      "to": "$1 个交叉引用",
+      "repair": true
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Welcome to the new Rfam website. We’d love to hear your {{1}} on the updated design and experience.",
+      "zh": "欢迎来到新版 Rfam 网站。我们很想听听您对更新后设计与体验的{{1}}。"
+    },
+    {
+      "pat": "This website requires cookies and limited processing of personal data in order to function. By using this site you agree to this as outlined in our {{1}} and {{2}}.",
+      "zh": "本网站需要使用 Cookie 并有限处理个人数据才能运行。使用本网站即表示您同意这一点，详见我们的{{1}}和{{2}}。"
+    },
+    {
+      "pat": "Rfam is part of the ELIXIR infrastructure, and an expert database for {{1}}",
+      "zh": "Rfam 是 ELIXIR 基础设施的一部分，也是{{1}}的专家数据库"
+    },
+    {
+      "pat": "Can't find what you're looking for? Use the AI assistant to ask questions about Rfam data, families, alignments, and more. Click the {{1}} of the page to open the assistant. The assistant is powered by {{2}}, an EMBL-EBI AI service that answers questions from user documentation across EBI resources. For more information on the underlying service, see the {{3}}.",
+      "zh": "找不到您需要的内容？可以使用 AI 助手询问有关 Rfam 数据、家族、比对等问题。点击页面右下角的{{1}}打开助手。该助手由{{2}}提供支持，这是 EMBL-EBI 的 AI 服务，可依据各 EBI 资源的用户文档回答问题。有关底层服务的更多信息，请参阅{{3}}。"
+    },
+    {
+      "pat": "Our chatbot uses AI to assist you. Its use is subject to the {{1}} and the {{2}}. Do not include any personal information about you or others in the chat (for more information, see the{{3}}).",
+      "zh": "我们的聊天机器人使用 AI 为您提供帮助。使用它须遵守{{1}}和{{2}}。请勿在对话中包含您或他人的任何个人信息（更多信息请参阅{{3}}）。"
+    },
+    {
+      "pat": "This family is described by the Wikipedia entry {{1}}.",
+      "zh": "该家族由维基百科条目{{1}}描述。"
+    },
+    {
+      "pat": "This section shows the sequences included in the full alignment for this family. The full alignment contains {{1}} sequences from {{2}} species.",
+      "zh": "本节显示该家族全长比对收录的序列。全长比对包含来自 {{2}} 个物种的 {{1}} 条序列。"
+    },
+    {
+      "pat": "The seed alignment for {{1}} contains {{2}} sequences.",
+      "zh": "{{1}} 的种子比对包含 {{2}} 条序列。"
+    },
+    {
+      "pat": "We're happy to receive updated seed alignments for new or existing families. {{1}} your new alignment and we'll take a look.",
+      "zh": "我们乐于接收针对新家族或现有家族的更新种子比对。{{1}}您的新比对，我们会查看。"
+    },
+    {
+      "pat": "The full alignment for {{1}} contains sequences from {{2}} species.",
+      "zh": "{{1}} 的全长比对包含来自 {{2}} 个物种的序列。"
+    },
+    {
+      "pat": "These trees were generated using either a maximum likelihood approach (Rivas & Eddy, 2008) for families with ≤ 64 sequences, or neighbour-joining with F84 distances ({{1}}) for larger families.",
+      "zh": "这些树由以下方法生成：序列数 ≤ 64 的家族使用最大似然法（Rivas & Eddy, 2008），更大的家族使用基于 F84 距离的邻接法（{{1}}）。"
+    },
+    {
+      "pat": "For sequences which have a structure in the {{1}}, we generate a mapping between EMBL, PDB and Rfam coordinate systems. The table below shows structures on which the {{2}} family has been found.",
+      "zh": "对于在{{1}}中有结构的序列，我们会建立 EMBL、PDB 与 Rfam 坐标系之间的映射。下表列出已发现 {{2}} 家族的结构。"
+    },
+    {
+      "pat": "Genomic context of this family’s hits in {{1}}, a database of ~131,000 microbial genomes. Neighbouring genes are shown with annotations available on hover. Results are deduplicated to one row per genus. Rfam hits were identified by scanning intergenic regions of SeqHub genomes with nhmmer (E-value ≤ 1e-3).",
+      "zh": "该家族命中序列在{{1}}中的基因组上下文。SeqHub 是一个收录约 131,000 个微生物基因组的数据库。相邻基因会显示注释，悬停即可查看。结果按属去重为每属一行。Rfam 命中通过在 SeqHub 基因组基因间区用 nhmmer 扫描得到（E 值 ≤ 1e-3）。"
+    },
+    {
+      "pat": "This section shows the detailed information about the Rfam family. We're happy to receive updated or improved alignments for new or existing families. {{1}} your new alignment and we'll take a look.",
+      "zh": "本节显示该 Rfam 家族的详细信息。我们乐于接收针对新家族或现有家族的更新或改进比对。{{1}}您的新比对，我们会查看。"
+    },
+    {
+      "pat": "Search Rfam families, clans, motifs, genomes, and sequences by keyword, accession, species, author, or other metadata. See the {{1}} for help getting started.",
+      "zh": "可按关键词、登录号、物种、作者或其他元数据检索 Rfam 的家族、家族簇、基序、基因组和序列。入门帮助请参阅{{1}}。"
+    },
+    {
+      "pat": "Covariance models, seed alignments, genome annotations, sequences, and more — all freely available under the {{1}} licence",
+      "zh": "协方差模型、种子比对、基因组注释、序列等 —— 全部在{{1}}许可下免费可用"
+    },
+    {
+      "pat": "{{1}} always points to the latest release. Older releases live in versioned directories (e.g. {{2}}, {{3}}).",
+      "zh": "{{1}} 始终指向最新版本。旧版本位于带版本号的目录中（例如 {{2}}、{{3}}）。"
+    },
+    {
+      "pat": "Need help with file formats and directory structure? See the {{1}}.",
+      "zh": "需要了解文件格式与目录结构？请参阅{{1}}。"
+    },
+    {
+      "pat": "All Rfam covariance models in a single file, suitable for use with Infernal's {{1}} to annotate novel sequences.",
+      "zh": "全部 Rfam 协方差模型汇于单个文件，可与 Infernal 的 {{1}} 配合注释新序列。"
+    },
+    {
+      "pat": "Clan definitions listing which families belong to each clan, for use with Infernal's {{1}}.",
+      "zh": "家族簇定义，列出每个家族簇包含哪些家族，可与 Infernal 的 {{1}} 配合使用。"
+    },
+    {
+      "pat": "This page lists the most commonly used files. Many more are available in the release directory. {{1}}",
+      "zh": "本页列出最常用的文件。发布目录中还有更多文件。{{1}}"
+    },
+    {
+      "pat": "{{1}} is a collection of non-coding RNA families represented by manually curated sequence alignments, consensus secondary structures, and predicted homologues.",
+      "zh": "{{1}} 是一个非编码 RNA 家族集合，由人工策展的序列比对、共识二级结构和预测的同源序列表示。"
+    },
+    {
+      "pat": "This documentation is maintained by the {{1}}. Please {{2}} or {{3}}.",
+      "zh": "本文档由{{1}}维护。请{{2}}或{{3}}。"
+    },
+    {
+      "pat": "Rfam is freely available under the {{1}}.",
+      "zh": "Rfam 在{{1}}下免费可用。"
+    },
+    {
+      "pat": "Rfam conforms to the EBI long-term data preservation {{1}}.",
+      "zh": "Rfam 遵循 EBI 长期数据保存{{1}}。"
+    },
+    {
+      "pat": "If you use Rfam in your work, please cite the {{1}}.",
+      "zh": "如果您在研究中使用了 Rfam，请引用{{1}}。"
+    },
+    {
+      "pat": "If you have any questions or feedback, feel free to {{1}} or email us at {{2}}.",
+      "zh": "如有任何问题或反馈，欢迎{{1}}，或发邮件至 {{2}}。"
+    },
+    {
+      "pat": "Rfam is supported by the {{1}} and {{2}}, and is developed at the {{3}}.",
+      "zh": "Rfam 由{{1}}和{{2}}资助，并在{{3}}开发。"
+    }
+  ]
+}

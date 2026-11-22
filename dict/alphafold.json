@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "family": "alphafold",
+    "version": "0.1.0",
+    "sites": [
+      "alphafold.ebi.ac.uk"
+    ],
+    "area": "AlphaFold DB：首页 / 条目页与检索结果 / 下载页 / API 文档 / 关于与 FAQ 标题",
+    "note": "AlphaFold Protein Structure Database 站点骨架词库。EMBL-EBI 全局页头页脚沿用 string-atlas（与本册同挂 alphafold.ebi.ac.uk 时按 common → string-atlas → alphafold 顺序加载），本册只收 AlphaFold 自身界面：导航、字段名、筛选与排序项、分页、表头、按钮、Mol* 查看器控件、固定说明句；蛋白质名、基因名、物种学名、UniProt/PDB 登录号、数据集与项目名、论文标题作者、机构名、邮箱、URL、数值单位一律不翻。"
+  },
+  "exact": {
+    "EMBL-EBI home": "EMBL-EBI 主页",
+    "Go to online course": "前往在线课程",
+    "See search help": "查看检索帮助",
+    "Browse data": "浏览数据",
+    "Pandemic Preparedness": "大流行病防范",
+    "Antimicrobial Resistance (AMR)": "抗微生物药物耐药性（AMR）",
+    "Neglected Tropical Diseases (NTDs)": "被忽视的热带病（NTDs）",
+    "WHO Global Health Proteomes": "WHO 全球健康蛋白质组",
+    "Background": "背景",
+    "Find out more": "了解更多",
+    "Methodology": "方法学",
+    "Human proteome predictions": "人类蛋白质组预测",
+    "About AlphaFold DB": "关于 AlphaFold DB",
+    "What’s new?": "最新动态",
+    "What’s next?": "下一步计划",
+    "Licence and attributions": "许可与署名",
+    "View protein": "查看蛋白质",
+    "Developed by": "开发者",
+    "Developed by Google DeepMind and EMBL-EBI": "由 Google DeepMind 与 EMBL-EBI 开发",
+    "AlphaFold DB provides open access to over 260 million protein structure predictions to accelerate scientific research.": "AlphaFold DB 公开提供超过 2.6 亿个蛋白质结构预测，以加速科学研究。",
+    "Summary and Model Confidence": "摘要与模型置信度",
+    "Domains": "结构域",
+    "Annotations": "注释",
+    "Text Annotations (AI)": "文本注释（AI）",
+    "Similar Proteins": "相似蛋白",
+    "New": "新增",
+    "Source organism": "来源物种",
+    "Biological function": "生物学功能",
+    "Experimental structures": "实验结构",
+    "Average pLDDT": "平均 pLDDT",
+    "average pLDDT": "平均 pLDDT",
+    "pLDDT distribution": "pLDDT 分布",
+    "Very high": "极高",
+    "High": "高",
+    "Low": "低",
+    "Very low": "极低",
+    "Copy sequence": "复制序列",
+    "Scored residue": "评分残基",
+    "Aligned residue": "比对残基",
+    "Expected position error (Ångströms)": "预期位置误差（Å）",
+    "Predicted Aligned Error (PAE)": "预测比对误差（PAE）",
+    "see Help section below": "请参阅下方帮助部分",
+    "WebGL does not seem to be available.": "WebGL 似乎不可用。",
+    "This can be caused by an outdated browser, graphics card driver issue, or bad weather. Sometimes, just restarting the browser helps. Also, make sure hardware acceleration is enabled in your browser.": "原因可能是浏览器过旧、显卡驱动问题，或天气不好。有时重启浏览器即可解决。另请确认浏览器已启用硬件加速。",
+    "For a list of supported browsers, refer to": "受支持的浏览器列表请参阅",
+    "Report an issue": "报告问题",
+    "Share your feedback on the structure": "分享你对这个结构的反馈",
+    "Model Confidence": "模型置信度",
+    "Very high (pLDDT > 90)": "极高（pLDDT > 90）",
+    "High (90 > pLDDT > 70)": "高（90 > pLDDT > 70）",
+    "Low (70 > pLDDT > 50)": "低（70 > pLDDT > 50）",
+    "Very low (pLDDT < 50)": "极低（pLDDT < 50）",
+    "pLDDT is a per-residue measure of local confidence.": "pLDDT 是逐残基的局部置信度度量。",
+    "Learn more...": "了解更多…",
+    "Go to AlphaFold training course": "前往 AlphaFold 培训课程",
+    "How to interpret the Predicted Aligned Error": "如何解读预测比对误差",
+    "How to use The Encyclopedia of Domains": "如何使用结构域百科",
+    "Audit history": "审核历史",
+    "Model creation date:": "模型创建日期：",
+    "Sequence version date:": "序列版本日期：",
+    "Dataset publication": "数据集论文",
+    "Feedback and questions": "反馈与问题",
+    "Fullscreen": "全屏",
+    "Reset Zoom": "重置缩放",
+    "Orient Axes": "定向坐标轴",
+    "Reset Axes": "重置坐标轴",
+    "Export Animation": "导出动画",
+    "Export Geometry": "导出几何",
+    "Load File(s)": "载入文件",
+    "Measurements": "测量",
+    "Components": "组分",
+    "Structure Tools": "结构工具",
+    "Quick Styles": "快速样式",
+    "Preset": "预设",
+    "Default": "默认",
+    "Cartoon": "卡通模型",
+    "Spacefill": "空间填充",
+    "Surface": "表面",
+    "Illustrative": "示意模式",
+    "Apply Representation": "应用表示",
+    "Apply Style": "应用样式",
+    "Nothing Loaded": "未载入对象",
+    "Nothing Focused": "无聚焦对象",
+    "Uncertain": "不确定",
+    "AlphaMissense Pathogenicity": "AlphaMissense 致病性",
+    "Colour shows the average predicted pathogenicity for all possible substitutions at that position.": "颜色表示该位置所有可能替换的平均预测致病性。",
+    "Screenshot / State Snapshot": "截图/状态快照",
+    "Toggle Controls Panel": "切换控制面板",
+    "Toggle Expanded Viewport": "切换扩展视口",
+    "Toggle Selection Mode": "切换选择模式",
+    "Plugin Settings": "插件设置",
+    "Click to collapse": "点击收起",
+    "Click to expand": "点击展开",
+    "Search for protein, gene, UniProt accession or organism or sequence search": "搜索蛋白质、基因、UniProt 登录号、物种，或进行序列检索",
+    "Entry type": "条目类型",
+    "Reference proteome": "参考蛋白质组",
+    "Reference Proteome": "参考蛋白质组",
+    "Organisms": "物种",
+    "Popular": "热门",
+    "Global quality score": "全局质量评分",
+    "Global quality": "全局质量",
+    "Apply range": "应用范围",
+    "Download data": "下载数据",
+    "Monomer": "单体",
+    "Google DeepMind dataset": "Google DeepMind 数据集",
+    "search this organism": "检索该物种",
+    "go to UniProt": "前往 UniProt",
+    "go to PDBe-KB": "前往 PDBe-KB",
+    "go to search": "前往检索",
+    "Sequence length": "序列长度",
+    "Coordinates and PAE (max 100)": "坐标与 PAE（最多 100）",
+    "No structure available": "无可用结构",
+    "Model organism proteomes": "模式生物蛋白质组",
+    "Global health proteomes": "全球健康蛋白质组",
+    "Common Name": "常用名",
+    "File type": "文件类型",
+    "Predicted Structures": "预测结构数",
+    "Compressed prediction files for model organism proteomes:": "模式生物蛋白质组的压缩预测文件：",
+    "Compressed prediction files for global health proteomes:": "全球健康蛋白质组的压缩预测文件：",
+    "Compressed prediction files for Swiss-Prot:": "Swiss-Prot 的压缩预测文件：",
+    "Collaborators dataset": "合作方数据集",
+    "Collaborators": "合作机构",
+    "Swiss-Prot (CIF files)": "Swiss-Prot（CIF 文件）",
+    "Swiss-Prot (PDB files)": "Swiss-Prot（PDB 文件）",
+    "For downloading all predictions for a given species, use the download links below. Note that this option is only available on the desktop version of the site.": "如需下载某个物种的全部预测，请使用下面的下载链接。注意该选项仅在桌面版网站提供。",
+    "Selected collaborator datasets are distributed via the FTP area. Coordinate files are provided in chunked archives in the collaborations subdirectory. Where available, corresponding MSAs are provided in the msas subdirectory. Dataset-specific availability may vary.": "选定的合作方数据集通过 FTP 区域分发。坐标文件以分块压缩包形式放在 collaborations 子目录中；如有对应 MSA，则放在 msas 子目录中。各数据集的可获取情况可能不同。",
+    "For further details about individual datasets, please consult the corresponding dataset FAQ.": "有关各数据集的更多细节，请查阅对应的数据集常见问题。",
+    "If you make use of an AlphaFold prediction, please cite the following papers:": "如使用 AlphaFold 预测，请引用以下论文：",
+    "Programmatic access API endpoints": "程序化访问 API 端点",
+    "Schemas": "数据结构",
+    "Get all models for a UniProt accession or a model ID": "获取某个 UniProt 登录号或模型 ID 的全部模型",
+    "Get complex details for a UniProt accession or a model ID": "获取某个 UniProt 登录号或模型 ID 的复合物详情",
+    "Get summary details for a UniProt residue range": "获取某个 UniProt 残基区间的摘要详情",
+    "Get Sequence Summary": "获取序列摘要",
+    "Get all annotations for a UniProt residue range": "获取某个 UniProt 残基区间的全部注释",
+    "Welcome to the interactive documentation page for the AlphaFold Protein Structure Database Application Programming Interface (API). The API provides a convenient and efficient way for developers to programmatically access metadata related to all the archived AlphaFold predictions.": "欢迎使用 AlphaFold 蛋白质结构数据库应用程序接口（API）的交互式文档页面。该 API 为开发者提供便捷高效的方式，以程序化访问所有已归档 AlphaFold 预测的相关元数据。",
+    "With this API, you can easily retrieve information about protein structures predicted by AlphaFold, such as URLs to model files (mmCIF, bCIF and PDB), models quality estimates, and other useful information. All the API endpoints are keyed on UniProt accessions. The API is designed to be easy to integrate into your own software, and we provide documentation and code examples below to help you get started.": "借助该 API，你可以方便地获取 AlphaFold 预测的蛋白质结构信息，例如模型文件（mmCIF、bCIF 与 PDB）的 URL、模型质量估计以及其他有用信息。所有 API 端点均以 UniProt 登录号为键。该 API 易于集成到你自己的软件中，下文提供了文档与代码示例帮助你上手。",
+    "Frequently asked questions": "常见问题",
+    "Collapse all": "全部收起",
+    "Expand all": "全部展开",
+    "Paper & methodologies": "论文与方法",
+    "What are proteins?": "什么是蛋白质？",
+    "What are protein structures?": "什么是蛋白质结构？",
+    "Why does being able to predict a protein’s 3D structure matter?": "为什么能够预测蛋白质的三维结构很重要？",
+    "How can AI and AlphaFold help?": "AI 与 AlphaFold 能提供什么帮助？",
+    "How can we make the most of the data?": "如何充分利用这些数据？",
+    "About Google DeepMind": "关于 Google DeepMind",
+    "About EMBL-EBI": "关于 EMBL-EBI",
+    "Explore stories of AlphaFold’s impact": "探索 AlphaFold 影响力的故事",
+    "How does AlphaFold work?": "AlphaFold 是如何工作的？",
+    "Which proteins are included?": "包含哪些蛋白质？",
+    "How many proteins are there in the database?": "数据库中有多少个蛋白质？",
+    "Why are there many entries for one UniProt ID?": "为什么一个 UniProt ID 会有多个条目？",
+    "Why does a viral protein have bacterial metadata or UniProt links?": "为什么病毒蛋白质会带有细菌元数据或 UniProt 链接？",
+    "What information does AlphaFold use from the Protein Data Bank?": "AlphaFold 从蛋白质数据库（PDB）中使用了哪些信息？",
+    "How does AlphaFold compare to other structure prediction tools?": "AlphaFold 与其他结构预测工具相比如何？",
+    "What use cases does AlphaFold not support?": "AlphaFold 不支持哪些使用场景？",
+    "What is the AllTheBacteria dataset?": "AllTheBacteria 数据集是什么？",
+    "What is the Big Fantastic Virus Database?": "Big Fantastic Virus Database 是什么？",
+    "What is the Kinetoplastid dataset?": "动质体数据集是什么？",
+    "What is the Proteome-scale dimer structures (NVIDIA) dataset?": "蛋白质组规模二聚体结构（NVIDIA）数据集是什么？",
+    "What is the VAD dataset?": "VAD 数据集是什么？",
+    "What is the Viral complexes dataset?": "病毒复合物数据集是什么？",
+    "What is the Viro3D dataset?": "Viro3D 数据集是什么？",
+    "How do I search the database?": "如何检索数据库？",
+    "What is the Portal View in the AlphaFold Database?": "AlphaFold 数据库中的门户视图是什么？",
+    "How does sequence-based search work?": "基于序列的检索如何工作？",
+    "What if I can’t find the protein I’m interested in?": "如果找不到感兴趣的蛋白质怎么办？",
+    "How do I interpret and filter search results?": "如何解读并筛选检索结果？",
+    "How can I search for similar structures in the AlphaFold Database?": "如何在 AlphaFold 数据库中检索相似结构？",
+    "What is Foldseek?": "Foldseek 是什么？",
+    "How do cluster members work?": "聚类成员是如何工作的？",
+    "How confident should I be in a prediction?": "应该对预测结果抱多大信心？",
+    "How should I interpret the relative positions of domains?": "如何解读结构域的相对位置？",
+    "How confident should I be in a predicted complex?": "应该对预测的复合物抱多大信心？",
+    "What is included on a structure page for monomers?": "单体结构页面包含哪些内容？",
+    "What is included on a structure page for multimers/complexes?": "多聚体/复合物结构页面包含哪些内容？",
+    "What is AlphaMissense?": "AlphaMissense 是什么？",
+    "What data can I download from AlphaMissense?": "可以从 AlphaMissense 下载哪些数据？",
+    "What is The Encyclopedia of Domains (TED)?": "结构域百科（TED）是什么？",
+    "How can I interpret TED data?": "如何解读 TED 数据？",
+    "How are residue and point mutation annotations generated in AlphaFold DB?": "AlphaFold DB 中的残基与点突变注释是如何生成的？",
+    "How are text-mined residue and point mutation annotations generated in AlphaFold DB?": "AlphaFold DB 中文本挖掘的残基与点突变注释是如何生成的？",
+    "How can I download a structure prediction?": "如何下载结构预测？",
+    "How can I download and use the Predicted Aligned Error (PAE) file?": "如何下载并使用预测比对误差（PAE）文件？",
+    "How can I bulk download the data?": "如何批量下载数据？",
+    "How should I cite this resource?": "应如何引用本资源？",
+    "What licence applies to the predictions?": "预测数据适用哪种许可？",
+    "Who can submit datasets and how?": "谁可以提交数据集，如何提交？",
+    "Where can I deposit AlphaFold structure predictions that are not in the database?": "数据库中未收录的 AlphaFold 结构预测可以提交到哪里？",
+    "Who should I contact with enquiries?": "有疑问应联系谁？",
+    "How can I get in touch about my experience with the AlphaFold DB?": "如何反馈我使用 AlphaFold DB 的体验？",
+    "Licence and attribution": "许可与署名",
+    "Support and feedback": "支持与反馈",
+    "The Encyclopedia of Domains (TED) identifies and classifies structural domains.": "结构域百科（TED）识别并分类结构域。",
+    "EMBL-EBI training": "EMBL-EBI 培训",
+    "For downloading predictions for all the species in the tables below, visit the FTP site:": "如需下载下表中所有物种的预测，请访问 FTP 站点：",
+    "The uncompressed archive files (.tar) contain all the available compressed PDB and mmCIF files (.gz) for a reference proteome. In the case of proteins longer than 2700 amino acids (aa), AlphaFold provides 1400aa long, overlapping fragments. For example, Titin has predicted fragment structures named as Q8WZ42-F1 (residues 1–1400), Q8WZ42-F2 (residues 201–1600), etc. These fragments are currently only available for the human proteome in these proteome archive files, not on the website.": "未压缩的归档文件（.tar）包含某个参考蛋白质组的全部可用压缩 PDB 与 mmCIF 文件（.gz）。对于长度超过 2700 个氨基酸（aa）的蛋白质，AlphaFold 会提供 1400 aa 长、相互重叠的片段。例如 Titin 的预测片段结构命名为 Q8WZ42-F1（残基 1–1400）、Q8WZ42-F2（残基 201–1600）等。这些片段目前只在人类蛋白质组的这些蛋白质组归档文件中提供，网站上没有。",
+    "FAQs": "常见问题",
+    "Online training course": "在线培训课程",
+    "View all frequently asked questions": "查看全部常见问题",
+    "View all on-demand training": "查看全部按需培训"
+  },
+  "rules": [
+    {
+      "re": "^Showing all search results for (.+)$",
+      "to": "显示 $1 的全部检索结果"
+    },
+    {
+      "re": "^([\\d,]+) - ([\\d,]+) of ([\\d,]+) results$",
+      "to": "$1 - $2，共 $3 条结果"
+    },
+    {
+      "re": "^Monomers \\((\\d+)\\)$",
+      "to": "单体（$1）"
+    },
+    {
+      "re": "^Reviewed \\(Swiss-Prot\\) \\((\\d+)\\)$",
+      "to": "已审核（Swiss-Prot）（$1）"
+    },
+    {
+      "re": "^Show predictions for sequences found only in UniProt reference proteomes\\s*\\((\\d+)\\)$",
+      "to": "只显示 UniProt 参考蛋白质组中序列的预测（$1）"
+    },
+    {
+      "re": "^Google DeepMind \\((\\d+)\\)$",
+      "to": "Google DeepMind 数据集（$1）"
+    },
+    {
+      "re": "^Version (.+)$",
+      "to": "版本 $1"
+    },
+    {
+      "re": "^(\\d+) entries in AFDB$",
+      "to": "$1 个 AFDB 条目"
+    },
+    {
+      "re": "^(\\d+) structures in PDB for (.+)$",
+      "to": "$2 在 PDB 中的结构（$1 个）"
+    },
+    {
+      "re": "^(\\d+) PDB structures for (.+)$",
+      "to": "$2 的 PDB 结构（$1 个）"
+    },
+    {
+      "re": "^Domains \\((\\d+)\\)$",
+      "to": "结构域（$1）"
+    },
+    {
+      "re": "^Download \\(([\\d,]+ MB)\\)$",
+      "to": "下载（$1）"
+    },
+    {
+      "re": "^Found in$",
+      "to": "收录于"
+    },
+    {
+      "re": "^Review$",
+      "to": "审核"
+    },
+    {
+      "re": "^Search (.+) results$",
+      "to": "检索 $1 结果"
+    },
+    {
+      "re": "^([\\d.]+%) Very high$",
+      "to": "$1（极高）"
+    },
+    {
+      "re": "^([\\d.]+%) High$",
+      "to": "$1（高）"
+    },
+    {
+      "re": "^([\\d.]+%) Low$",
+      "to": "$1（低）"
+    },
+    {
+      "re": "^([\\d.]+%) Very low$",
+      "to": "$1（极低）"
+    },
+    {
+      "re": "^for more information\\.$",
+      "to": "以获取更多信息。"
+    },
+    {
+      "re": "^Domain (\\d+)$",
+      "to": "结构域 $1"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Data is available for academic and commercial use, under a {{1}} licence.",
+      "zh": "{{1}} 许可下，数据可供学术与商业使用。"
+    },
+    {
+      "pat": "Data is available for academic and commercial use, under a {{1}} license.",
+      "zh": "{{1}} 许可下，数据可供学术与商业使用。"
+    },
+    {
+      "pat": "For a list of supported browsers, refer to {{1}}.",
+      "zh": "受支持的浏览器列表请参阅{{1}}。"
+    },
+    {
+      "pat": "PAE measures the confidence in the relative position of two residues {{1}}",
+      "zh": "PAE 衡量两个残基相对位置的置信度{{1}}"
+    },
+    {
+      "pat": "For downloading predictions for all the species in the tables below, visit the FTP site: {{1}}",
+      "zh": "如需下载下表中所有物种的预测，请访问 FTP 站点：{{1}}"
+    },
+    {
+      "pat": "The AlphaFold DB website currently provides bulk downloads for the 48 organisms listed below, as well as the majority of {{1}}",
+      "zh": "AlphaFold DB 网站目前为下列 48 个物种以及 {{1}} 的大部分条目提供批量下载。"
+    }
+  ]
+}

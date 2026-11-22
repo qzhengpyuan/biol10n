@@ -253,7 +253,14 @@
     "Download JSON": "下载 JSON",
     "No filter data": "无筛选数据",
     "Reference List": "参考文献列表",
-    "The Pride Submission tool allows users to perform the final submission.": "PRIDE 提交工具让用户完成最终的提交。"
+    "The Pride Submission tool allows users to perform the final submission.": "PRIDE 提交工具让用户完成最终的提交。",
+    "Protein interactions": "蛋白相互作用",
+    "Affinity purification": "亲和纯化",
+    "Immunoprecipitation": "免疫沉淀",
+    "Interactome": "相互作用组",
+    "Read more": "阅读更多",
+    "The PRoteomics IDEntifications database": "PRIDE 蛋白质组鉴定数据库",
+    "PRoteomics IDEntifications Database": "蛋白质组鉴定数据库"
   },
   "rules": [
     {

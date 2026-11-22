@@ -138,71 +138,110 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ## 词库
 
-60 个站点、83 册词库按站点分文件，一个站点只加载自己那几本。
+69 个站点、92 册词库按站点分文件，一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
+| alphafold | 202 | 21 | 6 | AlphaFold DB（首页、条目页、检索、下载） |
+| amigo | 138 | 7 | 2 | AmiGO 2（首页、检索、术语页、浏览） |
 | anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
 | biomart | 209 | 3 |  | Ensembl BioMart（数据集、Filters/Attributes、Results、导出） |
-| books | 130 | 12 |  | NCBI Bookshelf（书架页、检索） |
-| cbioportal | 1186 | 55 | 5 | cBioPortal |
+| biostudies | 228 | 18 | 14 | BioStudies（研究详情、集合、帮助、提交） |
+| books | 134 | 16 |  | NCBI Bookshelf（书架页、检索） |
+| cbioportal | 1135 | 53 |  | cBioPortal |
+| cbioportal2 | 51 | 2 | 5 | cBioPortal 补漏（研究页、图表、下载对话框） |
 | clingen | 436 | 10 | 27 | ClinGen 与 ClinPGx |
-| clinvar | 1200 | 53 | 50 | ClinVar（首页/检索/记录/文档/提交/切碎句） |
+| clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
+| clinicaltrials | 541 | 33 | 2 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
+| clinvar-core | 258 | 38 | 1 | ClinVar 首页/检索/变异记录/筛选器 |
+| clinvar-deep | 40 | 4 | 10 | ClinVar 深页（证据、表型、提交者） |
+| clinvar-frag | 86 | 0 | 36 | ClinVar 切碎句（跨节点拼接） |
+| clinvar-help | 561 | 3 | 3 | ClinVar 文档（FAQ、审核状态、字段定义） |
+| clinvar-submit | 214 | 8 |  | ClinVar 提交门户与高级检索构建器 |
+| clinvar-tip | 41 | 0 |  | ClinVar 工具提示与气泡 |
 | common | 691 | 51 | 1 | 跨站通用界面词与规范化规则 |
 | dbvar-bioproject | 200 | 19 | 1 | dbVar / BioProject |
-| ensembl | 950 | 13 | 102 | Ensembl（含新前端、文档、API、VEP、切碎句） |
+| ena | 487 | 26 | 28 | ENA Browser（记录页、检索、序列检索、Webin） |
+| ensembl | 394 | 10 | 16 | Ensembl（含新前端、文档、API、VEP、切碎句） |
+| ensembl-extra | 311 | 2 |  | Ensembl 补充（文档侧栏、API、VEP、镜像安装） |
+| ensembl-tpl | 116 | 0 | 71 | Ensembl 整段模板 |
+| ensembl2 | 129 | 1 | 15 | Ensembl 新前端与 BioMart 深层 |
+| europepmc | 232 | 24 | 11 | Europe PMC（检索、过滤面板、文章页、导出与引文） |
+| expasy | 172 | 11 | 48 | Expasy 资源门户（工具目录、帮助、新闻） |
 | fill-r19 | 37 | 0 | 20 | GTEx 数据集、HPA 单细胞、PubMed 首页补漏 |
-| gdc | 484 | 22 |  | GDC Data Portal |
+| gdc | 482 | 20 |  | GDC Data Portal |
+| gdc2 | 2 | 2 |  | GDC Data Portal 补漏 |
 | gdv | 103 | 6 | 1 | NCBI GDV（基因组数据查看器） |
 | gdv2 | 60 | 11 |  | GDV 配置轨道面板、轨道集线器、帮助页 |
-| gene | 256 | 37 | 2 | NCBI Gene |
-| geo-extra | 150 | 5 |  | GEO / GDS / SRA 检索页补漏 |
+| gene | 217 | 31 |  | NCBI Gene |
+| gene2 | 39 | 6 | 2 | NCBI Gene 补漏 |
+| geneontology | 522 | 2 | 4 | 基因本体资源（首页、文档、下载、工具目录） |
 | geo-docs | 411 | 1 | 22 | GEO 文档体系（/geo/info、FAQ、MIAME、提交指南） |
+| geo-extra | 150 | 5 |  | GEO / GDS / SRA 检索页补漏 |
 | gepia2 | 180 | 9 |  | GEPIA2 |
 | gnomad | 245 | 10 | 5 | gnomAD |
-| string-atlas | 454 | 19 | 31 | STRING 与 EMBL-EBI Expression Atlas |
-| gtex | 520 | 17 | 33 | GTEx Portal（含数据集页与文档） |
-| hpa | 1755 | 117 | 42 | Human Protein Atlas |
-| interpro | 288 | 1 | 3 | InterPro（首页、检索、条目、蛋白页、帮助） |
-| kegg | 753 | 19 | 6 | KEGG（含帮助文档与通路图查看页） |
+| gtex | 300 | 13 |  | GTEx Portal（含数据集页与文档） |
+| gtex-home | 211 | 4 | 33 | GTEx 首页与文档补漏 |
+| hpa | 1708 | 117 | 26 | Human Protein Atlas |
+| hpa2 | 47 | 0 | 16 | Human Protein Atlas 补漏（组织、单细胞、信息图） |
+| hpo | 136 | 10 | 2 | Human Phenotype Ontology（首页、术语页、基因页、注释与下载） |
+| interpro | 296 | 3 | 3 | InterPro（首页、检索、条目、蛋白页、帮助） |
+| kegg | 567 | 16 |  | KEGG（含帮助文档与通路图查看页） |
+| kegg-docs | 107 | 1 | 3 | KEGG 帮助文档 |
+| kegg-docs2 | 79 | 2 | 3 | KEGG 文档补漏（通路、模块、KO） |
 | medgen-gtr | 317 | 71 | 1 | MedGen / GTR |
 | mesh | 82 | 5 |  | NCBI MeSH |
 | mirbase | 159 | 22 |  | miRBase |
-| misc | 249 | 5 | 86 | UALCAN / TIMER / miRBase / GEPIA2 补漏与切碎句 |
-| ncbi | 1817 | 100 | 5 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
-| ncbi-help | 1705 | 1 | 19 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
+| misc-extra | 217 | 5 | 3 | UALCAN / GTEx / GEPIA2 补漏 |
+| misc-tpl | 32 | 0 | 83 | 杂项整段模板 |
+| ncbi | 1410 | 70 | 1 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
+| ncbi-cat | 160 | 10 | 4 | NCBI 目录站（Guide、NLM Catalog、ORFfinder） |
+| ncbi-deep2 | 81 | 10 | 1 | GTR 基因页 / MedGen / BioSample / CCDS / Datasets 深页 |
 | ncbi-dirs | 291 | 4 | 25 | RefSeq / BioSample / CCDS / 提交门户 |
+| ncbi-footer | 73 | 2 |  | NCBI 全站页脚（mega footer、NLM 新版页脚、Structure 字段） |
+| ncbi-guide | 30 | 0 |  | NCBI Guide 深页 |
+| ncbi-help | 1705 | 1 | 19 | PubMed 帮助中心（FAQ、检索语法、字段表、附录） |
+| ncbi-home | 41 | 5 |  | NCBI 首页与全站导航 |
 | ncbi-new2 | 158 | 11 | 2 | MedGen / GTR / dbVar / BioProject / Structure / NLM Catalog / ORFfinder / Guide / Datasets 深页 |
+| ncbi-struct | 192 | 21 |  | Structure / CCD / IPG 记录页 |
+| nextprot | 12 | 0 | 9 | neXtProt 退役归档页 |
 | onco | 239 | 9 |  | TCGA 队列、变异类型、生存统计 |
-| pmc | 118 | 21 | 4 | NCBI PMC（首页、页眉页脚、文章骨架） |
-| pubchem-dbgap | 494 | 3 | 2 | PubChem 与 dbGaP |
+| opentargets | 326 | 18 | 31 | Open Targets Platform（靶点页、疾病页、证据面板、下载） |
+| pdbe | 157 | 8 | 2 | PDBe（首页、条目页、检索、下载与文档） |
+| pharmgkb | 73 | 8 | 13 | PharmGKB / ClinPGx（首页、基因页、变异页、说明书注释、下载） |
+| pmc | 82 | 17 |  | NCBI PMC（首页、页眉页脚、文章骨架） |
+| pmc-home | 47 | 5 | 4 | PMC 首页与检索 |
+| pride | 252 | 24 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
+| pubchem-dbgap | 496 | 4 | 2 | PubChem 与 dbGaP |
 | pubmed2 | 22 | 3 | 1 | PubMed 首页与结果页补漏 |
-| rcsb | 739 | 38 | 11 | RCSB PDB（含新版首页与检索） |
-| seq | 199 | 20 | 1 | NCBI Nucleotide / Protein / Assembly |
+| rcsb | 723 | 34 | 3 | RCSB PDB（含新版首页与检索） |
+| rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
+| reactome | 516 | 24 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
+| rfam | 302 | 28 | 28 | Rfam（首页、家族页、检索、下载、帮助文档） |
+| seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
+| seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
 | snp | 121 | 4 | 5 | NCBI dbSNP |
 | spa | 136 | 0 |  | 各站共用的单页应用骨架词 |
+| string-atlas | 454 | 19 | 31 | STRING 与 EMBL-EBI Expression Atlas |
+| string-atlas2 | 44 | 11 | 7 | STRING / Expression Atlas 补充（下载说明） |
 | taxonomy | 115 | 6 |  | NCBI Taxonomy |
 | timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
-| ucsc | 1459 | 27 | 140 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
+| ucsc | 997 | 9 | 49 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
+| ucsc-extra | 229 | 12 |  | UCSC 补充（hgTracks 工具栏、轨道名、hgTables） |
 | ucsc-hggene | 55 | 6 |  | hgGene / hgGeneGraph 基因页正文与控件 |
-| uniprot | 866 | 29 |  | UniProt |
+| ucsc-tpl | 80 | 7 | 74 | UCSC 整段模板 |
+| ucsc-vai | 153 | 0 | 17 | UCSC Variant Annotation Integrator |
+| uniprot | 773 | 16 |  | UniProt |
+| uniprot2 | 93 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-| europepmc | 223 | 24 | 11 | Europe PMC（检索、过滤面板、文章页、导出与引文） |
-| reactome | 516 | 22 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
-| pride | 245 | 24 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
-| ena | 487 | 26 | 28 | ENA Browser（记录页、检索、序列检索、Webin） |
-| biostudies | 228 | 18 | 14 | BioStudies（研究详情、集合、帮助、提交） |
-| expasy | 130 | 11 | 48 | Expasy 资源门户（工具目录、帮助、新闻） |
-| nextprot | 11 | 0 | 9 | neXtProt 退役归档页 |
-
-合计 **23037 条 / 1055 条规则 / 783 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **25500 条 / 1197 条规则 / 873 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（846 条）
+npm test             # 引擎、面板、站点与产物单测（962 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

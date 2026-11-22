@@ -67,7 +67,7 @@ test("词库结构：条数、键值形态、规则可编译、模板槽位连�
     const re = new RegExp(r.re);
     assert.ok(re.source.length > 0);
     assert.ok(/[\u4e00-\u9fff（）]/.test(r.to), "规则译文里必须有中文或全角标点: " + r.re);
-    assert.ok(/\$\d/.test(r.to), "带捕获组的规则要用到占位符: " + r.re);
+    if (/(^|[^\\])\(/.test(r.re)) assert.ok(/\$\d/.test(r.to), "带捕获组的规则要用到占位符: " + r.re);
   }
   for (const t of book.templates) {
     const used = [...t.pat.matchAll(/\{\{(\d+)\}\}/g)].map((m) => Number(m[1]));
@@ -203,7 +203,7 @@ test("通路详情页：字段名、参与者/事件分区与内联链接模板"
     "阅读更多详情",
     "将图导出为 SBML",
     "将图导出为 PDF",
-    "在通路浏览器中打开「Cell Cycle」",
+    "在通路浏览器中打开「细胞周期」",
     "前往 Reactome 通路浏览器"
   ]);
 });
@@ -314,7 +314,7 @@ test("Beta 通路浏览器：图例、箭头说明、缩放与折叠控件", () 
     "表示箭头", "运动箭头", "过程箭头", "抑制箭头", "转化箭头", "未发生箭头", "疾病相关箭头"
   ]);
   assert.deepEqual(spans.slice(11), ["缩放", "适应屏幕", "全部展开", "全部收起", "展开一项", "折叠一项", "全选", "取消全选"]);
-  assert.equal(doc.querySelector("button").getAttribute("aria-label"), "展开或折叠 Cell Cycle");
+  assert.equal(doc.querySelector("button").getAttribute("aria-label"), "展开或折叠 细胞周期");
   assert.equal(doc.querySelector("a").getAttribute("title"), "跳转到 R-HSA-69620");
   assert.equal(doc.querySelectorAll("a")[1].getAttribute("title"), "打开 R-HSA-69620 的原始事件");
   const divs = [...doc.querySelectorAll("div")].map(text);
@@ -330,7 +330,7 @@ test("数据不动：物种拉丁名、通路名、标识符、邮箱、评分",
       "</tr></table>"
   );
   assert.deepEqual([...doc.querySelectorAll("td")].map(text), [
-    "Homo sapiens", "Mus musculus", "Cell Cycle", "Cell Cycle Checkpoints",
+    "Homo sapiens", "Mus musculus", "细胞周期", "Cell Cycle Checkpoints",
     "R-HSA-1640170", "cell cycle (0007049)", "help@reactome.org",
     "5/5", "R-HSA-1640170.5", "Matthews, L (2011-10-10)", "P04637"
   ]);
@@ -371,7 +371,7 @@ test("属性通道：placeholder/title/aria-label 翻译，value/name/href 不�
   assert.equal(a.getAttribute("title"), "打开通路图");
   assert.equal(a.getAttribute("href"), "/PathwayBrowser/#/R-HSA-1640170");
   const btn = doc.querySelector("button");
-  assert.equal(btn.getAttribute("aria-label"), "展开或折叠 Cell Cycle");
+  assert.equal(btn.getAttribute("aria-label"), "展开或折叠 细胞周期");
   assert.equal(btn.getAttribute("title"), "放大");
 });
 
@@ -391,10 +391,10 @@ test("真实页面片段：检索结果卡片（图标 title、通路名、字�
   );
 
   const link = doc.querySelector("h4.title a");
-  assert.equal(text(link), "Cell Cycle", "通路名是数据，保持英文");
+  assert.equal(text(link), "细胞周期", "顶层分类按固定分类翻，检索词与正文小写形态不动");
   assert.equal(link.getAttribute("title"), "显示详情");
   assert.equal(link.getAttribute("href"), "./detail/R-HSA-1640170", "链接目标不动");
-  assert.equal([...doc.querySelectorAll("h4.title .highlighting")].map(text).join(" "), "Cell Cycle", "检索高亮片段不拆不改");
+  assert.equal(doc.querySelectorAll("h4.title .highlighting").length, 0, "顶层分类整块命中后高亮 span 被合并（规则锚定不拆词）");
   assert.equal(doc.querySelector("i.sprite").getAttribute("title"), "TopLevelPathway", "图标 sprite 名是内部类名，不翻");
 
   const labels = [...doc.querySelectorAll(".result-detail strong")].map(text);

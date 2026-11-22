@@ -241,9 +241,18 @@
     "Europe PMC Funders' Group": "Europe PMC 资助方小组",
     "EMBL-EBI's long term data preservation policies": "EMBL-EBI 的长期数据保存政策",
     "PubMed Central International": "PubMed Central 国际版",
-    "Global Core Biodata Resource": "全球核心生物数据资源"
+    "Global Core Biodata Resource": "全球核心生物数据资源",
+    "PubMed Central (PMC)": "PubMed Central（PMC）",
+    "Important Message": "重要提示",
+    "We are sorry, we are unable to retrieve the citation details for this record.": "抱歉，我们无法获取该记录的引文详情。",
+    "Bluesky": "Bluesky 社交平台",
+    "YouTube": "YouTube 视频平台"
   },
   "rules": [
+    {
+      "re": "^(.+) - Search results - Europe PMC$",
+      "to": "$1 - 检索结果 - Europe PMC"
+    },
     {
       "re": "^Full text: In Europe PMC \\(([\\d,]+)\\)$",
       "to": "全文：Europe PMC 内（$1）"

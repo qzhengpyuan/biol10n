@@ -7,7 +7,7 @@
       "www.clinicaltrials.gov"
     ],
     "area": "ClinicalTrials.gov 检索页、筛选面板、研究记录（含结果页）与 About 文档",
-    "note": "ClinicalTrials.gov 界面中文化：顶栏/页脚、检索结果页与筛选面板的标签与固定枚举、研究记录的字段名与分区标题、结果页表格标签、About 页小标题与固定说明句。NCT 号、机构名、药名、地点、研究标题不翻。"
+    "note": "ClinicalTrials.gov 界面中文化：顶栏/页脚、检索结果页与筛选面板的标签与固定枚举、研究记录的字段名与分区标题、结果页表格标签、About 页小标题与固定说明句。NCT 号、机构名、药名、地点、研究标题不翻。 术语表（#glossary）内的术语定义整句也收在本册：纯文本定义进 exact，被 .term 内联链接切开的定义进 templates（槽位就是原来的术语链接），避免只翻术语、句子半中半英。"
   },
   "exact": {
     "PRS Login": "PRS 登录",
@@ -550,7 +550,36 @@
     "What researchers learned from the study (results)": "研究者从研究中了解到什么（结果）",
     "What researchers want to learn and how they will measure it": "研究者想了解什么以及将如何衡量",
     "How to read each section of the study results": "如何阅读研究结果的各部分",
-    "ClinicalTrials.gov also lists expanded access.": "ClinicalTrials.gov 还列出扩展可及性。"
+    "ClinicalTrials.gov also lists expanded access.": "ClinicalTrials.gov 还列出扩展可及性。",
+    "A measure of all deaths, due to any cause, that occur during a clinical study.": "对临床研究期间因任何原因发生的全部死亡的一种度量。",
+    "Data collected at the beginning of a clinical study for all participants and for each arm or comparison group. These data include demographics, such as age, sex/gender, race and ethnicity, and study-specific measures (for example, systolic blood pressure, prior antidepressant treatment).": "在临床研究开始时为所有参与者以及每个组别或对照组收集的数据。这些数据包括人口统计学信息，如年龄、性别、种族与族裔，以及研究特定的测量指标（例如收缩压、既往抗抑郁药治疗）。",
+    "The disease, disorder, syndrome, illness, or injury that is being studied. On ClinicalTrials.gov, conditions may also include other health-related issues, such as lifespan, quality of life, and health risks.": "正在研究的疾病、功能紊乱、综合征、病症或损伤。在 ClinicalTrials.gov 上，疾病条件还可能包括其他健康相关问题，如寿命、生活质量与健康风险。",
+    "The name and contact information for the person who can answer enrollment questions for a clinical study. Each location where the study is being conducted may also have a specific contact, who may be better able to answer those questions.": "可以回答某临床研究入组问题的联系人姓名与联系信息。开展研究的每个地点也可能有各自的联系人，他们可能更能回答这些问题。",
+    "The number of participants in a clinical study. The \"estimated\" enrollment is the target number of participants that the researchers need for the study.": "临床研究中参与者的人数。“预计”入组人数是研究者为该项研究所需要的目标参与者人数。",
+    "A process or action that is the focus of a clinical study. Interventions include drugs, medical devices, procedures, vaccines, and other products that are either investigational or already available. Interventions can also include noninvasive approaches, such as education or modifying diet and exercise.": "作为临床研究焦点的过程或措施。干预措施包括药物、医疗器械、操作、疫苗及其他产品，无论处于研究阶段还是已经可用。干预措施还可以包括非侵入性方法，如健康教育或调整饮食与运动。",
+    "A clinical trial design strategy in which one or more parties involved in the trial, such as the investigator or participants, do not know which participants have been assigned which interventions. Types of masking include: open label, single blind masking, and double-blind masking.": "一种临床试验设计策略，使试验中的一方或多方（如研究者或参与者）不知道哪些参与者接受了哪种干预措施。设盲类型包括：开放标签、单盲和双盲。",
+    "The person who is responsible for the scientific and technical direction of the entire clinical study.": "负责整个临床研究科学与技术方向的人。",
+    "A grouping of participants in a clinical study that is used for summarizing the data collected during the study. This grouping may be the same as or different from a study arm or group.": "临床研究中用于汇总研究所收集数据的一种参与者分组。该分组可能与研究组别或组相同，也可能不同。",
+    "The person responsible for submitting information about a clinical study to ClinicalTrials.gov and updating that information. Usually the study sponsor or investigator.": "负责向 ClinicalTrials.gov 提交临床研究信息并更新该信息的人。通常是研究申办方或研究者。",
+    "The organization or person who initiates the study and who has authority and control over the study.": "发起研究并对研究拥有权力与控制权的组织或个人。",
+    "A structured online system, such as ClinicalTrials.gov, that provides the public with access to summary information about ongoing and completed clinical studies.": "一种结构化的在线系统（如 ClinicalTrials.gov），向公众提供正在进行和已完成临床研究的概要信息。",
+    "The actual date on which the first participant was enrolled in a clinical study. The \"estimated\" study start date is the date that the researchers think will be the study start date.": "首位参与者实际入组某临床研究的日期。“预计”研究开始日期是研究者认为的研究开始日期。",
+    "The acronym or initials used to identify a clinical study (not all studies have one). For example, the title acronym for the Women's Health Initiative is \"WHI.\"": "用于标识某项临床研究的缩写或首字母（并非所有研究都有）。例如，妇女健康倡议（Women's Health Initiative）的标题缩写是“WHI”。",
+    "An agency within the U.S. Department of Health and Human Services. AHRQ's mission is to produce evidence to make health care safer, higher quality, more accessible, equitable, and affordable, and to work within the U.S. Department of Health and Human Services and with other partners to make sure that the evidence is understood and used.": "美国卫生与公众服务部下属的一个机构。AHRQ 的使命是提供证据，使医疗保健更安全、更高质量、更可及、更公平且更可负担，并在美国卫生与公众服务部内部及与其他伙伴合作，确保这些证据被理解和使用。",
+    "An agency within the U.S. Department of Health and Human Services. The FDA is responsible for protecting the public health by making sure that human and veterinary drugs, vaccines and other biological products, medical devices, the Nation's food supply, cosmetics, dietary supplements, and products that give off radiation are safe, effective, and secure.": "美国卫生与公众服务部下属的一个机构。FDA 负责通过确保人用与兽用药物、疫苗及其他生物制品、医疗器械、国家食品供应、化妆品、膳食补充剂以及产生辐射的产品安全、有效且可靠，来保护公众健康。",
+    "Delay Results Type": "延迟结果类型",
+    "ClinicalTrials.gov identifier": "ClinicalTrials.gov 标识符",
+    "and/or": "和/或",
+    "Who can join clinical research?": "谁可以参加临床研究？",
+    "What happens during clinical research?": "临床研究期间会发生什么？",
+    "Failure to submit required clinical trial information": "未提交所需的临床试验信息",
+    "Industry (for example: pharmaceutical and device companies)": "产业界（例如：制药与器械公司）",
+    "U.S. National Institutes of Health": "美国国立卫生研究院",
+    "All others (including individuals, universities, and community-based organizations)": "其他所有（含个人、大学与社区组织）",
+    "The age groups are:": "年龄组包括：",
+    "Submission of false or misleading clinical trial information": "提交虚假或误导性的临床试验信息",
+    "Failure to submit primary and secondary outcomes": "未提交主要与次要结局",
+    "Relevance: Studies that best match your search terms appear higher in the search results list. This is the default display for all searches.": "相关度：与检索词最匹配的研究在结果列表中位置更靠前。这是所有检索的默认显示方式。"
   },
   "rules": [
     {
@@ -695,6 +724,474 @@
     {
       "pat": "ClinicalTrials.gov is a website and online database of clinical research studies and information about their results. The National Library of Medicine (NLM) maintains the website. {{1}} about their study to ClinicalTrials.gov and {{2}} of any study they list.",
       "zh": "ClinicalTrials.gov 是临床研究及其结果信息的网站与在线数据库，由美国国家医学图书馆（NLM）维护。{{1}}向 ClinicalTrials.gov 提交其研究信息，并{{2}}。"
+    },
+    {
+      "pat": "A type of {{1}} that indicates whether people who do not have the {{2}} being studied can participate in that clinical study.",
+      "zh": "一种{{1}}，用于说明没有所研究{{2}}的人是否可以参加该临床研究。"
+    },
+    {
+      "pat": "An {{1}} in which a group of participants receives an {{2}} considered to be effective (or active) by health care providers.",
+      "zh": "一种{{1}}，其中一组参与者接受医疗保健提供者认为有效（或有活性）的{{2}}。"
+    },
+    {
+      "pat": "An unfavorable change in the health of a participant, including abnormal laboratory findings, that happens during a clinical study or within a certain amount of time after the study has ended. This change may or may not be caused by the {{1}} being studied.",
+      "zh": "参与者在临床研究期间或研究结束后一定时间内出现的健康上的不利变化，包括实验室检查异常。该变化可能由所研究的{{1}}引起，也可能不是。"
+    },
+    {
+      "pat": "A method used to assign participants to an arm of a clinical study. The types of allocation are {{1}} and nonrandomized.",
+      "zh": "用于将参与者分配到临床研究组别的方法。分配方式包括{{1}}和非随机分配。"
+    },
+    {
+      "pat": "A collection of participants who all receive the same {{1}} in a {{2}}, based on the trial's {{3}}.",
+      "zh": "在{{2}}中，根据试验的{{3}}，所有接受相同{{1}}的一批参与者。"
+    },
+    {
+      "pat": "A general description of the clinical trial arm. It identifies the role of the intervention that participants receive. Types of arms include {{1}}, {{2}}, {{3}}, {{4}}, and {{5}}.",
+      "zh": "对临床试验组别的一般性描述，用于说明参与者所接受干预措施的作用。组别类型包括{{1}}、{{2}}、{{3}}、{{4}}和{{5}}。"
+    },
+    {
+      "pat": "Indicates that the study sponsor or investigator recalled a submission of {{1}} before {{2}} took place. If the submission was canceled on or after May 8, 2018, the date is shown. After submission of study results, a {{3}} cannot be modified until QC review is completed, unless the submission is canceled.",
+      "zh": "表示研究申办方或研究者在{{2}}发生之前撤回了{{1}}的提交。若提交是在 2018 年 5 月 8 日或之后取消的，则显示取消日期。提交研究结果后，在质量控制审核完成之前{{3}}不能修改，除非该提交被取消。"
+    },
+    {
+      "pat": "Information required by the {{1}}. In general, this is a description of any agreement between the sponsor of a clinical study and the {{2}} (PI) that does not allow the PI to discuss the results of the study or publish the study results in a scientific or academic journal after the study is completed.",
+      "zh": "{{1}}要求提供的信息。一般而言，这是对临床研究申办方与{{2}}（PI）之间任何协议的说明，该协议不允许 PI 在研究完成后讨论研究结果或在科学或学术期刊上发表研究结果。"
+    },
+    {
+      "pat": "A sponsor or investigator may submit a certification to delay submission of results information if they are applying for {{1}} approval of a new drug or device, or new use of an already approved drug or device. A sponsor or investigator who submits a certification can delay results submission up to 2 years after the {{2}} date, unless certain events occur sooner. See {{3}} in the Results Data Element definitions for more information about this certification.",
+      "zh": "若申办方或研究者正在申请{{1}}批准新药或新器械，或已批准药物或器械的新用途，则可提交认证以延迟提交结果信息。提交认证的申办方或研究者可在{{2}}日期之后最多延迟 2 年提交结果，除非某些事件更早发生。有关该认证的更多信息，请参见结果数据元素定义中的{{3}}。"
+    },
+    {
+      "pat": "The date on which information about a {{1}} to delay submission of results or an {{2}} was first available on ClinicalTrials.gov. ClinicalTrials.gov does not indicate whether the submission was a certification or extension request. There is typically a delay between the date the study sponsor or investigator submitted the certification or extension request and the certification/extension first posted date.",
+      "zh": "关于延迟提交结果的{{1}}或{{2}}的信息首次在 ClinicalTrials.gov 上可用的日期。ClinicalTrials.gov 不标明该提交是认证还是延期请求。研究申办方或研究者提交认证或延期请求的日期与认证/延期首次发布日之间通常存在延迟。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator first submitted a {{1}} or an {{2}} to delay submission of results. A sponsor or investigator who submits a certification can delay results submission up to 2 years after this date, unless certain events occur sooner. There is typically a delay between the date the certification or extension request was submitted and the date the information is first available on ClinicalTrials.gov ({{3}}).",
+      "zh": "研究申办方或研究者首次提交延迟提交结果的{{1}}或{{2}}的日期。提交认证的申办方或研究者可在该日期之后最多延迟 2 年提交结果，除非某些事件更早发生。认证或延期请求的提交日期与该信息首次在 ClinicalTrials.gov 上可用的日期（{{3}}）之间通常存在延迟。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator first submitted a {{1}} or an {{2}} that is consistent with National Library of Medicine (NLM) {{3}} criteria. The sponsor or investigator may need to revise and submit a certification or extension request one or more times before NLM's QC review criteria are met. It is the responsibility of the sponsor or investigator to ensure that the {{4}} is consistent with the NLM QC review criteria. Meeting QC criteria for an extension request does not mean that the National Institutes of Health (NIH) has determined that the request demonstrates good cause. The process for review and granting of extension requests by the NIH is being developed.",
+      "zh": "研究申办方或研究者首次提交符合美国国家医学图书馆（NLM）{{3}}标准的{{1}}或{{2}}的日期。申办方或研究者可能需要多次修订并提交认证或延期请求，才能达到 NLM 的 QC 审核标准。申办方或研究者有责任确保{{4}}符合 NLM 的 QC 审核标准。延期请求符合 QC 标准并不意味着美国国立卫生研究院（NIH）已认定该请求具备正当理由。NIH 审核与批准延期请求的流程正在制定中。"
+    },
+    {
+      "pat": "A research study involving human volunteers (also called participants) that is intended to add to medical knowledge. There are two types of clinical studies: {{1}} (also called clinical trials) and {{2}}.",
+      "zh": "涉及人类志愿者（也称参与者）、旨在增进医学知识的研究。临床研究有两类：{{1}}（也称临床试验）和{{2}}。"
+    },
+    {
+      "pat": "Another name for an {{1}}.",
+      "zh": "{{1}}的另一种名称。"
+    },
+    {
+      "pat": "The unique identification code given to each clinical study upon {{1}} at ClinicalTrials.gov. The format is \"NCT\" followed by an 8-digit number (for example, NCT00000419).",
+      "zh": "每项临床研究在 ClinicalTrials.gov 完成{{1}}时获得的唯一标识代码。格式为“NCT”后接 8 位数字（例如 NCT00000419）。"
+    },
+    {
+      "pat": "An organization other than the {{1}} that provides support for a clinical study. This support may include activities related to funding, design, implementation, data analysis, or reporting.",
+      "zh": "{{1}}以外为临床研究提供支持的组织。这种支持可能包括与资助、设计、实施、数据分析或报告相关的活动。"
+    },
+    {
+      "pat": "A type of {{1}} describing a clinical trial in which groups of participants receive two or more interventions in a specific order. For example, two-by-two cross-over assignment involves two groups of participants. One group receives drug A during the initial phase of the trial, followed by drug B during a later phase. The other group receives drug B during the initial phase, followed by drug A. So during the trial, participants \"cross over\" to the other drug. All participants receive drug A and drug B at some point during the trial but in a different order, depending on the group to which they are assigned.",
+      "zh": "一种{{1}}，描述各组参与者按特定顺序接受两种或更多干预措施的临床试验。例如，二乘二交叉分配涉及两组参与者：一组在试验初期接受药物 A，随后在后期接受药物 B；另一组在初期接受药物 B，随后接受药物 A。因此在试验期间，参与者会“交叉”到另一种药物。所有参与者在试验期间的某个时点都会接受药物 A 和药物 B，但顺序因所在组别而异。"
+    },
+    {
+      "pat": "A group of independent scientists who monitor the safety and scientific integrity of a {{1}}. The DMC can recommend to the sponsor that the trial be stopped if it is not effective, is harming participants, or is unlikely to serve its scientific purpose. Members are chosen based on the scientific skills and knowledge needed to monitor the particular trial. Also called a data safety and monitoring board, or DSMB.",
+      "zh": "一组独立科学家，负责监查{{1}}的安全性与科学完整性。若试验无效、正在伤害参与者或不太可能实现其科学目的，DMC 可向申办方建议停止试验。成员根据监查该特定试验所需的科学技能与知识选任。也称为数据安全与监查委员会（DSMB）。"
+    },
+    {
+      "pat": "A {{1}} of research used to describe exploratory trials conducted before traditional {{2}} trials to investigate how or whether a drug affects the body. They involve very limited human exposure to the drug and have no therapeutic or diagnostic goals (for example, screening studies, microdose studies).",
+      "zh": "研究的一个{{1}}，用于描述在传统{{2}}试验之前开展的探索性试验，以研究药物如何或是否影响机体。这类试验中人体对药物的暴露非常有限，且没有治疗或诊断目的（例如筛选研究、微剂量研究）。"
+    },
+    {
+      "pat": "The key requirements that people who want to participate in a clinical study must meet or the characteristics they must have. Eligibility criteria consist of both {{1}} (which are required for a person to participate in the study) and {{2}} (which prevent a person from participating). Types of eligibility criteria include whether a study {{3}}, has {{4}} requirements, or is limited by {{5}}.",
+      "zh": "希望参加临床研究的人必须满足的关键要求或其必须具备的特征。合格性标准由两部分组成：{{1}}（参加研究必须满足）和{{2}}（使人无法参加）。合格性标准的类型包括研究{{3}}、有{{4}}要求或受{{5}}限制。"
+    },
+    {
+      "pat": "A list of reasons a person cannot be included in a {{1}}. A type of {{2}}.",
+      "zh": "某人不能纳入{{1}}的原因清单。{{2}}的一种。"
+    },
+    {
+      "pat": "An {{1}} in which a group of participants receives the {{2}} that is the focus of the clinical trial.",
+      "zh": "一种{{1}}，其中一组参与者接受作为临床试验焦点的{{2}}。"
+    },
+    {
+      "pat": "In certain circumstances, a sponsor or investigator may request additional time for submitting study results to ClinicalTrials.gov. The standard results submission deadline is one year after the study's {{1}}. The request for an extension must show good cause (see Section IV(A) of the {{2}} document for examples of good cause). All requests must be reviewed and granted by the National Institutes of Health. See {{3}} in the Results Data Element definitions for more information.",
+      "zh": "在某些情况下，申办方或研究者可申请额外时间向 ClinicalTrials.gov 提交研究结果。标准的结果提交截止时间为研究的{{1}}之后一年。延期请求必须说明正当理由（正当理由示例见{{2}}文件的第 IV(A) 节）。所有请求均须由美国国立卫生研究院审核并批准。更多信息请参见结果数据元素定义中的{{3}}。"
+    },
+    {
+      "pat": "The name of the hospital or institution where a clinical study takes place. Note that not all {{1}} include this information. To use this filter, you can enter some or all of a facility name, or type a few letters and select from the list that appears.",
+      "zh": "开展临床研究的医院或机构名称。请注意，并非所有{{1}}都包含此信息。要使用该筛选条件，可以输入机构名称的全部或部分内容，或输入几个字母后从出现的列表中选择。"
+    },
+    {
+      "pat": "A type of {{1}} describing a clinical trial in which groups of participants receive one of several combinations of interventions. For example, two-by-two factorial assignment involves four groups of participants. Each group receives one of the following pairs of interventions: (1) drug A and drug B, (2) drug A and a placebo, (3) a placebo and drug B, or (4) a placebo and a placebo. So during the trial, all possible combinations of the two drugs (A and B) and the placebos are given to different groups of participants.",
+      "zh": "一种{{1}}，描述各组参与者接受若干干预措施组合之一的临床试验。例如，二乘二析因分配涉及四组参与者，每组接受以下干预措施对之一：（1）药物 A 与药物 B，（2）药物 A 与安慰剂，（3）安慰剂与药物 B，或（4）安慰剂与安慰剂。因此在试验期间，两种药物（A 和 B）与安慰剂的所有可能组合会分配给不同的参与者组。"
+    },
+    {
+      "pat": "The date on which the {{1}} was first available on ClinicalTrials.gov after National Library of Medicine (NLM) {{2}} has concluded. There is typically a delay of a few days between the date the study sponsor or investigator submitted the study record and the first posted date.",
+      "zh": "在美国国家医学图书馆（NLM）{{2}}结束后，{{1}}首次在 ClinicalTrials.gov 上可用的日期。研究申办方或研究者提交研究记录的日期与首次发布日之间通常有几天延迟。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator first submitted a {{1}} to ClinicalTrials.gov. There is typically a delay of a few days between the first submitted date and the record's availability on ClinicalTrials.gov (the {{2}} date).",
+      "zh": "研究申办方或研究者首次向 ClinicalTrials.gov 提交{{1}}的日期。首次提交日期与该记录在 ClinicalTrials.gov 上可用的日期（{{2}}日期）之间通常有几天延迟。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator first submits a {{1}} that is consistent with National Library of Medicine (NLM) {{2}}. The sponsor or investigator may need to revise and submit a study record one or more times before NLM's QC review criteria are met. It is the responsibility of the sponsor or investigator to ensure that the study record is consistent with the NLM QC review criteria.",
+      "zh": "研究申办方或研究者首次提交符合美国国家医学图书馆（NLM）{{2}}的{{1}}的日期。申办方或研究者可能需要多次修订并提交研究记录，才能达到 NLM 的 QC 审核标准。申办方或研究者有责任确保研究记录符合 NLM 的 QC 审核标准。"
+    },
+    {
+      "pat": "U.S. Public Law 110-85, which was enacted on September 27, 2007. Section 801 of FDAAA amends Section 402 of the U.S. Public Health Service Act to expand ClinicalTrials.gov and create a clinical study {{1}}. For more information on FDAAA 801, see the {{2}} page on this site.",
+      "zh": "美国第 110-85 号公法，于 2007 年 9 月 27 日颁布。FDAAA 第 801 条修订《美国公共卫生服务法》第 402 条，以扩展 ClinicalTrials.gov 并建立临床研究{{1}}。有关 FDAAA 801 的更多信息，请参见本站的{{2}}页面。"
+    },
+    {
+      "pat": "A type of {{1}} that indicates whether eligibility to participate in a clinical study is based on a person's self-representation of gender identity. Gender identity refers to a person's own sense of gender, which may or may not be the same as their biological {{2}}.",
+      "zh": "一种{{1}}，用于说明参加临床研究的资格是否基于个人对性别认同的自我表述。性别认同指个人对自身性别的感受，可能与生物学{{2}}相同，也可能不同。"
+    },
+    {
+      "pat": "A collection of participants (in an {{1}}) who are similar in some way.",
+      "zh": "（{{1}}中）在某些方面相似的一批参与者。"
+    },
+    {
+      "pat": "A list of requirements a person must meet to take part in a {{1}}. A type of {{2}}.",
+      "zh": "参加{{1}}必须满足的要求清单。{{2}}的一种。"
+    },
+    {
+      "pat": "A document used to explain the planned research before a person decides whether or not to give their {{1}} to join a {{2}}.",
+      "zh": "在个人决定是否给予{{1}}以参加{{2}}之前，用于说明计划研究内容的文件。"
+    },
+    {
+      "pat": "The general design of the strategy for assigning interventions to participants in a clinical study. Types of intervention models include: {{1}}, {{2}}, {{3}}, and {{4}}.",
+      "zh": "临床研究中向参与者分配干预措施的策略的总体设计。干预模型类型包括：{{1}}、{{2}}、{{3}}和{{4}}。"
+    },
+    {
+      "pat": "A type of {{1}} in which participants are assigned to groups that receive one or more {{2}} (or no intervention) so that researchers can evaluate the effects of the interventions on biomedical or health-related outcomes. The assignments are determined by the study's {{3}}. Participants may receive diagnostic, therapeutic, or other types of interventions.",
+      "zh": "一种{{1}}，其中参与者被分配到接受一种或多种{{2}}（或不接受干预）的组别，以便研究者评估干预措施对生物医学或健康相关结局的影响。分配由研究的{{3}}决定。参与者可能接受诊断性、治疗性或其他类型的干预措施。"
+    },
+    {
+      "pat": "A researcher involved in a clinical study. Related terms include site principal investigator, site sub-investigator, study chair, study director, and study {{1}}.",
+      "zh": "参与临床研究的研究者。相关术语包括机构主要研究者、机构助理研究者、研究主席、研究主任和研究{{1}}。"
+    },
+    {
+      "pat": "The most recent date on which changes to a {{1}} were made available on ClinicalTrials.gov. There may be a delay between when the changes were submitted to ClinicalTrials.gov by the study's sponsor or investigator (the {{2}} date) and the last update posted date.",
+      "zh": "对{{1}}的更改在 ClinicalTrials.gov 上可用的最近日期。从研究申办方或研究者向 ClinicalTrials.gov 提交更改（{{2}}日期）到最后更新发布日之间可能存在延迟。"
+    },
+    {
+      "pat": "The most recent date on which the study sponsor or investigator submitted changes to a {{1}} to ClinicalTrials.gov. There is typically a delay of a few days between the last update submitted date and when the date changes are posted on ClinicalTrials.gov (the {{2}} date).",
+      "zh": "研究申办方或研究者向 ClinicalTrials.gov 提交对{{1}}更改的最近日期。最后更新提交日期与更改在 ClinicalTrials.gov 上发布的日期（{{2}}日期）之间通常有几天延迟。"
+    },
+    {
+      "pat": "The most recent date on which the study sponsor or investigator submitted changes to a {{1}} that are consistent with National Library of Medicine (NLM) {{2}} criteria. It is the responsibility of the sponsor or investigator to ensure that the study record is consistent with the NLM QC review criteria.",
+      "zh": "研究申办方或研究者提交对{{1}}更改且符合美国国家医学图书馆（NLM）{{2}}标准的最近日期。申办方或研究者有责任确保研究记录符合 NLM 的 QC 审核标准。"
+    },
+    {
+      "pat": "The most recent date on which the study sponsor or investigator confirmed the information about a clinical study on ClinicalTrials.gov as accurate and current. If a study with a {{1}} of recruiting; not yet recruiting; or active, not recruiting has not been confirmed within the past 2 years, the study's {{2}} is shown as {{3}}.",
+      "zh": "研究申办方或研究者在 ClinicalTrials.gov 上确认某项临床研究信息准确且为最新的最近日期。若某研究的{{1}}为招募中、尚未招募或进行中但未招募，且在过去 2 年内未获确认，则该研究的{{2}}显示为{{3}}。"
+    },
+    {
+      "pat": "A site where {{1}} activities take place. Location information can be searched using a {{2}}, a city, state, zip code, or country.",
+      "zh": "开展{{1}}活动的地点。地点信息可用{{2}}、城市、州、邮政编码或国家检索。"
+    },
+    {
+      "pat": "Countries in which research facilities for a study are located. A country is listed only once, even if there is more than one facility in the country. The list includes all countries as of the {{1}} date; any country for which all facilities were removed from the {{2}} are listed under {{3}}.",
+      "zh": "研究所在地的研究机构所在的国家。即使某国有多个机构，该国也只列出一次。该列表包含截至{{1}}日期的所有国家；所有机构均已从{{2}}中移除的国家列在{{3}}下。"
+    },
+    {
+      "pat": "A unique identification code given to each clinical {{1}} registered on ClinicalTrials.gov. The format is \"NCT\" followed by an 8-digit number (for example, NCT00000419). Also called the {{2}}.",
+      "zh": "在 ClinicalTrials.gov 注册的每项临床{{1}}获得的唯一标识代码。格式为“NCT”后接 8 位数字（例如 NCT00000419）。也称为{{2}}。"
+    },
+    {
+      "pat": "An {{1}} in which a group of participants does not receive any {{2}} during the clinical trial.",
+      "zh": "一种{{1}}，其中一组参与者在临床试验期间不接受任何{{2}}。"
+    },
+    {
+      "pat": "The general design of the strategy for identifying and following up with participants during an {{1}}. Types of observational study models include cohort, case-control, case-only, case-cross-over, ecologic or community studies, family-based, and other.",
+      "zh": "在{{1}}中识别并随访参与者的策略的总体设计。观察性研究模型类型包括队列、病例对照、仅病例、病例交叉、生态或社区研究、基于家庭的研究及其他。"
+    },
+    {
+      "pat": "An {{1}} that is not a {{2}}, meaning that it does not result in death, is not life-threatening, does not require inpatient hospitalization or extend a current hospital stay, does not result in an ongoing or significant incapacity or interfere substantially with normal life functions, and does not cause a congenital anomaly or birth defect; it also does not put the participant in danger and does not require medical or surgical intervention to prevent one of the results listed above.",
+      "zh": "不属于{{2}}的{{1}}，即不会导致死亡、不危及生命、不需要住院或延长现有住院时间、不会导致持续或显著的功能丧失或严重干扰正常生活功能，也不会导致先天性异常或出生缺陷；同时不会使参与者处于危险之中，也不需要医疗或外科干预来防止上述任一结果。"
+    },
+    {
+      "pat": "Identifiers or ID numbers other than the {{1}} that are assigned to a clinical study by the study's sponsor, funders, or others. These numbers may include unique identifiers from other trial registries and National Institutes of Health grant numbers.",
+      "zh": "由研究申办方、资助方或其他方分配给临床研究的、{{1}}以外的标识符或编号。这些编号可能包括其他试验注册库的唯一标识符和美国国立卫生研究院的资助编号。"
+    },
+    {
+      "pat": "In the search feature, the Other terms field is used to narrow a search. For example, you may enter the name of a drug or the NCT number of a clinical study to limit the search to {{1}} that contain these words.",
+      "zh": "在检索功能中，“其他词条”字段用于缩小检索范围。例如，可以输入药物名称或某项临床研究的 NCT 编号，将检索限定为包含这些词的{{1}}。"
+    },
+    {
+      "pat": "For {{1}}, a planned measurement described in the protocol that is used to determine the effect of an {{2}} on participants. For {{3}}, a measurement or observation that is used to describe patterns of diseases or traits, or associations with exposures, risk factors, or treatment. Types of outcome measures include {{4}} and {{5}}.",
+      "zh": "对于{{1}}，指方案中描述的、用于确定{{2}}对参与者影响的计划测量。对于{{3}}，指用于描述疾病或性状模式，或与暴露、危险因素或治疗之间关联的测量或观察。结局指标类型包括{{4}}和{{5}}。"
+    },
+    {
+      "pat": "A type of {{1}} describing a clinical trial in which two or more groups of participants receive different interventions. For example, a two-arm parallel assignment involves two groups of participants. One group receives drug A, and the other group receives drug B. So during the trial, participants in one group receive drug A \"in parallel\" to participants in the other group, who receive drug B.",
+      "zh": "一种{{1}}，描述两组或更多组参与者接受不同干预措施的临床试验。例如，两组平行分配涉及两组参与者：一组接受药物 A，另一组接受药物 B。因此在试验期间，一组参与者与另一组接受药物 B 的参与者“平行”地接受药物 A。"
+    },
+    {
+      "pat": "A summary of the progress of participants through each stage of a clinical study, by study {{1}} or {{2}}. This includes the number of participants who started, completed, and dropped out of the study.",
+      "zh": "按研究{{1}}或{{2}}汇总的参与者经历临床研究各阶段的进展情况，包括开始、完成和退出研究的参与者人数。"
+    },
+    {
+      "pat": "A type of {{1}} that collects information about patients' medical conditions and/or treatments to better understand how a condition or treatment affects patients in the real world.",
+      "zh": "一种{{1}}，收集患者病情和/或治疗信息，以更好地了解某种疾病或治疗在真实世界中如何影响患者。"
+    },
+    {
+      "pat": "The stage of a clinical trial studying a drug or biological product, based on definitions developed by the {{1}}. The phase is based on the study's objective, the number of participants, and other characteristics. There are five phases: {{2}}, {{3}}, {{4}}, {{5}}, and {{6}}. {{7}} is used to describe trials without FDA-defined phases, including trials of devices or behavioral interventions.",
+      "zh": "研究药物或生物制品的临床试验所处阶段，依据{{1}}制定的定义划分。分期取决于研究目的、参与者人数及其他特征。共有五个分期：{{2}}、{{3}}、{{4}}、{{5}}和{{6}}。{{7}}用于描述没有 FDA 定义分期的试验，包括器械或行为干预试验。"
+    },
+    {
+      "pat": "A {{1}} of research to describe clinical trials that focus on the safety of a drug. They are usually conducted with healthy volunteers, and the goal is to determine the drug's most frequent and {{2}} and, often, how the drug is broken down and excreted by the body. These trials usually involve a small number of participants.",
+      "zh": "研究的一个{{1}}，用于描述以药物安全性为重点的临床试验。此类试验通常以健康志愿者为对象，目的是确定药物最常见的不良反应及{{2}}，并常常确定药物如何被机体分解与排泄。这类试验通常参与者人数较少。"
+    },
+    {
+      "pat": "A {{1}} of research to describe clinical trials that gather preliminary data on whether a drug works in people who have a certain {{2}} (that is, the drug's effectiveness). For example, participants receiving the drug may be compared to similar participants receiving a different treatment, usually an inactive substance (called a {{3}}) or a different drug. Safety continues to be evaluated, and short-term {{4}} are studied.",
+      "zh": "研究的一个{{1}}，用于描述收集药物对患有某种{{2}}的人是否有效的初步数据的临床试验（即药物的有效性）。例如，接受该药物的参与者可与接受不同治疗的相似参与者进行比较，后者通常接受无活性物质（称为{{3}}）或另一种药物。安全性继续接受评估，并研究短期{{4}}。"
+    },
+    {
+      "pat": "A {{1}} of research to describe clinical trials that gather more information about a drug's safety and effectiveness by studying different populations and different dosages and by using the drug in combination with other drugs. These studies typically involve more participants.",
+      "zh": "研究的一个{{1}}，用于描述通过研究不同人群、不同剂量以及与其他药物联用，收集更多关于药物安全性和有效性信息的临床试验。这类研究通常参与者更多。"
+    },
+    {
+      "pat": "A {{1}} of research to describe clinical trials occurring after {{2}} has approved a drug for marketing. They include postmarket requirement and commitment studies that are required of or agreed to by the study sponsor. These trials gather additional information about a drug's safety, efficacy, or optimal use.",
+      "zh": "研究的一个{{1}}，用于描述在{{2}}批准药物上市之后开展的临床试验。包括申办方被要求或同意开展的上市后要求研究与承诺研究。这类试验收集关于药物安全性、有效性或最佳用法的新增信息。"
+    },
+    {
+      "pat": "Describes trials without FDA-defined {{1}}, including trials of devices or behavioral interventions.",
+      "zh": "描述没有 FDA 定义的{{1}}的试验，包括器械或行为干预试验。"
+    },
+    {
+      "pat": "Something that looks the same, and is given in the same way, as the active {{1}} being studied, but doesn't contain any medicine.",
+      "zh": "外观与给药方式与所研究的活性{{1}}相同，但不含任何药物的物质。"
+    },
+    {
+      "pat": "An {{1}} in which a group of participants receives a {{2}} during a clinical trial.",
+      "zh": "一种{{1}}，其中一组参与者在临床试验期间接受{{2}}。"
+    },
+    {
+      "pat": "The date on which the last participant in a clinical study was examined or received an intervention to collect final data for the {{1}}. Whether the clinical study ended according to the {{2}} or was terminated does not affect this date. For clinical studies with more than one primary outcome measure with different completion dates, this term refers to the date on which data collection is completed for all the primary outcome measures. The \"estimated\" primary completion date is the date that the researchers think will be the primary completion date for the study.",
+      "zh": "临床研究中最后一位参与者接受检查或接受干预以收集{{1}}最终数据的日期。临床研究是按{{2}}结束还是被终止，均不影响该日期。对于有多个主要结局指标且完成日期不同的临床研究，该术语指所有主要结局指标数据收集完成的日期。“预计”主要完成日期是研究者认为的研究主要完成日期。"
+    },
+    {
+      "pat": "In a clinical study's {{1}}, the planned outcome measure that is the most important for evaluating the effect of an {{2}}. Most clinical studies have one primary outcome measure, but some have more than one.",
+      "zh": "在临床研究的{{1}}中，对评价{{2}}的效果最重要的计划结局指标。多数临床研究有一个主要结局指标，但有些不止一个。"
+    },
+    {
+      "pat": "The main reason for the {{1}}. The types of primary purpose are: treatment, prevention, diagnostic, supportive care, screening, health services research, basic science, and other.",
+      "zh": "{{1}}的主要原因。主要目的类型包括：治疗、预防、诊断、支持性照护、筛查、卫生服务研究、基础科学及其他。"
+    },
+    {
+      "pat": "A complete written description of the research plan and procedures for a {{1}}, including the background, objectives, design, and measurements.",
+      "zh": "对{{1}}的研究计划与程序的完整书面说明，包括背景、目标、设计和测量。"
+    },
+    {
+      "pat": "National Library of Medicine (NLM) staff perform a limited review of submitted {{1}} for apparent errors, deficiencies, or inconsistencies. NLM staff identify potential major and advisory issues and provide comments directly to the study sponsor or investigator. Major issues identified in QC review must be addressed or corrected (see {{2}} and {{3}}). Advisory issues are suggestions to help improve the clarity of the record. NLM staff do not verify the scientific validity or relevance of the submitted information. The study sponsor or investigator is responsible for ensuring that the studies follow all applicable laws and regulations.",
+      "zh": "美国国家医学图书馆（NLM）工作人员对提交的{{1}}进行有限审核，检查明显错误、缺陷或不一致之处。NLM 工作人员会识别潜在的重大问题与建议性问题，并直接向研究申办方或研究者提供意见。QC 审核中识别的重大问题必须处理或纠正（参见{{2}}和{{3}}）。建议性问题是有助于提高记录清晰度的建议。NLM 工作人员不核实所提交信息的科学有效性或相关性。研究申办方或研究者有责任确保研究遵循所有适用法律法规。"
+    },
+    {
+      "pat": "A type of {{1}} strategy in which participants are assigned to the {{2}} of a clinical trial by chance.",
+      "zh": "一种{{1}}策略，其中参与者被随机分配到临床试验的{{2}}。"
+    },
+    {
+      "pat": "The process of submitting and updating summary information about a clinical study and its {{1}}, from its beginning to end, to a structured, public Web-based {{2}} that is accessible to the public, such as ClinicalTrials.gov.",
+      "zh": "将临床研究及其{{1}}从开始到结束的概要信息提交并更新到结构化、面向公众的基于 Web 的{{2}}（如 ClinicalTrials.gov）的过程。"
+    },
+    {
+      "pat": "Countries that appeared under {{1}} but were removed from the {{2}} by the sponsor or investigator.",
+      "zh": "曾出现在{{1}}下、但已由申办方或研究者从{{2}}中移除的国家。"
+    },
+    {
+      "pat": "Indicates that the sponsor or investigator submitted a {{1}} or {{2}}.",
+      "zh": "表示申办方或研究者已提交{{1}}或{{2}}。"
+    },
+    {
+      "pat": "The date on which summary results information was first available on ClinicalTrials.gov after National Library of Medicine (NLM) {{1}} has concluded. There is typically a delay between the date the study sponsor or investigator first submits summary results information (the results first submitted date) and the results first posted date. Some results information may be available at an earlier date if {{2}}.",
+      "zh": "在美国国家医学图书馆（NLM）{{1}}结束后，概要结果信息首次在 ClinicalTrials.gov 上可用的日期。研究申办方或研究者首次提交概要结果信息的日期（结果首次提交日）与结果首次发布日之间通常存在延迟。若{{2}}，部分结果信息可能更早可用。"
+    },
+    {
+      "pat": "The date on which summary results information was first available on ClinicalTrials.gov with quality control review comments from the National Library of Medicine (NLM) identifying major issues that must be addressed by the sponsor or investigator. As of January 1, 2020, initial results submissions for applicable clinical trials (ACTs) that do not meet {{1}} will be publicly posted on ClinicalTrials.gov with brief standardized major comments. Accordingly, the results first posted with QC comments date may be earlier than the {{2}} date for an ACT with summary results information that is not consistent with NLM quality control review criteria.",
+      "zh": "概要结果信息首次在 ClinicalTrials.gov 上可用的日期，并附有美国国家医学图书馆（NLM）的质量控制审核意见，指出申办方或研究者必须处理的重大问题。自 2020 年 1 月 1 日起，不符合{{1}}的适用临床试验（ACT）的初始结果提交将在 ClinicalTrials.gov 上公开张贴，并附简短的标准化重大意见。因此，对于概要结果信息不符合 NLM 质量控制审核标准的 ACT，结果首次发布并附 QC 意见的日期可能早于{{2}}日期。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator first submits a {{1}} with summary results information. There is typically a delay between the results first submitted date and when summary results information becomes available on ClinicalTrials.gov (the {{2}} date).",
+      "zh": "研究申办方或研究者首次提交包含概要结果信息的{{1}}的日期。结果首次提交日与概要结果信息在 ClinicalTrials.gov 上可用的日期（{{2}}日期）之间通常存在延迟。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator first submits a {{1}} with summary results information that is consistent with National Library of Medicine (NLM) {{2}}. The sponsor or investigator may need to revise and submit results information one or more times before NLM's QC review criteria are met. It is the responsibility of the sponsor or investigator to ensure that the study record is consistent with the NLM QC review criteria.",
+      "zh": "研究申办方或研究者首次提交包含概要结果信息且符合美国国家医学图书馆（NLM）{{2}}的{{1}}的日期。申办方或研究者可能需要多次修订并提交结果信息，才能达到 NLM 的 QC 审核标准。申办方或研究者有责任确保研究记录符合 NLM 的 QC 审核标准。"
+    },
+    {
+      "pat": "The date on which the National Library of Medicine provided {{1}} comments to the study sponsor or investigator. The sponsor or investigator must address major issues identified in the review comments. If there is a date listed for results returned after quality control review, but there is not a subsequent date listed for {{2}}, this means that the submission is pending changes by the sponsor or investigator.",
+      "zh": "美国国家医学图书馆向研究申办方或研究者提供{{1}}意见的日期。申办方或研究者必须处理审核意见中指出的重大问题。若列有“经质量控制审核后返回结果”的日期，但其后没有列出{{2}}的日期，说明该提交正等待申办方或研究者修改。"
+    },
+    {
+      "pat": "In a clinical study's {{1}}, a planned outcome measure that is not as important as the primary outcome measure for evaluating the effect of an intervention but is still of interest. Most clinical studies have more than one secondary outcome measure.",
+      "zh": "在临床研究的{{1}}中，对评价干预措施效果而言不如主要结局指标重要、但仍受关注的计划结局指标。多数临床研究有多个次要结局指标。"
+    },
+    {
+      "pat": "An {{1}} that results in death, is life-threatening, requires inpatient hospitalization or extends a current hospital stay, results in an ongoing or significant incapacity or interferes substantially with normal life functions, or causes a congenital anomaly or birth defect. Medical events that do not result in death, are not life-threatening, or do not require hospitalization may be considered serious adverse events if they put the participant in danger or require medical or surgical intervention to prevent one of the results listed above.",
+      "zh": "导致死亡、危及生命、需要住院或延长现有住院时间、导致持续或显著功能丧失或严重干扰正常生活功能，或导致先天性异常或出生缺陷的{{1}}。未导致死亡、不危及生命或不需要住院的医学事件，若使参与者处于危险之中，或需要医疗或外科干预来防止上述任一结果，也可视为严重不良事件。"
+    },
+    {
+      "pat": "A type of {{1}} that indicates the sex of people who may participate in a clinical study (all, female, male). Sex is a person's classification as female or male based on biological distinctions. Sex is distinct from {{2}}.",
+      "zh": "一种{{1}}，用于说明可以参加临床研究者的性别（全部、女性、男性）。性别是基于生物学差异将人划分为女性或男性的分类。性别与{{2}}不同。"
+    },
+    {
+      "pat": "An {{1}} in which a group of participants receives a procedure or device that appears to be the same as the actual procedure or device being studied but does not contain active processes or components.",
+      "zh": "一种{{1}}，其中一组参与者接受的操作或器械在外观上与正在研究的实际操作或器械相同，但不含活性过程或成分。"
+    },
+    {
+      "pat": "A type of {{1}} describing a clinical trial in which all participants receive the same intervention/treatment.",
+      "zh": "一种{{1}}，描述所有参与者接受相同干预/治疗的临床试验。"
+    },
+    {
+      "pat": "The written description of the statistical considerations and methods for analyzing the data collected in the {{1}}.",
+      "zh": "对{{1}}中所收集数据的统计考虑与分析方法作出的书面说明。"
+    },
+    {
+      "pat": "The date on which the last participant in a clinical study was examined or received an {{1}} to collect final data for the {{2}}, {{3}}, and {{4}} (that is, the last participant's last visit). The \"estimated\" study completion date is the date that the researchers think will be the study completion date.",
+      "zh": "临床研究中最后一位参与者接受检查或接受{{1}}以收集{{2}}、{{3}}和{{4}}最终数据的日期（即最后一位参与者的最后一次访视）。“预计”研究完成日期是研究者认为的研究完成日期。"
+    },
+    {
+      "pat": "The methods and strategies used to answer the {{1}} questions.",
+      "zh": "用于回答{{1}}问题的方法与策略。"
+    },
+    {
+      "pat": "Refers to the type of documents that the study sponsor or principal investigator may add to their {{1}}. These include a study {{2}}, {{3}}, and {{4}}.",
+      "zh": "指研究申办方或主要研究者可添加到其{{1}}中的文件类型，包括研究{{2}}、{{3}}和{{4}}。"
+    },
+    {
+      "pat": "Identifiers that are assigned to a clinical study by the study's {{1}}, funders, or others. They include unique identifiers from other trial {{2}} and National Institutes of Health grant numbers. Note: ClinicalTrials.gov assigns a unique identification code to each clinical study registered on ClinicalTrials.gov. Also called the {{3}}, the format is \"NCT\" followed by an 8-digit number (for example, NCT00000419).",
+      "zh": "由研究的{{1}}、资助方或其他方分配给临床研究的标识符。包括来自其他试验{{2}}的唯一标识符和美国国立卫生研究院的资助编号。注：ClinicalTrials.gov 为在该网站注册的每项临床研究分配唯一标识代码。也称为{{3}}，格式为“NCT”后接 8 位数字（例如 NCT00000419）。"
+    },
+    {
+      "pat": "An entry on ClinicalTrials.gov that contains a summary of a clinical study's protocol information, including the {{1}}; eligibility criteria; contact information; and, in some cases, summary results. Each study record is assigned a ClinicalTrials.gov identifier, or {{2}}.",
+      "zh": "ClinicalTrials.gov 上的一个条目，包含临床研究方案信息的概要，包括{{1}}、合格性标准、联系信息，以及某些情况下的概要结果。每个研究记录都会被分配一个 ClinicalTrials.gov 标识符，即{{2}}。"
+    },
+    {
+      "pat": "A {{1}} that includes the summary results posted in the ClinicalTrials.gov {{2}}. Summary results information includes {{3}}, {{4}}, {{5}}, and {{6}} (including {{7}}).",
+      "zh": "包含在 ClinicalTrials.gov {{2}}中张贴的概要结果的{{1}}。概要结果信息包括{{3}}、{{4}}、{{5}}和{{6}}（含{{7}}）。"
+    },
+    {
+      "pat": "Indicates the current {{1}} or the {{2}}.",
+      "zh": "表示当前的{{1}}或{{2}}。"
+    },
+    {
+      "pat": "Describes the nature of a {{1}}. Study types include {{2}} (also called clinical trials), {{3}} (including {{4}}), and {{5}}.",
+      "zh": "描述{{1}}的性质。研究类型包括{{2}}（也称临床试验）、{{3}}（包括{{4}}）和{{5}}。"
+    },
+    {
+      "pat": "The date on which the study sponsor or investigator submitted a {{1}} that is consistent with National Library of Medicine (NLM) quality control (QC) review criteria.",
+      "zh": "研究申办方或研究者提交符合美国国家医学图书馆（NLM）质量控制（QC）审核标准的{{1}}的日期。"
+    },
+    {
+      "pat": "The official title of a {{1}} used to identify a clinical study or a short title written in language intended for the lay public.",
+      "zh": "用于标识临床研究的{{1}}的官方标题，或以便于公众理解的语言撰写的简短标题。"
+    },
+    {
+      "pat": "A type of {{1}}. It identifies a study on ClinicalTrials.gov whose last known status was recruiting; not yet recruiting; or active, not recruiting but that has passed its completion date, and the status has not been verified within the past 2 years. Studies with an unknown status are considered closed studies.",
+      "zh": "{{1}}的一种。用于标识 ClinicalTrials.gov 上这样一项研究：其最后已知状态为招募中、尚未招募或进行中但未招募，但已超过完成日期且在过去 2 年内未核实状态。状态未知的研究视为已结束研究。"
+    },
+    {
+      "pat": "Other U.S. Federal agencies (for example, {{1}}, Centers for Disease Control and Prevention, or U.S. Department of Veterans Affairs)",
+      "zh": "其他美国联邦机构（例如{{1}}、美国疾病控制与预防中心或美国退伍军人事务部）"
+    },
+    {
+      "pat": "A {{1}} is a type of observational study.",
+      "zh": "{{1}}是观察性研究的一种。"
+    },
+    {
+      "pat": "For more information, see {{1}} on this site.",
+      "zh": "更多信息请参见本站的{{1}}。"
+    },
+    {
+      "pat": "For more information, see FDA {{1}}.",
+      "zh": "更多信息请参见 FDA {{1}}。"
+    },
+    {
+      "pat": "{{1}} {{2}} is currently available for this investigational treatment, and patients who are not participants in the clinical study may be able to gain access to the drug, biologic, or medical device being studied.",
+      "zh": "{{1}}：{{2}}目前已向该在研治疗开放，未参加该临床研究的患者也可能获得所研究的药物、生物制品或医疗器械。"
+    },
+    {
+      "pat": "{{1}} {{2}} was available for this intervention previously but is not currently available and will not be available in the future.",
+      "zh": "{{1}}：{{2}}曾可用于该干预措施，但目前不可用，将来也不会可用。"
+    },
+    {
+      "pat": "{{1}} {{2}} is not currently available for this intervention but is expected to be available in the future.",
+      "zh": "{{1}}：{{2}}目前不可用于该干预措施，但预计将来可用。"
+    },
+    {
+      "pat": "{{1}} The intervention has been approved by the {{2}} for use by the public.",
+      "zh": "{{1}}该干预措施已获{{2}}批准供公众使用。"
+    },
+    {
+      "pat": "{{1}}: Allows a single patient, with a serious disease or condition who cannot participate in a clinical trial, access to a drug or biological product that has not been approved by the {{2}}. This category also includes access in an emergency situation.",
+      "zh": "{{1}}：允许无法参加临床试验、患有严重疾病或状况的单个患者获得尚未获{{2}}批准的药物或生物制品。该类别还包括紧急情况下的使用。"
+    },
+    {
+      "pat": "{{1}}: Allows more than one patient (but generally fewer patients than through a Treatment IND/Protocol) access to a drug or biological product that has not been approved by the {{2}}. This type of expanded access is used when multiple patients with the same disease or condition seek access to a specific drug or biological product that has not been approved by the {{3}}.",
+      "zh": "{{1}}：允许不止一位患者（但通常少于通过治疗用 IND/方案获得的人数）获得尚未获{{2}}批准的药物或生物制品。当多位患有相同疾病或状况的患者寻求获得尚未获{{3}}批准的特定药物或生物制品时，使用该类型的扩展可及。"
+    },
+    {
+      "pat": "{{1}}: Allows a large, widespread population access to a drug or biological product that has not been approved by the {{2}}. This type of expanded access can only be provided if the product is already being developed for marketing for the same use as the expanded access use.",
+      "zh": "{{1}}：允许大规模、广泛的人群获得尚未获{{2}}批准的药物或生物制品。只有当该产品已针对与扩展可及用途相同的用途开展上市开发时，才能提供该类型的扩展可及。"
+    },
+    {
+      "pat": "Correction: Shown when the {{1}} confirms that the responsible party has updated the study record to correct the violation and posts the correction notice on its designated webpage. Because of the time for {{2}} review and processing, there may be a delay between the date when the study record was updated and the addition of correction information to the FDAAA 801 Violation information.",
+      "zh": "纠正：当{{1}}确认责任方已更新研究记录以纠正违规行为，并在其指定网页上发布纠正通知时显示。由于{{2}}审核与处理需要时间，研究记录更新之日与纠正信息添加之日之间可能存在延迟。"
+    },
+    {
+      "pat": "Penalty: Shown when the {{1}} imposes a penalty for the violation and posts the penalty notice on its designated webpage.",
+      "zh": "罚款：当{{1}}对违规行为处以罚款并在其指定网页上发布罚款通知时显示。"
+    },
+    {
+      "pat": "{{1}} The study has not started recruiting participants.",
+      "zh": "{{1}}研究尚未开始招募参与者。"
+    },
+    {
+      "pat": "{{1}} The study is currently recruiting participants.",
+      "zh": "{{1}}研究目前正在招募参与者。"
+    },
+    {
+      "pat": "{{1}} The study is selecting its participants from a population, or group of people, decided on by the researchers in advance. These studies are not open to everyone who meets the eligibility criteria but only to people in that particular population, who are specifically invited to participate.",
+      "zh": "{{1}}研究由研究者事先确定的人群或群体中选择参与者。此类研究并非对所有符合合格性标准的人开放，而只对受邀的特定人群开放。"
+    },
+    {
+      "pat": "{{1}} The study is ongoing, and participants are receiving an intervention or being examined, but potential participants are not currently being recruited or enrolled.",
+      "zh": "{{1}}研究仍在进行，参与者正在接受干预或接受检查，但目前不再招募或入组新的参与者。"
+    },
+    {
+      "pat": "{{1}} The study has stopped early but may start again.",
+      "zh": "{{1}}研究已提前暂停，但可能重新开始。"
+    },
+    {
+      "pat": "{{1}} The study has stopped early and will not start again. Participants are no longer being examined or treated.",
+      "zh": "{{1}}研究已提前终止，不会再开始。参与者不再接受检查或治疗。"
+    },
+    {
+      "pat": "{{1}} The study has ended normally, and participants are no longer being examined or treated (that is, the last participant's last visit has occurred).",
+      "zh": "{{1}}研究已正常结束，参与者不再接受检查或治疗（即最后一位参与者的最后一次访视已完成）。"
+    },
+    {
+      "pat": "{{1}} The study stopped early, before enrolling its first participant.",
+      "zh": "{{1}}研究在入组首位参与者之前即已停止。"
+    },
+    {
+      "pat": "{{1}} A study on ClinicalTrials.gov whose last known status was recruiting; not yet recruiting; or active, not recruiting but that has passed its completion date, and the status has not been {{2}} within the past 2 years.",
+      "zh": "{{1}}指 ClinicalTrials.gov 上这样一项研究：其最后已知状态为招募中、尚未招募或进行中但未招募，但已超过完成日期，且该状态在过去 2 年内未获{{2}}。"
+    },
+    {
+      "pat": "{{1}} The ClinicalTrials.gov results database became available in September 2008. Older studies are unlikely to have results available in the database.",
+      "zh": "{{1}}ClinicalTrials.gov 结果数据库于 2008 年 9 月上线。较早的研究不太可能在数据库中有可用结果。"
+    },
+    {
+      "pat": "The results submitted date indicates when the study sponsor or investigator first submitted summary results information or submitted changes to summary results information. Submissions with changes are typically in response to QC review comments from the National Library of Medicine (NLM). If there is a date listed for results submitted to ClinicalTrials.gov, but there is not a subsequent date listed for {{1}}, this means that the submission is pending review by NLM.",
+      "zh": "结果提交日期指研究申办方或研究者首次提交概要结果信息或提交概要结果信息更改的日期。带有更改的提交通常是对美国国家医学图书馆（NLM）QC 审核意见的回应。若列有“结果已提交至 ClinicalTrials.gov”的日期，但其后没有列出{{1}}的日期，说明该提交正等待 NLM 审核。"
+    },
+    {
+      "pat": "Newest First: Studies with the most recent {{1}} dates appear higher in the search results list.",
+      "zh": "最新优先：{{1}}日期最新的研究在结果列表中位置更靠前。"
+    },
+    {
+      "pat": "Study record managers: refer to the {{1}} if submitting registration or results information.",
+      "zh": "研究记录管理者：提交注册或结果信息时，请参阅{{1}}。"
     }
   ]
 }

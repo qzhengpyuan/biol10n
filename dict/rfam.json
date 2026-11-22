@@ -311,7 +311,11 @@
     "Uncheck": "取消勾选",
     "Other sequences": "其他序列",
     "Unclassified": "未归类",
-    "Unclassified sequence": "未归类序列"
+    "Unclassified sequence": "未归类序列",
+    "What are Rfam full alignments?": "什么是 Rfam 完整比对（FULL 比对）？",
+    "How can I submit data to Rfam?": "如何向 Rfam 提交数据？",
+    "What is a DESC file in Rfam?": "Rfam 中的 DESC 文件是什么？",
+    "I want to access alignments in Stockholm format from the Rfam API.": "我想通过 Rfam API 获取 Stockholm 格式的比对。"
   },
   "rules": [
     {

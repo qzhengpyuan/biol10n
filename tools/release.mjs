@@ -6,6 +6,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+// 先重建：r22 P0-1/P0-2 都是「盘上改了、dist/release 还是旧构建」，导致修了不生效。
+// 发版脚本自己构建，从根上消掉两次构建之间被改词库的机会。
+execFileSync(process.execPath, ["build.mjs"], { cwd: root, stdio: "inherit" });
 const file = path.join(root, "dist/biol10n.user.js");
 if (!fs.existsSync(file)) {
   console.error("dist/biol10n.user.js 不存在，先 npm run build");

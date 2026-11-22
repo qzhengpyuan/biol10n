@@ -236,7 +236,11 @@
     "Type: activate to sort column descending": "类型：点击按降序排序",
     "file": "个文件",
     "link": "个链接",
-    "view": "次浏览"
+    "view": "次浏览",
+    "[Cite]": "[引用]",
+    "Preprint describing the project": "描述该项目的预印本",
+    "Link to ENA processed reads": "链接到 ENA 处理后的读段",
+    "Data on users homepage": "用户主页上的数据"
   },
   "rules": [
     {

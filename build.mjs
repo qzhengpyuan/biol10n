@@ -92,6 +92,25 @@ const out = header + "\n" + engine + "\n" + ui + "\n" + boot;
 fs.mkdirSync(path.join(root, "dist"), { recursive: true });
 fs.writeFileSync(path.join(root, "dist/biol10n.user.js"), out);
 
+// 构建指纹：单测拿它和磁盘词库比，防止「盘上改了、dist 还是旧的」这种假修复
+// （检查方 r22 的 P0-2 就是这样连着两轮报的）。
+let _exact = 0, _rules = 0, _tpl = 0;
+for (const id of Object.keys(dict)) {
+  const d = dict[id];
+  _exact += Object.keys(d.exact || {}).length;
+  _rules += (d.rules || []).length;
+  _tpl += (d.templates || []).length;
+}
+const stamp = {
+  version: pkg.version,
+  books: Object.keys(dict).length,
+  sites: sites.sites.length,
+  exact: _exact, rules: _rules, templates: _tpl,
+  bytes: Buffer.byteLength(out, "utf8"),
+  builtAt: new Date().toISOString()
+};
+fs.writeFileSync(path.join(root, "dist/build-meta.json"), JSON.stringify(stamp, null, 2) + "\n");
+
 const kb = (out.length / 1024).toFixed(1);
 console.log("已生成 dist/biol10n.user.js  (" + kb + " KB, " +
   Object.keys(dict).length + " 个词库, " + sites.sites.length + " 个站点)");

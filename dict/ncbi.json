@@ -1382,6 +1382,7 @@
     "NLM on X (formerly known as Twitter)": "NLM 的 X（原 Twitter）",
     "NLM on YouTube": "NLM 的 YouTube",
     "Accession:": "登录号：",
+    "DOI:": "DOI 号：",
     "Enter organism common name, scientific name, or tax id": "输入生物俗名、学名或分类 ID",
     "Official website of the United States government": "美国政府官方网站",
     "Show login menu": "显示登录菜单",
@@ -1435,8 +1436,16 @@
       "to": "第 $1 页，共 $2 页"
     },
     {
+      "re": "^of ([\\d,]+) pages?$",
+      "to": "/ $1 页"
+    },
+    {
+      "re": "^(\\d+) of ([\\d,]+) pages?$",
+      "to": "第 $1 / $2 页"
+    },
+    {
       "re": "^of ([\\d,]+)$",
-      "to": " 页，共 $1 页"
+      "to": "/ $1 页"
     },
     {
       "re": "^Page (\\d+)$",

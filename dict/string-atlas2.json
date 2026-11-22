@@ -52,7 +52,8 @@
     "iRAP pipeline": "iRAP 流程",
     "Global Biodata Coalition": "全球生物数据联盟",
     "Physical": "物理",
-    "Publication": "发表文献"
+    "Publication": "发表文献",
+    "FTP site": "FTP 站点"
   },
   "rules": [
     {

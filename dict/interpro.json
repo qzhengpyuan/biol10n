@@ -316,7 +316,7 @@
       "to": "在以下关键物种中找到与 $1 完全匹配的基因："
     },
     {
-      "re": "^and (\\d+) proteins? more \\(click to show\\)\\.$",
+      "re": "^(?:\\.\\.\\. )?and (\\d+) proteins? more \\(click to show\\)\\.$",
       "to": "另有 $1 个蛋白（点击显示）。"
     }
   ],

@@ -1613,7 +1613,10 @@
       "scope": "body",
       "spa": true,
       "waitFor": "#content app-root",
-      "proseExempt": ""
+      "proseExempt": "",
+      "attrs": [
+        "mattooltip"
+      ]
     },
     {
       "id": "reactome",
@@ -1817,6 +1820,23 @@
         8000,
         15000
       ]
+    },
+    {
+      "id": "targetscan",
+      "name": "TargetScanHuman",
+      "hosts": [
+        "www.targetscan.org",
+        "targetscan.org"
+      ],
+      "dicts": [
+        "common",
+        "targetscan"
+      ],
+      "scope": "body",
+      "attrs": [
+        "value"
+      ],
+      "proseExempt": ""
     }
   ]
 }

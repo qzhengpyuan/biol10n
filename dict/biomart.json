@@ -1,14 +1,14 @@
 {
   "meta": {
     "family": "biomart",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "sites": [
       "jun2026.archive.ensembl.org",
       "*.archive.ensembl.org",
       "www.ensembl.org"
     ],
     "area": "ensembl biomart martview interface",
-    "note": "Ensembl BioMart（martview）：数据集选择、Filters/Attributes 面板、Results 与导出、工具栏"
+    "note": "Ensembl BioMart（martview）：数据集选择、Filters/Attributes 深层属性名与物种前缀（规则）、Results 与导出、常见问题"
   },
   "exact": {
     "Start a new query": "开始新查询",
@@ -219,7 +219,134 @@
     "ORTHOLOGUES [F-J]:": "直系同源 [F-J]：",
     "ORTHOLOGUES [K-O]:": "直系同源 [K-O]：",
     "ORTHOLOGUES [P-T]:": "直系同源 [P-T]：",
-    "ORTHOLOGUES [U-Z]:": "直系同源 [U-Z]："
+    "ORTHOLOGUES [U-Z]:": "直系同源 [U-Z]：",
+    "Please restrict your query using criteria below": "请在下方条件中限制查询范围",
+    "Phenotype description": "表型描述",
+    "Source name": "来源名称",
+    "Study external reference": "研究外部参考",
+    "Strain name": "品系名称",
+    "Strain gender": "品系性别",
+    "P value": "P 值",
+    "GO term accession": "GO 术语登录号",
+    "GO term name": "GO 术语名称",
+    "GO term definition": "GO 术语定义",
+    "GO term evidence code": "GO 术语证据代码",
+    "GO domain": "GO 领域",
+    "GOSlim GOA Accession(s)": "GOSlim GOA 登录号",
+    "GOSlim GOA Description": "GOSlim GOA 描述",
+    "BioGRID Interaction data, The General Repository for Interaction Datasets ID": "BioGRID 相互作用数据（相互作用数据集通用存储库）ID",
+    "CCDS ID": "CCDS 编号",
+    "ChEMBL ID": "ChEMBL 编号",
+    "DataBase of Aberrant 3' Splice Sites ID": "异常 3' 剪接位点数据库 ID",
+    "DataBase of Aberrant 3' Splice Sites name": "异常 3' 剪接位点数据库名称",
+    "DataBase of Aberrant 5' Splice Sites ID": "异常 5' 剪接位点数据库 ID",
+    "DataBase of Aberrant 5' Splice Sites name": "异常 5' 剪接位点数据库名称",
+    "EntrezGene transcript name ID": "EntrezGene 转录本名称 ID",
+    "European Nucleotide Archive ID": "欧洲核苷酸档案库 ID",
+    "Expression Atlas ID": "Expression Atlas 编号",
+    "GeneCards ID": "GeneCards 编号",
+    "HGNC symbol": "HGNC 符号",
+    "HGNC ID": "HGNC 编号",
+    "Human Protein Atlas ID": "Human Protein Atlas 编号",
+    "Human Protein Atlas accession": "Human Protein Atlas 登录号",
+    "INSDC protein ID": "INSDC 蛋白 ID",
+    "LRG display in Ensembl gene ID": "Ensembl 基因中的 LRG 展示 ID",
+    "LRG display in Ensembl transcript ID": "Ensembl 转录本中的 LRG 展示 ID",
+    "MEROPS - the Peptidase Database ID": "MEROPS 肽酶数据库 ID",
+    "MIM gene description": "MIM 基因描述",
+    "MIM gene accession": "MIM 基因登录号",
+    "MIM morbid description": "MIM 疾病描述",
+    "MIM morbid accession": "MIM 疾病登录号",
+    "miRBase ID": "miRBase 编号",
+    "miRBase accession": "miRBase 登录号",
+    "miRBase transcript name ID": "miRBase 转录本名称 ID",
+    "NCBI gene (formerly Entrezgene) accession": "NCBI 基因（原 Entrezgene）登录号",
+    "NCBI gene (formerly Entrezgene) ID": "NCBI 基因（原 Entrezgene）编号",
+    "NCBI gene (formerly Entrezgene) description": "NCBI 基因（原 Entrezgene）描述",
+    "PDB ID": "PDB 编号",
+    "Reactome ID": "Reactome 编号",
+    "Reactome gene ID": "Reactome 基因 ID",
+    "Reactome transcript ID": "Reactome 转录本 ID",
+    "RefSeq mRNA ID": "RefSeq mRNA 编号",
+    "RefSeq mRNA predicted ID": "RefSeq mRNA 预测编号",
+    "RefSeq ncRNA ID": "RefSeq ncRNA 编号",
+    "RefSeq ncRNA predicted ID": "RefSeq ncRNA 预测编号",
+    "RefSeq peptide ID": "RefSeq 肽段编号",
+    "RefSeq peptide predicted ID": "RefSeq 肽段预测编号",
+    "RFAM ID": "RFAM 编号",
+    "RFAM transcript name ID": "RFAM 转录本名称 ID",
+    "RNAcentral ID": "RNAcentral 编号",
+    "STRING ID": "STRING 编号",
+    "Transcript name ID": "转录本名称 ID",
+    "UCSC Stable ID": "UCSC 稳定 ID",
+    "UniParc ID": "UniParc 编号",
+    "UniProtKB Gene Name ID": "UniProtKB 基因名称 ID",
+    "UniProtKB Gene Name symbol": "UniProtKB 基因名称符号",
+    "UniProtKB isoform ID": "UniProtKB 异构体 ID",
+    "UniProtKB/Swiss-Prot ID": "UniProtKB/Swiss-Prot 编号",
+    "UniProtKB/TrEMBL ID": "UniProtKB/TrEMBL 编号",
+    "WikiGene description": "WikiGene 描述",
+    "WikiGene name": "WikiGene 名称",
+    "WikiGene ID": "WikiGene 编号",
+    "Interpro ID": "InterPro 编号",
+    "Interpro start": "InterPro 起始",
+    "Interpro end": "InterPro 终止",
+    "Interpro Short Description": "InterPro 简短描述",
+    "Interpro Description": "InterPro 描述",
+    "Unspliced (Transcript)": "未剪接（转录本）",
+    "Unspliced (Gene)": "未剪接（基因）",
+    "Flank (Transcript)": "侧翼（转录本）",
+    "Flank (Gene)": "侧翼（基因）",
+    "Flank-coding region (Transcript)": "侧翼编码区（转录本）",
+    "Flank-coding region (Gene)": "侧翼编码区（基因）",
+    "5' UTR": "5' 非翻译区（UTR）",
+    "3' UTR": "3' 非翻译区（UTR）",
+    "Exon sequences": "外显子序列",
+    "cDNA sequences": "cDNA 序列",
+    "Coding sequence": "编码序列",
+    "CDS start (within cDNA)": "CDS 起始（cDNA 内）",
+    "CDS end (within cDNA)": "CDS 终止（cDNA 内）",
+    "Minor allele": "次要等位基因",
+    "Minor allele frequency": "次要等位基因频率",
+    "Minor allele count": "次要等位基因计数",
+    "Variant chromosome Strand": "变异染色体链",
+    "Variant chromosome/scaffold strand": "变异染色体/支架链",
+    "chromosome/scaffold position start (bp)": "染色体/支架位置起始（bp）",
+    "Chromosome/scaffold position start (bp)": "染色体/支架位置起始（bp）",
+    "PolyPhen prediction": "PolyPhen 预测",
+    "PolyPhen score": "PolyPhen 评分",
+    "SIFT prediction": "SIFT 预测",
+    "SIFT score": "SIFT 评分",
+    "Protein allele": "蛋白等位基因",
+    "Paralogous Human Genes": "人类旁系同源基因",
+    "Human paralogue gene stable ID": "人类旁系同源基因稳定 ID",
+    "Human paralogue associated gene name": "人类旁系同源关联基因名称",
+    "Human paralogue protein or transcript ID": "人类旁系同源蛋白或转录本 ID",
+    "Human paralogue chromosome/scaffold name": "人类旁系同源染色体/支架名称",
+    "Human paralogue chromosome/scaffold start (bp)": "人类旁系同源染色体/支架起始（bp）",
+    "Human paralogue chromosome/scaffold end (bp)": "人类旁系同源染色体/支架终止（bp）",
+    "Paralogue query protein or transcript ID": "旁系同源查询蛋白或转录本 ID",
+    "Paralogue last common ancestor with Human": "旁系同源与人类的最后共同祖先",
+    "Human paralogue homology type": "人类旁系同源类型",
+    "Paralogue %id. target Human gene identical to query gene": "旁系同源目标人类基因与查询基因的同一性（%）",
+    "Paralogue %id. query gene identical to target Human gene": "旁系同源查询基因与目标人类基因的同一性（%）",
+    "FAQ": "常见问题",
+    "Missing non coding genes in your mart query output, please check the following": "查询结果缺少非编码基因时，请查看以下",
+    "BioMart tutorials and FAQs": "BioMart 教程与常见问题",
+    "Extracting data with BioMart": "使用 BioMart 提取数据",
+    "How to use BioMart": "如何使用 BioMart",
+    "BioMart R package, RESTful access and API": "BioMart R 包、RESTful 访问与 API",
+    "BiomaRt Bioc R package": "BiomaRt Bioconductor R 包",
+    "BioMart Perl API": "BioMart Perl 接口",
+    "BioMart RESTful access": "BioMart RESTful 访问",
+    "AFDB-ENSP mappings": "AFDB-ENSP 映射",
+    "PDB-ENSP mappings": "PDB-ENSP 映射",
+    "Transmembrane helices": "跨膜螺旋",
+    "Coiled-coils (Ncoils)": "卷曲螺旋（Ncoils）",
+    "Low complexity (Seg)": "低复杂度区域（Seg）",
+    "Cleavage site (Signalp)": "切割位点（SignalP）",
+    "SignalP_GRAM_NEGATIVE": "SignalP 革兰阴性",
+    "SignalP_GRAM_POSITIVE": "SignalP 革兰阳性"
   },
   "rules": [
     {
@@ -233,6 +360,86 @@
     {
       "re": "^\\[(\\d+) enabled\\]$",
       "to": "[已启用 $1 个]"
+    },
+    {
+      "re": "^(.+?) orthology confidence \\[0 low, 1 high\\]$",
+      "to": "$1 直系同源置信度[0 低，1 高]"
+    },
+    {
+      "re": "^(.+?) Whole-genome alignment coverage$",
+      "to": "$1 全基因组比对覆盖度"
+    },
+    {
+      "re": "^(.+?) Gene-order conservation score$",
+      "to": "$1 基因顺序保守性评分"
+    },
+    {
+      "re": "^(.+?) homology type$",
+      "to": "$1 同源类型"
+    },
+    {
+      "re": "^(.+?) protein or transcript stable ID$",
+      "to": "$1 蛋白或转录本稳定 ID"
+    },
+    {
+      "re": "^(.+?) chromosome/scaffold position start \\(bp\\)$",
+      "to": "$1 染色体/支架位置起始（bp）"
+    },
+    {
+      "re": "^(.+?) chromosome/scaffold start \\(bp\\)$",
+      "to": "$1 染色体/支架起始（bp）"
+    },
+    {
+      "re": "^(.+?) chromosome/scaffold end \\(bp\\)$",
+      "to": "$1 染色体/支架终止（bp）"
+    },
+    {
+      "re": "^(.+?) chromosome/scaffold name$",
+      "to": "$1 染色体/支架名称"
+    },
+    {
+      "re": "^(.+?) gene stable ID$",
+      "to": "$1 基因稳定 ID"
+    },
+    {
+      "re": "^(.+?) gene name$",
+      "to": "$1 基因名称"
+    },
+    {
+      "re": "^(.+?) Orthologues$",
+      "to": "$1 直系同源"
+    },
+    {
+      "re": "^(.+) genes \\((.+)\\)$",
+      "to": "$1 基因（$2）"
+    },
+    {
+      "re": "^Last common ancestor with (.+)$",
+      "to": "与 $1 的最后共同祖先"
+    },
+    {
+      "re": "^%id\\. target (.+?) gene identical to query gene$",
+      "to": "目标 $1 基因与查询基因的同一性（%）"
+    },
+    {
+      "re": "^%id\\. query gene identical to target (.+?) gene$",
+      "to": "查询基因与目标 $1 基因的同一性（%）"
+    },
+    {
+      "re": "^(AFFY|AGILENT|CODELINK|ILLUMINA|PHALANX) (.+) probe$",
+      "to": "$1 $2 探针"
+    },
+    {
+      "re": "^(CDD|Gene3D|HAMAP|NCBIFAM|PANTHER|Pfam|PIRSF|Prints|PROSITE patterns|PROSITE profiles|SFLD|SMART|Superfamily|TIGRFAM|AFDB-ENSP mappings|PDB-ENSP mappings|MobiDB lite|Coiled-coils \\(Ncoils\\)|Phobius|Low complexity \\(Seg\\)|Cleavage site \\(Signalp\\)|SignalP_GRAM_NEGATIVE|SignalP_GRAM_POSITIVE|Transmembrane helices) ID$",
+      "to": "$1 编号"
+    },
+    {
+      "re": "^(CDD|Gene3D|HAMAP|NCBIFAM|PANTHER|Pfam|PIRSF|Prints|PROSITE patterns|PROSITE profiles|SFLD|SMART|Superfamily|TIGRFAM|AFDB-ENSP mappings|PDB-ENSP mappings|MobiDB lite|Coiled-coils \\(Ncoils\\)|Phobius|Low complexity \\(Seg\\)|Cleavage site \\(Signalp\\)|SignalP_GRAM_NEGATIVE|SignalP_GRAM_POSITIVE|Transmembrane helices) start$",
+      "to": "$1 起始"
+    },
+    {
+      "re": "^(CDD|Gene3D|HAMAP|NCBIFAM|PANTHER|Pfam|PIRSF|Prints|PROSITE patterns|PROSITE profiles|SFLD|SMART|Superfamily|TIGRFAM|AFDB-ENSP mappings|PDB-ENSP mappings|MobiDB lite|Coiled-coils \\(Ncoils\\)|Phobius|Low complexity \\(Seg\\)|Cleavage site \\(Signalp\\)|SignalP_GRAM_NEGATIVE|SignalP_GRAM_POSITIVE|Transmembrane helices) end$",
+      "to": "$1 终止"
     }
   ],
   "templates": []

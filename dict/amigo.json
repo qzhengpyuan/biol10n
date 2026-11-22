@@ -146,7 +146,10 @@
     "Search GO ontology": "检索 GO 本体",
     "Free-text filter": "自由文本筛选",
     "Quick search": "快速检索",
-    "AmiGO 2: Welcome": "AmiGO 2：欢迎"
+    "AmiGO 2: Welcome": "AmiGO 2：欢迎",
+    "PubMed ID": "PubMed 编号",
+    "PubMed ID search": "PubMed 编号检索",
+    "takes you to summary information and all GO annotations for the": "将带你前往摘要信息与该编号的全部 GO 注释："
   },
   "rules": [
     {

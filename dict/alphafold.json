@@ -210,7 +210,56 @@
     "FAQs": "常见问题",
     "Online training course": "在线培训课程",
     "View all frequently asked questions": "查看全部常见问题",
-    "View all on-demand training": "查看全部按需培训"
+    "View all on-demand training": "查看全部按需培训",
+    "About us": "关于我们",
+    "Training": "培训",
+    "Research": "研究",
+    "Services": "服务",
+    "Downloads": "下载",
+    "downloads": "下载",
+    "People and groups": "人员与团队",
+    "Full contact details": "完整联系方式",
+    "EMBL-EBI is part of the": "EMBL-EBI 是以下机构的一部分：",
+    "European Molecular Biology Laboratory": "欧洲分子生物学实验室",
+    "European Molecular Biology Laboratory (EMBL)": "欧洲分子生物学实验室（EMBL）",
+    "Protein Structure Database": "蛋白质结构数据库",
+    "See our updates – October 2026": "查看我们的更新 – 2026 年 10 月",
+    "high accuracy": "高精度",
+    "limitations": "局限性",
+    "FAQs,": "常见问题",
+    "open source code": "开源代码",
+    "Visit our": "访问我们的",
+    "to learn more about AlphaFold.": "以了解更多 AlphaFold 信息。",
+    "methods paper": "方法学论文",
+    "previous FAQ": "上一个常见问题",
+    "source code": "源代码",
+    "Recorded webinar": "录制网络研讨会",
+    "Online tutorial": "在线教程",
+    "If you use this resource, please cite the following papers:": "如使用本资源，请引用以下论文：",
+    "If you use data from AlphaMissense in your work, please cite the following paper:": "如在工作中使用 AlphaMissense 数据，请引用以下论文：",
+    "AlphaFold Data Provided by GDM:": "AlphaFold 数据由 GDM 提供：",
+    "For AlphaFold Data provided by third party data providers:": "第三方数据提供方提供的 AlphaFold 数据：",
+    "AlphaMissense Copyright (2023) DeepMind Technologies Limited.": "AlphaMissense 数据版权（2023）DeepMind Technologies Limited。",
+    "Why does being able to predict a protein's 3D structure matter?": "为什么能够预测蛋白质的三维结构很重要？",
+    "The paper describing the AlphaFold method is:": "介绍 AlphaFold 方法的论文是：",
+    "For a discussion of AlphaFold’s output when applied to a whole proteome, see:": "关于 AlphaFold 输出应用于整个蛋白质组的讨论，参见：",
+    "This grand scientific challenge is known as the protein folding problem.": "这一重大科学挑战被称为蛋白质折叠问题。",
+    "Visit our online training course": "访问我们的在线培训课程",
+    "CASP14 benchmark": "CASP14 基准测试",
+    "blog post about the AlphaFold DB": "关于 AlphaFold DB 的博客文章",
+    "The company’s breakthroughs include": "该公司的突破包括",
+    "The fields in the JSON file are:": "JSON 文件中的字段如下：",
+    "For sharing feedback on structure predictions, please use the feedback buttons on each structure page.": "如需对结构预测提供反馈，请使用各结构页面上的反馈按钮。",
+    "For other questions about AlphaFold not directly related to the database, please contact the AlphaFold team at": "其他与数据库无直接关系的 AlphaFold 问题，请联系 AlphaFold 团队：",
+    "For questions and feedback about the AlphaFold DB website, please contact": "有关 AlphaFold DB 网站的问题与反馈，请联系",
+    "For press enquiries, please contact": "媒体垂询请联系",
+    ". Please do not share anything confidential with Google DeepMind.": "。请勿与 Google DeepMind 分享任何机密信息。",
+    "Copyright © EMBL 2023": "版权所有 © EMBL 2023",
+    "Previous cards": "上一组卡片",
+    "Next cards": "下一组卡片",
+    "Back to AlphaFold Protein Structure Database homepage": "返回 AlphaFold 蛋白质结构数据库主页",
+    "Link icon": "链接图标",
+    "news image": "新闻图片"
   },
   "rules": [
     {
@@ -296,6 +345,14 @@
     {
       "re": "^Domain (\\d+)$",
       "to": "结构域 $1"
+    },
+    {
+      "re": "^([\\d,]+) entries$",
+      "to": "$1 个条目"
+    },
+    {
+      "re": "^(.+?) [Dd]ata [Cc]opyright \\((\\d{4})\\) (.+?)[.]?$",
+      "to": "$1 数据版权（$2）$3。"
     }
   ],
   "templates": [
@@ -322,6 +379,18 @@
     {
       "pat": "The AlphaFold DB website currently provides bulk downloads for the 48 organisms listed below, as well as the majority of {{1}}",
       "zh": "AlphaFold DB 网站目前为下列 48 个物种以及 {{1}} 的大部分条目提供批量下载。"
+    },
+    {
+      "pat": "In {{1}}, AlphaFold was the top-ranked protein structure prediction method by a large margin, producing predictions with {{2}}. While the system still has some {{3}}, the CASP results suggest AlphaFold has immediate potential to help us understand the structure of proteins and advance biological research.",
+      "zh": "在{{1}}中，AlphaFold 以显著优势成为排名第一的蛋白质结构预测方法，其预测达到{{2}}。虽然该系统仍存在一些{{3}}，但 CASP 结果表明 AlphaFold 有望立即帮助我们理解蛋白质结构并推进生物学研究。"
+    },
+    {
+      "pat": "If your use case isn't covered by the database, you can generate your own AlphaFold predictions using this {{1}}, which also supports multimer prediction.",
+      "zh": "如果本数据库未覆盖你的使用场景，你可以使用这份{{1}}自行生成 AlphaFold 预测，它还支持多聚体预测。"
+    },
+    {
+      "pat": "Let us know how the AlphaFold Protein Structure Database has been useful in your research, or if you have questions not answered in the {{1}} at {{2}}.",
+      "zh": "欢迎告知 AlphaFold 蛋白质结构数据库在你的研究中发挥了哪些作用，或把尚未得到解答的问题发送到{{1}}（{{2}}）。"
     }
   ]
 }

@@ -167,6 +167,19 @@ function createEngine(options) {
   function unmaskTimeColons(s) { return s.indexOf(TIME_COLON) < 0 ? s : s.split(TIME_COLON).join(":"); }
 
   function translate(s, depth) {
+    // 首尾的箭头/伪元素符号先剥离，翻译完再贴回：PRIDE 的「or browse all datasets →」
+    // 与 BioStudies 的「→PageTab↲」都是这个形态，带着符号查表永远 miss。
+    if (ARROW_GLYPH.test(s)) {
+      // 词表里有的条目本来就带箭头（PRIDE「or browse all datasets →」），先按原样查。
+      var arrowDirect = lookupExact(s);
+      if (arrowDirect !== null) { bumpHit(false); return arrowDirect; }
+      var head = (s.match(/^[\s\u2192\u21b2\u25b8\u25c2\u203a]+/) || [""])[0];
+      var tail = (s.match(/[\s\u2192\u21b2\u25b8\u25c2\u203a]+$/) || [""])[0];
+      var core = s.slice(head.length, s.length - tail.length);
+      if (!core) return null;
+      var coreOut = translate(core, depth);
+      return coreOut === null ? null : head + coreOut + tail;
+    }
     // 掩码只服务于规则 pass：d:d 被换成占位符后 exact 表永远查不到
     // （PubMed 帮助页「…2004;207:4147–4155.」整段因此永不翻译）。
     // 先用未掩码原文查一次 exact，命中就直接返回；未命中再走掩码后的规则通道。
@@ -291,6 +304,10 @@ function createEngine(options) {
     if (!isProse && misses.size < 200 && text.length <= 80 && LETTER.test(text)) misses.add(text);
   }
 
+  // 伪元素箭头（BioStudies 的「→PageTab↲」、Reactome 的「▸」、PRIDE 的「or browse … →」）
+  // 只在首尾当装饰：查表前剥掉、翻译后原样贴回，否则带箭头的整句永远进不了词表。
+  var ARROW_GLYPH = /[\u2192\u21b2\u25b8\u25c2\u203a]/;
+  var ARROW_EDGE = /^[\s\u2192\u21b2\u25b8\u25c2\u203a]+|[\s\u2192\u21b2\u25b8\u25c2\u203a]+$/g;
   function skipNode(node, skipTranslateNo) {
     var p = node.parentElement;
     var guard = 0;
@@ -1678,7 +1695,7 @@ function createEngine(options) {
    *  结果是中文品牌名后面挂一截英文（"…in Breast Invasive Carcinoma（TCGA，泛癌图谱）"）。
    *  分段时每段也只用 exact：命中的段换成中文，没命中的（品牌名）原样留着。 */
   function titleBySegments(t) {
-    var seps = [" — ", " – ", " | ", " :: ", " · ", ": ", " - ", " < "];
+    var seps = [" — ", " – ", " | ", " :: ", " · ", ": ", " - ", " < ", " / "];
     for (var s = 0; s < seps.length; s++) {
       var sep = seps[s];
       if (t.indexOf(sep) < 0) continue;
@@ -1711,7 +1728,9 @@ function createEngine(options) {
     BioSample: 1, CCDS: 1, STRING: 1, gnomAD: 1, ClinPGx: 1, GXA: 1, GenBank: 1,
     InterPro: 1, BioMart: 1, Europe: 1, Reactome: 1, PRIDE: 1, Expasy: 1, neXtProt: 1,
     Homepage: 1, Expression: 1, Atlas: 1, Genome: 1, Browser: 1,
-    AmiGO: 1, QuickGO: 1, ClinicalTrials: 1, Targets: 1
+    AmiGO: 1, QuickGO: 1, ClinicalTrials: 1, Targets: 1, TargetScan: 1,
+    AlphaFold: 1, PDBe: 1, HPO: 1, Rfam: 1, Ontology: 1, Resource: 1,
+    Open: 1, Platform: 1, Gene: 1, Browser: 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
   /** 没有翻译、原样保留的标题分段：只允许"含品牌名/全大写/带数字"的段整段留下，

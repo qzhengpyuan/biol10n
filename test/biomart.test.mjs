@@ -304,7 +304,9 @@ test("渲染：工具栏、摘要计数与数据集下拉", () => {
   assert.equal(options[0], "- 选择数据库 -");
   assert.equal(options[1], "Ensembl Genes 116", "数据库名是专名，不能翻");
   assert.equal(options[2], "- 选择附加数据集 -");
-  assert.equal(options[3], "Human genes (GRCh38.p14)", "数据集名是专名，不能翻");
+  // r22：BioMart Attributes 面板的「<物种> genes (组装号)」是界面属性名（检查方点名），随本册规则翻；
+  // 物种名与组装号仍是数据，原样留在括号与 $1 里。
+  assert.equal(options[3], "人类 基因（GRCh38.p14）");
 });
 
 test("渲染：Filters 面板", () => {
@@ -413,7 +415,6 @@ test("渲染：Results 导出区、表头与数据行（ID/专名不翻）", () 
 test("专名与编号不翻：物种/数据集名、基因与转录本 ID、文献与数据库品牌", () => {
   const { engine } = engineFor("<p>x</p>");
   const skip = [
-    "Human genes (GRCh38.p14)",
     "Mouse strains 116",
     "hsapiens_gene_ensembl",
     "Ensembl Genes 116",
@@ -424,7 +425,6 @@ test("专名与编号不翻：物种/数据集名、基因与转录本 ID、文�
     "mitochondrially encoded tRNA-Phe (UUU/C) [Source:HGNC Symbol;Acc:HGNC:7481]",
     "IG_C_gene",
     "ensembl_havana",
-    "UniProtKB/Swiss-Prot ID",
     "BioMart",
     "EMBL-EBI",
     "TSV",

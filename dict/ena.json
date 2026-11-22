@@ -495,7 +495,13 @@
     "Next page": "下一页",
     "Last page": "最后一页",
     "Items per page": "每页条目数",
-    "Items per page:": "每页条目数："
+    "Items per page:": "每页条目数：",
+    "environment by taxonomy": "按分类学的环境",
+    "Download file report in json": "以 JSON 格式下载文件报告",
+    "Download file report in tsv (Tab Separated Values)": "以 TSV（制表符分隔值）格式下载文件报告",
+    "Download selected files in the browser": "在浏览器中下载选中文件",
+    "Get download commands for all files in this column in a script": "获取此列全部文件的下载命令脚本",
+    "Show read files report for this record": "显示此记录的读段文件报告"
   },
   "rules": [
     {
@@ -601,6 +607,10 @@
     {
       "re": "^View up to the first ([\\d,]+) lines in (.+) format\\. For larger records, use the Download link$",
       "to": "最多可查看前 $1 行 $2 格式；更大的记录请使用下载链接"
+    },
+    {
+      "re": "^General(\\s*)$",
+      "to": "概要$1"
     }
   ],
   "templates": [

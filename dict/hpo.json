@@ -144,7 +144,16 @@
     "Respiratory System": "呼吸系统",
     "Nervous System": "神经系统",
     "Musculature": "肌肉",
-    "or": "或"
+    "or": "或",
+    "strategic roadmap": "战略路线图",
+    "13 driver projects": "13 个驱动项目",
+    "Global Alliance for Genomics and Health": "全球基因组学与健康联盟",
+    "October Data Update": "10 月数据更新",
+    "2.0.4 Medical Actions": "2.0.4 医学处置",
+    "Exomiser": "Exomiser 外显子组分析工具",
+    "Genomiser": "Genomiser 基因组分析工具",
+    "Profile Search": "表型谱检索",
+    "Phenopackets": "Phenopackets 表型数据包"
   },
   "rules": [
     {

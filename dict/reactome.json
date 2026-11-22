@@ -1,12 +1,12 @@
 {
   "meta": {
     "family": "reactome",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "sites": [
       "reactome.org"
     ],
-    "area": "reactome.org 站点骨架 / 检索 / 下载 / 通路详情 / 通路浏览器（含 Beta）图例与交互控件",
-    "note": "Reactome 通路数据库站点词库：导航与页脚、检索页与结果页骨架、下载页栏目标题、通路详情页字段、旧版与 Beta 通路浏览器的工具栏/图例/面板标签。通路名、分子名、物种拉丁名、accession 一律不翻。"
+    "area": "reactome.org 站点骨架 / 检索 / 下载 / 通路详情 / 通路浏览器（含 Beta）图例与交互控件、通路浏览器左侧 29 条固定顶层分类",
+    "note": "Reactome 通路数据库站点词库：导航与页脚、检索页与结果页骨架、下载页栏目标题、通路详情页字段、旧版与 Beta 通路浏览器的工具栏/图例/面板标签。通路浏览器左侧 29 条顶层分类是固定枚举值（不是数据），按官方惯用译法收录；其余通路名、分子名、物种拉丁名、accession 一律不翻。标题按「PB | 通路名」「Reactome | 通路名」分段翻译，通路名本身留英文时即走对应规则。"
   },
   "exact": {
     "About": "关于",
@@ -265,7 +265,7 @@
     "Tour:": "导览：",
     "Analysis:": "分析：",
     "Citation:": "引用：",
-    "Beta Browser:": "Beta 浏览器：",
+    "Beta Browser:": "Beta 版浏览器：",
     "Event Hierarchy:": "事件层级：",
     "Description": "描述",
     "Molecules": "分子",
@@ -524,7 +524,8 @@
     "Entries without species": "无物种条目",
     "open-source": "开源",
     "open-data": "开放数据",
-    "This event has been computationally inferred from an event that has been demonstrated in another species.": "该事件是根据已在其他物种中证实的事件计算推断而来的。"
+    "This event has been computationally inferred from an event that has been demonstrated in another species.": "该事件是根据已在其他物种中证实的事件计算推断而来的。",
+    "pValue": "p 值"
   },
   "rules": [
     {
@@ -623,6 +624,134 @@
     {
       "re": "^New Publication in (.+):$",
       "to": "$1 新发表论文："
+    },
+    {
+      "re": "^Autophagy$",
+      "to": "自噬"
+    },
+    {
+      "re": "^Cell Cycle$",
+      "to": "细胞周期"
+    },
+    {
+      "re": "^Cell-Cell communication$",
+      "to": "细胞间通讯"
+    },
+    {
+      "re": "^Cellular responses to stimuli$",
+      "to": "细胞对外界刺激的反应"
+    },
+    {
+      "re": "^Chromatin organization$",
+      "to": "染色质组织"
+    },
+    {
+      "re": "^Circadian clock$",
+      "to": "昼夜节律钟"
+    },
+    {
+      "re": "^Developmental Biology$",
+      "to": "发育生物学"
+    },
+    {
+      "re": "^Digestion and absorption$",
+      "to": "消化与吸收"
+    },
+    {
+      "re": "^DNA Repair$",
+      "to": "DNA 修复"
+    },
+    {
+      "re": "^DNA Replication$",
+      "to": "DNA 复制"
+    },
+    {
+      "re": "^Drug ADME$",
+      "to": "药物 ADME"
+    },
+    {
+      "re": "^Extracellular matrix organization$",
+      "to": "细胞外基质组织"
+    },
+    {
+      "re": "^Gene expression \\(Transcription\\)$",
+      "to": "基因表达（转录）"
+    },
+    {
+      "re": "^Hemostasis$",
+      "to": "止血"
+    },
+    {
+      "re": "^Immune System$",
+      "to": "免疫系统"
+    },
+    {
+      "re": "^Metabolism$",
+      "to": "代谢"
+    },
+    {
+      "re": "^Metabolism of proteins$",
+      "to": "蛋白质代谢"
+    },
+    {
+      "re": "^Metabolism of RNA$",
+      "to": "RNA 代谢"
+    },
+    {
+      "re": "^Muscle contraction$",
+      "to": "肌肉收缩"
+    },
+    {
+      "re": "^Neuronal System$",
+      "to": "神经系统"
+    },
+    {
+      "re": "^Organelle biogenesis and maintenance$",
+      "to": "细胞器生成与维持"
+    },
+    {
+      "re": "^Programmed Cell Death$",
+      "to": "程序性细胞死亡"
+    },
+    {
+      "re": "^Protein localization$",
+      "to": "蛋白质定位"
+    },
+    {
+      "re": "^Reproduction$",
+      "to": "生殖"
+    },
+    {
+      "re": "^Sensory Perception$",
+      "to": "感觉知觉"
+    },
+    {
+      "re": "^Signal Transduction$",
+      "to": "信号转导"
+    },
+    {
+      "re": "^Transport of small molecules$",
+      "to": "小分子转运"
+    },
+    {
+      "re": "^Vesicle-mediated transport$",
+      "to": "囊泡介导的转运"
+    },
+    {
+      "re": "^Showing$",
+      "to": "显示"
+    },
+    {
+      "re": "^General$",
+      "to": "常规"
+    },
+    {
+      "re": "^PB \\| (.+)$",
+      "to": "通路浏览器 | $1"
+    },
+    {
+      "re": "^Reactome \\| (.+)$",
+      "to": "Reactome 通路数据库 | $1"
     }
   ],
   "templates": [

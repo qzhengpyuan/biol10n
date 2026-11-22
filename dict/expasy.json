@@ -180,7 +180,12 @@
     "Genome-wide sequence tag scanner": "全基因组序列标签扫描器",
     "Database of genome-wide annotations of regulatory sites": "全基因组调控位点注释数据库",
     "Topology and parameters for small molecules": "小分子的拓扑与参数",
-    "Expasy - SIB Swiss Institute of Bioinformatics": "Expasy - 瑞士生物信息学研究所（SIB）"
+    "Expasy - SIB Swiss Institute of Bioinformatics": "Expasy - 瑞士生物信息学研究所（SIB）",
+    "UniProt AC": "UniProt 登录号",
+    "RefSeq AC": "RefSeq 登录号",
+    "Ensembl ID": "Ensembl 编号",
+    "ChEBI ID": "ChEBI 编号",
+    "PDB ID": "PDB 编号"
   },
   "rules": [
     {

@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "family": "targetscan",
+    "version": "0.1.0",
+    "sites": [
+      "targetscan.org",
+      "www.targetscan.org"
+    ]
+  },
+  "exact": {
+    "Search for predicted microRNA targets in mammals": "检索哺乳动物中预测的 microRNA 靶标",
+    "Go to the newest version of TargetScanHuman": "前往最新版 TargetScanHuman",
+    "1. Select a species": "1. 选择物种",
+    "2. Enter a human gene symbol (e.g. \"Hmga2\")": "2. 输入人类基因符号（例如“Hmga2”）",
+    "2. Enter a mouse gene symbol (e.g. \"Hmga2\")": "2. 输入小鼠基因符号（例如“Hmga2”）",
+    "3. Do one of the following:": "3. 执行以下任一操作：",
+    "AND/OR": "且/或",
+    "Select a broadly conserved* microRNA family": "选择一个广泛保守的* microRNA 家族",
+    "Select a conserved* microRNA family": "选择一个保守的* microRNA 家族",
+    "Select a poorly conserved but confidently annotated microRNA family": "选择弱保守但注释可靠的 microRNA 家族",
+    "Select another miRBase annotation": "选择其他 miRBase 注释",
+    "Note that most of these families are star miRNAs or RNA fragments misannotated as miRNAs.": "注意：这些家族大多是 star miRNA，或是被误注释为 miRNA 的 RNA 片段。",
+    "Enter a microRNA name (e.g. \"miR-9-5p\")": "输入 microRNA 名称（例如“miR-9-5p”）",
+    "* broadly conserved = conserved in human, mouse, and across most vertebrates, usually to zebrafish": "* 广泛保守 = 在人、小鼠以及大多数脊椎动物中保守，通常到斑马鱼",
+    "conserved = conserved in human, mouse, and across most mammals, but usually not beyond placental mammals": "保守 = 在人、小鼠以及大多数哺乳动物中保守，但通常不超出有胎盘哺乳动物",
+    "Broadly conserved microRNA families": "广泛保守的 microRNA 家族",
+    "Conserved microRNA families": "保守的 microRNA 家族",
+    "Poorly conserved microRNA families": "弱保守的 microRNA 家族",
+    "Poorly conserved but confidently annotated microRNA families": "弱保守但注释可靠的 microRNA 家族",
+    "Poorly conserved microRNA families with other miRBase annotations": "带其他 miRBase 注释的弱保守 microRNA 家族",
+    "Other miRBase annotations": "其他 miRBase 注释",
+    "Human": "人类",
+    "Mouse": "小鼠",
+    "Rat": "大鼠",
+    "Chimpanzee": "黑猩猩",
+    "Rhesus": "恒河猴",
+    "Cow": "牛",
+    "Dog": "狗",
+    "Opossum": "负鼠",
+    "Chicken": "鸡",
+    "Frog": "蛙",
+    "Chimp": "黑猩猩",
+    "Squirrel": "松鼠",
+    "Rabbit": "兔",
+    "Pig": "猪",
+    "Cat": "猫",
+    "Brown bat": "棕蝠",
+    "Elephant": "象",
+    "Macaw": "金刚鹦鹉",
+    "Lizard": "蜥蜴",
+    "Con": "一致序列",
+    "An introduction to microRNAs (iBiology talk)": "microRNA 简介（iBiology 讲座）",
+    "Frequently Asked Questions (FAQs)": "常见问题（FAQ）",
+    "Download data, code, or analysis tools": "下载数据、代码或分析工具",
+    "To reference information from this database, please cite one of the following papers:": "引用本数据库的信息时，请引用以下论文之一：",
+    "Links": "链接",
+    "Bartel lab": "Bartel 实验室",
+    "Bioinformatics and Research Computing (Whitehead Institute)": "生物信息学与计算研究部（Whitehead Institute）",
+    "Bioinformatics and Research Computing": "生物信息学与计算研究部",
+    "Whitehead Institute for Biomedical Research": "Whitehead 生物医学研究所",
+    "Questions:": "问题咨询：",
+    "Compatibility": "兼容性",
+    "supported by": "由",
+    "3P-seq tags:": "个 3P-seq 标签支持：",
+    "Please choose an miRNA family or enter a gene symbol.": "请选择一个 miRNA 家族或输入基因符号。",
+    "Table sorted by cumulative weighted context++ score": "表格按累积加权 context++ 得分排序",
+    "Download table": "下载表格",
+    "[View UTR with miRNA sites]": "[查看带 miRNA 位点的 UTR]",
+    "miRNA family": "miRNA 家族",
+    "Conserved sites": "保守位点",
+    "Poorly conserved sites": "弱保守位点",
+    "6mer sites": "6mer 位点",
+    "Cumulative weighted context++ score": "累积加权 context++ 得分",
+    "Total context++ score": "总 context++ 得分",
+    "Aggregate P": "汇总 P",
+    "Total": "总计",
+    "N/A": "不适用",
+    "miRNA families broadly conserved among vertebrates": "脊椎动物中广泛保守的 miRNA 家族",
+    "miRNA families conserved only among mammals": "仅在哺乳动物中保守的 miRNA 家族",
+    "Poorly conserved miRNA Families": "弱保守 miRNA 家族",
+    "[Show poorly conserved sites for miRNA families conserved among vertebrates]": "[显示脊椎动物中保守的 miRNA 家族的弱保守位点]",
+    "[Show conserved sites for miRNA families conserved only among mammals]": "[显示仅在哺乳动物中保守的 miRNA 家族的保守位点]",
+    "[Show poorly conserved sites for miRNA families conserved among mammals]": "[显示哺乳动物中保守的 miRNA 家族的弱保守位点]",
+    "[Show sites for poorly conserved but confidently annotated miRNA families]": "[显示弱保守但注释可靠的 miRNA 家族的位点]",
+    "[Show sites for other miRBase annotations, most of which are miRNA* sequences or RNA fragments misannotated as miRNAs]": "[显示其他 miRBase 注释的位点，其中大多是 miRNA* 序列或被误注释为 miRNA 的 RNA 片段]",
+    "[Download SVG image of miRNA sites]": "[下载 miRNA 位点的 SVG 图像]",
+    "[View table of miRNA sites]": "[查看 miRNA 位点表格]",
+    "[View human genome browser (hg19)]": "[在人类基因组浏览器中查看（hg19）]",
+    "[Show all species]": "[显示所有物种]",
+    "[Species key]": "[物种图例]",
+    "Conserved": "保守",
+    "Poorly conserved": "弱保守",
+    "Predicted consequential pairing of target region (top) and miRNA (bottom)": "靶区域（上）与 miRNA（下）的预测功能性配对",
+    "Site type": "位点类型",
+    "Context++ score": "context++ 得分",
+    "Context++ score percentile": "context++ 得分百分位",
+    "Weighted context++ score": "加权 context++ 得分",
+    "Conserved branch length": "保守枝长",
+    "Predicted relative K": "预测相对 K",
+    "Human microRNA families": "人类 microRNA 家族",
+    "Go to": "前往",
+    "families": "家族",
+    "Human microRNA family": "人类 microRNA 家族",
+    "Seed + m8": "种子序列 + m8",
+    "miRBase miRNAs (all species) in this family": "该家族中的 miRBase miRNA（所有物种）",
+    "miRNA family conservation": "miRNA 家族保守性",
+    "miRNAs not in miRBase or different name in miRBase": "未收录于 miRBase 或名称不同的 miRNA",
+    "[...] => lacking confident annotation": "[…] => 缺乏可靠注释",
+    "broadly conserved": "广泛保守",
+    "conserved": "保守",
+    "poorly conserved": "弱保守",
+    "other miRBase annotation": "其他 miRBase 注释",
+    "Data Download": "数据下载",
+    "Linked below are selected tab-delimited data files from the TargetScan database.": "以下列出从 TargetScan 数据库中选取的制表符分隔数据文件。",
+    "Gene and miRNA annotations": "基因与 miRNA 注释",
+    "Default predictions (conserved sites of conserved miRNA families)": "默认预测（保守 miRNA 家族的保守位点）",
+    "All predictions for representative transcripts*": "代表性转录本的全部预测*",
+    "File": "文件",
+    "Description": "描述",
+    "Fields": "字段",
+    "# of Rows": "行数",
+    "TargetScan: Prediction of microRNA targets": "TargetScan：microRNA 靶标预测",
+    "Predicted miRNA targeting in 3'UTRs, as submitted to the UCSC Genome Browser": "预测的 miRNA 靶向（3'UTR），已提交至 UCSC 基因组浏览器",
+    "Predicted miRNA targeting, as published in Lewis et al., 2005": "预测的 miRNA 靶向，发表于 Lewis 等，2005",
+    "Predicted miRNA targeting, as published in Lewis et al., 2003": "预测的 miRNA 靶向，发表于 Lewis 等，2003",
+    "These TargetScanS predictions (April 2005) are essentially the 3'UTR targets reported in the Lewis et al., 2005 paper, with a few changes arising from updated gene boundary definitions from the April 2005 UCSC genome browser mapping of RefSeq mRNAs to the hg17 human genome assembly. To avoid difficulties in browser display, the few predictions spanning splice junctions are excluded.": "这些 TargetScanS 预测（2005 年 4 月）本质上就是 Lewis 等 2005 年论文报道的 3'UTR 靶标，仅有少数变动，源自 2005 年 4 月 UCSC 基因组浏览器把 RefSeq mRNA 定位到 hg17 人类基因组组装时更新的基因边界定义。为避免浏览器显示困难，跨越剪接位点的少数预测已被排除。",
+    "These are the TargetScanS predictions published in January 2005, including targeting in ORFs.": "这些是 2005 年 1 月发表的 TargetScanS 预测，包含 ORF 内的靶向。",
+    "These are the original TargetScan predictions": "这些是最初的 TargetScan 预测",
+    "Newest miRNA targeting predictions at TargetScan.org": "TargetScan.org 上最新的 miRNA 靶标预测",
+    "TargetScanHuman and Mouse were improved and updated:": "TargetScanHuman 与 TargetScanMouse 得到改进与更新：",
+    "TargetScanWorm and TargetScanFly remain the same.": "TargetScanWorm 与 TargetScanFly 保持不变。",
+    "TargetScanHuman and TargetScanMouse remain the same.": "TargetScanHuman 与 TargetScanMouse 保持不变。",
+    "TargetScanFly and TargetScanWorm remain the same.": "TargetScanFly 与 TargetScanWorm 保持不变。",
+    "All 3' UTRs (rather than just the longest one) were used for miRNA target prediction.": "使用全部 3' UTR（而不只是最长的那条）进行 miRNA 靶标预测。",
+    "Target-site abundance (TA) contribution": "靶位点丰度（TA）贡献",
+    "seed-pairing stability (SPS) contribution": "种子配对稳定性（SPS）贡献",
+    "For TargetScanFly ORFs (released in August 2010), miRNA sites were predicted in ORFs, in addition to 3' UTRs.": "对于 TargetScanFly 的 ORF（2010 年 8 月发布），除 3' UTR 外还在 ORF 内预测了 miRNA 位点。",
+    "This release introduces the TargetScanMouse database, which uses mouse-centric 3' UTR annotations.": "本版本引入 TargetScanMouse 数据库，它使用以小鼠为中心的 3' UTR 注释。",
+    "3' pairing contribution: reflects consequential miRNA-target complementarity outside the seed region": "3' 配对贡献：反映种子区域之外 miRNA 与靶标的功能性互补",
+    "Changes since the release of version 5.1": "自版本 5.1 发布以来的变更",
+    "Changes since version 5.0": "自版本 5.0 以来的变更",
+    "Web site": "网站",
+    "Data download": "数据下载",
+    "TargetScan code": "TargetScan 代码",
+    "What are the definitions of \"conserved miRNA families\",\"nonconserved miRNA families\",\"conserved miRNA sites\" and \"nonconserved miRNA sites\"?": "“保守 miRNA 家族”“非保守 miRNA 家族”“保守 miRNA 位点”和“非保守 miRNA 位点”的定义分别是什么？",
+    "What do you mean by \"Representative miRNA\", \"Aggregate P": "你说的“代表性 miRNA”“汇总 P",
+    "If a gene has multiple transcripts, how can I know which one was used for target prediction?": "如果一个基因有多个转录本，我如何知道靶标预测用的是哪一个？",
+    "I study mouse genetics. Should I use mouse predictions from TargetScanHuman or TargetScanMouse? How do they differ?": "我研究小鼠遗传学。应该用 TargetScanHuman 还是 TargetScanMouse 的小鼠预测？两者有何不同？",
+    "How can I best predict miRNA site effectiveness? Should I look at site conservation or context score or something else?": "怎样才能最好地判断 miRNA 位点的有效性？应该看位点保守性、context 得分，还是别的指标？",
+    "How can I download or export miRNA target predictions from TargetScan?": "如何从 TargetScan 下载或导出 miRNA 靶标预测？",
+    "How many unique genes are scanned by TargetScan?": "TargetScan 扫描了多少个不重复的基因？",
+    "What are non-canonical sites?": "什么是非经典位点？",
+    "How are 'star' miRNAs (such as hsa-let-7b*) included in the compilation of miRNA families?": "“star”miRNA（例如 hsa-let-7b*）是如何纳入 miRNA 家族汇编的？",
+    "What is the relationship between miRBase miRNAs and families and those in TargetScan? Are they identical?": "miRBase 中的 miRNA 与家族和 TargetScan 中的是什么关系？两者完全相同吗？",
+    "Where can I get more information about ...": "在哪里可以获取关于……的更多信息",
+    "I would like to include results from a TargetScan analysis in a paper we are about to submit. Can I use these data in my publication? How should I cite TargetScan? Are there copyright concerns?": "我们即将投稿的论文中想引用 TargetScan 分析结果。可以在出版物中使用这些数据吗？应如何引用 TargetScan？是否存在版权问题？",
+    "Why doesn't TargetScan include predictions of miRNA regulation of long non-coding RNAs (lncRNAs)?": "TargetScan 为什么不包含 miRNA 调控长非编码 RNA（lncRNA）的预测？",
+    "I'd like to download and use all predicted TargetScan targets for my project, but I'd like to limit the dataset to high-confidence sites. What thresholds for Pct or context score should I use?": "我想为项目下载并使用 TargetScan 的全部预测靶标，但希望把数据集限制在高置信位点。PCT 或 context 得分该用什么阈值？",
+    "What is meant by \"Species ID\" in the download tables?": "下载表格里的“Species ID”是什么意思？",
+    "What do the numbers 1, 2, 3, etc. stand for in the \"Site type\" column of several tables?": "多个表格的“Site type”列中，数字 1、2、3 等分别代表什么？",
+    "In the \"Family Conservation\" column of the miR Family table, what do the numbers refer to?": "miR Family 表格的“Family Conservation”列中，数字指什么？",
+    "I am interested in using TargetScan on a wide set of data. Is it possible to run batch queries or download the code and run the program locally?": "我希望在大规模数据上使用 TargetScan。可以批量查询，或下载代码在本地运行吗？",
+    "Do I need to use UTRs from multiple species for miRNA target prediction?": "进行 miRNA 靶标预测需要使用多个物种的 UTR 吗？",
+    "For miRNA families in TargetScanHuman 7 and 8, conservation of some families were modified from those in TargetScan 6, based on careful analysis of multiple-sequence miRNA alignments.": "对于 TargetScanHuman 7 和 8 中的 miRNA 家族，部分家族的保守性依据对多序列 miRNA 比对的细致分析，相对 TargetScan 6 做了修改。",
+    "broadly conserved = conserved in human, mouse, and across most vertebrates, usually to zebrafish (Supplemental Table 1 of Friedman et al.)": "广泛保守 = 在人、小鼠以及大多数脊椎动物中保守，通常到斑马鱼（Friedman 等，补充表 1）",
+    "conserved = conserved human, mouse, and across most mammals, but usually not beyond placental mammals (Supplemental Tables 2 & 3 of Friedman et al.)": "保守 = 在人、小鼠以及大多数哺乳动物中保守，但通常不超出有胎盘哺乳动物（Friedman 等，补充表 2 和 3）",
+    "poorly conserved = all others": "弱保守 = 其余全部",
+    "6mer sites (TargetScanHuman 7 only) are always classified as nonconserved.": "6mer 位点（仅 TargetScanHuman 7）一律归为非保守。",
+    "highly conserved = conserved across human, mouse, rat, dog, and chicken": "高度保守 = 在人、小鼠、大鼠、狗和鸡中保守",
+    "conserved = conserved across human, mouse, rat and dog": "保守 = 在人、小鼠、大鼠和狗中保守",
+    "Try clicking on the term, which in these cases appear as headings of tables on the web site. They link to pop-up windows with descriptions of terms like": "请点击该术语——在这类情况下它以网站表格标题的形式出现，并会链接到弹窗，其中说明了",
+    "For TargetScanHuman 7-8, 3' UTRs were based on Gencode annotations, which were extended in the presence of 3P-seq tags. The representative transcript was defined as the variant with the most 3P-seq tags.": "对于 TargetScanHuman 7-8，3' UTR 基于 Gencode 注释，并在有 3P-seq 标签时加以延伸。代表性转录本定义为 3P-seq 标签最多的变体。",
+    "The difference between TargetScanHuman and TargetScanMouse is the origin of the 3' UTR annotations we use for miRNA target prediction.": "TargetScanHuman 与 TargetScanMouse 的差别在于我们做 miRNA 靶标预测所用的 3' UTR 注释来源。",
+    "In some cases, the UTR lengths differ between TargetScanHuman and TargetScanMouse, which could indicate, that there are true species-specific differences or that one gene's annotated UTR may be incorrect.": "某些情况下，同一基因在 TargetScanHuman 与 TargetScanMouse 中的 UTR 长度不同，这可能意味着确有种属特异性差异，也可能是某个基因的注释 UTR 有误。",
+    "Predicted targets of a miRNA family can be sorted by decreasing aggregate PCT, as described in Friedman et al., 2009.": "一个 miRNA 家族的预测靶标可以按汇总 PCT 降序排序，方法见 Friedman 等，2009。",
+    "All sites are still shown on the gene-centric detail pages.": "所有位点仍会显示在以基因为中心的详情页上。",
+    "TargetScanHuman was updated with a newly annnotated set of miRNAs.": "TargetScanHuman 更新了新注释的一组 miRNA。",
+    "TargetScanHuman was updated with a modified set of representative transcripts and some different miRNA annotations (sequence and conservation).": "TargetScanHuman 更新了修改后的代表性转录本集合，以及一些不同的 miRNA 注释（序列与保守性）。",
+    "TargetScanWorm was improved and updated:": "TargetScanWorm 得到改进与更新：",
+    "An updated set of RefSeq genes and their annotations was used to define a set of human or mouse 3' UTRs.": "使用更新后的 RefSeq 基因及其注释来定义一组人类或小鼠 3' UTR。",
+    "TargetScanHuman and TargetScanMouse remain the same except for the addition of a link to a gene's 3' UTR in the UCSC Genome Browser of the reference species (human and mouse, respectively).": "TargetScanHuman 与 TargetScanMouse 保持不变，只是在参考物种（分别为人类与小鼠）的 UCSC 基因组浏览器中增加了指向基因 3' UTR 的链接。",
+    "Context scores for mammalian sites that start 15 nt from a stop codon are now considered. (Version 4.0 only considered scores for mammalian sites greater than 15 nt from the stop codon.)": "现在会考虑起始位置距终止密码子 15 nt 的哺乳动物位点的 context 得分。（版本 4.0 只考虑距终止密码子大于 15 nt 的哺乳动物位点的得分。）",
+    "The end coordinates of 8mer mammalian sites on UTRs have been corrected by 1 nt. The previous coordinates had altered the AU-content score, and these scores have now been corrected.": "UTR 上哺乳动物 8mer 位点的末端坐标已校正 1 nt。此前的坐标影响了 AU 含量得分，这些得分现已修正。",
+    "Rare cases of incorrect mapping of TargetScan sites to the human genome have been fixed.": "已修正少数 TargetScan 位点映射到人类基因组有误的情况。",
+    "Predicted targets are now displayed at the UCSC genome browser (Human, March 2006).": "预测靶标现已可在 UCSC 基因组浏览器中显示（人类，2006 年 3 月）。",
+    "Additional features have been considered to better predict target specificity, as detailed in Grimson et al., 2007. Sites within 15 nt of a stop codon are flagged because these are typically not effective. The context of each of the remaining sites has been evaluated and scored considering the following four features:": "为更好地预测靶标特异性，还考虑了更多特征，详见 Grimson 等，2007。距终止密码子 15 nt 以内的位点会被标记，因为它们通常无效。其余各位点的上下文则依据以下四项特征评估并打分：",
+    "microRNA sequences and families": "microRNA 序列与家族",
+    "Information about human genes": "人类基因的信息",
+    "UTR sequences from 84-way alignments": "来自 84 重比对的 UTR 序列",
+    "Genome (hg19) locations of 3' UTRs": "3' UTR 的基因组（hg19）位置",
+    "Context++ scores for predicted (conserved) targets of conserved miRNA families": "保守 miRNA 家族预测（保守）靶标的 context++ 得分",
+    "Context++ scores, KDs for all conserved miRNA sites": "所有保守 miRNA 位点的 context++ 得分与 KD",
+    "Predicted (conserved) targets of conserved miRNA families. Includes positions on UTRs (without gaps) and UTR multiple sequence alignments (MSA; with gaps)": "保守 miRNA 家族的预测（保守）靶标。包含 UTR 上的位置（不含缺口）以及带缺口的 UTR 多序列比对（MSA）",
+    "Genome (hg19) locations of human predicted (conserved) targets of conserved miRNA families": "保守 miRNA 家族的人类预测（保守）靶标的基因组（hg19）位置",
+    "Species ID": "物种 ID",
+    "For miRNA families in TargetScan 6 (Human and Mouse), conservation cutoffs are as in Friedman et al. (2009):": "对于 TargetScan 6（人类与小鼠）中的 miRNA 家族，保守性判定阈值与 Friedman 等（2009）相同：",
+    "For miRNA sites in TargetScan 5 - 8 (Human and Mouse), site conservation is defined by conserved branch length, with each site type having a different threshold for conservation:": "对于 TargetScan 5 - 8（人类与小鼠）中的 miRNA 位点，位点保守性由保守枝长定义，各类位点的保守阈值不同：",
+    "The answer for the previous question may help address some of these issues.": "上一个问题的回答可能有助于解决其中的部分问题。",
+    "For TargetScanHuman 7-8, 3' UTRs were based on Gencode annotations, which were extended in the presence of 3P-seq tags.": "对于 TargetScanHuman 7-8，3' UTR 基于 Gencode 注释，并在有 3P-seq 标签时加以延伸。",
+    "For TargetScanMouse, we start with the representative (TargetScan 7-8) or longest annotated (TargetScan 6) 3' UTR of the mouse gene and select other species' UTRs in a similar manner.": "对于 TargetScanMouse，我们从小鼠基因的代表性（TargetScan 7-8）或最长注释（TargetScan 6）3' UTR 出发，用类似方式选取其他物种的 UTR。",
+    "For TargetScan 5 and earlier, we selected the transcript with the longest 3' UTR, after removing any regions that overlap the coding region of another RefSeq transcript.": "对于 TargetScan 5 及更早版本，我们选取 3' UTR 最长的转录本，先剔除与另一条 RefSeq 转录本编码区重叠的任何区段。",
+    "For TargetScanFly 5 and 6, miRNA families conserved beyond the Sophophora subgenus are classified as conserved, and sites with branch lengths of at least 3.16 (60% of the total branch length) are classified as conserved.": "对于 TargetScanFly 5 和 6，保守范围超出果蝇亚属（Sophophora）的 miRNA 家族归为保守，枝长至少为 3.16（占总枝长 60%）的位点也归为保守。",
+    "The major change is an expansion of TargetScanFly to include miRNAs newly identified by Ruby et al., 2007": "主要变更是扩展 TargetScanFly，纳入 Ruby 等（2007）新发现的 miRNA",
+    "TargetScanFly and TargetScanWorm now identify predicted pairing between an miRNA and its target gene as is Grimson et al., 2007 (like mammalian TargetScan).": "TargetScanFly 与 TargetScanWorm 现在像哺乳动物 TargetScan 一样，按 Grimson 等（2007）的方法识别 miRNA 与其靶基因之间的预测配对。",
+    "MicroRNA family miR-200b/429 has been renamed to miR-200bc/429.": "microRNA 家族 miR-200b/429 已更名为 miR-200bc/429。",
+    "MicroRNA family miR-124.2/506 has been renamed to miR-124/506 and has been expanded to include hsa-mir-124.": "microRNA 家族 miR-124.2/506 已更名为 miR-124/506，并扩展纳入 hsa-mir-124。",
+    "Scores for 7mer-A1 mammalian sites have been adjusted by -0.032.": "哺乳动物 7mer-A1 位点的得分已调整 -0.032。",
+    "TargetScanFly was added to include miRNA target predictions in zebrafish using a new set of 3' UTRs determined using the methods described in": "新增 TargetScanFly，使用按以下文献所述方法确定的新 3' UTR 集合，纳入斑马鱼的 miRNA 靶标预测：",
+    "Predicted targeting involving 3'-compensatory sites (": "涉及 3' 补偿位点的预测靶向（",
+    ") has been included.": "）已被纳入。",
+    "TargetScanHuman and Mouse were updated to use a new biochemical model to rank mammalian predictions (": "TargetScanHuman 与 TargetScanMouse 已更新，改用新的生化模型为哺乳动物预测结果排序（",
+    "). Previous approaches for ranking predictions are still provided as options.": "）。此前的预测排序方法仍作为选项提供。",
+    "Centered sites, which do not appear to be functional for most miRNAs (": "居中位点（centered sites）对大多数 miRNA 似乎没有功能（",
+    "), are no longer considered or displayed.": "），因此不再考虑也不再显示。",
+    "seed region": "种子区域",
+    "mammalian microRNAs": "哺乳动物 microRNA",
+    "UCSC whole-genome alignments": "UCSC 全基因组比对",
+    "3' UTR profiles": "3' UTR 图谱",
+    "3' UTRs": "3' UTR 区域",
+    "Supplemental Table": "补充表",
+    "3' pairing": "3' 配对",
+    "compensatory site": "补偿位点",
+    "centered site": "居中位点",
+    "non-canonical site": "非经典位点",
+    "site conservation": "位点保守性",
+    "conserved branch length": "保守枝长",
+    "Family Conservation": "家族保守性",
+    "Site Conservation": "位点保守性",
+    "Aggregate PCT": "汇总 PCT",
+    "aggregate P": "汇总 P",
+    "3P-seq tags": "3P-seq 标签",
+    "representative transcript": "代表性转录本",
+    "protein-coding genes": "蛋白编码基因",
+    "Zebrafish": "斑马鱼",
+    "TargetScanHuman 7: 8mer >= 1.8; 7mer-m8 >= 2.6; 7mer-1A >= 3.6": "TargetScanHuman 7（保守阈值）：8mer ≥ 1.8；7mer-m8 ≥ 2.6；7mer-1A ≥ 3.6",
+    "TargetScanMouse 7: 8mer >= 0.6; 7mer-m8 >= 1.8; 7mer-1A >= 2.5": "TargetScanMouse 7（保守阈值）：8mer ≥ 0.6；7mer-m8 ≥ 1.8；7mer-1A ≥ 2.5",
+    "TargetScan 5 - 6 (Human and Mouse): 8mer >= 0.8; 7mer-m8 >= 1.3; 7mer-1A >= 1.6": "TargetScan 5 - 6（人类与小鼠，保守阈值）：8mer ≥ 0.8；7mer-m8 ≥ 1.3；7mer-1A ≥ 1.6"
+  },
+  "rules": [
+    {
+      "re": "^TargetScanHuman ([\\d.]+): predicted miRNA targets$",
+      "to": "TargetScanHuman $1：预测的 miRNA 靶标"
+    },
+    {
+      "re": "^TargetScanHuman ([\\d.]+) predicted targeting of (.+)$",
+      "to": "TargetScanHuman $1 对 $2 的预测靶向"
+    },
+    {
+      "re": "^Human microRNA families from TargetScanHuman ([\\d.]+)$",
+      "to": "TargetScanHuman $1 的人类 microRNA 家族"
+    },
+    {
+      "re": "^TargetScan ([\\d.]+) Frequently Asked Questions \\(FAQs\\)$",
+      "to": "TargetScan $1 常见问题（FAQ）"
+    },
+    {
+      "re": "^TargetScan archives$",
+      "to": "TargetScan 存档"
+    },
+    {
+      "re": "^TargetScan ([\\d.]+) information$",
+      "to": "TargetScan $1 说明"
+    },
+    {
+      "re": "^Changes from version ([\\d.]+) to version ([\\d.]+) \\(([A-Za-z]+ \\d{4})\\)$",
+      "to": "从版本 $1 到版本 $2 的变更（$3）"
+    },
+    {
+      "re": "^Go to (TargetScan[A-Za-z]+)$",
+      "to": "前往 $1"
+    },
+    {
+      "re": "^or an Ensembl gene \\((ENSG\\d+)\\) or transcript \\((ENST\\d+)\\) ID$",
+      "to": "或 Ensembl 基因 ID（$1）或转录本 ID（$2）"
+    },
+    {
+      "re": "^More information about Release ([\\d.]+)$",
+      "to": "关于版本 $1 的更多信息"
+    },
+    {
+      "re": "^Release ([\\d.]+): ([A-Z][a-z]+ \\d{4})$",
+      "to": "版本 $1：$2"
+    },
+    {
+      "re": "^The identifier (.+) corresponds to multiple transcripts\\. Choose one to see in detail\\.$",
+      "to": "标识符 $1 对应多个转录本。请选择一个查看详情。"
+    },
+    {
+      "re": "^Representative \\(most prevalent\\) transcript for (.+) \\(([^)]+)\\):$",
+      "to": "$1（$2）的代表性（最常见）转录本："
+    },
+    {
+      "re": "^Less prevalent transcripts for (.+) \\(([^)]+)\\):$",
+      "to": "$1（$2）的较少见转录本："
+    },
+    {
+      "re": "^A gene of this name \\((.+)\\) is not in our UTR database\\. You can go to Ensembl (\\d+) to verify that (.+) is an official gene symbol or gene or transcript ID\\. If it is an official symbol and you get this message, then we have not predicted targets for this gene\\.$",
+      "to": "我们的 UTR 数据库中没有名为 $1 的基因。您可以前往 Ensembl $2 核实 $3 是否为官方基因符号、基因或转录本 ID。若它确实是官方符号却仍出现此提示，说明我们尚未预测该基因的靶标。"
+    },
+    {
+      "re": "^Position (\\d+)-(\\d+) of (.+) 3' UTR$",
+      "to": "$3 3' UTR 的位置 $1-$2"
+    },
+    {
+      "re": "^(.+) 3' UTR length: ([\\d,]+)$",
+      "to": "$1 3' UTR 长度：$2"
+    },
+    {
+      "re": "^(.+) \\(([^)]+)\\) 3' UTR miRNA Table$",
+      "to": "$1（$2）3' UTR miRNA 表格"
+    },
+    {
+      "re": "^\\[Sort table by aggregate P$",
+      "to": "[按汇总 P"
+    },
+    {
+      "re": "^Predicted relative K$",
+      "to": "预测相对 K"
+    },
+    {
+      "re": "^MicroRNA family (miR-[\\w./-]+) has been renamed to (.+)\\.$",
+      "to": "microRNA 家族 $1 已更名为 $2。"
+    },
+    {
+      "re": "^An updated set of miRNAs and miRNA families, based on miRBase Release ([\\d.]+), was used for target prediction\\.$",
+      "to": "使用基于 miRBase 版本 $1 的更新版 miRNA 与 miRNA 家族进行靶标预测。"
+    },
+    {
+      "re": "^© (\\d{4})-(\\d{4}) Whitehead Institute for Biomedical Research$",
+      "to": "© $1-$2 Whitehead 生物医学研究所"
+    },
+    {
+      "re": "^TargetScan Release ([\\d.]+)$",
+      "to": "TargetScan 版本 $1"
+    },
+    {
+      "re": "^AND$",
+      "to": "且"
+    },
+    {
+      "re": "^(.+) - \\(([\\d.]+ MB)\\)$",
+      "to": "$1（文件大小 $2）"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "TargetScan predicts biological targets of miRNAs by searching for the presence of conserved {{1}}, {{2}}, and {{3}} sites that match the {{4}} of each miRNA ({{5}}). As options, predictions with only poorly conserved sites and predictions with nonconserved miRNAs are also provided. Also identified are sites with mismatches in the seed region that are compensated by conserved 3' pairing ({{6}}). In mammals, predictions are ranked based on the predicted efficacy of targeting as calculated using a biochemical model of miRNA-mediated repression, which was extended to all miRNA sequences using a convolutional neural network ({{7}}). As an option, predictions are also ranked on the basis of targeting efficacy estimated using cumulative weighted {{8}} of the sites ({{9}}). As another option, predictions are ranked by their probability of conserved targeting ({{10}}, {{11}}). TargetScanHuman considers matches to human {{12}} and their orthologs, as defined by {{13}}. Conserved targeting has also been detected within open reading frames (ORFs). A listing of these ORF sites can be found at the bottom of {{14}} of {{15}}.",
+      "zh": "TargetScan 通过检索与每个 miRNA 的 {{4}} 匹配的保守 {{1}}、{{2}} 和 {{3}} 位点来预测 miRNA 的生物学靶标（{{5}}）。此外还提供仅含弱保守位点的预测和含非保守 miRNA 的预测。种子区域存在错配、但由保守的 3' 配对补偿的位点也会被识别（{{6}}）。在哺乳动物中，预测结果依据 miRNA 介导抑制的生化模型算出的预测靶向效力排序，该模型通过卷积神经网络扩展到了所有 miRNA 序列（{{7}}）。作为可选方案，预测结果也可依据各位点累积加权 {{8}} 估算的靶向效力排序（{{9}}）。另一种可选方案是按保守靶向概率（{{10}}，{{11}}）排序。TargetScanHuman 考虑与人类 {{12}} 及其直系同源序列的匹配，直系同源由 {{13}} 定义。在开放阅读框（ORF）内也检测到保守靶向。这些 ORF 位点的列表见 {{14}}（{{15}}）文末。"
+    },
+    {
+      "pat": "This search page of TargetScan Release 8.0 retrieves predicted regulatory targets of {{1}}. The predicted targets are essentially the same as those presented in previous versions of the TargetScan site ({{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}}, and {{10}}{{11}}; {{12}}; {{13}}; {{14}}; {{15}}). Thus Release 8 uses the same {{16}} as Release 7 and the same {{17}}, which were curated from {{18}} and {{19}}. Compared to previous releases, Release 8 provides a new option for ranking mammalian predictions; by default, these predictions are ranked using the new biochemical model ({{20}}).",
+      "zh": "TargetScan 版本 8.0 的本检索页用于检索 {{1}} 的预测调控靶标。所预测的靶标与 TargetScan 网站以往版本（{{2}}、{{3}}、{{4}}、{{5}}、{{6}}、{{7}}、{{8}}、{{9}} 和 {{10}}{{11}}；{{12}}；{{13}}；{{14}}；{{15}}）展示的基本相同。因此版本 8 与版本 7 使用相同的 {{16}} 和相同的 {{17}}，后者整理自 {{18}} 和 {{19}}。与以往版本相比，版本 8 为哺乳动物预测结果的排序提供了新选项；默认情况下，这些预测使用新的生化模型（{{20}}）排序。"
+    },
+    {
+      "pat": "Try clicking on the term, which in these cases appear as headings of tables on the web site. They link to pop-up windows with descriptions of terms like {{1}} or {{2}}.",
+      "zh": "请点击该术语——在这类情况下它以网站表格标题的形式出现。它会链接到弹窗，其中说明了 {{1}} 或 {{2}} 等术语的含义。"
+    },
+    {
+      "pat": "Aggregate P{{1}} has the advantage of identifying targeting interactions that are not only more likely to be effective but also those that are more likely to be consequential for the animal.",
+      "zh": "汇总 P{{1}} 的优点在于，它能识别出不仅更可能有效、而且更可能对动物产生实际影响的靶向互作。"
+    }
+  ]
+}

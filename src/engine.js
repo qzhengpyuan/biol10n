@@ -1325,7 +1325,7 @@ function createEngine(options) {
     if (!root || !root.querySelectorAll || !tplMap.size) return;
     var els;
     // 模板会把内联元素放回中文里，所以 div 也安全；段落通道不行（它会整块换成纯文本，链路就没了）。
-    try { els = root.querySelectorAll("p, dd, li, td, th, span, div"); } catch (e) { return; }
+    try { els = root.querySelectorAll("p, dd, li, td, th, span, div, h1, h2, h3, h4"); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.getAttribute && (el.getAttribute("data-biol10n-tpl") || el.getAttribute("data-biol10n-block"))) continue;
@@ -1440,6 +1440,52 @@ function createEngine(options) {
     }
   }
 
+  /** 同源 iframe（Ensembl BioMart 的 martview 就是把工具嵌在自己的 iframe 里）：
+   *  主文档的选择器穿不过 frame 边界，但同源时 contentDocument 可访问，按 shadow 同样的
+   *  通道各跑一遍。跨域 frame 的 contentDocument 读取会抛错或为 null，直接跳过。 */
+  var frameSeen = new WeakSet();
+  function collectFrames(root, out) {
+    if (!root || !root.querySelectorAll) return;
+    var els;
+    try { els = root.querySelectorAll("iframe, frame"); } catch (e) { return; }
+    for (var i = 0; i < els.length; i++) {
+      var d = null;
+      try { d = els[i].contentDocument; } catch (e2) { d = null; }
+      if (!d) continue;
+      var body = null;
+      try { body = d.body || d.documentElement; } catch (e3) { body = null; }
+      if (!body) continue;
+      out.push(body);
+    }
+  }
+
+  function translateFrames(root) {
+    var bodies = [];
+    collectFrames(root, bodies);
+    if (!bodies.length) return;
+    for (var i = 0; i < bodies.length; i++) {
+      var body = bodies[i];
+      try {
+        // 一个 frame 文档只挂一次 observer；但内容每次都要重跑一遍：
+        // frame 从 about:blank 换成真文档、或站内路由把内容整体替换时，旧 body 已经不在。
+        if (observer && !frameSeen.has(body)) {
+          frameSeen.add(body);
+          try {
+            observer.observe(body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: attrs });
+          } catch (e0) { /* ignore */ }
+        }
+        translateParagraphs(body);
+        translateTemplates(body);
+        walk(body);
+        translateInlineInCJK(body);
+        cleanupPass(body);
+        translateShadowRoots(body);
+        stats.frames = (stats.frames || 0) + 1;
+      } catch (e1) { /* frame 里的异常不能打断主文档 */ }
+      translateFrames(body);
+    }
+  }
+
   function debugWhy(node) {
     if (!node || node.nodeType !== 3) return { error: "not a text node" };
     var raw = node.nodeValue, text = normalize(raw);
@@ -1475,6 +1521,8 @@ function createEngine(options) {
     for (var rj = 0; rj < roots.length; rj++) repairSweep(roots[rj]);
     // shadow DOM 里的界面节点在主文档选择器之外，最后单独跑一遍（可嵌套）
     for (var sj = 0; sj < roots.length; sj++) translateShadowRoots(roots[sj]);
+    // 同源 iframe（Ensembl BioMart）里的界面同样在主文档之外
+    for (var fj = 0; fj < roots.length; fj++) translateFrames(roots[fj]);
     T.push(now());
     stats.time = {
       blocks: Math.round(T[1] - T[0]),
@@ -1505,6 +1553,7 @@ function createEngine(options) {
       // 运行时才挂上的 shadow root（React 组件后插）不会被 scan 看到，flush 里补一次
       translateShadowRoots(host);
     });
+    translateFrames(doc.documentElement);
     // SPA 路由后 <title> 由 React Helmet 之类改写，改的是 head 里的文本节点：
     // 它不在 scope 内，walk 拿不到，也不会再触发 scan()，标题就停在占位串
     //（cBioPortal 的 "::Helmet"）。每次 flush 顺手校正一次标题，代价只是字符串比较。

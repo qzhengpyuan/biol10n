@@ -63,7 +63,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **1102 KB**（1,128,704 字节）；词库里 67 个文件共 20098 条词条 + 648 条模板
+- 单文件产物 **1124 KB**（1,151,130 字节）；词库里 70 个文件共 20650 条词条 + 651 条模板
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -97,7 +97,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ## 覆盖站点
 
-点开就能看实际效果（17 个入口页都是纯英文界面，`<html lang="en">`，没有语言切换；PubMed 另有帮助中心整页覆盖）：
+点开就能看实际效果（这些入口页都是纯英文界面，`<html lang="en">`，没有语言切换；PubMed 另有帮助中心整页覆盖）：
 
 | 站点 | 链接 | 类型 |
 |---|---|---|
@@ -119,16 +119,24 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | UALCAN | <https://ualcan.path.uab.edu/> | 肿瘤表达分析 |
 | TIMER2.0 / 3.0 | <https://timer.cistrome.org/> · <https://compbio.cn/timer3/> | 免疫浸润分析 |
 | PubMed 帮助中心 | <https://pubmed.ncbi.nlm.nih.gov/help/> | 使用文档（FAQ / 检索语法 / 附录） |
+| NCBI ClinVar | <https://www.ncbi.nlm.nih.gov/clinvar/> | 临床变异 |
+| NCBI 资源站 | <https://www.ncbi.nlm.nih.gov/refseq/> · <https://www.ncbi.nlm.nih.gov/biosample/> · <https://submit.ncbi.nlm.nih.gov/> | RefSeq / BioSample / CCDS / 提交门户 |
+| gnomAD | <https://gnomad.broadinstitute.org/> | 人群频率 |
+| ClinGen / ClinPGx | <https://clinicalgenome.org/> · <https://www.clinpgx.org/> | 临床基因组学 |
+| STRING / Expression Atlas | <https://string-db.org/> · <https://www.ebi.ac.uk/gxa/home> | 互作网络 / 表达图谱 |
+| InterPro | <https://www.ebi.ac.uk/interpro/> | 蛋白家族与结构域 |
+| Ensembl BioMart | <https://www.ensembl.org/biomart/martview> | 批量数据导出 |
 
 中文资料目前只存在于社区写的教程里，站点本身没有中文界面。各站已翻到的范围与**刻意保留英文**的部分（数据、编号、品牌）见 [docs/coverage.md](docs/coverage.md)。
 
 ## 词库
 
-40 组词库按站点分文件（67 个文件），一个站点只加载自己那几本。
+57 组词库按站点分文件（70 个文件），一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
 | anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
+| biomart | 209 | 3 |  | Ensembl BioMart（数据集、Filters/Attributes、Results、导出） |
 | books | 130 | 12 |  | NCBI Bookshelf（书架页、检索） |
 | cbioportal | 1186 | 55 | 5 | cBioPortal |
 | clingen | 436 | 10 | 27 | ClinGen 与 ClinPGx |
@@ -147,6 +155,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | string-atlas | 454 | 19 | 31 | STRING 与 EMBL-EBI Expression Atlas |
 | gtex | 520 | 17 | 33 | GTEx Portal（含数据集页与文档） |
 | hpa | 1755 | 117 | 42 | Human Protein Atlas |
+| interpro | 288 | 1 | 3 | InterPro（首页、检索、条目、蛋白页、帮助） |
 | kegg | 753 | 19 | 6 | KEGG（含帮助文档与通路图查看页） |
 | medgen-gtr | 317 | 71 | 1 | MedGen / GTR |
 | mesh | 82 | 5 |  | NCBI MeSH |
@@ -167,15 +176,16 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
 | ucsc | 1459 | 27 | 140 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
+| ucsc-hggene | 55 | 6 |  | hgGene / hgGeneGraph 基因页正文与控件 |
 | uniprot | 866 | 29 |  | UniProt |
 
-合计 **20098 条 / 861 条规则 / 648 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **20650 条 / 872 条规则 / 651 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（649 条）
+npm test             # 引擎、面板、站点与产物单测（686 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

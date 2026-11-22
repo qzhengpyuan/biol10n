@@ -1123,6 +1123,27 @@
       "name": "GTEx Portal"
     },
     {
+      "id": "biomart",
+      "name": "Ensembl BioMart",
+      "hosts": [
+        "*.archive.ensembl.org"
+      ],
+      "path": "^/biomart",
+      "dicts": [
+        "common",
+        "spa",
+        "ensembl",
+        "ensembl-extra",
+        "ensembl-tpl",
+        "ensembl2",
+        "biomart"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "body",
+      "valueText": true
+    },
+    {
       "id": "ensembl",
       "hosts": [
         "www.ensembl.org",
@@ -1158,7 +1179,8 @@
         "ucsc",
         "ucsc-extra",
         "ucsc-tpl",
-        "ucsc-vai"
+        "ucsc-vai",
+        "ucsc-hggene"
       ],
       "scope": "body",
       "proseExempt": "#descriptionText",
@@ -1431,7 +1453,8 @@
       "path": "^/interpro",
       "dicts": [
         "common",
-        "spa"
+        "spa",
+        "interpro"
       ],
       "scope": "body",
       "spa": true,

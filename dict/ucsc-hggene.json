@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "family": "ucsc",
+    "version": "0.1.0",
+    "sites": [
+      "genome.ucsc.edu"
+    ],
+    "area": "ucsc gene pages",
+    "note": "UCSC 基因详情页（hgGene）/ 基因互作图（hgGeneGraph）/ 帮助页补充：分区标题、UniProt 注释标签、表头、按钮、固定说明句"
+  },
+  "exact": {
+    "Transcript (Including UTRs)": "转录本（含 UTR）",
+    "DESCRIPTION:": "描述：",
+    "FUNCTION:": "功能：",
+    "COFACTOR:": "辅因子：",
+    "SUBUNIT:": "亚基组成：",
+    "INTERACTION:": "相互作用：",
+    "TISSUE SPECIFICITY:": "组织特异性：",
+    "INDUCTION:": "诱导：",
+    "DOMAIN:": "结构域：",
+    "PTM:": "翻译后修饰：",
+    "DISEASE:": "疾病关联：",
+    "SIMILARITY:": "相似性：",
+    "WEB RESOURCE:": "网络资源：",
+    "ID:": "编号：",
+    "more ...": "更多……",
+    "Protein Data Bank (PDB) 3-D Structure": "蛋白质数据库（PDB）三维结构",
+    "CCDS:": "CCDS 编号：",
+    "GeneReviews article(s) related to gene": "与该基因相关的 GeneReviews 条目",
+    "GNF Expression Atlas 2 Data from U133A and GNF1H Chips": "来自 U133A 与 GNF1H 芯片的 GNF Expression Atlas 2 数据",
+    "Primer3Plus can design qPCR Primers that straddle exon-exon-junctions, which amplify only cDNA, not genomic DNA.": "Primer3Plus 可设计跨越外显子-外显子连接处的 qPCR 引物，只扩增 cDNA，不扩增基因组 DNA。",
+    "Exonprimer can design one pair of Sanger sequencing primers around every exon, located in non-genic sequence.": "Exonprimer 可为每个外显子设计一对 Sanger 测序引物，引物位于非基因序列中。",
+    "To design primers for a non-coding sequence, zoom to a region of interest and select from the drop-down menu: View > In External Tools > Primer3": "为非编码序列设计引物时，请缩放到感兴趣的区域，再从下拉菜单中选择：View > In External Tools > Primer3",
+    "The RNAfold program from": "RNAfold 程序由",
+    "is used to perform the secondary structure predictions and folding calculations. The estimated folding energy is in kcal/mol. The more negative the energy, the more secondary structure the RNA is likely to have.": "提供，用于进行二级结构预测与折叠计算。估计的折叠自由能以 kcal/mol 计；能量越负，RNA 越可能形成二级结构。",
+    "Picture": "图片",
+    "Text": "文本",
+    "Ratios": "比值",
+    "Absolute": "绝对值",
+    "- X-ray": "- X 射线",
+    "- NMR": "- 核磁共振",
+    "Gene Interactions Track": "基因互作轨道",
+    "Gene interactions and pathways from curated databases and text-mining": "来自人工策展数据库与文本挖掘的基因互作与通路",
+    "Gene Interactions Track Manual": "基因互作轨道手册",
+    "Help Page": "帮助页面",
+    "for details.": "了解详情。",
+    "Show all interactions, even only text-mining support": "显示全部互作，包括仅有文本挖掘支持的",
+    "Show only interactions with some database support": "仅显示有数据库支持的互作",
+    "Show only interactions with pathway database support": "仅显示有通路数据库支持的互作",
+    "Show top": "显示前",
+    "Genes on graph": "个基因",
+    "Annotate Genes": "注释基因",
+    "No Annotation": "无注释",
+    "GNF2 Expression": "GNF2 表达",
+    "Pan-Cancer Mutations": "泛癌突变",
+    "sort by article count": "按文章数排序",
+    "Data information": "数据信息",
+    "No curated information": "无人工策展信息",
+    "Click link to show details": "点击链接查看详情",
+    "Like above, interactions are colored by support. Grey:only text mining, light-blue:interaction database, blue:pathway database": "如上所述，互作按支持度着色。灰色：仅有文本挖掘支持；浅蓝色：互作数据库支持；蓝色：通路数据库支持",
+    "Open help page": "打开帮助页面",
+    "Link to Gene Details page": "链接到基因详情页面",
+    "link to Genome Browser": "链接到基因组浏览器",
+    "Annotate genes using external databases": "使用外部数据库注释基因",
+    "Export the graph to various file formats": "将图导出为多种文件格式",
+    "Please see the": "更多信息请参阅"
+  },
+  "rules": [
+    {
+      "re": "^: top (\\d+) interacting genes \\($",
+      "to": "：前 $1 个互作基因 ("
+    },
+    {
+      "re": "^Hide non-(.+) interactions$",
+      "to": "隐藏非 $1 互作"
+    },
+    {
+      "re": "^Less-frequently mentioned interactions with (.+), not among the Top (\\d+)$",
+      "to": "与 $1 互作、提及频次较低的基因（不在前 $2 名之列）"
+    },
+    {
+      "re": "^Other genes interacting with (.+)\\. Mouse-over to show number of abstracts or databases\\. Sorted alphabetically \\($",
+      "to": "与 $1 互作的其他基因。将鼠标悬停可显示摘要数或数据库数。按字母顺序排列 ("
+    },
+    {
+      "re": "^Text-mining: ([\\d,]+) abstracts e\\.g\\.$",
+      "to": "文本挖掘：$1 篇摘要，例如"
+    },
+    {
+      "re": "^Mouse over or click genes or lines for details\\. Dashed lines indicate interactions without text mining support\\. Click any gene to make it the new center\\. Click any line to show details about the interaction\\. Only (.+)-interacting genes and only the most-mentioned/most-curated interactions are shown in the graph\\. See the$",
+      "to": "将鼠标悬停在基因或连线上可查看详情。虚线表示没有文本挖掘支持的互作。点击任一基因可把它设为新的中心。点击任一连线可查看该互作的详情。图中只显示与 $1 互作、且被提及或策展最多的基因。更多信息请参阅"
+    }
+  ],
+  "templates": []
+}

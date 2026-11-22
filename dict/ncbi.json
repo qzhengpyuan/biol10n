@@ -212,7 +212,7 @@
     "Search Results": "检索结果",
     "clear all": "全部清除",
     "Clear selection": "清除所选",
-    "Page": "页",
+    "Page": "第",
     "Filters applied:": "已应用的筛选：",
     "Select search result to email or save": "选择检索结果以发送邮件或保存",
     "Cite": "引用",
@@ -1424,12 +1424,12 @@
       "to": "第 $1 页，共 $2 页"
     },
     {
-      "re": "^Page (\\d+)$",
-      "to": "第 $1 页"
+      "re": "^of ([\\d,]+)$",
+      "to": " 页，共 $1 页"
     },
     {
-      "re": "^of ([\\d,]+)$",
-      "to": "共 $1 页"
+      "re": "^Page (\\d+)$",
+      "to": "第 $1 页"
     },
     {
       "re": "^Items: (\\d+) to (\\d+) of ([\\d,]+)$",

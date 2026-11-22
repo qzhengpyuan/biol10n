@@ -63,7 +63,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **1138 KB**（1,165,188 字节）；词库里 72 个文件共 20873 条词条 + 653 条模板
+- 单文件产物 **1238 KB**（1,267,664 字节）；词库里 83 个文件共 23031 条词条 + 783 条模板
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -126,12 +126,19 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | STRING / Expression Atlas | <https://string-db.org/> · <https://www.ebi.ac.uk/gxa/home> | 互作网络 / 表达图谱 |
 | InterPro | <https://www.ebi.ac.uk/interpro/> | 蛋白家族与结构域 |
 | Ensembl BioMart | <https://www.ensembl.org/biomart/martview> | 批量数据导出 |
+| Europe PMC | <https://europepmc.org/> | 文献检索 |
+| Reactome | <https://reactome.org/> | 通路数据库 |
+| PRIDE Archive | <https://www.ebi.ac.uk/pride/> | 蛋白质组数据 |
+| ENA | <https://www.ebi.ac.uk/ena/browser/home> | 核苷酸序列档案 |
+| BioStudies | <https://www.ebi.ac.uk/biostudies/> | 多组学研究仓储 |
+| Expasy | <https://www.expasy.org/> | 蛋白与序列分析工具门户 |
+| neXtProt（归档） | <https://www.expasy.org/archives/nextprot> | 人类蛋白知识库（已退役） |
 
 中文资料目前只存在于社区写的教程里，站点本身没有中文界面。各站已翻到的范围与**刻意保留英文**的部分（数据、编号、品牌）见 [docs/coverage.md](docs/coverage.md)。
 
 ## 词库
 
-58 组词库按站点分文件（72 个文件），一个站点只加载自己那几本。
+60 个站点、83 册词库按站点分文件，一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
@@ -181,13 +188,21 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ucsc-hggene | 55 | 6 |  | hgGene / hgGeneGraph 基因页正文与控件 |
 | uniprot | 866 | 29 |  | UniProt |
 
-合计 **20873 条 / 894 条规则 / 653 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
+| europepmc | 223 | 24 | 11 | Europe PMC（检索、过滤面板、文章页、导出与引文） |
+| reactome | 516 | 22 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
+| pride | 245 | 24 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
+| ena | 487 | 26 | 28 | ENA Browser（记录页、检索、序列检索、Webin） |
+| biostudies | 228 | 18 | 14 | BioStudies（研究详情、集合、帮助、提交） |
+| expasy | 130 | 11 | 48 | Expasy 资源门户（工具目录、帮助、新闻） |
+| nextprot | 11 | 0 | 9 | neXtProt 退役归档页 |
+
+合计 **23031 条 / 1049 条规则 / 783 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（715 条）
+npm test             # 引擎、面板、站点与产物单测（846 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

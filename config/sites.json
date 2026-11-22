@@ -1472,7 +1472,8 @@
       "scope": "body",
       "spa": true,
       "waitFor": "#root",
-      "proseExempt": "p.cite"
+      "proseExempt": "p.cite",
+      "skip": "span.journal"
     }
   ]
 }

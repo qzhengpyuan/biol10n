@@ -19,7 +19,7 @@ function createEngine(options) {
     // "breast cancer - GEO DataSets - NCBI" 局部替换成半中半英（检查方 P0-3）。
     TITLE: 1
   };
-  var DEFAULT_ATTRS = ["placeholder", "title", "aria-label", "alt"];
+  var DEFAULT_ATTRS = ["placeholder", "title", "aria-label", "alt", "data-original-title"];
   // 下载格式名：这些词既是选项文字又是提交值，翻了只会让下载格式变成中文（List → 列表）
   var FORMAT_OPTION = /^(FASTA( \([^)]*\))?|TSV( \(Excel\))?|Excel|JSON|XML|RDF\/XML|Text|Plain text|GFF3?|BED|CSV|PSL|WIG|List|Embeddings|PDB|PPI)$/i;
   var BLOCK = site.block || "pre, code, kbd, samp, textarea, [contenteditable=''], [contenteditable='true']";
@@ -106,7 +106,7 @@ function createEngine(options) {
    *  不能靠小写回退查成「条目 / 名称 / 基因」。四个字符以上的纯大写/数字/下划线串
    *  只认 exact 里登记的大写形态，不回退小写；ID / DOI / PMC 这类 2–3 字符缩写照旧。 */
   function isCapsConstant(s) {
-    return /^[A-Z0-9_\-]{4,}$/.test(s);
+    return /^[A-Z0-9_\-]{3,}$/.test(s);
   }
 
   /** 只在 exact 表里查一次，不进入 rules，避免递归 */
@@ -567,6 +567,13 @@ function createEngine(options) {
   function handleTextNode(node) {
     if (!enabled || processed.has(node)) return;
     if (node.isConnected === false) return;
+    // 纯数字/标点节点先挡掉：BioMart 这类大表页面里成千上万个坐标、ID、分隔符节点
+    // 每个都要过 handleSvgText/handleSplitText/handleBrJoin 三道闸，单次扫描被拖到几十秒。
+    var quick = node.nodeValue;
+    if (quick == null) return;
+    // 只挡「含数字、没有字母也没有汉字」的节点（坐标、ID、百分数、日期片段）；
+    // 纯标点是 localizePunct 的活儿，不能一起挡掉。
+    if (!/[A-Za-z\u3400-\u9fff]/.test(quick) && /\d/.test(quick)) return;
     if (handleSvgText(node)) return;
     if (handleSplitText(node)) return;
     if (handleBrJoin(node)) return;

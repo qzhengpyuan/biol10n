@@ -122,7 +122,8 @@
         "common",
         "ncbi",
         "seq",
-        "seq2"
+        "seq2",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -152,7 +153,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-home"
+        "ncbi-home",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -237,7 +239,8 @@
         "common",
         "ncbi",
         "medgen-gtr",
-        "clinvar-core"
+        "clinvar-core",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -252,7 +255,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "medgen-gtr"
+        "medgen-gtr",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -268,7 +272,8 @@
         "common",
         "ncbi",
         "dbvar-bioproject",
-        "ncbi-help"
+        "ncbi-help",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -283,7 +288,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "dbvar-bioproject"
+        "dbvar-bioproject",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -298,7 +304,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-struct"
+        "ncbi-struct",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -313,7 +320,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-struct"
+        "ncbi-struct",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -328,7 +336,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-cat"
+        "ncbi-cat",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -350,7 +359,8 @@
         "common",
         "ncbi",
         "ncbi-cat",
-        "ncbi-help"
+        "ncbi-help",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -365,7 +375,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-struct"
+        "ncbi-struct",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer], #mmdb-update-banner, .pop-warnning",
@@ -380,7 +391,8 @@
       "dicts": [
         "common",
         "ncbi",
-        "ncbi-guide"
+        "ncbi-guide",
+        "ncbi-new2"
       ],
       "scope": "body",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
@@ -421,7 +433,8 @@
         "ncbi",
         "geo-extra",
         "seq",
-        "gdv"
+        "gdv",
+        "gdv2"
       ],
       "scope": "main, #gdv-root, #universal_header, .usa-banner, header, footer, .usa-skipnav, section.usa-banner, .usa-sr-only, body > div",
       "spa": true,
@@ -1459,7 +1472,7 @@
       "scope": "body",
       "spa": true,
       "waitFor": "#root",
-      "proseExempt": ""
+      "proseExempt": "p.cite"
     }
   ]
 }

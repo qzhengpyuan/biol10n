@@ -296,7 +296,12 @@
     "Profile HMM": "HMM 剖面",
     "Wikipedia": "维基百科",
     "and the": "以及",
-    "Show": "显示"
+    "Show": "显示",
+    "By Entry": "按条目",
+    "On": "开",
+    "Off": "关",
+    "PROSITE profiles": "PROSITE 谱",
+    ". Do not include any personal information about you or others in the chat (for more information, see the": "。请勿在聊天中包含你或他人的任何个人信息（更多信息请参见"
   },
   "rules": [
     {

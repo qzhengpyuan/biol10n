@@ -88,6 +88,14 @@
       version: VERSION
     });
 
+    // 站级 attrs 是追加：有些站点把 tooltip 放在 data-original-title / mouseovertext 里，
+    // 只传 defaults 会让这些属性永远走不到属性通道（hgGeneGraph 的 4417 条 tooltip 就是这么漏的）。
+    function mergedAttrs(s) {
+      var out = ((SITES.defaults && SITES.defaults.attrs) || []).slice();
+      var extra = (s && s.attrs) || [];
+      for (var i = 0; i < extra.length; i++) if (out.indexOf(extra[i]) < 0) out.push(extra[i]);
+      return out;
+    }
     var engine = createEngine({
       document: document,
       window: window,
@@ -95,7 +103,7 @@
       site: {
         scope: site.scope || "",
         block: (SITES.defaults && SITES.defaults.block) || "",
-        attrs: (SITES.defaults && SITES.defaults.attrs) || [],
+        attrs: mergedAttrs(site),
         skip: site.skip || "",
         skipFree: site.skipFree || [],
         attrSkipFree: site.attrSkipFree || [],

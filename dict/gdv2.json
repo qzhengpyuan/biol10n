@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "family": "gdv",
+    "version": "0.1.0",
+    "sites": [
+      "www.ncbi.nlm.nih.gov"
+    ],
+    "area": "gdv/browser 深页：配置轨道面板、轨道集线器对话框、外显子导航器、帮助页"
+  },
+  "exact": {
+    "Cell value has been edited": "单元格值已修改",
+    "Recognition Sites": "识别位点",
+    "Exon Navigator: There are no genes in the region": "外显子导航器：该区域内没有基因",
+    "Exons: click an exon to zoom in, mouse over to see details": "外显子：点击外显子可放大，鼠标悬停可查看详情",
+    "Warning: No track data found in this range": "警告：该范围内没有轨道数据",
+    "Error: Incomplete data returned by back-end service": "错误：后端服务返回的数据不完整",
+    "Filtered (read count from min to max)": "已过滤（读段数从最小到最大）",
+    "No GRC genome issues in range": "范围内没有 GRC 基因组问题",
+    "Collapse panel": "收起面板",
+    "Configure current set of tracks": "配置当前轨道集",
+    "Configure Remote Track Hubs and Tracks": "配置远程轨道集线器与轨道",
+    "Coloration:": "配色：",
+    "Label Placement:": "标签位置：",
+    "Shapes:": "形状：",
+    "Spacing:": "间距：",
+    "Optional parameter": "可选参数",
+    "BLAST returns separate alignments for each query, and these separate alignments can further be ordered into sets offering consistent non-overlapping query and subject coverage. The sequence viewer offers the ability to evaluate the original BLAST hits on-the-fly and link together alignments that meet a strict definition of non-overlapping query and subject coverage.": "BLAST 会为每条查询返回各自独立的比对，这些比对还可进一步整理成集合，使查询与目标覆盖一致且互不重叠。序列查看器支持即时评估原始 BLAST 命中，并把满足严格「查询与目标覆盖不重叠」定义的比对关联起来。",
+    "Scaffold accession.versions, names, and locations in the assembled molecule": "支架登录号.版本、名称及其在组装分子中的位置",
+    "This track highlights assembly regions that are associated with one or more of the following features: alternate loci, assembly patches, centromeres (non-gap), heterochromatin (non-gap) or PAR (pseudo-autosomal region).": "该轨道标出与下列一项或多项特征相关的组装区域：替代位点、组装补丁、着丝粒（非 gap）、异染色质（非 gap）或 PAR（假常染色体区）。",
+    "The Genome Reference Consortium curates regions of the genome that are wrong or highly variable and need more than 1 representation. We track these regions in a central database and map them to versions of the reference assembly that are in scope.": "基因组参考联盟会整理那些有误或高度可变、需要不止一种表示的区域。这些区域记录在中心数据库中，并映射到范围内的参考组装版本。",
+    "Regions of segmental duplication defined by the Eichler lab; typically regions of >1 Kb with >90% identity to another region of the genome.": "Eichler 实验室定义的片段重复区域；通常指与基因组另一区域同一性超过 90% 且长度大于 1 Kb 的区域。",
+    "Gene annotations provided by NCBI": "NCBI 提供的基因注释",
+    "NCBI gene annotation produced by projection of features from aligned RefSeq transcript and genomic sequences.": "通过投影已比对 RefSeq 转录本与基因组序列上的特征得到的 NCBI 基因注释。",
+    "Tiling Path (Components)": "铺瓦路径（元件）",
+    "Segmental Duplications, Eichler Lab": "片段重复（Eichler 实验室）",
+    "Add hubs directly or by search": "直接添加或通过检索添加轨道集线器",
+    "Number of connected track hubs": "已连接的轨道集线器数量",
+    "Close search box": "关闭检索框",
+    "Search term or Track Hub URL. Leave blank to \"Search All\"": "检索词或轨道集线器 URL。留空则「检索全部」",
+    "Discard search results": "丢弃检索结果",
+    "Number of found track hubs": "找到的轨道集线器数量",
+    "Track Hubs help": "轨道集线器帮助",
+    "Finding Organisms and Genome Assemblies": "查找物种与基因组组装",
+    "Using the Browser": "使用浏览器",
+    "Page layout": "页面布局",
+    "Page Overview": "页面概览",
+    "Page Widgets": "页面组件",
+    "Assembly and Chromosome": "组装与染色体",
+    "Ideogram Band Colors": "染色体模式图条带配色",
+    "Chromosome Region Selector": "染色体区域选择器",
+    "Exon Navigator": "外显子导航器",
+    "Sequence Viewer": "序列查看器",
+    "NCBI-Provided Tracks": "NCBI 提供的轨道",
+    "Upload Files": "上传文件",
+    "Remote Streaming Files": "远程流式文件",
+    "Track Sets and Collections": "轨道集与集合",
+    "Controlling GDV with URL Parameters": "用 URL 参数控制 GDV",
+    "Cite Us": "引用我们",
+    "Purpose": "用途",
+    "Background": "背景",
+    "Agreement": "协议",
+    "Practical application:": "实际应用：",
+    "Practical applications:": "实际应用：",
+    "Data will be displayed only after it has been released by the INSDC.": "数据只有在 INSDC 释放后才会展示。",
+    "1. What is the Genome Data Viewer (GDV)?": "1. 什么是基因组数据查看器（GDV）？",
+    "2. What tracks are shown in the GDV? Why do I sometime see different tracks?": "2. GDV 中会显示哪些轨道？为什么我有时看到的轨道不同？",
+    "3. Can I load my own data to this site for display?": "3. 我可以把自己的数据加载到本站显示吗？",
+    "4. How many tracks can I display?": "4. 我最多能显示多少条轨道？",
+    "Regions of high CG dinucleotide content relative to G+C content on the assembled genome sequence. The algorithm (and cutoffs) are based on the strict definition as described in Takai and Jones, 2002.": "组装基因组序列上相对于 G+C 含量而言 CG 二核苷酸含量偏高的区域。算法与阈值基于 Takai 和 Jones（2002）所述的严格定义。",
+    "At each position in the assembly, it is an integer computed as the length to the right to become unique within the assembly plus the length to the left to do the same": "在组装的每个位置上，该整数值等于向右达到组装内唯一所需的长度与向左达到同样目标所需的长度之和。"
+  },
+  "rules": [
+    {
+      "re": "^Tracks shown: (\\d+)/(\\d+)$",
+      "to": "已显示轨道：$1/$2"
+    },
+    {
+      "re": "^Tracks available: (\\d+)/(\\d+)$",
+      "to": "可用轨道：$1/$2"
+    },
+    {
+      "re": "^Exon Navigator: There are too many \\((\\d+)\\) genes in the region\\. Please narrow the region to enable exon navigation\\.$",
+      "to": "外显子导航器：该区域基因过多（$1 个）。请缩小区域以启用外显子导航。"
+    },
+    {
+      "re": "^GRC Curation Issues mapped to (.+)$",
+      "to": "映射到 $1 的 GRC 整理问题"
+    },
+    {
+      "re": "^GRC Join Certificates (.+)$",
+      "to": "GRC 连接证书 $1"
+    },
+    {
+      "re": "^Assembly Regions, (.+)$",
+      "to": "组装区域：$1"
+    },
+    {
+      "re": "^Annotated Clone Assembly Problems \\((.+)\\)$",
+      "to": "已注释克隆组装问题（$1）"
+    },
+    {
+      "re": "^Genes, (.+)$",
+      "to": "基因：$1"
+    },
+    {
+      "re": "^Alignments of alternate loci from (.+) to sequences from the primary assembly unit\\.$",
+      "to": "$1 的替代位点与主组装单元序列的比对。"
+    },
+    {
+      "re": "^Symmetric unique K-mers for (.+)$",
+      "to": "$1 的对称唯一 k-mer"
+    },
+    {
+      "re": "^(.+) - log base 2 scaled$",
+      "to": "$1 - 以 2 为底的对数缩放"
+    }
+  ],
+  "templates": []
+}

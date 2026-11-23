@@ -141,7 +141,8 @@
     "Related Items in Bookshelf": "Bookshelf 中的相关条目",
     "Editors and Reviewers": "编辑与审稿人",
     "Available from:": "可从以下地址获取：",
-    "We are experimenting with display styles that make it easier to read books and documents in Bookshelf. Our first effort uses ebook readers, which have several \"ease of reading\" features already built in.": "我们正在试验让浏览器中阅读书籍与文档更轻松的显示样式。第一步采用电子书阅读器，它已内置多项「便于阅读」功能。"
+    "We are experimenting with display styles that make it easier to read books and documents in Bookshelf. Our first effort uses ebook readers, which have several \"ease of reading\" features already built in.": "我们正在试验让浏览器中阅读书籍与文档更轻松的显示样式。第一步采用电子书阅读器，它已内置多项「便于阅读」功能。",
+    "National Center for Biotechnology Information (US)": "美国国家生物技术信息中心（US）"
   },
   "rules": [
     {
@@ -207,7 +208,20 @@
     {
       "re": "^Available from: (.+)$",
       "to": "可从以下地址获取：$1"
+    },
+    {
+      "re": "^The NCBI Handbook - NCBI Bookshelf$",
+      "to": "NCBI 手册 - NCBI 书架"
+    },
+    {
+      "re": "^Bethesda \\(MD\\): National Center for Biotechnology Information \\(US\\); (.+)$",
+      "to": "贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；$1"
     }
   ],
-  "templates": []
+  "templates": [
+    {
+      "pat": "Bethesda (MD): {{1}}; {{2}}-.",
+      "zh": "贝塞斯达（马里兰州）：{{1}}；{{2}}-."
+    }
+  ]
 }

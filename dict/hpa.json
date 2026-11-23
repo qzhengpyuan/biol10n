@@ -1714,7 +1714,25 @@
     "The Human Protein Atlas launches version 26, presenting four new resources, extensive additional data and AI tools to help researchers explore human biology and disease.": "人类蛋白质图谱发布第 26 版，推出四项新资源、大量新增数据与 AI 工具，帮助研究人员探索人类生物学与疾病。",
     "At HUPO 2026 in Singapore, Emmanouil Apostolakis presented research combining protein-localisation predictions, tissue gene-expression data and blood proteomics to explore where secreted and membrane-spanning proteins are found in the human body.": "在新加坡举行的 HUPO 2026 上，Emmanouil Apostolakis 展示了一项结合蛋白质定位预测、组织基因表达数据与血液蛋白质组学的研究，探索分泌蛋白与跨膜蛋白在人体中的分布。",
     "Spatial, subcellular protein profiles in human cells based on antibodies": "基于抗体的细胞内空间与亚细胞蛋白质图谱",
-    "Mapping the human secretome across tissues and blood": "跨组织与血液的人类分泌组图谱"
+    "Mapping the human secretome across tissues and blood": "跨组织与血液的人类分泌组图谱",
+    "Explore the human brain proteome.": "探索人类脑蛋白质组。",
+    "Spatial transcriptomics - human brain.": "空间转录组学 - 人脑。",
+    "Learn about the different celltypes in the brain.": "了解脑中的不同细胞类型。",
+    "Spatial distribution of astrocyte marker glia fibrillary acidic protein GFAP transcripts in the white matter and grey matter of the cerebellum": "星形胶质细胞标志物胶质纤维酸性蛋白 GFAP 转录本在小脑白质与灰质中的空间分布",
+    "Spatial distribution of N-terminal EF-hand calcium binding protein 1 (NECAB1) transcripts in the hippocampus and dentate gyrus.": "N 端 EF 手型钙结合蛋白 1（NECAB1）转录本在海马与齿状回中的空间分布。",
+    "Immunofluorescent staining of the neuronal specific protein N-terminal EF-hand calcium binding protein 1 (NECAB1) in mouse hippocampus": "小鼠海马中神经元特异性蛋白 N 端 EF 手型钙结合蛋白 1（NECAB1）的免疫荧光染色",
+    "Cancer methods": "癌症方法",
+    "Subcellular methods": "亚细胞方法",
+    "RNA: TCGA": "RNA：TCGA",
+    "RNA: TCGA + validation": "RNA：TCGA + 验证",
+    "Protein (MS): ProteinTalks DB + CPTAC": "蛋白质（MS）：ProteinTalks DB + CPTAC",
+    "Protein (MS): ProteinTalks DB only": "蛋白质（MS）：仅 ProteinTalks DB",
+    "IHC: data available": "IHC：有数据",
+    "IHC: cholangiocarcinoma, part of liver cancer": "IHC：胆管癌，属于肝癌的一部分",
+    "Cancer enhanced": "癌症增强",
+    "Cancer enriched": "癌症富集",
+    "Potential prognostic - unfavorable": "潜在预后 - 不良",
+    "Validated prognostic - unfavorable": "经验证预后 - 不良"
   },
   "rules": [
     {
@@ -2203,6 +2221,55 @@
     {
       "re": "^Conservation category is a categoric annotation that intends to capture the available pairwise species overlap annotations into one metric\\. The categories range from: Complete, Partial and Minimal Conservation for conserved genes; and Tissue elevation shift, human specific tissue elevated, Non-Human tissue elevated, Human specific detected and Human not detected for non conserved genes\\.$",
       "to": "保守性类别是一种分类注释，旨在将可用的物种两两重叠注释汇总为一个指标。类别包括：保守基因分为完全保守、部分保守、最低保守；非保守基因分为组织升高转移、人类特异组织升高、非人类组织升高、人类特异检出、人类未检出。"
+    },
+    {
+      "re": "^<b>(.+)</b><br>(Cell type enhanced|Cell type enriched)<br> ?(\\d+) genes$",
+      "to": "<b>$1</b><br>$2<br>$3 个基因",
+      "requireHit": true
+    },
+    {
+      "re": "^<b>(.+)</b><br>(Cancer enhanced|Cancer enriched)<br> ?(\\d+) genes$",
+      "to": "<b>$1</b><br>$2<br>$3 个基因",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+)<br>(Potential prognostic - unfavorable|Validated prognostic - unfavorable)$",
+      "to": "$1<br>$2",
+      "requireHit": true
+    },
+    {
+      "re": "^(\\d+) elevated in brain$",
+      "to": "$1 在脑中升高"
+    },
+    {
+      "re": "^(\\d+) elevated in other but expressed in brain$",
+      "to": "$1 在其他组织中升高但在脑中表达"
+    },
+    {
+      "re": "^(\\d+) low tissue specificity but expressed in brain$",
+      "to": "$1 低组织特异性但在脑中表达"
+    },
+    {
+      "re": "^(\\d+) not detected in brain$",
+      "to": "$1 在脑中未检出"
+    },
+    {
+      "re": "^(\\d+) not detected in any tissue$",
+      "to": "$1 在任何组织中均未检出"
+    },
+    {
+      "re": "^Subscribe - (.+)$",
+      "to": "订阅 - $1"
+    },
+    {
+      "re": "^(Group enriched|Cell type enriched|Tissue enriched) \\(([^,()]+), ([^,()]+)\\)<br>(Detected in (?:all|many|some|single))$",
+      "to": "$1（$2、$3）<br>$4",
+      "requireHit": true
+    },
+    {
+      "re": "^(Group enriched|Cell type enriched|Tissue enriched) \\(([^,()]+)\\)<br>(Detected in (?:all|many|some|single))$",
+      "to": "$1（$2）<br>$3",
+      "requireHit": true
     }
   ],
   "templates": [

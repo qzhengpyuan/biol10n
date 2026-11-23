@@ -501,7 +501,12 @@
     "Download file report in tsv (Tab Separated Values)": "以 TSV（制表符分隔值）格式下载文件报告",
     "Download selected files in the browser": "在浏览器中下载选中文件",
     "Get download commands for all files in this column in a script": "获取此列全部文件的下载命令脚本",
-    "Show read files report for this record": "显示此记录的读段文件报告"
+    "Show read files report for this record": "显示此记录的读段文件报告",
+    "Select default": "选择默认",
+    "Submitted files are only available for data submitted via ENA": "提交文件仅对通过 ENA 提交的数据可用",
+    "Postdocs": "博士后",
+    "PhDs": "博士生",
+    "Analysis Files:": "分析文件："
   },
   "rules": [
     {
@@ -611,6 +616,10 @@
     {
       "re": "^General(\\s*)$",
       "to": "概要$1"
+    },
+    {
+      "re": "^Find other records tagged (.+)$",
+      "to": "查找其他标记为 $1 的记录"
     }
   ],
   "templates": [

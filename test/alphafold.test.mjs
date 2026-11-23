@@ -322,3 +322,162 @@ test("数据不动：登录号、基因名、物种、条目标题、邮箱、�
   assert.deepEqual(texts, ["AF-P04637-F1", "P04637", "TP53", "Homo sapiens", "82.94", "10.2210/pdb1cbs/pdb", "Cellular tumor antigen p53", "214"]);
   assert.equal(doc.querySelector("a").textContent, "alphafold@deepmind.com");
 });
+
+test("帮助：检索建议整句、三条建议 LI 与 previous FAQ 链接模板", () => {
+  const doc = run(
+    '<div class="faq-content"><h3>What if I can’t find the protein I’m interested in?</h3>' +
+      "<p>If you can’t find the structure you’re looking for, here are some suggestions to improve your search results:</p>" +
+      "<ul>" +
+      "<li>Try searching by protein or gene name rather than specific UniProt accession.</li>" +
+      "<li>If running a sequence search, the input query should contain at least 20 amino acids, and only standard amino acids are accepted.</li>" +
+      "<li>Sequence search is the most reliable method for finding entries, especially since many proteins don’t have a specific name.</li>" +
+      '<li>Check that the protein or complex isn’t excluded by any of the criteria coveredin a <a href="/faq#faq-4">previous FAQ</a>.</li>' +
+      "</ul>" +
+      '<p>Not all proteins or complexes are included in the AlphaFold DB. In some cases, you may need to generate a prediction separately using the <a href="https://github.com/google-deepmind/alphafold">source code</a>, which supports predicting multimer structures.</p>' +
+      "</div>"
+  );
+  assert.equal(doc.querySelector("h3").textContent, "如果找不到感兴趣的蛋白质怎么办？");
+  assert.equal(
+    doc.querySelector(".faq-content > p").textContent,
+    "如果找不到你要的结构，可参考以下建议改进检索结果："
+  );
+  assert.deepEqual([...doc.querySelectorAll("li")].map((e) => e.textContent), [
+    "尝试用蛋白质或基因名称检索，而不是具体的 UniProt 登录号。",
+    "如果进行序列检索，输入的查询应至少包含 20 个氨基酸，且只接受标准氨基酸。",
+    "序列检索是查找条目最可靠的方法，尤其因为许多蛋白质并没有特定名称。",
+    "请确认该蛋白质或复合物未被上一个常见问题中列出的任一标准排除。"
+  ]);
+  const faqA = doc.querySelectorAll("li a")[0];
+  assert.equal(faqA.textContent, "上一个常见问题");
+  assert.equal(faqA.getAttribute("href"), "/faq#faq-4", "链接地址不能改");
+  const tail = doc.querySelectorAll(".faq-content > p")[1];
+  assert.equal(
+    tail.textContent,
+    "并非所有蛋白质或复合物都收录在 AlphaFold DB 中。某些情况下，你需要用源代码单独生成预测，它支持预测多聚体结构。"
+  );
+  assert.equal(tail.querySelector("a").getAttribute("href"), "https://github.com/google-deepmind/alphafold");
+});
+
+test("帮助：PAE 文件格式四段固定说明（字段名保留英文）", () => {
+  const doc = run(
+    "<p>The PAE is displayed as an interactive plot for each of the structure predictions. If you need the raw data with PAE for all residue pairs, you can download the PAE as a JSON file using the button at the top of the structure page.</p>" +
+      "<p>This file is in a custom format and it isn’t supported by any existing software – you will have to use Python or another programming language to analyse or plot the information that is contained in it.</p>" +
+      '<p>We updated the PAE JSON file format on 28th July 2022 to reduce file size by 4x. Please ensure you read the 2D matrix of PAE values from the predicted_aligned_error field instead of the removed 1D "distances" field and avoid using the old "residue1" and "residue2" fields.</p>' +
+      '<p>If you are using a script or third party tool to read the PAE JSON file programmatically and you are seeing errors (e.g. missing field "distance"), check with the author of the program whether the latest PAE JSON format is supported.</p>'
+  );
+  const ps = [...doc.querySelectorAll("p")].map((e) => e.textContent);
+  assert.equal(ps[0], "每个结构预测的 PAE 都会以交互式图表显示。若需要包含所有残基对 PAE 的原始数据，可用结构页顶部的按钮把 PAE 下载为 JSON 文件。");
+  assert.equal(ps[1], "该文件采用自定义格式，现有软件均不支持 – 你需要用 Python 或其他编程语言分析或绘制其中的信息。");
+  assert.ok(ps[2].startsWith("我们已于 2022 年 7 月 28 日更新 PAE JSON 文件格式"), ps[2]);
+  assert.ok(ps[2].includes("从 predicted_aligned_error 字段读取"), "字段名保留英文");
+  assert.ok(ps[2].endsWith('避免使用旧的 "residue1" 与 "residue2" 字段。'), ps[2]);
+  assert.ok(ps[3].includes('缺少 "distance" 字段'), "字段名保留英文");
+  assert.ok(ps[3].endsWith("是否支持最新的 PAE JSON 格式。"));
+});
+
+test("首页：取数报错态与 AI 注释发布说明（What’s new）", () => {
+  const doc = run(
+    '<div class="error-banner">Currently, we are experiencing an issue fetching data. Please try again later.</div>' +
+      "<p>AI-derived residue annotations – October 2026</p>" +
+      "<p>AlphaFold Database now integrates AI-derived residue-level annotations from the scientific literature, providing biological context for individual residues alongside predicted protein structures. A transformer-based named entity recognition (NER) model identifies protein residues and point mutations in structural biology publications and links experimentally supported annotations to UniProt reference sequences.</p>" +
+      "<p>Annotations are transferred from experimentally validated PDB structures to AlphaFold models using the SIFTS framework, ensuring that literature-derived residue annotations are supported by experimental evidence.</p>" +
+      "<p>This release enables users to navigate directly from residues in AlphaFold predictions to publications describing their function, interactions, and experimentally observed mutations, making it easier to interpret predicted structures in their biological context.</p>" +
+      '<p class="img-caption"><a href="/faq#faq-45">Learn how residue function annotations are generated and mapped to AlphaFold structures</a></p>'
+  );
+  assert.equal(doc.querySelector(".error-banner").textContent, "目前我们在获取数据时遇到问题。请稍后重试。");
+  const ps = [...doc.querySelectorAll("p")].map((e) => e.textContent);
+  assert.equal(ps[0], "AI 生成的残基注释 – 2026 年 10 月");
+  assert.ok(ps[1].startsWith("AlphaFold 数据库现已整合来自科学文献的 AI 生成残基级注释"), ps[1]);
+  assert.ok(ps[1].endsWith("并把有实验支持的注释链接到 UniProt 参考序列。"), ps[1]);
+  assert.ok(ps[2].startsWith("注释通过 SIFTS 框架从经实验验证的 PDB 结构转移到 AlphaFold 模型"), ps[2]);
+  assert.ok(ps[3].startsWith("本次发布让用户可以从 AlphaFold 预测中的残基直接跳转"), ps[3]);
+  assert.equal(ps[4], "了解残基功能注释如何生成并映射到 AlphaFold 结构");
+  assert.equal(doc.querySelector(".img-caption a").getAttribute("href"), "/faq#faq-45");
+});
+
+test("帮助：检索框四示例、反馈邮箱与许可条款（多槽位模板）", () => {
+  const doc = run(
+    '<p class="q1">The search bar at the top of the page accepts queries based on protein name (e.g. <a>Free fatty acid receptor 2</a>), gene name (e.g. <a>At1g58602</a>), UniProt accession (e.g. <a>Q9I1F6</a>), or organism name (e.g. <a href="./search/organismScientificName/x">E. coli</a>).</p>' +
+      '<p class="q2">We would love to hear your feedback and understand how the database has been useful in your research. Share your stories with us at <a href="mailto:alphafold@deepmind.com">alphafold@deepmind.com</a>.</p>' +
+      '<p class="q3">Data is available for academic and commercial use, under a Creative Commons Attribution 4.0 (<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>) licence terms.</p>'
+  );
+  assert.equal(
+    doc.querySelector(".q1").textContent,
+    "页面顶部的检索框接受基于蛋白质名称（如 Free fatty acid receptor 2）、基因名称（如 At1g58602）、UniProt 登录号（如 Q9I1F6）或物种名称（如 E. coli）的检索。"
+  );
+  assert.deepEqual([...doc.querySelectorAll(".q1 a")].map((e) => e.textContent), [
+    "Free fatty acid receptor 2",
+    "At1g58602",
+    "Q9I1F6",
+    "E. coli"
+  ], "蛋白质名 / 基因名 / 登录号 / 物种名不翻");
+  assert.equal(doc.querySelectorAll(".q1 a")[3].getAttribute("href"), "./search/organismScientificName/x");
+  assert.equal(
+    doc.querySelector(".q2").textContent,
+    "我们很希望听到你的反馈，了解该数据库在你的研究中发挥了哪些作用。欢迎把故事分享到 alphafold@deepmind.com。"
+  );
+  assert.equal(doc.querySelector(".q2 a").getAttribute("href"), "mailto:alphafold@deepmind.com");
+  assert.equal(doc.querySelector(".q3").textContent, "在知识共享署名 4.0（CC-BY 4.0）许可条款下，数据可供学术与商业使用。");
+  assert.equal(doc.querySelector(".q3 a").getAttribute("href"), "https://creativecommons.org/licenses/by/4.0/");
+});
+
+test("帮助：结构页标签、TED、AlphaMissense 与 mmCIF 说明等固定句", () => {
+  const doc = run(
+    "<p>When browsing search results, each entry displays key information to help you identify and prioritise the most relevant structures.</p>" +
+      "<p>From the main search page, you can browse entries by the following categories:</p>" +
+      "<p>Structure pages for multimers have five tabs: Summary and Model Confidence, Macromolecules, Domains, Annotations, and Similar Proteins. The Summary and Model Confidence tab displays basic information about the complex (drawn from UniProt where available), together with AlphaFold prediction outputs and confidence measures.</p>" +
+      "<p>TED provides a powerful framework for understanding how protein domains are organised and it is a valuable resource for evolutionary, structural and functional studies.</p>" +
+      "<p>Note that AlphaMissense does not predict the change in protein structure, or biophysical properties such as stability, upon mutation. Instead, it uses related protein sequences and protein structure as contextual information to estimate pathogenicity.</p>" +
+      "<p>Note that the PDB and mmCIF files contain coordinates for all regions, regardless of their pLDDT score. It is up to the user to interpret the model judiciously, in accordance with the guidance above.</p>"
+  );
+  const ps = [...doc.querySelectorAll("p")].map((e) => e.textContent);
+  assert.equal(ps[0], "浏览检索结果时，每个条目都会显示关键信息，帮助你识别并优先关注最相关的结构。");
+  assert.equal(ps[1], "在主检索页面上，你可以按以下类别浏览条目：");
+  assert.ok(ps[2].startsWith("多聚体的结构页有五个标签页：摘要与模型置信度、大分子、结构域、注释与相似蛋白。"), ps[2]);
+  assert.ok(ps[3].startsWith("TED 为理解蛋白质结构域如何组织提供了有力框架"), ps[3]);
+  assert.ok(ps[4].startsWith("注意 AlphaMissense 不预测突变后蛋白质结构的变化"), ps[4]);
+  assert.ok(ps[5].startsWith("注意 PDB 与 mmCIF 文件包含所有区域的坐标"), ps[5]);
+});
+
+test("首页：门户卡片说明、EMBL-EBI 署名句与数据集说明", () => {
+  const doc = run(
+    '<div class="portal"><span>Pandemic Preparedness</span>' +
+      "<p>Protein structure predictions from human and animal viruses with pandemic potential to support research on viral mechanisms, vaccines, and antiviral development.</p></div>" +
+      '<div class="portal"><p>Protein structure predictions from the 30 WHO priority global health proteomes. Supports research on pathogens of major global public health importance.</p></div>' +
+      "<p>EMBL-EBI expects attribution (e.g., in publications, services, or products) for any of its online services, databases, or software in accordance with good scientific practice.</p>" +
+      "<p>Note: A given structure may be associated with further publications. For authoritative information regarding the relevant publication(s), please consult the dataset collection or the structure metadata provided on the entry page.</p>"
+  );
+  assert.equal(doc.querySelector(".portal span").textContent, "大流行病防范");
+  const desc = [...doc.querySelectorAll(".portal p")].map((e) => e.textContent);
+  assert.equal(desc[0], "来自具有大流行潜力的人类与动物病毒的蛋白质结构预测，用于支持病毒机制、疫苗与抗病毒药物研发等研究。");
+  assert.equal(desc[1], "来自 30 个 WHO 重点全球健康蛋白质组的蛋白质结构预测。支持对具有重大全球公共卫生意义的病原体的研究。");
+  const tail = [...doc.querySelectorAll("p")].slice(-2).map((e) => e.textContent);
+  assert.ok(tail[0].startsWith("按照良好科学实践，EMBL-EBI 期望其任何在线服务"), tail[0]);
+  assert.ok(tail[1].startsWith("注意：某个结构可能还关联其他出版物。"), tail[1]);
+});
+
+test("帮助：数据集提交与开放工具包说明（长句模板保留链接）", () => {
+  const doc = run(
+    '<p>Eligible datasets must use AlphaFold 2 or AlphaFold multimer and be on a coherent theme. To apply to contribute a dataset or check with the AFDB team if your data qualify, please email <a href="mailto:afdbhelp@ebi.ac.uk">afdbhelp@ebi.ac.uk</a> describing the nature and quality of your dataset and providing a scientific justification for including them in the database. If the dataset is deemed suitable for integration into AFDB, we will contact the contributing team and will follow up with the submitter for additional information.</p>' +
+      '<p>We do not currently have functionality to deposit individual structure predictions. If you have generated AlphaFold structure predictions that you would like to make available to the community, you can take a look at the <a href="https://rdmkit.elixir-europe.org/structural_bioinformatics.html">Research Data Management</a> kit being developed by the ELIXIR 3D-BioInfo community that describes guidelines on how to make models and the relevant metadata available according to FAIR principles.</p>' +
+      '<p class="ted"><a href="https://ted.cathdb.info/about">The Encyclopedia of Domains (TED)</a> is a resource dedicated to identifying and classifying structural domains within the AlphaFold Protein Structure Database (AFDB) using deep learning-based domain parsing and structure comparison.</p>' +
+      '<p class="plan">We plan to continue updating the database with structures for newly discovered protein sequences, and to improve features and functionality in response to user feedback. Please follow <a href="https://twitter.com/GoogleDeepMind">Google DeepMind</a>\'s and <a href="https://twitter.com/emblebi">EMBL-EBI</a>’s social channels for updates.</p>'
+  );
+  const ps = [...doc.querySelectorAll("p")].map((e) => e.textContent);
+  assert.ok(ps[0].startsWith("合格的数据集必须使用 AlphaFold 2 或 AlphaFold 多聚体"), ps[0]);
+  assert.ok(ps[0].includes("请发邮件至 afdbhelp@ebi.ac.uk"), ps[0]);
+  assert.equal(doc.querySelectorAll("p")[0].querySelector("a").getAttribute("href"), "mailto:afdbhelp@ebi.ac.uk");
+  assert.ok(ps[1].startsWith("我们目前没有提交单个结构预测的功能。"), ps[1]);
+  assert.ok(ps[1].includes("正在编写的 Research Data Management 工具包"), ps[1]);
+  assert.equal(doc.querySelectorAll("p")[1].querySelector("a").getAttribute("href"), "https://rdmkit.elixir-europe.org/structural_bioinformatics.html");
+  assert.equal(
+    doc.querySelector(".ted").textContent,
+    "The Encyclopedia of Domains (TED) 是一个致力于使用基于深度学习的结构域解析与结构比较，识别并分类 AlphaFold 蛋白质结构数据库（AFDB）中结构域的资源。"
+  );
+  assert.equal(doc.querySelector(".ted a").getAttribute("href"), "https://ted.cathdb.info/about");
+  assert.equal(
+    doc.querySelector(".plan").textContent,
+    "我们计划持续用新发现蛋白质序列的结构更新数据库，并根据用户反馈改进功能。请关注 Google DeepMind 与 EMBL-EBI 的社交渠道获取更新。"
+  );
+  assert.equal(doc.querySelectorAll(".plan a")[1].getAttribute("href"), "https://twitter.com/emblebi");
+});

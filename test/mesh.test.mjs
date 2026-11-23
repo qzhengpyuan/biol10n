@@ -37,6 +37,17 @@ function mount(html) {
   return dom.window.document;
 }
 
+function translateText(s) {
+  const dom = new JSDOM("<body></body>", { url: "https://www.ncbi.nlm.nih.gov/mesh/Q000008" });
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: { exact: dict.exact, rules: dict.rules, templates: dict.templates || [] },
+    site
+  });
+  return engine.translateText(s);
+}
+
 test("词库能解析，meta 与各通道齐全", () => {
   assert.equal(dict.meta.family, "mesh");
   assert.ok(dict.exact && typeof dict.exact === "object");
@@ -183,4 +194,20 @@ test("检索结果页：检索构建器与检索 PubMed 按钮", () => {
     "添加到检索构建器",
     "检索 PubMed"
   ]);
+});
+
+// Q000008 实测 h1 是两个空格："administration  and  dosage [Subheading]"
+// （https://www.ncbi.nlm.nih.gov/mesh/Q000008，2026-11-22）。规则锚定整串，
+// 裸词条（administration and dosage）仍走 exact，不能被加上「限定词」。
+test("副主题词页：整串 [Subheading] 只加全角（限定词），裸词不误伤", () => {
+  assert.equal(translateText("administration and dosage [Subheading]"), "给药与剂量（限定词）");
+  assert.equal(translateText("administration  and  dosage [Subheading]"), "给药与剂量（限定词）");
+  assert.equal(translateText("adverse effects [Subheading]"), "不良效应（限定词）");
+  assert.equal(translateText("administration and dosage"), "给药与剂量");
+  assert.equal(translateText("adverse effects"), "不良效应");
+});
+
+test("副主题词页 h1：真实 DOM 的双空格标题整条译出", () => {
+  const doc = mount('<h1 class="title">administration  and  dosage [Subheading]</h1>');
+  assert.equal(doc.querySelector("h1").textContent, "给药与剂量（限定词）");
 });

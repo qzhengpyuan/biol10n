@@ -380,3 +380,20 @@ test("数据不动：登录号、物种学名、URL、日期、用户名与单�
   assert.deepEqual(pick(".num"), ["42", "1e-200", "1f2b0707efee994266ec93a7d8bc7311"]);
   assert.deepEqual(pick(".mail"), ["datasubs@ebi.ac.uk"]);
 });
+
+test("记录页补词：列选择按钮、提交文件 N/A 说明、分析文件侧栏、页脚 Postdocs/PhDs 与标签 tooltip", () => {
+  const doc = run(
+    '<div id="content"><app-root>' +
+      '<div class="column-dialog"><button color="primary"><span class="mat-button-wrapper">Select default</span></button></div>' +
+      '<div class="files"><div style="color: darkgray" class="tt">N/A<span class="ttt">Submitted files are only available for data submitted via ENA</span></div></div>' +
+      '<div class="links"><span class="links-label">Analysis Files: </span></div>' +
+      '<div id="cdk-describedby-message-74">Find other records tagged xref to Europe PMC</div>' +
+      '<footer><a href="/research/postdocs">Postdocs</a><a href="/research/phd">PhDs</a></footer>' +
+      "</app-root></div>"
+  );
+  assert.equal(text(doc.querySelector(".mat-button-wrapper")), "选择默认");
+  assert.equal(text(doc.querySelector(".ttt")), "提交文件仅对通过 ENA 提交的数据可用");
+  assert.equal(text(doc.querySelector(".links-label")), "分析文件：");
+  assert.equal(text(doc.querySelector("#cdk-describedby-message-74")), "查找其他标记为 xref to Europe PMC 的记录");
+  assert.deepEqual([...doc.querySelectorAll("footer a")].map(text), ["博士后", "博士生"]);
+});

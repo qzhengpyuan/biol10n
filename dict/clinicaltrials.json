@@ -604,7 +604,12 @@
     "opens glossary for clinicaltrials.gov identifier (nct number)": "打开 ClinicalTrials.gov 标识符（NCT 编号） 的术语说明",
     "Opens glossary for clinicaltrials.gov identifier (nct number)": "打开 ClinicalTrials.gov 标识符（NCT 编号） 的术语说明",
     "opens glossary for interventional study (clinical trial)": "打开 干预性研究（临床试验） 的术语说明",
-    "Opens glossary for interventional study (clinical trial)": "打开 干预性研究（临床试验） 的术语说明"
+    "Opens glossary for interventional study (clinical trial)": "打开 干预性研究（临床试验） 的术语说明",
+    "Glossary Terms": "术语表",
+    "Home": "首页",
+    "Date Range": "日期范围",
+    "Central Contact": "中心联系人",
+    "Telephone": "电话"
   },
   "rules": [
     {
@@ -753,6 +758,22 @@
     {
       "re": "^phase$",
       "to": "研究阶段"
+    },
+    {
+      "re": "^Home \\| ClinicalTrials\\.gov$",
+      "to": "首页 | ClinicalTrials.gov"
+    },
+    {
+      "re": "^Glossary Terms \\| ClinicalTrials\\.gov$",
+      "to": "术语表 | ClinicalTrials.gov"
+    },
+    {
+      "re": "^Study Details \\| ClinicalTrials\\.gov$",
+      "to": "研究详情 | ClinicalTrials.gov"
+    },
+    {
+      "re": "^Find Studies \\| ClinicalTrials\\.gov$",
+      "to": "查找研究 | ClinicalTrials.gov"
     }
   ],
   "templates": [

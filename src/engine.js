@@ -169,14 +169,17 @@ function createEngine(options) {
   function translate(s, depth) {
     // 首尾的箭头/伪元素符号先剥离，翻译完再贴回：PRIDE 的「or browse all datasets →」
     // 与 BioStudies 的「→PageTab↲」都是这个形态，带着符号查表永远 miss。
-    if (ARROW_GLYPH.test(s)) {
+    // 只处理首尾带箭头的串：箭头在中间（ClinicalTrials 的「cancer → Tumours」、
+    // UniProt 的「IRGRERFEMF → DQTSFQKENC」）时 head/tail 都是空串，core === s，
+    // 走同 depth 递归会无限自调用直接爆栈（r24 P0-1）。
+    if (ARROW_EDGE.test(s)) {
       // 词表里有的条目本来就带箭头（PRIDE「or browse all datasets →」），先按原样查。
       var arrowDirect = lookupExact(s);
       if (arrowDirect !== null) { bumpHit(false); return arrowDirect; }
       var head = (s.match(/^[\s\u2192\u21b2\u25b8\u25c2\u203a]+/) || [""])[0];
       var tail = (s.match(/[\s\u2192\u21b2\u25b8\u25c2\u203a]+$/) || [""])[0];
       var core = s.slice(head.length, s.length - tail.length);
-      if (!core) return null;
+      if (!core || core === s) return null;
       var coreOut = translate(core, depth);
       return coreOut === null ? null : head + coreOut + tail;
     }
@@ -307,7 +310,7 @@ function createEngine(options) {
   // 伪元素箭头（BioStudies 的「→PageTab↲」、Reactome 的「▸」、PRIDE 的「or browse … →」）
   // 只在首尾当装饰：查表前剥掉、翻译后原样贴回，否则带箭头的整句永远进不了词表。
   var ARROW_GLYPH = /[\u2192\u21b2\u25b8\u25c2\u203a]/;
-  var ARROW_EDGE = /^[\s\u2192\u21b2\u25b8\u25c2\u203a]+|[\s\u2192\u21b2\u25b8\u25c2\u203a]+$/g;
+  var ARROW_EDGE = /^[\s\u2192\u21b2\u25b8\u25c2\u203a]+|[\s\u2192\u21b2\u25b8\u25c2\u203a]+$/;
   function skipNode(node, skipTranslateNo) {
     var p = node.parentElement;
     var guard = 0;
@@ -1730,7 +1733,11 @@ function createEngine(options) {
     Homepage: 1, Expression: 1, Atlas: 1, Genome: 1, Browser: 1,
     AmiGO: 1, QuickGO: 1, ClinicalTrials: 1, Targets: 1, TargetScan: 1,
     AlphaFold: 1, PDBe: 1, HPO: 1, Rfam: 1, Ontology: 1, Resource: 1,
-    Open: 1, Platform: 1, Gene: 1, Browser: 1
+    Open: 1, Platform: 1, Gene: 1, Browser: 1,
+    // r24 P1-1：这几类词出现在标题尾部（Home - Rfam Database、Expasy Help、
+    // The NCBI Handbook - NCBI Bookshelf、Glossary Terms）时整条标题被判英文弃掉。
+    Database: 1, Handbook: 1, Bookshelf: 1, Help: 1, Glossary: 1, Terms: 1,
+    Study: 1, Studies: 1, Details: 1, Home: 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
   /** 没有翻译、原样保留的标题分段：只允许"含品牌名/全大写/带数字"的段整段留下，
@@ -1747,6 +1754,8 @@ function createEngine(options) {
       var w = ws[i];
       if (TITLE_BRANDS[w] || w === w.toUpperCase() || /\d/.test(w) || w.length <= 2) { brandSeen = true; continue; }
       if (hasId && /^[A-Z]/.test(w)) { brandSeen = true; continue; }
+      // 域名形态（ClinicalTrials.gov）：点是站点名的一部分，整段放行。
+      if (/\./.test(w) && /^[A-Z][A-Za-z0-9-]*\.[a-z]{2,6}$/.test(w)) { brandSeen = true; continue; }
       return false;
     }
     return brandSeen;
@@ -1766,6 +1775,7 @@ function createEngine(options) {
       if (/\d/.test(w)) continue;
       if (w.length <= 2) continue;
       if (w === w.toUpperCase()) continue;
+      if (/^[A-Z][A-Za-z0-9-]*\.[a-z]{2,6}$/.test(w)) continue;
       return false;
     }
     return true;

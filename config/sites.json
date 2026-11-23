@@ -27,6 +27,25 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
     },
     {
+      "id": "ncbi-root",
+      "name": "NCBI 首页",
+      "hosts": [
+        "www.ncbi.nlm.nih.gov"
+      ],
+      "path": "^(/|/home/?|/about/?)$",
+      "dicts": [
+        "common",
+        "ncbi",
+        "ncbi-home",
+        "ncbi-guide",
+        "ncbi-footer",
+        "ncbi-new2",
+        "spa"
+      ],
+      "scope": "body",
+      "proseExempt": ""
+    },
+    {
       "id": "ncbi-search",
       "name": "NCBI 全库检索",
       "hosts": [
@@ -1372,7 +1391,7 @@
         "string-atlas2"
       ],
       "scope": "body",
-      "proseExempt": ""
+      "proseExempt": "nav, footer, .info-section a"
     },
     {
       "id": "gnomad",
@@ -1745,7 +1764,7 @@
         "alphafold"
       ],
       "scope": "body",
-      "proseExempt": "",
+      "proseExempt": "nav, footer, .info-section a, .faq-content a, .footer a",
       "spa": true,
       "waitFor": "app-root, main"
     },
@@ -1762,7 +1781,7 @@
         "pdbe"
       ],
       "scope": "body",
-      "proseExempt": "",
+      "proseExempt": "nav, footer, .info-section a, .faq-content a",
       "spa": true,
       "waitFor": "main#main"
     },
@@ -1840,6 +1859,21 @@
         "value"
       ],
       "proseExempt": ""
+    },
+    {
+      "id": "embl-ebi",
+      "name": "EMBL-EBI",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "dicts": [
+        "common",
+        "string-atlas",
+        "spa"
+      ],
+      "scope": "body",
+      "proseExempt": "",
+      "spa": false
     }
   ]
 }

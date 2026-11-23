@@ -185,7 +185,8 @@
     "RefSeq AC": "RefSeq 登录号",
     "Ensembl ID": "Ensembl 编号",
     "ChEBI ID": "ChEBI 编号",
-    "PDB ID": "PDB 编号"
+    "PDB ID": "PDB 编号",
+    "Expasy Help - SIB Swiss Institute of Bioinformatics": "Expasy 帮助 - 瑞士生物信息学研究所（SIB）"
   },
   "rules": [
     {

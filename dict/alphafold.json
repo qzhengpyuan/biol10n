@@ -260,7 +260,43 @@
     "Back to AlphaFold Protein Structure Database homepage": "返回 AlphaFold 蛋白质结构数据库主页",
     "Link icon": "链接图标",
     "news image": "新闻图片",
-    "AlphaFold Protein Structure Database": "AlphaFold 蛋白质结构数据库"
+    "AlphaFold Protein Structure Database": "AlphaFold 蛋白质结构数据库",
+    "AI-derived residue annotations – October 2026": "AI 生成的残基注释 – 2026 年 10 月",
+    "AlphaFold Database now integrates AI-derived residue-level annotations from the scientific literature, providing biological context for individual residues alongside predicted protein structures. A transformer-based named entity recognition (NER) model identifies protein residues and point mutations in structural biology publications and links experimentally supported annotations to UniProt reference sequences.": "AlphaFold 数据库现已整合来自科学文献的 AI 生成残基级注释，在给出预测蛋白质结构的同时为单个残基提供生物学背景。一个基于 Transformer 的命名实体识别（NER）模型从结构生物学文献中识别蛋白质残基与点突变，并把有实验支持的注释链接到 UniProt 参考序列。",
+    "Annotations are transferred from experimentally validated PDB structures to AlphaFold models using the SIFTS framework, ensuring that literature-derived residue annotations are supported by experimental evidence.": "注释通过 SIFTS 框架从经实验验证的 PDB 结构转移到 AlphaFold 模型，确保文献来源的残基注释有实验证据支持。",
+    "This release enables users to navigate directly from residues in AlphaFold predictions to publications describing their function, interactions, and experimentally observed mutations, making it easier to interpret predicted structures in their biological context.": "本次发布让用户可以从 AlphaFold 预测中的残基直接跳转到描述其功能、相互作用与实验观察到的突变的文献，从而更容易在生物学背景下解读预测结构。",
+    "Learn how residue function annotations are generated and mapped to AlphaFold structures": "了解残基功能注释如何生成并映射到 AlphaFold 结构",
+    "Protein structure predictions from human and animal viruses with pandemic potential to support research on viral mechanisms, vaccines, and antiviral development.": "来自具有大流行潜力的人类与动物病毒的蛋白质结构预测，用于支持病毒机制、疫苗与抗病毒药物研发等研究。",
+    "Bacterial proteins implicated in antimicrobial resistance, curated from published literature. Supports research into resistance mechanisms and new antimicrobial strategies.": "从已发表文献整理出的与抗微生物药物耐药性相关的细菌蛋白质。支持耐药机制与新型抗微生物策略的研究。",
+    "Protein structure predictions from organisms causing neglected tropical diseases. Enables research into pathogen biology and drug or vaccine target discovery.": "来自引起被忽视热带病的生物体的蛋白质结构预测。可支持病原生物学研究以及药物或疫苗靶点发现。",
+    "Protein structure predictions from the 30 WHO priority global health proteomes. Supports research on pathogens of major global public health importance.": "来自 30 个 WHO 重点全球健康蛋白质组的蛋白质结构预测。支持对具有重大全球公共卫生意义的病原体的研究。",
+    "EMBL-EBI expects attribution (e.g., in publications, services, or products) for any of its online services, databases, or software in accordance with good scientific practice.": "按照良好科学实践，EMBL-EBI 期望其任何在线服务、数据库或软件都获得署名（例如在出版物、服务或产品中）。",
+    "Note: A given structure may be associated with further publications. For authoritative information regarding the relevant publication(s), please consult the dataset collection or the structure metadata provided on the entry page.": "注意：某个结构可能还关联其他出版物。有关相关出版物的权威信息，请查阅数据集集合或条目页上提供的结构元数据。",
+    "If you can’t find the structure you’re looking for, here are some suggestions to improve your search results:": "如果找不到你要的结构，可参考以下建议改进检索结果：",
+    "Try searching by protein or gene name rather than specific UniProt accession.": "尝试用蛋白质或基因名称检索，而不是具体的 UniProt 登录号。",
+    "If running a sequence search, the input query should contain at least 20 amino acids, and only standard amino acids are accepted.": "如果进行序列检索，输入的查询应至少包含 20 个氨基酸，且只接受标准氨基酸。",
+    "Sequence search is the most reliable method for finding entries, especially since many proteins don’t have a specific name.": "序列检索是查找条目最可靠的方法，尤其因为许多蛋白质并没有特定名称。",
+    "The PAE is displayed as an interactive plot for each of the structure predictions. If you need the raw data with PAE for all residue pairs, you can download the PAE as a JSON file using the button at the top of the structure page.": "每个结构预测的 PAE 都会以交互式图表显示。若需要包含所有残基对 PAE 的原始数据，可用结构页顶部的按钮把 PAE 下载为 JSON 文件。",
+    "This file is in a custom format and it isn’t supported by any existing software – you will have to use Python or another programming language to analyse or plot the information that is contained in it.": "该文件采用自定义格式，现有软件均不支持 – 你需要用 Python 或其他编程语言分析或绘制其中的信息。",
+    "We updated the PAE JSON file format on 28th July 2022 to reduce file size by 4x. Please ensure you read the 2D matrix of PAE values from the predicted_aligned_error field instead of the removed 1D \"distances\" field and avoid using the old \"residue1\" and \"residue2\" fields.": "我们已于 2022 年 7 月 28 日更新 PAE JSON 文件格式，把文件体积缩小到原来的四分之一。请务必从 predicted_aligned_error 字段读取 PAE 值的二维矩阵，而不是已移除的一维 \"distances\" 字段，并避免使用旧的 \"residue1\" 与 \"residue2\" 字段。",
+    "If you are using a script or third party tool to read the PAE JSON file programmatically and you are seeing errors (e.g. missing field \"distance\"), check with the author of the program whether the latest PAE JSON format is supported.": "如果你用脚本或第三方工具以程序方式读取 PAE JSON 文件并遇到错误（例如缺少 \"distance\" 字段），请向该程序的作者确认是否支持最新的 PAE JSON 格式。",
+    "From the main search page, you can browse entries by the following categories:": "在主检索页面上，你可以按以下类别浏览条目：",
+    "When browsing search results, each entry displays key information to help you identify and prioritise the most relevant structures.": "浏览检索结果时，每个条目都会显示关键信息，帮助你识别并优先关注最相关的结构。",
+    "Reviewed vs. Unreviewed entries: Search results indicate whether a protein has been manually reviewed by annotators. Entries labelled Reviewed (Swiss-Prot) have been manually curated by UniProt experts, meaning their annotations, including function, sequence, and variants, have been verified against the literature. Entries labelled Unreviewed (TrEMBL) are computationally annotated and have not yet undergone manual curation. If you are looking for a well-characterised protein, filtering to show only Reviewed entries can help narrow your results to the most reliably annotated proteins. This filter is available on the search results page.": "已审核与未审核条目：检索结果会标明某个蛋白质是否已由注释人员人工审核。标记为已审核（Swiss-Prot）的条目已由 UniProt 专家人工整理，其注释（包括功能、序列与变异）已对照文献核实。标记为未审核（TrEMBL）的条目由计算注释，尚未经过人工整理。如果你要找的是研究得比较充分的蛋白质，筛选为只显示已审核条目有助于把结果缩小到注释最可靠的蛋白质。该筛选器位于检索结果页面上。",
+    "The search process can take up to 10 minutes to complete. To revisit, review or share your results, you can copy or bookmark the url to the results page. Note that the query must be at least 20 amino acids long and only standard residues are accepted.": "检索过程最长可能需要 10 分钟才能完成。如需再次查看、复查或分享结果，你可以复制或收藏结果页面的网址。注意查询必须至少 20 个氨基酸长，且只接受标准残基。",
+    "We display a pairwise sequence alignment, where the top row is the input sequence, the middle row is the matching amino acid positions between the input sequence query and the target sequence from the database, and the bottom row shows the target sequence.": "我们会显示两两序列比对：顶行是输入序列，中间行是输入序列查询与数据库中目标序列之间相匹配的氨基酸位置，底行显示目标序列。",
+    "Results can be sorted by HSP score (Local alignment with no gaps that achieves one of the highest alignment scores in a given search), E-value (Number of hits the query sequence is expected to match by random chance with the AlphaFold database sequences), Percent identity, query coverage (Fraction of query sequence covered by a hit sequence), target length (number of amino acids in the target sequence) or align length (number of amino acids aligned between input and target sequences).": "结果可按 HSP 分数（在给定检索中达到最高比对分数之一的无空位局部比对）、E 值（查询序列按随机概率预期与 AlphaFold 数据库序列匹配的命中数）、一致性百分比、查询覆盖度（命中序列覆盖查询序列的比例）、目标长度（目标序列中的氨基酸数）或比对长度（输入与目标序列之间比对的氨基酸数）排序。",
+    "Coordinate files can be downloaded from the menu in the top right of the structure page in mmCIF or PDB format. These formats are widely accepted by 3D structure viewing software, such as PyMOL and Chimera.": "坐标文件可从结构页右上角的菜单以 mmCIF 或 PDB 格式下载。这些格式被三维结构查看软件广泛支持，例如 PyMOL 与 Chimera。",
+    "For collaborator datasets, coordinate files (PDB and mmCIF) are compressed by using zstd and distributed in chunked .tar archives in the collaborations subdirectory of the FTP area. For datasets that include them, corresponding Multiple Sequence Alignments (MSAs) are provided as .tar chunks in the msas subdirectory. AllTheBacteria does not currently include MSAs in the FTP area.": "对于合作方数据集，坐标文件（PDB 与 mmCIF）使用 zstd 压缩，以分块 .tar 归档形式分发在 FTP 区域的 collaborations 子目录中。对于包含相应数据的数据集，多序列比对（MSA）以 .tar 分块形式提供在 msas 子目录中。AllTheBacteria 目前在 FTP 区域不包含 MSA。",
+    "MSAs for all generated predicted models are available for download from the FTP area.": "所有已生成预测模型的 MSA 均可从 FTP 区域下载。",
+    "Note that the PDB and mmCIF files contain coordinates for all regions, regardless of their pLDDT score. It is up to the user to interpret the model judiciously, in accordance with the guidance above.": "注意 PDB 与 mmCIF 文件包含所有区域的坐标，无论其 pLDDT 分数如何。用户需依照上述指引审慎解读模型。",
+    "Structure pages for multimers have five tabs: Summary and Model Confidence, Macromolecules, Domains, Annotations, and Similar Proteins. The Summary and Model Confidence tab displays basic information about the complex (drawn from UniProt where available), together with AlphaFold prediction outputs and confidence measures.": "多聚体的结构页有五个标签页：摘要与模型置信度、大分子、结构域、注释与相似蛋白。摘要与模型置信度标签页显示复合物的基本信息（有 UniProt 数据时取自 UniProt），以及 AlphaFold 预测输出与置信度度量。",
+    "TED provides a powerful framework for understanding how protein domains are organised and it is a valuable resource for evolutionary, structural and functional studies.": "TED 为理解蛋白质结构域如何组织提供了有力框架，是进化、结构与功能研究的有价值资源。",
+    "Residue and point mutation annotations are identified automatically from the scientific literature using an AI-based named entity recognition (NER) system developed by PDBe. The model is based on PubMedBERT and was fine-tuned using a human-in-the-loop workflow in which expert biocurators initially iteratively annotated and validated protein structure publications and later served as proof-readers for the automated system.": "残基与点突变注释由 PDBe 开发的基于 AI 的命名实体识别（NER）系统从科学文献中自动识别。该模型基于 PubMedBERT，并通过人在回路流程微调：专家生物注释员先反复标注并校验蛋白质结构文献，之后充当该自动化系统的校对者。",
+    "Finally, the experimentally validated annotations found in PDBe are transferred across through sequence identity matching to predicted models in AFDB.": "最后，PDBe 中经实验验证的注释通过序列一致性匹配转移到 AFDB 中的预测模型。",
+    "AlphaMissense is an AI model that builds on Google DeepMind’s AlphaFold2 to categorise ‘missense’ mutations in different proteins as either ‘likely pathogenic’, ‘likely benign’ or ‘uncertain’, producing a score that estimates the likelihood of a variant being pathogenic. AlphaMissense leverages AlphaFold2’s capability to model protein structure, and its capacity to learn evolutionary constraints from related sequences. The implementation is closely aligned with AlphaFold2, with some architectural differences.": "AlphaMissense 是一个建立在 Google DeepMind AlphaFold2 之上的 AI 模型，把不同蛋白质中的“错义”突变归为“可能致病”“可能良性”或“不确定”，并给出估计变异致病可能性的分数。AlphaMissense 借助 AlphaFold2 建模蛋白质结构的能力，以及从相关序列学习进化约束的能力。其实现与 AlphaFold2 高度一致，仅有一些架构差异。",
+    "Note that AlphaMissense does not predict the change in protein structure, or biophysical properties such as stability, upon mutation. Instead, it uses related protein sequences and protein structure as contextual information to estimate pathogenicity.": "注意 AlphaMissense 不预测突变后蛋白质结构的变化，也不预测稳定性等生物物理性质。它使用相关蛋白质序列与蛋白质结构作为上下文信息来估计致病性。",
+    "Currently, we are experiencing an issue fetching data. Please try again later.": "目前我们在获取数据时遇到问题。请稍后重试。"
   },
   "rules": [
     {
@@ -392,6 +428,42 @@
     {
       "pat": "Let us know how the AlphaFold Protein Structure Database has been useful in your research, or if you have questions not answered in the {{1}} at {{2}}.",
       "zh": "欢迎告知 AlphaFold 蛋白质结构数据库在你的研究中发挥了哪些作用，或把尚未得到解答的问题发送到{{1}}（{{2}}）。"
+    },
+    {
+      "pat": "Check that the protein or complex isn’t excluded by any of the criteria coveredin a {{1}}.",
+      "zh": "请确认该蛋白质或复合物未被{{1}}中列出的任一标准排除。"
+    },
+    {
+      "pat": "Not all proteins or complexes are included in the AlphaFold DB. In some cases, you may need to generate a prediction separately using the {{1}}, which supports predicting multimer structures.",
+      "zh": "并非所有蛋白质或复合物都收录在 AlphaFold DB 中。某些情况下，你需要用{{1}}单独生成预测，它支持预测多聚体结构。"
+    },
+    {
+      "pat": "We plan to continue updating the database with structures for newly discovered protein sequences, and to improve features and functionality in response to user feedback. Please follow {{1}}'s and {{2}}’s social channels for updates.",
+      "zh": "我们计划持续用新发现蛋白质序列的结构更新数据库，并根据用户反馈改进功能。请关注 {{1}} 与 {{2}} 的社交渠道获取更新。"
+    },
+    {
+      "pat": "The search bar at the top of the page accepts queries based on protein name (e.g. {{1}}), gene name (e.g. {{2}}), UniProt accession (e.g. {{3}}), or organism name (e.g. {{4}}).",
+      "zh": "页面顶部的检索框接受基于蛋白质名称（如 {{1}}）、基因名称（如 {{2}}）、UniProt 登录号（如 {{3}}）或物种名称（如 {{4}}）的检索。"
+    },
+    {
+      "pat": "{{1}} is a resource dedicated to identifying and classifying structural domains within the AlphaFold Protein Structure Database (AFDB) using deep learning-based domain parsing and structure comparison.",
+      "zh": "{{1}} 是一个致力于使用基于深度学习的结构域解析与结构比较，识别并分类 AlphaFold 蛋白质结构数据库（AFDB）中结构域的资源。"
+    },
+    {
+      "pat": "Data is available for academic and commercial use, under a Creative Commons Attribution 4.0 ({{1}}) licence terms.",
+      "zh": "在知识共享署名 4.0（{{1}}）许可条款下，数据可供学术与商业使用。"
+    },
+    {
+      "pat": "We would love to hear your feedback and understand how the database has been useful in your research. Share your stories with us at {{1}}.",
+      "zh": "我们很希望听到你的反馈，了解该数据库在你的研究中发挥了哪些作用。欢迎把故事分享到 {{1}}。"
+    },
+    {
+      "pat": "Eligible datasets must use AlphaFold 2 or AlphaFold multimer and be on a coherent theme. To apply to contribute a dataset or check with the AFDB team if your data qualify, please email {{1}} describing the nature and quality of your dataset and providing a scientific justification for including them in the database. If the dataset is deemed suitable for integration into AFDB, we will contact the contributing team and will follow up with the submitter for additional information.",
+      "zh": "合格的数据集必须使用 AlphaFold 2 或 AlphaFold 多聚体，且主题一致。如需申请贡献数据集，或想请 AFDB 团队评估你的数据是否符合条件，请发邮件至 {{1}}，说明数据集的性质与质量，并提供将其纳入数据库的科学依据。如数据集适合整合进 AFDB，我们将联系贡献团队，并向提交者索取更多信息。"
+    },
+    {
+      "pat": "We do not currently have functionality to deposit individual structure predictions. If you have generated AlphaFold structure predictions that you would like to make available to the community, you can take a look at the {{1}} kit being developed by the ELIXIR 3D-BioInfo community that describes guidelines on how to make models and the relevant metadata available according to FAIR principles.",
+      "zh": "我们目前没有提交单个结构预测的功能。如果你已生成 AlphaFold 结构预测并希望向社区提供，可参阅 ELIXIR 3D-BioInfo 社区正在编写的 {{1}} 工具包，其中说明了如何依照 FAIR 原则提供模型及相关元数据。"
     }
   ]
 }

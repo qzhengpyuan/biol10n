@@ -505,7 +505,28 @@
     "20.38 Aggregated Chemicals of Concern in PubChem": "20.38 PubChem 中汇总的关注化学品",
     "Show search overlay": "显示检索浮层",
     "dbGaP - Database of Genotypes and Phenotypes": "dbGaP - 基因型与表型数据库",
-    "website belongs to an official government organization in the United States.": "网站属于美国官方政府机构。"
+    "website belongs to an official government organization in the United States.": "网站属于美国官方政府机构。",
+    "Display": "显示",
+    "Model style": "模型样式",
+    "Ball and Stick": "球棍模型",
+    "Sticks": "棍状模型",
+    "Wire-Frame": "线框模型",
+    "Space-Filling": "空间填充模型",
+    "Show Hydrogens": "显示氢原子",
+    "Animate": "自动旋转",
+    "Conformer ID": "构象 ID",
+    "Conformer ID:": "构象 ID：",
+    "Modify": "修改",
+    "Modify:": "修改：",
+    "View More": "查看更多",
+    "View More...": "查看更多…",
+    "See also": "另见",
+    "Interactive 3D chemical structure": "可交互三维化学结构",
+    "Use this structure as input to structure search": "将此结构用作结构检索的输入",
+    "Download an image of this structure": "下载此结构的图像",
+    "Download the coordinates of this structure": "下载此结构的坐标",
+    "Change the 3D display options": "更改 3D 显示选项",
+    "View structure in full screen": "全屏查看结构"
   },
   "rules": [
     {
@@ -533,6 +554,10 @@
     {
       "pat": "Need to refine your search criteria? {{1}}",
       "zh": "需要细化检索条件？{{1}}"
+    },
+    {
+      "pat": "This feature requires WebGL, but your browser either does not support it or has it disabled. Please visit {{1}} for more information.",
+      "zh": "此功能需要 WebGL，但你的浏览器不支持或已禁用它。请访问 {{1}} 了解更多信息。"
     }
   ]
 }

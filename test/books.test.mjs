@@ -266,17 +266,53 @@ test("高级检索页：构建器按钮、索引翻页与历史操作", () => {
   assert.deepEqual(opts, ["出版年", "完整作者姓名", "ISBN"], "ISBN 是标准编号，保持英文");
 });
 
-test("不翻名单：书名、作者、出版社、章节标题与书目款目保持原文", () => {
+test("不翻名单：书名、作者、非 NCBI 出版社款目、章节标题与书目款目保持原文", () => {
   const { doc } = engineFor(
     '<p class="title">The NCBI Handbook [Internet]. 2nd edition.</p>' +
       '<div class="desc">Adam MP, Bick S, Mirzaa GM, et al., editors.</div>' +
-      '<div class="details">Bethesda (MD): National Center for Biotechnology Information (US); 2013-.</div>' +
+      '<div class="details">Oxford: Wiley-Liss; 2002.</div>' +
       '<a class="toc-item">A Brief History of NCBI’s Formation and Growth</a>' +
       '<div class="supp">Cold Spring Harbor (NY): Cold Spring Harbor Laboratory Press; 1997.</div>'
   );
   assert.equal(doc.querySelector(".title").textContent, "The NCBI Handbook [Internet]. 2nd edition.");
   assert.match(doc.querySelector(".desc").textContent, /^Adam MP, Bick S/);
-  assert.match(doc.querySelector(".details").textContent, /^Bethesda \(MD\)/);
+  assert.match(doc.querySelector(".details").textContent, /^Oxford: Wiley-Liss; 2002\.$/);
   assert.equal(doc.querySelector(".toc-item").textContent, "A Brief History of NCBI’s Formation and Growth");
   assert.match(doc.querySelector(".supp").textContent, /^Cold Spring Harbor \(NY\)/);
+});
+
+// NCBI 固定出版模板行（NBK143764 实测）：可见的 .half_rhythm 被 <a><span> 切成
+// 「Bethesda (MD): 」+ 出版者链接 + 「; 」+ 年份 span + 「-.」三段，整串规则永远命不中。
+// 所以规则负责扁平串，模板负责真实分片 DOM；出版者名由 exact 在链接里补翻。
+test("NCBI 出版模板行：扁平串规则与真实分片 DOM 模板都译出", () => {
+  const flat = "Bethesda (MD): National Center for Biotechnology Information (US); 2013-.";
+  assert.equal(
+    engineFor("<p>x</p>").engine.translateText(flat),
+    "贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；2013-."
+  );
+  const { doc } = engineFor(
+    '<div class="meta-content fm-sec"><div class="half_rhythm">Bethesda (MD): ' +
+      '<a href="https://www.ncbi.nlm.nih.gov/"><span itemprop="publisher">National Center for Biotechnology Information (US)</span></a>; ' +
+      '<span itemprop="datePublished">2013</span>-.</div></div>'
+  );
+  assert.equal(
+    doc.querySelector(".half_rhythm").textContent.replace(/\s+/g, " ").trim(),
+    "贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；2013-."
+  );
+  assert.equal(
+    doc.querySelector(".half_rhythm a span").textContent,
+    "美国国家生物技术信息中心（US）"
+  );
+  assert.ok(doc.querySelector(".half_rhythm a"), "模板重建后出版者链接必须保留");
+});
+
+test("出版模板通道：规则与模板占位符齐备", () => {
+  const rule = dict.rules.find((r) => r.re.includes("Bethesda"));
+  assert.ok(rule, "缺少 Bethesda 出版模板规则");
+  assert.equal(rule.re, "^Bethesda \\(MD\\): National Center for Biotechnology Information \\(US\\); (.+)$");
+  assert.equal(rule.to, "贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；$1");
+  const tpl = (dict.templates || []).find((t) => t.pat.startsWith("Bethesda (MD):"));
+  assert.ok(tpl, "缺少出版模板行");
+  assert.equal(tpl.pat, "Bethesda (MD): {{1}}; {{2}}-.");
+  assert.equal(tpl.zh, "贝塞斯达（马里兰州）：{{1}}；{{2}}-.");
 });

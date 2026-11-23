@@ -525,7 +525,8 @@
     "open-source": "开源",
     "open-data": "开放数据",
     "This event has been computationally inferred from an event that has been demonstrated in another species.": "该事件是根据已在其他物种中证实的事件计算推断而来的。",
-    "pValue": "p 值"
+    "pValue": "p 值",
+    "Title placeHolder": "标题（占位）"
   },
   "rules": [
     {

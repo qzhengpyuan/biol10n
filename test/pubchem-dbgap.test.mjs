@@ -538,3 +538,139 @@ test("dbGaP 首页渲染：说明段、检索框 placeholder、帮助句模板�
   const stats = [...doc.querySelectorAll("div")].map(text).filter((t) => /K|M/.test(t) && t.length < 24);
   assert.deepEqual(stats, ["3.5K已发布研究", "8.4M研究参与者", "47.5K注册用户", "4.8K已注册+提交者"]);
 });
+
+// r24 补词：PubChem 化合物页 3D Conformer（结构查看器）面板整组按钮与选项。
+// 取证：https://pubchem.ncbi.nlm.nih.gov/compound/2244 的真实 DOM（.pc-conformer-viewer /
+// .pc-conformer-sidebar / .pc-conformer-options），节点文本与 title/aria-label 属性逐条对照。
+const CONFORMER_3D = {
+  Display: "显示",
+  "Model style": "模型样式",
+  "Ball and Stick": "球棍模型",
+  Sticks: "棍状模型",
+  "Wire-Frame": "线框模型",
+  "Space-Filling": "空间填充模型",
+  "Show Hydrogens": "显示氢原子",
+  Animate: "自动旋转",
+  "Conformer ID": "构象 ID",
+  "Conformer ID:": "构象 ID：",
+  Modify: "修改",
+  "Modify:": "修改：",
+  "View More": "查看更多",
+  "View More...": "查看更多…",
+  "See also": "另见",
+  "Interactive 3D chemical structure": "可交互三维化学结构",
+  "Use this structure as input to structure search": "将此结构用作结构检索的输入",
+  "Download an image of this structure": "下载此结构的图像",
+  "Download the coordinates of this structure": "下载此结构的坐标",
+  "Change the 3D display options": "更改 3D 显示选项",
+  "View structure in full screen": "全屏查看结构"
+};
+
+test("3D Conformer 面板：模型样式、开关、标签与工具提示都有译文且整串命中", () => {
+  for (const [en, zh] of Object.entries(CONFORMER_3D)) {
+    assert.equal(dict.exact[en], zh, "词库缺条目: " + en);
+    assert.equal(anyEngine.translateText(en), zh, "整串不命中: " + en);
+  }
+});
+
+// React 会把 "Conformer ID:" / "Modify:" 拆成两个文本节点（"Conformer ID" + ":"），
+// 面板按钮也会把 "View More..." 拆成 "View " / "More" / "..."，这里按真实结构造 DOM。
+function renderConformer(html) {
+  const dom = new JSDOM(html, { url: "https://pubchem.ncbi.nlm.nih.gov/compound/2244" });
+  const doc = dom.window.document;
+  const split = (id, parts) => {
+    const el = doc.getElementById(id);
+    if (!el) return;
+    el.textContent = "";
+    for (const p of parts) el.appendChild(doc.createTextNode(p));
+  };
+  split("cil", ["Conformer ID", ":"]);
+  split("mod", ["Modify", ":"]);
+  split("vm-split", ["View ", "More", "..."]);
+  const engine = createEngine({ document: doc, window: dom.window, data: all, site });
+  engine.start();
+  return { doc, engine };
+}
+
+test("3D Conformer 面板渲染：sr-only 标签、模型单选、开关、拆分节点、属性与 WebGL 提示模板", () => {
+  const { doc } = renderConformer(
+    '<div class="pc-conformer-viewer">' +
+      '<div class="pc-gray-toolbar">' +
+        '<button title="Use this structure as input to structure search"><span class="sr-only">Structure Search</span></button>' +
+        '<button title="Download an image of this structure"><span class="sr-only">Get Image</span></button>' +
+        '<button title="Download the coordinates of this structure"><span class="sr-only">Download Coordinates</span></button>' +
+        '<button title="Change the 3D display options"><span class="sr-only">Display</span></button>' +
+      "</div>" +
+      '<div class="pc-conformer-sidebar">' +
+        '<div class="pc-conformer-details"><span id="cil"></span><span class="whitespace-nowrap">16BA995300030001</span></div>' +
+        '<div class="pc-conformer-display-label">Display options</div>' +
+        '<div class="sr-only">Model style</div>' +
+        '<div class="pc-conformer-models" role="radiogroup">' +
+          '<button role="radio" aria-checked="true"><span>Ball and Stick</span></button>' +
+          '<button role="radio" aria-checked="false"><span>Sticks</span></button>' +
+          '<button role="radio" aria-checked="false"><span>Wire-Frame</span></button>' +
+          '<button role="radio" aria-checked="false"><span>Space-Filling</span></button>' +
+        "</div>" +
+        '<button role="checkbox" aria-checked="true"><span>Show Hydrogens</span></button>' +
+        '<button role="checkbox" aria-checked="false"><span>Animate</span></button>' +
+      "</div>" +
+      '<div class="pc-conformer-canvas">' +
+        '<canvas aria-label="Interactive 3D chemical structure"></canvas>' +
+        '<button title="View structure in full screen"><span class="sr-only">Full screen</span></button>' +
+        '<button title="Zoom in"><span class="sr-only">Zoom in</span></button>' +
+        '<button title="Zoom out"><span class="sr-only">Zoom out</span></button>' +
+      "</div>" +
+    "</div>" +
+    '<p id="webgl">This feature requires WebGL, but your browser either does not support it or has it disabled. Please visit <a href="https://get.webgl.org/">https://get.webgl.org/</a> for more information.</p>' +
+    '<div class="dates"><span id="mod"></span><span>2026-11-21</span></div>' +
+    '<p><a class="regular-link" href="#section=Other-Relationships">See also</a>: Acetaminophen; Aspirin</p>' +
+    '<div><button id="vm-split"></button><button id="vm-single">View More...</button></div>',
+    "https://pubchem.ncbi.nlm.nih.gov/compound/2244"
+  );
+
+  // sr-only 标签：图标按钮的可读名
+  assert.deepEqual(
+    [...doc.querySelectorAll(".pc-gray-toolbar .sr-only")].map(text),
+    ["结构检索", "获取图像", "下载坐标", "显示"]
+  );
+  assert.equal(text(doc.querySelector(".pc-conformer-display-label")), "显示选项");
+  assert.equal(text(doc.querySelector(".pc-conformer-sidebar > .sr-only")), "模型样式");
+  // 模型样式单选组
+  assert.deepEqual(
+    [...doc.querySelectorAll('[role="radio"]')].map(text),
+    ["球棍模型", "棍状模型", "线框模型", "空间填充模型"]
+  );
+  assert.deepEqual(
+    [...doc.querySelectorAll('[role="checkbox"]')].map(text),
+    ["显示氢原子", "自动旋转"]
+  );
+  // 拆分文本节点：React 的两段式标签要拼回整条
+  assert.equal(text(doc.querySelector(".pc-conformer-details")), "构象 ID：16BA995300030001");
+  assert.equal(text(doc.querySelector(".dates")), "修改：2026-11-21");
+  // 画布按钮
+  assert.deepEqual(
+    [...doc.querySelectorAll(".pc-conformer-canvas button")].map(text),
+    ["全屏", "放大", "缩小"]
+  );
+  // 工具提示走 title 属性
+  assert.deepEqual(
+    [...doc.querySelectorAll(".pc-gray-toolbar button")].map((b) => b.getAttribute("title")),
+    ["将此结构用作结构检索的输入", "下载此结构的图像", "下载此结构的坐标", "更改 3D 显示选项"]
+  );
+  assert.equal(
+    doc.querySelector(".pc-conformer-canvas button").getAttribute("title"),
+    "全屏查看结构"
+  );
+  assert.equal(doc.querySelector(".pc-conformer-canvas canvas").getAttribute("aria-label"), "可交互三维化学结构");
+  // "View More..." 的整条节点与拆分节点都要翻
+  assert.equal(text(doc.getElementById("vm-single")), "查看更多…");
+  assert.equal(text(doc.getElementById("vm-split")), "查看更多…");
+  // 正文里的 See also 标签链接
+  const seeAlso = doc.querySelector('p a[href="#section=Other-Relationships"]');
+  assert.equal(text(seeAlso), "另见");
+  // WebGL 不可用时的整段提示走模板，链接原样保留
+  const webgl = text(doc.getElementById("webgl"));
+  assert.equal(webgl, "此功能需要 WebGL，但你的浏览器不支持或已禁用它。请访问 https://get.webgl.org/ 了解更多信息。");
+  assert.equal(doc.getElementById("webgl").querySelector("a").getAttribute("href"), "https://get.webgl.org/");
+});
+

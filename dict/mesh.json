@@ -110,6 +110,10 @@
     {
       "re": "^MeSH \\(Medical Subject Headings\\) is the NLM controlled vocabulary thesaurus used for indexing articles for PubMed\\.$",
       "to": "MeSH（医学主题词表）是美国国家医学图书馆的受控词表，用于为 PubMed 的文章做标引。"
+    },
+    {
+      "re": "^(.+) \\[Subheading\\]$",
+      "to": "$1（限定词）"
     }
   ],
   "templates": []

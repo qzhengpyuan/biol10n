@@ -339,7 +339,13 @@
     "What are Rfam full alignments?": "什么是 Rfam 完整比对（FULL 比对）？",
     "How can I submit data to Rfam?": "如何向 Rfam 提交数据？",
     "What is a DESC file in Rfam?": "Rfam 中的 DESC 文件是什么？",
-    "I want to access alignments in Stockholm format from the Rfam API.": "我想通过 Rfam API 获取 Stockholm 格式的比对。"
+    "I want to access alignments in Stockholm format from the Rfam API.": "我想通过 Rfam API 获取 Stockholm 格式的比对。",
+    "Rfam Database": "Rfam 数据库",
+    "Is it possible to have access to the Rfam database?": "是否可以访问 Rfam 数据库？",
+    "Give me an example of use for the Rfam Text search API.": "请给我一个 Rfam 文本检索 API 的使用示例。",
+    "Can I contact the Rfam team?": "我可以联系 Rfam 团队吗？",
+    "Recorded webinar": "录制网络研讨会",
+    "Online tutorial": "在线教程"
   },
   "rules": [
     {
@@ -463,6 +469,10 @@
       "re": "^([\\d,]+) 交叉引用$",
       "to": "$1 个交叉引用",
       "repair": true
+    },
+    {
+      "re": "^Home\\s*[-–—]\\s*Rfam Database\\s*$",
+      "to": "首页 - Rfam 数据库"
     }
   ],
   "templates": [

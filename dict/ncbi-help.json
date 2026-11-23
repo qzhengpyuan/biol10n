@@ -1706,7 +1706,12 @@
     "PubMed journals": "PubMed 期刊",
     "Uncompressed": "未压缩",
     "PubMed and NCBI molecular biology database journals": "PubMed 与 NCBI 分子生物学数据库期刊",
-    "Your citations will be sent from the NCBI automatic mail server with the sender's email address [nobody@ncbi.nlm.nih.gov]. Do not reply to this message, as this is not a functioning customer service email address and is not monitored.": "你的引文会由 NCBI 自动邮件服务器以发件人邮箱地址发出。请勿回复该邮件：这不是可用的客服邮箱，也没有人查看。"
+    "Your citations will be sent from the NCBI automatic mail server with the sender's email address [nobody@ncbi.nlm.nih.gov]. Do not reply to this message, as this is not a functioning customer service email address and is not monitored.": "你的引文会由 NCBI 自动邮件服务器以发件人邮箱地址发出。请勿回复该邮件：这不是可用的客服邮箱，也没有人查看。",
+    "LinkOut": "LinkOut",
+    "Cookie": "Cookie",
+    "cookie": "Cookie",
+    "E-Utilities": "E-utilities",
+    "E-utilities": "E-utilities"
   },
   "rules": [
     {

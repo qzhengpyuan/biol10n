@@ -243,6 +243,10 @@
     {
       "re": "^The largest off-origin peak in the Patterson function is (.+) of the height of the origin peak. No significant pseudotranslation is detected.$",
       "to": "Patterson 函数中最大的离原点峰高为原点峰高的 $1。未检测到显著的伪平移。"
+    },
+    {
+      "re": "^PDB (.+): (.+) \\| Protein Data Bank in Europe - PDBe$",
+      "to": "PDB $1：$2 | 欧洲蛋白质数据库 - PDBe"
     }
   ],
   "templates": [

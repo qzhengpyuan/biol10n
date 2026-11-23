@@ -294,3 +294,20 @@ test("数据不动：登录号、家族名、物种与长段英文正文保持�
   assert.ok(wiki.startsWith("The 5S ribosomal RNA (5S rRNA) is an approximately 120 nucleotide-long"), "维基正文不该被翻");
   assert.ok(wiki.includes("in all domains of life."), "正文里不该出现半中半英");
 });
+
+test("DocBot 预设问题三问与培训徽章：问句带问号原样命中", () => {
+  const doc = run(
+    '<div class="vf-chatbot-welcome__suggestions-grid">' +
+      '<div class="vf-chatbot-action-prompt"><a class="vf-chatbot-action-prompt__link">Is it possible to have access to the Rfam database?</a></div>' +
+      '<div class="vf-chatbot-action-prompt"><a class="vf-chatbot-action-prompt__link">Give me an example of use for the Rfam Text search API.</a></div>' +
+      '<div class="vf-chatbot-action-prompt"><a class="vf-chatbot-action-prompt__link">Can I contact the Rfam team?</a></div>' +
+      "</div>" +
+      '<div class="rfam-training-card"><span class="rfam-training-card__badge">Recorded webinar</span><span class="rfam-training-card__badge">Online tutorial</span></div>'
+  );
+  assert.deepEqual([...doc.querySelectorAll(".vf-chatbot-action-prompt__link")].map(text), [
+    "是否可以访问 Rfam 数据库？",
+    "请给我一个 Rfam 文本检索 API 的使用示例。",
+    "我可以联系 Rfam 团队吗？"
+  ]);
+  assert.deepEqual([...doc.querySelectorAll(".rfam-training-card__badge")].map(text), ["录制网络研讨会", "在线教程"]);
+});

@@ -54,6 +54,7 @@
     "Asymmetric Unit": "不对称单元",
     "Molecular Graphic": "分子图形",
     "Download Cn3D": "下载 Cn3D",
+    "launch Cn3D": "启动 Cn3D",
     "Interactions": "相互作用",
     "Drag symbols to move": "拖动符号可移动",
     "Double click symbols to explore molecules": "双击符号可查看分子",
@@ -75,6 +76,7 @@
     "Enter PDB ID or MMDB ID": "输入 PDB ID 或 MMDB ID",
     "click to see help": "点击查看帮助",
     "-click to see help": "-点击查看帮助",
+    "-click to see Superfamily help": "-点击查看超家族帮助",
     "molecular graphic help": "分子图形帮助",
     "schematic help": "示意图帮助",
     "You are here:": "您所在位置：",
@@ -82,6 +84,7 @@
     "-Select icon for PubChem compound information": "-选择图标可查看 PubChem 化合物信息",
     "Conserved Protein Domain Family": "保守蛋白结构域家族",
     "Download alignment": "下载比对",
+    "download alignment data": "下载比对数据",
     "Links": "链接",
     "Source:": "来源：",
     "Taxonomy:": "分类学：",
@@ -108,6 +111,7 @@
     "Evidence:": "证据：",
     "Comment:": "注释：",
     "Scroll to Sequence Alignment Display": "滚动到序列比对显示",
+    "scroll to sequence alignment section": "滚动到序列比对区段",
     "Use the graphical representation to navigate this hierarchy.": "可用图形化方式浏览该层级结构。",
     "Sub-family Hierarchy": "亚家族层级",
     "Interactive Display with CDTree": "用 CDTree 交互展示",
@@ -126,6 +130,7 @@
     "Disclaimer": "免责声明",
     "Privacy statement": "隐私声明",
     "View in Cn3D": "在 Cn3D 中查看",
+    "Click on image for an interactive view with Cn3D": "点击图像可用 Cn3D 交互查看",
     "Superfamily Members": "超家族成员",
     "Accession ▲": "登录号升序 ▲",
     "Accession ▼": "登录号降序 ▼",
@@ -284,6 +289,30 @@
     {
       "re": "^DNA binding site\\((\\d+)\\)$",
       "to": "DNA 结合位点（$1）"
+    },
+    {
+      "re": "^CDD Conserved Protein Domain Family: (.+)$",
+      "to": "CDD 保守蛋白结构域家族：$1"
+    },
+    {
+      "re": "^active feature (\\d+)$",
+      "to": "活动特征 $1"
+    },
+    {
+      "re": "^feature (\\d+)$",
+      "to": "特征 $1"
+    },
+    {
+      "re": "^Feature (\\d+):$",
+      "to": "特征 $1："
+    },
+    {
+      "re": "^Conserved site includes (\\d+) residues -Click on image for an interactive view with Cn3D$",
+      "to": "保守位点包含 $1 个残基 - 点击图像可用 Cn3D 交互查看"
+    },
+    {
+      "re": "^Conserved site includes? (\\d+) residues$",
+      "to": "保守位点包含 $1 个残基"
     }
   ],
   "templates": []

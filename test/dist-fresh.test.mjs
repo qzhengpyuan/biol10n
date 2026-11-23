@@ -26,9 +26,22 @@ test("dist 构建指纹与磁盘词库一致", () => {
   assert.equal(meta.version, pkg.version, "dist 版本落后于 package.json，重新构建");
   assert.equal(meta.books, files.length, "册数不一致");
   assert.equal(meta.sites, sites.sites.length, "站点数不一致");
-  assert.equal(meta.exact, exact, "exact 条数不一致（词库改完没重新构建）");
-  assert.equal(meta.rules, rules, "rules 条数不一致");
-  assert.equal(meta.templates, tpl, "templates 条数不一致");
+  // 漂移时点名：把逐册条数对比一遍，报出到底哪几册改了没重建（不用外部脚本现查）
+  const drift = [];
+  const perBook = meta.perBook || {};
+  for (const f of files.slice().sort()) {
+    const d = JSON.parse(fs.readFileSync(path.join(root, "dict", f), "utf8"));
+    const disk = [Object.keys(d.exact || {}).length, (d.rules || []).length, (d.templates || []).length];
+    const built = perBook[f.replace(/\.json$/, "")];
+    if (!built) { drift.push(f + "（dist 里没有这一册）"); continue; }
+    if (built[0] !== disk[0] || built[1] !== disk[1] || built[2] !== disk[2]) {
+      drift.push(f + " dist=" + built.join("/") + " 磁盘=" + disk.join("/"));
+    }
+  }
+  const hint = drift.length ? "；漂移册：" + drift.join("，") : "";
+  assert.equal(meta.exact, exact, "exact 条数不一致（词库改完没重新构建）" + hint);
+  assert.equal(meta.rules, rules, "rules 条数不一致" + hint);
+  assert.equal(meta.templates, tpl, "templates 条数不一致" + hint);
   const bytes = fs.statSync(path.join(root, "dist/biol10n.user.js")).size;
   assert.equal(meta.bytes, bytes, "dist 字节数与指纹不符");
   // 条数相同但内容不同（改一条删一条）时，条数比对抓不到，用词库总指纹兜底。

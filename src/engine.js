@@ -495,8 +495,19 @@ function createEngine(options) {
       // 表格单元格里的短标签：HPA 的 td.summary_info 整块几千字符，标签（DNA sequence）
       // 却是独立单元格，整条命中词库就该翻；单元格里的长句仍被正文保护挡住。
       try { if (el.closest("td, th, dt")) return false; } catch (e) { /* ignore */ }
+      // 文档站（GEO FAQ、PubMed 帮助页）的长段里夹着的链接文字：「please <a>watch a tutorial video</a>.」
+      // 整条命中词库、长度也短，但前一个字符是字母就被当句子成分挡住，于是词库有译文也不翻。
+      // 只对显式开 inlineExact 的站点放行内联元素，避免正文链接被拆成半中半英（通用站点保持原判据）。
+      if (site.inlineExact) {
+        try {
+          if (el.closest("a, span, em, strong, b, i") && own.length <= 40 && lookupExact(own) !== null) return false;
+        } catch (e) { /* ignore */ }
+      }
     }
-    var ctx = inlineRoot(el);
+    // 逐词拆分的引文（PubChem 的 .pc-word-break：一个单词一个文本节点、中间夹空白节点）
+    // 必须从文本节点本身取相邻文本；传父元素的话 inlineRoot 拿到的还是块容器，
+    // 兄弟文本永远是块外的，整句会被判成「不是正文」而逐词翻译（Production 卷 Information 已提交…）。
+    var ctx = inlineRoot(node);
     var nxt = nextTextAfter(ctx);
     var prv = prevTextBefore(ctx);
     // 已经变成中文的句子：块里还有零星英文单词（RCSB 检索构建器的
@@ -662,7 +673,7 @@ function createEngine(options) {
     // （RCSB 构建器先被翻成「选择一个 attribute 进行检索…」），下一轮补扫要能重新判一次。
     // 但词库里明确收录的整段（帮助页、FAQ、首页简介）是人工核对过的译文，
     // 命中就照翻——否则这些"固定说明句"永远进不来。查表用 count=false，避免命中数翻倍。
-    if (inLongProse(node.parentElement)) {
+    if (inLongProse(node)) {
       // 只放行"整句/整段"级别的命中（>= 40 字符）。英文句子里的短链接（"… browser. Contact Us"）
       // 即使词典里有 Contact Us，也不能在一句英文中间冒出一小块中文。
       if (text.length < 40 || lookupExact(text) === null) { recordMiss(text, node, true); return; }
@@ -1601,7 +1612,7 @@ function createEngine(options) {
       processed: processed.has(node), connected: node.isConnected !== false,
       cjk: hasCJK(text), letter: LETTER.test(text), len: text.length,
       skip: skipNode(node), block: inBlock(node.parentElement), inSkip: inSkip(node.parentElement),
-      prose: inLongProse(node.parentElement),
+      prose: inLongProse(node),
       exact: lookupExact(text), parent: node.parentElement ? node.parentElement.tagName + "." + (node.parentElement.className || "") : null,
       split: node.parentElement ? node.parentElement.children.length : null, kids: node.parentElement ? node.parentElement.childNodes.length : null
     };

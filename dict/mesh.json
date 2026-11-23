@@ -16,6 +16,7 @@
     "Full": "完整",
     "Full (text)": "完整（文本）",
     "Entry Terms:": "入口词：",
+    "Tree Number(s):": "树号：",
     "Previous Indexing:": "先前标引：",
     "Pharmacologic Action:": "药理作用：",
     "PubMed Search Builder": "PubMed 检索构建器",
@@ -96,7 +97,11 @@
       "to": "引入年份：$1"
     },
     {
-      "re": "^Tree Number\\(s\\): (.+)$",
+      "re": "^(.+) Year introduced: (.+)$",
+      "to": "$1 引入年份：$2"
+    },
+    {
+      "re": "^Tree Number\\(s\\):\\s*(.+)$",
       "to": "树号：$1"
     },
     {

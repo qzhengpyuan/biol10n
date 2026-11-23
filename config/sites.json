@@ -245,7 +245,8 @@
       "skip": "ul.toc a.toc-item, .bktoc_lst_exp a.toc-item",
       "skipFree": [
         "a.toc-item[href*='editors']"
-      ]
+      ],
+      "inlineExact": true
     },
     {
       "hosts": [
@@ -386,7 +387,7 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-cdd",
       "name": "NCBI CDD",
-      "path": "^/cdd"
+      "path": "^/(cdd|Structure/cdd)"
     },
     {
       "hosts": [
@@ -501,7 +502,8 @@
         ".rprtid dt",
         ".rprtid th",
         ".resc .src"
-      ]
+      ],
+      "inlineExact": true
     },
     {
       "id": "ncbi-gdv",
@@ -1154,6 +1156,7 @@
       ],
       "dicts": [
         "common",
+        "gdc-docs",
         "anatomy",
         "onco",
         "spa",
@@ -1594,7 +1597,10 @@
       "spa": true,
       "waitFor": "#root",
       "proseExempt": "p.cite",
-      "skip": "span.journal"
+      "skip": "span.journal",
+      "attrs": [
+        "data-content"
+      ]
     },
     {
       "id": "nextprot",
@@ -1896,7 +1902,8 @@
       "dicts": [
         "common",
         "string-atlas",
-        "spa"
+        "spa",
+        "ebi-home"
       ],
       "scope": "body",
       "proseExempt": "",

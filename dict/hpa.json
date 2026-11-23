@@ -1752,7 +1752,12 @@
     "BRAIN EXPRESSION": "脑表达",
     "single cell resource": "单细胞资源",
     "More information about the specific content and the generation and analysis of the data in this resource can be found on the": "有关该资源的具体内容以及数据生成与分析方法的更多信息，见",
-    "The human brain": "人脑"
+    "The human brain": "人脑",
+    "The human cell proteome": "人类细胞蛋白质组",
+    "Cell count": "细胞数",
+    "Reliability: High": "可靠性：高",
+    "Reliability: Medium": "可靠性：中",
+    "Reliability: Low": "可靠性：低"
   },
   "rules": [
     {
@@ -2290,6 +2295,15 @@
       "re": "^(Group enriched|Cell type enriched|Tissue enriched) \\(([^,()]+)\\)<br>(Detected in (?:all|many|some|single))$",
       "to": "$1（$2）<br>$3",
       "requireHit": true
+    },
+    {
+      "re": "^(.+) c-(\\d+)$",
+      "to": "$1 c-$2",
+      "requireHit": true
+    },
+    {
+      "re": "^Cell count: ([\\d,]+)$",
+      "to": "细胞数：$1"
     }
   ],
   "templates": [

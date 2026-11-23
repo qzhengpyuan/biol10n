@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "family": "ebi-home",
+    "version": "0.1.0",
+    "sites": [
+      "www.ebi.ac.uk"
+    ],
+    "area": "EMBL-EBI 首页（hero、快捷入口、新闻与活动卡片、经济影响报告卡片、招聘与使命卡片、关于 EMBL 段落、页脚法务行）",
+    "note": "页头导航、页脚栏目与「最新新闻/关于 EMBL」这类区块标题已由 string-atlas 覆盖，本册只收首页特有、且当前仍为英文的静态文案。检索下拉的 optgroup 分组名由引擎的 OPTGROUP label 通道处理，不需要站点 attrs。新闻标题、课程详情正文（卡片里被 CSS 隐藏的成段正文）、机构名与品牌名不翻。"
+  },
+  "exact": {
+    "EMBL's European Bioinformatics Institute": "EMBL 欧洲生物信息学研究所",
+    "Unleashing the potential of big data in biology": "释放生物学大数据的潜力",
+    "Find a gene, protein or chemical": "检索基因、蛋白质或化合物",
+    "Science search": "科学检索",
+    "Search web content": "检索网页内容",
+    "News image": "新闻图片",
+    "EMBL-EBI economic impact report": "EMBL-EBI 经济影响报告",
+    "Explore the economic and scientific value of the open data resources managed by EMBL-EBI": "了解 EMBL-EBI 所管理的开放数据资源在经济与科学上的价值",
+    "Read report": "阅读报告",
+    "EMBL-EBI Training events": "EMBL-EBI 培训活动",
+    "Introduction to RNA-seq and functional interpretation": "RNA 测序与功能解读入门",
+    "Introduction to multi-omics data integration and visualisation": "多组学数据整合与可视化入门",
+    "Course": "课程",
+    "Virtual": "线上",
+    "Careers": "招聘",
+    "Recruitment: What to expect": "招聘流程：会经历什么",
+    "Everything you need to know about EMBL-EBI’s recruitment process.": "关于 EMBL-EBI 招聘流程，你需要了解的一切。",
+    "Careers at EMBL-EBI": "在 EMBL-EBI 工作",
+    "Focus your energy and skills on something that really matters: using technology to contribute to discoveries that benefit humankind.": "把精力与技能投入真正重要的事：用技术推动造福人类的发现。",
+    "International applicants": "国际申请人",
+    "We recruit staff from all over the world and offer exemption from UK immigration restrictions.": "我们面向全球招聘，并提供英国入境限制的豁免。",
+    "EMBL-EBI missions": "EMBL-EBI 使命",
+    "We are EMBL-EBI: Our impact": "我们是 EMBL-EBI：我们的影响",
+    "The European Bioinformatics Institute (EMBL-EBI) is part of EMBL, Europe’s flagship laboratory for the life sciences. More about EMBL-EBI and our impact.": "欧洲生物信息学研究所（EMBL-EBI）隶属于 EMBL，后者是欧洲生命科学的旗舰实验室。进一步了解 EMBL-EBI 与我们的影响。",
+    "Explore our open data resources to enrich your research. Browse data, perform analyses or share your own results.": "利用我们的开放数据资源丰富你的研究：浏览数据、开展分析，或分享自己的结果。",
+    "Find out about our research groups, postdoctoral schemes and PhD Programme.": "了解我们的研究组、博士后计划与博士项目。",
+    "Access a wealth of world-leading training in bioinformatics and scientific service provision, regardless of your career stage or sector.": "无论处于哪个职业阶段、来自哪个领域，都能获得世界一流的生物信息学与科研服务培训。",
+    "Explore our knowledge-exchange Industry Programme and take part in translational partnerships and projects.": "了解我们的知识交流产业计划，参与转化合作与项目。",
+    "We support, as an ELIXIR node, the coordination of biological data provision throughout Europe.": "作为 ELIXIR 节点，我们支持协调全欧洲的生物数据供给。",
+    "EMBL is an intergovernmental organisation, headquartered in Heidelberg. It was founded in 1974 with the mission of promoting molecular biology research in Europe, training young scientists, and developing new technologies.": "EMBL 是一个政府间组织，总部位于海德堡。它成立于 1974 年，使命是推动欧洲的分子生物学研究、培养青年科学家并开发新技术。",
+    "20 member states": "20 个成员国",
+    "EMBL-EBI, Wellcome Genome Campus, Hinxton, Cambridgeshire, CB10 1SD, UK.": "英国剑桥郡欣克斯顿 Wellcome 基因组园区 EMBL-EBI，CB10 1SD",
+    "Tel: +44 (0)1223 49 44 44": "电话：+44 (0)1223 49 44 44"
+  },
+  "rules": [
+    {
+      "re": "^(\\d{1,2})\\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s+(\\d{4})\\s*-\\s*(\\d{1,2})\\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s+(\\d{4})$",
+      "to": "$3 年 $2 $1 日 – $6 年 $5 $4 日"
+    },
+    {
+      "re": "^\\s*and\\s*$",
+      "to": "和"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "{{1}}EMBL’s European Bioinformatics Institute is one of the six sites of the European Molecular Biology Laboratory (EMBL). With over {{2}} and thousands of scientists and engineers working together, EMBL is a powerhouse of biological expertise.",
+      "zh": "{{1}}EMBL 欧洲生物信息学研究所是欧洲分子生物学实验室（EMBL）六个站点之一。EMBL 拥有超过 {{2}}，以及数千名并肩工作的科学家和工程师，是生物学专业实力的汇聚之地。"
+    }
+  ]
+}

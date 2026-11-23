@@ -333,14 +333,14 @@ test("页脚 CC0 整句模板：链接保住、句子翻成中文", () => {
       "</span>"
   );
   const span = doc.querySelector(".cap");
-  assert.equal(plain(doc), "Open Targets Platform 采用 CC0 1.0 许可协议");
+  assert.equal(plain(doc), "Open Targets 平台采用 CC0 1.0 许可协议");
   const as = [...span.querySelectorAll("a")];
   assert.equal(as.length, 2, "模板替换不能把链接吃掉");
   assert.equal(as[0].getAttribute("href"), "https://platform.opentargets.org/");
   assert.equal(as[1].getAttribute("href"), "http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1");
-  assert.equal(as[0].textContent, "Open Targets Platform");
+  assert.equal(as[0].textContent, "Open Targets 平台");
   assert.equal(as[1].textContent, "CC0 1.0");
-  assert.equal(as[0].getAttribute("aria-label"), "在链接中进一步了解 Open Targets Platform");
+  assert.equal(as[0].getAttribute("aria-label"), "在链接中进一步了解 Open Targets 平台");
 });
 
 test("长证据句不翻：药物基因组学 sup 的整句说明保持英文", () => {

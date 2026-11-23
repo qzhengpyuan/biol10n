@@ -528,7 +528,27 @@
     "Change the 3D display options": "更改 3D 显示选项",
     "View structure in full screen": "全屏查看结构",
     "JSON representation of this page": "本页的 JSON 表示",
-    "breadcrumbs": "面包屑"
+    "breadcrumbs": "面包屑",
+    "What is this information": "这是什么信息",
+    "View and refine this dataset in a new browser window": "在新浏览器窗口中查看并细化此数据集",
+    "View in Classification Browser": "在分类浏览器中查看",
+    "Evidence. Show description": "证据。显示说明",
+    "Evidence": "证据",
+    "Evidence DOI": "证据 DOI",
+    "Evidence PMID:": "证据 PMID：",
+    "Successor": "后继化合物",
+    "Predecessor": "前体化合物",
+    "Predecesssor": "前体化合物",
+    "Predecessor Name": "前体名称",
+    "Successor Name": "后继名称",
+    "Transformation": "转化",
+    "Expand This Node": "展开此节点",
+    "Collapse This Node": "折叠此节点",
+    "Show Description for This Node": "显示此节点的说明",
+    "BioAssay Count Linked to This Node": "与此节点关联的生物测定数",
+    "Compound Count Linked to This Node": "与此节点关联的化合物数",
+    "Compound count is too large to view.": "化合物数量过多，无法查看。",
+    "Go to MeSH Tree page about this term": "前往该术语的 MeSH 树页面"
   },
   "rules": [
     {

@@ -115,6 +115,11 @@ for (const id of Object.keys(dict)) {
   books: Object.keys(dict).length,
   sites: sites.sites.length,
   exact: _exact, rules: _rules, templates: _tpl,
+  // 逐册条数：dist-fresh 红的时候直接点名是哪几册改了没重建（r26 P0-2 的排查成本就在这里）
+  perBook: Object.fromEntries(Object.keys(dict).sort().map((id) => {
+    const d = dict[id];
+    return [id, [Object.keys(d.exact || {}).length, (d.rules || []).length, (d.templates || []).length]];
+  })),
   bytes: Buffer.byteLength(out, "utf8"),
   fingerprint: buildFingerprint,
   builtAt: new Date().toISOString()

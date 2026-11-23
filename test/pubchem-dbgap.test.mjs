@@ -516,7 +516,7 @@ test("dbGaP 首页渲染：说明段、检索框 placeholder、帮助句模板�
   // 第二条横幅的末句在 common 册（r30 P1-2 把它从 clinicaltrials 下沉），撇号折叠后直引号 DOM 也命中
   assert.equal(
     ps[3],
-    "Secure .gov websites use HTTPS A lock ( Lock Locked padlock icon ) or HTTPS 表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。"
+    "Secure .gov websites use HTTPS A 锁 ( 锁 锁定挂锁图标 ) or HTTPS 表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。"
   );
   assert.deepEqual([...doc.querySelectorAll("h2, h3")].map(text), [
     "浏览 dbGaP",

@@ -703,6 +703,10 @@
  },
  "rules": [
   {
+   "re": "^(.+) - STRING interaction network$",
+   "to": "$1 - STRING 互作网络"
+  },
+  {
    "re": "^([\\d.,]+)\\s+mio$",
    "to": "$1 百万"
   },

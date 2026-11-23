@@ -304,7 +304,9 @@
     ". Do not include any personal information about you or others in the chat (for more information, see the": "。请勿在聊天中包含你或他人的任何个人信息（更多信息请参见",
     "InterPro Version": "InterPro 版本",
     "Glogal biodata coalition logo": "全球生物数据联盟标志",
-    "InterPro entry": "InterPro 条目"
+    "InterPro entry": "InterPro 条目",
+    "link to external site": "外部站点链接",
+    "Give this job a local title (only visible on this browser)": "为这个作业起一个本地标题（仅在本浏览器可见）"
   },
   "rules": [
     {

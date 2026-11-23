@@ -1010,7 +1010,11 @@
     "Hyperlinks to Genome Browser": "指向基因组浏览器的超链接",
     "DNA Sequence": "DNA 序列",
     "Gap": "间隙",
-    "Rearrangements": "重排"
+    "Rearrangements": "重排",
+    "List all possible keyboard shortcuts": "列出所有可用的键盘快捷键",
+    "COSMIC data is now updated on the COSMIC track (not COSMIC Regions). See news archive for details.": "COSMIC 数据现已更新到 COSMIC 轨道（不再是 COSMIC Regions）。详情请参阅新闻存档。",
+    "Please see the ENCODE4 Regulation track for the latest data. See news archive for details.": "最新数据请参阅 ENCODE4 Regulation 轨道。详情请参阅新闻存档。",
+    "ClinGen CNV data are now updated on ClinVar Variants track. See news archive for details.": "ClinGen CNV 数据现已更新到 ClinVar Variants 轨道。详情请参阅新闻存档。"
   },
   "rules": [
     {

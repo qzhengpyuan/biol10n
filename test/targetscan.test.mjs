@@ -1,4 +1,4 @@
-// TargetScanHuman 词库（targetscan）回归：首页导航与检索表单、简介段（模板）、结果页表头与段落标题、多转录本选择页、数据下载页、FAQ 固定句、页脚信用与标题规则
+// TargetScanHuman 词库（targetscan）回归：首页导航与检索表单、简介段（模板）、基因结果页图形页与表格页的表头、miRNA 结果页列头与计数说明句、多转录本选择页、数据下载页、FAQ 固定句、页脚信用与标题规则
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -316,3 +316,50 @@ test("标题规则：TargetScanHuman 版本号 + predicted miRNA targets", () =>
   engine.start();
   assert.equal(dom.window.document.title, "TargetScanHuman 8.0：预测的 miRNA 靶标");
 });
+
+test("miRNA 结果页：表头含断字连字符也翻中文，miRNA 名/分数/文献年份不动", () => {
+  const doc = run(
+    "<h3>Human | miR-34a-5p</h3>" +
+      "<table><tr><td>Target gene</td><td>Represen- tative transcript</td><td>Gene name</td>" +
+      "<td>Number of 3P-seq tags supporting UTR + 5</td><td><a href=\"/x\">Sites in UTR</a></td>" +
+      "<td>Representative miRNA</td><td>Predicted occupancy</td><td>Previous TargetScan publica- tion(s)</td></tr>" +
+      "<tr><td>MDM4</td><td>ENST00000391947.2</td><td>Mdm4 p53 binding protein homolog (mouse)</td>" +
+      "<td>443</td><td>4</td><td>hsa-miR-34c-5p</td><td>0.1129</td><td>2011, '15</td></tr></table>"
+  );
+  const text = plain(doc);
+  assert.ok(text.includes("靶基因"), text);
+  assert.ok(text.includes("代表性转录本"), "断字连字符的 Represen- tative transcript 要整串命中: " + text);
+  assert.ok(text.includes("基因名称"), text);
+  assert.ok(text.includes("支持 UTR 的 3P-seq 标签数（+5）"), text);
+  assert.ok(text.includes("UTR 中的位点"), text);
+  assert.ok(text.includes("代表性 miRNA"), text);
+  assert.ok(text.includes("预测占据度"), text);
+  assert.ok(text.includes("以往 TargetScan 文献"), "Previous TargetScan publica- tion(s) 也要翻: " + text);
+  assert.ok(text.includes("人类 | miR-34a-5p"), text);
+  // 基因名、转录本 ID、miRNA 名、分数、文献年份保持原样
+  assert.ok(text.includes("MDM4") && text.includes("ENST00000391947.2"), text);
+  assert.ok(text.includes("hsa-miR-34c-5p"), text);
+  assert.ok(text.includes("0.1129"), text);
+  assert.ok(text.includes("2011, '15"), text);
+});
+
+test("miRNA 结果页说明句：计数句走模板，[] 提示句保留方括号与行内链接", () => {
+  const doc = run(
+    "<table><tr><td><b>754</b> transcripts with conserved sites, containing a total of " +
+      "<b>838</b> conserved sites and <b>389</b> poorly conserved sites.</td></tr></table>" +
+      "<div><span>The table shows at most one transcript per gene, selected for being the most prevalent, " +
+      'based on 3P-seq tags. [</span><a href="#">Download table</a><span>]</span></div>' +
+      '<div>Genes with only poorly conserved sites are not shown. [<a href="#">View top predicted targets, ' +
+      "irrespective of site conservation</a>]</div>" +
+      '<div>Please note that these predicted targets include some false positives. <a href="#">[Read more]</a></div>'
+  );
+  const text = plain(doc);
+  assert.ok(text.includes("754 个转录本含保守位点，共包含 838 个保守位点和 389 个弱保守位点"), text);
+  assert.ok(text.includes("该表对每个基因至多显示一个转录本"), text);
+  assert.ok(text.includes("[下载表格]"), "方括号与链接位置要留住: " + text);
+  assert.ok(text.includes("仅含弱保守位点的基因不予显示。 ["), text);
+  assert.ok(text.includes("查看排名靠前的预测靶标（不考虑位点保守性）"), text);
+  assert.ok(text.includes("请注意：这些预测靶标包含一些假阳性。"), text);
+  assert.ok(text.includes("[了解更多]"), text);
+});
+

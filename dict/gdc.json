@@ -488,7 +488,27 @@
     "FOIA": "《信息自由法》",
     "copy number variation": "拷贝数变异",
     "dna methylation": "DNA 甲基化",
-    "scRNA-Seq": "单细胞 RNA 测序"
+    "scRNA-Seq": "单细胞 RNA 测序",
+    "GDC Docs": "GDC 文档",
+    "GDC Data Submission Portal": "GDC 数据提交门户",
+    "GDC Publications": "GDC 论文",
+    "GDC Collaborations": "GDC 合作",
+    "GDC Data Dictionary": "GDC 数据字典",
+    "GDC Reference Files": "GDC 参考文件",
+    "GDC Data Quality": "GDC 数据质量",
+    "GDC Component Library": "GDC 组件库",
+    "Request Data Submission": "申请数据提交",
+    "Data Types and File Formats": "数据类型与文件格式",
+    "Data Standards": "数据标准",
+    "Enter the terms you wish to search for.": "输入要检索的词。",
+    "(opens in a new window)": "（在新窗口中打开）",
+    "(link is external)": "（外部链接）",
+    "(link sends email)": "（邮件链接）",
+    "Site header": "站点页头",
+    "Official government website": "美国政府官方网站",
+    "Genomic Data Commons Homepage": "基因组数据共享平台首页",
+    "main navigation": "主导航",
+    "Subscribe to RSS Feed for In the News": "订阅「新闻动态」的 RSS 源"
   },
   "rules": [
     {

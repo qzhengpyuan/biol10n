@@ -1147,6 +1147,29 @@
       "name": "GDC 数据门户"
     },
     {
+      "id": "gdc-docs",
+      "name": "GDC 文档站",
+      "hosts": [
+        "gdc.cancer.gov"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "onco",
+        "spa",
+        "gdc",
+        "gdc2"
+      ],
+      "scope": "",
+      "proseExempt": "footer",
+      "attrs": [
+        "placeholder",
+        "title",
+        "aria-label",
+        "alt"
+      ]
+    },
+    {
       "id": "gepia2",
       "hosts": [
         "gepia2.cancer-pku.cn"

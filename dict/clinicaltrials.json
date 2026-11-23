@@ -781,6 +781,14 @@
     {
       "re": "^(.+) \\| (Completed|Recruiting|Active, not recruiting|Enrolling by invitation|Not yet recruiting|Suspended|Terminated|Withdrawn|Unknown status|Available|No longer available|Expanded access) studies$",
       "to": "$1 | $2研究"
+    },
+    {
+      "re": "^Search ClinicalTrials\\.gov for: (.+) \\| List Results \\| ClinicalTrials\\.gov$",
+      "to": "检索 ClinicalTrials.gov：$1 | 列表结果 | ClinicalTrials.gov"
+    },
+    {
+      "re": "^Search ClinicalTrials\\.gov for: (.+) \\| Table Results \\| ClinicalTrials\\.gov$",
+      "to": "检索 ClinicalTrials.gov：$1 | 表格结果 | ClinicalTrials.gov"
     }
   ],
   "templates": [

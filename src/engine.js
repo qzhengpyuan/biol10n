@@ -1737,7 +1737,9 @@ function createEngine(options) {
     // r24 P1-1：这几类词出现在标题尾部（Home - Rfam Database、Expasy Help、
     // The NCBI Handbook - NCBI Bookshelf、Glossary Terms）时整条标题被判英文弃掉。
     Database: 1, Handbook: 1, Bookshelf: 1, Help: 1, Glossary: 1, Terms: 1,
-    Study: 1, Studies: 1, Details: 1, Home: 1
+    Study: 1, Studies: 1, Details: 1, Home: 1,
+    // CT 的 ``List Results`` / ``Table Results`` 视图：没有规则时整条标题会被判英文
+    List: 1, Table: 1, Results: 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
   /** 没有翻译、原样保留的标题分段：只允许"含品牌名/全大写/带数字"的段整段留下，

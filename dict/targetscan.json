@@ -388,6 +388,10 @@
     {
       "re": "^Please note that these predicted targets include some false positives\\.( ?\\[)?$",
       "to": "请注意：这些预测靶标包含一些假阳性。$1"
+    },
+    {
+      "re": "^(\\d+mer) description$",
+      "to": "$1 说明"
     }
   ],
   "templates": [

@@ -516,7 +516,9 @@
     "The GDC provides a platform for efficiently querying and downloading high-quality and complete data.": "GDC 提供高效查询与下载高质量完整数据的平台。",
     "The GDC processes and tools guide data submission.": "GDC 的流程与工具指导数据提交。",
     "GDC Data Portal Submission Web Form": "GDC 数据门户提交网页表单",
-    "The GDC API is the external facing REST interface for the GDC.": "GDC API 是 GDC 面向外部的 REST 接口。"
+    "The GDC API is the external facing REST interface for the GDC.": "GDC API 是 GDC 面向外部的 REST 接口。",
+    "The GDC provides documentation and support resources to assist users.": "GDC 提供文档与支持资源以帮助用户。",
+    "The latest news and more about the GDC.": "关于 GDC 的最新新闻与更多内容。"
   },
   "rules": [
     {

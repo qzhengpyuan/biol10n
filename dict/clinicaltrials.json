@@ -609,7 +609,10 @@
     "Home": "首页",
     "Date Range": "日期范围",
     "Central Contact": "中心联系人",
-    "Telephone": "电话"
+    "Telephone": "电话",
+    "for:": "针对：",
+    "Unknown status": "未知状态",
+    "Completed": "已完成"
   },
   "rules": [
     {
@@ -774,6 +777,10 @@
     {
       "re": "^Find Studies \\| ClinicalTrials\\.gov$",
       "to": "查找研究 | ClinicalTrials.gov"
+    },
+    {
+      "re": "^(.+) \\| (Completed|Recruiting|Active, not recruiting|Enrolling by invitation|Not yet recruiting|Suspended|Terminated|Withdrawn|Unknown status|Available|No longer available|Expanded access) studies$",
+      "to": "$1 | $2研究"
     }
   ],
   "templates": [

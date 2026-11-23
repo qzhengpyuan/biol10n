@@ -415,6 +415,10 @@
     {
       "pat": "Decorators are optional sub-annotations shown in addition to the rectangular annotations of this track. They can either have the shape of rectangular blocks transparently overlaid or shown beneath features. Or they can be glyphs, symbols such as triangles, stars, etc. drawn on top of onto existing annotations. See the {{1}}.",
       "zh": "装饰器是可选子注释，在该轨道的矩形注释之外额外显示。它们既可以是以透明方式覆盖在特征上或显示在特征下方的矩形块，也可以是绘制在现有注释之上的字形符号，如三角形、星形等。请参阅{{1}}。"
+    },
+    {
+      "pat": "Click to alter the display density of {{1}}",
+      "zh": "单击可更改 {{1}} 的显示密度"
     }
   ]
 }

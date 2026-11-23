@@ -1313,6 +1313,7 @@
       "skip": ".gbsPage > h1 + p",
       "attrs": [
         "mouseovertext",
+        "data-tooltip",
         "value"
       ],
       "valueText": true,

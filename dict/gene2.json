@@ -7,6 +7,7 @@
     ]
   },
   "exact": {
+    "Gene Interaction": "基因互作",
     "BioAssays related to the gene by protein target or RNAi target": "与该基因相关的生物测定（按蛋白靶标或 RNAi 靶标）",
     "BioAssays that contain the gene as the target of a RNAi reagent": "以该基因作为 RNAi 试剂靶标的生物测定",
     "BioAssays that contain the gene as the target of a RNAi reagent, which is identified as a hit in a RNAi screening and flagged as \"active\" in the corresponding BioAssay record": "以该基因作为 RNAi 试剂靶标的生物测定；该基因在 RNAi 筛选中被识别为命中，并在对应的 BioAssay 记录中标记为「活性」",

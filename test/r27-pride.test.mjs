@@ -283,7 +283,7 @@ test("r27 jsdom：高级检索提示句与质控分面的长说明 tooltip", () 
   );
 });
 
-test("r27 jsdom：数据集页 SDRF 表头翻中文，列键（title）保持原文", () => {
+test("r27 jsdom：数据集页 SDRF 表头翻中文（含 core 三列），SDRF 字段名类 title 保持原文", () => {
   const { doc } = boot(
     '<table class="sdrf"><thead><tr>' +
       '<th class="col-index">#</th>' +
@@ -307,12 +307,12 @@ test("r27 jsdom：数据集页 SDRF 表头翻中文，列键（title）保持原
   const ths = [...doc.querySelectorAll("th")];
   assert.deepEqual(ths.map((e) => e.textContent), [
     "#",
-    "source name",
+    "样本来源名称",
     "物种",
     "掺入化合物",
     "生物学重复",
-    "assay name",
-    "technology type",
+    "检测名称",
+    "技术类型",
     "蛋白质组学数据采集方式",
     "裂解试剂详情",
     "技术重复",
@@ -321,17 +321,17 @@ test("r27 jsdom：数据集页 SDRF 表头翻中文，列键（title）保持原
     "SDRF 版本",
     "SDRF 模板",
     "SDRF 注释工具"
-  ], "core 列（source name / assay name / technology type）的 title 就是列键本身，翻文本会连带改列键，故保留英文");
-  // SDRF 列键进 title，一个都不能改（站点按列键筛选/排序）
+  ], "core 三列也翻：表格是渲染产物，导出走 TSV 数据、不读 title（r35 决定）");
+  // 只有 core 三列的 title 与可见文本同串、随文本一起翻；characteristics/ / comment/ 这类 SDRF 列键进 title，一个都不能改（站点按列键筛选/排序）
   assert.deepEqual(
     ths.slice(1).map((e) => e.getAttribute("title")),
     [
-      "source name",
+      "样本来源名称",
       "characteristics[organism]",
       "characteristics[spiked compound]",
       "characteristics[biological replicate]",
-      "assay name",
-      "technology type",
+      "检测名称",
+      "技术类型",
       "comment[proteomics data acquisition method]",
       "comment[cleavage agent details]",
       "comment[technical replicate]",

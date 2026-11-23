@@ -422,7 +422,15 @@
     "Obtain an": "获取",
     "overview of the GDC and explore GDC 2.0": "GDC 概览并探索 GDC 2.0",
     "Genomic Data Commons Podcast": "基因组数据共享平台播客",
-    "NCI Personal Genomics Podcast Series": "NCI 个人基因组学播客系列"
+    "NCI Personal Genomics Podcast Series": "NCI 个人基因组学播客系列",
+    "processed": "处理",
+    "approved by the GDC and registered in dbGaP": "经 GDC 批准并在 dbGaP 中注册",
+    "developer tools": "开发者工具",
+    "GDC Data": "GDC 数据",
+    "doc icon": "文档图标",
+    "youtube tutorial": "YouTube 教程",
+    "GDC Applications": "GDC 应用",
+    "To receive timely updates about GDC Releases, maintenance windows, and other news and announcements, please": "如需及时了解 GDC 版本发布、维护窗口及其他新闻与公告，请"
   },
   "rules": [
     {
@@ -455,6 +463,10 @@
       "re": "^News - (.+)$",
       "to": "新闻 - $1",
       "requireHit": true
+    },
+    {
+      "re": "^email (\\S+@\\S+)$",
+      "to": "发送邮件至 $1"
     }
   ],
   "templates": [
@@ -747,6 +759,22 @@
     {
       "pat": "GDC {{1}} remain valid for 30 days.",
       "zh": "GDC {{1}}的有效期为 30 天。"
+    },
+    {
+      "pat": "For assistance with GDC query, download, submission and analysis of data, please contact the GDC Help Desk ({{1}}).",
+      "zh": "如需协助进行 GDC 数据的查询、下载、提交与分析，请联系 GDC 帮助台（{{1}}）。"
+    },
+    {
+      "pat": "For assistance with GDC query, download and submission of data, please contact the GDC Help Desk ({{1}}).",
+      "zh": "如需协助进行 GDC 数据的查询、下载与提交，请联系 GDC 帮助台（{{1}}）。"
+    },
+    {
+      "pat": "The {{1}} is a robust web-based platform that allows users to search, analyze, and download data for custom cohorts from cancer genomic studies. For detailed instructions on using the GDC Data Portal, please see our {{2}} which are also available in the {{3}}.",
+      "zh": "{{1}}是一个稳健的基于网页的平台，允许用户检索、分析与下载癌症基因组研究中自定义队列的数据。有关使用 GDC 数据门户的详细说明，请参阅我们的{{2}}，这些视频也可在{{3}}中获取。"
+    },
+    {
+      "pat": "The {{1}} is a robust web-based platform that allows users to search, analyze, and download data for custom cohorts from cancer genomic studies. For detailed instructions on using the GDC Data Portal, please see our {{2}} which are also available in the {{3}}。",
+      "zh": "{{1}}是一个稳健的基于网页的平台，允许用户检索、分析与下载癌症基因组研究中自定义队列的数据。有关使用 GDC 数据门户的详细说明，请参阅我们的{{2}}，这些视频也可在{{3}}中获取。"
     }
   ]
 }

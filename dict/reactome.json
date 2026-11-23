@@ -533,6 +533,11 @@
     "Total number of unique interactors for this diagram": "本图唯一相互作用分子的总数",
     "Definition": "定义",
     "Details are shown when an item is selected in the pathway diagram above.": "在上方通路图中选中条目后会显示详细信息。",
+    "Background literature references...": "背景文献参考……",
+    "Lighter": "浅色",
+    "Darker": "深色",
+    "Reactome logo": "Reactome 标志",
+    "Reactome outage icon": "Reactome 服务中断图标",
     "The pathways overview offers an intuitive overview of dataset analysis results in the context of the Reactome hierarchical pathway structure, allowing both a quick “first glance” and rapid zooming in on interesting results.": "通路总览以 Reactome 通路层级结构为背景，直观呈现数据集分析结果，便于快速“初览”并迅速放大到关注的结果。"
   },
   "rules": [

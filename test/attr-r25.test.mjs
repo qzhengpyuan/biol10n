@@ -92,7 +92,8 @@ test("r25 新增词条逐条命中，且译文含汉字", () => {
 test("英文原文保持可逆：同站未登记串不翻", () => {
   for (const spec of Object.values(cases)) {
     const { engine } = boot(load(...spec.dicts));
-    for (const s of ["DocBotchatbot", "GENCODE V50"]) {
+    // 负例要求"任何册里都没有这个键"：DocBotchatbot 已在 r35 收进 interpro 册，换成仍未登记的串
+    for (const s of ["AddToAny Utility Frame", "GENCODE V50"]) {
       if (s in spec.entries) continue;
       assert.equal(engine.translateText(s), null, "不该命中：" + s);
     }

@@ -389,7 +389,10 @@
     "Median number of MS1 spectra per run of the dataset (prideQC). Drag the slider or type a minimum and a maximum.": "数据集每次运行 MS1 谱图数的中位数（prideQC）。可拖动滑块或输入最小值与最大值。",
     "Median number of MS2 spectra per run of the dataset (prideQC). Drag the slider or type a minimum and a maximum.": "数据集每次运行 MS2 谱图数的中位数（prideQC）。可拖动滑块或输入最小值与最大值。",
     "Datasets that provide a sample-to-data relationship file (SDRF), matched on the file names the archive holds.": "提供样本到数据关系文件（SDRF）的数据集，按归档中实际保存的文件名匹配。",
-    "Sample-to-data relationship file (SDRF) available — click to show only datasets with an experimental design": "已有样本到数据关系文件（SDRF）——点击仅显示带实验设计的数据集"
+    "Sample-to-data relationship file (SDRF) available — click to show only datasets with an experimental design": "已有样本到数据关系文件（SDRF）——点击仅显示带实验设计的数据集",
+    "source name": "样本来源名称",
+    "assay name": "检测名称",
+    "technology type": "技术类型"
   },
   "rules": [
     {

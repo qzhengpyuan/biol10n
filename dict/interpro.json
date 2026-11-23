@@ -60,6 +60,7 @@
     "Send message": "发送消息",
     "Close dialog": "关闭对话框",
     "Chatbot header": "聊天机器人标题栏",
+    "DocBotchatbot": "DocBot 聊天机器人",
     "Chatbot selector": "聊天机器人选择器",
     "Chatbot Disclaimer": "聊天机器人免责声明",
     "EMBL-EBI Terms of Use": "EMBL-EBI 使用条款",
@@ -69,6 +70,7 @@
     "Keep chat open": "保持聊天打开",
     "Close and delete": "关闭并删除",
     "Please rate responses using the thumbs up/down buttons to help us improve DocBot.": "请使用点赞/点踩按钮评价回答，帮助我们改进 DocBot。",
+    "How do additional endpoint blocks filter API results?": "额外的端点块如何筛选 API 结果？",
     "Our chatbot uses AI to assist you. Its use is subject to the": "我们的聊天机器人使用 AI 为你提供帮助。其使用须遵守",
     "Do not include any personal information about you or others in the chat (for more information, see the": "请勿在聊天中包含你或他人的任何个人信息（更多信息请参见",
     "InterPro is part of the ELIXIR infrastructure": "InterPro 是 ELIXIR 基础设施的一部分",
@@ -304,6 +306,7 @@
     "Off": "关",
     "PROSITE profiles": "PROSITE 谱",
     "PROSITE patterns": "PROSITE 模式",
+    "PROSITE Doc": "PROSITE 文档",
     ". Do not include any personal information about you or others in the chat (for more information, see the": "。请勿在聊天中包含你或他人的任何个人信息（更多信息请参见",
     "InterPro Version": "InterPro 版本",
     "Glogal biodata coalition logo": "全球生物数据联盟标志",
@@ -327,6 +330,7 @@
     "EMBL logo": "EMBL 标志",
     "Wellcome Trust logo": "Wellcome Trust 标志",
     "BBSRC logo": "BBSRC 标志",
+    "Elixir logo": "ELIXIR 标志",
     "footnote": "脚注"
   },
   "rules": [

@@ -75,7 +75,8 @@ test("gdc-docs 词库：r33 新增条目就位，计数不回退", () => {
   assert.ok(cfg.dicts.includes("gdc-docs"), "gdc-docs 应加载本册");
   assert.ok(Object.keys(book.exact).length >= 415, "exact 条数不足（r33 后应 ≥415）");
   assert.ok(book.templates.length >= 72, "模板条数不足（r33 后应 ≥72）");
-  assert.equal(book.rules.length, 7, "本轮不应增删规则");
+  // r34 为 a[title="email <地址>"] 加了一条 ^email (\S+@\S+)$ 规则（地址留在 $1，词条值不许含邮箱）
+  assert.ok(book.rules.length >= 7, "规则条数不应回退");
   for (const [k, v] of Object.entries(NEW_KEYS)) assert.equal(book.exact[k], v, "缺条目或译法不一致：" + k);
 });
 

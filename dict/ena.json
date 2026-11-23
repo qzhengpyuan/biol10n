@@ -514,7 +514,12 @@
     "Get a script to download multiple selected files from FTP using wget. Run the commands in the file in a terminal to download the files.": "获取一个用 wget 从 FTP 下载多个已选文件的脚本。在终端中运行该文件里的命令即可下载这些文件。",
     "ENA-FIRST-PUBLIC:": "ENA 首次公开：",
     "ENA-LAST-UPDATE:": "ENA 最后更新：",
-    "Powered by": "技术支持"
+    "Powered by": "技术支持",
+    "Show the parent umbrella projects that this project is a part of": "显示此项目所属的上级伞形项目",
+    "Show the subprojects within this project": "显示此项目内的子项目",
+    "Toggle EuropePMC": "展开或折叠 EuropePMC",
+    "Toggle PubMed": "展开或折叠 PubMed",
+    "Toggle xref": "展开或折叠 xref"
   },
   "rules": [
     {

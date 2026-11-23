@@ -92,7 +92,7 @@ test("r25 新增词条逐条命中，且译文含汉字", () => {
 test("英文原文保持可逆：同站未登记串不翻", () => {
   for (const spec of Object.values(cases)) {
     const { engine } = boot(load(...spec.dicts));
-    for (const s of ["GDC Data Portal Submission Web Form", "DocBotchatbot", "GENCODE V50"]) {
+    for (const s of ["DocBotchatbot", "GENCODE V50"]) {
       if (s in spec.entries) continue;
       assert.equal(engine.translateText(s), null, "不该命中：" + s);
     }

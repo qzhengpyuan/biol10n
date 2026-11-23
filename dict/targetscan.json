@@ -253,7 +253,12 @@
     "Genes with only poorly conserved sites are not shown.": "仅含弱保守位点的基因不予显示。",
     "View top predicted targets, irrespective of site conservation": "查看排名靠前的预测靶标（不考虑位点保守性）",
     "The table shows at most one transcript per gene, selected for being the most prevalent, based on 3P-seq tags.": "该表对每个基因至多显示一个转录本，依据 3P-seq 标签选择其中最常见者。",
-    "eLife Lens view": "eLife Lens 视图"
+    "eLife Lens view": "eLife Lens 视图",
+    "Most prevalent transcript (with the most supporting 3P-seq tags)": "最常见转录本（3P-seq 标签支持最多）",
+    "3P-seq tags supporting UTR + 5 pseudotags": "支持 UTR 的 3P-seq 标签 + 5 个伪标签",
+    "6mer description": "6mer 说明",
+    "Representative miRNA (with the most negative CWCS)": "代表性 miRNA（CWCS 最负）",
+    "Cumulative weighted context++ score (CWCS)": "累积加权 context++ 得分（CWCS）"
   },
   "rules": [
     {

@@ -508,7 +508,15 @@
     "Official government website": "美国政府官方网站",
     "Genomic Data Commons Homepage": "基因组数据共享平台首页",
     "main navigation": "主导航",
-    "Subscribe to RSS Feed for In the News": "订阅「新闻动态」的 RSS 源"
+    "Subscribe to RSS Feed for In the News": "订阅「新闻动态」的 RSS 源",
+    "The Next Generation Cancer Knowledge Base": "下一代癌症知识库",
+    "NCI's Genomic Data Commons (GDC) is not just a database or a tool.": "NCI 的基因组数据共享平台（GDC）不只是一个数据库或工具。",
+    "The GDC provides researchers with access to standardized data from cancer studies.": "GDC 为研究者提供访问癌症研究标准化数据的途径。",
+    "The GDC provides user-friendly and interactive Data Analysis, Visualization, and Exploration (DAVE) Tools supporting gene and variant level analysis.": "GDC 提供易用且可交互的数据分析、可视化与探索（DAVE）工具，支持基因与变异层面的分析。",
+    "The GDC provides a platform for efficiently querying and downloading high-quality and complete data.": "GDC 提供高效查询与下载高质量完整数据的平台。",
+    "The GDC processes and tools guide data submission.": "GDC 的流程与工具指导数据提交。",
+    "GDC Data Portal Submission Web Form": "GDC 数据门户提交网页表单",
+    "The GDC API is the external facing REST interface for the GDC.": "GDC API 是 GDC 面向外部的 REST 接口。"
   },
   "rules": [
     {
@@ -590,6 +598,10 @@
     {
       "re": "^(.+) has been created\\. This is now your current cohort\\.$",
       "to": "已创建 $1，现已作为当前队列。"
+    },
+    {
+      "re": "^The Next Generation Cancer Knowledge Base \\| NCI Genomic Data Commons$",
+      "to": "下一代癌症知识库 | NCI 基因组数据共享平台"
     }
   ]
 }

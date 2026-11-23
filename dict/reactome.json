@@ -526,7 +526,11 @@
     "open-data": "开放数据",
     "This event has been computationally inferred from an event that has been demonstrated in another species.": "该事件是根据已在其他物种中证实的事件计算推断而来的。",
     "pValue": "p 值",
-    "Title placeHolder": "标题（占位）"
+    "Title placeHolder": "标题（占位）",
+    "Cellular compartment": "细胞区室",
+    "Authored": "已编写",
+    "Reviewed": "已审阅",
+    "Total number of unique interactors for this diagram": "本图唯一相互作用分子的总数"
   },
   "rules": [
     {

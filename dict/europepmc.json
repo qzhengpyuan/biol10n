@@ -246,7 +246,9 @@
     "Important Message": "重要提示",
     "We are sorry, we are unable to retrieve the citation details for this record.": "抱歉，我们无法获取该记录的引文详情。",
     "Bluesky": "Bluesky 社交平台",
-    "YouTube": "YouTube 视频平台"
+    "YouTube": "YouTube 视频平台",
+    "Data": "数据",
+    "EMBL-EBI’s long term data preservation policies": "EMBL-EBI 的长期数据保存政策"
   },
   "rules": [
     {
@@ -348,6 +350,18 @@
     {
       "re": "^References \\((\\d+)\\)$",
       "to": "参考文献（$1）"
+    },
+    {
+      "re": "^Preprint v(\\d+(?:\\.\\d+)*)$",
+      "to": "预印本 v$1"
+    },
+    {
+      "re": "^Cited by: ([\\d,]+) articles? \\| ([A-Za-z]{2,12}: .+)$",
+      "to": "被引：$1 篇 | $2"
+    },
+    {
+      "re": "^(.+), (\\d{1,2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec) (\\d{4}), (.+)$",
+      "to": "$1，$4 年 $3 $2 日，$5"
     }
   ],
   "templates": [

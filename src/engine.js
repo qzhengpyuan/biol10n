@@ -1427,7 +1427,15 @@ function createEngine(options) {
     try { els = root.querySelectorAll("p, dd, li, td, th, span, div, h1, h2, h3, h4"); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      if (el.getAttribute && (el.getAttribute("data-biol10n-tpl") || el.getAttribute("data-biol10n-block"))) continue;
+      if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
+      // 已经按模板替换过的元素正常跳过；但站点框架会把整块重渲染回英文（ENA 的 Angular
+      // 就把 {{1}} 链接换回 <a>Query Syntax documentation</a>），此后中文消失、标记还在，
+      // 原逻辑会让这块永远是英文。判据只看现在还有没有汉字：没有就当作重渲染，允许再翻一次。
+      if (el.getAttribute && el.getAttribute("data-biol10n-tpl")) {
+        var nowVis = normalize(visibleJoinedText(el, []).join(""));
+        if (hasCJK(nowVis)) continue;
+        try { el.removeAttribute("data-biol10n-tpl"); } catch (e0) { /* ignore */ }
+      }
       if (inBlock(el) || inSkip(el)) continue;
       if (el.querySelector("p, li, ul, ol, div, table, pre, textarea")) continue;
       var t = buildTemplate(el);

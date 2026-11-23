@@ -241,7 +241,33 @@
     "Preprint describing the project": "描述该项目的预印本",
     "Link to ENA processed reads": "链接到 ENA 处理后的读段",
     "Data on users homepage": "用户主页上的数据",
-    "PageTab": "页面标签"
+    "PageTab": "页面标签",
+    "Password": "密码",
+    "Error in parsing file list": "解析文件列表出错",
+    "File Download": "文件下载",
+    "Instruction for:": "操作说明（适用系统）：",
+    "Download file list as JSON": "以 JSON 格式下载文件列表",
+    "Download file list as XML": "以 XML 格式下载文件列表",
+    "Download file list as PageTab": "以 PageTab 格式下载文件列表",
+    "Click the button below to download the selected files as a zipped archive.": "点击下方按钮，把所选文件下载为 ZIP 压缩包。",
+    "After initiating download, the requested files will be downloaded by Aspera and you can close this page.": "开始下载后，所请求的文件将由 Aspera 传输，您可以关闭此页面。",
+    "You can manage downloading files by Aspera's connect management console which is located in taskbar of your operating system.": "您可以通过 Aspera Connect 管理控制台管理正在下载的文件，该控制台位于操作系统任务栏。",
+    "Share Study": "共享研究",
+    "You can share this study to be accessed without requiring any credentials using the URL below. Please note that all personal information will be visible to the viewer.": "您可以通过下方 URL 共享本研究，访问者无需任何凭据即可打开。请注意，所有个人信息都会对查看者可见。",
+    "ORCID: Data claiming": "ORCID：数据认领",
+    "sign-in to ORCID": "登录 ORCID",
+    "Remember me on this computer": "在此计算机上记住我",
+    "(sign out)": "（退出登录）",
+    "Volume": "卷",
+    "Issue": "期",
+    "We’re sorry that the page or file you’ve requested is not present": "很抱歉，您请求的页面或文件不存在",
+    "The resource may have been removed, had its name changed, or has restricted access.": "该资源可能已被移除、更名，或访问受限。",
+    "It may take up to 24 hours after submission for any new studies to become available in the database.": "新提交的研究最多可能需要 24 小时才会出现在数据库中。",
+    "Please login if the study has not been publicly released yet.": "如果该研究尚未公开发布，请先登录。",
+    "Oops! Something has gone wrong with BioStudies": "糟糕！BioStudies 出了点问题",
+    "The service you are trying to access is currently unavailable. We’re very sorry. Please try again later or use the feedback link to report if the problem persists.": "您尝试访问的服务目前不可用，非常抱歉。请稍后重试；如果问题持续存在，请通过反馈链接报告。",
+    "OOPS! Something is wrong!": "糟糕！出错了！",
+    "The resource you were looking for is not available now.": "您要查找的资源目前不可用。"
   },
   "rules": [
     {
@@ -315,6 +341,30 @@
     {
       "re": "^Release Date:\\s*(.+)$",
       "to": "发布日期：$1"
+    },
+    {
+      "re": "^Please select how you want to download your requested (\\d+) files?\\.$",
+      "to": "请选择如何下载所请求的 $1 个文件。"
+    },
+    {
+      "re": "^This is the currently available version of (\\S+)\\. Any recent updates can take a around 24 hours to appear here\\.$",
+      "to": "这是 $1 当前可用的版本；最近的更新可能需要约 24 小时才会出现在此处。"
+    },
+    {
+      "re": "^\\+ (\\d+) more$",
+      "to": "+ 另有 $1 位"
+    },
+    {
+      "re": "^Claim (\\S+) into your ORCID$",
+      "to": "将 $1 认领到您的 ORCID"
+    },
+    {
+      "re": "^You have claimed (\\S+) into your ORCID\\.$",
+      "to": "您已将 $1 认领到您的 ORCID。"
+    },
+    {
+      "re": "^open ORCID profile: (.+)$",
+      "to": "打开 ORCID 主页：$1"
     }
   ],
   "templates": [
@@ -373,6 +423,38 @@
     {
       "pat": "Yes, search by any metadata field is possible. Include multi-word phrases in double quotes; see {{1}} for more information on search capabilities.",
       "zh": "可以，任何元数据字段都可检索；多词短语请用双引号括起。检索功能的更多说明见{{1}}。"
+    },
+    {
+      "pat": "If you require further assistance locating missing page or file, please {{1}} and we will look into it for you.",
+      "zh": "如果您在查找缺失的页面或文件时需要进一步帮助，请{{1}}，我们会为您查看。"
+    },
+    {
+      "pat": "Click the button below to download the script and save it to the folder where you want to download your files e.g. {{1}}",
+      "zh": "点击下方按钮下载脚本，并保存到您想存放下载文件的文件夹，例如 {{1}}"
+    },
+    {
+      "pat": "Change your console directory to the place that you put downloaded script e.g. {{1}} .",
+      "zh": "把控制台目录切换到下载脚本所在位置，例如 {{1}}。"
+    },
+    {
+      "pat": "Run downloaded script file in cmd with this command: {{1}}",
+      "zh": "在 cmd 中运行下载的脚本文件，命令为：{{1}}"
+    },
+    {
+      "pat": "Download IBM aspera command line interface from {{1}} and unzip downloaded file in e.g. {{2}}",
+      "zh": "从 {{1}} 下载 IBM Aspera 命令行客户端，并把下载的文件解压到例如 {{2}}"
+    },
+    {
+      "pat": "Edit script {{1}} and change default directory address of {{2}} with the directory that you have installed your Aspera client e.g. {{3}}",
+      "zh": "编辑脚本 {{1}}，把 {{2}} 的默认目录地址改为您安装 Aspera 客户端的位置，例如 {{3}}"
+    },
+    {
+      "pat": "Run downloaded script from command line {{1}}",
+      "zh": "在命令行中运行下载的脚本 {{1}}"
+    },
+    {
+      "pat": "You can {{1}} to claim your data",
+      "zh": "您可以{{1}}来认领您的数据"
     }
   ]
 }

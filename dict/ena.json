@@ -507,7 +507,13 @@
     "Postdocs": "博士后",
     "PhDs": "博士生",
     "Analysis Files:": "分析文件：",
-    "PageTab": "页面标签"
+    "PageTab": "页面标签",
+    "Study Name:": "研究名称：",
+    "No results matching your query were found. If your query string contains non-alphanumeric characters, consider enclosing it in double quotes (\"\").": "未找到与您的检索式匹配的结果。如果检索式中含有非字母数字字符，可以尝试用双引号（\"\"）将其括起来。",
+    "Get a script to download multiple selected files from FTP using wget. Run the commands in the file in a terminal to download the files.": "获取一个用 wget 从 FTP 下载多个已选文件的脚本。在终端中运行该文件里的命令即可下载这些文件。",
+    "ENA-FIRST-PUBLIC:": "ENA 首次公开：",
+    "ENA-LAST-UPDATE:": "ENA 最后更新：",
+    "Powered by": "技术支持"
   },
   "rules": [
     {
@@ -735,6 +741,10 @@
     {
       "pat": "{{1}} {{2}} and a member of the team will get into contact with you to discuss your eligibility.",
       "zh": "{{1}}，即可在{{2}}申请成为新的 Xref 来源；团队同事会与您联系讨论是否符合条件。"
+    },
+    {
+      "pat": "Refer to {{1}} for more details.",
+      "zh": "更多详情请参阅{{1}}。"
     }
   ]
 }

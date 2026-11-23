@@ -345,7 +345,34 @@
     "Give me an example of use for the Rfam Text search API.": "请给我一个 Rfam 文本检索 API 的使用示例。",
     "Can I contact the Rfam team?": "我可以联系 Rfam 团队吗？",
     "Recorded webinar": "录制网络研讨会",
-    "Online tutorial": "在线教程"
+    "Online tutorial": "在线教程",
+    "Family name, accession, species, author…": "家族名、登录号、物种、作者……",
+    "Rfam logo": "Rfam 标志",
+    "Graph of Rfam families growth over time": "Rfam 家族数量随时间的变化图",
+    "Cis-reg": "顺式调控",
+    "snoRNAs": "小核仁 RNA",
+    "What files are available in the Rfam FTP site?": "Rfam FTP 站点提供哪些文件？",
+    "Can you list the fields that can be retrieved using the Rfam text search API?": "Rfam 文本检索 API 可以取回哪些字段？",
+    "Using the Rfam MySQL database, I want to retrieve all rat sequence coordinates annotated with Rfam families.": "我想用 Rfam MySQL 数据库检索所有注释到 Rfam 家族的大鼠序列坐标。",
+    "How can I get information about the family RF00360 using the Rfam API?": "如何通过 Rfam API 获取 RF00360 家族的信息？",
+    "Visualisation Type:": "可视化类型：",
+    "Download Image": "下载图片",
+    "Download current image": "下载当前图片",
+    "Current Rfam structure": "当前 Rfam 结构",
+    "R-scape optimised structure": "R-scape 优化结构",
+    "Legend": "图例",
+    "Colours": "颜色",
+    "Nucleotides": "核苷酸",
+    "Statistically significant basepair with covariation": "有共变支持的统计显著碱基对",
+    "interactive": "交互式",
+    "pan": "平移",
+    "zoom": "缩放",
+    "hover": "悬停",
+    "bits": "比特",
+    "Viroids": "类病毒",
+    ": A or G": "：A 或 G",
+    ": C or U": "：C 或 U",
+    "R-scape is a method for evaluating covariation in multiple sequence alignments while accounting for phylogenetic context. It aims to infer the secondary structure with the highest number of statistically supported covarying base pairs. This page shows the R-scape analysis of two structures: the secondary structure from the Rfam SEED alignment, and a new, R-scape-optimised structure with covariation. The latter can be especially valuable for RNA families with predicted secondary structures or limited experimental structural support.": "R-scape 是一种评估多序列比对中共变的方法，计算时会考虑系统发育背景。它旨在推断统计支持共变碱基对数量最多的二级结构。本页展示对两个结构所做的 R-scape 分析：Rfam 种子比对给出的二级结构，以及一个经 R-scape 优化、带共变信息的新结构。对于二级结构仅为预测、或实验结构支持有限的 RNA 家族，后者尤其有价值。"
   },
   "rules": [
     {
@@ -473,6 +500,30 @@
     {
       "re": "^Home\\s*[-–—]\\s*Rfam Database\\s*$",
       "to": "首页 - Rfam 数据库"
+    },
+    {
+      "re": "^Search: (.+)$",
+      "to": "检索：$1"
+    },
+    {
+      "re": "^R-scape structure for (.+)$",
+      "to": "$1 的 R-scape 结构"
+    },
+    {
+      "re": "^ribozyme \\(([\\d,]+)\\)$",
+      "to": "核酶（$1）"
+    },
+    {
+      "re": "^([\\d,]+)% conserved nucleotide$",
+      "to": "$1% 保守核苷酸"
+    },
+    {
+      "re": "^, or$",
+      "to": "，或"
+    },
+    {
+      "re": "^Powered by$",
+      "to": "技术支持："
     }
   ],
   "templates": [
@@ -587,6 +638,18 @@
     {
       "pat": "Rfam is supported by the {{1}} and {{2}}, and is developed at the {{3}}.",
       "zh": "Rfam 由{{1}}和{{2}}资助，并在{{3}}开发。"
+    },
+    {
+      "pat": "{{1}} out of {{2}} basepairs are significant at E-value=0.05",
+      "zh": "{{2}} 个碱基对中有 {{1}} 个在 E 值 = 0.05 时显著"
+    },
+    {
+      "pat": "{{1}} The diagrams are {{2}} - you can {{3}} and {{4}} to see more details or {{5}} over nucleotides and basepairs.",
+      "zh": "{{1}} 这些图是{{2}}的——可以{{3}}和{{4}}查看更多细节，或将鼠标{{5}}在核苷酸和碱基对上。"
+    },
+    {
+      "pat": "See the {{1}} for help getting started.",
+      "zh": "入门帮助请参阅{{1}}。"
     }
   ]
 }

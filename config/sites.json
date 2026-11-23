@@ -242,7 +242,10 @@
       "id": "ncbi-books",
       "name": "NCBI Bookshelf",
       "path": "^/books",
-      "skip": "ul.toc a.toc-item, .bktoc_lst_exp a.toc-item, .chapter-body, .bk_sec, .jig-ncbibookshelf-content"
+      "skip": "ul.toc a.toc-item, .bktoc_lst_exp a.toc-item",
+      "skipFree": [
+        "a.toc-item[href*='editors']"
+      ]
     },
     {
       "hosts": [

@@ -538,7 +538,8 @@
     "Darker": "深色",
     "Reactome logo": "Reactome 标志",
     "Reactome outage icon": "Reactome 服务中断图标",
-    "The pathways overview offers an intuitive overview of dataset analysis results in the context of the Reactome hierarchical pathway structure, allowing both a quick “first glance” and rapid zooming in on interesting results.": "通路总览以 Reactome 通路层级结构为背景，直观呈现数据集分析结果，便于快速“初览”并迅速放大到关注的结果。"
+    "The pathways overview offers an intuitive overview of dataset analysis results in the context of the Reactome hierarchical pathway structure, allowing both a quick “first glance” and rapid zooming in on interesting results.": "通路总览以 Reactome 通路层级结构为背景，直观呈现数据集分析结果，便于快速“初览”并迅速放大到关注的结果。",
+    "Results are shown as five categories: (▲▲) significantly up-regulated, (▲) non-significantly up-regulated, (▼) non-significantly down-regulated, (▼▼) significantly down-regulated, and not (-) found.": "结果分为五类：（▲▲）显著上调、（▲）非显著上调、（▼）非显著下调、（▼▼）显著下调，以及未检出（-）。"
   },
   "rules": [
     {
@@ -765,6 +766,10 @@
     {
       "re": "^Reactome \\| (.+)$",
       "to": "Reactome 通路数据库 | $1"
+    },
+    {
+      "re": "^Illustration for (.+)$",
+      "to": "$1 示意图"
     }
   ],
   "templates": [

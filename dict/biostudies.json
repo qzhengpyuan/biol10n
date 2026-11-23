@@ -367,6 +367,10 @@
       "to": "打开 ORCID 主页：$1"
     },
     {
+      "re": "^Click to open ORCID profile: (.+)$",
+      "to": "点击打开 ORCID 主页：$1"
+    },
+    {
       "re": "^Collections( < BioStudies < EMBL-EBI)$",
       "to": "收藏集$1"
     }
@@ -459,6 +463,10 @@
     {
       "pat": "You can {{1}} to claim your data",
       "zh": "您可以{{1}}来认领您的数据"
+    },
+    {
+      "pat": "{{1}}. {{2}}; Volume {{3}}. Page: {{4}}. {{5}} {{6}} {{7}}",
+      "zh": "{{1}}. {{2}}；第 {{3}} 卷。第 {{4}} 页。{{5}} {{6}} {{7}}"
     }
   ]
 }

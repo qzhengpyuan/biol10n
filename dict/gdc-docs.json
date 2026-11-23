@@ -775,6 +775,10 @@
     {
       "pat": "The {{1}} is a robust web-based platform that allows users to search, analyze, and download data for custom cohorts from cancer genomic studies. For detailed instructions on using the GDC Data Portal, please see our {{2}} which are also available in the {{3}}。",
       "zh": "{{1}}是一个稳健的基于网页的平台，允许用户检索、分析与下载癌症基因组研究中自定义队列的数据。有关使用 GDC 数据门户的详细说明，请参阅我们的{{2}}，这些视频也可在{{3}}中获取。"
+    },
+    {
+      "pat": "The GDC draws upon the expertise of collaborators in the development of pipelines supporting data processing including the standardization of associated biospecimen and clinical data, the re-alignment of DNA and RNA sequence data against a common reference genome build, and the generation of derived data. GDC pipelines are implemented using data processing software and algorithms selected in consultation with the expert genomics community. GDC Workflows including fully implemented bioinformatics tools, Common Workflow Language (CWL) scripts, and Docker files are available in the {{1}} for reproducibility and are documented in the {{2}}.",
+      "zh": "GDC 借助合作者的专业能力开发支持数据处理的流程，涵盖相关生物样本与临床数据的标准化、将 DNA 与 RNA 序列数据重新比对到统一的参考基因组版本，以及衍生数据的生成。GDC 流程使用经与基因组学专家社区协商选定的数据处理软件与算法实现。包含完整实现的生物信息学工具、通用工作流语言（CWL）脚本与 Docker 文件的 GDC 工作流可在{{1}}中获取以保证可重现性，并记录在{{2}}中。"
     }
   ]
 }

@@ -111,6 +111,7 @@
     "Next 5 Pages": "后 5 页",
     "Project Description:": "项目描述：",
     "Lab Head:": "实验室负责人：",
+    "; PubMed:": "；PubMed 编号",
     "Lab Head": "实验室负责人",
     "Made public:": "公开日期：",
     "Download Statistics:": "下载统计：",
@@ -554,6 +555,10 @@
     {
       "re": "^· ([\\d,]+) datasets$",
       "to": "· $1 个数据集"
+    },
+    {
+      "re": "^(.*) \\(lab head\\)$",
+      "to": "$1（实验室负责人）"
     }
   ],
   "templates": [

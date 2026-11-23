@@ -365,6 +365,10 @@
     {
       "re": "^open ORCID profile: (.+)$",
       "to": "打开 ORCID 主页：$1"
+    },
+    {
+      "re": "^Collections( < BioStudies < EMBL-EBI)$",
+      "to": "收藏集$1"
     }
   ],
   "templates": [

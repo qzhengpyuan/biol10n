@@ -1854,7 +1854,7 @@ function createEngine(options) {
     MedGen: 1, Medgen: 1, dbVar: 1, MeSH: 1, ORFfinder: 1, PubChem: 1, dbGaP: 1,
     BioSample: 1, CCDS: 1, STRING: 1, gnomAD: 1, ClinPGx: 1, GXA: 1, GenBank: 1,
     InterPro: 1, BioMart: 1, Europe: 1, Reactome: 1, PRIDE: 1, Expasy: 1, neXtProt: 1,
-    Homepage: 1, Expression: 1, Atlas: 1, Genome: 1, Browser: 1,
+    Homepage: 1, Expression: 1, Atlas: 1, Genome: 1, Browser: 1, BioStudies: 1,
     AmiGO: 1, QuickGO: 1, ClinicalTrials: 1, Targets: 1, TargetScan: 1,
     AlphaFold: 1, PDBe: 1, HPO: 1, Rfam: 1, Ontology: 1, Resource: 1,
     Open: 1, Platform: 1, Gene: 1, Browser: 1,

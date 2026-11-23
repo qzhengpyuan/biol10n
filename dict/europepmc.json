@@ -270,6 +270,10 @@
       "to": "$1 - 检索结果 - Europe PMC"
     },
     {
+      "re": "^(.+) - Abstract - Europe PMC$",
+      "to": "$1 - 摘要 - Europe PMC"
+    },
+    {
       "re": "^Full text: In Europe PMC \\(([\\d,]+)\\)$",
       "to": "全文：Europe PMC 内（$1）"
     },

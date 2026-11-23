@@ -412,7 +412,17 @@
     "Validate and Upload Data to the GDC Data Submission Portal": "校验并上传数据至 GDC 数据提交门户",
     "The GDC Data Submission Portal provides a three stage submission wizard (upload, validation, submission) that validates files before the user submits them into the GDC. Reports are automatically generated following each file validation, giving the user in depth details about errors in files uploaded for submission. Submission is only possible for files passing validation, to ensure that only high quality data is submitted into the GDC.": "GDC 数据提交门户提供三阶段提交向导（上传、校验、提交），在用户将文件提交至 GDC 之前先校验文件。每次文件校验后都会自动生成报告，向用户详细说明为提交而上传的文件中的错误。只有通过校验的文件才能提交，以确保只有高质量数据进入 GDC。",
     "Browse Uploaded Data Prior to Submission and Release": "在提交与发布前浏览已上传数据",
-    "The GDC Data Submission Portal is equipped with a Data Browser, allowing users to dive into uploaded data. The Data Browser provides filter mechanisms to easily identify incomplete data and download reports, tables and manifests to be used by other tools. The Data Browser also places emphasis on links between entities, allowing users to navigate through all data associated with a specific case.": "GDC 数据提交门户配备数据浏览器，让用户深入查看已上传数据。数据浏览器提供筛选机制，便于识别不完整数据，并下载报告、表格与清单文件供其他工具使用。数据浏览器还强调实体之间的链接，让用户能够浏览与特定病例关联的全部数据。"
+    "The GDC Data Submission Portal is equipped with a Data Browser, allowing users to dive into uploaded data. The Data Browser provides filter mechanisms to easily identify incomplete data and download reports, tables and manifests to be used by other tools. The Data Browser also places emphasis on links between entities, allowing users to navigate through all data associated with a specific case.": "GDC 数据提交门户配备数据浏览器，让用户深入查看已上传数据。数据浏览器提供筛选机制，便于识别不完整数据，并下载报告、表格与清单文件供其他工具使用。数据浏览器还强调实体之间的链接，让用户能够浏览与特定病例关联的全部数据。",
+    "GDC and SI": "GDC 与超级智能（SI）",
+    "Auth Token GDC": "GDC 认证令牌",
+    "authentication tokens": "认证令牌",
+    "lightbox image": "灯箱图片",
+    "How long do GDC authentication tokens remain valid?": "GDC 认证令牌的有效期是多久？",
+    "I logged into the GDC Portal yesterday, why can I not login to the GDC Portal today?": "我昨天登录了 GDC 门户，为什么今天无法登录 GDC 门户？",
+    "Obtain an": "获取",
+    "overview of the GDC and explore GDC 2.0": "GDC 概览并探索 GDC 2.0",
+    "Genomic Data Commons Podcast": "基因组数据共享平台播客",
+    "NCI Personal Genomics Podcast Series": "NCI 个人基因组学播客系列"
   },
   "rules": [
     {
@@ -733,6 +743,10 @@
     {
       "pat": "Following successful submission of biospecimen and clinical data files into the GDC, users can download a manifest file and import the file into the {{1}} for uploading large molecular data files into the GDC.",
       "zh": "生物样本与临床数据文件成功提交至 GDC 后，用户可下载清单文件，并将该文件导入{{1}}，以便将大体量分子数据文件上传至 GDC。"
+    },
+    {
+      "pat": "GDC {{1}} remain valid for 30 days.",
+      "zh": "GDC {{1}}的有效期为 30 天。"
     }
   ]
 }

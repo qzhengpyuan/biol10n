@@ -139,7 +139,8 @@
     "by domain architecture": "按结构域架构",
     "Search by protein families, domains, proteins, keywords, or GO terms": "按蛋白家族、结构域、蛋白、关键词或 GO 术语检索",
     "Examples:": "示例：",
-    "Powered by": "技术支持",
+    "EBI search": "EBI search 提供支持",
+    "Found an exact match:": "找到精确匹配：",
     "InterPro text search is powered by the EBI Search, a scalable text search engine that provides easy and uniform access to the biological data resources hosted at the European Bioinformatics Institute (EMBL-EBI).": "InterPro 文本检索由 EBI Search 提供支持，这是一个可扩展的文本检索引擎，可便捷、统一地访问欧洲生物信息研究所（EMBL-EBI）托管的生物数据资源。",
     "Help & Support": "帮助与支持",
     "Available": "可用",
@@ -295,12 +296,14 @@
     "Sequence Ontology": "序列本体",
     "Profile HMM": "HMM 剖面",
     "Wikipedia": "维基百科",
+    "and": "和",
     "and the": "以及",
     "Show": "显示",
     "By Entry": "按条目",
     "On": "开",
     "Off": "关",
     "PROSITE profiles": "PROSITE 谱",
+    "PROSITE patterns": "PROSITE 模式",
     ". Do not include any personal information about you or others in the chat (for more information, see the": "。请勿在聊天中包含你或他人的任何个人信息（更多信息请参见",
     "InterPro Version": "InterPro 版本",
     "Glogal biodata coalition logo": "全球生物数据联盟标志",
@@ -328,12 +331,16 @@
   },
   "rules": [
     {
+      "re": "^(Powered by)$",
+      "to": "由"
+    },
+    {
       "re": "^Approximately ([\\d.,]+k?)$",
       "to": "约 $1"
     },
     {
       "re": "^Found an exact gene match for (.+) in the following key species:$",
-      "to": "在以下关键物种中找到与 $1 完全匹配的基因："
+      "to": "在以下关键物种中找到与 $1 精确匹配的基因："
     },
     {
       "re": "^(?:\\.\\.\\. )?and (\\d+) proteins? more \\(click to show\\)\\.$",
@@ -389,6 +396,10 @@
     }
   ],
   "templates": [
+    {
+      "pat": "Found an exact gene match for {{1}} in the following key species:",
+      "zh": "在以下关键物种中找到与 {{1}} 精确匹配的基因："
+    },
     {
       "pat": "This website requires cookies, and the limited processing of your personal data in order to function. By using the site you are agreeing to this as outlined in our {{1}} and {{2}}.",
       "zh": "本网站需要 Cookie，并会对你的个人数据做有限处理才能正常运行。使用本网站即表示你同意我们在{{1}}与{{2}}中所述的内容。"

@@ -260,12 +260,12 @@ test("模板按中文语序重排槽位：{{2}} 在 {{1}} 之前", () => {
   const li = doc.getElementById("l1");
   assert.equal(
     li.textContent,
-    "在 NCI Personal Genomics Podcast Series 的 Genomic Data Commons Podcast 中了解 GDC 的发展历程"
+    "在 NCI 个人基因组学播客系列的基因组数据共享平台播客中了解 GDC 的发展历程"
   );
   const links = [...li.querySelectorAll("a")];
   assert.equal(links.length, 2);
-  assert.equal(links[0].textContent, "NCI Personal Genomics Podcast Series", "第一个链接应是原第二个槽位");
-  assert.equal(links[1].textContent, "Genomic Data Commons Podcast");
+  assert.equal(links[0].textContent, "NCI 个人基因组学播客系列", "第一个链接应是原第二个槽位");
+  assert.equal(links[1].textContent, "基因组数据共享平台播客");
   assert.equal(links[0].getAttribute("href"), "/nci-podcast");
 });
 

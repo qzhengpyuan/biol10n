@@ -418,7 +418,11 @@
     "Why should I submit my data to GEO?": "为什么应将数据提交到 GEO？",
     "within 5 business days": "5 个工作日内",
     "You have three choices when submitting data on behalf of others:": "代他人提交数据时有三种选择：",
-    "Your personalized upload space is being created. Please refresh this page in a few seconds.": "正在创建您的个人上传空间。请稍后刷新本页。"
+    "Your personalized upload space is being created. Please refresh this page in a few seconds.": "正在创建您的个人上传空间。请稍后刷新本页。",
+    "federal holidays": "联邦假日",
+    "My GEO Profile form": "我的 GEO 个人资料表单",
+    "access token": "访问令牌",
+    "here": "此处"
   },
   "rules": [
     {

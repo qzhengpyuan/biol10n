@@ -29,10 +29,14 @@ function createEngine(options) {
   var exact = new Map();
   var lowerIndex = new Map(); // 大小写兜底：SEARCH / search → 同一个译文
   var keyIndex = new Map(); // 规范化后的键 -> 原键（用于命中统计）
+  // 全大写缩写（AND / NOT / OR / DNA）不进大小写兜底：兜底会把正文里的小写 not/and/or
+  // 也套上译文，STRING 的「your network does not have significantly more interactions」
+  // 就被翻成「does 非 have」（r29）。大写的界面标签仍走 exact 精确命中。
+  var CAPS_ABBR = /^[A-Z][A-Z0-9_]{1,7}$/;
   Object.keys(data.exact || {}).forEach(function (k) {
     exact.set(normalize(k), data.exact[k]);
     var lk = normalize(k).toLowerCase();
-    if (!lowerIndex.has(lk)) lowerIndex.set(lk, data.exact[k]);
+    if (!CAPS_ABBR.test(normalize(k)) && !lowerIndex.has(lk)) lowerIndex.set(lk, data.exact[k]);
     keyIndex.set(normalize(k), k);
   });
 
@@ -1213,6 +1217,32 @@ function createEngine(options) {
     return any ? out.join(" · ") : null;
   }
 
+  /** 属性里的 HTML 片段（UCSC hgTracks 的 <b>Transcript:</b> ENST… <br><b>Strand:</b> +、
+   *  hgGeneGraph 的 <b>INS-PRKAG1</b> <ul><li>No curated information</ul>）：整串不可能命中，
+   *  <br> 分段又只处理换行。按标签切开、只翻文本段，标签原样拼回。 */
+  function translateHtmlAttr(raw) {
+    var parts = String(raw).split(/(<[^>]*>)/);
+    if (parts.length < 3) return null;
+    var any = false;
+    for (var i = 0; i < parts.length; i += 2) {
+      var seg = parts[i];
+      if (!seg) continue;
+      // 段首尾的空白与 &nbsp; 实体不参与查表，但要原样留着（UCSC 用两个 &nbsp; 做缩进）
+      var m = /^([\s]*(?:&nbsp;[\s]*)*)(.*?)((?:[\s]*&nbsp;)*[\s]*)$/.exec(seg);
+      if (!m) continue;
+      var lead = m[1], core = m[2], tail = m[3];
+      var t = normalize(core);
+      if (!t || hasCJK(t) || !LETTER.test(t)) continue;
+      var v = translate(t);
+      if (v === null) continue;
+      // 标签式键（Transcript: / Strand:）的冒号会被通用「Transcript」词条吃掉，这里补回
+      if (/:$/.test(core) && !/[:：]$/.test(v)) v += "：";
+      parts[i] = lead + v + tail;
+      any = true;
+    }
+    return any ? parts.join("") : null;
+  }
+
   function handleAttributesInner(el) {
     if (!enabled || !el || !el.getAttribute) return;
     // OPTGROUP 的分组名只在 label 属性里，不在默认属性表里；OPTION[value] 是提交参数，绝不能动。
@@ -1280,6 +1310,8 @@ function createEngine(options) {
       var out = translate(text);
       // 字面 <br> 的属性值（HPA 图例 tooltip）：整串不中时再按段翻一次
       if (out === null && /<br\s*\/?>/i.test(String(v))) out = translateBrAttr(v);
+      // 更一般的属性内 HTML（<b>/<ul>/<i> 等）：按标签切段、只翻文本段
+      if (out === null && /<[a-z][^>]*>/i.test(String(v))) out = translateHtmlAttr(v);
       if (out === null) continue;
       if (fromProp) {
         if (!propOriginals.has(el)) propOriginals.set(el, v);

@@ -1248,6 +1248,7 @@
       "id": "biomart",
       "name": "Ensembl BioMart",
       "hosts": [
+        "ensembl.org",
         "*.archive.ensembl.org"
       ],
       "path": "^/biomart",

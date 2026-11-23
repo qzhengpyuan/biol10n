@@ -248,7 +248,21 @@
     "Bluesky": "Bluesky 社交平台",
     "YouTube": "YouTube 视频平台",
     "Data": "数据",
-    "EMBL-EBI’s long term data preservation policies": "EMBL-EBI 的长期数据保存政策"
+    "EMBL-EBI’s long term data preservation policies": "EMBL-EBI 的长期数据保存政策",
+    "Impact metrics": "影响力指标",
+    "Jump to Citations": "跳到引文",
+    "Citations of article over time": "文章被引次数随时间变化",
+    "Smart citations by scite.ai": "scite.ai 智能引文",
+    "Explore citation contexts and check if this article has been supported or disputed.": "探索引文语境，查看本文究竟被支持还是被质疑。",
+    "Supporting": "支持",
+    "Mentioning": "提及",
+    "Contrasting": "对立",
+    "Article citations": "文章引文",
+    "Failed to load data links. Please reload the page.": "数据链接加载失败，请重新加载页面。",
+    "Show more figures": "查看更多图片",
+    "Citation chart": "被引图表",
+    "Add to list": "加入列表",
+    "Please sign in to save and receive email updates for new results.": "请登录后保存，并接收新结果的邮件提醒。"
   },
   "rules": [
     {
@@ -362,6 +376,18 @@
     {
       "re": "^(.+), (\\d{1,2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec) (\\d{4}), (.+)$",
       "to": "$1，$4 年 $3 $2 日，$5"
+    },
+    {
+      "re": "^Figures \\((\\d+)\\)$",
+      "to": "图（$1）"
+    },
+    {
+      "re": "^\\(Figure (\\d+)\\.\\) Click for full size image$",
+      "to": "（图 $1）点击查看原图"
+    },
+    {
+      "re": "^\\[Show all (\\d+)\\]$",
+      "to": "[显示全部 $1]"
     }
   ],
   "templates": [
@@ -408,6 +434,10 @@
     {
       "pat": "{{1}} All articles with a known link to a free and legal copy of the full text, but that are not available to read within Europe PMC. These links are usually provided by {{2}}",
       "zh": "{{1}}所有已知存在免费且合法的全文副本链接、但无法在 Europe PMC 内阅读的文章。这些链接通常由{{2}}提供。"
+    },
+    {
+      "pat": "Smart citations by {{1}} include citation statements extracted from the full text of the citing article. The number of the statements may be higher than the number of citations provided by EuropePMC if one paper cites another multiple times or lower if scite has not yet processed some of the citing articles.",
+      "zh": "{{1}} 的智能引文包含从引用文章全文中提取的引文语句。若一篇论文多次引用另一篇论文，语句数可能高于 EuropePMC 给出的被引次数；若 scite 尚未处理某些引用文章，则可能低于该次数。"
     }
   ]
 }

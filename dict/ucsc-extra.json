@@ -235,7 +235,28 @@
     "alternate loci scaffolds": "替代位点 scaffold",
     "UCSC Genome Browser Basics Part 1": "UCSC 基因组浏览器基础 第 1 部分",
     "Intro to UCSC SARS-CoV-2 Browser": "UCSC SARS-CoV-2 浏览器简介",
-    "Saving and Sharing Sessions in the Genome Browser": "在基因组浏览器中保存与共享会话"
+    "Saving and Sharing Sessions in the Genome Browser": "在基因组浏览器中保存与共享会话",
+    "Hide all other tracks": "隐藏其他所有轨道",
+    "Move to top": "移至顶部",
+    "Move to bottom": "移至底部",
+    "Change Track Color": "更改轨道颜色",
+    "Reset filters to defaults": "将过滤器重置为默认值",
+    "View image": "查看图像",
+    "Track Description": "轨道说明",
+    "Add a highlight that covers the entire currently shown region, using the default color. Keyboard shortcut memo is": "添加一个覆盖当前整个显示区域的高亮，使用默认颜色。键盘快捷键提示：",
+    "Add a highlight that covers the entire region shown&lt;br&gt;&lt;i&gt;Keyboard shortcut:&lt;/i&gt; h, then m": "添加一个覆盖当前整个显示区域的高亮。键盘快捷键：先按 h，再按 m",
+    "Strand:": "链：",
+    "Exon:": "外显子：",
+    "Intron:": "内含子：",
+    "Length:": "长度：",
+    "Exon Length:": "外显子长度：",
+    "Codons:": "密码子：",
+    "Codon phase": "密码子相位",
+    "in-frame exon": "框内外显子",
+    "out-of-frame exon": "框外外显子",
+    "Databases:": "数据库：",
+    "Score:": "得分：",
+    "Gap:": "间隙："
   },
   "rules": [
     {
@@ -285,6 +306,34 @@
     {
       "re": "^For more information about the files included in the (.+) GenBank submission, see the$",
       "to": "有关 $1 GenBank 提交中所含文件的更多信息，请参阅"
+    },
+    {
+      "re": "^(.+) click or right click to configure\\.\\.\\.$",
+      "to": "$1：点击或右键单击可配置"
+    },
+    {
+      "re": "^Configure (.+) track set\\.\\.\\.$",
+      "to": "配置 $1 轨道集……"
+    },
+    {
+      "re": "^Configure (.+)$",
+      "to": "配置 $1"
+    },
+    {
+      "re": "^Track Description (.+)$",
+      "to": "轨道说明：$1"
+    },
+    {
+      "re": "^Intron (\\d+) of (\\d+)$",
+      "to": "第 $1 个（共 $2 个）"
+    },
+    {
+      "re": "^Exon (\\d+) of (\\d+)$",
+      "to": "第 $1 个（共 $2 个）"
+    },
+    {
+      "re": "^Codon phase: (\\d+)$",
+      "to": "密码子相位：$1"
     }
   ]
 }

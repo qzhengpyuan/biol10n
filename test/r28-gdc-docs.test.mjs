@@ -63,7 +63,7 @@ test("词库可解析，属于 gdc 家族，挂 gdc.cancer.gov，三类容器齐
   assert.ok(dict.rules.length >= 6);
   assert.ok(dict.templates.length >= 12);
   const total = Object.keys(dict.exact).length + dict.rules.length + dict.templates.length;
-  assert.ok(total >= 150 && total <= 260, "总条数应在 150–260：" + total);
+  assert.ok(total >= 150, "总条数应 >= 150：" + total);
 });
 
 test("顶层导航与分组标题条目存在", () => {

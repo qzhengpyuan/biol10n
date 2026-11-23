@@ -612,7 +612,64 @@
     "Telephone": "电话",
     "for:": "针对：",
     "Unknown status": "未知状态",
-    "Completed": "已完成"
+    "Completed": "已完成",
+    "No Results Posted": "未发布结果",
+    "Study Start": "研究开始",
+    "Primary Completion": "主要完成",
+    "Study Completion": "研究完成",
+    "Estimated": "预计",
+    "Intervention/Treatment": "干预/治疗",
+    "Parallel Assignment": "平行分配",
+    "Sequential Assignment": "序贯分配",
+    "Non-Randomized": "非随机",
+    "Open Label": "开放标签",
+    "Primary Purpose": "主要目的",
+    "Investigators": "研究者",
+    "Study Chair": "研究主席",
+    "Years and older": "岁及以上",
+    "This is where you will find people and organizations involved with this study.": "这里列出了参与本研究的人员与组织。",
+    "These dates track the progress of study record and summary results submissions to ClinicalTrials.gov. Study records and reported results are reviewed by the National Library of Medicine (NLM) to make sure they meet specific quality control standards before being posted on the public website.": "这些日期记录研究记录与概要结果提交至 ClinicalTrials.gov 的进度。美国国家医学图书馆（NLM）会审核研究记录与所报告的结果，确保其在公开发布前符合特定的质量控制标准。",
+    "This section provides details of the study plan, including how the study is designed and what the study is measuring.": "本节提供研究方案的详细信息，包括研究如何设计以及研究测量什么。",
+    "This section provides contact details for people who can answer questions about joining this study, and information on where this study is taking place.": "本节提供可解答参加本研究相关问题的联系人信息，以及本研究开展地点的信息。",
+    "Researchers look for people who fit a certain description, called": "研究者寻找符合特定描述的人，即",
+    ". Some examples of these criteria are a person's general health condition or prior treatments.": "。这些标准的例子包括个人的总体健康状况或既往治疗。",
+    "Name/Title": "姓名/职称",
+    "Organization": "机构",
+    "Phone": "电话",
+    "Period Title": "阶段标题",
+    "Started": "已开始",
+    "Received Treatment": "已接受治疗",
+    "Not Completed": "未完成",
+    "Physician Decision": "医生决定",
+    "Transferred to another hospital": "转至其他医院",
+    "Withdrawal by Subject": "受试者退出",
+    "Disease severity": "疾病严重程度",
+    "Mild-to-moderate disease severity": "轻至中度疾病严重程度",
+    "Severe disease severity": "重度疾病严重程度",
+    "Statistical Analysis Overview": "统计分析概览",
+    "Comparison Group Selection": "比较组选择",
+    "Type of Statistical Test": "统计检验类型",
+    "Statistical Test of Hypothesis": "假设检验",
+    "Method of Estimation": "估计方法",
+    "Estimation Parameter": "估计参数",
+    "Estimated Value": "估计值",
+    "Estimation Comments": "估计说明",
+    "Primary": "主要",
+    "All-Cause Mortality": "全因死亡率",
+    "<=18 years": "≤18 岁",
+    "Between 18 and 65 years": "18 至 65 岁之间",
+    ">=65 years": "≥65 岁",
+    "Hispanic or Latino": "西班牙裔或拉丁裔",
+    "Not Hispanic or Latino": "非西班牙裔或拉丁裔",
+    "Native Hawaiian or Other Pacific Islander": "夏威夷原住民或其他太平洋岛民",
+    "White": "白人",
+    "Asian": "亚裔",
+    "Superiority": "优效性",
+    "P-Value": "P 值",
+    "Confidence Interval": "置信区间",
+    "Title Acronym": "标题缩写",
+    "None (Open Label)": "无（开放标签）",
+    "Hazard Ratio": "风险比"
   },
   "rules": [
     {
@@ -789,6 +846,46 @@
     {
       "re": "^Search ClinicalTrials\\.gov for: (.+) \\| Table Results \\| ClinicalTrials\\.gov$",
       "to": "检索 ClinicalTrials.gov：$1 | 表格结果 | ClinicalTrials.gov"
+    },
+    {
+      "re": "^Arm (\\d+): (.+)$",
+      "to": "组别 $1：$2"
+    },
+    {
+      "re": "^Collaborators$",
+      "to": "合作方"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Treatment$",
+      "to": "主要目的：治疗"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Prevention$",
+      "to": "主要目的：预防"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Diagnostic$",
+      "to": "主要目的：诊断"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Supportive Care$",
+      "to": "主要目的：支持性照护"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Screening$",
+      "to": "主要目的：筛查"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Health Services Research$",
+      "to": "主要目的：卫生服务研究"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Basic Science$",
+      "to": "主要目的：基础科学"
+    },
+    {
+      "re": "^Primary Purpose\\s*:?\\s*Other$",
+      "to": "主要目的：其他"
     }
   ],
   "templates": [
@@ -1267,6 +1364,10 @@
     {
       "pat": "Study record managers: refer to the {{1}} if submitting registration or results information.",
       "zh": "研究记录管理者：提交注册或结果信息时，请参阅{{1}}。"
+    },
+    {
+      "pat": "Principal Investigators are NOT employed by the organization sponsoring the study.{{1}}{{2}}There IS an agreement between Principal Investigators and the Sponsor (or its agents) that restricts the PI's rights to discuss or publish trial results after the trial is completed",
+      "zh": "主要研究者不受开展研究的组织雇用。{{1}}{{2}}主要研究者与申办方（或其代理机构）之间存在协议，限制 PI 在研究完成后讨论或发表试验结果的权利。"
     }
   ]
 }

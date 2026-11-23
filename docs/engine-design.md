@@ -49,8 +49,26 @@
 
 ## 属性
 
-只碰白名单：`placeholder`、`title`、`aria-label`、`alt`，以及 `input[type=submit|button|reset]` 的 `value`。
-不碰 `value` 正文、不碰 `class`/`id`/`data-*`、不碰 href。
+默认白名单：`placeholder`、`title`、`aria-label`、`alt`、`data-original-title`、`summary`。
+不碰 `class`/`id`/`data-*` 正文、不碰 href。
+
+站级可以用 `attrs` 追加通道（追加不是覆盖），常见的有：
+- `value`：只翻 `input[type=button]` 的可见文案；`type=submit` 的 value 是服务器分支依据，永远不动
+- `data-qtip` / `data-content` / `data-tooltip` / `mouseovertext`：站点自己实现的 tooltip，不进默认表（避免波及其他站的第三方组件）
+
+## 模板通道的边界（2026-11 实测）
+
+段落被内联元素切成多块时用模板：pat 里 `{{n}}` 是子元素的原位，译文按占位符把原节点放回去。边界：
+
+| 限制 | 值 | 后果 |
+|---|---|---|
+| pat 长度 | 20–2200 字符 | 短句（如页脚 `Postdocs and PhDs`，pat 15 字符）建不出模板；放宽会在数据页误伤 `X and Y` 双链接串 |
+| 槽位 | 至少 1 个非空内联元素 | 纯文本 + `<wbr>` 的段落建不出模板——这类走**段落通道**（整句 exact，Reactome 图例即此例） |
+| 容器 | `p, dd, li, td, th, span, div, h1-h4`，但含块级子元素的容器跳过 | `<div.description><div>…</div></div>` 这种多层结构只能逐层落到分段 exact |
+| 变量 | 只收元素，不收裸文本 | 题录/引文这类"跟着文章变"的裸文本无法当槽位，只能翻固定前缀 |
+
+三个通道的分工：exact（整节点）→ 模板（跨内联元素）→ 段落（整块纯文本，长度 100–1800）。写词条前先确认真实 DOM 用哪条，
+照报告转述写模板必然对不上（`<b>`/`<wbr>` 会把句子切在不同位置）。
 
 ## 幂等与可逆
 

@@ -102,9 +102,10 @@ test("hgTracks 图例按钮文字与分组控件", () => {
   const buttons = [...doc.querySelectorAll("button")].map((e) => e.textContent);
   assert.deepEqual(buttons, ["折叠全部轨道分组", "展开全部轨道分组", "隐藏此分组中的全部轨道"]);
   const inputs = [...doc.querySelectorAll("input")];
-  // valueText 站点的 INPUT 提交值不走属性通道（attrs 里没有 value），按钮文字保持原样
-  assert.equal(inputs[0].getAttribute("value"), "Add custom tracks");
+  // r38 起 ucsc 的 attrs 加了 value：按钮/提交值走属性通道（提交参数仍由引擎排除，只改可见文案）
+  assert.equal(inputs[0].getAttribute("value"), "添加自定义轨道");
   assert.equal(inputs[0].getAttribute("title"), "添加你自己的自定义轨道 - 快捷键：c，然后 t");
+  // type=submit 的 value 是提交内容（服务器按它分支），引擎按设计不动，只翻 type=button 的可见文案
   assert.equal(inputs[1].getAttribute("value"), "Collapse all", "submit 提交值保持英文");
   assert.equal(inputs[1].getAttribute("title"), "折叠全部轨道分组");
 });

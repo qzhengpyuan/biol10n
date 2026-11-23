@@ -1322,10 +1322,7 @@
         15000,
         25000
       ],
-      "name": "UCSC Genome Browser",
-      "attrs": [
-        "mouseovertext"
-      ]
+      "name": "UCSC Genome Browser"
     },
     {
       "id": "uniprot",

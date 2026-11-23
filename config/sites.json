@@ -1311,6 +1311,10 @@
       "scope": "body",
       "proseExempt": "#descriptionText",
       "skip": ".gbsPage > h1 + p",
+      "attrs": [
+        "mouseovertext",
+        "value"
+      ],
       "valueText": true,
       "rescan": [
         3000,

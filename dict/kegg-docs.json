@@ -115,7 +115,13 @@
     "No limit": "不限",
     "bget mode": "bget 模式",
     "Kyoto University Bioinformatics Center": "京都大学生物信息学中心",
-    "KEGG Search (Help)": "KEGG 检索（帮助）"
+    "KEGG Search (Help)": "KEGG 检索（帮助）",
+    "KEGG Release Notes": "KEGG 发布说明",
+    "Current release": "当前版本",
+    "Past releases": "过往版本",
+    "GenomeNet release notes archive": "GenomeNet 发布说明存档",
+    "past announcements": "历史公告",
+    "Addendum": "附录"
   },
   "rules": [
     {

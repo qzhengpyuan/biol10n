@@ -156,7 +156,9 @@
     "No items found.": "未找到条目。",
     "Read our recent": "阅读我们近期的",
     "for more details.": "了解更多详情。",
-    "Controlled": "受控访问"
+    "Controlled": "受控访问",
+    "Lab": "实验室",
+    "Processed data included within Sample table": "处理后的数据包含在样本表中"
   },
   "rules": [
     {

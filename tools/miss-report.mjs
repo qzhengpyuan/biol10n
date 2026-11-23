@@ -68,7 +68,8 @@ const COLLECTOR = `(() => {
     if ((el.tagName === "INPUT" && el.type !== "hidden") || el.tagName === "TEXTAREA") names.push("value");
     for (const name of names) {
       const v = (el.getAttribute(name) || "").replace(/\\s+/g, " ").trim();
-      if (!v || v.length > 100) continue;
+      // 上限 200：miRBase 的 175 字符 textarea placeholder 曾被 100 的阈值整条漏掉
+      if (!v || v.length > 200) continue;
       if (!/[A-Za-z]/.test(v) || /[\\u3400-\\u9fff]/.test(v)) continue;
       const k = name + "=" + v;
       if (seen.has(k)) continue;

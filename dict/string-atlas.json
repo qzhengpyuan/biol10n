@@ -699,9 +699,26 @@
   "Now, since the addition of proteins is to some extent based on prior knowledge, you can expect to see some statistical enrichment of annotated functions here.": "由于添加蛋白质在一定程度上基于已有知识，您在这里可能会看到注释功能带来的一些统计富集。",
   "This setting controls how many additional proteins are added to the network beyond your input set. Proteins are selected based on how strongly and specifically they are associated with the proteins currently shown in the network. This setting also changes when you click the": "该设置控制除输入集合之外还向网络中额外添加多少蛋白质。蛋白质按其与当前网络中蛋白质关联的强度与特异性选取。此设置也会改变点击",
   "button.": "按钮时的行为。",
-  "This measure describes how significant the enrichment is. Shown are p-values corrected for multiple testing within each category using the": "该指标描述富集的显著性。所显示的 P 值是每个类别内做多重检验校正后的值，校正方法为"
+  "This measure describes how significant the enrichment is. Shown are p-values corrected for multiple testing within each category using the": "该指标描述富集的显著性。所显示的 P 值是每个类别内做多重检验校正后的值，校正方法为",
+  "Sex": "性别",
+  "Sample lot number": "样本批号",
+  "Tissue supergroup": "组织超类",
+  "Raw Data Provider:": "原始数据提供方：",
+  "'Experiment Data Provider'": "'实验数据提供方'"
  },
  "rules": [
+  {
+   "re": "^Sex: (.+)$",
+   "to": "性别：$1"
+  },
+  {
+   "re": "^Sample lot number: (.+)$",
+   "to": "样本批号：$1"
+  },
+  {
+   "re": "^Tissue supergroup: (.+)$",
+   "to": "组织超类：$1"
+  },
   {
    "re": "^(.+) - STRING interaction network$",
    "to": "$1 - STRING 互作网络"

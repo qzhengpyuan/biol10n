@@ -38,6 +38,7 @@
     "Search for tracks in this genome assembly": "在此基因组组装中检索轨道",
     "Add custom tracks": "添加自定义轨道",
     "The folder icon indicates a container track. Click the track name to see all subtracks.": "文件夹图标表示容器轨道。点击轨道名称可查看全部子轨道。",
+    "Base": "碱基层级",
     "Base Position": "碱基位置",
     "Assembly Tracks": "组装轨道",
     "Centromeres": "着丝粒",

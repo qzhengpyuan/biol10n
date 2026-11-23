@@ -43,9 +43,12 @@
 ## 复测方法
 
 ```bash
-node tools/miss-report.mjs <siteId> <url>   # 生成 research/miss-<siteId>.json
+node tools/miss-report.mjs <siteId> <url>   # 生成 research/miss-<siteId>.json（文本 + 属性）
+node tools/attr-scan.mjs <siteId> <url>     # 属性通道单独普查，按属性名分组，落 research/attrs-<siteId>.json
 node tools/aclass.mjs <siteId>              # 词库有、页面没翻（A 类缺口）
 node tools/scope-check.mjs <siteId> <url>   # scope 选择器 0 命中告警
 ```
+
+attr-scan 覆盖 16 类属性，并默认跳过表单机器值（`input[type=hidden|checkbox|radio]` 与 `option` 的 `value`）——HPA 一页原本 1369 条「残留」里 1319 条是这类噪声，过滤后剩 49 条。判定口径见下文「什么算该翻」。
 
 需要 CDP 9227 上的浏览器（agent 用 `~/.dsh/agent-browser/start-neo-wayland.sh`）。

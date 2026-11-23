@@ -92,6 +92,7 @@
     "Protein change": "蛋白改变",
     "Other names": "其他名称",
     "Canonical SPDI": "规范 SPDI",
+    "Sequence Position Deletion Insertion": "序列位置 缺失 插入",
     "Global minor allele frequency (GMAF)": "全球次要等位基因频率（GMAF）",
     "Allele frequency": "等位基因频率",
     "The frequency of the allele represented by this VCV record.": "本 VCV 记录所代表等位基因的频率。",

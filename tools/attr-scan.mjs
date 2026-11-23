@@ -64,7 +64,10 @@ const COLLECTOR = `(() => {
     const tag = el.tagName.toLowerCase();
     for (const name of names) {
       let v = el.getAttribute(name) || "";
-      if (name === "value" && tag === "input" && el.type === "hidden") continue;
+      // 表单机器值不是界面文案：hidden/checkbox/radio 的 value 是提交参数（HPA 一个页面就有 1319 条）
+      if (name === "value" && tag === "input" && /^(hidden|checkbox|radio)$/.test(el.type)) continue;
+      // <option value> 也是提交参数（HPA 的 gene_name / all），不是界面文案
+      if (name === "value" && (tag === "option" || tag === "optgroup")) continue;
       v = v.replace(/\\s+/g, " ").trim();
       if (!v || v.length > 120) continue;
       if (!/[A-Za-z]/.test(v) || /[\\u3400-\\u9fff]/.test(v)) continue;

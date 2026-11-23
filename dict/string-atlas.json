@@ -503,7 +503,81 @@
   "Train with us": "参加我们的培训",
   "Latest news": "最新新闻",
   "Data resources": "数据资源",
-  "About EMBL": "关于 EMBL"
+  "About EMBL": "关于 EMBL",
+  "STRING Help": "STRING 帮助",
+  "Help Center": "帮助中心",
+  "User documentation": "用户文档",
+  "Getting started": "入门指南",
+  "What is a STRING network?": "什么是 STRING 网络？",
+  "Protein window": "蛋白质窗口",
+  "STRING Videos": "STRING 视频",
+  "Developer documentation": "开发者文档",
+  "External data": "外部数据",
+  "Robot access": "机器人访问",
+  "Video introduction/tutorials:": "视频介绍/教程：",
+  "support request form": "支持请求表单",
+  "frequently asked questions": "常见问题",
+  "Next »": "下一页 »",
+  "Top ↑": "返回顶部 ↑",
+  "Search docs": "搜索文档",
+  "main navigation": "主导航",
+  "top navigation": "顶部导航",
+  "breadcrumbs navigation": "面包屑导航",
+  "footer navigation": "页脚导航",
+  "k-means clustering": "k 均值聚类",
+  "Disconnected nodes": "非连通节点",
+  "Distributed": "分散",
+  "Bottom grid": "底部网格",
+  "Arrange clusters and disconnected components in a grid": "将聚类与非连通组件按网格排列",
+  "Starting Point": "起点",
+  "Navigation Buttons": "导航按钮",
+  "Data Settings": "数据设置",
+  "View Settings": "视图设置",
+  "Tables / Exports": "表格 / 导出",
+  "Conserved Neighborhood": "保守邻域",
+  "Text mining": "文本挖掘",
+  "Red line - indicates the presence of fusion evidence": "红线——表示存在融合证据",
+  "Green line - neighborhood evidence": "绿线——邻域证据",
+  "Blue line - cooccurrence evidence": "蓝线——共现证据",
+  "Purple line - experimental evidence": "紫线——实验证据",
+  "Yellow line - textmining evidence": "黄线——文本挖掘证据",
+  "Light blue line - database evidence": "浅蓝线——数据库证据",
+  "Black line - coexpression evidence.": "黑线——共表达证据。",
+  "low confidence - 0.15 (or better),": "低可信度——0.15（或更高），",
+  "medium confidence - 0.4,": "中等可信度——0.4，",
+  "high confidence - 0.7,": "高可信度——0.7，",
+  "highest confidence - 0.9.": "最高可信度——0.9。",
+  "Protein Window": "蛋白质窗口",
+  "Domain and Structure": "结构域与结构",
+  "STRING API": "STRING API 接口",
+  "Quick start": "快速开始",
+  "Common conventions": "通用约定",
+  "Regulatory and typed networks": "调控网络与分型网络",
+  "Mapping identifiers": "标识符映射",
+  "Getting STRING network image": "获取 STRING 网络图像",
+  "Linking to the network on STRING webpage": "链接到 STRING 网页上的网络",
+  "Linking to the search results page": "链接到检索结果页",
+  "Embedding the interactive network": "嵌入交互式网络",
+  "Getting the STRING network interactions": "获取 STRING 网络互作",
+  "Getting functional enrichment": "获取功能富集",
+  "Retrieving functional annotation": "检索功能注释",
+  "Getting gene set descriptions": "获取基因集描述",
+  "Getting protein-protein interaction enrichment": "获取蛋白质-蛋白质互作富集",
+  "Getting current STRING version": "获取当前 STRING 版本",
+  "Additional information about the API": "关于 API 的补充信息",
+  "Obtain your API Key": "获取您的 API 密钥",
+  "Submit a new job": "提交新任务",
+  "Check job status and retrieve the results": "查看任务状态并获取结果",
+  "Remove a Job": "删除任务",
+  "...but before you start coding:": "…但在开始编码之前：",
+  "How are the scores computed?": "得分是如何计算的？",
+  "How to cite STRING?": "如何引用 STRING？",
+  "How do I link to STRING networks?": "如何链接到 STRING 网络？",
+  "Are the colors assigned to nodes significant?": "节点分配的颜色有意义吗？",
+  "What are the 1st and 2nd shell interactors?": "第一层与第二层互作蛋白是什么？",
+  "How do I map my proteins to STRING identifiers?": "如何将我的蛋白质映射到 STRING 标识符？",
+  "Limitation on the number of proteins?": "蛋白质数量有限制吗？",
+  "Problems to download large files?": "下载大文件有问题？"
  },
  "rules": [
   {
@@ -586,6 +660,14 @@
   {
    "re": "^Copyright © EMBL (\\d{4})$",
    "to": "版权所有 © EMBL $1"
+  },
+  {
+   "re": "^Copyright © (\\d{4})-(\\d{4}) CPR, EMBL, SIB, KU, and UZH\\. All rights reserved\\.$",
+   "to": "版权所有 © $1-$2 CPR、EMBL、SIB、KU 与 UZH。保留所有权利。"
+  },
+  {
+   "re": "^A shareable, permanent link to your network\\. The address shown in your browser expires after three days; this link keeps working after your session has ended, and opens the network in STRING version ([\\d.]+)\\.$",
+   "to": "指向您网络的可分享永久链接。浏览器地址栏中的地址三天后过期；此链接在会话结束后仍然有效，并以 STRING $1 版本打开该网络。"
   }
  ],
  "templates": [
@@ -712,6 +794,14 @@
   {
    "pat": "You can download single experiment files from the {{1}} tab in any experiment page. Below is a short summary about data that you can download in both differential and baseline experiments. If you want to know more about either one, please read the help sections {{2}} and {{3}}, respectively.",
    "zh": "可在任一实验页面的{{1}}选项卡下载单个实验文件。下面简要说明差异实验与基线实验中可下载的数据。如需进一步了解，请分别阅读帮助章节{{2}}与{{3}}。"
+  },
+  {
+   "pat": "The help contains information how to use STRING's website and API. Please read it and check {{1}} before requesting support.",
+   "zh": "本帮助介绍如何使用 STRING 网站与 API。请在请求支持前阅读并查看{{1}}。"
+  },
+  {
+   "pat": "For any further questions, suggestions, and feedback, please use our {{1}} {{2}}",
+   "zh": "如有更多问题、建议或反馈，请使用{{1}}{{2}}。"
   }
  ]
 }

@@ -1717,6 +1717,10 @@
     {
       "re": "^Last update: (.+)$",
       "to": "最后更新：$1"
+    },
+    {
+      "re": "^PMCID: (PMC\\d+)$",
+      "to": "PMCID：$1"
     }
   ],
   "meta": {

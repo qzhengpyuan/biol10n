@@ -153,7 +153,46 @@
     "Exomiser": "Exomiser 外显子组分析工具",
     "Genomiser": "Genomiser 基因组分析工具",
     "Profile Search": "表型谱检索",
-    "Phenopackets": "Phenopackets 表型数据包"
+    "Phenopackets": "Phenopackets 表型数据包",
+    "Annotations": "注释",
+    "Translation": "翻译",
+    "Translations": "翻译",
+    "Layperson Synonyms": "通俗同义词",
+    "Genomic Tools": "基因组工具",
+    "Phenomic Tools": "表型组工具",
+    "Other HPO Browsers": "其他 HPO 浏览器",
+    "Genomiser: Analyze non-coding variants": "Genomiser：分析非编码变异",
+    "Exomiser: Prioritize variants from VCF": "Exomiser：为 VCF 中的变异排定优先级",
+    "Phenomizer: Clinical diagnostics": "Phenomizer：临床诊断",
+    "PhenoGramViz: Evaluation of CNV's": "PhenoGramViz：CNV 评估",
+    "LOINC2HPO: Integration of Laboratory Tests": "LOINC2HPO：实验室检查整合",
+    "Comment:": "注释：",
+    "Organ abnormality": "器官异常",
+    "Which association would you like to download?": "要下载哪一类关联？",
+    "Phenomizer": "Phenomizer 表型诊断工具",
+    "Contribute": "贡献数据",
+    "Feedback & Happy Holidays!": "反馈与节日快乐！",
+    "Could not find requested disease id.": "未找到所请求的疾病编号。",
+    "compute": "计算",
+    "Download Ontology": "下载本体",
+    "Older Versions": "历史版本",
+    "Download latest hp.obo": "下载最新的 hp.obo",
+    "Download latest hp.owl": "下载最新的 hp.owl",
+    "Download latest hp.json": "下载最新的 hp.json",
+    "Download Annotations": "下载注释",
+    "Click here for more information about the contents and formats of our files": "点击此处了解我们文件的内容与格式",
+    "Additional resources": "其他资源",
+    "MAxO Annotations": "MAxO 注释",
+    "Genes To Phenotype": "基因到表型",
+    "Phenotype To Genes": "表型到基因",
+    "Genes to Disease": "基因到疾病",
+    "Ontology Service": "本体服务",
+    "Ontology Annotation Network": "本体注释网络",
+    "Use this API if you need to locate your term and traverse the ontology.": "如果你需要定位术语并遍历本体，请使用此 API。",
+    "This tool will find diseases that share your profile of phenotypes.": "本工具会找出与你的表型谱共享特征的疾病。",
+    "Build Phenotype List": "构建表型列表",
+    "Your Annotations": "你的注释",
+    "The Ontology Lookup Service (OLS)": "本体查询服务（OLS）"
   },
   "rules": [
     {
@@ -205,6 +244,34 @@
     {
       "pat": "Please cite our {{1}} if you use the HPO for published work.",
       "zh": "如果你在已发表工作中使用 HPO，请引用我们的 {{1}}。"
+    },
+    {
+      "pat": "The Human Phenotype Ontology (HPO) provides a standardized vocabulary of phenotypic abnormalities encountered in human disease. Each term in the HPO describes a phenotypic abnormality, such as {{1}}. The HPO is currently being developed using the medical literature, Orphanet, DECIPHER, and OMIM. HPO currently contains over 18,000 terms and over 156,000 annotations to hereditary diseases. The HPO project and others have developed software for phenotype-driven differential diagnostics, genomic diagnostics, and translational research. The HPO is a central component of one of the {{2}} in the {{3}} (GA4GH) {{4}}.",
+      "zh": "人类表型本体（HPO）提供了一套标准化词汇，用于描述人类疾病中遇到的表型异常。HPO 中的每个术语都描述一种表型异常，例如{{1}}。HPO 目前依据医学文献、Orphanet、DECIPHER 与 OMIM 进行开发。HPO 现收录超过 18,000 个术语和超过 156,000 条遗传病注释。HPO 项目及其他团队已开发出用于表型驱动的鉴别诊断、基因组诊断与转化研究的软件。HPO 是{{2}}中某一项目的核心组成部分，该项目属于{{3}}（GA4GH）的{{4}}。"
+    },
+    {
+      "pat": "Temporarily Unavailable. Please {{1}} if this does not return soon.",
+      "zh": "暂时不可用。若稍后仍未恢复，请{{1}}。"
+    },
+    {
+      "pat": "The Human Phenotype Ontology (HPO) project provides an ontology of medically relevant phenotypes, disease-phenotype annotations, and the algorithms that operate on these. The HPO can be used to support differential diagnostics, translational research, and a number of applications in computational biology by providing the means to {{1}} over the clinical phenotype. The HPO is being used for computational deep phenotyping and precision medicine as well as integration of clinical data into translational research. {{2}} can be defined as the precise and comprehensive analysis of phenotypic abnormalities in which the individual components of the phenotype are observed and described. The HPO is being increasingly adopted as a standard for phenotypic abnormalities by diverse groups such as international rare disease organizations, registries, clinical labs, biomedical resources, and clinical software tools and will thereby contribute toward nascent efforts at global data exchange for identifying disease etiologies ({{3}}).",
+      "zh": "人类表型本体（HPO）项目提供一套关于医学相关表型、疾病-表型注释以及在其上运行的算法的本体。HPO 可用于支持鉴别诊断、转化研究以及计算生物学中的多种应用，其方式是提供对临床表型进行{{1}}的手段。HPO 正被用于计算深度表型分析与精准医学，以及把临床数据整合进转化研究。{{2}}可定义为对表型异常进行精确而全面的分析，即观察并描述表型的各个组成部分。HPO 正日益被国际罕见病组织、登记库、临床实验室、生物医学资源与临床软件工具等不同群体采纳为表型异常的标准，从而助力全球数据交换中识别疾病病因的新生努力（{{3}}）。"
+    },
+    {
+      "pat": "The HPO currently contains over 18,000 terms arranged in a directed acyclic graph and are connected by is-a (subclass-of) edges, such that a term represents a more specific or limited instance of its parent term(s). All relationships in the HPO are is-a relationships, i.e. simple class-subclass relationships. For instance, {{1}} is-a {{2}}. The relationships are transitive, meaning that they are inherited up all paths to the root. {{3}} is the main subontology of the HPO and contains descriptions of clinical abnormalities. Additional subontologies are provided to describe inheritance patterns, onset/clinical course and modifiers of abnormalities.",
+      "zh": "HPO 目前收录超过 18,000 个术语，它们组成有向无环图，并通过 is-a（子类）边相连，因此一个术语代表其父术语的一个更具体或更受限的实例。HPO 中的所有关系都是 is-a 关系，即简单的类-子类关系。例如，{{1}} 是 {{2}} 的子类。这些关系具有传递性，即沿所有路径向上继承至根。{{3}} 是 HPO 的主要子本体，包含对临床异常的描述。此外还提供其他子本体，用于描述遗传方式、起病/临床病程以及异常的修饰因素。"
+    },
+    {
+      "pat": "The {{1}} is a repository for biomedical ontologies that aims to provide a single point of access to the latest ontology versions. You can browse the ontologies through the website as well as programmatically via the OLS API.",
+      "zh": "{{1}} 是生物医学本体的存储库，旨在为最新本体版本提供单一访问入口。你既可以浏览网站上的本体，也可以通过 OLS API 以编程方式访问。"
+    },
+    {
+      "pat": "{{1}} is a linked-data server designed for ontologies. Ontobee is aimed to facilitate ontology data sharing, visualization, query, integration, and analysis.",
+      "zh": "{{1}} 是专为本体设计的关联数据服务器，旨在促进本体数据的共享、可视化、查询、整合与分析。"
+    },
+    {
+      "pat": "{{1}} is the ontology browser of the National Center for Biomedical Ontology.",
+      "zh": "{{1}} 是 National Center for Biomedical Ontology 的本体浏览器。"
     }
   ]
 }

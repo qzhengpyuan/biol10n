@@ -246,7 +246,15 @@
     "Select Tissue(s)": "选择组织",
     "For example: ENSG00000248746.5,chr11_66561248_T_C_b38": "例如：ENSG00000248746.5,chr11_66561248_T_C_b38",
     "This repository is under review for potential modification in compliance with Administration directives.": "本数据仓库正在接受审查，可能依据行政指令进行修改。",
-    "Anatomagram": "解剖图"
+    "Anatomagram": "解剖图",
+    "Entrez Gene": "Entrez 基因",
+    "ln(counts per 10k + 1)": "ln（每万计数 + 1）",
+    "ADIPOCYTE": "脂肪细胞",
+    "FIBROBLAST": "成纤维细胞",
+    "MELANOCYTE": "黑素细胞",
+    "UNKNOWN": "未知",
+    "Norm. Expression": "标准化表达量",
+    "Data Source: dGTEx v1": "数据来源：dGTEx v1"
   },
   "rules": [
     {
@@ -286,6 +294,22 @@
     {
       "re": "^<p>Exon-level expression is calculated based on a collapsed gene model\\. To learn more about the collapsing transcript model, go to Documentation: Analysis Methods\\. In the exon view, the heatmap summarizes the median read counts per base of each exon of the collapsed gene model across all tissues\\. The tissues \\(rows\\) are hierarchically clustered, using the Euclidean distance and average linkage\\. The dendrogram scale shows the cluster distance\\. The exons \\(columns\\) are ordered based on genomic location\\. Below the heatmap, the collapsed gene model is illustrated: exons are represented as rectangles, and introns are scaled up to 1 kb long\\. Additionally, the junctions between joined exons of all splice variants are mapped out on the model as arcs\\. At times, an exon on the gene model may show dashed-line borders, which indicates that the exon or part of it has been filtered in the final collapsed model\\. The individual isoform structures are illustrated below the gene model\\. By clicking a tissue label \\(a row label\\) on the heatmap, the gene model and isoform tracks will change colors scaled by tissue-specific expression; a lollipop plot will appear next to the isoform tracks summarizing the isoform-level expression in the tissue\\.</p> <p>In the junction view, the heatmap summarizes the median raw read counts of junctions from individual isoforms\\. The tissues \\(rows\\) are hierarchically clustered based on the junction expression data, and the junctions \\(columns\\) are sorted by genomic location\\.</p> <p>In the isoform expression view, the median expression of each isoform in each tissue is summarized using a heatmap\\. The tissues \\(rows\\) and isoforms \\(columns\\) are ordered based on hierarchical clustering\\. </p> <p>All expression quantifications are described in the Documentation: Analysis Methods -> Expression Quantification section of the portal\\. </p>$",
       "to": "<p>外显子水平表达基于合并后的基因模型计算。要了解转录本合并模型的更多信息，请参阅 文档：分析方法。在外显子视图中，热图汇总合并基因模型各外显子在所有组织中每个碱基的读取计数中位数。组织（行）采用欧氏距离与平均连锁进行层次聚类，树状图刻度显示聚类距离。外显子（列）按基因组位置排序。热图下方展示合并基因模型：外显子以矩形表示，内含子按 1 kb 长度等比缩放；此外，所有剪接变体中相连外显子之间的接头以弧线绘制在模型上。有时基因模型上的某个外显子会显示虚线边框，表示该外显子或其部分已在最终合并模型中被过滤。各异构体结构展示在基因模型下方。点击热图上的组织标签（行标签），基因模型与异构体轨道会按组织特异性表达变色，并在异构体轨道旁出现棒棒糖图，汇总该组织中的异构体水平表达。</p> <p>在接头视图中，热图汇总来自各异构体接头的原始读取计数中位数。组织（行）基于接头表达数据进行层次聚类，接头（列）按基因组位置排序。</p> <p>在异构体表达视图中，以热图汇总各组织中每个异构体的表达中位数。组织（行）与异构体（列）按层次聚类结果排序。</p> <p>所有表达定量方法的说明见门户的 文档：分析方法 -> 表达定量 一节。</p>"
+    },
+    {
+      "re": "^:The slope of the linear regression of normalized expression data versus the three genotype categories using single-tissue eQTL analysis, representing eQTL effect size\\. The normalized expression values are based on quantile normalization within each tissue, followed by inverse quantile normalization for each gene across samples\\.$",
+      "to": "：使用单组织 eQTL 分析，对标准化表达数据与三个基因型类别做线性回归所得的斜率，代表 eQTL 效应量。标准化表达值先在每个组织内做分位数标准化，再跨样本对每个基因做逆分位数标准化。"
+    },
+    {
+      "re": "^:The posterior probability that an eQTL effect exists in each tissue tested in the cross-tissue meta-analysis\\. The m-value ranges between 0 and 1 \\(Han and Eskin, PLoS Genetics 8\\(3\\): e1002555, 2012\\)\\.$",
+      "to": "：跨组织荟萃分析中，所检验的每个组织存在 eQTL 效应的后验概率。m 值介于 0 与 1 之间（Han 与 Eskin，PLoS Genetics 8(3): e1002555, 2012）。"
+    },
+    {
+      "re": "^:From a t-test that compares observed beta from single-tissue eQTL analysis to a null beta of 0\\.$",
+      "to": "：来自 t 检验，将单组织 eQTL 分析得到的观测 beta 与零假设 beta = 0 进行比较。"
+    },
+    {
+      "re": "^pvalue: (.+)$",
+      "to": "P 值：$1"
     }
   ],
   "templates": [

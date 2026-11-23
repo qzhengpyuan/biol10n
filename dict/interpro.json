@@ -306,7 +306,25 @@
     "Glogal biodata coalition logo": "全球生物数据联盟标志",
     "InterPro entry": "InterPro 条目",
     "link to external site": "外部站点链接",
-    "Give this job a local title (only visible on this browser)": "为这个作业起一个本地标题（仅在本浏览器可见）"
+    "Give this job a local title (only visible on this browser)": "为这个作业起一个本地标题（仅在本浏览器可见）",
+    "cathgene3d member database logo": "CATH-Gene3D 成员数据库标志",
+    "cdd member database logo": "CDD 成员数据库标志",
+    "hamap member database logo": "HAMAP 成员数据库标志",
+    "ncbifam member database logo": "NCBIfam 成员数据库标志",
+    "panther member database logo": "PANTHER 成员数据库标志",
+    "pfam member database logo": "Pfam 成员数据库标志",
+    "pirsf member database logo": "PIRSF 成员数据库标志",
+    "prints member database logo": "PRINTS 成员数据库标志",
+    "profile member database logo": "PROSITE profiles 成员数据库标志",
+    "prosite member database logo": "PROSITE patterns 成员数据库标志",
+    "sfld member database logo": "SFLD 成员数据库标志",
+    "smart member database logo": "SMART 成员数据库标志",
+    "ssf member database logo": "SUPERFAMILY 成员数据库标志",
+    "X logo": "X 标志",
+    "EMBL logo": "EMBL 标志",
+    "Wellcome Trust logo": "Wellcome Trust 标志",
+    "BBSRC logo": "BBSRC 标志",
+    "footnote": "脚注"
   },
   "rules": [
     {
@@ -320,6 +338,54 @@
     {
       "re": "^(?:\\.\\.\\. )?and (\\d+) proteins? more \\(click to show\\)\\.$",
       "to": "另有 $1 个蛋白（点击显示）。"
+    },
+    {
+      "re": "^(The CATH-Gene3D database describes protein families and domain architectures in complete genomes\\. Protein families are formed using a Markov clustering algorithm, followed by multi-linkage clustering according to sequence identity\\. Mapping of predicted structure and sequence domains is undertaken using hidden Markov models libraries representing CATH and Pfam domains\\. CATH-Gene3D is based at University College, London, UK\\.)$",
+      "to": "CATH-Gene3D 数据库描述完整基因组中的蛋白家族与结构域架构。蛋白家族先通过马尔可夫聚类算法形成，再按序列一致性进行多链接聚类。预测结构与序列结构域的映射使用代表 CATH 与 Pfam 结构域的隐马尔可夫模型库完成。CATH-Gene3D 依托于 University College，位于 London, UK。"
+    },
+    {
+      "re": "^(CDD is a protein annotation resource that consists of a collection of annotated multiple sequence alignment models for ancient domains and full-length proteins\\. These are available as position-specific score matrices \\(PSSMs\\) for fast identification of conserved domains in protein sequences via RPS-BLAST\\. CDD content includes NCBI-curated domain models, which use 3D-structure information to explicitly define domain boundaries and provide insights into sequence/structure/function relationships, as well as domain models imported from a number of external source databases\\.)$",
+      "to": "CDD 是一个蛋白注释资源，由一组针对古老结构域与全长蛋白的带注释多序列比对模型组成。这些模型以位置特异性评分矩阵（PSSM）的形式提供，可通过 RPS-BLAST 快速识别蛋白序列中的保守结构域。CDD 的内容包括 NCBI 审编的结构域模型——它们利用三维结构信息明确界定结构域边界，并提供对序列/结构/功能关系的洞见——以及从多个外部源数据库导入的结构域模型。"
+    },
+    {
+      "re": "^(HAMAP stands for High-quality Automated and Manual Annotation of Proteins\\. HAMAP profiles are manually created by expert curators\\. They identify proteins that are part of well-conserved protein families or subfamilies\\. HAMAP is based at the SIB Swiss Institute of Bioinformatics, Geneva, Switzerland\\.)$",
+      "to": "HAMAP 代表 High-quality Automated and Manual Annotation of Proteins（高质量蛋白自动与人工注释）。HAMAP 谱由专家审编人员手工创建，用于识别属于高度保守蛋白家族或亚家族的蛋白。HAMAP 依托于 SIB Swiss Institute of Bioinformatics，位于 Geneva, Switzerland。"
+    },
+    {
+      "re": "^(NCBIfam is a collection of protein families, featuring curated multiple sequence alignments, hidden Markov models \\(HMMs\\) and annotation, which provides a tool for identifying functionally related proteins based on sequence homology\\. NCBIfam is maintained at the National Center for Biotechnology Information \\(Bethesda, MD\\)\\. NCBIfam includes models from TIGRFAMs, another database of protein families developed at The Institute for Genomic Research, then at the J\\. Craig Venter Institute \\(Rockville, MD, US\\)\\.)$",
+      "to": "NCBIfam 是一个蛋白家族集合，提供审编的多序列比对、隐马尔可夫模型（HMM）与注释，可作为基于序列同源性识别功能相关蛋白的工具。NCBIfam 由 National Center for Biotechnology Information（Bethesda, MD）维护。NCBIfam 包含来自 TIGRFAMs 的模型；TIGRFAMs 是另一个蛋白家族数据库，最初由 The Institute for Genomic Research 开发，后由 J. Craig Venter Institute（Rockville, MD, US）维护。"
+    },
+    {
+      "re": "^(PANTHER is a large collection of protein families that have been subdivided into functionally related subfamilies, using human expertise\\. These subfamilies model the divergence of specific functions within protein families, allowing more accurate association with function, as well as inference of amino acids important for functional specificity\\. Hidden Markov models \\(HMMs\\) are built for each family and subfamily for classifying additional protein sequences\\. PANTHER is based at the University of Southern California, CA, US\\.)$",
+      "to": "PANTHER 是一个大型蛋白家族集合，借助人工专业知识细分为功能相关的亚家族。这些亚家族对蛋白家族内特定功能的分化进行建模，从而能更准确地将蛋白与功能关联，并推断对功能特异性重要的氨基酸。每个家族与亚家族都构建了隐马尔可夫模型（HMM），用于对更多蛋白序列进行分类。PANTHER 依托于 University of Southern California，位于 CA, US。"
+    },
+    {
+      "re": "^(Pfam is a large collection of multiple sequence alignments and hidden Markov models covering many common protein domains\\. Pfam is based at EMBL-EBI, Hinxton, UK\\.)$",
+      "to": "Pfam 是一个大型集合，包含覆盖许多常见蛋白结构域的多序列比对与隐马尔可夫模型。Pfam 依托于 EMBL-EBI，位于 Hinxton, UK。"
+    },
+    {
+      "re": "^(PIRSF protein classification system is a network with multiple levels of sequence diversity from superfamilies to subfamilies that reflects the evolutionary relationship of full-length proteins and domains\\. PIRSF is based at the Protein Information Resource, Georgetown University Medical Centre, Washington DC, US\\.)$",
+      "to": "PIRSF 蛋白分类系统是一个具有从超家族到亚家族多个序列多样性层级的网络，反映全长蛋白与结构域的进化关系。PIRSF 依托于 Protein Information Resource, Georgetown University Medical Centre，位于 Washington DC, US。"
+    },
+    {
+      "re": "^(PRINTS is a compendium of protein fingerprints\\. A fingerprint is a group of conserved motifs used to characterise a protein family or domain\\. PRINTS is based at the University of Manchester, UK\\.)$",
+      "to": "PRINTS 是一部蛋白指纹汇编。指纹是一组保守基序，用于表征一个蛋白家族或结构域。PRINTS 依托于 University of Manchester，位于 UK。"
+    },
+    {
+      "re": "^(PROSITE is a database of protein families and domains\\. It consists of biologically significant sites, patterns and profiles that help to reliably identify to which known protein family a new sequence belongs\\. PROSITE is based at the Swiss Institute of Bioinformatics \\(SIB\\), Geneva, Switzerland\\.)$",
+      "to": "PROSITE 是一个蛋白家族与结构域数据库，由具有生物学意义的位点、模式与谱组成，可帮助可靠地判定新序列属于哪个已知蛋白家族。PROSITE 依托于 Swiss Institute of Bioinformatics（SIB），位于 Geneva, Switzerland。"
+    },
+    {
+      "re": "^(SFLD \\(Structure-Function Linkage Database\\) is a hierarchical classification of enzymes that relates specific sequence-structure features to specific chemical capabilities\\.)$",
+      "to": "SFLD（Structure-Function Linkage Database，结构-功能关联数据库）是对酶的分层分类，将特定的序列-结构特征与特定的化学能力关联起来。"
+    },
+    {
+      "re": "^(SMART \\(a Simple Modular Architecture Research Tool\\) allows the identification and annotation of genetically mobile domains and the analysis of domain architectures\\. SMART is based at EMBL, Heidelberg, Germany\\.)$",
+      "to": "SMART（a Simple Modular Architecture Research Tool，简易模块化架构研究工具）可用于识别与注释可遗传移动的结构域，并分析结构域架构。SMART 依托于 EMBL，位于 Heidelberg, Germany。"
+    },
+    {
+      "re": "^(SUPERFAMILY is a library of profile hidden Markov models that represent all proteins of known structure\\. The library is based on the SCOP classification of proteins: each model corresponds to a SCOP domain and aims to represent the entire SCOP superfamily that the domain belongs to\\. SUPERFAMILY is based at the University of Bristol, UK\\.)$",
+      "to": "SUPERFAMILY 是一个 HMM 剖面库，代表所有已知结构的蛋白。该库基于蛋白的 SCOP 分类：每个模型对应一个 SCOP 结构域，并力求代表该结构域所属的整个 SCOP 超家族。SUPERFAMILY 依托于 University of Bristol，位于 UK。"
     }
   ],
   "templates": [

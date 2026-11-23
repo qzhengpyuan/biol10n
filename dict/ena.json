@@ -506,7 +506,8 @@
     "Submitted files are only available for data submitted via ENA": "提交文件仅对通过 ENA 提交的数据可用",
     "Postdocs": "博士后",
     "PhDs": "博士生",
-    "Analysis Files:": "分析文件："
+    "Analysis Files:": "分析文件：",
+    "PageTab": "页面标签"
   },
   "rules": [
     {

@@ -526,7 +526,9 @@
     "Download an image of this structure": "下载此结构的图像",
     "Download the coordinates of this structure": "下载此结构的坐标",
     "Change the 3D display options": "更改 3D 显示选项",
-    "View structure in full screen": "全屏查看结构"
+    "View structure in full screen": "全屏查看结构",
+    "JSON representation of this page": "本页的 JSON 表示",
+    "breadcrumbs": "面包屑"
   },
   "rules": [
     {
@@ -544,6 +546,10 @@
     {
       "re": "^(\\d+) of ([\\d,]+)$",
       "to": "第 $1 页，共 $2 页"
+    },
+    {
+      "re": "^Go to (.+) section$",
+      "to": "转到 $1 部分"
     }
   ],
   "templates": [

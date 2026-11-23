@@ -218,7 +218,35 @@
     ", NOT in the Sequence Read Archive (SRA)": "，而不在序列读段存档（SRA）中",
     "NOTE: This is a very large file and downloading will take hours. If you only need the significant associations, please download the file GTEx_Analysis_V4_eQTLs.tar.gz instead.": "注意：该文件非常大，下载需要数小时。若只需要显著关联，请改为下载文件 GTEx_Analysis_V4_eQTLs.tar.gz。",
     "Normalized quantification values for splice junction, exons, and introns described in Rivas et al. (Submitted)": "Rivas 等人（已投稿）所述剪接接头、外显子与内含子的标准化定量值",
-    "Results from the psiQTL analysis for mine main tissues, plus brain, plus multi-tissue that averages the exons where data for three or more tissues is available.": "psiQTL 分析结果，涵盖主要组织、脑，以及在有三种或以上组织数据的外显子上取平均的多组织结果。"
+    "Results from the psiQTL analysis for mine main tissues, plus brain, plus multi-tissue that averages the exons where data for three or more tissues is available.": "psiQTL 分析结果，涵盖主要组织、脑，以及在有三种或以上组织数据的外显子上取平均的多组织结果。",
+    "Copy URL to clipboard": "复制链接到剪贴板",
+    "Search query": "搜索关键词",
+    "Metadata": "元数据",
+    "RNA-Seq": "RNA 测序",
+    "here": "此处",
+    "Main Sampling Site": "主要采样部位",
+    "With Genotype": "有基因型数据",
+    "Number of Samples": "样本数",
+    "Gene Expression": "基因表达",
+    "Female": "女性",
+    "Male": "男性",
+    "Bulk Tissue RNA-Seq Sample Info": "批量组织 RNA-Seq 样本信息",
+    "Mitochondrial genes are excluded.": "已排除线粒体基因。",
+    "QTL analysis results are available for tissues with >70 samples with genotype data": "QTL 分析结果仅提供基因型样本数 >70 的组织",
+    "The following interactive heat map reports the top 50 expressed genes in": "以下交互式热图展示",
+    "as well as their expression profiles across all tissues.": "中表达量最高的 50 个基因，以及它们在所有组织中的表达谱。",
+    "Information about this GTEx tissue is available to view at": "该 GTEx 组织的相关信息可在以下位置查看：",
+    "Tissue Sites Mapped to HuBMAP Human Reference Atlas": "映射到 HuBMAP 人类参考图谱的组织位点",
+    "Created by Mariya Kahn and the GTEx Portal team": "由 Mariya Kahn 与 GTEx 门户团队创建",
+    "Chart: GTEx samples by tissue": "图表：各组织的 GTEx 样本数",
+    "GTEx eQTL Dashboard": "GTEx eQTL 仪表盘",
+    "Enter Gene-Variant Pairs": "输入基因-变异对",
+    "Limited to 30 entries.": "最多 30 条。",
+    "Example search": "示例检索",
+    "Select Tissue(s)": "选择组织",
+    "For example: ENSG00000248746.5,chr11_66561248_T_C_b38": "例如：ENSG00000248746.5,chr11_66561248_T_C_b38",
+    "This repository is under review for potential modification in compliance with Administration directives.": "本数据仓库正在接受审查，可能依据行政指令进行修改。",
+    "Anatomagram": "解剖图"
   },
   "rules": [
     {
@@ -238,6 +266,26 @@
     {
       "re": "^A data dictionary that describes each variable in the (GTEx_[A-Za-z0-9_]+\\.[A-Za-z0-9_]+)\\.$",
       "to": "描述 $1 中每个变量的数据字典。"
+    },
+    {
+      "re": "^A data dictionary that describes each variable in the (GTEx_[A-Za-z0-9_]+\\.[A-Za-z0-9_]+)$",
+      "to": "描述 $1 中每个变量的数据字典。"
+    },
+    {
+      "re": "^Table: Sample count in (.+)$",
+      "to": "表格：$1 的样本数"
+    },
+    {
+      "re": "^GTEx Analysis (V[0-9]+[a-z]?|Pilot V[0-9]+)$",
+      "to": "GTEx 分析 $1"
+    },
+    {
+      "re": "^Expression values are shown in TPM \\(Transcripts Per Million\\), calculated from a gene model with isoforms collapsed to a single gene \\(see Datasets -> Download -> Reference\\)\\. No other normalization steps have been applied\\. Box plots are shown as median and 25th and 75th percentiles; points are displayed as outliers if they are above or below 1\\.5 times the interquartile range\\.$",
+      "to": "表达值以 TPM（Transcripts Per Million，每百万转录本数）表示，基于将异构体合并为单一基因的基因模型计算（见 数据集 -> 下载 -> 参考）。未施加其他标准化步骤。箱线图显示中位数以及第 25 与第 75 百分位数；高于或低于四分位距 1.5 倍的点会作为离群值显示。"
+    },
+    {
+      "re": "^<p>Exon-level expression is calculated based on a collapsed gene model\\. To learn more about the collapsing transcript model, go to Documentation: Analysis Methods\\. In the exon view, the heatmap summarizes the median read counts per base of each exon of the collapsed gene model across all tissues\\. The tissues \\(rows\\) are hierarchically clustered, using the Euclidean distance and average linkage\\. The dendrogram scale shows the cluster distance\\. The exons \\(columns\\) are ordered based on genomic location\\. Below the heatmap, the collapsed gene model is illustrated: exons are represented as rectangles, and introns are scaled up to 1 kb long\\. Additionally, the junctions between joined exons of all splice variants are mapped out on the model as arcs\\. At times, an exon on the gene model may show dashed-line borders, which indicates that the exon or part of it has been filtered in the final collapsed model\\. The individual isoform structures are illustrated below the gene model\\. By clicking a tissue label \\(a row label\\) on the heatmap, the gene model and isoform tracks will change colors scaled by tissue-specific expression; a lollipop plot will appear next to the isoform tracks summarizing the isoform-level expression in the tissue\\.</p> <p>In the junction view, the heatmap summarizes the median raw read counts of junctions from individual isoforms\\. The tissues \\(rows\\) are hierarchically clustered based on the junction expression data, and the junctions \\(columns\\) are sorted by genomic location\\.</p> <p>In the isoform expression view, the median expression of each isoform in each tissue is summarized using a heatmap\\. The tissues \\(rows\\) and isoforms \\(columns\\) are ordered based on hierarchical clustering\\. </p> <p>All expression quantifications are described in the Documentation: Analysis Methods -> Expression Quantification section of the portal\\. </p>$",
+      "to": "<p>外显子水平表达基于合并后的基因模型计算。要了解转录本合并模型的更多信息，请参阅 文档：分析方法。在外显子视图中，热图汇总合并基因模型各外显子在所有组织中每个碱基的读取计数中位数。组织（行）采用欧氏距离与平均连锁进行层次聚类，树状图刻度显示聚类距离。外显子（列）按基因组位置排序。热图下方展示合并基因模型：外显子以矩形表示，内含子按 1 kb 长度等比缩放；此外，所有剪接变体中相连外显子之间的接头以弧线绘制在模型上。有时基因模型上的某个外显子会显示虚线边框，表示该外显子或其部分已在最终合并模型中被过滤。各异构体结构展示在基因模型下方。点击热图上的组织标签（行标签），基因模型与异构体轨道会按组织特异性表达变色，并在异构体轨道旁出现棒棒糖图，汇总该组织中的异构体水平表达。</p> <p>在接头视图中，热图汇总来自各异构体接头的原始读取计数中位数。组织（行）基于接头表达数据进行层次聚类，接头（列）按基因组位置排序。</p> <p>在异构体表达视图中，以热图汇总各组织中每个异构体的表达中位数。组织（行）与异构体（列）按层次聚类结果排序。</p> <p>所有表达定量方法的说明见门户的 文档：分析方法 -> 表达定量 一节。</p>"
     }
   ],
   "templates": [

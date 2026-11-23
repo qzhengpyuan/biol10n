@@ -697,7 +697,11 @@
     "Subheadings Category": "副主题词类别",
     "Subheading Category": "副主题词类别",
     "MyNCBI": "我的 NCBI",
-    "Medgen web": "MedGen 网页"
+    "Medgen web": "MedGen 网页",
+    "Sorry, this page can't be found!": "抱歉，找不到此页面！",
+    "Please check the address bar for any mistakes": "请检查地址栏是否有误。",
+    "Sorry, we can't find this study": "抱歉，找不到这项研究。",
+    "Please check that the NCT number (ClinicalTrials.gov Identifier) is correct or try going back:": "请检查 NCT 编号（ClinicalTrials.gov 标识符）是否正确，或返回上一页："
   },
   "rules": [
     {

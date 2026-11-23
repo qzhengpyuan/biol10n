@@ -296,7 +296,145 @@
     "Finally, the experimentally validated annotations found in PDBe are transferred across through sequence identity matching to predicted models in AFDB.": "最后，PDBe 中经实验验证的注释通过序列一致性匹配转移到 AFDB 中的预测模型。",
     "AlphaMissense is an AI model that builds on Google DeepMind’s AlphaFold2 to categorise ‘missense’ mutations in different proteins as either ‘likely pathogenic’, ‘likely benign’ or ‘uncertain’, producing a score that estimates the likelihood of a variant being pathogenic. AlphaMissense leverages AlphaFold2’s capability to model protein structure, and its capacity to learn evolutionary constraints from related sequences. The implementation is closely aligned with AlphaFold2, with some architectural differences.": "AlphaMissense 是一个建立在 Google DeepMind AlphaFold2 之上的 AI 模型，把不同蛋白质中的“错义”突变归为“可能致病”“可能良性”或“不确定”，并给出估计变异致病可能性的分数。AlphaMissense 借助 AlphaFold2 建模蛋白质结构的能力，以及从相关序列学习进化约束的能力。其实现与 AlphaFold2 高度一致，仅有一些架构差异。",
     "Note that AlphaMissense does not predict the change in protein structure, or biophysical properties such as stability, upon mutation. Instead, it uses related protein sequences and protein structure as contextual information to estimate pathogenicity.": "注意 AlphaMissense 不预测突变后蛋白质结构的变化，也不预测稳定性等生物物理性质。它使用相关蛋白质序列与蛋白质结构作为上下文信息来估计致病性。",
-    "Currently, we are experiencing an issue fetching data. Please try again later.": "目前我们在获取数据时遇到问题。请稍后重试。"
+    "Currently, we are experiencing an issue fetching data. Please try again later.": "目前我们在获取数据时遇到问题。请稍后重试。",
+    "No entry found": "未找到条目",
+    "Suggestions:": "建议：",
+    "Check the spelling.": "请检查拼写。",
+    "Try searching with a protein or gene name rather than by a specific accession.": "尝试用蛋白质或基因名称检索，而不是具体的登录号。",
+    "AlphaFold DB has grown in several stages:": "AlphaFold DB 是分几个阶段扩充的：",
+    "July 2021: included 20 model organism proteomes, with sequences taken from the “one sequence per gene” reference proteomes provided in UniProt 2021_02.": "2021 年 7 月：纳入 20 个模式生物蛋白质组，序列取自 UniProt 2021_02 提供的「每个基因一条序列」参考蛋白质组。",
+    "December 2021: added Swiss-Prot, from UniProt 2021_04.": "2021 年 12 月：新增 Swiss-Prot，来自 UniProt 2021_04。",
+    "January 2022: added a collection of proteomes relevant to global health, taken from priority lists compiled by the World Health Organization. Sequences were again taken from the “one sequence per gene” reference proteomes provided in UniProt 2021_04.": "2022 年 1 月：新增一批与全球健康相关的蛋白质组，取自世界卫生组织编制的优先清单。序列同样取自 UniProt 2021_04 提供的「每个基因一条序列」参考蛋白质组。",
+    "Sep 2025: all entries were synchronised to UniProt 2025_03. This release also included predictions for isoforms. Additionally, the MSAs computed for each entry are now available.": "2025 年 9 月：所有条目同步至 UniProt 2025_03。本次发布还包含同工型预测。此外，现在可获取每个条目计算的多序列比对（MSA）。",
+    "March 2026: 1,754,199 homodimers derived from Swiss-Prot, the WHO list, and model reference proteomes were made available under the NVIDIA dataset.": "2026 年 3 月：在 NVIDIA 数据集下提供了 1,754,199 个同源二聚体，来自 Swiss-Prot、WHO 清单和模式参考蛋白质组。",
+    "May 2026: This release included ~ 2.2M homodimers and heterodimers derived from 4,777 proteomes in Uniprot and Swiss-Prot for proteins belonging to the 16 model organisms and 30 WHO global health proteomes.": "2026 年 5 月：本次发布包含约 220 万个同源与异源二聚体，来自 Uniprot 与 Swiss-Prot 中的 4,777 个蛋白质组，涉及 16 个模式生物和 30 个 WHO 全球健康蛋白质组的蛋白质。",
+    "Sep 2026: Added ~1.7 million predictions for viral protein complexes spanning ~3,500 viral proteomes, generated through an international research consortium, together with entries from the Viral AlphaFold Database (VAD) from the Atkinson Lab. This release also introduced Portal View, which makes it easier to discover predictions from across AlphaFold DB related to key global health research areas, including pandemic preparedness, antimicrobial resistance, neglected tropical diseases, and WHO global health proteomes.": "2026 年 9 月：新增约 170 万个病毒蛋白质复合物预测，覆盖约 3,500 个病毒蛋白质组，由国际研究联盟生成；同时纳入 Atkinson 实验室病毒 AlphaFold 数据库（VAD）的条目。本次发布还引入了门户视图，更便于发现 AlphaFold DB 中与全球健康重点研究领域相关的预测，包括大流行病防范、抗微生物药物耐药性、被忽视的热带病和 WHO 全球健康蛋白质组。",
+    "The wider UniProt predictions are the output of a single model, while Swiss-Prot / proteomes entries represent the most confident prediction out of 5 model runs. Internal benchmarking on CASP14 shows that the model used for UniProt (“model_2_ptm”) is insignificantly less accurate (-1 GDT versus five models), and that there is a slight bias toward lower confidence (-1 pLDDT) due to the effect of using one model rather than selecting from 5.": "更广泛的 UniProt 预测来自单一模型，而 Swiss-Prot / 蛋白质组条目代表 5 次模型运行中最可信的预测。CASP14 上的内部基准测试表明，用于 UniProt 的模型（“model_2_ptm”）准确度略低（相比五个模型低 1 GDT），且由于只用了一个模型而非从 5 个中挑选，置信度略有偏低（低 1 pLDDT）。",
+    "Not all sequences are covered; the most common reasons for a missing sequence are:": "并非所有序列都被收录；序列缺失最常见的原因有：",
+    "It is outside our length range. The minimum length is 16 amino acids, while the maximum is 2,700 for proteomes / Swiss-Prot and 1,280 for the rest of UniProt. For the human proteome only, our download includes longer proteins segmented into fragments.": "超出我们的长度范围。最小长度为 16 个氨基酸，最大长度对蛋白质组 / Swiss-Prot 为 2,700，对 UniProt 其余部分为 1,280。仅对人类蛋白质组，我们的下载内容会把较长的蛋白质切分成片段。",
+    "It contains non-standard amino acids (e.g. X, O).": "含有非标准氨基酸（如 X、O）。",
+    "It is not in the UniProt reference proteome “one sequence per gene” Fasta file or is not from a collaborator’s dataset.": "不在 UniProt 参考蛋白质组「每个基因一条序列」的 Fasta 文件中，也不来自合作方数据集。",
+    "It has been added or modified by UniProt in a more recent release.": "已被 UniProt 在更新的版本中新增或修改。",
+    "While many viral proteins are now included in the database from the Big Fantastic Virus Database (BFVD), some may still be missing.": "虽然数据库现已从 Big Fantastic Virus Database（BFVD）纳入许多病毒蛋白质，但可能仍有部分缺失。",
+    "You may see several entries for one UniProt ID because AlphaFold DB includes isoforms, fragments, and entries from different source datasets.": "同一个 UniProt ID 可能对应多个条目，因为 AlphaFold DB 收录了同工型、片段以及来自不同源数据集的条目。",
+    "An isoform or processed sequence will typically have a hyphenated number at the end of the UniProt ID, such as P42167-2. Fragments are identified by an \"-F\" suffix followed by a number, such as Q8WZ42-F1 and Q8WZ42-F2.": "同工型或经加工的序列通常在 UniProt ID 末尾带有连字符编号，例如 P42167-2。片段以「-F」后缀加数字标识，例如 Q8WZ42-F1 和 Q8WZ42-F2。",
+    "Additionally, an entry might have been generated for different datasets. In these cases, we recommend reviewing the predictions to check if they were made using different methods and to compare the model creation dates.": "此外，同一条目也可能是为不同数据集生成的。这种情况下，我们建议查看这些预测，确认它们是否用不同方法生成，并比较模型创建日期。",
+    "Some viral proteins come from viral DNA that has become integrated into a bacterial genome, known as a prophage. Because the sequence is found within the bacterial genome, some source metadata and UniProt links may refer to the bacterium rather than the virus.": "有些病毒蛋白质来自已整合进细菌基因组的病毒 DNA，即前噬菌体。由于序列存在于细菌基因组中，部分来源元数据和 UniProt 链接可能指向细菌而非病毒。",
+    "AlphaFold is trained on protein chains in the PDB released before 2018-04-30. Predictions can also make use of up to 4 templates released before 2021-02-15. However, templates are not a critical input for AlphaFold to make an accurate prediction; the model can make a strong prediction based on a multiple sequence alignment alone.": "AlphaFold 使用 2018-04-30 之前发布的 PDB 蛋白质链进行训练。预测还可以利用最多 4 个 2021-02-15 之前发布的模板。不过，模板并非 AlphaFold 做出准确预测的关键输入；仅凭多序列比对，模型也能给出可靠的预测。",
+    "Additionally, AlphaFold can ignore templates if they appear unhelpful - it isn’t required to copy their structure. As of this latest release, PDB structures shown to the model are recorded in the prediction mmCIF file.": "此外，如果模板看起来没有帮助，AlphaFold 可以忽略它们，并不要求照搬其结构。截至本次最新发布，展示给模型的 PDB 结构会记录在预测的 mmCIF 文件中。",
+    "Structural biologists more often express the similarity between two protein structures by first optimally superposing the structures and then calculating the root-mean-square distance (RMSD) between the Cα atoms of equivalent residues. Taking the median RMSD-Cα on the best predicted 95% of residues reduces the effect of flexible tails and crystal-packing artefacts. On this metric AlphaFold’s CASP14 predictions had a median distance of 0.96 Å to the experimental models, compared to 2.83 Å for the next-best method.": "结构生物学家更常这样表达两个蛋白质结构的相似性：先对结构做最优叠合，再计算等价残基 Cα 原子之间的均方根距离（RMSD）。取预测最好的 95% 残基上的 RMSD-Cα 中位数，可减弱柔性尾部和晶体堆积伪影的影响。按这一指标，AlphaFold 的 CASP14 预测与实验模型的中位距离为 0.96 Å，次优方法为 2.83 Å。",
+    "AlphaFold DB includes both single-chain structure predictions and, where available, predicted protein complexes. However, many other use cases remain active areas of research, for example:": "AlphaFold DB 既包含单链结构预测，也包含（在可获得时）预测的蛋白质复合物。不过，许多其他使用场景仍属于活跃的研究领域，例如：",
+    "AlphaFold has not been validated for predicting the effect of mutations. In particular, AlphaFold is not expected to produce an unfolded protein structure given a sequence containing a destabilising point mutation.": "AlphaFold 尚未针对预测突变效应进行验证。特别是，对于含有去稳定点突变的序列，不应指望 AlphaFold 给出未折叠的蛋白质结构。",
+    "Where a protein is known to have multiple conformations, AlphaFold usually only produces one of them. The output conformation cannot be reliably controlled.": "已知蛋白质存在多种构象时，AlphaFold 通常只给出其中一种，输出构象无法可靠控制。",
+    "The AllTheBacteria dataset contains over 17.7 million AlphaFold predictions for hypothetical proteins from more than 2.4 million high-quality bacterial and archaeal genomes. These proteins represent 11,824 distinct species; therefore, some entries might be unnamed.": "AllTheBacteria 数据集包含超过 1,770 万个 AlphaFold 预测，涉及来自 240 多万个高质量细菌与古菌基因组的假定蛋白质。这些蛋白质代表 11,824 个不同物种；因此，部分条目可能没有名称。",
+    "Most entries do not have a UniProt accession as they were derived directly from genome assemblies. When the sequence has a 100% sequence identity over 100% sequence length to a member of Uniprot (2025_03 release), we will show the organisms where this is present.": "多数条目没有 UniProt 登录号，因为它们直接来自基因组组装。当序列与 Uniprot（2025_03 版本）中的某一成员在 100% 序列长度上具有 100% 序列一致性时，我们会显示其出现的物种。",
+    "Coordinate files can be downloaded via the FTP area (see the bulk download FAQ for details). Multiple sequence alignments (MSAs) are not currently provided for this dataset in the FTP area.": "坐标文件可通过 FTP 区域下载（详见批量下载常见问题）。目前在 FTP 区域不提供该数据集的多序列比对（MSA）。",
+    "The Big Fantastic Virus Database (BFVD) contains protein structure predictions for 351,242 viral sequences.​": "Big Fantastic Virus Database（BFVD）包含 351,242 条病毒序列的蛋白质结构预测。",
+    "This dataset was generated from the UniRef30 snapshot (release 2023_02), which includes sequences from both UniProtKB and UniParc. Consequently, not all entries have a corresponding UniProt accession, and some may be from now-obsolete accessions.": "该数据集由 UniRef30 快照（2023_02 版本）生成，其中包含来自 UniProtKB 与 UniParc 的序列。因此，并非所有条目都有对应的 UniProt 登录号，部分可能来自现已废弃的登录号。",
+    "Coordinate files and MSAs can be downloaded via the FTP area (see the bulk download FAQ for details).": "坐标文件与 MSA 可通过 FTP 区域下载（详见批量下载常见问题）。",
+    "This dataset provides predicted homodimer and heterodimer structures for proteins from Swiss-Prot and Uniprot , including 30 World Health Organization (WHO) global health proteomes, and 16 model reference proteomes from the Uniprot 2025_04 release.": "该数据集提供 Swiss-Prot 与 Uniprot 中蛋白质的预测同源二聚体和异源二聚体结构，包括 30 个世界卫生组织（WHO）全球健康蛋白质组，以及 Uniprot 2025_04 版本中的 16 个模式参考蛋白质组。",
+    "The predictions were generated using a customised version of ColabFold (v1.6.0) using official AlphaFold2 and AlphaFold-Multimer weights and parameters. For each target, a single model (model1) was used, with recycling limited to 4 or fewer recycles, and the final prediction was taken as the reported structure.": "预测使用定制版 ColabFold（v1.6.0）生成，采用官方 AlphaFold2 与 AlphaFold-Multimer 的权重和参数。对每个靶标使用单一模型（model1），循环次数限制在 4 次或更少，最终预测作为报告结构。",
+    "Multiple Sequence Alignments (MSAs) were generated using MMseqs2-GPU (version 18-8cc5c) with pairing and filtering enabled, using the following settings: --use-env 0 --pairing_strategy 1 --pair-mode paired --filter 2 --db-load-mode 2. The underlying sequence database was the prebuilt ColabFold GPU-accelerated search database uniref30_2302.": "多序列比对（MSA）使用 MMseqs2-GPU（版本 18-8cc5c）生成，启用了配对与过滤，参数为：--use-env 0 --pairing_strategy 1 --pair-mode paired --filter 2 --db-load-mode 2。底层序列数据库为预构建的 ColabFold GPU 加速检索库 uniref30_2302。",
+    "This dataset contains 53,716 predicted structures of full-length viral proteins from RefSeq comprising of 26,962 monomeric and 26,754 homodimeric predictions, of which 4,681 homodimers reached the high-confidence interface thresholds (pDockQ2max ≥ 0.23, and ipSAEmax ≥ 0.6) and are displayed on the web interface. The VAD dataset expands viral structural coverage and provides homodimer predictions that capture biologically relevant protein interfaces and oligomeric states not represented by monomer models alone.": "该数据集包含 53,716 个来自 RefSeq 的全长病毒蛋白质预测结构，其中 26,962 个为单体预测、26,754 个为同源二聚体预测，其中有 4,681 个同源二聚体达到高置信度界面阈值（pDockQ2max ≥ 0.23 且 ipSAEmax ≥ 0.6），并显示在网页界面上。VAD 数据集扩展了病毒结构的覆盖范围，其同源二聚体预测能捕捉仅靠单体模型无法体现的、具有生物学意义的蛋白质界面与寡聚状态。",
+    "Predictions were generated using AlphaFold v2.3.2 without modifications to the official code. Multiple Sequence Alignments (MSAs) were generated using the reference AlphaFold strategy with HHblits and JackHMMer, using BFD, MGnify, PDB, UniRef, UniProt, and UniClust sequence and structural databases. Unlike viral structure resources using MMseqs2-based pipelines, this approach provides high-sensitivity sequence searches that can improve predictions, particularly for remote viral homologs.": "预测使用 AlphaFold v2.3.2 生成，未修改官方代码。多序列比对（MSA）使用参考 AlphaFold 策略，结合 HHblits 与 JackHMMer，并用到 BFD、MGnify、PDB、UniRef、UniProt 和 UniClust 等序列与结构数据库。与采用基于 MMseqs2 流程的病毒结构资源不同，这一方法提供高灵敏度序列检索，可改善预测，尤其是对远缘病毒同源物。",
+    "All predictions were generated from full-length RefSeq protein sequences, without fragmentation or truncation, with models selected using pLDDT for monomers and pTM + ipTM for multimers.": "所有预测均由全长 RefSeq 蛋白质序列生成，未做片段化或截断；单体使用 pLDDT、多聚体使用 pTM + ipTM 来选择模型。",
+    "The viral complexes dataset contains 1,703,992 predicted protein–protein interactions across ~2,800 viral proteomes from 23 viral families known to infect humans and/or animals.": "病毒复合物数据集包含 1,703,992 个预测的蛋白质–蛋白质相互作用，覆盖 23 个已知可感染人类和/或动物的病毒科、约 2,800 个病毒蛋白质组。",
+    "The dataset was generated using an accelerated implementation of AlphaFold2-Multimer to systematically predict pairwise protein complexes at the whole-proteome level. By sampling multiple viruses from each family, it captures both known human viruses and related animal viruses, while enabling the identification of conserved protein interactions across viral diversity.": "该数据集使用 AlphaFold2-Multimer 的加速实现生成，在蛋白质组层面系统地预测成对蛋白质复合物。通过从每个病毒科中采样多个病毒，它既涵盖已知的人类病毒，也涵盖相关的动物病毒，同时能够识别病毒多样性中保守的蛋白质相互作用。",
+    "The dataset was provided through a collaboration between EMBL-EBI, Google DeepMind, the Grove Lab at the MRC–University of Glasgow Centre for Virus Research, the Mirdita Lab, at Sungkyunkwan University School of Medicine, NVIDIA, Philippe Le Mercier and the ViralZone team at SIB Swiss Institute of Bioinformatics and the Steinegger Lab at Seoul National University.": "该数据集由 EMBL-EBI、Google DeepMind、格拉斯哥大学 MRC–病毒研究中心 Grove 实验室、成均馆大学医学院 Mirdita 实验室、NVIDIA、Philippe Le Mercier 与 SIB 瑞士生物信息学研究所 ViralZone 团队，以及首尔国立大学 Steinegger 实验室合作提供。",
+    "The dataset provides a resource for exploring viral protein function, generating hypotheses about virus biology, and supporting research into pandemic preparedness, vaccines and therapeutics.": "该数据集为探索病毒蛋白质功能、提出关于病毒生物学的假设，以及支持大流行病防范、疫苗与疗法研究提供了资源。",
+    "The Viro3D dataset contains 82,424 protein structure predictions from 4,407 human and animal viruses.": "Viro3D 数据集包含来自 4,407 种人类与动物病毒的 82,424 个蛋白质结构预测。",
+    "Foldseek has been integrated into the AlphaFold Database, enabling easy access to similar structures across both experimentally determined structures from the PDB (Protein Data Bank) and predicted structures from the clustered AlphaFold Database (AFDB50).": "Foldseek 已整合进 AlphaFold 数据库，可方便地访问 PDB（蛋白质数据库）中的实验测定结构，以及聚类后的 AlphaFold 数据库（AFDB50）中的预测结构，从而比较相似结构。",
+    "Search results are organised into tabs based on the source:": "检索结果按来源分为多个标签页：",
+    "AFDB: The clustered AlphaFold Database at 50% sequence identity (AFDB50).": "AFDB：按 50% 序列一致性聚类后的 AlphaFold 数据库（AFDB50）。",
+    "PDB: Experimental structures. Note that NMR structures do not have a resolution value.": "PDB：实验结构。请注意，NMR 结构没有分辨率数值。",
+    "Specialised datasets: AllTheBacteria, Big Fantastic Virus Database, Viro3D and Kinetoplastid parasites.": "专门数据集：AllTheBacteria、Big Fantastic Virus Database、Viro3D 和动质体寄生虫。",
+    "Each row includes: a pairwise sequence alignment, residue range indicating the specific range of amino acids in the alignment, E-value to show the statistical significance of the alignment, sequence identity, resolution (for PDB structures), and average pLDDT (for AlphaFold2 structures).": "每一行包括：成对序列比对、标明比对中具体氨基酸范围的残基区间、表示比对统计显著性的 E 值、序列一致性、分辨率（用于 PDB 结构）和平均 pLDDT（用于 AlphaFold2 结构）。",
+    "You can select which structures to superimpose in the 3D viewer. The structural alignment, along with RMSD (Root Mean Square Deviation) is reported based on the superposition of Cɑ atoms. Once the structures are aligned, you can download the aligned coordinates in mmCIF format.": "你可以选择在三维查看器中叠合哪些结构。结构比对及 RMSD（均方根偏差）基于 Cα 原子的叠合计算。结构对齐后，你可以按 mmCIF 格式下载对齐后的坐标。",
+    "Regions with pLDDT > 90 are expected to be modelled to high accuracy. These should be suitable for any application that benefits from high accuracy (e.g. characterising binding sites).": "pLDDT > 90 的区域预期建模精度很高，适合任何受益于高精度的应用（如刻画结合位点）。",
+    "Regions with pLDDT between 70 and 90 are expected to be modelled well (a generally good backbone prediction).": "pLDDT 在 70 到 90 之间的区域预期建模良好（通常是较好的主链预测）。",
+    "Regions with pLDDT between 50 and 70 are low confidence and should be treated with caution.": "pLDDT 在 50 到 70 之间的区域置信度低，应谨慎对待。",
+    "The 3D coordinates of regions with pLDDT < 50 often have a ribbon-like appearance and should not be interpreted. We show in our paper that pLDDT < 50 is a reasonably strong predictor of disorder, i.e. it suggests such a region is either unstructured in physiological conditions or only structured as part of a complex. (Note: this relationship has typically been tested in the context of well-studied proteins, which may have more evolutionarily-related sequences available than a randomly chosen UniProt entry.)": "pLDDT < 50 的区域，其三维坐标常呈带状外观，不应加以解读。我们在论文中表明，pLDDT < 50 是无序的相当强预测指标，即提示该区域在生理条件下没有结构，或仅作为复合物的一部分才有结构。（注：这种关系通常在研究较充分的蛋白质中检验，这类蛋白质可能比随机选取的 UniProt 条目拥有更多进化相关序列。）",
+    "Structured domains with many inter-residue contacts are likely to be more reliable than extended linkers or isolated long helices.": "残基间接触较多的结构化结构域，可能比延伸的连接区或孤立的长螺旋更可靠。",
+    "Unphysical bond lengths and clashes do not usually appear in confident regions. Any part of a structure with several of these should be disregarded.": "不合理的键长和原子冲突通常不出现在高置信度区域。结构的任何部分若出现多处此类问题，应予忽略。",
+    "Independent of the 3D structure, AlphaFold produces an output called “Predicted Aligned Error” (PAE). This is shown at the bottom of structure pages as an interactive 2D plot.": "无论三维结构如何，AlphaFold 都会输出一个称为「预测比对误差」（PAE）的结果。它以交互式二维图的形式显示在结构页底部。",
+    "The colour at (x, y) indicates AlphaFold’s expected position error at residue x if the predicted and true structures were aligned on residue y.": "(x, y) 处的颜色表示：若把预测结构与真实结构在残基 y 上对齐，AlphaFold 对残基 x 的预期位置误差。",
+    "If the PAE is generally low for residue pairs x, y from two different domains, it indicates that AlphaFold predicts well-defined relative positions and orientations for them.": "如果来自两个不同结构域的残基对 x、y 的 PAE 普遍较低，说明 AlphaFold 对它们之间的相对位置和取向预测得较明确。",
+    "If the PAE is generally high for residue pairs x, y from two different domains, then the relative positions and/or orientations of these domains in the 3D structure are uncertain and should not be interpreted.": "如果来自两个不同结构域的残基对 x、y 的 PAE 普遍较高，则这些结构域在三维结构中的相对位置和/或取向不确定，不应加以解读。",
+    "AlphaFold produces a useful inter-domain prediction in some cases. However, in CASP14 intra-domain prediction accuracy was more extensively validated and is therefore expected to be more reliable.": "某些情况下 AlphaFold 能给出有用的跨结构域预测。不过在 CASP14 中，结构域内的预测精度得到了更充分的验证，因此预期更可靠。",
+    "In protein complexes, inter-chain PAE can also help indicate whether the relative placement of subunits is well defined, although interface-specific metrics provide a more direct assessment of complex confidence.": "在蛋白质复合物中，链间 PAE 也有助于判断亚基的相对位置是否明确，不过界面专用指标能更直接地评估复合物置信度。",
+    "Note that the PAE scores are asymmetrical, meaning there might be variations in PAE values between (x,y) and (y,x) positions.": "请注意，PAE 评分是不对称的，即 (x,y) 与 (y,x) 位置的 PAE 值可能存在差异。",
+    "For protein complexes, confidence is often assessed using interface-focused metrics that estimate how reliable the predicted interactions between chains are. These scores are complementary: some are more sensitive to the confidence of the interface itself, while others are better at highlighting local or flexible interactions. In general, higher values indicate greater confidence in the predicted interface, but each metric captures a slightly different aspect of interface quality. It is therefore best to consider multiple scores together rather than relying on a single metric.": "对蛋白质复合物，通常用聚焦界面的指标来评估置信度，这些指标估计链间预测相互作用的可靠程度。这些评分互为补充：有些对界面本身的置信度更敏感，有些更擅长突出局部或柔性相互作用。一般来说，数值越高表示对预测界面的置信度越高，但每个指标反映的界面质量侧面略有不同。因此最好综合考量多个评分，而不是依赖单一指标。",
+    "Several commonly used confidence metrics are shown on the entry pages:": "条目页面上显示了几种常用的置信度指标：",
+    "Very high (ipSAE ≥ 0.8) – The predicted homodimer interface is modelled with high accuracy.": "极高（ipSAE ≥ 0.8）——预测的同源二聚体界面建模精度很高。",
+    "Confident (0.8 > ipSAE ≥ 0.7) – The predicted interface is likely correct with a well-arranged interaction.": "可信（0.8 > ipSAE ≥ 0.7）——预测界面很可能正确，相互作用排布良好。",
+    "Low (0.7 > ipSAE ≥ 0.6) – The interaction may be correct but should be interpreted cautiously.": "低（0.7 > ipSAE ≥ 0.6）——相互作用可能正确，但应谨慎解读。",
+    "Very low (ipSAE < 0.6) – The predicted interaction is unlikely to represent a reliable complex.": "极低（ipSAE < 0.6）——预测的相互作用不太可能代表可靠的复合物。",
+    "A complete list of predictions and their associated scores is available in the FTP area.": "完整的预测清单及其对应评分可在 FTP 区域获取。",
+    "AlphaFold generates three outputs: 3D coordinates, predicted local distance difference test (pLDDT), and Predicted Aligned Error (PAE) matrix.": "AlphaFold 生成三种输出：三维坐标、预测局部距离差异测试（pLDDT）和预测比对误差（PAE）矩阵。",
+    "The first is a set of 3D coordinates for all atoms in the target amino acid sequence including side chains, as displayed in the molecule viewer when clicking on a residue in the sequence viewer.": "第一种是目标氨基酸序列中所有原子（包括侧链）的三维坐标，在序列查看器中点击某个残基时会在分子查看器中显示。",
+    "Domains are also represented as a linear annotation track along the x-axis of the PAE matrix, spanning the full length of the protein sequence. This provides information about how the domains are distributed along the protein chain. Clicking on a domain in the annotation track highlights its corresponding residues in the sequence, making it easy to cross-reference a domain of interest with the full protein context.": "结构域还以沿 PAE 矩阵 x 轴的线性注释轨道表示，覆盖蛋白质序列全长。这提供了结构域沿蛋白质链如何分布的信息。点击注释轨道上的某个结构域，会在序列中高亮其对应残基，便于把感兴趣的结构域与完整蛋白质背景对照。",
+    "The 3D viewer in this tab can be switched to colour the model by domain, assigning a distinct colour to each domain so relative arrangement and packing of the domains can be visualised in three dimensions. One can also switch back to pLDDT colouring at any time to assess local confidence across the same regions.": "该标签页的三维查看器可切换为按结构域为模型着色，为每个结构域分配不同颜色，从而在三维中观察结构域的相对排布与堆积。也可以随时切回 pLDDT 着色，以评估相同区域的局部置信度。",
+    "The tab also lists the complex composition under Components, showing the number of copies of each chain with links to their UniProt entries, and the source organism. The amino acid sequence for each chain is displayed below, alongside the PAE matrix with chain boundaries labelled on both axes. A chain selector above the 3D viewer and the Macromolecules panel on the right allow you to preview individual chains in the 3D viewer.": "该标签页还在「组分」下列出复合物组成，显示每条链的拷贝数及其 UniProt 条目链接，以及来源物种。每条链的氨基酸序列显示在下方，旁边是两轴均标注链边界的 PAE 矩阵。三维查看器上方的链选择器和右侧的「大分子」面板可让你在三维查看器中预览各条链。",
+    "Using an amino acid sequence as an input, AlphaMissense:": "以氨基酸序列为输入，AlphaMissense 会：",
+    "Gives an indication of which mutations are more likely to underlie human diseases - such as rare genetic disorders or developmental diseases - by categorising missense mutations into likely pathogenic or likely benign. Combined with other types of information, it can help to decipher what mutations may be causing a disease.": "通过把错义突变归类为可能致病或可能良性，提示哪些突变更可能是人类疾病（如罕见遗传病或发育性疾病）的成因。结合其他类型的信息，它有助于判断哪些突变可能导致疾病。",
+    "Helps to highlight potential functionally important regions of the protein.": "帮助突出蛋白质中潜在的功能重要区域。",
+    "We provide downloadable files in csv format to help you explore the data for a specific canonical human protein:": "我们提供 csv 格式的可下载文件，帮助你探索特定规范人类蛋白质的数据：",
+    "LPath: Likely pathogenic": "LPath：可能致病",
+    "LBen: Likely benign": "LBen：可能良性",
+    "Amb: Ambiguous": "Amb：不确定",
+    "Pathogenicity scores (HG19 and HG38). These files include AlphaMissense scores for all possible missense single nucleotide variants across the human reference genome. Each file corresponds to a specific genome assembly with information on specific genome position.": "致病性评分（HG19 与 HG38）。这些文件包含人类参考基因组中所有可能的错义单核苷酸变异的 AlphaMissense 评分。每个文件对应特定的基因组组装，并带有特定基因组位置的信息。",
+    "HG19. Corresponds to the GRCh37 human genome reference assembly.": "HG19。对应 GRCh37 人类基因组参考组装。",
+    "HG38. Corresponds to the GRCh38 human genome reference assembly.": "HG38。对应 GRCh38 人类基因组参考组装。",
+    "The TED workflow combines different methods for domain identification and classification. When a given AlphaFold entry has TED Domain annotations available, some of the resulting data from this workflow can be seen in the modal windows by clicking on a domain.": "TED 流程结合多种方法进行结构域识别与分类。当某个 AlphaFold 条目有可用的 TED 结构域注释时，点击结构域即可在模态窗口中看到该流程产生的部分数据。",
+    "It includes the following information:": "其中包含以下信息：",
+    "“High-confidence ★★”: Domains with a Qscore ≥ 75 and full 4-level C.A.T.H assignment (Error rate 5%).": "「高置信度 ★★」：Qscore ≥ 75 且具有完整 4 级 C.A.T.H 分配的结构域（错误率 5%）。",
+    "“Moderate ★”: Domains with 3 or 4-level C.A.T/C.A.T.H assignments and a Qscore ≥ 70 (Error rate 10%).": "「中等 ★」：具有 3 级或 4 级 C.A.T/C.A.T.H 分配且 Qscore ≥ 70 的结构域（错误率 10%）。",
+    "“Uncertain”: Domains without 3-level or 4-level C.A.T/C.A.T.H assignment, regardless of Qscore.": "「不确定」：没有 3 级或 4 级 C.A.T/C.A.T.H 分配的结构域，无论 Qscore 多少。",
+    "Nov 2022: updated a set of structures affected by a temporary numerical bug (miscompilation) in the previous July release (": "2022 年 11 月：更新了一批受去年 7 月版本中临时数值缺陷（编译错误）影响的结构（",
+    "list of affected accessions": "受影响登录号清单",
+    ", N.B. 160 MiB). This temporary issue resulted in low accuracy predictions with correspondingly low pLDDT for ~4% of the total structure predictions available in the database. This release includes:": "，注意 160 MiB）。这一临时问题导致数据库中约 4% 的结构预测精度偏低、pLDDT 相应较低。本次更新包含：",
+    "Updated coordinates for affected structures.": "受影响结构的更新坐标。",
+    "Minor metadata changes in the mmCIF files": "mmCIF 文件中的少量元数据变更",
+    "changelog": "更新日志",
+    "proteomes": "蛋白质组",
+    "bulk download": "批量下载",
+    "here": "此处",
+    "Boltzmann distribution": "玻尔兹曼分布",
+    "as they might appear in the PDB": "如同它们在 PDB 中可能出现的样子",
+    "Portal View": "门户视图",
+    "Filtering by model confidence": "按模型置信度筛选",
+    "Steinegger lab": "Steinegger 实验室",
+    "Foldseek Cluster": "Foldseek 聚类",
+    "lDDT-Cα metric": "lDDT-Cα 指标",
+    "(interaction prediction Score from Aligned Errors) is an ipTM-like metric derived from AlphaFold’s predicted aligned error (PAE) between residues of different chains in the predicted complex. For each pair of chains the score only considers residue pairs that have a PAE < 10 Å and are within 15 Å of distance in the predicted structure. This restricts the calculation to interface regions where AlphaFold predicts a more reliable relative positioning. The retained PAE values are converted into TM-like confidence values and averaged to calculate the score. ipSAE recalculates its scaling based on the number of residues that pass the PAE and distance cutoff, rather than on the full chain lengths. As a result, ipSAE is less influenced by disordered regions or non-interacting domains. For more details, see:": "（基于比对误差的相互作用预测得分）是一种类似 ipTM 的指标，由 AlphaFold 预测复合物中不同链残基之间的预测比对误差（PAE）推导而来。对每一对链，该得分只考虑 PAE < 10 Å 且预测结构中距离在 15 Å 以内的残基对。这样计算被限制在 AlphaFold 预测相对位置更可靠的界面区域。保留的 PAE 值被转换为类似 TM 的置信度并取平均得到该得分。ipSAE 根据通过 PAE 与距离阈值的残基数重新计算其缩放，而非按整条链长度。因此 ipSAE 受无序区域或非相互作用结构域的影响更小。更多细节参见：",
+    "The following ranges can be used when interpreting ipSAE values:": "解读 ipSAE 数值时可参考以下区间：",
+    "publication": "论文",
+    "how to interpret relative domain positions": "如何解读结构域的相对位置",
+    "in 3D": "三维中",
+    "AlphaMissense Pathogenicity Heatmap": "AlphaMissense 致病性热图",
+    "Protein Data Bank (PDB)": "蛋白质数据库（PDB）",
+    "Kinetoplastid Parasites": "动质体寄生虫",
+    "Align in 3D": "三维对齐",
+    "Structure Similarity Cluster": "结构相似性聚类",
+    "AFDB50/MMseqs2": "AFDB50/MMseqs2 聚类",
+    "AFDB/Foldseek": "AFDB/Foldseek 聚类",
+    "Macromolecules": "大分子",
+    "canonical": "规范",
+    "Google Cloud Public Dataset": "Google Cloud 公共数据集",
+    "Domain index:": "结构域编号：",
+    "CATH identifiers:": "CATH 标识符：",
+    "Note that the assignment workflow for TED labels differs from the CATH protocol.": "请注意，TED 标签的分配流程与 CATH 协议不同。",
+    "Quality label:": "质量标签：",
+    "Quality label: This label represents the overall quality of a domain assignment:": "质量标签：该标签表示结构域分配的整体质量：",
+    "Note that Qscore is a float quality metric from 0-100 calculated as a weighted average between the following parameters:": "请注意，Qscore 是 0-100 的浮点质量指标，按以下参数的加权平均计算：",
+    "a) Minimum value between the query and the target coverage by Foldseek scans vs CATH SSG5 domains (50% weight). For more information about SSG5 domains, refer to the paper:": "a) 查询与目标在 Foldseek 扫描结果与 CATH SSG5 结构域之间的覆盖率较小值（权重 50%）。关于 SSG5 结构域的更多信息，请参阅论文：",
+    "b) Low, medium and high TED consensus with values 0.5 for medium consensus and 1 for high consensus. (12.5% weight)": "b) TED 共识的低、中、高等级，中等共识取 0.5，高共识取 1。（权重 12.5%）",
+    "c) Compactness (globularity) of a domain with 0 indicating non-globular and 1 globular. (12.5% weight)": "c) 结构域的紧凑度（球状性），0 表示非球状，1 表示球状。（权重 12.5%）",
+    "d) Mean pLDDT score normalised on a 0 to 1 scale (12.5% weight)": "d) 归一化到 0 至 1 区间的平均 pLDDT 得分（权重 12.5%）",
+    "e) Modified E-value factor that measures the statistical significance of the structural match between the domain and the CATH database. E-value is transformed into a normalised score between 0 and 1, where higher values indicate stronger matches; values below ~0.5 are considered low-confidence and contribute minimally to the final consensus (12.5% weight).": "e) 修正的 E-value 因子，衡量结构域与 CATH 数据库之间结构匹配的统计显著性。E-value 被转换为 0 到 1 之间的归一化得分，数值越高表示匹配越强；低于约 0.5 的数值被视为低置信度，对最终共识贡献极小（权重 12.5%）。",
+    "Error rate indicates the likelihood of a CATH assignment being rejected by any of the following: Poor model quality; boundary error (inability to correctly assign the domain to the H or T level); incorrect CATH classification (i.e. coverage error, only matches partial structures in a CATH level).": "错误率表示 CATH 分配被以下任一原因拒绝的可能性：模型质量差；边界错误（无法将结构域正确归入 H 或 T 层级）；CATH 分类不正确（即覆盖率错误，只匹配到 CATH 某一层级中的部分结构）。",
+    "Boundaries:": "边界：",
+    ", the JSON file has the following structure of arrays format:": "，JSON 文件采用以下数组结构格式："
   },
   "rules": [
     {
@@ -464,6 +602,342 @@
     {
       "pat": "We do not currently have functionality to deposit individual structure predictions. If you have generated AlphaFold structure predictions that you would like to make available to the community, you can take a look at the {{1}} kit being developed by the ELIXIR 3D-BioInfo community that describes guidelines on how to make models and the relevant metadata available according to FAIR principles.",
       "zh": "我们目前没有提交单个结构预测的功能。如果你已生成 AlphaFold 结构预测并希望向社区提供，可参阅 ELIXIR 3D-BioInfo 社区正在编写的 {{1}} 工具包，其中说明了如何依照 FAIR 原则提供模型及相关元数据。"
+    },
+    {
+      "pat": "DeepMind’s 2021 {{1}} is the best reference for this. It gives an overview of the most important ideas, and there is a detailed description of all aspects of the system in the Supplementary Information.{{2}}Note that the architecture of the system used at CASP14 differs significantly from the version used at CASP13, making it important to refer to the 2021 publication.",
+      "zh": "DeepMind 2021 年的{{1}}是这方面最好的参考。它概述了最重要的思路，并在补充信息中对系统的各个方面做了详细说明。{{2}}请注意，CASP14 所用系统的架构与 CASP13 所用版本差别很大，因此引用 2021 年的论文很重要。"
+    },
+    {
+      "pat": "Visit our {{1}} to learn more about AlphaFold.",
+      "zh": "访问我们的{{1}}，进一步了解 AlphaFold。"
+    },
+    {
+      "pat": "July 2022: added most of the remaining UniProt 2021_04. As part of this release we have also included an additional tar file on the AFDB download page and FTP, containing predictions in {{1}} select.",
+      "zh": "2022 年 7 月：新增 UniProt 2021_04 中剩余的大部分内容。本次发布还在 AFDB 下载页和 FTP 上提供了额外的 tar 文件，包含 {{1}} select 的预测。"
+    },
+    {
+      "pat": "{{1}} You can still access all old coordinates as v3 files, and easily compare v3 and v4 coordinates",
+      "zh": "{{1}} 你仍可以以 v3 文件访问全部旧坐标，并方便地比较 v3 与 v4 坐标"
+    },
+    {
+      "pat": "{{1}} for the rest of the structures (these files are released as v4). Please refer to our {{2}} for more details. Note that as part of this release we’ve also removed predictions with Ca-Ca >10A.",
+      "zh": "{{1}} 其余结构（这些文件以 v4 发布）。详情请参阅我们的{{2}}。请注意，本次发布还移除了 Ca-Ca >10A 的预测。"
+    },
+    {
+      "pat": "Feb 2026: added predictions for isoforms and new entries from {{1}}, {{2}}, {{3}} and {{4}}.",
+      "zh": "2026 年 2 月：新增同工型预测，以及来自 {{1}}、{{2}}、{{3}} 和 {{4}} 的新条目。"
+    },
+    {
+      "pat": "We plan to continue updating the database. In the meantime, if your sequence(s) aren’t included, you can generate your own AlphaFold predictions using the {{1}}, which also support multimer predictions..",
+      "zh": "我们计划持续更新数据库。在此期间，如果你的序列未被收录，可以使用{{1}}自行生成 AlphaFold 预测，它还支持多聚体预测。"
+    },
+    {
+      "pat": "There are 261,552,403 predicted models available on the AlphaFold DB website, including 40,054 isoforms and 46 complete {{1}} available for {{2}}.",
+      "zh": "AlphaFold DB 网站上提供 261,552,403 个预测模型，包括 40,054 个同工型和 46 个完整{{1}}可供{{2}}。"
+    },
+    {
+      "pat": "The CASP14 assessment compared leading structure prediction methods in detail; the results are available {{1}}. AlphaFold was the top-ranked method, with a median GDT (Global Distance Test) score of 92.4 across all targets and 87.0 on the challenging free-modelling category, compared to 72.8 and 61.0 for the next best methods in these categories.",
+      "zh": "CASP14 评估详细比较了领先的结构预测方法，结果见{{1}}。AlphaFold 是排名第一的方法，在所有靶标上的 GDT（全局距离测试）中位数为 92.4，在颇具挑战的自由建模类别中为 87.0，而这两个类别中次优方法分别为 72.8 和 61.0。"
+    },
+    {
+      "pat": "For regions that are intrinsically disordered or unstructured in isolation AlphaFold is expected to produce a low-confidence prediction (pLDDT < 50) and the predicted structure will have a ribbon-like appearance. AlphaFold may be of use in identifying such regions, but the prediction makes no statement about the relative likelihood of different conformations (it is not a sample from the {{1}}).",
+      "zh": "对本身无序或在孤立状态下没有结构的区域，AlphaFold 预计会给出低置信度预测（pLDDT < 50），预测结构会呈现带状外观。AlphaFold 可用于识别这类区域，但该预测并未说明不同构象的相对可能性（它不是{{1}}的采样）。"
+    },
+    {
+      "pat": "AlphaFold does not predict the positions of any non-protein components found in experimental structures (such as cofactors, metals, ligands, ions, DNA/RNA, or post-translational modifications). However, AlphaFold is trained to predict the structure of proteins {{1}}. Therefore backbone and side chain coordinates are frequently consistent with the expected structure in the presence of ions (e.g. for zinc-binding sites) or cofactors (e.g. side chain geometry consistent with heme binding).",
+      "zh": "AlphaFold 不预测实验结构中任何非蛋白质组分的位置（如辅因子、金属、配体、离子、DNA/RNA 或翻译后修饰）。不过，AlphaFold 受训预测的是{{1}}的蛋白质结构。因此，在存在离子（如锌结合位点）或辅因子（如与血红素结合相符的侧链构型）时，主链与侧链坐标常常与预期结构一致。"
+    },
+    {
+      "pat": "Predictions were generated using ColabFold v1.5.5 ({{1}}). The dataset includes predictions for proteins up to 3,000 amino acids long; larger proteins were fragmented into overlapping fragments.",
+      "zh": "预测使用 ColabFold v1.5.5（{{1}}）生成。该数据集包含长度最多 3,000 个氨基酸的蛋白质预测；更长的蛋白质被切分为相互重叠的片段。"
+    },
+    {
+      "pat": "The sequence version date for this dataset is the date when the protein sequences were finalised, deduplicated, and their source assemblies passed quality control checks. The project can be explored at the {{1}} website.",
+      "zh": "该数据集的序列版本日期，是蛋白质序列完成定稿、去重，且其来源组装通过质量控制检查的日期。该项目可在 {{1}} 网站上浏览。"
+    },
+    {
+      "pat": "For a comprehensive description of the dataset, please refer to the pre-print: {{1}}.",
+      "zh": "有关该数据集的完整说明，请参阅预印本：{{1}}。"
+    },
+    {
+      "pat": "Predictions were generated using ColabFold v1.5.2 ({{1}}). The sequence version date aligns with the UniProt/UniRef 2023_02 release.",
+      "zh": "预测使用 ColabFold v1.5.2（{{1}}）生成。序列版本日期与 UniProt/UniRef 2023_02 版本一致。"
+    },
+    {
+      "pat": "For more details, refer to the paper: {{1}}.",
+      "zh": "更多详情请参阅论文：{{1}}。"
+    },
+    {
+      "pat": "The Kinetoplastid dataset is a collection of 16,887 predicted models specifically for kinetoplastid organisms, such as {{1}}.",
+      "zh": "动质体数据集是专门针对动质体生物（如{{1}}）的 16,887 个预测模型的集合。"
+    },
+    {
+      "pat": "Predictions were generated using ColabFold v1.0-alpha ({{1}}). The dataset includes predictions for proteins up to 2,000 amino acids long; larger proteins were fragmented into overlapping fragments.",
+      "zh": "预测使用 ColabFold v1.0-alpha（{{1}}）生成。该数据集包含长度最多 2,000 个氨基酸的蛋白质预测；更长的蛋白质被切分为相互重叠的片段。"
+    },
+    {
+      "pat": "Protein sequences were sourced from the {{1}} genome databases (release 53, 2021-07-09), and the sequence version date aligns with this release. While most predictions have a corresponding UniProt accession, some may be missing one if the sequence is not present in or differs from the UniProt database.",
+      "zh": "蛋白质序列取自 {{1}} 基因组数据库（53 版，2021-07-09），序列版本日期与该版本一致。虽然多数预测都有对应的 UniProt 登录号，但若序列不存在于 UniProt 数据库或与之不同，部分预测可能缺少登录号。"
+    },
+    {
+      "pat": "For a comprehensive description of the dataset, refer to the paper: {{1}}.",
+      "zh": "有关该数据集的完整说明，请参阅论文：{{1}}。"
+    },
+    {
+      "pat": "{{1}} For the NVIDIA dataset, only models with pDockQ2max ≥ 0.23, and ipSAEmax ≥ 0.6 are displayed on the entry pages, resulting in 2,158,419 homodimer structures and 79,156 heterodimer structures. A complete list of accessions and their associated scores is available in the FTP area.",
+      "zh": "{{1}} 对 NVIDIA 数据集，条目页面仅显示 pDockQ2max ≥ 0.23 且 ipSAEmax ≥ 0.6 的模型，共 2,158,419 个同源二聚体结构和 79,156 个异源二聚体结构。完整的登录号清单及其对应评分可在 FTP 区域获取。"
+    },
+    {
+      "pat": "For more details, refer to the paper: {{1}}",
+      "zh": "更多详情请参阅论文：{{1}}"
+    },
+    {
+      "pat": "Predictions were generated using {{1}} v1.5.2 (Mirdita et al., 2022). For each target, five models were produced using three recycles and no PDB templates. The Multiple Sequence Alignments (MSAs) were assembled using {{2}} v15.6f452. The underlying sequence data for these alignments and predictions were derived from the colabfold_envdb_202108, pdb100_230517 and uniref30_2302 database versions.",
+      "zh": "预测使用 {{1}} v1.5.2（Mirdita et al., 2022）生成。对每个靶标，使用三次循环且不使用 PDB 模板，生成五个模型。多序列比对（MSA）使用 {{2}} v15.6f452 组装。这些比对与预测的底层序列数据来自 colabfold_envdb_202108、pdb100_230517 和 uniref30_2302 数据库版本。"
+    },
+    {
+      "pat": "The {{1}} makes it easier to discover AlphaFold protein structure predictions related to key global health research areas. Predictions included in any specific key topic are gathered across all the data in the AlphaFold Database which combines contributions from Google DeepMind and other 3rd-party collaborators. For some sequences, there will be multiple predictions across the database content because different contributors have created the predicted models independently, and each one represents its own hypothesis. For example Bcl-2-like gene 16 protein (UniProt accession Q01001) is found in the data provided by Viro3D, BFVD, Nvidia and Viral AlphaFold Database providing four independent predictions for this protein in the “Pandemic Preparedness Portal”. Also, any particular sequence may be present in more than one portal. For example, some bacterial proteins like those from Staphylococcus aureus will be present under the portal “Antimicrobial Resistance (AMR)” and “WHO Global Health Proteomes” since this pathogen is a major public-health threat due to its antimicrobial resistance.",
+      "zh": "{{1}}让发现与全球健康重点研究领域相关的 AlphaFold 蛋白质结构预测更加容易。某个主题下的预测汇集了 AlphaFold 数据库中的全部数据，这些数据由 Google DeepMind 及其他第三方合作者共同贡献。对某些序列，数据库内容中会有多个预测，因为不同贡献者各自独立创建了预测模型，每个模型代表其各自的假设。例如 Bcl-2 样基因 16 蛋白（UniProt 登录号 Q01001）出现在 Viro3D、BFVD、Nvidia 和病毒 AlphaFold 数据库提供的数据中，在「大流行病防范门户」中为该蛋白提供了四个独立预测。此外，任一序列可能出现在多个门户中。例如金黄色葡萄球菌等细菌蛋白质会同时出现在「抗微生物药物耐药性（AMR）」和「WHO 全球健康蛋白质组」门户下，因为该病原体因其抗微生物药物耐药性而成为重大公共卫生威胁。"
+    },
+    {
+      "pat": "{{1}} Includes protein structure predictions from viruses, supporting research into viral mechanisms, vaccines, and antiviral development. The entries included in this portal cover viral sequences across different data sources included in the database, namely Viro3D, BFVD, Nvidia and Viral AlphaFold Database. Due to a lack of consensus regarding what is considered a pathogen with pandemic potential, only viruses are currently reported.",
+      "zh": "{{1}} 包含病毒蛋白质结构预测，支持病毒机制、疫苗与抗病毒药物研发方面的研究。该门户收录的条目覆盖数据库中不同数据源的病毒序列，即 Viro3D、BFVD、Nvidia 和病毒 AlphaFold 数据库。由于对何为具有大流行潜力的病原体尚无共识，目前只报告病毒。"
+    },
+    {
+      "pat": "{{1}} Finds proteins relevant to drug resistance and the search for new antimicrobial targets. The models collected under this portal cover bacterial proteomes from the WHO Global Health Proteomes and other bacterial protein sequences from UniProt folded by Google DeepMind and NVIDIA. Additionally, we added the full set of ATBC predictions to this portal. As taxonomy identifiers from NCBI were used to identify bacterial predictions in the database, sub-species and different strains are also included.",
+      "zh": "{{1}} 查找与耐药性及新抗菌靶标发现相关的蛋白质。该门户收集的模型覆盖 WHO 全球健康蛋白质组中的细菌蛋白质组，以及来自 UniProt、由 Google DeepMind 和 NVIDIA 折叠的其他细菌蛋白质序列。此外，我们已把 ATBC 的完整预测集加入该门户。由于使用 NCBI 的分类学标识符来识别数据库中的细菌预测，亚种和不同菌株也被纳入。"
+    },
+    {
+      "pat": "{{1}} Gives you access to proteins from disease-causing organisms from tropical regions that remain comparatively understudied despite their deleterious impact on human health. Models aggregated into this portal include understudied pathogens from the WHO Global Health Proteomes predicted by Google DeepMind complemented with the kinetoplastid dataset, as well as models from AllTheBacteria, Big Fantastic Virus Database, and Viro3D. Predictions for homo- and heterodimers are provided by NVIDIA.",
+      "zh": "{{1}} 让你获取来自热带地区致病生物的蛋白质，这些生物尽管对人类健康危害严重，研究仍相对不足。汇聚到该门户的模型包括 Google DeepMind 预测的 WHO 全球健康蛋白质组中的研究不足病原体，并补充了动质体数据集，以及来自 AllTheBacteria、Big Fantastic Virus Database 和 Viro3D 的模型。同源与异源二聚体的预测由 NVIDIA 提供。"
+    },
+    {
+      "pat": "{{1}} Browse 30 WHO priority proteomes, providing a proteome-wide view of pathogens with major public-health impact. The predictions for this portal were provided by Google DeepMind, ATBC, VAD and NVIDIA. As models were identified across each dataset using NCBI taxonomy identifiers, there will be sequences that have more than one prediction available, each of them created by providers independently.",
+      "zh": "{{1}} 浏览 30 个 WHO 优先蛋白质组，从蛋白质组层面了解具有重大公共卫生影响的病原体。该门户的预测由 Google DeepMind、ATBC、VAD 和 NVIDIA 提供。由于使用 NCBI 分类学标识符在各数据集中识别模型，会有序列对应多个可用预测，每个预测均由不同提供方独立创建。"
+    },
+    {
+      "pat": "AlphaFold Database sequence-based similarity search is implemented using the Protein Basic Local Alignment Search Tool (BLASTP, see further information here: {{1}}). This tool compares a protein sequence query to the sequences of the predictions in the AlphaFold Database and returns a list of AlphaFold predictions with similar sequences to the one the user provided.",
+      "zh": "AlphaFold 数据库的基于序列的相似性检索使用蛋白质基本局部比对搜索工具（BLASTP，更多信息见：{{1}}）实现。该工具将蛋白质序列查询与 AlphaFold 数据库中的预测序列比较，返回与用户所提供序列相似的 AlphaFold 预测列表。"
+    },
+    {
+      "pat": "{{1}}: Search results indicate whether a protein has been manually reviewed by annotators. Entries labelled {{2}} have been manually curated by UniProt experts, meaning their annotations, including function, sequence, and variants, have been verified against the literature. Entries labelled {{3}} are computationally annotated and have not yet undergone manual curation. If you are looking for a well-characterised protein, filtering to show only Reviewed entries can help narrow your results to the most reliably annotated proteins. This filter is available on the search results page.",
+      "zh": "{{1}}：检索结果会标明某个蛋白质是否经注释人员人工审核。标为{{2}}的条目已由 UniProt 专家人工整理，意味着其注释（包括功能、序列和变异）已对照文献核实。标为{{3}}的条目由计算注释，尚未经过人工整理。如果你在找研究较充分的蛋白质，筛选只显示已审核条目有助于把结果缩小到注释最可靠的蛋白质。该筛选器在检索结果页上可用。"
+    },
+    {
+      "pat": "{{1}}: Each search result includes an overall pLDDT confidence score for the predicted structure. You can use the pLDDT slider on the search results page to restrict results to models above a confidence threshold of your choice. This is particularly useful if you are only interested in high-confidence predictions, for example when planning experimental follow-up. Keep in mind that a lower overall score does not necessarily mean the entire structure is unreliable. Confidence can vary considerably along a chain, and high-confidence regions may still be highly informative even in lower-scoring models. Note, that the scores represent AlphaFold's confidence in the 3D arrangement of the amino acid chain but is not a confidence in the biological correctness of the predicted model.",
+      "zh": "{{1}}：每条检索结果都包含预测结构的整体 pLDDT 置信度评分。你可以在检索结果页用 pLDDT 滑块把结果限制在你选定的置信度阈值以上。如果你只关注高置信度预测（例如规划后续实验时），这尤其有用。请记住，整体评分较低并不一定意味着整个结构不可靠。置信度沿链可能变化很大，即使模型整体评分较低，高置信度区域仍可能很有参考价值。另请注意，这些评分代表 AlphaFold 对氨基酸链三维排布的置信度，并不代表对预测模型生物学正确性的置信度。"
+    },
+    {
+      "pat": "Foldseek is a tool for fast and sensitive protein structure search. It compares protein structures by representing them as sequences over a 3Di alphabet that describes the local tertiary interactions between residues in the structure. This allows Foldseek to efficiently search vast protein structure databases to find similar structures. {{1}}{{2}}For technical details on Foldseek, please refer to the original publication: {{3}}.",
+      "zh": "Foldseek 是一款快速、灵敏的蛋白质结构检索工具。它通过把蛋白质结构表示为基于 3Di 字母表的序列来比较结构，该字母表描述了结构中残基之间的局部三级相互作用。这使 Foldseek 能高效检索庞大的蛋白质结构数据库，以找到相似结构。{{1}}{{2}}有关 Foldseek 的技术细节，请参阅原始论文：{{3}}。"
+    },
+    {
+      "pat": "Collaborating with the {{1}}, we grouped structurally similar proteins into clusters using {{2}}. Our clustering approach was a two-phase process:",
+      "zh": "我们与{{1}}合作，使用{{2}}把结构相似的蛋白质归入聚类。我们的聚类方法分两个阶段："
+    },
+    {
+      "pat": "The first phase, AFDB50/MMSeqs2, involved clustering the UniProtKB protein sequences from the AlphaFold Database using {{1}}, with a maximum of 50% sequence identity and a 90% sequence overlap. This reduced dataset was called AFDB50. In the second phase, AFDB/Foldseek, proteins were grouped based on structural similarity. Representatives of each cluster from the first phase were chosen according to the highest pLDDT score. Structural clustering was performed with {{2}}, using a minimum structural alignment overlap of 90% and an E-value cutoff of 0.01.",
+      "zh": "第一阶段 AFDB50/MMSeqs2，使用{{1}}对 AlphaFold 数据库中的 UniProtKB 蛋白质序列进行聚类，序列一致性上限为 50%，序列重叠至少 90%。这个缩减后的数据集称为 AFDB50。第二阶段 AFDB/Foldseek，按结构相似性对蛋白质分组。第一阶段每个聚类的代表按最高 pLDDT 评分选取。结构聚类使用{{2}}完成，最小结构比对重叠为 90%，E 值阈值为 0.01。"
+    },
+    {
+      "pat": "For more details about the clustering process, please refer to the following paper: {{1}}",
+      "zh": "有关聚类流程的更多详情，请参阅以下论文：{{1}}"
+    },
+    {
+      "pat": "AlphaFold produces a per-residue estimate of its confidence on a scale from 0 - 100 . This confidence measure is called pLDDT and corresponds to the model’s predicted score on the {{1}}. pLDDT reflects local confidence for each residue, but in complexes it does not by itself indicate whether the relative placement of chains or the predicted interface is correct. It is stored in the B-factor fields of the mmCIF and PDB files available for download (although unlike a B-factor, higher pLDDT is better). pLDDT is also used to colour-code the residues of the model in the 3D structure viewer. The following rules of thumb provide guidance on the expected reliability of a given region:",
+      "zh": "AlphaFold 会给出逐残基的置信度估计，范围为 0 - 100。该置信度度量称为 pLDDT，对应模型在{{1}}上的预测评分。pLDDT 反映每个残基的局部置信度，但在复合物中，它本身并不能说明链的相对位置或预测界面是否正确。它存储于可下载的 mmCIF 和 PDB 文件的 B 因子字段中（不过与 B 因子不同，pLDDT 越高越好）。pLDDT 还用于在三维结构查看器中为模型残基着色。以下经验规则可帮助判断某区域的预期可靠性："
+    },
+    {
+      "pat": "{{1}} (interface predicted Template Modelling) ranges from 0 to 1 and measures the quality of the predicted interaction between protein chains. While pLDDT measures confidence within an individual chain, ipTM reflects confidence in the predicted relative positions of the subunits in the complex. As a general guide, ipTM > 0.8 indicates a confident, high-quality prediction; ipTM 0.6-0.8 suggests the prediction is uncertain; and ipTM < 0.6 suggests the complex may be incorrect. Please note that disordered regions and regions with low pLDDT can reduce the ipTM score, even when the predicted interaction is biologically meaningful.",
+      "zh": "{{1}}（界面预测模板建模）取值范围为 0 到 1，衡量蛋白质链之间预测相互作用的质量。pLDDT 衡量单条链内部的置信度，而 ipTM 反映对复合物中各亚基预测相对位置的置信度。一般可参考：ipTM > 0.8 表示预测可信、质量高；ipTM 0.6-0.8 表示预测不确定；ipTM < 0.6 表示复合物可能不正确。请注意，即使预测的相互作用具有生物学意义，无序区域和 pLDDT 较低的区域也会拉低 ipTM 评分。"
+    },
+    {
+      "pat": "{{1}} (predicted DockQ score 2) is a modified version of pDockQ ({{2}}). It combines two AlphaFold confidence scores: the average local confidence of the interface residues (pLDDT) and the average confidence of their relative positioning across the interface (PAE). These are combined and then passed through a calibrated sigmoid function to produce a single predicted score. A pDockQ2 value above ~0.23 can be used as a practical guide for a likely acceptable interface. For more details, see: {{3}}.",
+      "zh": "{{1}}（预测 DockQ 评分 2）是 pDockQ 的改进版本（{{2}}）。它结合两个 AlphaFold 置信度评分：界面残基的平均局部置信度（pLDDT）与它们在界面两侧相对定位的平均置信度（PAE）。二者结合后经校准的 sigmoid 函数处理，得出单一预测评分。pDockQ2 高于约 0.23 可作为界面可能可接受的实用参考。更多详情见：{{3}}。"
+    },
+    {
+      "pat": "{{1}}(Local Interaction Score) is calculated from the inter-chain PAE. Residue-residue pairs with PAE <12 Å are retained as the local interaction area, and these retained values are inversely mapped onto a 0-1 scale so that lower PAE gives a higher score. LIS is the average of these inverted values across the interface of the interacting protein pair. Higher LIS values indicate greater confidence in the predicted interaction interface. For more details, see: {{2}}.",
+      "zh": "{{1}}（局部相互作用评分）由链间 PAE 计算得出。PAE <12 Å 的残基对保留为局部相互作用区域，这些保留值被反向映射到 0-1 量表，使 PAE 越低评分越高。LIS 是相互作用蛋白质对界面上这些反相值的平均值。LIS 越高表示对预测相互作用界面的置信度越高。更多详情见：{{2}}。"
+    },
+    {
+      "pat": "{{1}} The displayed values of ipSAE, pDockQ2 and LIS correspond to the maximum values; ipSAEmax, pDockQ2max and LISmax. In addition, although the confidence metrics described above, namely ipTM, ipSAE, pDockQ2 and LIS, typically have theoretical ranges between 0 and 1, the entries displayed on the website are filtered using thresholds of pDockQ2max ≥ 0.23, and ipSAEmax ≥ 0.6 , so they will not span their full theoretical ranges across the entries. In practice, these scores often appear skewed toward higher values because lower-confidence predictions have already been removed by the pDockQ2 and ipSAE filtering step.",
+      "zh": "{{1}} 显示的 ipSAE、pDockQ2 和 LIS 数值对应最大值，即 ipSAEmax、pDockQ2max 和 LISmax。此外，上述置信度指标（即 ipTM、ipSAE、pDockQ2 和 LIS）的理论范围通常在 0 到 1 之间，但网站上显示的条目已按 pDockQ2max ≥ 0.23 和 ipSAEmax ≥ 0.6 的阈值过滤，因此它们在各条目间不会覆盖完整的理论范围。实践中这些评分常偏向较高值，因为置信度较低的预测已被 pDockQ2 与 ipSAE 过滤步骤移除。"
+    },
+    {
+      "pat": "Structure pages for monomers have four tabs: Summary and Model Confidence, Domains, Annotations, and Similar Proteins. The {{1}} tab displays basic information about the protein or complex (drawn from UniProt where available), together with AlphaFold prediction outputs and confidence measures.",
+      "zh": "单体结构页有四个标签页：摘要与模型置信度、结构域、注释和相似蛋白。{{1}}标签页显示蛋白质或复合物的基本信息（在可获得时取自 UniProt），以及 AlphaFold 的预测输出和置信度度量。"
+    },
+    {
+      "pat": "The second output is a per-residue confidence metric called {{1}}, which is used to colour the residues by AlphaFold's confidence for the prediction. Note, that model confidence can vary greatly along a chain so it is important to consult the confidence estimates when interpreting structural features. The lower confidence bands may be associated with disorder (see our {{2}}).",
+      "zh": "第二种输出是称为 {{1}} 的逐残基置信度指标，用于按 AlphaFold 对预测的置信度为残基着色。请注意，模型置信度沿链可能变化很大，因此在解读结构特征时应参考置信度估计。较低的置信度区间可能与无序有关（见我们的{{2}}）。"
+    },
+    {
+      "pat": "The third output is Predicted Aligned Error (PAE), which is necessary to assess confidence in the domain packing and large-scale topology of the protein. See the FAQ below on {{1}}.",
+      "zh": "第三种输出是预测比对误差（PAE），评估结构域堆积和蛋白质大尺度拓扑的置信度所必需。关于{{1}}，请参阅下方常见问题。"
+    },
+    {
+      "pat": "The {{1}} tab displays all structural domains identified in the model by TED ({{2}}). For each domain, key information is shown including its CATH classification, quality score, residue boundaries, length, and average pLDDT. For a full explanation of these fields, see {{3}} below.",
+      "zh": "{{1}}标签页显示 TED（{{2}}）在模型中识别出的全部结构域。每个结构域显示关键信息，包括其 CATH 分类、质量评分、残基边界、长度和平均 pLDDT。这些字段的完整说明见下方{{3}}。"
+    },
+    {
+      "pat": "The {{1}} tab displays another annotation track spanning the full length of the protein sequence. The default annotation displayed is coloured by the previously mentioned {{2}} confidence score, using the same colour scheme representing the four confidence bands. Hovering over any position on the bar reveals the amino acid, its ordinal position and its pLDDT score, while simultaneously highlighting the corresponding residue on the 3D model. The {{3}} button below the pLDDT track toggles this colouring directly onto the structure viewer. The tab also includes a Custom Tracks feature. This allows you to assign your own set of residues to an annotation with a name, and map them onto the annotation track and 3D viewer. This is useful for highlighting any region of interest directly on the structure. For example, a known functional site or a set of residues relevant to your analysis. Each custom track has its own in 3D button to toggle its display on the model independently, and tracks can be managed via the settings icon next to the Custom Tracks label.",
+      "zh": "{{1}}标签页显示另一条覆盖蛋白质序列全长的注释轨道。默认显示的注释按前述 {{2}} 置信度评分着色，采用表示四个置信度区间的同一配色方案。将鼠标悬停在条上的任意位置，会显示氨基酸、其序号位置及其 pLDDT 评分，同时在三维模型上高亮对应残基。pLDDT 轨道下方的{{3}}按钮可将该着色直接切换到结构查看器上。该标签页还提供自定义轨道功能，允许你为一组自选残基指定名称并添加注释，再将其映射到注释轨道和三维查看器。这对于直接在结构上高亮任何感兴趣区域很有用，例如已知的功能位点或与分析相关的一组残基。每条自定义轨道都有各自的「三维中」按钮，可独立控制其在模型上的显示；轨道可通过「自定义轨道」标签旁的设置图标管理。"
+    },
+    {
+      "pat": "For human canonical proteins, the Annotations tab additionally displays an {{1}}, showing the predicted pathogenicity of all possible single amino acid substitutions across the sequence, coloured from likely benign (blue) to likely pathogenic (red). An {{2}} button maps the selected colouring onto the structure viewer. See {{3}}",
+      "zh": "对人类规范蛋白质，「注释」标签页还会显示{{1}}，展示整个序列上所有可能的单氨基酸替换的预测致病性，颜色从可能良性（蓝色）到可能致病（红色）。{{2}}按钮会把所选着色映射到结构查看器上。参见{{3}}"
+    },
+    {
+      "pat": "The {{1}} tab allows the discovery of structurally similar proteins across multiple databases using Foldseek. Results are organised by database, including the {{2}}, the AlphaFold Database clustered to 50% sequence identity (AFDB50), {{3}}, {{4}}, {{5}}, and {{6}}. The number of hits found in each database is shown on its tab. Selecting a tab displays the results from that database only.",
+      "zh": "{{1}}标签页可使用 Foldseek 在多个数据库中发掘结构相似的蛋白质。结果按数据库组织，包括{{2}}、按 50% 序列一致性聚类的 AlphaFold 数据库（AFDB50）、{{3}}、{{4}}、{{5}} 和 {{6}}。每个数据库找到的命中数显示在其标签上。选择某个标签只显示该数据库的结果。"
+    },
+    {
+      "pat": "For each hit, the table displays the entry ID and chain, protein description, species, aligned residue range, E-value, sequence identity, and resolution where available. Results can be filtered by species using the search box, and the full dataset for each tab can be downloaded via the {{1}} data option. For more information, see {{2}}",
+      "zh": "对每个命中，表格显示条目 ID 与链、蛋白质描述、物种、比对残基区间、E 值、序列一致性以及（在可获得时）分辨率。可使用检索框按物种过滤结果，每个标签页的完整数据集可通过{{1}}数据选项下载。更多信息见{{2}}"
+    },
+    {
+      "pat": "Each hit can be superimposed onto the 3D viewer individually using the {{1}} toggle, enabling direct visual comparison between the AlphaFold model and the similar structure. The user interface allows hits from multiple databases to be aligned simultaneously onto the query protein. The viewer can be coloured by pLDDT to retain confidence information during the comparison. Aligned coordinates can also be downloaded in mmCIF format for use in external structure viewing or analysis software.",
+      "zh": "每个命中都可通过{{1}}开关单独叠合到三维查看器上，从而直接在 AlphaFold 模型与相似结构之间做视觉比较。用户界面支持把多个数据库的命中同时比对到查询蛋白质上。查看器可按 pLDDT 着色，以便在比较过程中保留置信度信息。对齐后的坐标也可按 mmCIF 格式下载，供外部结构查看或分析软件使用。"
+    },
+    {
+      "pat": "Below the similar structures results, the tab also includes a {{1}} section, which shows other AlphaFold database entries that cluster with your protein. This is provided by AFDB Clusters and is presented across two tabs:",
+      "zh": "在相似结构结果下方，该标签页还包含{{1}}区块，显示与你的蛋白质聚为同一类的其他 AlphaFold 数据库条目。该功能由 AFDB Clusters 提供，分两个标签页呈现："
+    },
+    {
+      "pat": "{{1}} — clustered using MMseqs2 based on sequence similarity. Each cluster contains sequences sharing a maximum of 50% sequence identity and at least 90% bi-directional sequence overlap with the longest sequence of the cluster representative.",
+      "zh": "{{1}} —— 基于序列相似性使用 MMseqs2 聚类。每个聚类中的序列与聚类代表的最长序列最多共享 50% 序列一致性，且双向序列重叠至少 90%。"
+    },
+    {
+      "pat": "{{1}} — clustered using Foldseek based on structural similarity. Each cluster contains structures meeting an E-value threshold below 0.01 and at least 90% bi-directional structural overlap with the largest structure of the cluster representative.",
+      "zh": "{{1}} —— 基于结构相似性使用 Foldseek 聚类。每个聚类中的结构满足 E 值阈值低于 0.01，且与聚类代表的最大结构双向结构重叠至少 90%。"
+    },
+    {
+      "pat": "Each tab lists the AFDB accession, protein description, species, sequence length, and average pLDDT of cluster members, sorted by average pLDDT by default. For more information see {{1}}.",
+      "zh": "每个标签页列出聚类成员的 AFDB 登录号、蛋白质描述、物种、序列长度和平均 pLDDT，默认按平均 pLDDT 排序。更多信息见{{1}}。"
+    },
+    {
+      "pat": "Structure pages for multimers have five tabs: Summary and Model Confidence, Macromolecules, Domains, Annotations, and Similar Proteins. The {{1}} tab displays basic information about the complex (drawn from UniProt where available), together with AlphaFold prediction outputs and confidence measures.",
+      "zh": "多聚体结构页有五个标签页：摘要与模型置信度、大分子、结构域、注释和相似蛋白。{{1}}标签页显示复合物的基本信息（在可获得时取自 UniProt），以及 AlphaFold 的预测输出和置信度度量。"
+    },
+    {
+      "pat": "For multimers, interface quality scores are also displayed — ipSAE, ipTM, pDockQ2, and LIS — which provide complementary assessments of the reliability of the predicted interaction between chains. See the FAQs below for guidance on how to interpret these {{1}}.",
+      "zh": "对多聚体，还会显示界面质量评分——ipSAE、ipTM、pDockQ2 和 LIS——它们从不同侧面评估链间预测相互作用的可靠性。关于如何解读这些{{1}}，请参阅下方常见问题。"
+    },
+    {
+      "pat": "The {{1}} tab provides detailed information for each distinct protein in the complex. Selecting a protein from the sidebar on the left displays its gene name, source organism, UniProt accession, and biological function (drawn from UniProt). It also shows how many other complexes in the AFDB this protein appears in as a component, and links to any available experimental structures in PDBe-KB. The corresponding amino acid sequence, PAE matrix, and 3D viewer are displayed below. {{2}}, {{3}} and {{4}} tabs are currently not available.",
+      "zh": "{{1}}标签页提供复合物中每种不同蛋白质的详细信息。从左侧边栏选择某个蛋白质，会显示其基因名、来源物种、UniProt 登录号和生物学功能（取自 UniProt）。它还会显示该蛋白质作为组分出现在 AFDB 中多少个其他复合物里，并链接到 PDBe-KB 中可用的实验结构。下方显示对应的氨基酸序列、PAE 矩阵和三维查看器。{{2}}、{{3}} 和 {{4}} 标签页目前不可用。"
+    },
+    {
+      "pat": "AlphaMissense was used to classify the effects of all possible 216 million single amino acid sequence substitutions across the 19,233 {{1}} human proteins.",
+      "zh": "AlphaMissense 被用于对 19,233 个{{1}}人类蛋白质中所有可能的 2.16 亿个单氨基酸序列替换进行分类。"
+    },
+    {
+      "pat": "For more information about AlphaMissense, please refer to the paper: {{1}}",
+      "zh": "关于 AlphaMissense 的更多信息，请参阅论文：{{1}}"
+    },
+    {
+      "pat": "AlphaMissense scores for all human missense variants are available on the {{1}}{{2}}",
+      "zh": "所有人类错义变异的 AlphaMissense 评分可在{{1}}上获取{{2}}"
+    },
+    {
+      "pat": "Heatmap data. This file contains the scores estimating the likelihood of pathogenicity and classifications for each possible amino acid substitution within the protein. This file is used to visualise the heatmap you see on the entry pages. {{1}}Column am_class categorises the mutation based on the score:",
+      "zh": "热图数据。该文件包含估计蛋白质内每个可能氨基酸替换的致病可能性与分类的评分，用于可视化你在条目页上看到的热图。{{1}}am_class 列根据评分对突变进行分类："
+    },
+    {
+      "pat": "For more information please refer to the paper: {{1}}",
+      "zh": "更多信息请参阅论文：{{1}}"
+    },
+    {
+      "pat": "{{1}} This number indicates the order in which a domain appears in the protein sequence, starting from the N-terminal residue.",
+      "zh": "{{1}} 该编号表示结构域在蛋白质序列中出现的顺序，从 N 端残基开始计数。"
+    },
+    {
+      "pat": "{{1}} These identifiers classify a protein domain based on its 3D structure. They consist of up to four numbers separated by dots. The last two levels represent Topology/fold ( 3-level C.A.T, e.g. 2.60.400) and Homologous Superfamily (4-level C.A.T.H, e.g. 2.60.40.10). {{2}} In addition, domains without classification labels indicate no similarity to CATH domains used during TED’s classification workflow. For more information, refer to the paper: {{3}}",
+      "zh": "{{1}} 这些标识符基于三维结构对蛋白质结构域分类。它们由最多四个以点分隔的数字组成。最后两级分别表示拓扑/折叠（3 级 C.A.T，如 2.60.400）和同源超家族（4 级 C.A.T.H，如 2.60.40.10）。{{2}} 此外，没有分类标签的结构域表示与 TED 分类流程所用的 CATH 结构域没有相似性。更多信息请参阅论文：{{3}}"
+    },
+    {
+      "pat": "{{1}} These residue ranges define the start and end positions of all segments within a TED Domain. Protein domains are not always continuous stretches of sequence; they can consist of multiple, separated segments.",
+      "zh": "{{1}} 这些残基区间定义 TED 结构域内所有片段的起止位置。蛋白质结构域不总是连续的序列片段，可能由多个分离片段组成。"
+    },
+    {
+      "pat": "{{1}} The total number of residues in all the segments of a domain. Insertions between segments are not included.",
+      "zh": "{{1}} 结构域内所有片段的残基总数，不包含片段之间的插入部分。"
+    },
+    {
+      "pat": "{{1}} The average pLDDT score for residues in a domain. Insertions between segments are excluded. pLDDT is a measure of local confidence in the AlphaFold prediction for that domain.",
+      "zh": "{{1}} 结构域内残基的平均 pLDDT 评分，不包含片段之间的插入部分。pLDDT 衡量 AlphaFold 对该结构域预测的局部置信度。"
+    },
+    {
+      "pat": "To ensure reliability, only residue mentions with sequence positions and point mutations are processed further. These annotations are first validated against experimentally determined protein structures in the Protein Data Bank (PDB) and then mapped to UniProt reference sequences using the SIFTS (Structure Integration with Function, Taxonomy, and Sequence) resource. For more details read the paper here: {{1}}. The validated annotations from PDB are subsequently displayed in AlphaFold DB alongside predicted protein structures, allowing users to explore experimentally supported evidence describing the functional importance of individual residues and mutations.",
+      "zh": "为确保可靠性，只有带序列位置和点突变的残基提及才会进入后续处理。这些注释首先对照蛋白质数据库（PDB）中实验测定的蛋白质结构进行验证，然后使用 SIFTS（结构、功能、分类学与序列整合）资源映射到 UniProt 参考序列。更多详情请在此阅读论文：{{1}}。来自 PDB 的经验证注释随后与预测蛋白质结构一起显示在 AlphaFold DB 中，让用户可以查看描述单个残基与突变功能重要性的、有实验支持的证据。"
+    },
+    {
+      "pat": "Residue and point mutation annotations are identified using an AI-based named entity recognition (NER) system built on the PubMedBERT transformer model and fine-tuned specifically on structural biology literature. Developed using a human-in-the-loop approach, expert PDBe biocurators iteratively annotated and corrected publications to improve the model. The final model achieved an overall precision of 0.90, recall of 0.92, and an F1 score of 0.91. For more details, refer to the paper: {{1}}",
+      "zh": "残基与点突变注释由基于 PubMedBERT 变换器模型构建、并专门在结构生物学文献上微调的 AI 命名实体识别（NER）系统识别。该系统采用人在回路的方法开发，PDBe 的专家生物策展人反复标注并修正文献以改进模型。最终模型的总体精确率为 0.90、召回率为 0.92、F1 分数为 0.91。更多详情请参阅论文：{{1}}"
+    },
+    {
+      "pat": "Residue mentions with explicit sequence numbers and point mutations are processed further. Residues are first validated against experimentally determined structures in the Protein Data Bank (PDB) and then mapped to UniProt reference sequences using the SIFTS (Structure Integration with Function, Taxonomy, and Sequence) framework, for more details read the paper here: {{1}}. These experimentally supported annotations are displayed alongside AlphaFold predictions, linking predicted structures to literature describing residue function, interactions, and experimentally observed mutations.",
+      "zh": "带有明确序列编号和点突变的残基提及会进入后续处理。残基首先对照蛋白质数据库（PDB）中实验测定的结构进行验证，然后使用 SIFTS（结构、功能、分类学与序列整合）框架映射到 UniProt 参考序列；更多详情请在此阅读论文：{{1}}。这些有实验支持的注释与 AlphaFold 预测一起显示，把预测结构与描述残基功能、相互作用及实验观察到的突变的文献关联起来。"
+    },
+    {
+      "pat": "{{1}}: The PAE value of the residue pair, rounded to the closest integer. For the PAE value at position {{2}} is the residue on which the structure is aligned, {{3}} is the residue on which the error is predicted.",
+      "zh": "{{1}}：残基对的 PAE 值，四舍五入到最接近的整数。对于位置 {{2}} 处的 PAE 值，是结构对齐所依据的残基，{{3}} 是预测误差所针对的残基。"
+    },
+    {
+      "pat": "{{1}}: A number that denotes the maximum possible value of PAE. The smallest possible value of PAE is 0.",
+      "zh": "{{1}}：表示 PAE 可能的最大值。PAE 的最小可能值为 0。"
+    },
+    {
+      "pat": "Predictions for individual proteomes and for Swiss-Prot are available via our {{1}} page and via the FTP site:{{2}}{{3}}.",
+      "zh": "各蛋白质组和 Swiss-Prot 的预测可通过我们的{{1}}页面以及 FTP 站点获取：{{2}}{{3}}。"
+    },
+    {
+      "pat": "If you use this resource, please cite the following paper:{{1}}{{2}}. {{3}}{{4}}",
+      "zh": "如果你使用本资源，请引用以下论文：{{1}}{{2}}。{{3}}{{4}}"
+    },
+    {
+      "pat": "VAD dataset (2026){{1}} {{2}}",
+      "zh": "VAD 数据集（2026）{{1}} {{2}}"
+    },
+    {
+      "pat": "Kinetoplastid data copyright (2025) Wheeler Lab {{1}} {{2}}",
+      "zh": "动质体数据版权（2025）Wheeler 实验室 {{1}} {{2}}"
+    },
+    {
+      "pat": "AllTheBacteria data copyright (2025) AllTheBacteria Consortium {{1}} {{2}}",
+      "zh": "AllTheBacteria 数据版权（2025）AllTheBacteria 联盟 {{1}} {{2}}"
+    },
+    {
+      "pat": "BFVD Data Copyright (2025) The BFVD Development Team {{1}} {{2}}",
+      "zh": "BFVD 数据版权（2025）BFVD 开发团队 {{1}} {{2}}"
+    },
+    {
+      "pat": "Viro3D dataset (2025) {{1}} {{2}}",
+      "zh": "Viro3D 数据集（2025） {{1}} {{2}}"
+    },
+    {
+      "pat": "If you use data from AlphaMissense in your work, please cite the following paper:{{1}}{{2}}.",
+      "zh": "如果你在工作中使用 AlphaMissense 的数据，请引用以下论文：{{1}}{{2}}。"
+    },
+    {
+      "pat": "We are, however, now accepting eligible datasets that have used AlphaFold 2 or AlphaFold Multimer and that are on a coherent theme. To apply to contribute a dataset or check with the AFDB team if your data qualify, please email {{1}} describing the nature and quality of your dataset and providing a scientific justification for including them in the database. If the dataset is deemed suitable for integration into AFDB, we will contact the contributing team and will follow up with the submitter for additional information.",
+      "zh": "不过，我们现在接受使用 AlphaFold 2 或 AlphaFold 多聚体、且主题一致的合格数据集。如需申请贡献数据集，或想请 AFDB 团队评估你的数据是否符合条件，请发邮件至 {{1}}，说明数据集的性质与质量，并提供将其纳入数据库的科学依据。如数据集适合整合进 AFDB，我们将联系贡献团队，并向提交者索取更多信息。"
+    },
+    {
+      "pat": "For other questions about AlphaFold not directly related to the database, please contact the AlphaFold team at {{1}}. Please do not share anything confidential with Google DeepMind.",
+      "zh": "对于与数据库没有直接关系的其他 AlphaFold 问题，请联系 AlphaFold 团队：{{1}}。请不要与 Google DeepMind 分享任何机密信息。"
+    },
+    {
+      "pat": "For questions and feedback about the AlphaFold DB website, please contact {{1}}.",
+      "zh": "有关 AlphaFold DB 网站的问题与反馈，请联系 {{1}}。"
+    },
+    {
+      "pat": "For press enquiries, please contact {{1}} or {{2}}.",
+      "zh": "媒体垂询请联系 {{1}} 或 {{2}}。"
+    },
+    {
+      "pat": "Check whether your protein may be excluded for one of the reasons outlined in our {{1}}.",
+      "zh": "请确认你的蛋白质是否因我们{{1}}中列出的某项原因而被排除。"
     }
   ]
 }

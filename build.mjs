@@ -101,12 +101,22 @@ for (const id of Object.keys(dict)) {
   _rules += (d.rules || []).length;
   _tpl += (d.templates || []).length;
 }
-const stamp = {
+// 词库总指纹：条数相同但内容变了（改一条删一条）时也能抓到（r25 P0-1）
+  const { createHash } = await import("node:crypto");
+  const hash = createHash("sha256");
+  for (const f of fs.readdirSync(path.join(root, "dict")).filter((x) => x.endsWith(".json")).sort()) {
+    const raw = fs.readFileSync(path.join(root, "dict", f));
+    hash.update(f + ":" + raw.length + ":" + createHash("sha256").update(raw).digest("hex"));
+  }
+  hash.update("sites:" + createHash("sha256").update(fs.readFileSync(path.join(root, "config/sites.json"))).digest("hex"));
+  const buildFingerprint = hash.digest("hex").slice(0, 24);
+  const stamp = {
   version: pkg.version,
   books: Object.keys(dict).length,
   sites: sites.sites.length,
   exact: _exact, rules: _rules, templates: _tpl,
   bytes: Buffer.byteLength(out, "utf8"),
+  fingerprint: buildFingerprint,
   builtAt: new Date().toISOString()
 };
 fs.writeFileSync(path.join(root, "dist/build-meta.json"), JSON.stringify(stamp, null, 2) + "\n");

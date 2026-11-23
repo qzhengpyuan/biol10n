@@ -610,6 +610,10 @@
     {
       "re": "^NYS CLEP certification \\(([\\d,]+)\\)$",
       "to": "NYS CLEP 认证（$1）"
+    },
+    {
+      "re": "^(.+) - NIH Genetic Testing Registry \\(GTR\\) - NCBI$",
+      "to": "$1 - NIH 遗传检测登记库（GTR） - NCBI"
     }
   ],
   "templates": [

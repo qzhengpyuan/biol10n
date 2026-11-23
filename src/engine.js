@@ -19,7 +19,9 @@ function createEngine(options) {
     // "breast cancer - GEO DataSets - NCBI" 局部替换成半中半英（检查方 P0-3）。
     TITLE: 1
   };
-  var DEFAULT_ATTRS = ["placeholder", "title", "aria-label", "alt", "data-original-title"];
+  // summary 是表格的读屏说明（GTEx 用它放整句表说明），label 主要给 OPTGROUP 分组名用，
+  // 两个都不在默认通道里时，HPA 的 85 条 optgroup 与 GTEx 的 63 条表说明永远是英文（r25 P1-A）。
+  var DEFAULT_ATTRS = ["placeholder", "title", "aria-label", "alt", "data-original-title", "summary"];
   // 下载格式名：这些词既是选项文字又是提交值，翻了只会让下载格式变成中文（List → 列表）
   var FORMAT_OPTION = /^(FASTA( \([^)]*\))?|TSV( \(Excel\))?|Excel|JSON|XML|RDF\/XML|Text|Plain text|GFF3?|BED|CSV|PSL|WIG|List|Embeddings|PDB|PPI)$/i;
   var BLOCK = site.block || "pre, code, kbd, samp, textarea, [contenteditable=''], [contenteditable='true']";
@@ -113,10 +115,18 @@ function createEngine(options) {
   }
 
   /** 只在 exact 表里查一次，不进入 rules，避免递归 */
+  /** 通用册里的 ≤3 字符纯小写英文（and / to / of / the / in …）是正文里的功能词，
+   *  单独命中会把 TargetScan 的「and/or」翻成「且/或」（r21/r24/r25 连续三轮）。
+   *  这类键只在规则通道里用（表单标签走大写 AND/OR 或带冒号的写法），exact 通道直接跳过。 */
+  var SHORT_FUNC = /^[a-z]{1,3}$/;
   function lookupExact(s) {
     if (!s) return null;
     var text = normalize(s);
     if (!text || hasCJK(text)) return null;
+    // 只有站点显式关掉（site.funcWords === false）才跳过：TargetScan 这类正文里
+    // 把 "and" 当独立文本节点的站点，功能词会被译成「且/或」（r25 P1-E）；
+    // 但 CCDS 的 for/in/and 是真实表单标签，通用禁止会打断这些站点。
+    if (site.funcWords === false && SHORT_FUNC.test(text)) return null;
     var cand = variants(text);
     for (var i = 0; i < cand.length; i++) {
       var hit = exact.get(cand[i]);
@@ -1162,8 +1172,42 @@ function createEngine(options) {
     try { handleAttributesInner(el); } finally { hitChannel = prev; }
   }
 
+  /** 属性里的字面 <br>：HPA 的 title="Myonuclei c-0<br>Reliability: High<br>19.1 nuclei"
+   *  把换行写进了属性值，整串查表永远不中。按 <br> 切开逐段翻，再用 · 连接（r25 P1-A）。 */
+  function translateBrAttr(raw) {
+    var parts = String(raw).split(/<br\s*\/?>/i);
+    if (parts.length < 2) return null;
+    var any = false;
+    var out = parts.map(function (p) {
+      var t = normalize(p);
+      if (!t || hasCJK(t) || !LETTER.test(t)) return p;
+      var v = translate(t);
+      if (v === null) return p;
+      any = true;
+      return v;
+    });
+    return any ? out.join(" · ") : null;
+  }
+
   function handleAttributesInner(el) {
     if (!enabled || !el || !el.getAttribute) return;
+    // OPTGROUP 的分组名只在 label 属性里，不在默认属性表里；OPTION[value] 是提交参数，绝不能动。
+    if (el.tagName === "OPTGROUP" && el.getAttribute) {
+      var lab = el.getAttribute("label");
+      if (lab) {
+        var labText = normalize(lab);
+        if (labText.length >= 2 && !hasCJK(labText) && LETTER.test(labText)) {
+          var labOut = translate(labText);
+          if (labOut !== null) {
+            var labStore = originals.get(el) || {};
+            if (!("label" in labStore)) labStore.label = lab;
+            originals.set(el, labStore);
+            el.setAttribute("label", labOut);
+            stats.attrs++;
+          }
+        }
+      }
+    }
     for (var i = 0; i < attrs.length; i++) {
       var name = attrs[i];
       // value 只翻"可见按钮"和"文本框默认值"：
@@ -1185,6 +1229,8 @@ function createEngine(options) {
         fromProp = !!v;
       }
       if (!v) continue;
+      // GTEx 的 <table summary="false"> 是布尔占位，不是说明句
+      if (name === "summary" && /^(true|false)$/i.test(String(v).trim())) continue;
       var text = normalize(v);
       if (text.length < 2 || hasCJK(text) || !LETTER.test(text)) continue;
       // 属性是"控件说明"不是内容：textarea 的 placeholder、代码块的 title 都该翻，
@@ -1208,6 +1254,8 @@ function createEngine(options) {
         if (!rescued) continue;
       }
       var out = translate(text);
+      // 字面 <br> 的属性值（HPA 图例 tooltip）：整串不中时再按段翻一次
+      if (out === null && /<br\s*\/?>/i.test(String(v))) out = translateBrAttr(v);
       if (out === null) continue;
       if (fromProp) {
         if (!propOriginals.has(el)) propOriginals.set(el, v);

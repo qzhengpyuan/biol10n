@@ -258,7 +258,8 @@
     "3P-seq tags supporting UTR + 5 pseudotags": "支持 UTR 的 3P-seq 标签 + 5 个伪标签",
     "6mer description": "6mer 说明",
     "Representative miRNA (with the most negative CWCS)": "代表性 miRNA（CWCS 最负）",
-    "Cumulative weighted context++ score (CWCS)": "累积加权 context++ 得分（CWCS）"
+    "Cumulative weighted context++ score (CWCS)": "累积加权 context++ 得分（CWCS）",
+    "Browser problems?": "浏览器有问题？"
   },
   "rules": [
     {

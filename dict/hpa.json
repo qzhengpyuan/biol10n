@@ -1732,7 +1732,27 @@
     "Cancer enhanced": "癌症增强",
     "Cancer enriched": "癌症富集",
     "Potential prognostic - unfavorable": "潜在预后 - 不良",
-    "Validated prognostic - unfavorable": "经验证预后 - 不良"
+    "Validated prognostic - unfavorable": "经验证预后 - 不良",
+    "GENE INFO": "基因信息",
+    "ANTIBODY VALIDATION": "抗体验证",
+    "EXTRA": "更多",
+    "The Brain Atlas includes data from different regions of the brain, illustrated with a specific color throughout the brain atlas illustrations.": "脑图谱包含来自不同脑区的数据，在整套脑图谱插图中以特定颜色标示。",
+    "Each symbol and region name is clickable and will redirect to the selected regional summary page.": "每个符号与脑区名称均可点击，会跳转到所选区域的摘要页。",
+    "This paragraph provides an overview of proteins elevated in brain from a whole body perspective and proteins elevated in regions of the brain from a whole brain perspective.": "本段概述两类蛋白质：从全身视角看在脑中表达升高的蛋白质，以及从全脑视角看在各脑区中表达升高的蛋白质。",
+    "Further details about each brain region are available on the respective regional summary pages, while additional information and illustrative examples of regional and spatial gene expression patterns are presented below.": "各脑区的更多细节见相应区域摘要页；区域与空间基因表达模式的补充信息与示例见下文。",
+    "Regional expression in the mammalian brain and mouse immunofluorescence protein profiles": "哺乳动物脑的区域表达与小鼠免疫荧光蛋白质谱",
+    "Elevated in brain": "在脑中升高",
+    "Elevated in other but expressed in brain": "在其他组织升高但在脑中表达",
+    "Low tissue specificity but expressed in brain": "低组织特异性但在脑中表达",
+    "Not detected in brain": "脑中未检出",
+    "Not detected in any tissue": "任何组织中均未检出",
+    "THE BRAIN": "人脑",
+    "BRAIN REGIONS": "脑区",
+    "BRAIN SUMMARY": "脑摘要",
+    "BRAIN EXPRESSION": "脑表达",
+    "single cell resource": "单细胞资源",
+    "More information about the specific content and the generation and analysis of the data in this resource can be found on the": "有关该资源的具体内容以及数据生成与分析方法的更多信息，见",
+    "The human brain": "人脑"
   },
   "rules": [
     {
@@ -2376,6 +2396,10 @@
     {
       "pat": "Uniform Manifold Approximation and Projection (UMAP) is an analytical technique for reducing the dimensionality of a complex data set ({{1}}). The interactive subcellular location UMAP has been generated using image-level feature extraction for the large collection of confocal microscopy images showing the subcellular localization patterns of human proteins. This tool provides a way to visualize and study the high-dimensional protein localization data that makes up the subcellular resource, projected in a two- or three dimensional space. By coloring the data points, each representing one image, according to subcellular localization(s) it is evident that images of proteins localizing to the same compartment tend to cluster together. Overlaying the UMAP projection with different data can allow you to find new features and identify interesting groups of genes in a large and complex data set. Click on the UMAP or explore the interactive vesion of the subcellular location UMAP {{2}}。",
       "zh": "均匀流形近似与投影（UMAP）是一种对复杂数据集降维的分析方法（{{1}}）。该交互式亚细胞定位 UMAP 是对大量共聚焦显微图像做图像级特征提取后生成的，这些图像展示了人类蛋白质的亚细胞定位模式。该工具可把构成亚细胞资源的高维蛋白质定位数据投影到二维或三维空间，便于可视化与研究。按亚细胞定位给每个数据点（对应一张图像）着色后可以明显看出，定位于同一细胞区室的蛋白质图像往往聚在一起。把不同数据叠加到 UMAP 投影上，可在庞大复杂的数据集中发现新特征、识别有趣的基因群。点击 UMAP，或浏览亚细胞定位 UMAP 的交互版本{{2}}。"
+    },
+    {
+      "pat": "In addition to the data provided in the brain resource there is also data on {{1}}, the {{2}} includes the regional brain comparison across different mammalian species, and the {{3}} includes expression profiles for a selection of neuronal and non-neuronal cell-types of the central nervous system.",
+      "zh": "除了脑资源提供的数据之外，还有以下数据：{{1}}；{{2}}涵盖不同哺乳动物物种间的脑区比较，{{3}}则提供中枢神经系统部分神经元与非神经元细胞类型的表达谱。"
     }
   ]
 }

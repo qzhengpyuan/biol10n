@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const root = path.dirname(fileURLToPath(import.meta.url)) + "/..";
 const metaPath = path.join(root, "dist/build-meta.json");
@@ -30,4 +31,13 @@ test("dist 构建指纹与磁盘词库一致", () => {
   assert.equal(meta.templates, tpl, "templates 条数不一致");
   const bytes = fs.statSync(path.join(root, "dist/biol10n.user.js")).size;
   assert.equal(meta.bytes, bytes, "dist 字节数与指纹不符");
+  // 条数相同但内容不同（改一条删一条）时，条数比对抓不到，用词库总指纹兜底。
+  // r25 P0-1：targetscan 加了一条又删了一条，条数一致、dist 却是旧的。
+  const hash = createHash("sha256");
+  for (const f of files.slice().sort()) {
+    const raw = fs.readFileSync(path.join(root, "dict", f));
+    hash.update(f + ":" + raw.length + ":" + createHash("sha256").update(raw).digest("hex"));
+  }
+  hash.update("sites:" + createHash("sha256").update(fs.readFileSync(path.join(root, "config/sites.json"))).digest("hex"));
+  assert.equal(meta.fingerprint, hash.digest("hex").slice(0, 24), "词库/站点内容与构建指纹不一致（重建 dist）");
 });

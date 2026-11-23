@@ -1884,7 +1884,8 @@
       "attrs": [
         "value"
       ],
-      "proseExempt": ""
+      "proseExempt": "",
+      "funcWords": false
     },
     {
       "id": "embl-ebi",

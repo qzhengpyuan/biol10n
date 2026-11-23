@@ -422,6 +422,10 @@
     {
       "re": "^([\\d,]+) variants? for$",
       "to": "$1 条变异："
+    },
+    {
+      "re": "^404 Not Found\\s+-\\s+-\\s+ClinVar\\s+-\\s+NCBI$",
+      "to": "404 未找到 - ClinVar - NCBI"
     }
   ],
   "templates": [

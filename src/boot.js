@@ -106,6 +106,7 @@
         attrs: mergedAttrs(site),
         skip: site.skip || "",
         skipFree: site.skipFree || [],
+        funcWords: site.funcWords !== false,
         attrSkipFree: site.attrSkipFree || [],
         proseGuard: site.proseGuard !== false,
         proseMax: site.proseMax || 120,

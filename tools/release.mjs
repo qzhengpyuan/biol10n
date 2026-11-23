@@ -15,12 +15,11 @@ if (!fs.existsSync(file)) {
   process.exit(1);
 }
 const version = (fs.readFileSync(file, "utf8").match(/@version\s+(\S+)/) || [])[1] || "unknown";
-// r24 P1-3：构建之后又被改了词库时，dist 与 meta 的指纹对不上，这一版发出去就是
-// 「报告说修了、真机看不到」。发版前把 dist-fresh 跑一遍，红就中止。
+// 二次校验（r25 P0-1）：构建到推送之间还有几秒，词库可能被并行 agent 改掉。
 try {
   execFileSync(process.execPath, ["--test", "test/dist-fresh.test.mjs"], { cwd: root, stdio: "inherit" });
 } catch (e) {
-  console.error("dist 与磁盘词库/配置不一致，发版中止：先跑 npm run build 再看 test/dist-fresh");
+  console.error("二次校验失败：构建后词库/站点又被改动，发版中止");
   process.exit(1);
 }
 const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();

@@ -669,7 +669,36 @@
     "Confidence Interval": "置信区间",
     "Title Acronym": "标题缩写",
     "None (Open Label)": "无（开放标签）",
-    "Hazard Ratio": "风险比"
+    "Hazard Ratio": "风险比",
+    "American Indian or Alaska Native": "美洲印第安人或阿拉斯加原住民",
+    "Black or African American": "黑人/非裔美国人",
+    "Enrollment (": "入组人数（",
+    "Results to Download": "可下载的结果",
+    "Studies may not be in the same order as in the search results": "研究顺序可能与检索结果中的顺序不同",
+    "Note: Excel will incorrectly open a CSV file if any cell has more than 32,767 characters.": "注意：若任一单元格超过 32,767 个字符，Excel 会错误地打开该 CSV 文件。",
+    "New studies first posted in the last 14 days": "最近 14 天内首次发布的新研究",
+    "New and existing studies added or modified (last update posted) in the last 14 days": "最近 14 天内新增或修改（最后更新发布）的新建与已有研究",
+    "Newest First": "最新优先",
+    "Number of locations in the city": "该城市的地点数量",
+    "Study Record Versions": "研究记录版本",
+    "This table shows all the versions of this study record arranged in order by submitted date.": "此表按提交日期顺序列出该研究记录的所有版本。",
+    "To view one version of the study record, click the submitted date.": "要查看研究记录的某个版本，请点击提交日期。",
+    "To compare two versions, select them using the check boxes and click \"Compare\" at the bottom of the list.": "要比较两个版本，请用复选框选中它们，再点击列表底部的“比较”。",
+    "Data that is changed in the study record is color coded:": "研究记录中发生更改的数据以颜色标示：",
+    "Deletions from the study record are shown crossed out in": "研究记录中的删除内容以删除线标示，颜色为",
+    "red highlights": "红色高亮",
+    "Additions to the study record are shown in": "研究记录中的新增内容以",
+    "green highlights": "绿色高亮",
+    "Date submitted": "提交日期",
+    "Changes": "更改",
+    "None (earliest version on record)": "无（记录中最早的版本）",
+    "Contacts/Locations": "联系人与地点",
+    "Eligibility": "合格性标准",
+    "Sponsor/Collaborators": "申办方/合作方",
+    "Study Identification": "研究标识信息",
+    "Study Description": "研究描述",
+    "Oversight": "监管",
+    "Compare": "比较"
   },
   "rules": [
     {
@@ -747,6 +776,10 @@
     {
       "re": "^Statistical Analysis (\\d+)$",
       "to": "统计分析 $1"
+    },
+    {
+      "re": "^Measure Type: Number \\| Unit of [Mm]easure: (.+)$",
+      "to": "指标类型：数值 | 计量单位：$1"
     },
     {
       "re": "^Measure Type: (.+) \\| Unit of [Mm]easure: (.+)$",
@@ -886,6 +919,10 @@
     {
       "re": "^Primary Purpose\\s*:?\\s*Other$",
       "to": "主要目的：其他"
+    },
+    {
+      "re": "^Day (\\d+) through Day (\\d+)$",
+      "to": "第 $1 天至第 $2 天"
     }
   ],
   "templates": [

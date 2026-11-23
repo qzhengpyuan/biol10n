@@ -1419,6 +1419,9 @@ function createEngine(options) {
     if (!kids) return true;
     for (var i = 0; i < kids.length; i++) {
       var k = kids[i];
+      // 链接里嵌的内联 <svg> 图标（GDC 的「Download <svg/>」、EMBL-EBI 的箭头）：它没有可翻文本，
+      // 整节点搬回去即可，不该让整段模板作废（r30 GDC 开发者页两段因此长期留英文）。
+      if (k.tagName === "SVG" || k.tagName === "svg") continue;
       if (!k.tagName || !INLINE_TAGS[k.tagName]) return false;
       if (!isInlineSubtree(k)) return false;
     }

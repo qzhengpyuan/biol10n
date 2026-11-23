@@ -256,7 +256,22 @@
     "out-of-frame exon": "框外外显子",
     "Databases:": "数据库：",
     "Score:": "得分：",
-    "Gap:": "间隙："
+    "Gap:": "间隙：",
+    "CATALYTIC ACTIVITY:": "催化活性：",
+    "ENZYME REGULATION:": "酶调控：",
+    "PATHWAY:": "通路：",
+    "POLYMORPHISM:": "多态性：",
+    "MISCELLANEOUS:": "其他信息：",
+    "MASS SPECTROMETRY:": "质谱：",
+    "CAUTION:": "注意事项：",
+    "PHARMACEUTICAL:": "药物信息：",
+    "* = Manually curated disease association": "* = 人工策展的疾病关联",
+    "Track Name:": "轨道名称：",
+    "Data Format:": "数据格式：",
+    "Include Public Hub Search Results:": "包含公共 Hub 检索结果：",
+    "NOTE: Including public hubs in results may be slow": "注意：在结果中包含公共 Hub 可能较慢",
+    "About Track Search": "关于轨道检索",
+    "more help": "更多帮助"
   },
   "rules": [
     {
@@ -334,6 +349,10 @@
     {
       "re": "^Codon phase: (\\d+)$",
       "to": "密码子相位：$1"
+    },
+    {
+      "re": "^Search for Tracks in the (.+) Assembly$",
+      "to": "在 $1 组装体中检索轨道"
     }
   ]
 }

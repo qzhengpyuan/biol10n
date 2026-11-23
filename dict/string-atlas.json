@@ -693,7 +693,12 @@
   "Note: this does not necessarily mean that it is not a biologically meaningful selection of proteins — it could simply be that these proteins have not been studied very much and that their interactions might not yet be known to STRING.": "注意：这并不一定表示该蛋白质选择没有生物学意义——也可能只是这些蛋白质研究得较少，其互作尚未被 STRING 收录。",
   "The first number indicates how many proteins in your network are annotated with a particular term. The second number indicates how many proteins in total (in your network and in the background) have this term assigned. You can click on the numbers to see the network view of the gene sets behind them.": "第一个数字表示您网络中有多少蛋白质被注释上该术语。第二个数字表示（网络内与背景中）共有多少蛋白质被赋予该术语。点击这些数字可查看其背后基因集的网络视图。",
   "Log10(observed / expected). This measure describes how large the enrichment effect is. It’s the ratio between i) the number of proteins in your network that are annotated with a term and ii) the number of proteins that we expect to be annotated with this term in a random network of the same size.": "Log10（观测值 / 期望值）。该指标描述富集效应的大小，即 i) 您网络中被注释上某术语的蛋白质数量与 ii) 在同样大小的随机网络中预期被注释上该术语的蛋白质数量之比。",
-  "The signal is defined as a weighted harmonic mean between the observed/expected ratio and -log(FDR). FDR tends to emphasize larger terms due to their potential for achieving lower p-values, while the observed/expected ratio highlights smaller terms, which have a high foreground to background ratio but cannot achieve low FDR values due to their size. The signal measure seeks to balance both metrics for more intuitive ordering of enriched terms.": "信号定义为观测/期望比值与 -log(FDR) 的加权调和平均。FDR 倾向于强调较大的术语（因其更易取得更小的 P 值），而观测/期望比值突出较小的术语（其前景/背景比值高，但因规模所限无法取得较低的 FDR）。信号指标力图平衡这两个指标，使富集术语的排序更直观。"
+  "The signal is defined as a weighted harmonic mean between the observed/expected ratio and -log(FDR). FDR tends to emphasize larger terms due to their potential for achieving lower p-values, while the observed/expected ratio highlights smaller terms, which have a high foreground to background ratio but cannot achieve low FDR values due to their size. The signal measure seeks to balance both metrics for more intuitive ordering of enriched terms.": "信号定义为观测/期望比值与 -log(FDR) 的加权调和平均。FDR 倾向于强调较大的术语（因其更易取得更小的 P 值），而观测/期望比值突出较小的术语（其前景/背景比值高，但因规模所限无法取得较低的 FDR）。信号指标力图平衡这两个指标，使富集术语的排序更直观。",
+  "Regulatory": "调控",
+  "Now, since the addition of proteins is to some extent based on prior knowledge, you can expect to see some statistical enrichment of annotated functions here.": "由于添加蛋白质在一定程度上基于已有知识，您在这里可能会看到注释功能带来的一些统计富集。",
+  "This setting controls how many additional proteins are added to the network beyond your input set. Proteins are selected based on how strongly and specifically they are associated with the proteins currently shown in the network. This setting also changes when you click the": "该设置控制除输入集合之外还向网络中额外添加多少蛋白质。蛋白质按其与当前网络中蛋白质关联的强度与特异性选取。此设置也会改变点击",
+  "button.": "按钮时的行为。",
+  "This measure describes how significant the enrichment is. Shown are p-values corrected for multiple testing within each category using the": "该指标描述富集的显著性。所显示的 P 值是每个类别内做多重检验校正后的值，校正方法为"
  },
  "rules": [
   {
@@ -848,6 +853,10 @@
   {
    "re": "^(Biological Process \\(Gene Ontology\\)|Molecular Function \\(Gene Ontology\\)|Cellular Component \\(Gene Ontology\\)|Reference Publications \\(PubMed\\)|KEGG Pathways|Reactome Pathways|WikiPathways|Tissue Expression \\(TISSUES\\)|Subcellular Localization \\(COMPARTMENTS\\)|Human Phenotype \\(Monarch\\)|Annotated Keywords \\(UniProt\\)|Protein Domains \\(SMART\\)) enrichment$",
    "to": "$1富集"
+  },
+  {
+   "re": "^You have entered STRING with ([\\d,]+) protein\\(s\\), but STRING has added a total of ([\\d,]+) protein\\(s\\) to show a network around your input \\(this occurs by default\\)\\.$",
+   "to": "您向 STRING 输入了 $1 个蛋白质，但 STRING 额外添加了共 $2 个蛋白质以显示您输入周围的网络（这是默认行为）。"
   }
  ],
  "templates": [

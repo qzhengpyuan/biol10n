@@ -548,7 +548,56 @@
     "BioAssay Count Linked to This Node": "与此节点关联的生物测定数",
     "Compound Count Linked to This Node": "与此节点关联的化合物数",
     "Compound count is too large to view.": "化合物数量过多，无法查看。",
-    "Go to MeSH Tree page about this term": "前往该术语的 MeSH 树页面"
+    "Go to MeSH Tree page about this term": "前往该术语的 MeSH 树页面",
+    "7.11 DEA Drug and Chemical Information": "7.11 DEA 药物与化学品信息",
+    "7.12 EMA Drug Information": "7.12 EMA 药物信息",
+    "7.13 Therapeutic Uses": "7.13 治疗用途",
+    "7.14 Drug Development Summary": "7.14 药物研发摘要",
+    "7.15 Drug Warnings": "7.15 药物警告",
+    "7.16 Drug Idiosyncrasies": "7.16 药物特异反应",
+    "7.17 Reported Fatal Dose": "7.17 报告的致死剂量",
+    "7.18 Maximum Drug Dose": "7.18 最大药物剂量",
+    "7.19 Drug Targets": "7.19 药物靶点",
+    "7.20 Drug-Drug Interactions": "7.20 药物-药物相互作用",
+    "7.21 Drug-Food Interactions": "7.21 药物-食物相互作用",
+    "13.1.12.1 EPA Human Health Benchmarks for Pharmaceuticals": "13.1.12.1 EPA 药物人体健康基准值",
+    "13.1.12.2 NIOSH Toxicity Data": "13.1.12.2 NIOSH 毒性数据",
+    "15.3 Springer Nature References": "15.3 Springer Nature 参考文献",
+    "15.4 Thieme References": "15.4 Thieme 参考文献",
+    "15.5 Wiley References": "15.5 Wiley 参考文献",
+    "15.6 Beilstein References": "15.6 Beilstein 参考文献",
+    "15.7 Nature Journal References": "15.7 Nature 期刊参考文献",
+    "Hydrogen Bond Donor Count": "氢键供体数",
+    "Hydrogen Bond Acceptor Count": "氢键受体数",
+    "Rotatable Bond Count": "可旋转键数",
+    "Monoisotopic Mass": "单同位素质量",
+    "Topological Polar Surface Area": "拓扑极性表面积",
+    "Heavy Atom Count": "重原子数",
+    "Formal Charge": "形式电荷",
+    "Isotope Atom Count": "同位素原子数",
+    "Defined Atom Stereocenter Count": "已定义原子立体中心数",
+    "Undefined Atom Stereocenter Count": "未定义原子立体中心数",
+    "Defined Bond Stereocenter Count": "已定义键立体中心数",
+    "Undefined Bond Stereocenter Count": "未定义键立体中心数",
+    "Covalently-Bonded Unit Count": "共价键合单元数",
+    "Compound Is Canonicalized": "化合物已规范化",
+    "Flammability": "易燃性",
+    "Inhalation First Aid": "吸入急救",
+    "Skin First Aid": "皮肤急救",
+    "Eye First Aid": "眼睛急救",
+    "Ingestion First Aid": "摄入急救",
+    "Inhalation Exposure": "吸入暴露",
+    "Skin Exposure": "皮肤暴露",
+    "Eye Exposure": "眼睛暴露",
+    "Ingestion Exposure": "摄入暴露",
+    "REL-TWA (Time Weighted Average)": "REL-TWA（时间加权平均）",
+    "TLV-TWA (Time Weighted Average)": "TLV-TWA（时间加权平均）",
+    "Associated Occupational Diseases with Exposure to the Compound": "接触该化合物相关的职业病",
+    "Route of Elimination": "消除途径",
+    "Volume of Distribution": "分布容积",
+    "Clearance": "清除率",
+    "ATCvet Code": "ATCvet 代码",
+    "Sources/Uses": "来源/用途"
   },
   "rules": [
     {
@@ -570,6 +619,26 @@
     {
       "re": "^Go to (.+) section$",
       "to": "转到 $1 部分"
+    },
+    {
+      "re": "^MeSH Entry Terms for (.+)$",
+      "to": "$1 的 MeSH 入口词"
+    },
+    {
+      "re": "^([\\d,]+) vendors$",
+      "to": "$1 个供应商"
+    },
+    {
+      "re": "^([\\d,]+) items$",
+      "to": "$1 个条目"
+    },
+    {
+      "re": "^([\\d,]+) articles$",
+      "to": "$1 篇文章"
+    },
+    {
+      "re": "^([\\d,]+) patents from ([\\d,]+) patent families$",
+      "to": "$1 项专利，来自 $2 个专利族"
     }
   ],
   "templates": [

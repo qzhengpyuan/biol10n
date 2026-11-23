@@ -119,8 +119,16 @@ function createEngine(options) {
    *  单独命中会把 TargetScan 的「and/or」翻成「且/或」（r21/r24/r25 连续三轮）。
    *  这类键只在规则通道里用（表单标签走大写 AND/OR 或带冒号的写法），exact 通道直接跳过。 */
   var SHORT_FUNC = /^[a-z]{1,3}$/;
+  // 站点关掉功能词（site.funcWords === false）时，独立成节点的 and/or/of 一律保持英文：
+  // TargetScan 的检索式 "and/or" 被译成「且/或」连续三轮被检查方点名（r21/r24/r25）。
+  // 只挡功能词白名单，All / Any 这类真界面词不受影响。
+  var FUNC_WORD_SET = { and: 1, or: 1, of: 1, to: 1, in: 1, for: 1, the: 1, a: 1, an: 1, from: 1, with: 1, by: 1, on: 1, at: 1, as: 1, is: 1, was: 1, are: 1 };
   function lookupExact(s) {
     if (!s) return null;
+    if (site.funcWords === false) {
+      var bare = String(s).trim().toLowerCase();
+      if (FUNC_WORD_SET[bare]) return null;
+    }
     var text = normalize(s);
     if (!text || hasCJK(text)) return null;
     // 只有站点显式关掉（site.funcWords === false）才跳过：TargetScan 这类正文里
@@ -177,6 +185,11 @@ function createEngine(options) {
   function unmaskTimeColons(s) { return s.indexOf(TIME_COLON) < 0 ? s : s.split(TIME_COLON).join(":"); }
 
   function translate(s, depth) {
+    // 规则通道同样要挡：dict 里还有 ^AND$ => 且 这类规则（TargetScan）
+    if (site.funcWords === false && s) {
+      var bareW = String(s).trim().toLowerCase();
+      if (FUNC_WORD_SET[bareW]) return null;
+    }
     // 首尾的箭头/伪元素符号先剥离，翻译完再贴回：PRIDE 的「or browse all datasets →」
     // 与 BioStudies 的「→PageTab↲」都是这个形态，带着符号查表永远 miss。
     // 只处理首尾带箭头的串：箭头在中间（ClinicalTrials 的「cancer → Tumours」、

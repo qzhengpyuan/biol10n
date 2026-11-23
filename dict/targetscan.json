@@ -16,7 +16,6 @@
     "2. Enter a human gene symbol (e.g. \"Hmga2\")": "2. 输入人类基因符号（例如“Hmga2”）",
     "2. Enter a mouse gene symbol (e.g. \"Hmga2\")": "2. 输入小鼠基因符号（例如“Hmga2”）",
     "3. Do one of the following:": "3. 执行以下任一操作：",
-    "AND/OR": "且/或",
     "Select a broadly conserved* microRNA family": "选择一个广泛保守的* microRNA 家族",
     "Select a conserved* microRNA family": "选择一个保守的* microRNA 家族",
     "Select a poorly conserved but confidently annotated microRNA family": "选择弱保守但注释可靠的 microRNA 家族",

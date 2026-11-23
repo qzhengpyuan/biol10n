@@ -1502,8 +1502,8 @@
     "RNA tissue specificity:": "RNA 组织特异性：",
     "Agreement detection:": "一致性（检出）：",
     "Agreement expression:": "一致性（表达）：",
-    "RNA tau score:": "RNA tau 分数：",
-    "Protein tau score:": "蛋白质 tau 分数：",
+    "RNA tau score:": "RNA Tau 评分：",
+    "Protein tau score:": "蛋白质 Tau 评分：",
     "Overlap:": "重叠：",
     "DVP - RNA AND PROTEIN ABUNDANCE COMPARISON": "DVP - RNA 与蛋白质丰度比较",
     "is part of": "属于",
@@ -1757,7 +1757,30 @@
     "Cell count": "细胞数",
     "Reliability: High": "可靠性：高",
     "Reliability: Medium": "可靠性：中",
-    "Reliability: Low": "可靠性：低"
+    "Reliability: Low": "可靠性：低",
+    "BREAST": "乳腺",
+    "COLON": "结肠",
+    "ENDOMETRIUM": "子宫内膜",
+    "EPIDIDYMIS": "附睾",
+    "ESOPHAGUS": "食管",
+    "EYE": "眼",
+    "KIDNEY": "肾脏",
+    "LIVER": "肝脏",
+    "LUNG": "肺",
+    "OVARY": "卵巢",
+    "PANCREAS": "胰腺",
+    "PLACENTA": "胎盘",
+    "PROSTATE": "前列腺",
+    "RECTUM": "直肠",
+    "SKIN": "皮肤",
+    "SPLEEN": "脾脏",
+    "STOMACH": "胃",
+    "TESTIS": "睾丸",
+    "THYMUS": "胸腺",
+    "TONGUE": "舌",
+    "VASCULATURE": "血管系统",
+    "Show tissue menu": "显示组织菜单",
+    "RSS feed": "RSS 订阅源"
   },
   "rules": [
     {
@@ -1969,6 +1992,11 @@
     {
       "re": "^(.+)<br>(\\d+) genes$",
       "to": "$1<br>$2 个基因"
+    },
+    {
+      "re": "^(Neighbour|Description|Correlation|Cluster)i .*?: No sort applied, sorting is disabled$",
+      "to": "$1：未应用排序，排序已禁用",
+      "requireHit": true
     },
     {
       "re": "^(.+): No sort applied, sorting is disabled$",
@@ -2210,9 +2238,8 @@
       "to": "基于单细胞 RNA 表达的最近邻"
     },
     {
-      "re": "^(.+) - ([\\d.]+) (nCPM|nTPM)$",
-      "to": "$1 - $2 $3",
-      "requireHit": true
+      "re": "^([^<]+) - ([\\d.]+) (nCPM|nTPM)$",
+      "to": "$1 - $2 $3"
     },
     {
       "re": "^<b>(.+)</b><br>Scaled Tags Per Million: ([\\d.]+)<br>Organ: (.+)$",
@@ -2304,6 +2331,33 @@
     {
       "re": "^Cell count: ([\\d,]+)$",
       "to": "细胞数：$1"
+    },
+    {
+      "re": "^([^<]+) ([\\d.]+) (nCPM|nTPM)$",
+      "to": "$1 $2 $3"
+    },
+    {
+      "re": "^<b>(.+)</b><br><b>(.+)</b><br>Intensity:([\\d.,]+[kKMGT]?)<br>Organ: (.+)$",
+      "to": "<b>$1</b><br><b>$2</b><br>强度：$3<br>器官：$4",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+ cells) - (.+)$",
+      "to": "$1 - $2",
+      "requireHit": true
+    },
+    {
+      "re": "^Immunohistochemical staining of (\\S+) in (.+?)\\.?$",
+      "to": "$2中 $1 的免疫组化染色",
+      "requireHit": true
+    },
+    {
+      "re": "^Immunohistochemical staining of (\\S+)$",
+      "to": "免疫组化染色：$1"
+    },
+    {
+      "re": "^Protein: (.+)$",
+      "to": "蛋白质：$1"
     }
   ],
   "templates": [

@@ -30,11 +30,11 @@
     "An official website of the United States government": "美国政府官方网站",
     "Official websites use .gov": "官方网站使用 .gov",
     "Secure .gov websites use HTTPS": "安全的 .gov 网站使用 HTTPS",
+    "means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.": "表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。",
     "A lock (": "挂锁（",
     "Lock": "锁",
     "Locked padlock icon": "锁定挂锁图标",
     ") or https://": "）或 https://",
-    "means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.": "表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。",
     "website belongs to an official government organization in the United States.": "网站属于美国官方政府机构。",
     "Here’s how you know": "识别方法",
     "NIH Websites Are Changing": "美国国立卫生研究院网站正在改版",
@@ -701,6 +701,14 @@
     "Compare": "比较"
   },
   "rules": [
+    {
+      "re": "^View version (\\d+) dated (.+)$",
+      "to": "查看第 $1 版记录（$2）"
+    },
+    {
+      "re": "^Select study version (\\d+)$",
+      "to": "选择第 $1 版记录"
+    },
     {
       "re": "^Search ClinicalTrials\\.gov for: (.+) \\| Card Results \\| ClinicalTrials\\.gov$",
       "to": "检索 ClinicalTrials.gov：$1 | 卡片结果 | ClinicalTrials.gov"

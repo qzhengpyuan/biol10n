@@ -117,7 +117,10 @@
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "id": "ncbi-gene",
       "name": "NCBI Gene",
-      "path": "^/gene"
+      "path": "^/gene",
+      "attrs": [
+        "data-qtip"
+      ]
     },
     {
       "hosts": [
@@ -1239,7 +1242,7 @@
         "gtex-home",
         "fill-r19"
       ],
-      "scope": "main, #root",
+      "scope": "body",
       "spa": true,
       "waitFor": "#root",
       "name": "GTEx Portal"
@@ -1848,7 +1851,9 @@
       "scope": "body",
       "proseExempt": "",
       "attrs": [
-        "value"
+        "value",
+        "title",
+        "aria-label"
       ],
       "spa": true,
       "waitFor": "app-root ctg-search-input, app-root ctg-search-hit-card, app-root .study-overview-item-title, app-root .records-dates-container"

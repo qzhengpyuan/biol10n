@@ -9,6 +9,7 @@
     "note": "欧洲核苷酸档案（ENA）浏览器与文档页的界面骨架：导航、表头、字段名、按钮、分页、检索项说明与固定整句。登录号、样本名、物种学名、分类阶元、数据库名、机构名与地址一律保留英文。"
   },
   "exact": {
+    "See more": "查看更多",
     "Examples:": "示例：",
     "Search all of EMBL-EBI": "检索整个 EMBL-EBI",
     "Enter text search terms": "输入文本检索词",

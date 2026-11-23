@@ -39,12 +39,15 @@
     "Compare labs": "比较实验室",
     "Complex": "复合物",
     "Component": "组分",
+    "Configure current set of tracks": "配置当前轨道集",
+    "Configure Remote Track Hubs and Tracks": "配置远程轨道集线器与轨道",
     "Configure Track Hubs": "配置轨道集线器",
     "Consensus CDS": "一致性编码序列",
     "Contact Help Desk": "联系帮助台",
     "Copy number response": "拷贝数反应",
     "Correction": "更正",
     "Create File": "创建文件",
+    "Create New Sequence Text View": "新建序列文本视图",
     "curated": "人工整理",
     "current": "当前",
     "Current": "当前",
@@ -66,6 +69,7 @@
     "File name": "文件名",
     "Find on Sequence": "在序列中查找",
     "Find tests for this gene in the NIH Genetic Testing Registry (GTR)": "在 NIH 遗传检测登记库（GTR）中查找该基因的检测",
+    "Flip Sequence Strands": "翻转序列链",
     "Flip Strands": "翻转链",
     "Full Report": "完整报告",
     "Full Report (text)": "完整报告（文本）",
@@ -160,6 +164,7 @@
     "Official Full Name": "官方全名",
     "Official Symbol": "官方符号",
     "OMIM:": "OMIM 条目：",
+    "Open Entrez View": "打开 Entrez 视图",
     "Organelles": "细胞器",
     "Orthologs": "直系同源",
     "Orthologs from OrthoDB": "来自 OrthoDB 的直系同源",
@@ -206,6 +211,7 @@
     "Review record(s) in Gene": "在 Gene 中查看评审记录",
     "REVIEWED": "已审核",
     "RSS Settings": "RSS 设置",
+    "Search features, components or sequences": "检索特征、元件或序列",
     "Search Gene. Use up and down arrows to choose an item from the autocomplete.": "搜索基因。使用上下方向键从自动补全中选择一项。",
     "See details": "查看详情",
     "See more": "查看更多",
@@ -227,6 +233,8 @@
     "Subscription": "订阅服务",
     "SUPPRESSED": "已抑制",
     "Suppressed Reference Sequence(s)": "已抑制的参考序列",
+    "Switch ON mode \"show All\" for Gene tracks": "为 Gene 轨道开启“show All”模式",
+    "Switch to slim mode": "切换到精简模式",
     "Table of contents": "目录",
     "Tabular": "表格",
     "Tabular (text)": "表格（文本）",
@@ -393,6 +401,10 @@
     {
       "re": "^Or enter name of feature, component, HGVS, SNP rs id, or sequence \\(nucleotide regexp with IUPAC equivalents, PROSITE patterns\\):$",
       "to": "或输入特征、组件、HGVS、SNP rs 编号或序列的名称（核苷酸正则表达式，支持 IUPAC 等价符号与 PROSITE 模式）："
+    },
+    {
+      "re": "^<b>Go to position/range:</b><br>Range formats are 10k-20k, -20--10, -10k:-5, 5 to 515, -1m\\.\\.1m <br><br><b>Search:</b><br>Feature name, component name, HGVS, SNP rs id, track info, or sequence \\(nucleotide regexp with IUPAC equivalents, PROSITE patterns\\)$",
+      "to": "<b>转到位置/范围：</b><br>范围格式：10k-20k、-20--10、-10k:-5、5 to 515、-1m..1m<br><br><b>检索：</b><br>特征名称、组件名称、HGVS、SNP rs 编号、轨道信息或序列（核苷酸正则表达式，支持 IUPAC 等价符号与 PROSITE 模式）"
     }
   ],
   "templates": []

@@ -116,8 +116,8 @@ test("AlphaFold 条目页空态在 DOM 通道同样生效", () => {
 test("UniProt 404 两条命中（直引号，第二条无句点）", () => {
   assert.equal(tx("uniprot", "Sorry, this page can't be found!"), "抱歉，找不到此页面！");
   assert.equal(tx("uniprot", "Please check the address bar for any mistakes"), "请检查地址栏是否有误。");
-  // 弯引号形态的原文不属于真实 DOM 串
-  assert.equal(tx("uniprot", "Sorry, this page can\u2019t be found!"), null);
+  // 弯引号形态归一后与直引号同键（r30 P1-2 撇号折叠）
+  assert.equal(tx("uniprot", "Sorry, this page can\u2019t be found!"), "抱歉，找不到此页面！");
 });
 
 test("UniProt 404 在 DOM 通道同样生效", () => {

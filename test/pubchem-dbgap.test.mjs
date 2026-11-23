@@ -513,10 +513,10 @@ test("dbGaP 首页渲染：说明段、检索框 placeholder、帮助句模板�
   assert.equal(ps[2], "官方网站使用 .gov凡以 .gov 结尾的网站均属于美国官方政府机构。");
   assert.ok(ps[2].includes(".gov"), "横幅槽位没回填: " + ps[2]);
   assert.equal(doc.querySelectorAll("p")[2].querySelector("strong").textContent.trim(), "官方网站使用 .gov");
-  // 第二条横幅内含 <svg> 的 <span>，引擎要求块内全是可内联文本，模板无法成立，整段保留英文
+  // 第二条横幅的末句在 common 册（r30 P1-2 把它从 clinicaltrials 下沉），撇号折叠后直引号 DOM 也命中
   assert.equal(
     ps[3],
-    "Secure .gov websites use HTTPS A lock ( Lock Locked padlock icon ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites."
+    "Secure .gov websites use HTTPS A lock ( Lock Locked padlock icon ) or HTTPS 表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。"
   );
   assert.deepEqual([...doc.querySelectorAll("h2, h3")].map(text), [
     "浏览 dbGaP",

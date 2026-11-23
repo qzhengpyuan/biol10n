@@ -87,7 +87,14 @@ function createEngine(options) {
   var timer = null;
 
   function normalize(s) {
-    return s.replace(/[\u00a0\u2000-\u200b\u3000]/g, " ").replace(/\s+/g, " ").trim();
+    return s
+      .replace(/[\u00a0\u2000-\u200b\u3000]/g, " ")
+      // 弯/直撇号、弯/直引号归一：站点 DOM 里是直撇号（you've），词库里有 103 条写成弯撇号（you’ve），
+      // 不折叠就对不上（r30 P1-2 ClinVar .gov 横幅第二段）。词库键在 build 时也走这里，两侧一致。
+      .replace(/[\u2018\u2019\u02bc]/g, "'")
+      .replace(/[\u201c\u201d]/g, '"')
+      .replace(/\s+/g, " ")
+      .trim();
   }
 
   function hasCJK(s) { return CJK.test(s); }
@@ -1214,7 +1221,9 @@ function createEngine(options) {
       any = true;
       return v;
     });
-    return any ? out.join(" · ") : null;
+    if (!any) return null;
+    // 连续 <br> 会切出空段，直接 join 会出现「神经元 · 眼 ·  · 细胞名」的双分隔符（r32 HPA）。
+    return out.filter(function (p) { return normalize(p).length > 0; }).join(" · ");
   }
 
   /** 属性里的 HTML 片段（UCSC hgTracks 的 <b>Transcript:</b> ENST… <br><b>Strand:</b> +、

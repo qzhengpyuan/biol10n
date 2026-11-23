@@ -319,7 +319,33 @@
     "Choose a genome": "选择基因组",
     "Select": "请选择",
     "Run": "运行",
-    "Under Windows (assuming you installed the APIs in C:\\src\\):": "Windows 下（假设 API 安装在 C:\\src\\）："
+    "Under Windows (assuming you installed the APIs in C:\\src\\):": "Windows 下（假设 API 安装在 C:\\src\\）：",
+    "Most severe consequence": "最严重后果",
+    "Protein altering variant": "蛋白改变型变异",
+    "Features": "特征",
+    "Associations": "关联",
+    "Reference sequence": "参考序列",
+    "forward strand": "正链",
+    "reverse complement": "反向互补",
+    "Alternative allele(s)": "替代等位基因",
+    "Ref": "参考",
+    "Alt": "替代",
+    "Change tolerance": "变化耐受度",
+    "In this region": "此区域内",
+    "Transcript strand allele": "转录本链等位基因",
+    "Reference strand allele": "参考链等位基因",
+    "Transcript consequence": "转录本后果",
+    "Transcript biotype": "转录本生物类型",
+    "Protein impact": "蛋白质影响",
+    "Position in CDS": "CDS 中位置",
+    "Position in transcript": "转录本中位置",
+    "Transcript position in gene": "基因内转录本位置",
+    "Location in transcript": "转录本内位置",
+    "Genomic sequence": "基因组序列",
+    "Search this genome": "搜索此基因组",
+    "Find a feature in the selected genome": "在所选基因组中查找特征",
+    "Show/hide rows": "显示/隐藏行",
+    "HGNC Symbol": "HGNC 符号"
   },
   "rules": [
     {
@@ -329,6 +355,14 @@
     {
       "re": "^Ensembl Website Installation Instructions - Version ([\\d.]+)$",
       "to": "Ensembl 网站安装说明 - 版本 $1"
+    },
+    {
+      "re": "^Showing$",
+      "to": "显示"
+    },
+    {
+      "re": "^rows$",
+      "to": "行"
     }
   ]
 }

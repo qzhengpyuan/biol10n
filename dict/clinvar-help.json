@@ -610,7 +610,12 @@
     "comprehensive data extractions": "全面数据提取",
     "release notes": "发布说明",
     "Table 1": "表 1",
-    "Table 2": "表 2"
+    "Table 2": "表 2",
+    "ClinVar link under Related Information": "「相关信息」下的 ClinVar 链接",
+    "comprehensive": "全面",
+    "partial": "部分",
+    "ClinVar Data": "ClinVar 数据",
+    "ClinVar Data Model Infographic": "ClinVar 数据模型信息图"
   },
   "rules": [
     {

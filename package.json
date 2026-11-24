@@ -1,6 +1,6 @@
 {
   "name": "biol10n",
-  "version": "0.10.58",
+  "version": "0.10.59",
   "description": "Offline dictionary-driven UI localization userscript for bioinformatics and medical websites",
   "license": "MIT",
   "type": "module",

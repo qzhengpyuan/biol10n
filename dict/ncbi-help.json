@@ -1720,6 +1720,18 @@
     {
       "re": "^PMCID: (PMC\\d+)$",
       "to": "PMCID：$1"
+    },
+    {
+      "re": "^(.+) Version ([\\d.]+) Now Available!$",
+      "to": "$1 版本 $2 现已发布！"
+    },
+    {
+      "re": "^(.+) Has a New Homepage!$",
+      "to": "$1 已启用新主页！"
+    },
+    {
+      "re": "^Now Available: (.+)$",
+      "to": "现已提供：$1"
     }
   ],
   "meta": {

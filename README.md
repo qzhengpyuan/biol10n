@@ -244,13 +244,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 773 | 16 |  | UniProt |
 | uniprot2 | 93 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **28566 条 / 1511 条规则 / 1292 条模板**（96 册 / 74 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **28615 条 / 1511 条规则 / 1299 条模板**（96 册 / 74 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（1681 条）
+npm test             # 引擎、面板、站点与产物单测（1684 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

@@ -1914,7 +1914,7 @@
         "ebi-home"
       ],
       "scope": "body",
-      "proseExempt": "",
+      "proseExempt": ".vf-banner",
       "spa": false
     }
   ]

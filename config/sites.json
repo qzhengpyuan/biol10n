@@ -1806,7 +1806,8 @@
       "id": "alphafold",
       "name": "AlphaFold DB",
       "hosts": [
-        "alphafold.ebi.ac.uk"
+        "alphafold.ebi.ac.uk",
+        "www.alphafold.ebi.ac.uk"
       ],
       "dicts": [
         "common",

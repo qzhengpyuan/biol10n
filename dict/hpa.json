@@ -1783,7 +1783,9 @@
     "TONGUE": "舌",
     "VASCULATURE": "血管系统",
     "Show tissue menu": "显示组织菜单",
-    "RSS feed": "RSS 订阅源"
+    "RSS feed": "RSS 订阅源",
+    "Multiplex immunofluorescence staining of FCAMR in kidney shows microvilli localization in proximal tubules.": "FCAMR 在肾脏的多重免疫荧光染色显示微绒毛定位于近端小管。",
+    "Immunohistochemical staining of PAX8, located to the nucleus of the follicular cells of the thyroid gland.": "PAX8 的免疫组化染色定位于甲状腺滤泡细胞的细胞核。"
   },
   "rules": [
     {

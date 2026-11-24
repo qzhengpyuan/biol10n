@@ -122,7 +122,18 @@ for (const id of Object.keys(dict)) {
   })),
   bytes: Buffer.byteLength(out, "utf8"),
   fingerprint: buildFingerprint,
-  builtAt: new Date().toISOString()
+  builtAt: new Date().toISOString(),
+  // r32 T1-2：把词库的新鲜度写进产物，安装端点开 build-meta 就能看出
+  //「这份 dist 是不是比词库旧」——之前只能靠 mtime 反推，每轮都要白测一次。
+  dictCount: Object.keys(dict).length,
+  dictMtimeMax: (() => {
+    let mx = 0;
+    for (const f of fs.readdirSync(path.join(root, "dict"))) {
+      if (!f.endsWith(".json")) continue;
+      mx = Math.max(mx, fs.statSync(path.join(root, "dict", f)).mtimeMs);
+    }
+    return new Date(mx).toISOString();
+  })()
 };
 fs.writeFileSync(path.join(root, "dist/build-meta.json"), JSON.stringify(stamp, null, 2) + "\n");
 

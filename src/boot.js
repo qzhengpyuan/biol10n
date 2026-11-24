@@ -45,6 +45,18 @@
   var host = location.hostname || "";
   var path = location.pathname || "";
 
+  function isChallengePage() {
+    try {
+      if (/\/cdn-cgi\//.test(location.pathname || "")) return true;
+      var t = String(document.title || "").trim();
+      if (/^(请稍候…|请稍候|Just a moment\.\.\.|Just a moment|Attention Required!?|Checking your browser)/i.test(t)) return true;
+      if (document.querySelector("#challenge-form, #cf-challenge-running, .cf-browser-verification")) return true;
+      var b = document.body;
+      if (b && b.childElementCount <= 6 && /Ray ID|Enable JavaScript and cookies to continue/.test(String(b.textContent || ""))) return true;
+    } catch (e) { /* ignore */ }
+    return false;
+  }
+
   function pick(list) {
     for (var i = 0; i < list.length; i++) {
       var s = list[i];
@@ -61,6 +73,9 @@
 
   var site = pick(SITES.sites);
   if (!site) return;
+  // Cloudflare 质询页 / 维护页不翻：这类页面正文就是挑战文案（请稍候… / Ray ID），
+  // 翻了只会把"被拦住了"这件事藏起来，排查时更难判断（r32 实测 Europe PMC）。
+  if (isChallengePage()) return;
   if (!canInflate) {
     console.warn("[BioL10n] 当前浏览器不支持 DecompressionStream，脚本未启用");
     return;

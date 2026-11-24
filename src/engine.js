@@ -1215,6 +1215,16 @@ function createEngine(options) {
   function translateBrAttr(raw) {
     var parts = String(raw).split(/<br\s*\/?>/i);
     if (parts.length < 2) return null;
+    // 先试整串：站点有时只是为了让文字换行而插 <br />，一句完整的话被切成两段后
+    // 每段都不是完整句（HPA 的 "…in kidney" + "shows microvilli localization…"），
+    // 逐段查表两边都落空。整串（<br> 换成空格）能命中词库时优先用整串。
+    // 只试整串查表（lookupExact），不放规则进来：规则是"句首模板 + 贪婪捕获"，
+    // 对"细胞类型<br>器官<br><br>数值 nCPM"这种多段 tooltip 会整串吞掉（r32 HPA 实测）。
+    var whole = normalize(parts.join(" "));
+    if (whole && !hasCJK(whole) && LETTER.test(whole)) {
+      var wholeOut = lookupExact(whole);
+      if (wholeOut !== null) return wholeOut;
+    }
     var any = false;
     var out = parts.map(function (p) {
       var t = normalize(p);

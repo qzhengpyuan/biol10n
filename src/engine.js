@@ -1443,7 +1443,7 @@ function createEngine(options) {
   /** 把块拆成「文本片段 + 内联元素占位符」的模板串；只收纯内联结构，遇到嵌套块返回 null。 */
   function buildTemplate(el) {
     if (!el || !el.firstChild) return null;
-    var parts = [], slots = [], extras = [];
+    var parts = [], slots = [], extras = [], tails = null;
     for (var c = el.firstChild; c; c = c.nextSibling) {
       if (c.nodeType === 3) { parts.push(String(c.nodeValue || "")); continue; }
       // 注释节点不渲染，但不该让整段模板失配（NCBI 的 <p> 里夹着 <!-- ... -->，
@@ -1456,7 +1456,9 @@ function createEngine(options) {
       // 模板里的 {{n}} 就是它的原位，译文放回图片它才不会丢。IMG 不在 INLINE_TAGS 里，
       // 走 extras 又拿不到位置（extras 没有对应占位符），所以单独放行。
       if (tn === "IMG") { slots.push(c); parts.push("{{" + slots.length + "}}"); continue; }
-      if (!tn || !INLINE_TAGS[tn]) return null;
+      // 块级子元素不再让整段作废：记下从它开始的兄弟节点当 tail，只给「内联前缀 + 尾部块级内容」
+      // 这种形态建模板（ClinicalTrials 术语表的定义是「前缀文本 + <span class=term> + 结尾 <p>/<ul>」）。
+      if (!tn || !INLINE_TAGS[tn]) { tails = []; for (var tb = c; tb; tb = tb.nextSibling) tails.push(tb); break; }
       // 只有图标的空内联元素（<a><svg/></a>、复制邮箱按钮）不占槽位：否则模板里多出一个
       // 空 {{n}}，写的模板永远对不上（MedGen 公告条尾部那个复制图标就是这种）。
       // 必须在 isInlineSubtree 之前判：<a> 里是 <svg>，它不是内联文本标签，否则整段模板直接作废。
@@ -1473,7 +1475,7 @@ function createEngine(options) {
     var pat = normalize(parts.join(""));
     if (!pat || hasCJK(pat)) return null;
     if (pat.length < 20 || pat.length > 2200) return null;
-    return { pat: pat, slots: slots, extras: extras };
+    return { pat: pat, slots: slots, extras: extras, tails: tails };
   }
 
   /** 模板通道：整段命中带占位符的模板后，把 {{n}} 换成原来的内联元素，其余换成译文文本。
@@ -1495,7 +1497,7 @@ function createEngine(options) {
         try { el.removeAttribute("data-biol10n-tpl"); } catch (e0) { /* ignore */ }
       }
       if (inBlock(el) || inSkip(el)) continue;
-      if (el.querySelector("p, li, ul, ol, div, table, pre, textarea")) continue;
+      // 含块级子元素的容器也放行：buildTemplate 只给内联前缀建模板，尾部块级节点原序补回。
       var t = buildTemplate(el);
       if (!t) continue;
       var zh = tplMap.get(t.pat);
@@ -1532,6 +1534,10 @@ function createEngine(options) {
       if (last < zh.length) frag.appendChild(doc.createTextNode(zh.slice(last)));
       while (el.firstChild) el.removeChild(el.firstChild);
       el.appendChild(frag);
+      // 「内联前缀 + 尾部块级内容」形态：尾部节点按原序挂回，链接与事件都还在
+      if (t.tails && t.tails.length) {
+        for (var ti = 0; ti < t.tails.length; ti++) el.appendChild(t.tails[ti]);
+      }
       try { el.setAttribute("data-biol10n-tpl", "1"); } catch (e) { /* ignore */ }
       stats.tpl++;
     }

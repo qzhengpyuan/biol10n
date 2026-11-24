@@ -99,8 +99,20 @@
         "ncbi-footer"
       ],
       "scope": "body",
-      "proseExempt": "",
-      "name": "NCBI ClinVar"
+      "proseExempt": ".usa-banner",
+      "name": "NCBI ClinVar",
+      "blocks": [
+        {
+          "sel": ".usa-banner__guidance p",
+          "match": "Official websites use .gov",
+          "text": "美国政府官方网站使用 .gov。.gov 网站属于美国官方政府机构。"
+        },
+        {
+          "sel": ".usa-banner__guidance p",
+          "match": "or HTTPS means",
+          "text": "锁形图标或 HTTPS 表示你已安全连接到 .gov 网站。仅在官方安全网站上分享敏感信息。"
+        }
+      ]
     },
     {
       "hosts": [

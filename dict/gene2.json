@@ -46,7 +46,9 @@
     "Summarized PubChem Data on the gene, showing the active data by default": "该基因的 PubChem 摘要数据，默认显示活性数据",
     "Tests for this gene in the NIH Genetic Testing Registry": "NIH 遗传检测登记库中该基因的检测",
     "The following sections contain reference sequences that belong to a specific genome build.": "以下各节包含属于特定基因组组装版本的参考序列。",
-    "View selected attributes for an input list of genes and download datasets containing genomic, transcript and protein sequences along with a detailed data report.": "查看为输入的基因列表所选定的属性，并下载包含基因组、转录本与蛋白质序列以及详细数据报告的数据集。"
+    "View selected attributes for an input list of genes and download datasets containing genomic, transcript and protein sequences along with a detailed data report.": "查看为输入的基因列表所选定的属性，并下载包含基因组、转录本与蛋白质序列以及详细数据报告的数据集。",
+    "Zoom In": "放大",
+    "Zoom Out": "缩小"
   },
   "rules": [
     {

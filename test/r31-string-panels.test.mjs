@@ -166,37 +166,45 @@ test("r31 规则：变数量的 STRING 输入说明句", () => {
   assert.equal(engine.translateText("You have entered STRING with 7 proteins."), null, "不该命中别的句子");
 });
 
-test("r31 否定词未丢：ppi_enrichment_hint 整句留英文，not 与内联链接原样保留", () => {
-  const { doc, engine } = boot(
+test("r41 否定词未丢：ppi_enrichment_hint 走模板换中文骨架，not 落在强调 span 里且语义不丢", () => {
+  // 真实 DOM（2026-11-24 CDP 实测，__BIOL10N.disable() 后取原始 HTML）：
+  // 结尾是半角 ")"；被翻译后的页面里 punctFix 才会把它改成 "）"，验模板必须用原始 DOM。
+  const { doc } = boot(
     '<body><div class="legend_headline">Network stats</div>' +
       '<div class="ppi_enrichment_hint">your network does <span class="emphasis">not</span> have significantly more <br>' +
       'interactions than expected (<span style="text-decoration:underline;cursor:pointer;" ' +
       'onclick="return load_info_window (event, &quot;Interaction Enrichment&quot;, &quot;interactions_not_significant&quot;);">' +
-      "what does that mean?</span>）</div></body>"
+      "what does that mean?</span>)</div></body>"
   );
   const hint = doc.querySelector(".ppi_enrichment_hint");
   const text = norm(hint.textContent);
-  assert.match(text, /^your network does not have significantly more/, "否定词 not 必须在原位且仍是英文");
-  assert.doesNotMatch(text, /显著多于|并非显著|不显著/, "不得出现吞掉否定词的中文半句");
+  assert.equal(text, "你的网络中的相互作用并不显著多于预期（这是什么意思？）", "整句未按模板汉化: " + text);
+  assert.doesNotMatch(text, /does|significantly|than expected/, "不得留英文骨架");
   const em = hint.querySelector("span.emphasis");
-  assert.equal(em.textContent, "not", "强调 span 里的 not 原样保留");
+  assert.equal(em.textContent, "并不", "否定词改由强调 span 承载（not → 并不），仍是独立节点");
   const link = hint.querySelector('span[onclick]');
   assert.equal(link.textContent, "这是什么意思？", "「这是什么意思？」沿用既有条目");
   assert.match(link.getAttribute("onclick"), /interactions_not_significant/, "内联事件不动");
   assert.equal(hint.querySelectorAll("br").length, 1, "换行保留");
-  assert.equal(engine.translateText("your network does not have significantly more interactions than expected"), null);
 });
 
-test("r31 否定词未丢：富集收尾句 There were / no 保持英文", () => {
+test("r41 否定词未丢：富集收尾句只翻骨架，7 个类别裸文本原样英文", () => {
   const { doc } = boot(
-    '<body><div class="enrichments_closing_remarks">There were <span>no</span> significant pathway enrichments observed in the following categories:' +
-      "<br> Local Network Cluster (STRING), Disease-gene Associations (DISEASES).</div></body>"
+    '<body><div class="enrichments_closing_remarks">\n There were <span>no</span> significant pathway enrichments observed in the following categories:' +
+      "<br> Local Network Cluster (STRING), Disease-gene Associations (DISEASES), Hallmark Gene Set (Molecular Signatures DB), " +
+      "Fission Yeast Phenotype Ontology (Monarch), GWAS Catalog, Protein Domains (Pfam), Protein Domains and Features (InterPro).</div></body>"
   );
   const div = doc.querySelector(".enrichments_closing_remarks");
   const text = norm(div.textContent);
-  assert.match(text, /^There were no significant pathway enrichments observed in the following categories:/);
-  assert.equal(div.querySelector("span").textContent, "no", "否定词 no 原样保留");
-  assert.doesNotMatch(text, CJK, "该句未收进词表，保持整段英文");
+  assert.equal(
+    text,
+    "在以下类别中未观察到显著的通路富集： Local Network Cluster (STRING), Disease-gene Associations (DISEASES), " +
+      "Hallmark Gene Set (Molecular Signatures DB), Fission Yeast Phenotype Ontology (Monarch), GWAS Catalog, " +
+      "Protein Domains (Pfam), Protein Domains and Features (InterPro).",
+    "骨架未汉化或类别名被误翻: " + text
+  );
+  assert.equal(div.querySelector("span").textContent, "未", "否定词 no → 未，仍在独立 span 里");
+  assert.equal(div.querySelectorAll("br").length, 1, "换行保留");
 });
 
 test("r31 不误翻：蛋白名、登录号、编号、机构名与专有名", () => {

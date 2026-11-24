@@ -698,7 +698,9 @@
     "Study Identification": "研究标识信息",
     "Study Description": "研究描述",
     "Oversight": "监管",
-    "Compare": "比较"
+    "Compare": "比较",
+    "A structured online system, such as the ClinicalTrials.gov results database, that provides the public with access to registration and summary results information for completed or terminated clinical studies. A study with results available on ClinicalTrials.gov is described as having the results \"posted.\"": "一种结构化的在线系统（例如 ClinicalTrials.gov 结果数据库），让公众可以获取已完成或已终止临床研究的注册信息与概要结果信息。在 ClinicalTrials.gov 上有可用结果的研究被描述为结果“已张贴”。",
+    "The Sort studies by option is used to change the order of studies listed on the Search Results page. You can sort by Relevance or Newest First:": "“研究排序方式”选项用于更改检索结果页中列出的研究顺序。可按相关度或最新优先排序："
   },
   "rules": [
     {
@@ -1413,6 +1415,50 @@
     {
       "pat": "Principal Investigators are NOT employed by the organization sponsoring the study.{{1}}{{2}}There IS an agreement between Principal Investigators and the Sponsor (or its agents) that restricts the PI's rights to discuss or publish trial results after the trial is completed",
       "zh": "主要研究者不受开展研究的组织雇用。{{1}}{{2}}主要研究者与申办方（或其代理机构）之间存在协议，限制 PI 在研究完成后讨论或发表试验结果的权利。"
+    },
+    {
+      "pat": "A type of {{1}} that indicates the age a person must be to participate in a clinical study. This may be indicated by a specific age or the following age groups:",
+      "zh": "一种{{1}}，用于说明参加临床研究所需的年龄。可以用具体年龄或以下年龄组来表示："
+    },
+    {
+      "pat": "A way for patients with serious diseases or conditions who cannot participate in a clinical trial to gain access to a medical product that has not been approved by the {{1}}. Also called compassionate use. There are different {{2}}.",
+      "zh": "使患有严重疾病或病症、无法参加临床试验的患者能够获得尚未经{{1}}批准的医疗产品的一种途径。也称为同情用药。{{2}}有多种。"
+    },
+    {
+      "pat": "Describes the category of {{1}} under {{2}} regulations. There are three types of expanded access:",
+      "zh": "说明{{2}}法规下{{1}}的类别。扩展可及分为以下三种类型："
+    },
+    {
+      "pat": "A FDAAA 801 Violation is shown on a {{1}} when the {{2}} has issued a Notice of Noncompliance to the responsible party of an applicable clinical trial. A Notice of Noncompliance indicates that the {{3}} has determined the responsible party was not in compliance with the registration or results reporting requirements for the clinical trial under the {{4}}.",
+      "zh": "当{{2}}向适用临床试验的责任方发出违规通知时，{{1}}上会显示 FDAAA 801 违规。违规通知表明{{3}}已认定该责任方未遵守{{4}}规定的该临床试验注册或结果报告要求。"
+    },
+    {
+      "pat": "Violation: Shown when the {{1}} issues a Notice of Noncompliance and posts the Notice of Noncompliance on its designated webpage. There are three types of violations:",
+      "zh": "违规：当{{1}}发出违规通知并在其指定网页上张贴该通知时显示。违规分为以下三种类型："
+    },
+    {
+      "pat": "The National Library of Medicine (NLM) is required by FDAAA 801 to add information to a study record about any FDAAA 801 Violation. This information is provided by the {{1}}. There are three categories of information that may be included:",
+      "zh": "根据 FDAAA 801，美国国家医学图书馆（NLM）须在研究记录中添加关于任何 FDAAA 801 违规的信息。该信息由{{1}}提供。可能纳入的信息分为以下三类："
+    },
+    {
+      "pat": "Describes the organization that provides funding or support for a clinical study. This support may include activities related to funding, design, implementation, data analysis, or reporting. Organizations listed as {{1}} and {{2}} for a study are considered the funders of the study. ClinicalTrials.gov refers to four types of funders:",
+      "zh": "说明为临床研究提供资金或支持的组织。此类支持可能包括与资金、设计、实施、数据分析或报告相关的活动。研究中列为{{1}}和{{2}}的组织被视为该研究的资助方。ClinicalTrials.gov 将资助方分为以下四种类型："
+    },
+    {
+      "pat": "A group of people who review, approve, and monitor the clinical study's {{1}}. Their role is to protect the rights and welfare of people participating in a study (referred to as human research subjects), such as reviewing the {{2}}. The group typically includes people with varying backgrounds, including a community member, to make sure that research activities conducted by an organization are completely and adequately reviewed. Also called an institutional review board, or IRB, or an ethics committee.",
+      "zh": "负责审查、批准与监查临床研究{{1}}的一组人员。其职责是保护参与研究者的权利与福利（称为人类研究对象），例如审查{{2}}。该小组通常包含背景各异的人员，其中包括一名社区成员，以确保某组织开展的研究活动得到完整、充分的审查。也称为机构审查委员会（IRB）或伦理委员会。"
+    },
+    {
+      "pat": "The process of learning and discussing the details, including the risks and potential benefits, of a {{1}} before deciding whether to take part.",
+      "zh": "在决定是否参加之前，了解并讨论某项{{1}}的细节（包括风险与潜在获益）的过程。"
+    },
+    {
+      "pat": "A type of {{1}} in which participants are identified as belonging to study groups and are assessed for biomedical or health outcomes. Participants may receive diagnostic, therapeutic, or other types of interventions, but the investigator does not assign participants to a specific {{2}}.",
+      "zh": "一种{{1}}，其中参与者被确定属于各研究组，并接受生物医学或健康结局评估。参与者可能接受诊断性、治疗性或其他类型的干预，但研究者不会把参与者分配到特定的{{2}}。"
+    },
+    {
+      "pat": "Indicates that the study sponsor or investigator has submitted summary results information for a clinical study to ClinicalTrials.gov but the {{1}} process has not concluded.",
+      "zh": "表示研究申办方或研究者已向 ClinicalTrials.gov 提交某项临床研究的概要结果信息，但{{1}}流程尚未结束。"
     }
   ]
 }

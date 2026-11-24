@@ -704,7 +704,9 @@
   "Sample lot number": "样本批号",
   "Tissue supergroup": "组织超类",
   "Raw Data Provider:": "原始数据提供方：",
-  "'Experiment Data Provider'": "'实验数据提供方'"
+  "'Experiment Data Provider'": "'实验数据提供方'",
+  "not": "并不",
+  "no": "未"
  },
  "rules": [
   {
@@ -1029,6 +1031,14 @@
   {
    "pat": "This measure describes how significant the enrichment is. Shown are p-values corrected for multiple testing within each category using the{{1}}.",
    "zh": "该指标描述富集的显著性。所显示的 P 值是使用{{1}}在每个类别内做多重检验校正后的结果。"
+  },
+  {
+   "pat": "your network does {{1}} have significantly more {{2}}interactions than expected ({{3}})",
+   "zh": "你的网络中的相互作用{{1}}显著多于预期（{{3}}）{{2}}"
+  },
+  {
+   "pat": "There were {{1}} significant pathway enrichments observed in the following categories:{{2}} Local Network Cluster (STRING), Disease-gene Associations (DISEASES), Hallmark Gene Set (Molecular Signatures DB), Fission Yeast Phenotype Ontology (Monarch), GWAS Catalog, Protein Domains (Pfam), Protein Domains and Features (InterPro).",
+   "zh": "在以下类别中{{1}}观察到显著的通路富集：{{2}} Local Network Cluster (STRING), Disease-gene Associations (DISEASES), Hallmark Gene Set (Molecular Signatures DB), Fission Yeast Phenotype Ontology (Monarch), GWAS Catalog, Protein Domains (Pfam), Protein Domains and Features (InterPro)."
   }
  ]
 }

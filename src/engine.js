@@ -1488,13 +1488,17 @@ function createEngine(options) {
     return { pat: pat, slots: slots, extras: extras, tails: tails };
   }
 
+  var TPL_SELECTOR = "p, dd, dt, li, td, th, caption, figcaption, blockquote, span, div, " +
+    "h1, h2, h3, h4, h5, h6, small, strong, b, em, i, label, section, article";
   /** 模板通道：整段命中带占位符的模板后，把 {{n}} 换成原来的内联元素，其余换成译文文本。
    *  占位符必须是 1..N 的一一对应，否则不替换（宁可留英文，也不丢链接）。 */
   function translateTemplates(root) {
     if (!root || !root.querySelectorAll || !tplMap.size) return;
     var els;
     // 模板会把内联元素放回中文里，所以 div 也安全；段落通道不行（它会整块换成纯文本，链路就没了）。
-    try { els = root.querySelectorAll("p, dd, li, td, th, span, div, h1, h2, h3, h4"); } catch (e) { return; }
+    // 内联文本容器同样要覆盖：ENA 检索页的「Uses <a>EBI Search</a> to perform …」挂在 <small> 上，
+    // 旧选择器只有 p/li/span/div 等块级标签，这一整句模板写了却永远不会被尝试。
+    try { els = root.querySelectorAll(TPL_SELECTOR); } catch (e) { return; }
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;

@@ -1470,6 +1470,12 @@ function createEngine(options) {
       // 模板里的 {{n}} 就是它的原位，译文放回图片它才不会丢。IMG 不在 INLINE_TAGS 里，
       // 走 extras 又拿不到位置（extras 没有对应占位符），所以单独放行。
       if (tn === "IMG") { slots.push(c); parts.push("{{" + slots.length + "}}"); continue; }
+      // 正文里嵌的纯文字按钮（UCSC 首页「The <button>Reverse</button> button below the
+      // tracks image…」）：整段只有按钮一个控件，模板替换会把原按钮放回 {{n}}，控件不丢。
+      // 必须放在 INLINE_TAGS 闸之前——BUTTON 不在内联表里，走下面那条会被当成 tail 截断，
+      // 模板只剩前缀文本、slots=0 直接作废（第一版就是这么写的，jsdom 里 tpl 一直是 0）。
+      // handleSplitText 里 BUTTON 另有黑名单，不会把按钮拍平成文本。
+      if (tn === "BUTTON" && !c.children.length) { slots.push(c); parts.push("{{" + slots.length + "}}"); continue; }
       // 块级子元素不再让整段作废：记下从它开始的兄弟节点当 tail，只给「内联前缀 + 尾部块级内容」
       // 这种形态建模板（ClinicalTrials 术语表的定义是「前缀文本 + <span class=term> + 结尾 <p>/<ul>」）。
       if (!tn || !INLINE_TAGS[tn]) { tails = []; for (var tb = c; tb; tb = tb.nextSibling) tails.push(tb); break; }

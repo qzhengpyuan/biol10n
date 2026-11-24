@@ -279,7 +279,10 @@
     "Add Custom Tracks": "添加自定义轨道",
     "request nearly any Genbank assembly": "申请几乎任何 Genbank 组装版本",
     "search box": "搜索框",
-    "Gateway page": "网关页"
+    "Gateway page": "网关页",
+    "\"r\" then \"v\"": "「r」再「v」",
+    "reverse complements the entire display": "将整个显示区反向互补",
+    "Reverse button": "反向按钮"
   },
   "rules": [
     {
@@ -371,6 +374,10 @@
     {
       "pat": "The best way to find an assembly is the {{1}} on our {{2}}. If your assembly of interest is not available, you can {{3}} as long as it has a {{4}} or {{5}} accession.",
       "zh": "查找组装版本的最佳方式，是使用我们{{2}}上的{{1}}。如果感兴趣的组装不可用，只要具备 {{4}} 或 {{5}} 登录号，就可以{{3}}。"
+    },
+    {
+      "pat": "The {{1}} button below the tracks image, or the shortcut {{2}}, {{3}} and not just the DNA sequence. Every annotation flips to the minus strand, which makes a gene transcribed right to left far easier to read.",
+      "zh": "轨道图像下方的{{1}}按钮，或快捷键 {{2}}，会{{3}}，而不只是 DNA 序列。所有注释都会翻转到负链，这让从右向左转录的基因读起来容易得多。"
     }
   ]
 }

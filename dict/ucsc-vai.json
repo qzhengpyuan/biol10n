@@ -54,8 +54,6 @@
     "of each transcript.": "（每个转录本）。",
     "No transcript status data are available for the selected gene track.": "所选基因轨道没有可用的转录本状态数据。",
     "HGVS variant nomenclature": "HGVS 变异命名",
-    "The": "该",
-    "has established a": "已确立",
     "sequence variant nomenclature": "序列变异命名规范",
     ", an international standard used to report variation in genomic, transcript and protein sequences.": "，这是用于报告基因组、转录本和蛋白质序列变异的国际标准。",
     "Include HGVS genomic (g.) terms in output": "在输出中包含 HGVS 基因组（g.）术语",
@@ -232,6 +230,10 @@
     {
       "pat": "{{1}} (available only for hg38/GRCh38) uses a classifier that was trained with ~45,000 disease mutations from HGMD and ~45,000 high frequency missense variants (putatively neutral) from the Exome Sequencing Project. ({{2}})",
       "zh": "{{1}}（仅适用于 hg38/GRCh38）使用一个分类器，其训练数据为来自 HGMD 的约 45,000 个致病突变，以及来自外显子组测序计划的约 45,000 个高频错义变异（推测为中性）。（{{2}}）"
+    },
+    {
+      "pat": "The {{1}} has established a {{2}}, an international standard used to report variation in genomic, transcript and protein sequences.",
+      "zh": "{{1}}已确立{{2}}，这是用于报告基因组、转录本和蛋白质序列变异的国际标准。"
     }
   ]
 }

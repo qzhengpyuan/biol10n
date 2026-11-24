@@ -231,8 +231,9 @@ test("模板：HGVS 命名与转录本状态说明整段翻译，链接保留", 
       '<a href="#tags">GENCODE tags</a> associated with a transcript can be added to output.</li></ul>'
   );
   const td = doc.querySelector("td");
-  assert.match(td.textContent, /该 Human Genome Variation Society \(HGVS\) 已确立\s*序列变异命名规范/);
+  assert.match(td.textContent, /Human Genome Variation Society \(HGVS\)已确立序列变异命名规范/);
   assert.match(td.textContent, /这是用于报告基因组、转录本和蛋白质序列变异的国际标准。/);
+  assert.doesNotMatch(td.textContent, /^The /, "整段模板不该留下英文 The");
   assert.equal(td.querySelectorAll("a")[1].textContent, "序列变异命名规范");
   const li = doc.querySelector("li");
   assert.equal(li.querySelector("b").textContent, "GENCODE 标签：");

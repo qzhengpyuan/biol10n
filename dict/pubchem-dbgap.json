@@ -597,7 +597,9 @@
     "Volume of Distribution": "分布容积",
     "Clearance": "清除率",
     "ATCvet Code": "ATCvet 代码",
-    "Sources/Uses": "来源/用途"
+    "Sources/Uses": "来源/用途",
+    "Exact Mass": "精确质量",
+    "Laboratory Chemical Safety Summary (LCSS) Datasheet": "实验室化学品安全摘要（LCSS）数据表"
   },
   "rules": [
     {
@@ -639,6 +641,30 @@
     {
       "re": "^([\\d,]+) patents from ([\\d,]+) patent families$",
       "to": "$1 项专利，来自 $2 个专利族"
+    },
+    {
+      "re": "^(.+) - A to Z$",
+      "to": "（升序）"
+    },
+    {
+      "re": "^(.+) - Z to A$",
+      "to": "（降序）"
+    },
+    {
+      "re": "^(.+) - Oldest$",
+      "to": "（最早优先）"
+    },
+    {
+      "re": "^(.+) - Most Recent$",
+      "to": "（最新优先）"
+    },
+    {
+      "re": "^(.+) - Increasing$",
+      "to": "（递增）"
+    },
+    {
+      "re": "^(.+) - Decreasing$",
+      "to": "（递减）"
     }
   ],
   "templates": [

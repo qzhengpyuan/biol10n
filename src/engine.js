@@ -929,7 +929,10 @@ function createEngine(options) {
     // 短标签仍允许走规则，避免长正文靠规则拼出半中半英。
     var out = lookupExact(full);
     if (out === null && alt !== null) out = lookupExact(alt);
-    if (out === null && full.length <= 60) {
+    // 规则通道的触发上限提到 120（与上面的长度闸一致）：r31 实测 61–120 字符、
+    // 被 <b>/<a>/<span> 切成 2–3 段的整句（InterPro 的 Found an exact gene match for P53…）
+    // 原先既没有整串 exact、也进不了规则通道，规则写了却永不命中。
+    if (out === null && full.length <= 120) {
       out = translate(full);
       if (out === null && alt !== null) out = translate(alt);
     }

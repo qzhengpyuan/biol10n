@@ -131,7 +131,11 @@ test("r31 词库：5 条新规则锚定且带占位符", () => {
     assert.ok(hit.to.includes("$1"), "规则译文缺 $1: " + re);
     assert.ok(/[\u4e00-\u9fff]/.test(hit.to), "规则译文不是中文: " + re);
   }
-  assert.equal(book.rules.length, 10, "规则总数应为 10: " + book.rules.length);
+  // r40 加了 6 条排序下拉规则（- A to Z / - Z to A / - Oldest / - Most Recent / - Increasing / - Decreasing）
+  assert.ok(book.rules.length >= 10, "规则数不应回退: " + book.rules.length);
+  for (const re of ["^(.+) - A to Z$", "^(.+) - Z to A$", "^(.+) - Oldest$", "^(.+) - Most Recent$", "^(.+) - Increasing$", "^(.+) - Decreasing$"]) {
+    assert.ok(book.rules.some((r) => r.re === re), "缺排序规则: " + re);
+  }
 });
 
 test("r31 分区标题：7.11–7.21 / 15.3–15.7 / 13.1.12.x 的 span.flex-1 实际换成中文", () => {

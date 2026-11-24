@@ -29,7 +29,9 @@
     "[Preprint]": "[预印本]",
     "This is a preprint.": "这是一篇预印本。",
     "It has not yet been peer reviewed by a journal.": "尚未经过期刊同行评审。",
-    "running a pilot": "开展试点"
+    "running a pilot": "开展试点",
+    "ADD": "添加",
+    "to": "至"
   },
   "rules": [
     {

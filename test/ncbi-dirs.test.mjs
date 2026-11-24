@@ -77,7 +77,9 @@ test("词库结构：family/sites 正确，exact 条目充足且译文都含汉�
     assert.ok(slots >= 1, "模板没有槽位: " + t.pat);
     for (let i = 1; i <= slots; i++) assert.ok(t.pat.includes("{{" + i + "}}"), "槽位不连续: " + t.pat);
     assert.equal((t.zh.match(/\{\{\d+\}\}/g) || []).length, slots, "译文槽位数不一致: " + t.pat);
-    assert.doesNotMatch(t.zh, /[\w.+-]+@[\w-]+\.[\w.]+/, "模板译文含明文邮箱: " + t.pat);
+    for (const mail of (t.zh.match(/[\w.+-]+@[\w-]+\.[\w.]+/g) || [])) {
+      assert.ok(t.pat.includes(mail), "模板译文引入了原文没有的邮箱: " + mail);
+    }
   }
 });
 

@@ -434,7 +434,15 @@
     "e) Modified E-value factor that measures the statistical significance of the structural match between the domain and the CATH database. E-value is transformed into a normalised score between 0 and 1, where higher values indicate stronger matches; values below ~0.5 are considered low-confidence and contribute minimally to the final consensus (12.5% weight).": "e) 修正的 E-value 因子，衡量结构域与 CATH 数据库之间结构匹配的统计显著性。E-value 被转换为 0 到 1 之间的归一化得分，数值越高表示匹配越强；低于约 0.5 的数值被视为低置信度，对最终共识贡献极小（权重 12.5%）。",
     "Error rate indicates the likelihood of a CATH assignment being rejected by any of the following: Poor model quality; boundary error (inability to correctly assign the domain to the H or T level); incorrect CATH classification (i.e. coverage error, only matches partial structures in a CATH level).": "错误率表示 CATH 分配被以下任一原因拒绝的可能性：模型质量差；边界错误（无法将结构域正确归入 H 或 T 层级）；CATH 分类不正确（即覆盖率错误，只匹配到 CATH 某一层级中的部分结构）。",
     "Boundaries:": "边界：",
-    ", the JSON file has the following structure of arrays format:": "，JSON 文件采用以下数组结构格式："
+    ", the JSON file has the following structure of arrays format:": "，JSON 文件采用以下数组结构格式：",
+    "Reviewed": "已审阅",
+    "Interface quality": "界面质量",
+    "Interface quality score": "界面质量评分",
+    "Search results (max 10 000)": "检索结果（最多 10 000 条）",
+    "Show predictions for sequences found only in UniProt reference proteomes": "仅显示出现在 UniProt 参考蛋白质组中的序列的预测",
+    "Homodimer": "同源二聚体",
+    "Heterodimer": "异源二聚体",
+    "Multimer": "多聚体"
   },
   "rules": [
     {
@@ -528,6 +536,26 @@
     {
       "re": "^(.+?) [Dd]ata [Cc]opyright \\((\\d{4})\\) (.+?)[.]?$",
       "to": "$1 数据版权（$2）$3。"
+    },
+    {
+      "re": "^Homodimers \\((.+)\\)$",
+      "to": "同源二聚体（$1）"
+    },
+    {
+      "re": "^Heterodimers \\((.+)\\)$",
+      "to": "异源二聚体（$1）"
+    },
+    {
+      "re": "^Multimers \\((.+)\\)$",
+      "to": "多聚体（$1）"
+    },
+    {
+      "re": "^(\\d+) copies of (.+)$",
+      "to": "$2 的 $1 个副本"
+    },
+    {
+      "re": "^(\\d+) copy of (.+)$",
+      "to": "$2 的 1 个副本"
     }
   ],
   "templates": [

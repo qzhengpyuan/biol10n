@@ -393,7 +393,16 @@
     "Sample-to-data relationship file (SDRF) available — click to show only datasets with an experimental design": "已有样本到数据关系文件（SDRF）——点击仅显示带实验设计的数据集",
     "source name": "样本来源名称",
     "assay name": "检测名称",
-    "technology type": "技术类型"
+    "technology type": "技术类型",
+    "Connections": "关联",
+    "Reanalyses": "再分析",
+    "Data-independent acquisition": "数据非依赖型采集",
+    "Primary cell culture": "原代细胞培养",
+    "Disease free": "无疾病",
+    "Malignant neoplasm of ovary": "卵巢恶性肿瘤",
+    "manual curation": "人工策展",
+    "prideArchiveType:": "PRIDE 存档类型：",
+    "Page not found": "页面未找到"
   },
   "rules": [
     {
@@ -559,6 +568,14 @@
     {
       "re": "^(.*) \\(lab head\\)$",
       "to": "$1（实验室负责人）"
+    },
+    {
+      "re": "^· ([\\d,]+) datasets?$",
+      "to": "· $1 个数据集"
+    },
+    {
+      "re": "^([\\d,]+) datasets$",
+      "to": "$1 个数据集"
     }
   ],
   "templates": [

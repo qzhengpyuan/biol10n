@@ -255,7 +255,7 @@ test("AmiGO 首页：PubMed 检索说明句（strong + 链接夹断也能成句�
   assert.ok(t.includes("将带你前往摘要信息与该编号的全部 GO 注释"), t);
   assert.ok(!/takes you to summary information/.test(t), "说明句不该留英文: " + t);
   assert.equal(doc.querySelector("a").getAttribute("href"), "https://pubmed.ncbi.nlm.nih.gov/");
-  assert.equal(doc.querySelector("img").getAttribute("alt"), "[PMID Search]", "alt 是图标占位，不是界面文案");
+  assert.equal(doc.querySelector("img").getAttribute("alt"), "[PMID 检索]", "图标 alt 属 UI 说明，与说明句一同中文化");
 });
 
 test("ClinPGx hero：模板整段替换，彩色品牌 span 保留", () => {

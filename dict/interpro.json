@@ -334,7 +334,10 @@
     "footnote": "脚注",
     "Kringles are autonomous structural domains, found throughout the blood clotting and fibrinolytic proteins. Kringle domains are believed to play a role in binding mediators (e.g., membranes, other proteins or phospholipids), and in the regulation of proteolytic activity": "Kringle 是自主的结构域，见于凝血与纤溶蛋白。Kringle 结构域被认为参与结合介质（例如膜、其他蛋白或磷脂）并参与蛋白水解活性的调控",
     ". Kringle domains": "。Kringle 结构域",
-    "are characterised by a triple loop, 3-disulphide bridge structure, whose conformation is defined by a number of hydrogen bonds and small pieces of anti-parallel β-sheet. They are found in a varying number of copies in some plasma proteins including prothrombin and urokinase-type plasminogen activator, which are serine proteases belonging to MEROPS peptidase family S1A.": "以三重环、3 个二硫键桥的结构为特征，其构象由若干氢键与少量反平行 β-折叠片段决定。它们在某些血浆蛋白中以不同拷贝数出现，包括凝血酶原与尿激酶型纤溶酶原激活物，二者属于 MEROPS 肽酶家族 S1A 的丝氨酸蛋白酶。"
+    "are characterised by a triple loop, 3-disulphide bridge structure, whose conformation is defined by a number of hydrogen bonds and small pieces of anti-parallel β-sheet. They are found in a varying number of copies in some plasma proteins including prothrombin and urokinase-type plasminogen activator, which are serine proteases belonging to MEROPS peptidase family S1A.": "以三重环、3 个二硫键桥的结构为特征，其构象由若干氢键与少量反平行 β-折叠片段决定。它们在某些血浆蛋白中以不同拷贝数出现，包括凝血酶原与尿激酶型纤溶酶原激活物，二者属于 MEROPS 肽酶家族 S1A 的丝氨酸蛋白酶。",
+    "TextSearch": "文本检索",
+    "What kinds of information can be searched with InterPro text search?": "InterPro 文本检索可以搜索哪些类型的信息？",
+    "What formats can you use to export data from InterPro entry pages?": "可以从 InterPro 条目页导出哪些格式的数据？"
   },
   "rules": [
     {

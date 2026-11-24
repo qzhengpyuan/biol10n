@@ -422,7 +422,24 @@
     "federal holidays": "联邦假日",
     "My GEO Profile form": "我的 GEO 个人资料表单",
     "access token": "访问令牌",
-    "here": "此处"
+    "here": "此处",
+    "contact us": "联系我们",
+    "this record": "此记录",
+    "profile charts": "表达谱图表",
+    "neighbors links": "邻近链接",
+    "DataSet records": "数据集记录",
+    "t-test sample comparison tool": "t 检验样本比较工具",
+    "example tracks": "示例轨道",
+    "NLM GenBank and SRA data Processing": "NLM GenBank 与 SRA 数据处理",
+    "NLM GenBank and SRA Data Processing document": "NLM GenBank 与 SRA 数据处理文档",
+    "MIAME- or MINSEQE": "MIAME- 或 MINSEQE",
+    "Reviewer access": "审稿人访问",
+    "My GEO Profile": "我的 GEO 个人资料",
+    "Processed sequence data files": "处理后序列数据文件",
+    "Raw sequence data files": "原始序列数据文件",
+    "content": "内容",
+    "publication": "论文",
+    "NIH Genomic Data Sharing (GDS) Policy": "NIH 基因组数据共享（GDS）政策"
   },
   "rules": [
     {
@@ -518,6 +535,158 @@
     {
       "pat": "GEO supports {{1}} data submissions.",
       "zh": "GEO 支持{{1}}数据提交。"
+    },
+    {
+      "pat": "The Gene Expression Omnibus (GEO) is a public repository that archives and freely distributes comprehensive sets of microarray, next-generation sequencing, and other forms of high-throughput functional genomic data submitted by the scientific community. In addition to data storage, a collection of web-based interfaces and applications are available to help users query and download the studies and gene expression patterns stored in GEO. For more information about various aspects of GEO, please see our {{1}} listings and {{2}}.",
+      "zh": "基因表达综合数据库（GEO）是一个公共存储库，负责归档并免费分发科学界提交的微阵列、下一代测序及其他形式的高通量功能基因组数据。除数据存储外，GEO 还提供一套基于 Web 的界面与应用，帮助用户查询和下载库中存储的研究与基因表达模式。关于 GEO 各方面功能的更多信息，请参阅我们的{{1}}列表与{{2}}。"
+    },
+    {
+      "pat": "There are several good reasons for submitting your data to us. The most likely reason is that the funder of your research or the journal in which you are publishing your research requires deposit of microarray or sequence data to a {{1}}-compliant public repository like GEO. In addition to satisfying funder and journal requirements for publication, there are other significant benefits to depositing data with GEO. Your data receive long-term archiving at a centralized repository, and are integrated with other NCBI resources which afford increased usability and visibility. You may also include links back to your own project websites within your submission, again increasing visibility of your research. Journal publication is not a requirement for data submission to GEO.",
+      "zh": "向 GEO 提交数据有若干充分理由。最常见的原因是：您研究的资助方或发表您研究的期刊要求将微阵列或序列数据存入像 GEO 这样符合 {{1}} 规范的公共存储库。除了满足资助方与期刊的发表要求外，向 GEO 存缴数据还有其他显著好处：数据会在集中式存储库中获得长期归档，并与 NCBI 的其他资源整合，从而提升可用性与可见性。您还可以在提交内容中加入指回自己项目网站的链接，进一步提高研究的可见度。向 GEO 提交数据并不以期刊发表为前提。"
+    },
+    {
+      "pat": "Submitters should first log in through their {{1}} account. If you don't have an NCBI account, you can create one {{2}}. Submitters are then asked to complete a {{3}} that provides the contact information to be used by GEO curators to communicate about the submission and to be displayed on the GEO records. All submitters are asked to supply raw data, processed data, and descriptive information about the samples, protocols and overall study in a supported deposit format. Follow the relevant link for your data type on the {{4}} page to find submission instructions. Submitters of high throughput sequencing data can {{5}} on \"How to submit to GEO\". We endeavor to make data deposit procedures as straightforward as possible and will provide as much assistance as you require to get your data submitted to GEO. If you have problems or questions about the submission procedures, {{6}} and one of our curators will quickly get back to you.",
+      "zh": "提交者应首先通过其 {{1}} 账户登录。若您没有 NCBI 账户，可在{{2}}创建一个。随后系统会要求提交者填写一份{{3}}，其中提供的联系信息将供 GEO 管理员就本次提交进行沟通，并显示在 GEO 记录上。所有提交者都需按受支持的存缴格式提供原始数据、处理后数据，以及关于样本、实验方案和整体研究的描述性信息。请在{{4}}页面上按数据类型点击相应链接，查看提交说明。提交高通量测序数据的用户可{{5}}「如何向 GEO 提交数据」。我们力求让数据存缴流程尽可能简单，并会在您把数据提交到 GEO 的过程中提供所需的全部协助。如果您在提交流程中遇到问题或有疑问，请{{6}}，我们的管理员会尽快回复您。"
+    },
+    {
+      "pat": "Many journals require accession numbers for microarray or sequence data before acceptance of a paper for publication. Also, reviewers and editors may need access to your data during the review process. Thus, data should be deposited in GEO before a manuscript describing the data is sent to a journal for review. GEO processing times is approximately 5 business days after completion of submission, but may take longer around {{1}}, so it is important to make your submission well in advance of when you require the accession numbers for your manuscript. Your records may {{2}} until your manuscript (or preprint) is publicly available. Once your submissions have been approved by GEO staff, you can {{3}} the GEO accession number(s) in your manuscript and you can generate a reviewer {{4}} by which editors and reviewers can access your private GEO records.",
+      "zh": "许多期刊要求在论文被接收发表前提供微阵列或序列数据的登录号。此外，审稿人和编辑在评审过程中也可能需要访问您的数据。因此，在把描述数据的稿件送期刊评审之前，就应先把数据存入 GEO。GEO 的处理时间约为提交完成后的 5 个工作日，但在{{1}}前后可能更长，因此务必在需要为稿件使用登录号之前尽早提交。在您的稿件（或预印本）公开之前，记录可以{{2}}。提交获得 GEO 工作人员批准后，您就可以在稿件中{{3}} GEO 登录号，并可生成审稿人{{4}}，让编辑和审稿人访问您的私有 GEO 记录。"
+    },
+    {
+      "pat": "Processing time normally takes approximately 5 business days after completion of submission, but may take longer around {{1}}. After you complete the submission, your data are put into a queue to await review by a curator. Please understand that we receive hundreds of study submissions per week, and processing times can vary depending on submission volume. Thus, it is important to make your submission well in advance of when you require the accession numbers for your manuscript. If format or content problems are identified with your submission, a curator will contact you by e-mail explaining how to address the issue. Please address the issues raised by curators; failure to do so may result in processing delays or removal of the records. Once your records pass review, the curator will send you an e-mail confirming your GEO accession numbers and their release dates. If you do not receive an e-mail from us within 5 business days of your submission, please first check your spam or junk e-mail folders because some systems recognize GEO e-mail correspondence as spam, then {{2}} to inquire about your submission. Do not quote GEO accession numbers in manuscripts until you have received an approval e-mail notice from a GEO curator.",
+      "zh": "处理时间通常为提交完成后的约 5 个工作日，但在{{1}}前后可能更长。提交完成后，您的数据会进入队列等待管理员审核。请注意我们每周收到数百项研究提交，处理时间会随提交量而变化。因此，务必在需要为稿件使用登录号之前尽早提交。如果您的提交被发现存在格式或内容问题，管理员会通过电子邮件联系您说明如何解决。请务必处理管理员提出的问题；未处理可能导致处理延迟或记录被移除。记录通过审核后，管理员会发邮件确认您的 GEO 登录号及其发布日期。如果提交后 5 个工作日内未收到我们的邮件，请先检查垃圾邮件文件夹（有些系统会把 GEO 的邮件判为垃圾邮件），然后{{2}}询问您的提交情况。在收到 GEO 管理员的批准邮件之前，请勿在稿件中引用 GEO 登录号。"
+    },
+    {
+      "pat": "The GEO database has a flexible and open design that is responsive to developing trends. If you have questions about whether GEO can accept your data type, please do not hesitate to {{1}}.",
+      "zh": "GEO 数据库采用灵活开放的设计，能够顺应不断发展的趋势。如果您不确定 GEO 能否接收您的数据类型，请随时{{1}}。"
+    },
+    {
+      "pat": "You will need both a {{1}} account and an accompanying {{2}} to submit data. First, log in through your NCBI account. If you don't have a NCBI account, you can create one {{3}}. Submitters are then asked to complete a My GEO Profile form that provides the contact information to be used by GEO curators to communicate about the submission and to be displayed on the GEO records. The NCBI account can be used to submit additional data in the future without re-entering contact information, as well as to authenticate the submitter when updating or editing an existing GEO record.",
+      "zh": "提交数据需要同时具备 {{1}} 账户和配套的 {{2}}。首先通过您的 NCBI 账户登录。若您没有 NCBI 账户，可在{{3}}创建一个。随后系统会要求提交者填写 My GEO Profile 表单，其中提供的联系信息将供 GEO 管理员就提交事宜沟通，并显示在 GEO 记录上。该 NCBI 账户今后可用于提交更多数据而无需重新填写联系信息，也可在更新或编辑已有 GEO 记录时用于验证提交者身份。"
+    },
+    {
+      "pat": "After logging in to your {{1}} account, follow the {{2}} link on the {{3}}. Edits to contact information will be applied immediately to all existing records submitted under that account. If you need the contact information to remain unedited on existing records, but different contact details to appear on new records, it is necessary to open a separate account and submit new data under that account.",
+      "zh": "登录 {{1}} 账户后，请在{{3}}上找到 {{2}} 链接并点击。联系信息的修改会立即应用到该账户下提交的所有现有记录。如果您希望现有记录上的联系信息保持不变，而新记录显示不同的联系人信息，则需要另开一个账户并在该账户下提交新数据。"
+    },
+    {
+      "pat": "Maintain one 'Facility' account and include the investigator names as 'Contributors' on their records. For example, see {{1}} submitted by the Stanford Microarray Database on behalf of one of their investigators. In this case, only the facility will receive e-mail correspondence from GEO.",
+      "zh": "维护一个「机构」账户，并在各记录中把研究者姓名列为「贡献者」。例如，参见由斯坦福微阵列数据库代表其一位研究者提交的{{1}}。在这种情况下，只有该机构会收到 GEO 的电子邮件通信。"
+    },
+    {
+      "pat": "Yes. GEO records may remain private until a manuscript (including preprint) quoting the GEO accession number is made available to the public (journal publication is not a requirement for data submission to GEO). During the submission process, you are prompted to specify a release date for your records. The release date is the date on which your data are made public and will be available for anyone to access, download and re-use. Therefore, it is very important that all your collaborators agree on the release date. Although the maximum allowable limit is four years, this date may be brought forward or pushed back at any time; see {{1}} for instructions on how to change the release date. This feature allows a submitter to deposit data and receive a GEO accession number to quote in a manuscript before the data become public. We will send you an e-mail reminder 10 days before the scheduled release date, inviting you to postpone the release date as necessary. It is important to inform us as soon as your manuscript or preprint is published so that we can release your records and link them with PubMed. Submitters also have the opportunity to create a reviewer token that allows collaborators or reviewers confidential, read-only access to private data before manuscript publication.",
+      "zh": "可以。GEO 记录可以一直保持私有，直到引用该 GEO 登录号的稿件（包括预印本）公开为止（向 GEO 提交数据并不以期刊发表为前提）。提交流程中，系统会提示您为记录指定发布日期。发布日期即您的数据公开、任何人都可以访问、下载和再利用的日期。因此，所有合作者就发布日期达成一致非常重要。虽然允许的最长时限为四年，但该日期可随时提前或推后；更改发布日期的操作说明见{{1}}。此功能允许提交者在数据公开之前就存缴数据并获得可在稿件中引用的 GEO 登录号。我们会在预定发布日期前 10 天发送提醒邮件，请您视需要推迟发布日期。稿件或预印本一经发表，请尽快通知我们，以便我们释放记录并与 PubMed 建立链接。提交者还可以创建审稿人令牌，让合作者或审稿人在稿件发表前以只读方式保密访问私有数据。"
+    },
+    {
+      "pat": "After your records have been approved, use the {{1}} link near the top of your Series (GSExxx) record to create a reviewer token which provides anonymous, read-only access to your private submissions. The token can be sent to the journal editor who will circulate it to reviewers requiring access to your private data. This method provides access to all private data except sequence files submitted to SRA. SRA does not currently support access to private sequence data, but if necessary, you can {{2}} to request a reviewer metadata link.",
+      "zh": "记录获批后，请使用 Series（GSExxx）记录顶部附近的 {{1}} 链接创建审稿人令牌，该令牌可对您的私有提交提供匿名只读访问。令牌可发给期刊编辑，由其转交给需要访问您私有数据的审稿人。此方式可访问除提交至 SRA 的序列文件之外的所有私有数据。SRA 目前不支持访问私有序列数据，如有需要，您可以{{2}}申请审稿人元数据链接。"
+    },
+    {
+      "pat": "You may perform updates and edits at any time to any of your submissions. Please refer to the {{1}} page for instructions. Be aware that updates can take several business days to complete, and may take longer around {{2}}, so it is important to make your update well in advance of when you require it to be implemented. Also, for sequence data, note that the corresponding raw data records in SRA follow the {{3}} procedures for status changes.",
+      "zh": "您可以随时对任何提交进行更新和编辑。操作说明见{{1}}页面。请注意，更新可能需要数个工作日才能完成，在{{2}}前后可能更久，因此务必在需要使用更新结果之前尽早进行。另外，对于序列数据，请注意 SRA 中对应的原始数据记录会遵循{{3}}的状态变更流程。"
+    },
+    {
+      "pat": "Only GEO staff can remove records from the database; it is necessary to {{1}} to request deletion of specific accession numbers. Please keep in mind that {{2}} is preferable to deleting records, if appropriate. If the accession numbers in question have been published in a manuscript, including a preprint, we cannot delete the records. Rather, a comment will be added to the record indicating the reason the submitter requested withdrawal of the data, and the record content will be adjusted/deleted accordingly. Also, for sequence data, note that the corresponding raw data records in SRA follow the {{3}} procedures for status changes.",
+      "zh": "只有 GEO 工作人员才能从数据库中删除记录；如需删除特定登录号，必须{{1}}提出申请。请注意，在合适的情况下，{{2}}比删除记录更可取。如果相关登录号已在稿件（包括预印本）中发表，我们无法删除记录。此时会在记录中添加一条评论，说明提交者请求撤回数据的原因，并相应调整或删除记录内容。另外，对于序列数据，请注意 SRA 中对应的原始数据记录会遵循{{3}}的状态变更流程。"
+    },
+    {
+      "pat": "Reviewers should expect to receive a {{1}} with the manuscript. This token allows anonymous, read-only access to the private GEO records cited in the manuscript. Detailed information is provided in these {{2}}.",
+      "zh": "审稿人应会随稿件收到{{1}}。该令牌可对稿件中引用的私有 GEO 记录提供匿名只读访问。详细信息见{{2}}。"
+    },
+    {
+      "pat": "Yes. GEO encourages submitters to supply {{1}} and {{2}}-compliant data. GEO submission procedures are designed to closely follow the MIAME and MINSEQE checklists; if you provide all requested information, your submission will be compliant. Note that MIAME and MINSEQE compliance is determined by the {{3}} provided, not by the submission {{4}} or route.",
+      "zh": "可以。GEO 鼓励提交者提供符合 {{1}} 与 {{2}} 规范的数据。GEO 的提交流程紧贴 MIAME 与 MINSEQE 检查表设计；只要提供所要求的全部信息，您的提交就是合规的。请注意，是否符合 MIAME 与 MINSEQE 取决于所提供的{{3}}，而不是提交的{{4}}或途径。"
+    },
+    {
+      "pat": "{{1}}: If you plan to submit {{2}}, as defined by the {{3}}, to be maintained in an unrestricted-access NCBI database, NIH expects you to 1) have an {{4}} to assure that the data submission and expectations defined in the NIH GDS Policy have been met (this Certification does not need to be submitted to GEO), 2) register the study in NCBI {{5}} regardless of where the data will ultimately reside (e.g., GenBank, SRA, GEO (note: if submitting to GEO, we will register a BioProject on your behalf)). If you have any questions about whether your research is subject to the NIH GDS Policy, please contact the relevant NIH Program Official and/or the {{6}}. If you plan to submit genomic data from human specimens that would not be considered large-scale, it is your responsibility to ensure that the submitted information does not compromise participant privacy, and is in accord with the original consent, in addition to all applicable laws, regulations, and institutional policies. GEO is not able to help interpret your consent forms; instead, you should consult with your institutional review board (IRB) on that.",
+      "zh": "{{1}}：如果您计划提交{{2}}（按 {{3}} 的定义），并将其保存在无限制访问的 NCBI 数据库中，NIH 希望您 1）取得{{4}}，以确保数据提交及 NIH GDS 政策中的各项要求已得到满足（该认证无需提交给 GEO）；2）在 NCBI {{5}} 中登记该研究，无论数据最终存放在何处（例如 GenBank、SRA、GEO；注意：若提交至 GEO，我们将代您登记 BioProject）。如果您对研究是否受 NIH GDS 政策约束有疑问，请联系相关的 NIH 项目官员和/或{{6}}。如果您计划提交来自人类标本、但不属于大规模范畴的基因组数据，您有责任确保所提交的信息不会损害参与者隐私，并符合原始知情同意以及所有适用的法律、法规和机构政策。GEO 无法帮助解释您的知情同意书；请就此咨询您所在机构的审查委员会（IRB）。"
+    },
+    {
+      "pat": "{{1}}: If your data are not NIH-funded, you are not required to comply with GDS policy but you must have the appropriate consent/permission to submit the data to a public database like GEO. GEO is not able to help interpret your consent forms; instead, you should consult with your institutional review board (IRB) on that. It is your responsibility to ensure that the submitted information does not compromise participant privacy and is in accord with the original consent in addition to all applicable laws, regulations, and institutional policies. If you do not have consent to make the data fully public in a database like GEO, you can {{2}} to find an NIH Institute that will sponsor your study in NCBI's {{3}} database. dbGaP has controlled-access mechanisms and is an appropriate resource for hosting sensitive patient data. The sponsor would create a Data Access Request and Use Certification and define use restrictions for use in approving data access requests.",
+      "zh": "{{1}}：如果您的数据并非由 NIH 资助，则无需遵守 GDS 政策，但您必须取得适当的同意/许可才能将数据提交到 GEO 这样的公共数据库。GEO 无法帮助解释您的知情同意书；请就此咨询您所在机构的审查委员会（IRB）。您有责任确保所提交的信息不会损害参与者隐私，并符合原始知情同意以及所有适用的法律、法规和机构政策。如果您没有同意书使数据能在 GEO 这样的数据库中完全公开，可以{{2}}，以寻找愿意在 NCBI 的 {{3}} 数据库中资助您研究的 NIH 研究所。dbGaP 具备受控访问机制，是存放敏感患者数据的合适资源。资助方将创建数据访问请求与使用认证，并规定用于审批数据访问请求的使用限制。"
+    },
+    {
+      "pat": "Anybody can access and download public GEO data. There are no login requirements. For more information, please read these {{1}} and {{2}}.",
+      "zh": "任何人都可以访问和下载公开的 GEO 数据，无需登录。更多信息请阅读{{1}}与{{2}}。"
+    },
+    {
+      "pat": "There are several ways to retrieve GEO data, please see the {{1}} overview and the {{2}} instructions for details. These methods range from performing simple or sophisticated {{3}} of the {{4}} and {{5}} databases, entering a valid GEO accession number in the {{6}} bar, browsing the list of current {{7}}, or downloading data from the GEO {{8}}.",
+      "zh": "检索 GEO 数据有多种方式，详情请参阅{{1}}概览与{{2}}说明。这些方式包括：对 {{4}} 与 {{5}} 数据库执行简单或复杂的{{3}}、在{{6}}栏中输入有效的 GEO 登录号、浏览当前{{7}}列表，或从 GEO {{8}}下载数据。"
+    },
+    {
+      "pat": "Once you have found a curated DataSet or Series of interest, there are several features available that help identify interesting gene expression profiles within that study. Some RNA-seq studies and most microarray studies can be analyzed with {{1}}. GEO2R is a web application that can be used to compare 2 or more groups of Samples, and identify and plot differentially expressed genes. All records analyzable with GEO2R can be retrieved by searching with {{2}}. Alternatively, there are some curated DataSets that include a {{3}} feature, {{4}} and a {{5}}. Once you have identified gene expression {{6}} of interest, there are several types of {{7}} on the Profile records that help identify related genes of interest. Alternatively, if you prefer to perform your own analysis using your favorite software package, the value matrix tables within the DataSet full SOFT files available from the {{8}}, or the Series Matrix File or supplementary files linked at the foot of Series records, may prove suitable. Finally, thousands of GEO data tracks have been uploaded for viewing on NCBI's Genome Data Viewer. All records with tracks can be retrieved by searching with {{9}}; the 'See on Genome Data Viewer' button on those records links to corresponding tracks on NCBI's Genome Data Viewer (see {{10}}).",
+      "zh": "找到感兴趣的精选 DataSet 或 Series 后，有多项功能可帮助识别该研究中值得关注的基因表达谱。部分 RNA-seq 研究和大多数微阵列研究可用{{1}}分析。GEO2R 是一个 Web 应用，可比较两组或更多组样本，并识别和绘制差异表达基因。所有可用 GEO2R 分析的记录均可通过{{2}}检索。另外，一些精选 DataSet 还带有{{3}}功能、{{4}}以及{{5}}。在确定感兴趣的基因表达{{6}}后，Profile 记录上还有多种{{7}}，可帮助找到相关基因。如果您更愿意用自己熟悉的软件包自行分析，DataSet 完整 SOFT 文件中可从{{8}}获取的值矩阵表，或 Series 记录底部链接的 Series Matrix 文件或补充文件，可能都适用。最后，NCBI 的基因组数据查看器中已上传了数千条 GEO 数据轨道。所有带轨道的记录均可通过{{9}}检索；这些记录上的「在基因组数据查看器中查看」按钮会链接到 NCBI 基因组数据查看器中对应的轨道（参见{{10}}）。"
+    },
+    {
+      "pat": "Yes. Users can take advantage of NCBI's {{1}} to access data stored in {{2}} and {{3}}. The {{4}} feature is a popular mechanism to download complete metadata records in bulk. Additionally, BioConductor users may be interested in the {{5}} which parses GEO SOFT files for integration with BioConductor 'R' analysis resources; see {{6}}.",
+      "zh": "可以。用户可以利用 NCBI 的{{1}}访问存储在{{2}}和{{3}}中的数据。{{4}}功能是批量下载完整元数据记录的常用方式。此外，BioConductor 用户可能会对{{5}}感兴趣，它可解析 GEO SOFT 文件，以便与 BioConductor 的 R 分析资源集成；参见{{6}}。"
+    },
+    {
+      "pat": "Yes. This can be accomplished using an {{1}} account. Once you are logged in to NCBI, construct a search for data relevant to your interests in {{2}}. For example, if you are only interested in studies performed on Platform GPL96, search with {{3}}; to see any apoptosis studies, search with {{4}}; or if you want to see all new studies, search with {{5}}. Next to the search box, you should see a {{6}} option. You will be presented with the option to receive e-mail alerts when new data matching your search criteria have been added to the database. This database is updated daily.",
+      "zh": "可以。使用 {{1}} 账户即可实现。登录 NCBI 后，在{{2}}中构造与您兴趣相关的检索。例如，如果您只关心在平台 GPL96 上进行的研究，可检索 {{3}}；要查看所有细胞凋亡研究，可检索 {{4}}；要查看所有新研究，可检索 {{5}}。在检索框旁边，您应能看到{{6}}选项。您可以选择在符合检索条件的新数据加入数据库时接收电子邮件提醒。该数据库每天更新。"
+    },
+    {
+      "pat": "Yes. Users often cite data they find in GEO to support their own studies; please see the list of {{1}} and guidelines for {{2}}.",
+      "zh": "可以。用户常引用在 GEO 中找到的数据来支持自己的研究；请参阅{{1}}列表以及{{2}}的指南。"
+    },
+    {
+      "pat": "A GEO Series (GSExxx) is an original submitter-supplied record that summarizes a study. These data are reassembled by GEO staff into curated GEO Datasets (GDSxxx). A DataSet represents a collection of biologically- and statistically-comparable Samples processed using the same Platform. Information reflecting experimental variables is provided through DataSet subsets. Both Series and DataSets are searchable using the {{1}} interface, but only DataSets form the basis of GEO's advanced data display and analysis tools including gene expression profile charts and DataSet clusters; see the {{2}} document for more information. Not all submitted data are suitable for DataSet assembly and we are experiencing a backlog in DataSet creation, so not all Series have a corresponding DataSet record(s). When a curated DataSet is not available, it may be appropriate to analyze the Series using {{3}}, which compares groups of Samples and identifies differentially expressed genes.",
+      "zh": "GEO Series（GSExxx）是由提交者提供的原始记录，用于概述一项研究。GEO 工作人员会将这些数据重新汇编为精选的 GEO DataSet（GDSxxx）。一个 DataSet 代表使用同一平台处理的、在生物学和统计学上可比较的一组样本。反映实验变量的信息通过 DataSet 子集提供。Series 与 DataSet 都可用{{1}}界面检索，但只有 DataSet 构成 GEO 高级数据展示与分析工具（包括基因表达谱图表和 DataSet 聚类）的基础；更多信息见{{2}}文档。并非所有提交的数据都适合汇编为 DataSet，且 DataSet 创建目前存在积压，因此并非所有 Series 都有对应的 DataSet 记录。当没有可用的精选 DataSet 时，可以用{{3}}分析该 Series，它会比较样本组并识别差异表达基因。"
+    },
+    {
+      "pat": "As explained in the {{1}} FAQ above, suitable submitter-supplied GEO Series records are reassembled by GEO staff into curated DataSets. At periodic intervals, these DataSets are then indexed and loaded into {{2}} and {{3}}, which allows users to query gene names, visualize charts and clusters, and more. If your Series of interest has not yet been assembled into a DataSet these features will not be available, but it may be appropriate to analyze the Series using {{4}}, which compares groups of Samples and identifies differentially expressed genes.",
+      "zh": "如上文{{1}}的常见问题所述，提交者提供的合适 GEO Series 记录会由 GEO 工作人员重新汇编为精选 DataSet。这些 DataSet 会定期建立索引并载入{{2}}与{{3}}，使用户能够查询基因名称、查看图表与聚类等。如果您感兴趣的 Series 尚未汇编为 DataSet，这些功能将不可用，但可以用{{4}}分析该 Series，它会比较样本组并识别差异表达基因。"
+    },
+    {
+      "pat": "In {{1}}, the red bars represent values extracted from original GEO Sample records as supplied by submitters. For single channel data, values are assumed to be submitted as normalized signal count data, reflecting the relative measure of abundance of each transcript. For Affymetrix data, the \"detection call\" (A=absent, P=present, M=marginal) data are taken into consideration, if supplied (absent calls faded out). For dual channel experiments values are normalized log ratios, and SAGE values reflect \"tags per million\" counts. The blue squares represent the percentile ranked value of a spot compared to all other spots within that Sample. That is, all values within each Sample are rank ordered and placed into rank percentile 'bins'. This gives an indication of the relative expression level of that gene compared to all other genes on the array. Value profiles are plotted on a scale that fits each individual gene, whereas rank data are always plotted on a scale of 0-100%.",
+      "zh": "在{{1}}中，红色条代表从提交者提供的原始 GEO Sample 记录中提取的值。对于单通道数据，假定数值以归一化信号计数形式提交，反映每个转录本的相对丰度。对于 Affymetrix 数据，若提供了「检出判定」（A=缺失、P=存在、M=临界），会予以考虑（缺失判定淡化显示）。对于双通道实验，数值为归一化对数比值，SAGE 数值反映「每百万标签」计数。蓝色方块代表某斑点相对于该样本内所有其他斑点的百分位排序值。也就是说，每个样本内的所有值都会排序并归入百分位「区间」。这可以提示该基因相对于阵列上所有其他基因的相对表达水平。数值谱按每个基因各自适应的尺度绘制，而排序数据始终以 0–100% 的尺度绘制。"
+    },
+    {
+      "pat": "{{1}}: GEO hosts submitter-supplied processed sequence data files, which are linked at the bottom of Sample and/or Series records as supplementary files. Requirements for processed data files are not yet fully standardized and will depend on the nature of the study, but data typically include genome tracks or expression counts.",
+      "zh": "{{1}}：GEO 存放提交者提供的处理后序列数据文件，这些文件以补充文件形式链接在 Sample 和/或 Series 记录底部。对处理后数据文件的要求尚未完全标准化，取决于研究性质，但数据通常包括基因组轨道或表达计数。"
+    },
+    {
+      "pat": "{{1}}: Submitter-supplied raw data are loaded to NCBI's {{2}} (SRA) database. Use the {{3}} to list and select Runs to be downloaded or analyzed with the {{4}}. If you have questions about SRA format or the SRA toolkit, please {{5}} directly.",
+      "zh": "{{1}}：提交者提供的原始数据会载入 NCBI 的{{2}}（SRA）数据库。使用{{3}}列出并选择要用{{4}}下载或分析的 Run。如果您对 SRA 格式或 SRA Toolkit 有疑问，请直接{{5}}。"
+    },
+    {
+      "pat": "{{1}}: For some RNA-seq data, NCBI precomputes RNA-seq gene expression counts and delivers them as count matrices that may be incorporated into commonly used differential expression analysis and visualization software. For more information, see {{2}}.",
+      "zh": "{{1}}：对于部分 RNA-seq 数据，NCBI 会预先计算 RNA-seq 基因表达计数，并以计数矩阵形式提供，可导入常用的差异表达分析与可视化软件。更多信息见{{2}}。"
+    },
+    {
+      "pat": "If your data need controlled access, deposit your data with NCBI's {{1}} database.",
+      "zh": "如果您的数据需要受控访问，请将数据存缴到 NCBI 的 {{1}} 数据库中。"
+    },
+    {
+      "pat": "Gene expression profiling by microarray or next-generation sequencing (see {{1}})",
+      "zh": "微阵列或下一代测序的基因表达谱分析（参见{{1}}）"
+    },
+    {
+      "pat": "Non-coding RNA profiling by microarray or next-generation sequencing (see {{1}})",
+      "zh": "微阵列或下一代测序的非编码 RNA 谱分析（参见{{1}}）"
+    },
+    {
+      "pat": "Chromatin immunoprecipitation (ChIP) profiling by microarray or next-generation sequencing (see {{1}})",
+      "zh": "微阵列或下一代测序的染色质免疫沉淀（ChIP）谱分析（参见{{1}}）"
+    },
+    {
+      "pat": "Genome methylation profiling by microarray or next-generation sequencing (see {{1}})",
+      "zh": "微阵列或下一代测序的基因组甲基化谱分析（参见{{1}}）"
+    },
+    {
+      "pat": "High-throughput RT-PCR (see {{1}})",
+      "zh": "高通量 RT-PCR（参见{{1}}）"
+    },
+    {
+      "pat": "Genome variation profiling by array (arrayCGH) (see {{1}})",
+      "zh": "微阵列基因组变异谱分析（arrayCGH）（参见{{1}}）"
+    },
+    {
+      "pat": "SNP arrays (see {{1}}) (see {{2}})",
+      "zh": "SNP 阵列（参见{{1}}）（参见{{2}}）"
+    },
+    {
+      "pat": "Protein arrays (see {{1}})",
+      "zh": "蛋白质阵列（参见{{1}}）"
     }
   ]
 }

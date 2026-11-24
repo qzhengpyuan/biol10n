@@ -105,6 +105,7 @@ test("gdc-docs 站点注入后，aria-label / title / placeholder 全部命中",
   const site = sites.find((s) => s.id === "gdc-docs");
   assert.ok(site, "config/sites.json 缺 gdc-docs 站点");
   assert.ok(site.hosts.includes("gdc.cancer.gov"), "gdc-docs 必须覆盖 gdc.cancer.gov");
+  assert.ok(site.hosts.includes("docs.gdc.cancer.gov"), "gdc-docs 必须覆盖 docs.gdc.cancer.gov（文档站在 docs 子域）");
   assert.ok(site.dicts.includes("gdc"), "gdc-docs 必须加载 gdc 册");
 
   const dom = new JSDOM(

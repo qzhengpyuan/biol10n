@@ -323,7 +323,26 @@
     "Tested Genes": "检测的基因",
     "Tests": "检测项目",
     "Molecular": "分子",
-    "here": "此处"
+    "here": "此处",
+    "CPT code": "CPT 代码",
+    "Clinical category": "临床类别",
+    "e.g.": "例如",
+    "Animation of how to search": "搜索操作动画",
+    "Picture of how to search": "搜索操作示意图",
+    "Covid-19 image": "Covid-19 示意图",
+    "Add this filter to your search term.": "将此筛选条件加入检索词。",
+    "Records discoverable in the Genetic Testing Registry (GTR)": "可在遗传检测登记库（GTR）中发现的记录",
+    "Records in MedGen with counterparts in OMIM": "在 OMIM 中有对应记录的 MedGen 记录",
+    "Records in MedGen with the disease property set.": "已设置疾病属性的 MedGen 记录",
+    "Records with data from Orphanet": "含 Orphanet 数据的记录",
+    "Records with data from the Human Phenotype Ontology[HPO]": "含人类表型本体[HPO]数据的记录",
+    "Records with data from the Monarch Initiative": "含 Monarch Initiative 数据的记录",
+    "Subset of diseases and clinical features with rich support": "资料丰富的疾病与临床特征子集",
+    "US Edition of SNOMED CT": "SNOMED CT 美国版",
+    "Orphanet Rare Disease Ontology (ORDO)": "Orphanet 罕见病本体（ORDO）",
+    "Online Mendelian Inheritance in Man": "在线人类孟德尔遗传数据库（OMIM）",
+    "MedlinePlus Genetics": "MedlinePlus 遗传学",
+    "Concept Unique Identifier assigned by MedGen (starting with CN) for terms that cannot be identified in NLM's Unified Medical Language system (UMLS) Click for more information.": "MedGen 为无法在 NLM 统一医学语言系统（UMLS）中识别的术语所分配的、以 CN 开头的概念唯一标识符。点击了解更多信息。"
   },
   "rules": [
     {
@@ -619,6 +638,10 @@
     {
       "pat": "We are planning the future of MedGen. Contact us at {{1}} to tell us how it can work better for you.",
       "zh": "我们正在规划 MedGen 的未来。请通过 {{1}} 告诉我们如何让它更好地为您服务。"
+    },
+    {
+      "pat": "Use the advanced search to build a more powerful query. You can find tests by many GTR fields including newly added fields, {{1}} and {{2}}. Use the Boolean options AND, OR, and NOT to further refine your results.",
+      "zh": "使用高级检索可构建更强大的查询。您可以通过 GTR 的许多字段查找检测项目，包括新增的{{1}}与{{2}}。还可用布尔选项 AND、OR 和 NOT 进一步精炼结果。"
     }
   ]
 }

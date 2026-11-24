@@ -430,7 +430,37 @@
     "doc icon": "文档图标",
     "youtube tutorial": "YouTube 教程",
     "GDC Applications": "GDC 应用",
-    "To receive timely updates about GDC Releases, maintenance windows, and other news and announcements, please": "如需及时了解 GDC 版本发布、维护窗口及其他新闻与公告，请"
+    "To receive timely updates about GDC Releases, maintenance windows, and other news and announcements, please": "如需及时了解 GDC 版本发布、维护窗口及其他新闻与公告，请",
+    "Data Submission": "数据提交",
+    "Troubleshooting Guide": "故障排查指南",
+    "Search and Retrieval": "检索与获取",
+    "Downloading Files": "下载文件",
+    "Data Analysis": "数据分析",
+    "Python Examples": "Python 示例",
+    "GraphQL Examples": "GraphQL 示例",
+    "System Information": "系统信息",
+    "Additional Examples": "其他示例",
+    "Appendix A: Available Fields": "附录 A：可用字段",
+    "Appendix B: Key Terms": "附录 B：关键术语",
+    "Appendix C: Format of Submission Queries and Responses": "附录 C：提交查询与响应的格式",
+    "Quick Start": "快速开始",
+    "Tutorial Videos": "教程视频",
+    "Type to start searching": "输入以开始检索",
+    "Tabs": "标签页",
+    "Data Portal": "数据门户",
+    "Data Transfer Tool": "数据传输工具",
+    "GDC Docs": "GDC 文档",
+    "Documentation": "文档",
+    "Data Submission Portal": "数据提交门户",
+    "Website": "网站",
+    "Publications": "论文",
+    "Clear": "清除",
+    "Header": "页眉",
+    "Navigation": "导航",
+    "Table of contents": "目录",
+    "logo": "标志",
+    "Getting Started": "入门指南",
+    "Download PDF": "下载 PDF"
   },
   "rules": [
     {
@@ -665,8 +695,7 @@
     {
       "pat": "Requires {{1}} to browse & download Controlled Access Data",
       "zh": "浏览与下载受控访问数据需要{{1}}"
-    }
-,
+    },
     {
       "pat": "The {{1}} provides developers with a programmatic interface to query, analyze, and download GDC data and submit data to the GDC.",
       "zh": "{{1}}为开发者提供编程接口，用于查询、分析和下载 GDC 数据以及向 GDC 提交数据。"
@@ -742,8 +771,7 @@
     {
       "pat": "The {{1}} is compatible with most modern web browsers, including:",
       "zh": "{{1}}兼容大多数现代网页浏览器，包括："
-    }
-,
+    },
     {
       "pat": "The GDC Data Submission Portal allows users to submit data associated with projects registered in dbGaP. Information on registering a project in dbGaP is available at {{1}}.",
       "zh": "GDC 数据提交门户允许用户提交与 dbGaP 中已注册项目关联的数据。有关在 dbGaP 中注册项目的信息，请见{{1}}。"

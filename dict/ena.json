@@ -519,7 +519,9 @@
     "Show the subprojects within this project": "显示此项目内的子项目",
     "Toggle EuropePMC": "展开或折叠 EuropePMC",
     "Toggle PubMed": "展开或折叠 PubMed",
-    "Toggle xref": "展开或折叠 xref"
+    "Toggle xref": "展开或折叠 xref",
+    "xref": "交叉引用",
+    "The European Nucleotide Archive (ENA)": "欧洲核苷酸档案库（ENA）"
   },
   "rules": [
     {

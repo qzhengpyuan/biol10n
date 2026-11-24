@@ -84,7 +84,22 @@
     "NAT2 allele, diplotype, and phenotype frequencies from an analysis of the UK Biobank, All of Us Research program, and PennMedicine BioBank using PharmCAT v3.0.1. Data published in “Global population frequencies of NAT2 star alleles observed in three large biobanks”.": "使用 PharmCAT v3.0.1 分析 UK Biobank、All of Us 研究计划与 PennMedicine BioBank 得到的 NAT2 等位基因、双倍型与表型频率。数据发表于 “Global population frequencies of NAT2 star alleles observed in three large biobanks”。",
     "let us know": "告知我们",
     "ClinPGx curates and distributes many different types of information in multiple formats.": "ClinPGx 策展并以多种格式分发多种类型的信息。",
-    "Education": "教育"
+    "Education": "教育",
+    "Pharmacogene Tables": "药物基因表",
+    "Allele Definition Table": "等位基因定义表",
+    "Allele Functionality Table": "等位基因功能表",
+    "Phenotype Table": "表型表",
+    "Diplotype-Phenotype Table": "双倍型-表型表",
+    "Example CDS Table": "示例 CDS 表",
+    "Workflow Diagram": "工作流程图",
+    "Mapping of each diplotype to phenotype": "每个双倍型到表型的映射",
+    "Mapping of each phenotype to EHR priority result notation and consultation text": "每个表型到 EHR 优先结果标记与咨询文本的映射",
+    "Possible implementation workflow diagram": "可能的实施工作流程图",
+    "Gene Resource Mappings": "基因资源映射",
+    "Frequency Table": "频率表",
+    "Phenotype definitions based on allele function combinations": "基于等位基因功能组合的表型定义",
+    "ClinPGx biogeographical groups": "ClinPGx 生物地理分组",
+    "Mapping of gene to ID or code for HGNC, NCBI, Ensembl and ClinPGx": "基因到 HGNC、NCBI、Ensembl 与 ClinPGx 的 ID 或代码映射"
   },
   "rules": [
     {
@@ -172,6 +187,14 @@
     {
       "pat": "{{1}}{{2}} is a comprehensive resource supporting the clinical implementation of pharmacogenomics (PGx), the study of how genetic variation affects medication response. We provide expert curation of PGx genes, variants, drugs, and gene–drug relationships, plus guidelines and tools that make PGx accessible, understandable, and actionable in clinical practice. ClinPGx is home to the Clinical Pharmacogenetics Implementation Consortium ({{3}}{{4}}).",
       "zh": "{{1}}{{2}} 是一个综合资源，支持药物基因组学（PGx）的临床落地，即研究遗传变异如何影响药物反应。我们提供对 PGx 基因、变异、药物及基因-药物关系的专家策展，以及让 PGx 在临床实践中可及、易懂、可执行的指南与工具。它是临床药物遗传学实施联盟（{{3}}{{4}}）的所在地。"
+    },
+    {
+      "pat": "Allele function assignments using {{1}}, evidence summaries and references used",
+      "zh": "等位基因功能分配，依据 {{1}}，并结合证据摘要与所用参考文献"
+    },
+    {
+      "pat": "Calculated allele frequencies for {{1}}, and references used",
+      "zh": "计算得到的等位基因频率，针对 {{1}}，并附所用参考文献"
     }
   ]
 }

@@ -298,7 +298,15 @@
     "cell type": "细胞类型",
     "Virus": "病毒",
     "Please use the following citations for CCDS:": "CCDS 的引用文献如下：",
-    "The CCDS dataset is also available for anonymous": "CCDS 数据集也可以通过匿名"
+    "The CCDS dataset is also available for anonymous": "CCDS 数据集也可以通过匿名",
+    "National Center for Biotechnology Information": "美国国家生物技术信息中心",
+    "Search RefSeq": "搜索 RefSeq",
+    "Search BioSample": "搜索 BioSample",
+    "Submission sections": "提交分区",
+    "GenBank-Genome": "GenBank-基因组",
+    "NLM GenBank and SRA Data Processing document": "NLM GenBank 与 SRA 数据处理文档",
+    "Learn more": "了解更多",
+    "Submit": "提交"
   },
   "rules": [
     {
@@ -418,6 +426,10 @@
     {
       "pat": "This update adds 2,746 new CCDS IDs, and adds 237 genes into the human CCDS set. CCDS Release 24 includes a total of 35,608 CCDS IDs that correspond to 19,107 GeneIDs, with 48,062 protein sequences from NCBI and 47,762 from Ensembl. See the {{1}} report for details.",
       "zh": "本次更新新增 2,746 个 CCDS 编号，并向人类 CCDS 集合新增 237 个基因。CCDS 第 24 版共包含 35,608 个 CCDS 编号，对应 19,107 个 GeneID，其中 48,062 条蛋白序列来自 NCBI、47,762 条来自 Ensembl。详见{{1}}报告。"
+    },
+    {
+      "pat": "Please read the {{1}} which describes how sequence data are processed and made available to the public, responsibilities of the data submitter, responsibilities of NCBI, and defines data status. You may write to info@ncbi.nlm.nih.gov if you have questions about your submitted data or if you have questions about the document.",
+      "zh": "请阅读{{1}}，其中说明了序列数据如何处理并向公众开放、数据提交者与 NCBI 各自的责任，以及数据状态的界定。如果您对所提交的数据或该文档有疑问，可写信至 info@ncbi.nlm.nih.gov。"
     }
   ]
 }

@@ -186,7 +186,21 @@
     "Ensembl ID": "Ensembl 编号",
     "ChEBI ID": "ChEBI 编号",
     "PDB ID": "PDB 编号",
-    "Expasy Help - SIB Swiss Institute of Bioinformatics": "Expasy 帮助 - 瑞士生物信息学研究所（SIB）"
+    "Expasy Help - SIB Swiss Institute of Bioinformatics": "Expasy 帮助 - 瑞士生物信息学研究所（SIB）",
+    "Database of molecular replacements for ligand design": "配体设计用分子替换数据库",
+    "Pharmacokinetics properties and druglikeness": "药代动力学性质与类药性",
+    "Fast, intuitive, SNFG-compliant glycan structure drawing": "快速、直观、符合 SNFG 规范的聚糖结构绘制",
+    "Pathogen Sugar-Binding Database": "病原体糖结合数据库",
+    "Analysis of nucleic acid sequence motifs": "核酸序列基序分析",
+    "Regulatory SNPs affecting TF binding site affinity": "影响转录因子结合位点亲和力的调控型 SNP",
+    "Align expressed RNA sequences on a DNA template": "将表达的 RNA 序列比对到 DNA 模板",
+    "Analysis of NGS data": "NGS 数据分析",
+    "Inference of phylogenetic trees from genome data": "从基因组数据推断系统发育树",
+    "Quantification and analysis of Short Reads": "短读长定量与分析",
+    "Protein model quality estimation": "蛋白质模型质量评估",
+    "Genomic profiles of cancer samples with focus on CNV": "聚焦拷贝数变异的癌症样本基因组图谱",
+    "Build, calibrate, and search biological sequences": "构建、校准并检索生物序列",
+    "Protein abundance across several organisms": "多物种蛋白质丰度"
   },
   "rules": [
     {

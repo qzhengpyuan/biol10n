@@ -275,7 +275,11 @@
     "more help": "更多帮助",
     "Alternate sequence names": "替代序列名称",
     "docs page": "文档页面",
-    "for more information": "了解更多信息"
+    "for more information": "了解更多信息",
+    "Add Custom Tracks": "添加自定义轨道",
+    "request nearly any Genbank assembly": "申请几乎任何 Genbank 组装版本",
+    "search box": "搜索框",
+    "Gateway page": "网关页"
   },
   "rules": [
     {
@@ -361,6 +365,12 @@
     {
       "re": "^Alternative sequence names can be used in the position box, custom tracks, track hubs, bigBed, bigWig, and similar files\\. See the$",
       "to": "替代序列名称可用于位置框、自定义轨道、轨道 Hub、bigBed、bigWig 及类似文件。参见"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The best way to find an assembly is the {{1}} on our {{2}}. If your assembly of interest is not available, you can {{3}} as long as it has a {{4}} or {{5}} accession.",
+      "zh": "查找组装版本的最佳方式，是使用我们{{2}}上的{{1}}。如果感兴趣的组装不可用，只要具备 {{4}} 或 {{5}} 登录号，就可以{{3}}。"
     }
   ]
 }

@@ -166,7 +166,9 @@
     "from": "从",
     "here": "此处",
     "to": "至",
-    "ORFfinder Home": "ORFfinder 首页"
+    "ORFfinder Home": "ORFfinder 首页",
+    "RSS feeds": "RSS 订阅源",
+    "New/Noteworthy Web (RSS) Feed": "新增/值得关注内容（RSS）订阅源"
   },
   "rules": [
     {

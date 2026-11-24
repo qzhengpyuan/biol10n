@@ -158,7 +158,10 @@
     "for more details.": "了解更多详情。",
     "Controlled": "受控访问",
     "Lab": "实验室",
-    "Processed data included within Sample table": "处理后的数据包含在样本表中"
+    "Processed data included within Sample table": "处理后的数据包含在样本表中",
+    "Database that groups biomedical literature, small molecules, and sequence data in terms of biological relationships.": "按生物学关系把生物医学文献、小分子和序列数据归组在一起的数据库。",
+    "URL application programming interface for searching, linking and downloading data within NCBI's Entrez system": "用于在 NCBI Entrez 系统中检索、链接和下载数据的 URL 应用程序编程接口",
+    "The SNP database tools page provides links to the general submission guidelines and to the submission handle request.": "SNP 数据库工具页面提供指向通用提交指南与提交句柄申请页面的链接。"
   },
   "rules": [
     {

@@ -211,6 +211,10 @@
     {
       "re": "^(.+): activate to sort column descending$",
       "to": "$1：点击按此列降序排序"
+    },
+    {
+      "re": "^What can you learn about (.+?) in NCBI Datasets\\?$",
+      "to": "在 NCBI Datasets 中，您可以了解 $1 的哪些信息？"
     }
   ],
   "templates": [

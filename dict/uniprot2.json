@@ -100,7 +100,12 @@
     "Pancreatic cancer 4 (PNCA4)": "胰腺癌 4 型（PNCA4）",
     "Ectodermal dysplasia and immunodeficiency 1 (EDAID1)": "外胚层发育不良与免疫缺陷 1 型（EDAID1）",
     "Immunodeficiency 33 (IMD33)": "免疫缺陷 33 型（IMD33）",
-    "Host endoplasmic reticulum-Golgi intermediate compartment membrane": "宿主内质网-高尔基体中间区室膜"
+    "Host endoplasmic reticulum-Golgi intermediate compartment membrane": "宿主内质网-高尔基体中间区室膜",
+    "Isoform": "异构体",
+    "Strongly reduced phosphorylation.": "磷酸化显著降低。",
+    "Reduced phosphorylation.": "磷酸化降低。",
+    "Constitutively activated kinase.": "激酶持续激活。",
+    "Decreased palmitoylation.": "棕榈酰化降低。"
   },
   "rules": [
     {

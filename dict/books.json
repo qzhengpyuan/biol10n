@@ -143,7 +143,21 @@
     "Available from:": "可从以下地址获取：",
     "We are experimenting with display styles that make it easier to read books and documents in Bookshelf. Our first effort uses ebook readers, which have several \"ease of reading\" features already built in.": "我们正在试验让浏览器中阅读书籍与文档更轻松的显示样式。第一步采用电子书阅读器，它已内置多项「便于阅读」功能。",
     "National Center for Biotechnology Information (US)": "美国国家生物技术信息中心（US）",
-    "Introduction": "简介"
+    "Introduction": "简介",
+    "Scope": "范围",
+    "Dataflow": "数据流程",
+    "Data Model": "数据模型",
+    "Data Sources": "数据来源",
+    "Data Access": "数据获取",
+    "Related Tools": "相关工具",
+    "Related Tools and Resources": "相关工具与资源",
+    "Related Tools and Studies": "相关工具与研究",
+    "History": "历史",
+    "Ingest": "数据摄入",
+    "Clustering Methods": "聚类方法",
+    "Manual Curation": "人工校订",
+    "Cluster Display": "聚类展示",
+    "Access": "访问"
   },
   "rules": [
     {

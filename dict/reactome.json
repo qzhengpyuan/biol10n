@@ -539,7 +539,17 @@
     "Reactome logo": "Reactome 标志",
     "Reactome outage icon": "Reactome 服务中断图标",
     "The pathways overview offers an intuitive overview of dataset analysis results in the context of the Reactome hierarchical pathway structure, allowing both a quick “first glance” and rapid zooming in on interesting results.": "通路总览以 Reactome 通路层级结构为背景，直观呈现数据集分析结果，便于快速“初览”并迅速放大到关注的结果。",
-    "Results are shown as five categories: (▲▲) significantly up-regulated, (▲) non-significantly up-regulated, (▼) non-significantly down-regulated, (▼▼) significantly down-regulated, and not (-) found.": "结果分为五类：（▲▲）显著上调、（▲）非显著上调、（▼）非显著下调、（▼▼）显著下调，以及未检出（-）。"
+    "Results are shown as five categories: (▲▲) significantly up-regulated, (▲) non-significantly up-regulated, (▼) non-significantly down-regulated, (▼▼) significantly down-regulated, and not (-) found.": "结果分为五类：（▲▲）显著上调、（▲）非显著上调、（▼）非显著下调、（▼▼）显著下调，以及未检出（-）。",
+    "For Users": "面向用户",
+    "User’s Guide": "用户指南",
+    "Tutorial workshop": "教程工作坊",
+    "Questions": "问题",
+    "Answers": "解答",
+    "Introduction to the Reactome Pathway Knowledgebase": "Reactome 通路知识库简介",
+    "Reactome Training Materials": "Reactome 培训资料",
+    "Pathways and Networks Overview": "通路与网络概览",
+    "Get Started": "开始使用",
+    "Developer Guide": "开发者指南"
   },
   "rules": [
     {

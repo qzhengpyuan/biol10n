@@ -212,7 +212,13 @@
     "PDBe Team members 2022": "PDBe 团队成员（2022）",
     "Ex. - hemoglobin, BRCA1_HUMAN": "例：hemoglobin、BRCA1_HUMAN",
     "mail": "邮件",
-    "PDBe | Protein Data Bank in Europe": "PDBe | 欧洲蛋白质数据库"
+    "PDBe | Protein Data Bank in Europe": "PDBe | 欧洲蛋白质数据库",
+    "Search filters :": "检索筛选：",
+    "Current:": "当前：",
+    "Use 'Advanced search' form to search Entries": "使用“高级检索”表单检索条目",
+    "X-ray diffraction": "X 射线衍射",
+    "Back to PDBe homepage": "返回 PDBe 首页",
+    "Compounds": "化合物"
   },
   "rules": [
     {

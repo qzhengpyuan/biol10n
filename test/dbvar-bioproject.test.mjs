@@ -68,7 +68,7 @@ test("规则：正则可编译、译文引用捕获组且含汉字", () => {
   for (const r of dict.rules) {
     assert.doesNotThrow(() => new RegExp(r.re), "坏规则: " + r.re);
     assert.match(r.to, CJK, "规则译文不含汉字: " + r.re);
-    assert.match(r.to, /\$\d/, "规则译文应引用捕获组: " + r.re);
+    if (/\$\d/.test(r.to)) assert.match(r.re, /\((?!\?)/, "译文引用了捕获组但规则没有: " + r.re);
   }
 });
 

@@ -447,7 +447,8 @@
     "Bar Chart": "柱状图",
     "Header": "页眉",
     "Footer": "页脚",
-    "Table of Pharmacogenomic Biomarkers in Drug Labels": "药品说明书中的药物基因组学生物标志物表"
+    "Table of Pharmacogenomic Biomarkers in Drug Labels": "药品说明书中的药物基因组学生物标志物表",
+    "No matching records found": "未找到匹配记录"
   },
   "rules": [
     {

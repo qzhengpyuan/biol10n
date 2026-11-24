@@ -231,7 +231,7 @@ test("首页骨架：输入占位符（属性通道）、检索按钮与文档�
   assert.deepEqual(ph, ["检索 ENA 指南……", "输入登录号"]);
   const cards = [...doc.querySelectorAll(".button-text")].map(text);
   assert.deepEqual(cards, ["自由文本检索", "高级检索", "交叉引用"], "<br> 拼断的卡片标题整串命中");
-  assert.equal(text(doc.querySelector("h4")), "The European Nucleotide Archive (ENA)", "资源名保留英文");
+  assert.equal(text(doc.querySelector("h4")), "欧洲核苷酸档案库（ENA）", "机构名译为中文、缩写保留");
 });
 
 test("首页横幅与 cookie 条：模板替换保留链接", () => {

@@ -524,6 +524,10 @@
     {
       "re": "^Powered by$",
       "to": "技术支持："
+    },
+    {
+      "re": "^(RF[0-9]+) secondary structure$",
+      "to": "$1 二级结构"
     }
   ],
   "templates": [

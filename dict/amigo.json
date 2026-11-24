@@ -149,7 +149,22 @@
     "AmiGO 2: Welcome": "AmiGO 2：欢迎",
     "PubMed ID": "PubMed 编号",
     "PubMed ID search": "PubMed 编号检索",
-    "takes you to summary information and all GO annotations for the": "将带你前往摘要信息与该编号的全部 GO 注释："
+    "takes you to summary information and all GO annotations for the": "将带你前往摘要信息与该编号的全部 GO 注释：",
+    "[Search]": "[检索]",
+    "[Statistics]": "[统计]",
+    "[Search Templates]": "[检索模板]",
+    "[Browse the Ontology]": "[浏览本体]",
+    "[PMID Search]": "[PMID 检索]",
+    "[And Much More...]": "[以及更多……]",
+    "And Much More....": "以及更多……",
+    "E.g. PMID:123456": "例如 PMID:123456",
+    "Your genes here...": "在此输入你的基因……",
+    "Search for annotations, term, and gene products for the inputted text.": "按输入文本检索注释、术语与基因产物。",
+    "Input any PubMed ID (e.g. PMID:123456).": "输入任意 PubMed ID（例如 PMID:123456）。",
+    "Search for groups of documents with the inputted PMID.": "按输入的 PMID 检索相关文档组。",
+    "Advanced Search page.": "高级检索页面。",
+    "Remote Term Enrichment Service page.": "远程术语富集服务页面。",
+    "Go »": "前往 »"
   },
   "rules": [
     {

@@ -530,7 +530,14 @@
     "relations documentation": "关系文档",
     "GO Aspect": "GO 方面",
     "GO term": "本体术语",
-    "Gene Ontology Resource": "基因本体资源"
+    "Gene Ontology Resource": "基因本体资源",
+    "Oops, that's a no GO !": "哎呀，这里没有 GO！",
+    "(404 Page Not Found)": "（404 页面未找到）",
+    "Powered by": "技术支持",
+    "Site search": "站内检索",
+    "Search this site": "检索本站",
+    "Contact the GO helpdesk": "联系 GO 帮助台",
+    "Global Core Biodata Resource": "全球核心生物数据资源"
   },
   "rules": [
     {

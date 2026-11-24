@@ -1167,7 +1167,8 @@
       "id": "gdc-docs",
       "name": "GDC 文档站",
       "hosts": [
-        "gdc.cancer.gov"
+        "gdc.cancer.gov",
+        "docs.gdc.cancer.gov"
       ],
       "dicts": [
         "common",

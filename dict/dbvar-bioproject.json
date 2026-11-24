@@ -207,7 +207,8 @@
     "Email List": "邮件列表",
     "Frequently Asked Questions": "常见问题",
     "External Resources": "外部资源",
-    "[Genomes On Line Database]": "［在线基因组数据库］"
+    "[Genomes On Line Database]": "［在线基因组数据库］",
+    "terms": "术语"
   },
   "rules": [
     {
@@ -285,12 +286,20 @@
     {
       "re": "^Samples for sampleset ([\\d,]+)$",
       "to": "样本集 $1 的样本"
+    },
+    {
+      "re": "^Home - BioProject - NCBI$",
+      "to": "首页 - BioProject - NCBI"
     }
   ],
   "templates": [
     {
       "pat": "Items {{1}} - {{2}} of {{3}}",
       "zh": "第 {{1}} - {{2}} 项，共 {{3}} 项"
+    },
+    {
+      "pat": "Search Examples (additional {{1}})",
+      "zh": "检索示例（补充{{1}}）"
     }
   ]
 }

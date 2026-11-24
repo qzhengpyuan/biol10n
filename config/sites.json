@@ -982,6 +982,30 @@
       ]
     },
     {
+      "id": "cbio-docs",
+      "name": "cBioPortal 文档站",
+      "hosts": [
+        "docs.cbioportal.org"
+      ],
+      "dicts": [
+        "common",
+        "onco",
+        "anatomy",
+        "cbioportal2",
+        "cbio-docs"
+      ],
+      "scope": "body",
+      "spa": false,
+      "waitFor": "",
+      "skip": "pre code, pre, .navbar__brand, .footer__copyright",
+      "attrs": [
+        "placeholder",
+        "title",
+        "aria-label",
+        "alt"
+      ]
+    },
+    {
       "id": "gdc",
       "hosts": [
         "portal.gdc.cancer.gov"

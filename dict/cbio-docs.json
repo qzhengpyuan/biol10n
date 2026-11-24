@@ -1,0 +1,372 @@
+{
+  "meta": {
+    "family": "cbioportal",
+    "version": "0.1.0",
+    "sites": [
+      "docs.cbioportal.org"
+    ],
+    "area": "cBioPortal 文档站（Retype）：全站侧边栏导航与页头页脚、首页角色入口、About Us、Supported Data Types 表格与说明、API 与 API 客户端、Deployment、Development、User Guide 正文"
+  },
+  "exact": {
+    "Home": "首页",
+    "About Us": "关于我们",
+    "Supported Data Types": "支持的数据类型",
+    "List of RF\u200bCs": "RFC 列表",
+    "User Guide": "用户指南",
+    "New Users": "新用户",
+    "Frequently Asked Questions": "常见问题",
+    "Tutorials": "教程",
+    "Page Specific Resources": "页面专属资源",
+    "News": "新闻",
+    "Overview": "概览",
+    "Contents": "目录",
+    "Genie News": "GENIE 新闻",
+    "Web API and API Clients": "Web API 与 API 客户端",
+    "AI Integrations": "AI 集成",
+    "Chat Interface": "聊天界面",
+    "Model Context Protocol (MCP)": "模型上下文协议（MCP）",
+    "Deployment": "部署",
+    "Architecture overview": "架构概览",
+    "Hardware Requirements": "硬件要求",
+    "Deploy with Docker (Recommended)": "使用 Docker 部署（推荐）",
+    "Import test data with Docker": "使用 Docker 导入测试数据",
+    "Example Commands": "示例命令",
+    "Authenticating and Authorizing Users using Keycloak in Docker": "在 Docker 中使用 Keycloak 认证与授权用户",
+    "Click\u200bHouse Setup": "ClickHouse 设置",
+    "Authorization and Authentication": "授权与认证",
+    "User Authorization": "用户授权",
+    "Authenticating Users via SAML": "通过 SAML 认证用户",
+    "Authenticating Users via LDAP": "通过 LDAP 认证用户",
+    "Authenticating and Authorizing Users via Keycloak": "通过 Keycloak 认证与授权用户",
+    "Authenticating Users via Tokens": "通过令牌认证用户",
+    "Keycloak Management via API and User creation": "通过 API 管理 Keycloak 与创建用户",
+    "Customization": "自定义",
+    "Customizing your c\u200bBio\u200bPortal Instance via application.\u200bproperties": "通过 application.properties 自定义 cBioPortal 实例",
+    "More application.\u200bproperties Settings": "更多 application.properties 设置",
+    "Security Properties Settings": "安全属性设置",
+    "Configuring Caching Behavior": "配置缓存行为",
+    "How the study view organizes charts": "研究视图如何组织图表",
+    "Integration with Other Webservices": "与其他 Web 服务集成",
+    "Onco\u200bKB Data Access": "OncoKB 数据访问",
+    "Uptime\u200bRobot Integration": "UptimeRobot 集成",
+    "Data Loading Overview": "数据加载概览",
+    "Downloads": "下载",
+    "Using the Dataset Validator": "使用数据集校验器",
+    "Using the meta\u200bImport Script": "使用 metaImport 脚本",
+    "File Formats": "文件格式",
+    "Z-\u200bScore Normalization": "Z 分数标准化",
+    "Study Curation Guide": "研究整理指南",
+    "Maintaining Studies": "维护研究",
+    "For Developers": "面向开发者",
+    "Tips and Best Practices": "提示与最佳实践",
+    "Mutation Data Transcript Annotation": "突变数据转录本注释",
+    "Import Onco\u200bKB annotations as custom driver annotations": "将 OncoKB 注释导入为自定义驱动注释",
+    "Importing Gene Sets for Gene Set Scoring Data": "为基因集评分数据导入基因集",
+    "Importing Gene Panels": "导入基因面板",
+    "Study View Customization with Priority Data": "使用优先级数据自定义研究视图",
+    "Migration Guide": "迁移指南",
+    "Migration from v\u200b6 to v\u200b7": "从 v6 迁移到 v7",
+    "Updating your c\u200bBio\u200bPortal installation": "更新 cBioPortal 安装",
+    "Development": "开发",
+    "Feature Development Guide": "功能开发指南",
+    "c\u200bBio\u200bPortal Database Versioning": "cBioPortal 数据库版本管理",
+    "Backend Code Organization": "后端代码组织",
+    "Backend Development Guidelines": "后端开发指南",
+    "Build c\u200bBio\u200bPortal with a different frontend version": "使用不同的前端版本构建 cBioPortal",
+    "Session Service": "会话服务",
+    "Manual test cases": "手动测试用例",
+    "Release Procedure": "发布流程",
+    "Security": "安全",
+    "This documentation site": "本文档站",
+    "Legacy (v\u200b6)": "旧版（v6）",
+    "Deploy without Docker (v\u200b6)": "不使用 Docker 部署（v6）",
+    "Software Requirements (v\u200b6)": "软件要求（v6）",
+    "Pre-\u200bBuild Steps (v\u200b6)": "构建前步骤（v6）",
+    "Building from Source (v\u200b6)": "从源码构建（v6）",
+    "Importing the Seed Database (v\u200b6)": "导入种子数据库（v6）",
+    "Deploying the Web Application (v\u200b6)": "部署 Web 应用（v6）",
+    "Loading a Sample Study (v\u200b6)": "加载示例研究（v6）",
+    "Standalone Deployment (v\u200b6)": "独立部署（v6）",
+    "Deploy with Kubernetes (v\u200b6)": "使用 Kubernetes 部署（v6）",
+    "Uninstall Docker c\u200bBio\u200bPortal (v\u200b6)": "卸载 Docker cBioPortal（v6）",
+    "Deployment Procedure (v\u200b6)": "部署流程（v6）",
+    "Backend Code Organization (v\u200b6)": "后端代码组织（v6）",
+    "portal.\u200bproperties Reference (v\u200b6)": "portal.properties 参考（v6）",
+    "Entity-\u200brelationship Diagram (v\u200b6 My\u200bSQL schema)": "实体关系图（v6 MySQL 模式）",
+    "Importer Tool (v\u200b6)": "导入工具（v6）",
+    "Search": "检索",
+    "Light": "浅色",
+    "Dark": "深色",
+    "System": "跟随系统",
+    "History": "历史",
+    "Clear": "清除",
+    "Filter": "筛选",
+    "Copy": "复制",
+    "Copy page as Markdown": "复制页面为 Markdown",
+    "Copy table markdown": "复制表格 Markdown",
+    "Open menu": "打开菜单",
+    "Close menu": "关闭菜单",
+    "Open Contents": "打开目录",
+    "Close Contents": "关闭目录",
+    "Change theme": "更改主题",
+    "cBioPortal Docs": "cBioPortal 文档",
+    "Issues": "问题",
+    "Google Group": "Google 群组",
+    "Donate": "捐赠",
+    "Powered by": "技术支持",
+    "Sitemap": "站点地图",
+    "Edit this page": "编辑此页面",
+    "Next": "下一页",
+    "Previous": "上一页",
+    "Maintainer:": "维护者：",
+    "Maintainers:": "维护者：",
+    "NCI, through": "NCI，通过",
+    "this": "这篇",
+    "here": "此处",
+    "available": "可用",
+    "around the world": "世界各地",
+    "Welcome to the documentation for cBioPortal!": "欢迎来到 cBioPortal 文档！",
+    "We've organized this site by the different roles in the cBioPortal community.": "本站按 cBioPortal 社区中的不同角色来组织内容。",
+    "Portal User": "门户用户",
+    "API User": "API 用户",
+    "Instance Maintainer": "实例维护者",
+    "Developer": "开发者",
+    "Feedback? Questions?": "有反馈？有疑问？",
+    "cBioPortal Google Group": "cBioPortal Google 群组",
+    "Quick Links": "快速链接",
+    "FAQ": "常见问题",
+    "API documentation": "API 文档",
+    "list of RFCs (Requests for Comments)": "RFC（征求意见稿）列表",
+    "List of Active RF\u200bCs": "活跃 RFC 列表",
+    "Sorry, no results found.": "抱歉，未找到结果。",
+    "Further Reading": "延伸阅读",
+    "Alumni": "校友",
+    "Funding for the cBioPortal for Cancer Genomics is or has been provided by:": "以下机构为 cBioPortal 癌症基因组学项目提供过或正在提供资助：",
+    "Current:": "当前：",
+    "Past:": "过去：",
+    "public cBioPortal site": "公共 cBioPortal 站点",
+    "Center for Molecular Oncology": "分子肿瘤学中心",
+    "Molecular Data": "分子数据",
+    "External Viewer Integration": "外部查看器集成",
+    "Clinical Data": "临床数据",
+    "Resource Data Format": "资源数据格式",
+    "Generic Assay Format": "通用检测格式",
+    "Clinical Data File Formats section": "临床数据文件格式一节",
+    "timeline format": "时间线格式",
+    "CUSTOM_METADATA contract": "CUSTOM_METADATA 约定",
+    "cBioPortal is a multimodal cancer data visualization tool and supports a variety of data types. For some data types, we have explicit support; for others, you can leverage generic assay or clinical data to assign arbitrary data to either a sample or patient. Beyond including data directly into cBioPortal, one can also link in additional external viewers specialized for particular data types, or even entirely different dashboards or portals. This combination of structured and flexible data formats, as well as the option to link out to other viewers, allows cBioPortal to be used for many different combinations of clinical data and profiling methods.": "cBioPortal 是一款多模态癌症数据可视化工具，支持多种数据类型。对某些数据类型我们提供显式支持；对其他类型，您可以借助通用检测或临床数据把任意数据分配给样本或患者。除了将数据直接纳入 cBioPortal，还可以接入针对特定数据类型定制的额外外部查看器，甚至完全不同的仪表板或门户。这种结构化与灵活数据格式的结合，加上链接到其他查看器的选项，使 cBioPortal 能用于临床数据与检测方法的各种组合。",
+    "Assay": "检测方法",
+    "Processed Data": "处理后数据",
+    "cBioPortal Data Type": "cBioPortal 数据类型",
+    "Example cBioPortal Study": "cBioPortal 研究示例",
+    "External Viewer": "外部查看器",
+    "Derived data to load into cBioPortal": "载入 cBioPortal 的衍生数据",
+    "Bulk DNA Sequencing": "批量 DNA 测序",
+    "Mutations": "突变",
+    "Copy Number Alterations per Gene (CNA)": "每基因拷贝数改变（CNA）",
+    "Arm Level CNA Data": "染色体臂水平 CNA 数据",
+    "Generic Assay": "通用检测",
+    "Copy Number Segmentation": "拷贝数分割",
+    "Segmented Data": "分割数据",
+    "Structural Variants": "结构变异",
+    "Mutational Signatures": "突变特征",
+    "Genetic Ancestry": "遗传血统",
+    "Bulk RNA Sequencing": "批量 RNA 测序",
+    "Expression": "表达",
+    "Bulk DNA Methylation": "批量 DNA 甲基化",
+    "Methylation per probe": "每个探针的甲基化",
+    "Proteomics": "蛋白质组学",
+    "Protein Expression": "蛋白质表达",
+    "Other Assays": "其他检测",
+    "Any sample-level and/or patient-level attributes (e.g. LHA types, microbiome)": "任何样本级和/或患者级属性（例如 LHA 类型、微生物组）",
+    "Cell fractions per sample, pseudobulk expression per gene per sample": "每个样本的细胞组分、每个样本每个基因的伪批量表达",
+    "RNA expression per Region of Interest": "每个感兴趣区域的 RNA 表达",
+    "Cell marker density in tumor regions": "肿瘤区域中的细胞标志物密度",
+    "Tumor volume, density, etc.": "肿瘤体积、密度等",
+    "TBD": "待定",
+    "Protein expression per sample": "每个样本的蛋白表达",
+    "Your custom assay": "您的自定义检测",
+    "Your custom viewer": "您的自定义查看器",
+    "Any sample-level or patient-level data": "任何样本级或患者级数据",
+    "source": "来源",
+    "API and API Clients": "API 与 API 客户端",
+    "Model Context Protocol documentation": "模型上下文协议文档",
+    "Data Access Using Tokens": "使用令牌访问数据",
+    "API Clients": "API 客户端",
+    "R clients": "R 客户端",
+    "cBioPortalData (recommended)": "cBioPortalData（推荐）",
+    "cbioportalR (recommended)": "cbioportalR（推荐）",
+    "CGDSR (deprecated)": "CGDSR（已弃用）",
+    "Python client": "Python 客户端",
+    "cBioPortal provides a REST API for programmatic access to the data. The visualizations one can see on the website leverage the same API. By connecting to the API directly, anyone can build their own visualizations/reports.": "cBioPortal 提供 REST API，用于以编程方式访问数据。网站上的可视化也使用同一套 API。通过直接连接 API，任何人都可以构建自己的可视化或报告。",
+    "There are multiple ways to access the API using R. Below are two recommended R packages to access cBioPortal data.": "使用 R 访问 API 有多种方式。以下是两个推荐的 R 包，用于访问 cBioPortal 数据。",
+    "cBioPortalData aims to import all cBioPortal datasets as MultiAssayExperiment objects in Bioconductor. Some of its key features:": "cBioPortalData 旨在把全部 cBioPortal 数据集导入 Bioconductor 的 MultiAssayExperiment 对象。其部分主要特性：",
+    "Note that one can point to private authenticated instances like this:": "请注意，可以像这样指向需要认证的私有实例：",
+    "cbioportalR offers easy-to-use functions that allow users to browse and pull data from public or institutional cBioPortal sites without knowledge of web service or Bioconductor infrastructures. The package is tidyverse-compatible. Key package features include:": "cbioportalR 提供易用的函数，使用户无需了解 Web 服务或 Bioconductor 基础设施，即可浏览并拉取公共或机构 cBioPortal 站点的数据。该包兼容 tidyverse。主要包特性包括：",
+    "The MultiAssayExperiment class explicitly links all assays to the patient clinical/pathological data": "MultiAssayExperiment 类把所有检测与患者临床/病理数据显式关联起来",
+    "The MultiAssayExperiment class provides a flexible API including harmonized subsetting and reshaping to convenient wide and long formats.": "MultiAssayExperiment 类提供灵活的 API，包括统一的数据取子集与宽表/长表重塑。",
+    "It provides complete datasets, not just for subsets of genes": "它提供完整数据集，而不只是基因子集",
+    "It provides automatic local caching, thanks to BiocFileCache.": "借助 BiocFileCache，它提供自动本地缓存。",
+    "Comprehensive documentation aimed at helping clinical researchers understand the underlying structure of cBioPortal data": "全面的文档，帮助临床研究者理解 cBioPortal 数据的底层结构",
+    "Functions to navigate and identify patient IDs, sample IDs or study IDs as needed, or infer necessary ID information for queries when not supplied by user.": "按需导航并识别患者 ID、样本 ID 或研究 ID 的函数，或在用户未提供时推断查询所需 ID 信息的函数。",
+    "Capability to query multiple sample IDs from different studies concurrently": "可同时查询来自不同研究的多个样本 ID",
+    "Maintainer: Yelp": "维护者：Yelp",
+    "Generate a client in Python using bravado like this:": "像这样用 bravado 生成 Python 客户端：",
+    "This allows you to access all API endpoints:": "这样即可访问所有 API 端点：",
+    "For easy tab completion you can add lower cases and underscores:": "为便于 Tab 补全，可以添加小写形式与下划线：",
+    "This example gets you all mutation data for the MSK-IMPACT 2017 study:": "以下示例获取 MSK-IMPACT 2017 研究的全部突变数据：",
+    "Deployment Overview": "部署概览",
+    "Deploy with Docker": "使用 Docker 部署",
+    "— Quick start with Docker Compose": "— 使用 Docker Compose 快速开始",
+    "— Hosting options and architecture": "— 托管选项与架构",
+    "Migrating from v6 (MySQL) to v7 (ClickHouse)": "从 v6（MySQL）迁移到 v7（ClickHouse）",
+    "— Upgrade path for existing installations": "— 现有安装的升级路径",
+    "Please note that installing a local version requires system administration skills; for example, installing and configuring Docker and ClickHouse. With limited resources, we cannot provide technical support on system administration.": "请注意，安装本地版本需要系统管理技能；例如安装并配置 Docker 与 ClickHouse。受资源所限，我们无法就系统管理提供技术支持。",
+    "The following section describes how to set up a development environment and start contributing.": "以下内容介绍如何搭建开发环境并开始贡献。",
+    "Note that cBioPortal is split into a backend project (api) and a frontend project which are kept in separate repositories.": "请注意，cBioPortal 分为后端项目（api）和前端项目，二者保存在不同仓库中。",
+    "Frontend": "前端",
+    "Backend": "后端",
+    "The cBioPortal for Cancer Genomics is a resource for interactive exploration of multidimensional cancer genomics data sets. The goal of cBioPortal is to significantly lower the barriers between complex genomic data and cancer researchers by providing rapid, intuitive, and high-quality access to molecular profiles and clinical attributes from large-scale cancer genomics projects, and therefore to empower researchers to translate these rich data sets into biologic insights and clinical applications.": "cBioPortal 癌症基因组学平台是用于交互式探索多维癌症基因组学数据集的资源。cBioPortal 的目标是通过为大规模癌症基因组学项目的分子谱与临床属性提供快速、直观且高质量的访问，显著降低复杂基因组数据与癌症研究者之间的壁垒，从而让研究者能把这些丰富的数据集转化为生物学洞见与临床应用。",
+    "The following section guides users in performing queries and analysis on any instance of cBioportal.": "以下内容指导用户在任何 cBioportal 实例上执行查询与分析。"
+  },
+  "rules": [
+    {
+      "re": "^Top (\\d+) results$",
+      "to": "前 $1 条结果"
+    },
+    {
+      "re": "^(\\d+) results$",
+      "to": "$1 条结果"
+    },
+    {
+      "re": "^(\\d+) result$",
+      "to": "$1 条结果"
+    },
+    {
+      "re": "^© Copyright (\\d{4})\\. All rights reserved\\.$",
+      "to": "© 版权所有 $1。保留所有权利。"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The cBioPortal for Cancer Genomics was originally developed at {{1}} (MSK). The {{2}} is hosted by the {{3}} at MSK. The cBioPortal software is now available under an open source license via {{4}}. The software is now developed and maintained by a multi-institutional team, consisting of MSK, the Dana Farber Cancer Institute, Princess Margaret Cancer Centre in Toronto, Children's Hospital of Philadelphia, {{5}} and {{6}} in the Netherlands, and Bilkent University in Ankara, Turkey.",
+      "zh": "cBioPortal 癌症基因组学平台最初由 {{1}}（MSK）开发。{{2}}由 MSK 的 {{3}} 托管。cBioPortal 软件现已通过 {{4}} 以开源许可证提供。该软件目前由多机构团队开发与维护，成员包括 MSK、Dana Farber 癌症研究所、多伦多玛格丽特公主癌症中心、费城儿童医院、荷兰的 {{5}} 与 {{6}}，以及土耳其安卡拉的比尔肯特大学。"
+    },
+    {
+      "pat": "There are several other data types for which there is no native support. However cBioPortal offers a generic way of linking in additional viewers using the {{1}}. Technically this is known as an iframe link. These viewers can be linked at the cohort, patient or individual sample level. Beyond just linking viewers, we also have several suggestions on what kind of derived data can be added from these assays directly into cBioPortal for multimodal analysis. This mainly leverages the {{2}}.",
+      "zh": "还有若干数据类型没有原生支持。不过 cBioPortal 提供了一种通用方式，用 {{1}} 接入额外查看器。技术上这称为 iframe 链接。这些查看器可以在队列、患者或单个样本层级链接。除了链接查看器，我们还就这些检测可向 cBioPortal 直接添加哪些衍生数据以进行多模态分析给出了若干建议。这主要借助 {{2}}。"
+    },
+    {
+      "pat": "A linked resource can also carry per-item metadata — the stain, magnification or percent tumor cells of an individual slide, say. Those fields become searchable, sortable and filterable columns in the study's Files & Links tab, so a researcher can narrow thousands of linked images down to the few worth opening instead of paging through a list of links. A curator decides how each field is labelled, typed and filtered through the {{1}}.",
+      "zh": "链接资源还可以携带逐项元数据——比如单张切片的染色、放大倍数或肿瘤细胞百分比。这些字段会成为研究“文件与链接”标签页中可搜索、可排序、可筛选的列，研究者因此能把成千上万的链接图像缩小到少数值得打开的几个，而不必逐页翻链接列表。管理员通过 {{1}} 决定每个字段如何标注、如何定类型和如何筛选。"
+    },
+    {
+      "pat": "The clinical data are free-form de-identified patient and sample attributes. We don't follow a specific ontology, but rely on the authors of the published studies to determine the organization of their clinical data. The only exception is the cancer type categorization which uses the {{1}} ontology. We do allow encoding of the data type for each column (e.g. numerical, text, etc). More details can be found in the {{2}}. We also have a {{3}} for incorporating treatment information (see e.g. {{4}} AACR GENIE lung cancer case).",
+      "zh": "临床数据是自由格式的去标识化患者与样本属性。我们不遵循特定本体，而是由已发表研究的作者决定其临床数据的组织方式。唯一例外是癌症类型分类，它使用 {{1}} 本体。我们允许为每一列标注数据类型（例如数值、文本等）。更多细节见{{2}}。我们还提供{{3}}，用于纳入治疗信息（例如参见{{4}} AACR GENIE 肺癌病例）。"
+    },
+    {
+      "pat": "Private instances of cBioPortal are maintained by institutions and companies {{1}}.",
+      "zh": "cBioPortal 的私有实例由{{1}}的机构与企业维护。"
+    },
+    {
+      "pat": "As of v7, the only officially supported method to deploy cBioPortal is through Docker. The source code of cBioPortal is {{1}} on GitHub under the terms of the {{2}}.",
+      "zh": "截至 v7，官方唯一支持的 cBioPortal 部署方式是通过 Docker。cBioPortal 源代码依据 {{2}} 的条款在 GitHub 上{{1}}。"
+    },
+    {
+      "pat": "v7 replaced MySQL with {{1}}, which is now the only supported database. Run it self-hosted, as the Docker Compose setup does by default, or on {{2}}, which is what backs cbioportal.org and genie.cbioportal.org.",
+      "zh": "v7 用 {{1}} 取代了 MySQL，它现在是唯一支持的数据库。可以像 Docker Compose 配置默认那样自托管运行，也可以在 {{2}} 上运行——cbioportal.org 与 genie.cbioportal.org 正是由它支撑。"
+    },
+    {
+      "pat": "cBioPortal is an open source project hosted on {{1}}. The core team will consider pull requests from any source.",
+      "zh": "cBioPortal 是一个托管在 {{1}} 上的开源项目。核心团队会考虑来自任何来源的拉取请求。"
+    },
+    {
+      "pat": "Please see the full reference documentation for the API {{1}}.",
+      "zh": "API 的完整参考文档请见{{1}}。"
+    },
+    {
+      "pat": "In addition to the REST API, cBioPortal exposes a {{1}} endpoint so AI assistants and agents can query the data directly. A hosted instance backed by the cBioPortal database is available at:",
+      "zh": "除 REST API 外，cBioPortal 还提供 {{1}} 端点，让 AI 助手与智能体可以直接查询数据。由 cBioPortal 数据库支撑的托管实例位于："
+    },
+    {
+      "pat": "The cBioPortal REST API is described using Swagger/OpenAPI, which allows one to generate a client in most programming languages. One can use the command line tool {{1}} for downloading data on the command line or use another language such as {{2}} or {{3}} to make visualizations. We list some common examples below, but if your language is not listed, there is likely a client generator available elsewhere (see e.g. {{4}}). Do reach out if you'd like us to add a language.",
+      "zh": "cBioPortal REST API 使用 Swagger/OpenAPI 描述，因而可以为大多数编程语言生成客户端。可以使用命令行工具 {{1}} 在命令行下载数据，或使用 {{2}}、{{3}} 等其他语言制作可视化。下面列出一些常见示例；如果您的语言未列出，通常也能在其他地方找到客户端生成器（例如参见 {{4}}）。如果希望我们添加某种语言，欢迎联系我们。"
+    },
+    {
+      "pat": "Maintainers: {{1}}, {{2}}",
+      "zh": "维护者：{{1}}、{{2}}"
+    },
+    {
+      "pat": "For a comprehensive user guide to {{1}} see: {{2}}",
+      "zh": "关于 {{1}} 的完整用户指南请见：{{2}}"
+    },
+    {
+      "pat": "See also the workshop materials from our webinar which include an intro to {{1}}: {{2}}.",
+      "zh": "另请参见我们网络研讨会的课程材料，其中包含 {{1}} 入门：{{2}}。"
+    },
+    {
+      "pat": "For a detailed tutorial on {{1}}, see the package website: {{2}}",
+      "zh": "关于 {{1}} 的详细教程请见包网站：{{2}}"
+    },
+    {
+      "pat": "Although we recommend {{1}} or {{2}} for most use cases, it is possible to connect to the API directly using {{3}}:",
+      "zh": "尽管对大多数用例我们推荐 {{1}} 或 {{2}}，也可以使用 {{3}} 直接连接 API："
+    },
+    {
+      "pat": "There are multiple ways to access the API using Python. One can use the {{1}} package to access the API directly, or use the {{2}} client, which provides a simple wrapper for the API and returns data in a format that is easy to work with.",
+      "zh": "使用 Python 访问 API 有多种方式。可以用 {{1}} 包直接访问 API，或使用 {{2}} 客户端，它为 API 提供简单封装，并以易于处理的格式返回数据。"
+    },
+    {
+      "pat": "Generate a client in Python using {{1}} like this:",
+      "zh": "像这样用 {{1}} 生成 Python 客户端："
+    },
+    {
+      "pat": "See the {{1}} documentation: {{2}}.",
+      "zh": "参见 {{1}} 文档：{{2}}。"
+    },
+    {
+      "pat": "Plot cancer genomics heatmaps using data from cBioPortal using Ensembl IDs or gene names. See: {{1}}. The {{2}} client is also a command line client, providing access to many other bioinformatics resources beyond cBioPortal.",
+      "zh": "使用 Ensembl ID 或基因名，借助 cBioPortal 数据绘制癌症基因组学热图。参见 {{1}}。{{2}} 客户端同时是命令行客户端，可访问 cBioPortal 之外的许多其他生物信息学资源。"
+    },
+    {
+      "pat": "We maintain an active {{1}} where we describe new features and solicit community feedback.",
+      "zh": "我们维护一份活跃的{{1}}，在其中介绍新功能并征求社区反馈。"
+    },
+    {
+      "pat": "{{1}} for quick API authentication and set up",
+      "zh": "{{1}}：快速完成 API 认证与设置"
+    },
+    {
+      "pat": "Functions to pull complete clinical and genomic data by study ID, molecular profile ID, sample list IDs or individual sample ID (e.g. {{1}}, {{2}})",
+      "zh": "用于按研究 ID、分子谱 ID、样本列表 ID 或单个样本 ID 拉取完整临床与基因组数据的函数（例如 {{1}}、{{2}}）"
+    },
+    {
+      "pat": "Helper functions to pull information on gene panels ({{1}}), or lookup entrez ID ({{2}}), Hugo Symbol ({{3}}) or common gene aliases ({{4}}) of genes",
+      "zh": "用于获取基因面板信息（{{1}}），或查询基因的 entrez ID（{{2}}）、Hugo 符号（{{3}}）或常见基因别名（{{4}}）的辅助函数"
+    },
+    {
+      "pat": "NCI, through {{1}} and {{2}}",
+      "zh": "NCI，通过 {{1}} 与 {{2}}"
+    },
+    {
+      "pat": "NCI, as a {{1}} (NCI-U24CA143840)",
+      "zh": "NCI，作为 {{1}}（NCI-U24CA143840）"
+    },
+    {
+      "pat": "NCRR, as the {{1}} Research Resource (RR 031228-02)",
+      "zh": "NCRR，作为 {{1}} 研究资源（RR 031228-02）"
+    },
+    {
+      "pat": "A Jupyter notebook with more examples can be found {{1}}.",
+      "zh": "更多示例可在{{1}}找到。"
+    },
+    {
+      "pat": "For a portal that requires authentication one can use (see {{1}}):",
+      "zh": "对于需要认证的门户，可以使用（见 {{1}}）："
+    },
+    {
+      "pat": "The CGDS-R package connected to an older version of our web API ({{1}}). We no longer support this API and recommend people switch to our new API ({{2}}) by migrating to one of the other R clients instead.",
+      "zh": "CGDS-R 包连接的是我们 Web API 的旧版本（{{1}}）。我们已不再支持该 API，建议改用新的 API（{{2}}），迁移到其他 R 客户端之一。"
+    }
+  ]
+}

@@ -244,13 +244,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 773 | 16 |  | UniProt |
 | uniprot2 | 93 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **26266 条 / 1315 条规则 / 998 条模板**。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **28566 条 / 1511 条规则 / 1292 条模板**（96 册 / 74 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（1106 条）
+npm test             # 引擎、面板、站点与产物单测（1681 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）
@@ -265,6 +265,9 @@ git push origin release
 
 ```bash
 node tools/miss-report.mjs ensembl "https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000141510"
+node tools/attr-scan.mjs pubchem "https://pubchem.ncbi.nlm.nih.gov/compound/2244" 14000 --top 3
+#   ↑ 属性通道 + 下拉普查：末尾一行给出「option 总数 / 英文数 / select 个数」，
+#     长列表（PubChem 215 条、TargetScan 2078 条）不必逐条看，一眼判断是漏翻还是数据值。
 node tools/aclass.mjs ensembl        # 词库里有、页面却没翻的 A 类缺口
 node tools/scope-check.mjs ensembl "https://www.ensembl.org/"  # scope 选择器命中数，0 命中会告警
 node tools/coverage.mjs research/pubmed.html pubmed

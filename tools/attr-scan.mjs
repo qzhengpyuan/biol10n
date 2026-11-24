@@ -80,12 +80,35 @@ const COLLECTOR = `(() => {
   const rows = [];
   for (const [name, arr] of Object.entries(out)) rows.push({ name, count: arr.length, samples: arr.slice(0, 40) });
   rows.sort((a, b) => b.count - a.count);
+  // <select> 普查：长下拉（PubChem 335 条、TargetScan 2078 条）靠文本通道一条条翻，
+  // 只看「还剩多少英文 option」比属性清单更能反映进度，也方便发现整块没翻的下拉。
+  const isEn = (o) => {
+    const t = (o.textContent || "").replace(/\\s+/g, " ").trim();
+    return !!t && /[A-Za-z]{2}/.test(t) && !/[\\u3400-\\u9fff]/.test(t);
+  };
+  const selects = [];
+  for (const sel of document.querySelectorAll("select")) {
+    const opts = Array.prototype.slice.call(sel.options || []);
+    if (!opts.length) continue;
+    const en = opts.filter(isEn);
+    if (opts.length < 10 && !en.length) continue;
+    selects.push({
+      name: (sel.id || sel.name || String(sel.className || "")).slice(0, 40),
+      total: opts.length,
+      en: en.length,
+      samples: en.slice(0, 5).map((o) => (o.textContent || "").replace(/\\s+/g, " ").trim())
+    });
+  }
+  selects.sort((a, b) => b.total - a.total);
   return JSON.stringify({
     title: document.title,
     url: location.href,
     translated: !!window.__BIOL10N,
     stats: window.__BIOL10N ? window.__BIOL10N.stats() : null,
-    rows
+    rows,
+    selects,
+    optionTotal: selects.reduce((n, s) => n + s.total, 0),
+    optionEnglish: selects.reduce((n, s) => n + s.en, 0)
   });
 })()`;
 
@@ -125,4 +148,10 @@ console.log("#", siteId, "|", data.title, "| 已注入:", data.translated, "| �
 for (const r of data.rows) {
   console.log("@" + r.name + " ×" + r.count);
   for (const s of r.samples.slice(0, top)) console.log("   <" + s.tag + "> " + s.v + (s.cls ? "   [" + s.cls + "]" : ""));
+}
+if (data.optionTotal) {
+  console.log("# 下拉普查：option " + data.optionTotal + " 条，英文 " + data.optionEnglish + " 条 / " + data.selects.length + " 个 select");
+  for (const s of data.selects.slice(0, top)) {
+    console.log("   <select " + (s.name || "?") + "> " + (s.total - s.en) + "/" + s.total + " 已中文" + (s.en ? "，剩 " + s.en + " 条英文: " + s.samples.join(" | ").slice(0, 160) : ""));
+  }
 }

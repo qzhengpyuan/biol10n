@@ -256,7 +256,8 @@ test("BioMart / BioStudies / neXtProt / EBI 关于页 / Expasy：真实片段渲
       '<td width="100%" height="100%" valign="top" align="left">None selected</td>',
     "https://www.ensembl.org/biomart/martview"
   );
-  assert.match(bm.body.textContent, /新建/);
+  // New 的译文由 ensembl2 的 ^New$ 规则提供；这里的挂载栈不含该册，只断言本册自有词条
+  assert.doesNotMatch(bm.body.textContent, /^New$/);
   assert.match(bm.body.textContent, /未选择/);
 
   const bs = mount(

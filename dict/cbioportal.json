@@ -1147,7 +1147,55 @@
     "Tracks": "轨道",
     "Mixed Histology": "混合组织学",
     "Infiltrating Carcinoma": "浸润性癌",
-    "Queried": "已查询"
+    "Queried": "已查询",
+    "Select Reference Genome:": "选择参考基因组：",
+    "interprets mutations with protein annotations": "解读突变及其蛋白质注释",
+    "Data Format": "数据格式",
+    "Column Header": "列标题",
+    "HUGO symbol for the gene": "该基因的 HUGO 符号",
+    "Amino acid change": "氨基酸改变",
+    "Tumor sample ID": "肿瘤样本 ID",
+    "Translational effect of variant allele": "变异等位基因的翻译效应",
+    "Chromosome number": "染色体编号",
+    "The plus strand reference allele at this position": "该位置上正链的参考等位基因",
+    "Tumor sequencing (discovery) allele": "肿瘤测序（发现阶段）等位基因",
+    "Second pass results from orthogonal technology": "正交技术的复检结果",
+    "Mutation status": "突变状态",
+    "Center/Institute reporting the variant": "报告该变异的中心/机构",
+    "Copy and paste your own mutation data": "复制粘贴您自己的突变数据",
+    "Upload your own mutation file": "上传您自己的突变文件",
+    "Visualize": "可视化",
+    "List of valid input headers:": "有效输入表头列表：",
+    "Genomic Changes": "基因组改变",
+    "Genomic and Protein Changes": "基因组与蛋白质改变",
+    "Pathology Report": "病理报告",
+    "Tissue Image": "组织图像",
+    "mRNA Expr.": "mRNA 表达",
+    "Gene panel": "基因 panel",
+    "Allele Freq": "等位基因频率",
+    "Zoom in to see features": "放大以查看特征",
+    "drag to zoom": "拖动以缩放",
+    "SAMPLE ACQUISITION": "样本采集",
+    "STATUS": "状态",
+    "TREATMENT": "治疗",
+    "Radiation Therapy": "放射治疗",
+    "Sample Names": "样本名称",
+    "Reset View": "重置视图",
+    "cursor guide": "光标参考线",
+    "center line": "中心线",
+    "track labels": "轨道标签",
+    "Additional Annotation": "附加注释",
+    "Site1 Chromosome": "位点 1 染色体",
+    "Site2 Chromosome": "位点 2 染色体",
+    "Site1 Position": "位点 1 位置",
+    "Site2 Position": "位点 2 位置",
+    "Normal Allele Freq": "正常样本等位基因频率",
+    "Variant Reads (Normal)": "变异读数（正常）",
+    "Ref Reads (Normal)": "参考读数（正常）",
+    "Click alteration for detail. Double-click to zoom.": "单击改变查看详情，双击缩放。",
+    "Click on an mutation to zoom in on the gene in the IGV browser above": "单击突变，即可在上方 IGV 浏览器中放大该基因",
+    "Click on a CNA row to zoom in on the gene in the IGV browser above": "单击 CNA 行，即可在上方 IGV 浏览器中放大该基因",
+    "There are no results.": "没有结果。"
   },
   "rules": [
     {
@@ -1377,6 +1425,14 @@
       "to": "$1（$2%）",
       "mixed": true,
       "repair": true
+    },
+    {
+      "re": "^Queried genes are altered in ([\\d,]+) \\(([\\d.]+|NaN)%\\) of queried patients/samples$",
+      "to": "查询的基因在 $1（$2%）个查询患者/样本中发生改变"
+    },
+    {
+      "re": "^Showing (\\d+)-(\\d+) of ([\\d,]+) Copy Number Alterations$",
+      "to": "显示第 $1-$2 条，共 $3 条拷贝数改变"
     }
   ]
 }

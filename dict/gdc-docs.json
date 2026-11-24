@@ -460,7 +460,39 @@
     "Table of contents": "目录",
     "logo": "标志",
     "Getting Started": "入门指南",
-    "Download PDF": "下载 PDF"
+    "Download PDF": "下载 PDF",
+    "Encyclopedia": "百科",
+    "Submission": "提交",
+    "Viewer": "查看器",
+    "Data Security": "数据安全",
+    "Index": "索引",
+    "Before Submitting Data to the GDC Portal": "向 GDC 门户提交数据之前",
+    "Data Submission Overview": "数据提交概览",
+    "Data Submission Walkthrough": "数据提交分步演示",
+    "Submission Best Practices": "提交最佳实践",
+    "Preparing for Data Download and Upload": "准备数据下载与上传",
+    "Data Transfer Tool Command Line Documentation": "数据传输工具命令行文档",
+    "Release Notes - Command Line": "发布说明 - 命令行",
+    "Aligned Reads Summary Metrics": "比对读段汇总指标",
+    "Mutation Annotation Format": "突变注释格式",
+    "Mutation Annotation Format TCGAv2": "突变注释格式 TCGAv2",
+    "Controlled Access": "受控访问",
+    "Data Access Policy": "数据访问政策",
+    "Data Submitter": "数据提交者",
+    "Harmonized Data": "标准化数据",
+    "Latest Data": "最新数据",
+    "Manifest File": "清单文件",
+    "MD5 Checksum": "MD5 校验和",
+    "Biospecimen Data": "生物样本数据",
+    "Clinical Data": "临床数据",
+    "Release Number": "发布编号",
+    "SNP Array-Based Data": "基于 SNP 芯片的数据",
+    "Genomic Data Analysis Network": "基因组数据分析网络",
+    "Cancer Genomics Hub": "癌症基因组学中心",
+    "GDC Web Site": "GDC 网站",
+    "OncoMatrix": "OncoMatrix 矩阵图",
+    "ProteinPaint": "ProteinPaint 蛋白绘图",
+    "scRNA Visualization": "scRNA 可视化"
   },
   "rules": [
     {
@@ -497,6 +529,22 @@
     {
       "re": "^email (\\S+@\\S+)$",
       "to": "发送邮件至 $1"
+    },
+    {
+      "re": "^Bioinformatics Pipeline: (.+) Analysis$",
+      "to": "生物信息学流程：$1 分析"
+    },
+    {
+      "re": "^Bioinformatics Pipeline: (.+) Pipeline$",
+      "to": "生物信息学流程：$1 流程"
+    },
+    {
+      "re": "^Bioinformatics Pipeline: (.+)$",
+      "to": "生物信息学流程：$1"
+    },
+    {
+      "re": "^File Format: (.+)$",
+      "to": "文件格式：$1"
     }
   ],
   "templates": [

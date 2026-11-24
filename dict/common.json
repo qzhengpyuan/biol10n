@@ -703,7 +703,8 @@
     "Please check the address bar for any mistakes": "请检查地址栏是否有误。",
     "Sorry, we can't find this study": "抱歉，找不到这项研究。",
     "Please check that the NCT number (ClinicalTrials.gov Identifier) is correct or try going back:": "请检查 NCT 编号（ClinicalTrials.gov 标识符）是否正确，或返回上一页：",
-    "OR": "或"
+    "OR": "或",
+    "Synonyms": "同义词"
   },
   "rules": [
     {

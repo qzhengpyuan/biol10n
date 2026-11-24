@@ -58,7 +58,10 @@
     "3D clustered hotspot": "3D 聚集热点",
     "Not a known hotspot": "非已知热点",
     "In CIViC, with oncogenic activity info": "CIViC 中有致癌活性信息",
-    "In CIViC, no oncogenic activity info": "CIViC 中无致癌活性信息"
+    "In CIViC, no oncogenic activity info": "CIViC 中无致癌活性信息",
+    "You can either copy and paste your input into the text field below or select a file with mutation data for upload.": "您可以将输入内容复制粘贴到下方的文本框中，或选择包含突变数据的文件上传。",
+    "Mutation files should be tab delimited, and should at least have the genomic location headers in the first line for a successful annotation. Note that all variants have to be reported for genome build GRCh37 (hg19).": "突变文件应为制表符分隔，且第一行至少应包含基因组位置表头，才能成功注释。注意：所有变异都必须以 GRCh37（hg19）基因组构建版本报告。",
+    "If your mutation input doesn't contain the genomic location headers, but you still want to visualize your data, your input should at least have the following headers:": "如果您的突变输入不含基因组位置表头，但仍希望可视化数据，则输入至少应包含以下表头："
   },
   "rules": [
     {
@@ -90,6 +93,10 @@
     {
       "pat": "{{1}}=[report to display; can be one of: full (default), oncoprint_html]",
       "zh": "{{1}}=[要显示的报表；可为：full（默认）、oncoprint_html]"
+    },
+    {
+      "pat": "Please input {{1}} or {{2}} mutation data. (Load example data:{{3}},{{4}},{{5}})",
+      "zh": "请输入以 {{1}} 或 {{2}} 分隔的突变数据。（加载示例数据：{{3}}、{{4}}、{{5}}）"
     }
   ]
 }

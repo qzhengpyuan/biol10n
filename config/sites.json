@@ -948,10 +948,6 @@
       "spa": true,
       "waitFor": "#root",
       "skip": ".newsContent li, .studyMeta, .dataset-name, .study-name, .cancer-type, table.simple-table td:nth-child(1), [class*=summary] h1, [class*=summary] h3, .headBlock .studyName, .headBlock [class*=summary] h3",
-      "skipFree": [
-        ".newsContent strong",
-        ".newsContent em"
-      ],
       "translateNoAllow": [
         ".msk-tabs div[translate=\"no\"]"
       ],

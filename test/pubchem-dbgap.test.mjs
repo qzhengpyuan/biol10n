@@ -513,11 +513,13 @@ test("dbGaP 首页渲染：说明段、检索框 placeholder、帮助句模板�
   assert.equal(ps[2], "官方网站使用 .gov凡以 .gov 结尾的网站均属于美国官方政府机构。");
   assert.ok(ps[2].includes(".gov"), "横幅槽位没回填: " + ps[2]);
   assert.equal(doc.querySelectorAll("p")[2].querySelector("strong").textContent.trim(), "官方网站使用 .gov");
-  // 第二条横幅的末句在 common 册（r30 P1-2 把它从 clinicaltrials 下沉），撇号折叠后直引号 DOM 也命中
+  // 第二条横幅（r31 P2-1）：整段走 ncbi 册的模板，标题从 clinvar-core 下沉到 ncbi 册，
+  // 逐节点翻只能得到 "A 锁 ( … ) or …" 的混排，这条断言锁住模板通道的成果。
   assert.equal(
     ps[3],
-    "Secure .gov websites use HTTPS A 锁 ( 锁 锁定挂锁图标 ) or HTTPS 表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。"
+    "安全的 .gov 网站使用 HTTPS 锁（ 锁 锁定挂锁图标 ）或 HTTPS 表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。"
   );
+  assert.doesNotMatch(ps[3], /A 锁|\) or /, "不得残留半翻痕迹");
   assert.deepEqual([...doc.querySelectorAll("h2, h3")].map(text), [
     "浏览 dbGaP",
     "本节内容",

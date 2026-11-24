@@ -1447,7 +1447,8 @@
     "Zoom in/out": "放大/缩小",
     "Previous (arrow left)": "上一个（左箭头）",
     "Next (arrow right)": "下一个（右箭头）",
-    "Atypon full text link": "Atypon 全文链接"
+    "Atypon full text link": "Atypon 全文链接",
+    "Secure .gov websites use HTTPS": "安全的 .gov 网站使用 HTTPS"
   },
   "rules": [
     {
@@ -1759,6 +1760,10 @@
     {
       "pat": "Per {{1}}, federal agencies are now using \"Super Intelligence\" (SI) in place of \"Artificial Intelligence\" (AI). You may see both terms across NIH content during this transition.",
       "zh": "根据{{1}}，联邦机构现以「超级智能」（SI）替代「人工智能」（AI）。过渡期间 NIH 内容中可能同时出现这两个术语。"
+    },
+    {
+      "pat": "{{1}} {{2}} A {{3}} ( {{4}}) or {{5}} means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+      "zh": "{{1}} {{2}}{{3}}（{{4}}）或 {{5}} 表示您已安全连接到 .gov 网站。仅在官方、安全网站上分享敏感信息。"
     }
   ]
 }

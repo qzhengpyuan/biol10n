@@ -919,7 +919,11 @@ function createEngine(options) {
     var full = parts.join(" ");
     var alt = flat !== full ? full : null;
     full = flat;
-    if (full.length < 3 || full.length > 120) return false;
+    // 整句 exact 上限放到 400：ClinVar 帮助页那种「The <b>comprehensive data extractions</b>
+    // occur weekly, so that …」把一句话切成三段，长度 120–300，若连 exact 都不许拼，
+    // 人工核对过的整句译文永远进不来。规则通道仍限 120（见下），不让长正文靠规则拼。
+    var SPLIT_EXACT_MAX = 400;
+    if (full.length < 3 || full.length > SPLIT_EXACT_MAX) return false;
     if (hasCJK(full) || !LETTER.test(full)) return false;
     // 与 handleBrJoin 同一个坑：「Accession: … First in ClinVar: … Last updated: …」
     // 拍平后一条贪婪规则会把后面几个「标签: 值」全吞进 $1，然后整块锁定成单节点。

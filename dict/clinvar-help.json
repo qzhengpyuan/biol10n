@@ -606,7 +606,11 @@
     "only the release on the first Thursday of the month is archived": "仅每月第一个星期四的版本会被归档",
     ": short variants in ClinVar and dbSNP (": "：ClinVar 与 dbSNP 中的短变异（",
     ": summary data about variants or genes": "：变异或基因的汇总数据",
-    ": disease names and gene-disease relationships": "：疾病名称及基因-疾病关系"
+    ": disease names and gene-disease relationships": "：疾病名称及基因-疾病关系",
+    "comprehensive data extractions": "全面数据提取",
+    "release notes": "发布说明",
+    "Table 1": "表 1",
+    "Table 2": "表 2"
   },
   "rules": [
     {
@@ -635,6 +639,34 @@
     {
       "pat": "ClinVar reports {{1}} for the number of submissions, genes, and variants from ClinVar submissions. We also provide a list of submitters, with counts per submitter. Note that variation is represented according to the ClinVar data model, in that a variation is represented as a set which may have one or more members. For example, two variations submitted together in {{2}} are members of a single set and are counted in the statistics as one variation.",
       "zh": "ClinVar 报告{{1}}，统计 ClinVar 提交的记录数、基因数与变异数。我们还提供提交者列表及各提交者的计数。注意：按 ClinVar 数据模型，一个变异表示为一个集合，可包含一个或多个成员。例如，两个以 {{2}} 形式一起提交的变异属于同一集合，在统计中按一个变异计数。"
+    },
+    {
+      "pat": "If you distribute or copy data from ClinVar, we ask that you provide attribution to ClinVar as a data source in publications and websites. You can cite of one the ClinVar publications (e.g. {{1}}).",
+      "zh": "如果您分发或复制 ClinVar 的数据，我们要求您在出版物和网站中将 ClinVar 注明为数据来源。您可以引用其中一篇 ClinVar 出版物（例如 {{1}}）。"
+    },
+    {
+      "pat": "The data in ClinVar's web site are updated weekly, on Mondays. The {{1}} occur weekly, so that data on the web is in sync with data downloaded as XML.",
+      "zh": "ClinVar 网站上的数据每周一更新。{{1}}每周进行，因此网页上的数据与以 XML 下载的数据保持同步。"
+    },
+    {
+      "pat": "There are multiple ways to identify information in ClinVar on the web. Our {{1}} provides detailed instructions about constructing queries and interpreting the {{2}} that ClinVar provides from its site. There are other sites, however, that provide links to ClinVar based on common content. These include:",
+      "zh": "在网页上查找 ClinVar 信息有多种方式。我们的{{1}}详细说明了如何构建查询以及如何解读 ClinVar 站点提供的{{2}}。不过，还有其他网站会依据共同内容提供指向 ClinVar 的链接，包括："
+    },
+    {
+      "pat": "ClinVar provides files in several formats and with different degrees of coverage. Suggestions for selecting the file that may best meet your needs are summarized in {{1}}. The categories of files, with their update cycle, are detailed in Table 2.",
+      "zh": "ClinVar 提供多种格式、覆盖程度不同的文件。关于如何选择最适合您需要的文件，建议汇总在{{1}}中。各类文件及其更新周期详见表 2。"
+    },
+    {
+      "pat": "As part of NCBI's Entrez system, ClinVar can be accessed by E-utilities, both via {{1}} and a UNIX command line as {{2}}. The subset of functions ClinVar currently supports are esearch, esummary, elink, and efetch.",
+      "zh": "作为 NCBI Entrez 系统的一部分，ClinVar 可通过 E-utilities 访问，既可用{{1}}，也可用 UNIX 命令行{{2}}。ClinVar 目前支持的函数子集为 esearch、esummary、elink 和 efetch。"
+    },
+    {
+      "pat": "You may note that the content of the document summary that you retrieve by esummary has more data than are displayed on the web. For example, you can retrieve location data on both GRCh37 and GRCh38 from {{1}} , database identifiers for disorders from {{2}} the type of variant from {{3}} and the source of any gene-variant relationship from {{4}}. For a discussion of how the data returned from esummary corresponds to objects available by ftp, please use {{5}}.",
+      "zh": "您可能会注意到，用 esummary 获取的文档摘要所含数据比网页上显示的更多。例如，可以从 {{1}} 获取 GRCh37 与 GRCh38 的位置数据，从 {{2}} 获取疾病的数据库标识符，从 {{3}} 获取变异类型，从 {{4}} 获取基因-变异关系的来源。关于 esummary 返回的数据与 ftp 上可用对象如何对应，请使用 {{5}}。"
+    },
+    {
+      "pat": "ClinVar provides monthly, archived, comprehensive data releases with {{1}}, the first Thursday of each month. To be notified of these releases, or any other changes, please follow {{2}}.",
+      "zh": "ClinVar 每月提供归档的全面数据发布，并附{{1}}，时间为每月第一个星期四。如需接收这些发布或任何其他变更的通知，请关注{{2}}。"
     }
   ]
 }

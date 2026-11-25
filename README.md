@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **1897 KB**（1,942,656 字节）；词库里 103 个文件共 32150 条词条（含 1639 条规则）+ 1794 条模板，覆盖 80 个站点
+- 单文件产物 **1989 KB**（2,036,580 字节）；词库里 108 个文件共 33551 条词条（含 1682 条规则）+ 1944 条模板，覆盖 85 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 需要支持 `DecompressionStream` 的浏览器：Chrome/Edge 80+、Firefox 113+、Safari 16.4+。不支持时脚本不启用，控制台给一条提示
@@ -176,10 +176,11 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 ## 词库
 
-80 个站点、103 册词库按站点分文件，一个站点只加载自己那几本。
+85 个站点、108 册词库按站点分文件，一个站点只加载自己那几本。
 
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
+| addgene | 501 | 2 | 48 |  |
 | alphafold | 434 | 28 | 102 | AlphaFold DB（首页、条目页、检索、下载） |
 | amigo | 156 | 7 | 2 | AmiGO 2（首页、检索、术语页、浏览） |
 | anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
@@ -191,6 +192,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | cbio-docs | 223 | 4 | 30 | cBioPortal 文档站（Retype 站点） |
 | cbioportal | 1189 | 55 |  | cBioPortal |
 | cbioportal2 | 54 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
+| cellxgene | 129 | 13 | 1 |  |
 | clingen | 437 | 10 | 27 | ClinGen 与 ClinPGx |
 | clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
 | clinicaltrials | 734 | 57 | 131 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
@@ -232,7 +234,9 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | hpa | 1779 | 137 | 27 | Human Protein Atlas |
 | hpa2 | 176 | 10 | 34 | Human Protein Atlas 补漏（组织、单细胞、信息图） |
 | hpo | 184 | 10 | 9 | Human Phenotype Ontology（首页、术语页、基因页、注释与下载） |
+| intact | 219 | 7 | 56 |  |
 | interpro | 329 | 16 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
+| jaspar | 353 | 17 | 37 |  |
 | kegg | 567 | 16 |  | KEGG（含帮助文档与通路图查看页） |
 | kegg-docs | 113 | 1 | 3 | KEGG 帮助文档 |
 | kegg-docs2 | 79 | 2 | 3 | KEGG 文档补漏（通路、模块、KO） |
@@ -266,11 +270,12 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
 | reactome | 541 | 57 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
 | rfam | 363 | 37 | 31 | Rfam（首页、家族页、检索、下载、帮助文档） |
+| scp | 199 | 4 | 7 |  |
 | seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
 | snp | 123 | 4 | 5 | NCBI dbSNP |
 | spa | 136 |  |  | 各站共用的单页应用骨架词 |
-| string-atlas | 700 | 43 | 39 | STRING 与 EMBL-EBI Expression Atlas |
+| string-atlas | 700 | 43 | 40 | STRING 与 EMBL-EBI Expression Atlas |
 | string-atlas2 | 45 | 11 | 7 | STRING / Expression Atlas 补充（下载说明） |
 | targetscan | 250 | 33 | 5 | TargetScanHuman（首页、检索、结果表、FAQ、下载） |
 | taxonomy | 116 | 6 |  | NCBI Taxonomy |
@@ -284,7 +289,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 773 | 16 |  | UniProt |
 | uniprot2 | 98 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **32150 条 / 1639 条规则 / 1794 条模板**（103 册 / 80 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **33551 条 / 1682 条规则 / 1944 条模板**（108 册 / 85 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

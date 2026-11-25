@@ -1753,6 +1753,21 @@ function createEngine(options) {
     return found ? parts.join("") : null;
   }
 
+  /** 按英文原文拼出正文：已翻译的节点取 originals，没翻的取现状。
+   *  给「复制原文」用，不写 DOM、不重扫，避免闪烁。 */
+  function englishText(root) {
+    var body = root || doc.body;
+    if (!body) return "";
+    var SKIP = "script,style,noscript,template,svg,textarea,[data-biol10n-ui]";
+    var w = doc.createTreeWalker(body, 4, null, false), n, parts = [];
+    while ((n = w.nextNode())) {
+      var p = n.parentElement;
+      if (p && p.closest && p.closest(SKIP)) continue;
+      parts.push(String((originals.has(n) ? originals.get(n) : n.nodeValue) || ""));
+    }
+    return parts.join("").replace(/[ \t\u00a0]+/g, " ").replace(/[ \t]*\n[ \t]*/g, "\n").trim();
+  }
+
   function joinOrigKids(kids) {
     var s = "";
     for (var i = 0; i < kids.length; i++) s += String((kids[i] && kids[i].textContent) || "");
@@ -2120,6 +2135,7 @@ function createEngine(options) {
     translateText: function (s) { return translate(normalize(s)); },
     debugWhy: debugWhy,
     originalText: originalText,
+    englishText: englishText,
     stats: stats,
     misses: function () { return Array.from(misses); },
     restore: restore

@@ -10,7 +10,7 @@ function bioL10nLS() {
 
 function bioL10nReadSettings() {
   // 0.11.0 起新增：contrast（悬停对照原文）、paused（记住暂停的站点）、pos（悬浮球位置）
-  var def = { log: false, badge: true, open: false, contrast: false, paused: [], pos: null };
+  var def = { log: false, badge: true, open: false, contrast: false, paraOrig: true, paused: [], pos: null };
   var ls = bioL10nLS();
   if (!ls) return def;
   try {
@@ -21,6 +21,7 @@ function bioL10nReadSettings() {
       def.log = !!v.log;
       def.badge = v.badge !== false;
       def.contrast = !!v.contrast;
+      def.paraOrig = v.paraOrig !== false;
       if (Array.isArray(v.paused)) def.paused = v.paused.filter(function (h) { return typeof h === "string" && h; }).slice(-50);
       if (v.pos && typeof v.pos.x === "number" && typeof v.pos.y === "number") def.pos = { x: v.pos.x, y: v.pos.y };
     }
@@ -36,6 +37,7 @@ function bioL10nSaveSettings(s) {
       log: !!s.log,
       badge: s.badge !== false,
       contrast: !!s.contrast,
+      paraOrig: s.paraOrig !== false,
       paused: (s.paused || []).slice(-50),
       pos: s.pos || null
     }));
@@ -136,7 +138,15 @@ function createBioL10nUI(opts) {
     ".bl-btn.bl-primary:hover{background:#1667d2}",
     ".bl-ft{color:#8c959f;font-size:10px;padding:6px 11px 8px;border-top:1px solid #eaeef2}",
     ".bl-toast{position:fixed;right:14px;bottom:54px;background:#24292f;color:#fff;border-radius:6px;padding:6px 10px;font-size:11px;z-index:2147483647;opacity:0;transition:opacity .2s}",
-    ".bl-pop{position:fixed;width:208px;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.28);z-index:2147483647;font-size:12px;line-height:1.5;padding:8px}",
+    ".bl-pop{position:fixed;width:214px;max-height:66vh;overflow:auto;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.28);z-index:2147483647;font-size:12px;line-height:1.5;padding:8px}",
+    ".bl-pop-mini{display:flex;gap:5px;margin-top:8px}",
+    ".bl-pop-sbtn{flex:1;border:1px solid #d0d7de;background:#f6f8fa;color:#24292f;border-radius:6px;padding:5px 2px;font-size:11.5px;cursor:pointer;white-space:nowrap}",
+    ".bl-pop-sbtn:hover{background:#eef1f4}",
+    ".bl-card{position:fixed;z-index:2147483647;width:520px;max-width:90vw;max-height:56vh;overflow:auto;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.3);font-size:12.5px;line-height:1.6;padding:10px 12px}",
+    ".bl-card-hd{display:flex;align-items:center;gap:8px;color:#6e7781;font-size:11px;margin-bottom:5px}",
+    ".bl-card-bd{white-space:pre-wrap;word-break:break-word;margin-bottom:8px;max-height:38vh;overflow:auto}",
+    ".bl-card-x{margin-left:auto;border:0;background:none;color:#8c959f;font-size:16px;line-height:1;cursor:pointer;padding:0 2px}",
+    ".bl-card-x:hover{color:#1f2328}",
     ".bl-pop-hd{display:flex;align-items:center;gap:6px;color:#6e7781;font-size:11px;margin:0 0 6px 2px}",
     ".bl-pop-btn{display:block;width:100%;border:1px solid #1a73e8;background:#1a73e8;color:#fff;border-radius:7px;padding:7px 8px;font-size:12.5px;font-weight:600;cursor:pointer;text-align:center}",
     ".bl-pop-btn:hover{background:#1667d2}",
@@ -148,6 +158,7 @@ function createBioL10nUI(opts) {
     ".bl-pop-sep{border-top:1px solid #eaeef2;margin:7px 0 0}",
     ".bl-pop-more{border:0;background:none;color:#1a73e8;font-size:11.5px;cursor:pointer;padding:6px 2px 0;display:block;width:100%;text-align:left}",
     ".bl-pop-more:hover{text-decoration:underline}",
+    "@media (prefers-color-scheme:dark){.bl-card{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-card-x:hover{color:#e6edf3}.bl-pop-sbtn{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-pop-sbtn:hover{background:#30363d}}",
     ".bl-orig{position:fixed;z-index:2147483647;max-width:480px;background:#24292f;color:#fff;border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none;white-space:pre-wrap;word-break:break-word}",
     ".bl-orig[hidden]{display:none}",
     "@media (prefers-color-scheme:dark){.bl-pop{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-pop-hd{color:#8b949e}.bl-pop-row:hover{background:#21262d}.bl-pop-sep{border-color:#30363d}.bl-pop-btn.bl-off{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-orig{background:#e6edf3;color:#0d1117}}",
@@ -296,6 +307,31 @@ function createBioL10nUI(opts) {
     nodes.pauseRow = popRow("本站暂停（记住）", function (box) { setPaused(box.checked); });
     pop.appendChild(nodes.pauseRow.row);
 
+    nodes.paraRow = popRow("段落看原文（按住 Alt 点击）", function (box) {
+      settings.paraOrig = box.checked;
+      bioL10nSaveSettings(settings);
+      toast(box.checked ? "按住 Alt 点任意段落即可看原文" : "已关闭段落看原文");
+    });
+    pop.appendChild(nodes.paraRow.row);
+
+    var mini = el("div", "bl-pop-mini");
+    var cZh = el("button", "bl-pop-sbtn", "复制中文");
+    cZh.type = "button";
+    cZh.title = "复制当前选区；没选区就复制整页中文";
+    cZh.addEventListener("click", function (e) { e.stopPropagation(); copyKind("zh"); });
+    mini.appendChild(cZh);
+    var cEn = el("button", "bl-pop-sbtn", "复制原文");
+    cEn.type = "button";
+    cEn.title = "复制当前选区；没选区就复制整页英文原文";
+    cEn.addEventListener("click", function (e) { e.stopPropagation(); copyKind("en"); });
+    mini.appendChild(cEn);
+    var cMiss = el("button", "bl-pop-sbtn", "收集漏翻");
+    cMiss.type = "button";
+    cMiss.title = "扫出本页仍是英文的短句，存到本机并复制，攒够一批可并进词库";
+    cMiss.addEventListener("click", function (e) { e.stopPropagation(); reportMisses(); });
+    mini.appendChild(cMiss);
+    pop.appendChild(mini);
+
     pop.appendChild(el("div", "bl-pop-sep"));
     var more = el("button", "bl-pop-more", "更多设置与漏翻记录…");
     more.type = "button";
@@ -346,6 +382,7 @@ function createBioL10nUI(opts) {
     }
     if (nodes.contrast && nodes.contrast.box) nodes.contrast.box.checked = !!settings.contrast;
     if (nodes.pauseRow && nodes.pauseRow.box) nodes.pauseRow.box.checked = hostPaused();
+    if (nodes.paraRow && nodes.paraRow.box) nodes.paraRow.box.checked = settings.paraOrig !== false;
     updateTitle();
   }
 
@@ -544,6 +581,191 @@ function createBioL10nUI(opts) {
     } catch (e) { return false; }
   }
 
+
+  // ---------- 复制正文 / 收集漏翻 / 段落看原文（0.11.2） ----------
+  var PAGE_SKIP = "script,style,noscript,template,svg,textarea,[data-biol10n-ui]";
+
+  function visibleText() {
+    var body = doc.body;
+    if (!body) return "";
+    var w = doc.createTreeWalker(body, 4, null, false), n, parts = [];
+    while ((n = w.nextNode())) {
+      var p = n.parentElement;
+      if (p && p.closest && p.closest(PAGE_SKIP)) continue;
+      parts.push(String(n.nodeValue || ""));
+    }
+    return parts.join("").replace(/[ \t\u00a0]+/g, " ").replace(/[ \t]*\n[ \t]*/g, "\n").trim();
+  }
+
+  /** 有选区就复制选区；否则整页（英文走引擎的原文拼装，不需要关脚本刷新）。 */
+  function pickText(kind) {
+    var sel = "";
+    try { sel = String(win.getSelection ? win.getSelection().toString() : ""); } catch (e) {}
+    if (sel && /\S/.test(sel)) return sel.trim();
+    if (kind === "en" && engine && typeof engine.englishText === "function") {
+      try {
+        var t = engine.englishText();
+        if (t) return t;
+      } catch (e) {}
+    }
+    return visibleText();
+  }
+
+  function copyPayload(payload, okMsg) {
+    if (!payload) { toast("没有可复制的内容"); return false; }
+    var done = function () { toast(okMsg || "已复制"); };
+    var fail = function () { toast("复制失败，请手动选中"); };
+    if (win.navigator && win.navigator.clipboard && win.navigator.clipboard.writeText) {
+      win.navigator.clipboard.writeText(payload).then(done, function () { legacyCopy(payload) ? done() : fail(); });
+    } else {
+      legacyCopy(payload) ? done() : fail();
+    }
+    return true;
+  }
+
+  function copyKind(kind) {
+    var t = pickText(kind);
+    if (!t) { toast("这一页没有可复制的文字"); return ""; }
+    copyPayload(t, (kind === "en" ? "已复制原文" : "已复制中文") + " " + t.length + " 字");
+    return t;
+  }
+
+  var MISS_KEY = "biol10n:misses";
+
+  function looksUntranslated(t) {
+    if (!t || t.length < 3 || t.length > 120) return false;
+    if (/[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/.test(t)) return false;
+    if (!/[A-Za-z]{2}/.test(t)) return false;
+    if (/^[\s\dA-Za-z._:/-]+$/.test(t) && !/ /.test(t)) return false;   // 纯编号/ID/文件名
+    if (/@|https?:\/\/|www\./i.test(t)) return false;                  // 邮箱/URL
+    return true;
+  }
+
+  /** 扫本页仍是英文的短句（跳过代码块与 UI 自身）；返回去重后的条目。 */
+  function collectMisses() {
+    var body = doc.body;
+    if (!body) return [];
+    var SKIP = "script,style,noscript,template,svg,pre,code,kbd,samp,textarea,[data-biol10n-ui]";
+    var out = [], seen = Object.create(null);
+    var w = doc.createTreeWalker(body, 4, null, false), n;
+    while ((n = w.nextNode())) {
+      var p = n.parentElement;
+      if (!p || (p.closest && p.closest(SKIP))) continue;
+      var t = String(n.nodeValue || "").replace(/\s+/g, " ").trim();
+      if (!looksUntranslated(t) || seen[t]) continue;
+      try {
+        var cs = win.getComputedStyle(p);
+        if (cs && (cs.display === "none" || cs.visibility === "hidden")) continue;
+      } catch (e1) {}
+      seen[t] = 1;
+      var blk = p.closest("p,li,td,th,dd,dt,div,section,article,h1,h2,h3,h4,h5,h6,label,button,a,figcaption,caption");
+      var cls = blk && typeof blk.className === "string" ? blk.className.split(/\s+/)[0] : "";
+      out.push({
+        t: t,
+        host: win.location.hostname || "",
+        p: win.location.pathname || "/",
+        tag: p.tagName.toLowerCase(),
+        at: blk ? blk.tagName.toLowerCase() + (cls ? "." + cls : "") : ""
+      });
+      if (out.length >= 200) break;
+    }
+    return out;
+  }
+
+  function saveMisses(list) {
+    var all = [];
+    try {
+      var raw = win.localStorage.getItem(MISS_KEY);
+      all = raw ? JSON.parse(raw) : [];
+    } catch (e) { all = []; }
+    if (!Array.isArray(all)) all = [];
+    var key = Object.create(null);
+    all.forEach(function (x) { if (x && x.t) key[x.host + "\u0001" + x.p + "\u0001" + x.t] = 1; });
+    var added = 0;
+    list.forEach(function (x) {
+      var k = x.host + "\u0001" + x.p + "\u0001" + x.t;
+      if (key[k]) return;
+      key[k] = 1;
+      all.push({ t: x.t, host: x.host, p: x.p, tag: x.tag, at: x.at, ts: Date.now() });
+      added++;
+    });
+    if (all.length > 800) all = all.slice(-800);
+    try { win.localStorage.setItem(MISS_KEY, JSON.stringify(all)); } catch (e2) {}
+    return { added: added, total: all.length, all: all };
+  }
+
+  function reportMisses() {
+    var list = collectMisses();
+    var res = saveMisses(list);
+    var payload = list.map(function (x) { return x.t + "\t" + x.host + x.p.replace(/\/$/, "") + (x.at ? "\t" + x.at : ""); }).join("\n");
+    if (!list.length) {
+      toast("本页没扫到明显漏翻（累计已记 " + res.total + " 条）");
+      return { found: 0, added: 0, total: res.total, list: list };
+    }
+    copyPayload(payload, "本页 " + list.length + " 条，新记 " + res.added + " 条（累计 " + res.total + "），已复制");
+    return { found: list.length, added: res.added, total: res.total, list: list };
+  }
+
+  // ---------- 段落看原文：按住 Alt 点段落，弹出英文原文卡片 ----------
+  var cardEl = null;
+
+  function hideCard() {
+    if (cardEl) { try { cardEl.remove(); } catch (e) {} cardEl = null; }
+  }
+
+  function showCard(text, x, y) {
+    hideCard();
+    cardEl = el("div", "bl-card");
+    cardEl.setAttribute("data-biol10n-ui", "1");
+    cardEl.setAttribute("role", "dialog");
+    var hd = el("div", "bl-card-hd");
+    hd.appendChild(el("span", null, "英文原文"));
+    var x2 = el("button", "bl-card-x", "\u00d7");
+    x2.type = "button";
+    x2.title = "关闭（Esc）";
+    x2.addEventListener("click", hideCard);
+    hd.appendChild(x2);
+    cardEl.appendChild(hd);
+    cardEl.appendChild(el("div", "bl-card-bd", text));
+    var btns = el("div", "bl-btns");
+    var c1 = el("button", "bl-btn", "复制英文");
+    c1.type = "button";
+    c1.addEventListener("click", function () { copyPayload(text, "已复制英文"); });
+    btns.appendChild(c1);
+    cardEl.appendChild(btns);
+    (doc.body || doc.documentElement).appendChild(cardEl);
+    var w = cardEl.offsetWidth || 360, h = cardEl.offsetHeight || 200;
+    var left = Math.max(6, Math.min(win.innerWidth - w - 6, (x || 12) - 24));
+    var top = (y || 12) + 16;
+    if (top + h > win.innerHeight - 8) top = Math.max(6, (y || 12) - h - 16);
+    cardEl.style.left = Math.round(left) + "px";
+    cardEl.style.top = Math.round(top) + "px";
+  }
+
+  function onAltClick(e) {
+    if (!settings.paraOrig || !e.altKey || !engine) return;
+    var t = e.target;
+    if (!t || !t.closest || t.closest("[data-biol10n-ui]")) return;
+    if (engine.stats && engine.stats.enabled === false) { toast("当前显示的就是原文"); return; }
+    var blk = t.closest("p,li,td,th,dd,dt,div,section,article,h1,h2,h3,h4,h5,h6,figcaption,caption,label,blockquote,summary");
+    if (!blk) return;
+    var orig = null;
+    try { orig = engine.originalText(blk); } catch (e1) {}
+    if (!orig) {
+      var cur = blk.parentElement, hops = 0;
+      while (cur && hops < 4 && !orig) {
+        try { orig = engine.originalText(cur); } catch (e2) {}
+        cur = cur.parentElement;
+        hops++;
+      }
+    }
+    var now = (blk.textContent || "").replace(/\s+/g, " ").trim();
+    if (!orig || orig === now) { toast("这段没有可还原的原文"); return; }
+    e.preventDefault();
+    e.stopPropagation();
+    showCard(String(orig), e.clientX, e.clientY);
+  }
+
   function updateTitle() {
     if (!badge) return;
     var s = statLine();
@@ -621,6 +843,7 @@ function createBioL10nUI(opts) {
 
   function onKey(e) {
     if (e.key === "Escape") {
+      if (cardEl) { hideCard(); return; }
       if (settingsOpen) { togglePanel(false); return; }
       if (popOpen) { toggleQuick(false); return; }
     }
@@ -638,10 +861,13 @@ function createBioL10nUI(opts) {
     refreshState();
     applyContrast();
     doc.addEventListener("keydown", onKey, true);
-    // 点空白处收起快捷菜单
+    // 按住 Alt 点段落 = 就地看该段英文原文（不整页切换、不刷新）
+    doc.addEventListener("click", onAltClick, true);
+    // 点空白处收起快捷菜单与原文卡片
     doc.addEventListener("pointerdown", function (e) {
-      if (!popOpen) return;
       var t = e.target;
+      if (cardEl && !cardEl.contains(t)) hideCard();
+      if (!popOpen) return;
       if (t === badge || (pop && pop.contains(t)) || (badge && badge.contains(t))) return;
       toggleQuick(false);
     }, true);
@@ -672,6 +898,15 @@ function createBioL10nUI(opts) {
     refreshState: refreshState,
     badge: function () { return badge; },
     panel: function () { return panel; },
-    entries: function () { return entries.slice(); }
+    entries: function () { return entries.slice(); },
+    // 0.11.2：复制与漏翻上报（暴露出来给单测与排查用）
+    textOf: pickText,
+    copyKind: copyKind,
+    collectMisses: collectMisses,
+    reportMisses: reportMisses,
+    card: function () { return cardEl; },
+    misses: function () {
+      try { return JSON.parse(win.localStorage.getItem(MISS_KEY) || "[]"); } catch (e) { return []; }
+    }
   };
 }

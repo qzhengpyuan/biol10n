@@ -547,7 +547,16 @@
     "Search Tool Modifiers": "检索工具修饰符",
     "Result Fields": "结果字段",
     "Data Dictionary API": "数据字典 API",
-    "Properties": "属性"
+    "Properties": "属性",
+    "The GDC Data Dictionary consists of the following components:": "GDC 数据字典由以下部分组成：",
+    "GDC Data Dictionary Search": "GDC 数据字典检索",
+    "GDC Data Dictionary Viewer": "GDC 数据字典查看器",
+    "Dictionary contents:": "字典内容：",
+    "Dictionary:": "字典：",
+    "This column displays the GDC Data Dictionary description for each level.": "本列显示 GDC 数据字典对每个层级的描述。",
+    "Cancer Data Standards Registry and Repository": "癌症数据标准注册与存储库（caDSR）",
+    "Base data type": "基础数据类型",
+    "Displayed data type": "显示数据类型"
   },
   "rules": [
     {

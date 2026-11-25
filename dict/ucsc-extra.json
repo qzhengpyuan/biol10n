@@ -370,7 +370,8 @@
     "Browser view showing two copies of the GENCODE V43 track with different display settings": "浏览器视图：GENCODE V43 轨道的两份副本，显示设置不同",
     "Configuration menu options": "配置菜单选项",
     "Ex. white/gray arrows for next/previous exon/item": "示例：用于上/下一个外显子或条目的白色/灰色箭头",
-    "Example right-click to highlight a gene": "示例：右键高亮一个基因"
+    "Example right-click to highlight a gene": "示例：右键高亮一个基因",
+    "Genome Browser Multi-View": "基因组浏览器多视图"
   },
   "rules": [
     {

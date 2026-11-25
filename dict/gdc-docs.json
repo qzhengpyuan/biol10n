@@ -1114,7 +1114,9 @@
     "Cases Field Groups": "病例字段组",
     "Files Field Groups": "文件字段组",
     "Annotations Field Groups": "注释字段组",
-    "GDC Conventions Supplemental": "GDC 约定补充"
+    "GDC Conventions Supplemental": "GDC 约定补充",
+    "DNA-Seq Analysis: Whole Exome and Targeted Sequencing Analysis Pipeline": "DNA 测序分析：全外显子与靶向测序分析流程",
+    "DNA-Seq Analysis: Whole Genome Sequencing Variant Calling": "DNA 测序分析：全基因组测序变异检测"
   },
   "rules": [
     {

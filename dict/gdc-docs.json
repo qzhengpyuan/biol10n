@@ -492,7 +492,24 @@
     "GDC Web Site": "GDC 网站",
     "OncoMatrix": "OncoMatrix 矩阵图",
     "ProteinPaint": "ProteinPaint 蛋白绘图",
-    "scRNA Visualization": "scRNA 可视化"
+    "scRNA Visualization": "scRNA 可视化",
+    "Data": "数据",
+    "Search & Retrieval": "检索与获取",
+    "The GDC Application Programming Interface (API): An Overview": "GDC 应用程序编程接口（API）：概述",
+    "Tools for communicating with the GDC API": "与 GDC API 通信的工具",
+    "API Endpoints": "API 端点",
+    "Entity UUIDs": "实体 UUID",
+    "Sample Request": "示例请求",
+    "Authentication": "身份验证",
+    "Using Authentication Tokens": "使用身份验证令牌",
+    "Tool": "工具",
+    "Command line tool": "命令行工具",
+    "Examples of tools for communicating with the GDC API:": "与 GDC API 通信的工具示例：",
+    "App for Google Chrome and OS X": "适用于 Google Chrome 与 OS X 的应用",
+    "Google Chrome extension": "Google Chrome 扩展",
+    "Google Chrome web browser": "Google Chrome 网页浏览器",
+    "Variant Type": "变异类型",
+    "Entity": "实体"
   },
   "rules": [
     {

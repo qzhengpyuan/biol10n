@@ -511,7 +511,15 @@
     "Variant Type": "变异类型",
     "Entity": "实体",
     "Generates manifests for use with GDC Data Transfer Tool": "生成可与 GDC 数据传输工具配合使用的清单文件",
-    "Generates manifests for use with GDC Data Transfer Tool.": "生成可与 GDC 数据传输工具配合使用的清单文件。"
+    "Generates manifests for use with GDC Data Transfer Tool.": "生成可与 GDC 数据传输工具配合使用的清单文件。",
+    "Bioinformatics Pipeline: DNA-Seq Analysis: Whole Genome Sequencing Variant Calling": "生物信息学流程：DNA 测序分析：全基因组测序变异检测",
+    "Bioinformatics Pipeline: DNA-Seq Analysis: Whole Exome and Targeted Sequencing Analysis Pipeline": "生物信息学流程：DNA 测序分析：全外显子与靶向测序分析流程",
+    "Bioinformatics Pipeline: mRNA Analysis": "生物信息学流程：mRNA 分析",
+    "Bioinformatics Pipeline: miRNA Analysis": "生物信息学流程：miRNA 分析",
+    "Bioinformatics Pipeline: Copy Number Variation Analysis": "生物信息学流程：拷贝数变异分析",
+    "Bioinformatics Pipeline: Methylation Analysis Pipeline": "生物信息学流程：甲基化分析流程",
+    "Bioinformatics Pipeline: Protein Expression": "生物信息学流程：蛋白表达",
+    "Copy Number Segment": "拷贝数片段"
   },
   "rules": [
     {

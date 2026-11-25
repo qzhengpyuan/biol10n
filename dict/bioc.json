@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "family": "bioconductor",
+    "sites": [
+      "bioconductor.org"
+    ],
+    "note": "Bioconductor 官网"
+  },
+  "exact": {
+    "Package names and titles": "软件包名称与标题",
+    "Upcoming Release Schedule": "即将发布的版本日程",
+    "About": "关于",
+    "Learn": "学习",
+    "Packages": "软件包",
+    "Developers": "开发者",
+    "Funding": "资助",
+    "Donate": "捐赠",
+    "Search": "检索",
+    "Get Started": "开始使用",
+    "Menu": "菜单",
+    "Annual Reports": "年度报告",
+    "Collaborations": "合作",
+    "Core Team": "核心团队",
+    "Mirrors": "镜像站点",
+    "Project Details": "项目详情",
+    "Code of Conduct": "行为准则",
+    "Get Involved": "参与其中",
+    "Package Reviewers": "软件包审核人",
+    "Awards": "奖项",
+    "European Bioconductor Society": "欧洲 Bioconductor 学会",
+    "Logos": "徽标",
+    "Privacy": "隐私",
+    "Package Guidelines": "软件包指南",
+    "Package Submission": "软件包提交",
+    "Release Schedule": "发布日程",
+    "Release Announcements": "发布公告",
+    "Source Control": "源码管理",
+    "Browsable Code Base": "可浏览代码库",
+    "Build Reports": "构建报告",
+    "Education and Training": "教育与培训",
+    "Bioconductor Books": "Bioconductor 图书",
+    "Package Vignettes": "软件包简介文档",
+    "Workflows": "工作流",
+    "Publications": "论文",
+    "Community Resources": "社区资源",
+    "Get Help": "获取帮助",
+    "Install R": "安装 R",
+    "Find Bioconductor Packages": "查找 Bioconductor 软件包",
+    "Install Bioconductor Packages": "安装 Bioconductor 软件包",
+    "Update Bioconductor Packages": "更新 Bioconductor 软件包",
+    "Docker Images": "Docker 镜像",
+    "Docker Containers": "Docker 容器",
+    "Bioconductor in AnVIL": "AnVIL 中的 Bioconductor",
+    "Bioconductor Packages": "Bioconductor 软件包",
+    "Contact us:": "联系我们：",
+    "Open source software for Bioinformatics": "面向生物信息学的开源软件",
+    "For Users": "面向用户",
+    "For Developers": "面向开发者",
+    "Create bioinformatic solutions with Bioconductor": "用 Bioconductor 构建生物信息学解决方案",
+    "Software": "软件",
+    "Annotation": "注释",
+    "Experiment": "实验",
+    "Docker Containers for Bioconductor": "Bioconductor 的 Docker 容器",
+    "Latest Release Announcement": "最新发布公告",
+    "Community Chat": "社区聊天",
+    "Support Forums": "支持论坛",
+    "Learn More": "了解更多",
+    "Need some help? Ask our community on the Bioconductor Support site!": "需要帮助？在 Bioconductor 支持站点向我们的社区提问！",
+    "Need some help? Ask our": "需要帮助？请在我们的",
+    "community on the Bioconductor Support site!": "Bioconductor 支持站点社区提问！",
+    "Join Bioconductor on Zulip, and meet other users and developers!": "在 Zulip 上加入 Bioconductor，结识其他用户和开发者！",
+    "Join our ever-growing community and discover how Bioconductor can improve your pipeline": "加入我们不断壮大的社区，了解 Bioconductor 如何改善您的分析流程",
+    "Bioconductor is open source! Join our community of developers and develop your package": "Bioconductor 是开源的！加入我们的开发者社区，开发您的软件包",
+    "Learn more about using Bioconductor": "进一步了解如何使用 Bioconductor",
+    "Developers' Resources": "开发者资源",
+    "Developers Resources": "开发者资源",
+    "Use Bioc 'devel'": "使用 Bioc 'devel' 版",
+    "Available 'Devel' packages": "可用的 'Devel' 软件包",
+    "New Package Submission": "新软件包提交",
+    "Git Source Control": "Git 源码管理",
+    "Git Credentials App": "Git 凭据应用",
+    "Troubleshooting Build Reports": "构建报告故障排查",
+    "Help Wanted": "求助信息",
+    "Resources to maximize the potential of Bioconductor.": "充分发挥 Bioconductor 潜力的资源。",
+    "From basic functionalities to advanced features, our tutorials, guides, and documentation have you covered.": "从基础功能到高级特性，我们的教程、指南与文档均已涵盖。",
+    "Courses": "课程",
+    "Videos": "视频",
+    "Common Workflows": "常用工作流",
+    "FAQ": "常见问题",
+    "Community Blog": "社区博客",
+    "About Bioconductor": "关于 Bioconductor",
+    "Bioconductor uses the R statistical programming language, and is open source and open development. It has two releases each year, and an active user community.": "Bioconductor 使用 R 统计编程语言，采用开源与开放开发模式。每年发布两个版本，并拥有活跃的用户社区。",
+    "Bioconductor Project Details": "Bioconductor 项目详情",
+    "Bioconductor Working Group": "Bioconductor 工作组",
+    "See all packages": "查看全部软件包",
+    "Connect With the Community": "与社区联系",
+    "YouTube Channel": "YouTube 频道",
+    "F1000 Research Channel": "F1000 Research 频道",
+    "Bioconductor Related Events": "Bioconductor 相关活动",
+    "Bioconductor Seminar Series": "Bioconductor 研讨会系列",
+    "Start Using Bioconductor": "开始使用 Bioconductor",
+    "Contribute to Bioconductor": "为 Bioconductor 做贡献",
+    "🗓️ Events": "🗓️ 活动",
+    "See all events": "查看全部活动",
+    "No upcoming events.": "暂无即将举行的活动。",
+    "release announcement": "发布公告",
+    "Software Downloads in 2023": "2023 年软件下载量",
+    "1. Install R": "1. 安装 R",
+    "2. Get the latest version of Bioconductor": "2. 获取最新版本的 Bioconductor",
+    "Download the most recent version of R. The R FAQs and the R Installation and Administration Manual contain detailed instructions for installing R on various platforms (Linux, OS X, and Windows being the main ones).": "下载最新版本的 R。R 常见问题解答与《R 安装与管理手册》详细说明了在各种平台（主要是 Linux、OS X 和 Windows）上安装 R 的方法。",
+    "Start the R program; on Windows and OS X, this will usually mean double-clicking on the R application, on UNIX-like systems, type “R” at a shell prompt.": "启动 R 程序；在 Windows 和 OS X 上通常就是双击 R 应用，在类 UNIX 系统上则在命令行提示符下键入 “R”。",
+    "Once R has been installed, get the latest version of Bioconductor by starting R and entering the following commands.": "R 安装完成后，启动 R 并输入以下命令，即可获取最新版本的 Bioconductor。",
+    "To install core packages, type the following in an R command window:": "要安装核心软件包，请在 R 命令窗口中输入以下内容：",
+    "To search through available packages programmatically, use the following:": "如需以编程方式检索可用软件包，请使用以下内容：",
+    "For example, using a “^org” search pattern will show all of the available organism annotation packages.": "例如，使用 “^org” 检索模式会列出所有可用的物种注释软件包。",
+    "Bioconductor packages, especially those in the development branch, are updated fairly regularly. To identify packages requiring update within your version of Bioconductor, start a new session of R and enter:": "Bioconductor 软件包（尤其是开发分支中的包）更新相当频繁。要找出您所用 Bioconductor 版本中需要更新的软件包，请启动新的 R 会话并输入：",
+    "Due to the development cycle, all versions of R will eventually support more than one version of Bioconductor. To use the latest version of Bioconductor for your version of R, enter:": "由于开发周期，所有版本的 R 最终都会支持不止一个 Bioconductor 版本。要为您的 R 版本使用最新的 Bioconductor，请输入：",
+    "Remember that more recent versions of Bioconductor may be available if your version of R is out-of-date. BiocManager will notify you when your version of R is out-of-date.": "请记住，如果您的 R 版本过旧，可能会有更新的 Bioconductor 版本可用。当您的 R 版本过旧时，BiocManager 会提示您。",
+    "Rarely, underlying changes in the operating system require ALL installed packages to be recompiled for source (C or Fortran) compatibility. One way to address this might be to start a new R session and enter:": "极少数情况下，操作系统的底层变化会要求重新编译所有已安装的软件包，以保证源码（C 或 Fortran）兼容性。解决办法之一是启动新的 R 会话并输入：",
+    "As this will reinstall all currently installed packages, it likely involves a significant amount of network bandwidth and compilation time. All packages are implicitly updated, and the cumulative effect might introduce wrinkles that disrupt your work flow. It also requires that you have the necessary compilers installed.": "由于这会重新安装当前所有已安装的软件包，可能消耗大量网络带宽与编译时间。所有软件包都会被隐式更新，累积效应可能带来干扰工作流程的麻烦。此外还需要已安装必要的编译器。",
+    "Use the commands:": "使用以下命令：",
+    "Update Installed Bioconductor Packages": "更新已安装的 Bioconductor 软件包",
+    "Upgrading Installed Bioconductor Packages": "升级已安装的 Bioconductor 软件包",
+    "Recompiling Installed Bioconductor Packages": "重新编译已安装的 Bioconductor 软件包",
+    "Troubleshoot Package Installations": "软件包安装故障排查",
+    "Troubleshoot BiocManager": "BiocManager 故障排查",
+    "Pre-configured Bioconductor": "预配置的 Bioconductor",
+    "Legacy and Older R Versions": "旧版与更早的 R 版本",
+    "BiocManager vignette": "BiocManager 简介文档",
+    "software package list": "软件包列表",
+    "advanced section": "高级章节",
+    "developer reference": "开发者参考",
+    "see the 'Changing version' section of the BiocManager vignette.": "请参阅 BiocManager 简介文档中「更改版本」一节。",
+    "Release and Core Development": "发布与核心开发",
+    "release version": "正式版本",
+    "development version": "开发版本",
+    "this table": "此表",
+    "meta-data packages": "元数据软件包",
+    "core team": "核心团队",
+    "Community Advisory Board": "社区咨询委员会",
+    "Technical Advisory Board": "技术咨询委员会",
+    "Scientific Advisory Board": "科学顾问委员会",
+    "Project Goals": "项目目标",
+    "Main Project Features": "主要项目特性",
+    "A high-level interpreted language to easily and quickly prototype new computational methods.": "高层次解释型语言，便于轻松快速地构建新计算方法的原型。",
+    "A well established system for packaging together software with documentation.": "成熟的系统，可将软件与文档一起打包。",
+    "An object-oriented framework for addressing the diversity and complexity of computational biology and bioinformatics problems.": "面向对象的框架，用于应对计算生物学与生物信息学问题的多样性与复杂性。",
+    "Access to on-line computational biology and bioinformatics data.": "可访问在线计算生物学与生物信息学数据。",
+    "Support for rich statistical simulation and modeling activities.": "支持丰富的统计模拟与建模工作。",
+    "Cutting edge data and model visualization capabilities.": "前沿的数据与模型可视化能力。",
+    "Active development by a dedicated team of researchers with a strong commitment to good documentation and software design.": "由专注的研究团队积极开发，并高度重视良好的文档与软件设计。",
+    "Documentation and reproducible research": "文档与可重复研究",
+    "Bioconductor package": "Bioconductor 软件包",
+    "vignettes": "简介文档",
+    "Statistical and graphical methods": "统计与图形方法",
+    "Analysis packages": "分析软件包",
+    "address": "面向",
+    "workflows": "工作流",
+    "R package system": "R 软件包系统",
+    "Bioconductor short courses": "Bioconductor 短期课程",
+    "short courses": "短期课程",
+    "course materials": "课程材料",
+    "Bioconductor teaching committee": "Bioconductor 教学委员会",
+    "Open source": "开源",
+    "Open development": "开放开发",
+    "To provide full access to algorithms and their implementation": "让算法的实现完全可及",
+    "To facilitate software improvements through bug fixing and software extension": "通过修复缺陷与扩展软件，促进软件改进",
+    "To encourage good scientific computing and statistical practice by providing appropriate tools and instruction": "通过提供合适的工具与指导，鼓励良好的科学计算与统计实践",
+    "To provide a workbench of tools that allow researchers to explore and expand the methods used to analyze biological data": "提供一套工具集，让研究者探索并拓展用于分析生物数据的方法",
+    "To ensure that the international scientific community is the owner of the software tools needed to carry out research": "确保国际科学界拥有开展研究所需要的软件工具",
+    "To lead and encourage commercial support and development of those tools that are successful": "引领并鼓励对成功工具的商业支持与开发",
+    "To promote reproducible research by providing open and accessible tools with which to carry out that research (reproducible research is distinct from independent verification)": "通过提供开放可及的工具来推动可重复研究（可重复研究不同于独立验证）",
+    "Bioconductor compliant packages": "符合 Bioconductor 规范的软件包",
+    "Quick Statistics": "快速统计",
+    "A selection of statistics about the project.": "项目统计数据精选。",
+    "Quick Stats": "快速统计",
+    "Last updated": "最后更新",
+    "Release Packages": "发布软件包",
+    "Support Site Members": "支持站点成员",
+    "Slack Members": "Slack 成员",
+    "in the last year": "在过去一年中",
+    "results": "结果",
+    "Request updated statistics from:": "请求更新统计数据，请联系：",
+    "Contact": "联系方式",
+    "Bioconductor Code of Conduct": "Bioconductor 行为准则",
+    "Find out all you need to know about Bioconductor and its packages": "了解关于 Bioconductor 及其软件包的全部所需信息",
+    "Whether you're a new user seeking to get started or an experienced developer, our knowledge base provides you with the necessary tools and insights to navigate Bioconductor packages effortlessly.": "无论您是刚入门的新用户，还是经验丰富的开发者，我们的知识库都能为您提供必要的工具与洞见，助您轻松浏览 Bioconductor 软件包。",
+    "Upcoming and Past Events": "即将举行与既往活动",
+    "Courses and Conference Materials": "课程与会议材料",
+    "Tutorials": "教程",
+    "Bioconductor's stable, semi-annual release:": "Bioconductor 稳定的半年期发布版本：",
+    "Latest release announcement": "最新发布公告",
+    "Bioconductor releases and R versions": "Bioconductor 版本与 R 版本",
+    "Analysis software packages": "分析软件包",
+    "Annotation packages": "注释软件包",
+    "Experiment data packages": "实验数据软件包",
+    "Workflow packages.": "工作流软件包。",
+    "Online books": "在线图书",
+    "Developers Section": "开发者专区",
+    "for more information": "了解更多信息",
+    "Guidelines for Package Development, Submission, and Peer Review": "软件包开发、提交与同行评审指南",
+    "Use Bioconductor 'Devel' Version": "使用 Bioconductor 'Devel' 版本",
+    "Git FAQ": "Git 常见问题",
+    "Interact with the Bioconductor Community": "与 Bioconductor 社区互动",
+    "For questions / concerns, please contact us:": "如有问题或疑虑，请联系我们：",
+    "Home": "首页",
+    "past releases": "既往版本",
+    "packages removed from Bioconductor": "已从 Bioconductor 移除的软件包",
+    "Go to": "前往",
+    "(Release)": "（正式版）",
+    "(Devel)": "（开发版）",
+    "All packages": "全部软件包",
+    "Search packages and categories": "搜索软件包与分类",
+    "Search packages by name, title, or category…": "按名称、标题或分类搜索软件包…",
+    "Package categories": "软件包分类",
+    "AnnotationData": "注释数据",
+    "AnnotationWorkflow": "注释工作流",
+    "AssayDomain": "检测领域",
+    "AssayDomainData": "检测领域数据",
+    "BasicWorkflow": "基础工作流",
+    "BiologicalQuestion": "生物学问题",
+    "ChipManufacturer": "芯片制造商",
+    "ChipName": "芯片名称",
+    "CustomArray": "自定义芯片",
+    "CustomCDF": "自定义 CDF",
+    "CustomDBSchema": "自定义数据库模式",
+    "DifferentialSplicingWorkflow": "差异剪接工作流",
+    "DiseaseModel": "疾病模型",
+    "EpigeneticsWorkflow": "表观遗传学工作流",
+    "ExperimentData": "实验数据",
+    "FunctionalAnnotation": "功能注释",
+    "GeneExpressionWorkflow": "基因表达工作流",
+    "GenomicVariantsWorkflow": "基因组变异工作流",
+    "ImmunoOncologyWorkflow": "免疫肿瘤学工作流",
+    "Infrastructure": "基础设施",
+    "Organism": "物种",
+    "OrganismData": "物种数据",
+    "PackageType": "软件包类型",
+    "PackageTypeData": "软件包类型数据",
+    "ProteomicsWorkflow": "蛋白质组学工作流",
+    "RepositoryData": "仓库数据",
+    "ReproducibleResearch": "可重复研究",
+    "ResearchField": "研究领域",
+    "ResourceQueryingWorkflow": "资源查询工作流",
+    "SequenceAnnotation": "序列注释",
+    "ShinyApps": "Shiny 应用",
+    "SingleCellWorkflow": "单细胞工作流",
+    "SpatialWorkflow": "空间工作流",
+    "SpecimenSource": "标本来源",
+    "StatisticalMethod": "统计方法",
+    "Technology": "技术",
+    "TechnologyData": "技术数据",
+    "WorkflowManagement": "工作流管理",
+    "WorkflowStep": "工作流步骤",
+    "Bioconductor home": "Bioconductor 首页",
+    "Search icon": "搜索图标",
+    "start using bioconductor now!": "立即开始使用 Bioconductor！",
+    "learn more about bioconductor": "进一步了解 Bioconductor",
+    "question mark circle": "问号",
+    "Zulip Logo": "Zulip 徽标",
+    "YouTube Logo": "YouTube 徽标",
+    "LinkedIn Logo": "LinkedIn 徽标",
+    "Bluesky Logo": "Bluesky 徽标",
+    "Mastodon Logo": "Mastodon 徽标",
+    "Blog Logo": "博客徽标",
+    "BioConductor Logo in White": "白色 BioConductor 徽标",
+    "Image depicting boxes and lines": "展示方框与线条的示意图",
+    "Image depicting Bioconductor hexagon logos": "展示 Bioconductor 六边形徽标的图片",
+    "View scientists join information": "查看科研人员加入信息",
+    "View developers join information": "查看开发者加入信息",
+    "Bioconductor sticker": "Bioconductor 贴纸",
+    "R packages": "R 软件包",
+    "Bioconductor packages": "Bioconductor 软件包",
+    "documentation": "文档",
+    "train": "培训",
+    "Docker images": "Docker 镜像",
+    "Annotation data packages": "注释数据软件包",
+    "Why use BiocManager::install()?": "为什么要用 BiocManager::install()？",
+    "The install() function (in the BiocManager package) has arguments that change its default behavior; type ?install for further help.": "BiocManager 软件包中的 install() 函数带有可更改其默认行为的参数；键入 ?install 可获取更多帮助。",
+    "The broad goals of the Bioconductor project are:": "Bioconductor 项目的总体目标包括：",
+    "Workflow": "工作流",
+    "Devel": "开发版",
+    "The mission of the Bioconductor project is to develop, support, and disseminate free open source software that facilitates rigorous and reproducible analysis of data from current and emerging biological assays. We are dedicated to building a diverse, collaborative, and welcoming community of developers and data scientists.": "Bioconductor 项目的使命是开发、支持并传播自由开源软件，帮助对当前及新兴生物学检测所产生的数据进行严谨、可重复的分析。我们致力于建设一个多元、协作、友善的开发者与数据科学家社区。",
+    "To provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.": "为基因组数据分析提供广泛可及、种类丰富的强大统计与图形方法。",
+    "To facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.": "促进在基因组数据分析中纳入生物学元数据，例如来自 PubMed 的文献数据、来自 Entrez 基因的注释数据。",
+    "To provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.": "提供通用软件平台，支持快速开发与部署可扩展、可伸缩、可互操作的软件。",
+    "The Bioconductor project has a commitment to full open source discipline, with distribution via a public git (version control) server. Almost all contributions exist under an open source license. There are many different reasons why open source software is beneficial to the analysis of microarray data and to computational biology in general. The reasons include:": "Bioconductor 项目坚持完全开源的准则，通过公共 git（版本控制）服务器分发。几乎所有贡献都以开源许可发布。开源软件有利于微阵列数据分析乃至计算生物学的原因有很多，包括："
+  },
+  "rules": [
+    {
+      "re": "^just now$",
+      "to": "刚刚"
+    },
+    {
+      "re": "^(\\d+) seconds? ago$",
+      "to": "$1 秒前"
+    },
+    {
+      "re": "^(\\d+) minutes? ago$",
+      "to": "$1 分钟前"
+    },
+    {
+      "re": "^(\\d+) hours? ago$",
+      "to": "$1 小时前"
+    },
+    {
+      "re": "^(\\d+) days? ago$",
+      "to": "$1 天前"
+    },
+    {
+      "re": "^(\\d+) months? ago$",
+      "to": "$1 个月前"
+    },
+    {
+      "re": "^(\\d+) years? ago$",
+      "to": "$1 年前"
+    },
+    {
+      "re": "^Copyright © (\\d{4}) - (\\d{4}) Bioconductor$",
+      "to": "版权所有 © $1 - $2 Bioconductor"
+    },
+    {
+      "re": "^Bioconductor (\\d+\\.\\d+) Packages$",
+      "to": "Bioconductor $1 软件包"
+    },
+    {
+      "re": "^All packages — ([\\d,]+)$",
+      "to": "全部软件包 — $1 个"
+    },
+    {
+      "re": "^Expand (.+)$",
+      "to": "展开$1"
+    },
+    {
+      "re": "^Collapse (.+)$",
+      "to": "收起$1"
+    },
+    {
+      "re": "^([\\d,]+) distinct$",
+      "to": "去重下载 $1 次"
+    },
+    {
+      "re": "^The current release of Bioconductor is version ([\\d.]+); it works with R version ([\\d.]+)\\. Users of older R and Bioconductor must update their installation to take advantage of new features and to access packages that have been added to Bioconductor since the last release\\.$",
+      "to": "Bioconductor 当前发布版本为 $1，可与 R 版本 $2 配合使用。使用旧版 R 与 Bioconductor 的用户必须更新安装，才能用上新功能，并访问自上一版本以来新增到 Bioconductor 的软件包。"
+    },
+    {
+      "re": "^The development version of Bioconductor is version ([\\d.]+); it works with R version ([\\d.]+)\\. More recent 'devel' versions of R \\(if available\\) will be supported during the next Bioconductor release cycle\\.$",
+      "to": "Bioconductor 的开发版本为 $1，可与 R 版本 $2 配合使用。更新的 R 'devel' 版本（如有）将在下一个 Bioconductor 发布周期中得到支持。"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The Bioconductor project aims to develop and share open source software for precise and repeatable analysis of biological data.{{1}} We foster an inclusive and collaborative community of developers and data scientists.",
+      "zh": "Bioconductor 项目旨在开发并共享开源软件，用于对生物数据进行精确、可重复的分析。{{1}} 我们培育一个包容、协作的开发者与数据科学家社区。"
+    },
+    {
+      "pat": "{{1}} {{2}}, {{3}} and {{4}} Packages",
+      "zh": "{{1}} {{2}}、{{3}}和{{4}}软件包"
+    },
+    {
+      "pat": "{{1}} Use Bioconductor in the {{2}}",
+      "zh": "{{1}} 在 {{2}} 中使用 Bioconductor"
+    },
+    {
+      "pat": "Bioconductor provides {{1}} for every release and provides support for Bioconductor use in {{2}}.",
+      "zh": "Bioconductor 为每个版本提供 {{1}}，并支持在 {{2}} 中使用 Bioconductor。"
+    },
+    {
+      "pat": "Consider joining a {{1}} to get involved with different areas of interest in the project.",
+      "zh": "考虑加入 {{1}}，参与项目中不同兴趣领域的工作。"
+    },
+    {
+      "pat": "Discover {{1}} software packages available in Bioconductor release 3.23.",
+      "zh": "浏览 Bioconductor 3.23 版本提供的 {{1}} 个软件包。"
+    },
+    {
+      "pat": "As a first step with R, start the R help browser by typing {{1}} in the R command window. For help on any function, e.g. the \"mean\" function, type {{2}}.",
+      "zh": "作为 R 的第一步，在 R 命令窗口中键入 {{1}} 启动 R 帮助浏览器。如需查看任意函数的帮助，例如“mean”函数，请键入 {{2}}。"
+    },
+    {
+      "pat": "It may be possible to change the Bioconductor version of an existing installation; {{1}}",
+      "zh": "可以更改现有安装的 Bioconductor 版本；{{1}}"
+    },
+    {
+      "pat": "For a more detailed explanation on using BiocManager and its advanced usage, such as version switching, please refer to the {{1}}.",
+      "zh": "有关使用 BiocManager 及其版本切换等高级用法的详细说明，请参阅 {{1}}。"
+    },
+    {
+      "pat": "Visit the {{1}} to discover available packages.",
+      "zh": "访问{{1}}以浏览可用软件包。"
+    },
+    {
+      "pat": "Use the argument {{1}} to update old packages without being prompted. Read the help page for ?install for additional details.",
+      "zh": "使用参数 {{1}} 可在不出现提示的情况下更新旧软件包。更多细节请阅读 ?install 的帮助页面。"
+    },
+    {
+      "pat": "For more details on Bioconductor approaches to versioning, see the {{1}} in the vignette and version numbering in the {{2}} section.",
+      "zh": "有关 Bioconductor 版本管理方式的更多细节，请参阅简介文档中的{{1}}，以及{{2}}一节中的版本编号说明。"
+    },
+    {
+      "pat": "to flag packages that are either out-of-date or too new for your version of Bioconductor. The output suggests ways to solve identified problems, and the help page {{1}} lists arguments influencing the behavior of the function.",
+      "zh": "用于标记相对于您的 Bioconductor 版本已过期或过新的软件包。输出会给出解决已识别问题的方法，帮助页面 {{1}} 列出了影响该函数行为的参数。"
+    },
+    {
+      "pat": "Bioconductor is also available as {{1}} or available for use in the {{2}}.",
+      "zh": "Bioconductor 还提供 {{1}}，也可在 {{2}} 中使用。"
+    },
+    {
+      "pat": "It is always recommended to update to the most current version of R and Bioconductor. If this is not possible and {{1}} , please use the scripts from {{2}}.",
+      "zh": "始终建议更新到最新版本的 R 与 Bioconductor。如果无法做到且 {{1}}，请使用 {{2}} 中的脚本。"
+    },
+    {
+      "pat": "The Bioconductor {{1}} is updated twice each year, and is appropriate for most users. Each Bioconductor release is designed to work with a specific version of R, with the relationship summarized in {{2}}. There is also a {{3}}, to which new features and packages are added prior to incorporation in the release. A large number of {{4}} provide pathway, organism, microarray and other annotations.",
+      "zh": "Bioconductor 的{{1}}每年更新两次，适合大多数用户。每个 Bioconductor 版本都与特定的 R 版本配套，二者对应关系汇总于{{2}}。此外还有一个{{3}}，新功能与新软件包会先进入其中，随后才纳入正式版本。大量{{4}}提供通路、物种、微阵列及其他注释。"
+    },
+    {
+      "pat": "The Bioconductorproject started in 2001 and is overseen by a {{1}}. A {{2}} and a {{3}} of key participants meets monthly to support the Bioconductor mission by coordinating training and outreach activities, developing strategies to ensure long-term technical suitability of core infrastructure, and to identify and enable funding strategies for long-term viability. A {{4}} including external experts provides annual guidance and accountability.",
+      "zh": "Bioconductor 项目始于 2001 年，由{{1}}监督管理。由关键参与者组成的{{2}}与{{3}}每月开会，通过协调培训与外展活动、制定确保核心基础设施长期技术适用性的策略，并确定及促成保障长期可持续性的资助策略，来支持 Bioconductor 的使命。{{4}}包含外部专家，每年提供指导与问责。"
+    },
+    {
+      "pat": "Most Bioconductor components are distributed as {{1}}. The functional scope of {{2}} includes the analysis of DNA microarray, sequence, flow, SNP, and other genetic or genomic data.",
+      "zh": "大多数 Bioconductor 组件以 {{1}} 形式分发。{{2}}的功能范围涵盖 DNA 微阵列、测序、流式、SNP 及其他遗传或基因组数据的分析。"
+    },
+    {
+      "pat": "To further scientific understanding by producing high-quality {{1}} and reproducible research.",
+      "zh": "通过产出高质量{{1}}与可重复研究，促进科学理解。"
+    },
+    {
+      "pat": "To {{1}} researchers on computational and statistical methods for the analysis of genomic data.",
+      "zh": "就基因组数据分析的计算与统计方法{{1}}研究人员。"
+    },
+    {
+      "pat": "The R project for Statistical Computing. Using {{1}} provides a broad range of advantages to the Bioconductor project, including:",
+      "zh": "R 统计计算项目。使用 {{1}} 为 Bioconductor 项目带来一系列优势，包括："
+    },
+    {
+      "pat": "Each {{1}} contains one or more {{2}}, documents that provide a textual, task-oriented description of the package's functionality. Vignettes come in several forms. Many are \"HowTo\"s that demonstrate how a particular task can be accomplished with that package's software. Others provide a more thorough overview of the package or discuss general issues related to the package.",
+      "zh": "每个 {{1}} 包含一个或多个{{2}}，这些文档以文字、面向任务的方式说明软件包的功能。简介文档有多种形式。许多是「HowTo」，演示如何用该软件包完成某项任务；另一些则对软件包做更全面的概述，或讨论与该软件包相关的一般问题。"
+    },
+    {
+      "pat": "The Bioconductor project provides access to powerful statistical and graphical methods for the analysis of genomic data. {{1}} address {{2}} for analysis of oligonucleotide arrays, sequence analysis, flow cytometry. and other high-throughput genomic data. The {{3}} itself provides implementations for a broad range of state-of-the-art statistical and graphical techniques, including linear and non-linear modeling, cluster analysis, prediction, resampling, survival analysis, and time-series analysis.",
+      "zh": "Bioconductor 项目为基因组数据分析提供强大的统计与图形方法。{{1}}面向{{2}}，涵盖寡核苷酸微阵列分析、序列分析、流式细胞术以及其他高通量基因组数据。{{3}}本身实现了广泛的前沿统计与图形技术，包括线性与非线性建模、聚类分析、预测、重抽样、生存分析和时间序列分析。"
+    },
+    {
+      "pat": "The Bioconductor project provides software for associating microarray and other genomic data in real time with biological metadata from web databases such as GenBank, Entrez genes and PubMed ({{1}} package). Functions are also provided for incorporating the results of statistical analysis in HTML reports with links to annotation web resources. Software tools are available for assembling and processing genomic annotation data, from databases such as GenBank, the Gene Ontology Consortium, Entrez genes, UniGene, the UCSC Human Genome Project ({{2}} package). {{3}} are distributed to provide mappings between different probe identifiers (e.g. Affy IDs, Entrez genes, PubMed). Customized annotation libraries can also be assembled.",
+      "zh": "Bioconductor 项目提供的软件可将微阵列及其他基因组数据与来自 GenBank、Entrez 基因、PubMed 等网络数据库的生物学元数据实时关联（{{1}} 软件包）。此外还提供函数，用于把统计分析结果纳入带有注释网络资源链接的 HTML 报告。也有工具可用于汇集与处理基因组注释数据，来源包括 GenBank、基因本体联盟、Entrez 基因、UniGene、UCSC 人类基因组计划（{{2}} 软件包）。分发的{{3}}在不同探针标识符（例如 Affy ID、Entrez 基因、PubMed）之间提供映射，也可以构建自定义注释库。"
+    },
+    {
+      "pat": "The Bioconductor project has developed a program of {{1}} on software and statistical methods for the analysis of genomic data. Courses have been given for audiences with backgrounds in either biology or statistics. All {{2}} (lectures and computer labs) are available on this site. There is also a {{3}} to consolidate Bioconductor-focused training materials and establish a community of Bioconductor trainers.",
+      "zh": "Bioconductor 项目围绕基因组数据分析的软件与统计方法开设了{{1}}。课程面向具有生物学或统计学背景的听众。所有{{2}}（讲座与上机实验）都可在本站获取。此外还有一个{{3}}，用于整合以 Bioconductor 为重点的培训材料，并建立 Bioconductor 培训者社区。"
+    },
+    {
+      "pat": "Users are encouraged to become developers, either by contributing {{1}} or documentation. Additionally Bioconductor provides a mechanism for linking together different groups with common goals to foster collaboration on software, often at the level of shared development.",
+      "zh": "鼓励用户成为开发者，无论是贡献{{1}}还是文档。此外，Bioconductor 还提供机制，把目标相同的不同团队连接起来，以促进软件协作，往往是在共享开发的层面上。"
+    },
+    {
+      "pat": "See {{1}} for more information",
+      "zh": "更多信息请参见{{1}}"
+    },
+    {
+      "pat": "Looking for something older? See {{1}} or the {{2}}.",
+      "zh": "想找更早的版本？请参阅{{1}}或{{2}}。"
+    },
+    {
+      "pat": "Please refer to the {{1}}",
+      "zh": "请参阅 {{1}}"
+    },
+    {
+      "pat": "Please reach out to {{1}}",
+      "zh": "请联系 {{1}}"
+    }
+  ]
+}

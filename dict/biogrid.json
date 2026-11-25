@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "family": "biogrid",
+    "sites": [
+      "wiki.thebiogrid.org",
+      "thebiogrid.org",
+      "www.thebiogrid.org"
+    ],
+    "note": "BioGRID 帮助站与主站词库"
+  },
+  "exact": {
+    "About the BIOGRID": "关于 BIOGRID",
+    "About the BioGRID": "关于 BioGRID",
+    "About the Viewer": "关于查看器",
+    "Additional BioGRID Partners": "更多 BioGRID 合作方",
+    "Advanced Search": "高级检索",
+    "Advanced Search Options": "高级检索选项",
+    "Affiliated and Supporting Labs": "附属与支持实验室",
+    "All Organisms": "全部物种",
+    "BioGRID Advanced Search Options": "BioGRID 高级检索选项",
+    "BioGRID Curation Guide": "BioGRID 整理指南",
+    "BioGRID Curation Projects": "BioGRID 整理项目",
+    "BioGRID Download Format Details": "BioGRID 下载格式说明",
+    "BioGRID Downloads": "BioGRID 下载",
+    "BioGRID Featured Dataset Downloads": "BioGRID 精选数据集下载",
+    "BioGRID Gene Tag Definitions": "BioGRID 基因标签定义",
+    "BioGRID Help and Support Documentation": "BioGRID 帮助与支持文档",
+    "BioGRID ORCS - An open repository of CRISPR screens": "BioGRID ORCS - 开放的 CRISPR 筛选库",
+    "BioGRID Protein-Protein Interaction Statistics": "BioGRID 蛋白质-蛋白质相互作用统计",
+    "BioGRID REST Web Service": "BioGRID REST Web 服务",
+    "BioGRID Resource Overview - Tutorial Video": "BioGRID 资源概览 - 教程视频",
+    "BioGRID Software Development Overview": "BioGRID 软件开发概览",
+    "BioGRID Statistics": "BioGRID 统计",
+    "BioGRID Themed Curation Projects": "BioGRID 专题整理项目",
+    "BioGRID Walkthrough - Tutorial Video": "BioGRID 操作演示 - 教程视频",
+    "BioGRID Web Service": "BioGRID Web 服务",
+    "BioGRID themed curation projects focus on specific biological processes with disease relevance. Core genes/proteins central to the process are assembled with expert input and relevant publications curated for biological interactions. Themed curation projects are updated monthly and additional projects are generated on a regular basis.": "BioGRID 专题整理项目聚焦与疾病相关的特定生物学过程。项目核心的基因/蛋白质由专家参与确定，并整理相关文献中的生物学相互作用。专题整理项目按月更新，并定期新增项目。",
+    "Biogrid Plugin 2.0 for Cytoscape": "适用于 Cytoscape 的 Biogrid 插件 2.0",
+    "By Chemical": "按化学物",
+    "By Protein/Gene": "按蛋白质/基因",
+    "By Publication": "按文献",
+    "COVID-19 Coronavirus Project Page": "COVID-19 冠状病毒项目页面",
+    "CRISPR Database": "CRISPR 数据库",
+    "Chemical Curation": "化学数据整理",
+    "Contributing to the BioGRID": "向 BioGRID 贡献数据",
+    "Create this page": "创建此页面",
+    "Curation Methodologies and Guides": "整理方法与指南",
+    "Curation workflow": "整理工作流程",
+    "Definitions and Descriptions": "定义与说明",
+    "Download BioGRID Interactions": "下载 BioGRID 相互作用数据",
+    "Download Featured BioGRID Datasets": "下载 BioGRID 精选数据集",
+    "Download Monthly Updated BioGRID Interaction Datasets": "下载每月更新的 BioGRID 相互作用数据集",
+    "Downloads and Datasets": "下载与数据集",
+    "Experimental evidence codes and descriptions": "实验证据代码及说明",
+    "External Database Datasets for 3rd Parties": "供第三方使用的外部数据库数据集",
+    "Featured Datasets": "精选数据集",
+    "Follow @biogrid.bsky.social on Bluesky": "在 Bluesky 上关注 @biogrid.bsky.social",
+    "Frequently Asked Questions": "常见问题",
+    "GIX is a browser extension that allows you to retrieve information about a gene product directly on any webpage simply by double clicking an official gene name, synonym or supported accession.": "GIX 是一款浏览器扩展，只需在任意网页上双击官方基因名、同义词或受支持的登录号，即可直接获取基因产物信息。",
+    "Gene Info eXtension (GIX)": "基因信息扩展（GIX）",
+    "Health Canada": "加拿大卫生部",
+    "Help and Support Resources": "帮助与支持资源",
+    "Helpful Search Tips": "实用检索技巧",
+    "High throughput screens": "高通量筛选",
+    "How to alert us to publications we might have missed": "如何提醒我们可能遗漏的文献",
+    "How to point out errors/corrections to our existing data": "如何指出我们现有数据中的错误或更正",
+    "Joining our curation team": "加入我们的整理团队",
+    "Latest Downloads": "最新下载",
+    "Latest News": "最新消息",
+    "Learn more": "了解更多",
+    "Legal Stuff": "法律信息",
+    "Linking to us from your website or database resource": "从你的网站或数据库资源链接到我们",
+    "Listing of BioGRID Partners": "BioGRID 合作方列表",
+    "Listing of BioGRID Publications": "BioGRID 出版物列表",
+    "Log In": "登录",
+    "Meet the BioGRID Team": "认识 BioGRID 团队",
+    "Network Viewer": "网络查看器",
+    "Network Viewer - Tutorial Video": "网络查看器 - 教程视频",
+    "Online Tools and Resources": "在线工具与资源",
+    "Osprey Network Visualization System": "Osprey 网络可视化系统",
+    "PROTAC Curation": "PROTAC 整理",
+    "Partners": "合作方",
+    "Privacy Policy": "隐私政策",
+    "REST webservice": "REST Web 服务",
+    "Related Resources": "相关资源",
+    "SARS-CoV-2 (Covid-19) and Related Coronavirus Resources": "SARS-CoV-2（Covid-19）及相关冠状病毒资源",
+    "Search BioGRID:": "检索 BioGRID：",
+    "Search Results and Layout": "检索结果与页面布局",
+    "Search by Protein/Gene Identifiers ...": "按蛋白质/基因标识符检索……",
+    "Search for chemicals by keywords, names, brands, molecular formula, smiles, inchi, inchikey, and third party database ids (chembl, pubchem, chemspider)": "按关键词、名称、品牌、分子式、SMILES、InChI、InChIKey 及第三方数据库 ID（ChEMBL、PubChem、ChemSpider）检索化学物",
+    "Search publications by pubmed id or by keyword terms...": "按 PubMed ID 或关键词检索文献……",
+    "Search results layout - A complete breakdown of our results pages": "检索结果布局 - 结果页面完整说明",
+    "Search the BioGRID": "检索 BioGRID",
+    "Search tips - How to better find what you want": "检索技巧 - 如何更精准地找到所需内容",
+    "Sending us published interaction data": "向我们发送已发表的相互作用数据",
+    "Sitemap": "站点地图",
+    "Sources of Funding": "资助来源",
+    "Submit BioGRID Chemical Search": "提交 BioGRID 化学物检索",
+    "Submit BioGRID Publication Search": "提交 BioGRID 文献检索",
+    "Submit BioGRID Search": "提交 BioGRID 检索",
+    "Submit Chemical Search": "提交化学物检索",
+    "Submit Identifier Search": "提交标识符检索",
+    "Submit Publication Search": "提交文献检索",
+    "Supported identifiers for searches": "检索支持的标识符",
+    "Synthetic Protein Interaction Curation": "合成蛋白质相互作用整理",
+    "Table of Contents": "目录",
+    "Terms and Conditions": "条款与条件",
+    "The BioGRID Database Architecture": "BioGRID 数据库架构",
+    "The BioGRID ORCS - An open repository of CRISPR screens": "BioGRID ORCS - 开放的 CRISPR 筛选库",
+    "The BioGRID Themed Curation Projects": "BioGRID 专题整理项目",
+    "The Gene Info eXtension (GIX)": "基因信息扩展（GIX）",
+    "Themed Curation Projects": "专题整理项目",
+    "This is a sitemap over all available pages ordered by namespaces.": "这是按命名空间排序的所有可用页面的站点地图。",
+    "This topic does not exist yet": "该主题尚不存在",
+    "Toggle navigation": "切换导航",
+    "Welcome to our Database of Protein, Genetic and Chemical Interactions": "欢迎使用我们的蛋白质、遗传与化学相互作用数据库",
+    "Yeast Kinome": "酵母激酶组",
+    "You are here:": "您所在位置：",
+    "[more]": "[更多]",
+    "about us": "关于我们",
+    "contribute": "参与贡献",
+    "database of CRISPR screens": "CRISPR 筛选数据库",
+    "download page": "下载页面",
+    "downloads": "下载",
+    "freely": "免费",
+    "help wiki": "帮助文档",
+    "home": "首页",
+    "partners": "合作方",
+    "statistics": "统计",
+    "stats": "统计",
+    "tools": "工具",
+    "web service": "Web 服务"
+  },
+  "rules": [
+    {
+      "re": "^BioGRID Version ([\\d.]+) Released$",
+      "to": "BioGRID 版本 $1 发布"
+    },
+    {
+      "re": "^Posted: (January|February|March|April|May|June|July|August|September|October|November|December)\\.? (\\d{1,2}), (\\d{4}) - (\\d{1,2})\u0001(\\d{2}) am$",
+      "to": "发布于 $3 年 $1 $2 日 上午 $4:$5"
+    },
+    {
+      "re": "^Posted: (January|February|March|April|May|June|July|August|September|October|November|December)\\.? (\\d{1,2}), (\\d{4}) - (\\d{1,2})\u0001(\\d{2}) pm$",
+      "to": "发布于 $3 年 $1 $2 日 下午 $4:$5"
+    },
+    {
+      "re": "^Copyright © (\\d{4})$",
+      "to": "版权所有 © $1"
+    },
+    {
+      "re": "^, All Rights Reserved\\.$",
+      "to": "，保留所有权利。"
+    },
+    {
+      "re": "^projects$",
+      "to": "项目"
+    },
+    {
+      "re": "^BioGRID\\s*\\|\\s*Database of Protein, Genetic and Chemical Interactions$",
+      "to": "BioGRID | 蛋白质、遗传与化学相互作用数据库"
+    },
+    {
+      "re": "^Help and Support Resources\\s*\\|\\s*BioGRID$",
+      "to": "帮助与支持资源 | BioGRID"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "While we try to provide as much documentation as possible about our site, we may overlook certain topics of interest. If you can't find the answer to your question listed in our support pages below, please email us at: {{1}} and we will answer your question directly. Our site is constantly changing so please check back often for possible changes.",
+      "zh": "尽管我们尽量为本站提供尽可能完整的文档，但仍可能遗漏某些关注话题。如果在下面的支持页面中找不到你问题的答案，请发邮件至 {{1}}，我们会直接答复你的问题。本站内容不断更新，请经常回来查看可能的变更。"
+    },
+    {
+      "pat": "COVID-19 is a rapidly evolving global health crisis and the research community is expediting release of new publication datasets on SARS-CoV-2 to facilitate new therapeutic approaches. At the BioGRID, we're focusing our curation efforts on the literature for these data, and making any datasets we curate openly available on our {{1}}, {{2}}, and {{3}} for easy access by the global research community.",
+      "zh": "COVID-19 是一场快速演变的全球卫生危机，研究界正加快发布 SARS-CoV-2 的新文献数据集，以推动新的治疗途径。在 BioGRID，我们正把整理工作集中在这类数据的文献上，并将整理出的数据集公开在{{1}}、{{2}}和{{3}}上，方便全球研究界取用。"
+    },
+    {
+      "pat": "If you're looking for Coronavirus health information, please visit your local government resources or see what the health experts at {{1}} and the {{2}} are recommending. Stay safe and help flatten the curve!",
+      "zh": "如果你在寻找冠状病毒健康信息，请访问当地政府资源，或参考{{1}}和{{2}}的健康专家给出的建议。注意安全，帮助压平疫情曲线！"
+    },
+    {
+      "pat": "BioGRID is a biomedical interaction repository with data compiled through comprehensive curation efforts. Our current index is version {{1}} and searches {{2}} publications for {{3}} protein and genetic interactions, {{4}} chemical interactions and {{5}} post translational modifications from major model organism species. All data are {{6}} provided via our search index and available for download in many standardized formats.",
+      "zh": "BioGRID 是一个生物医学相互作用数据库，其数据通过全面的整理工作汇编而成。我们当前的索引版本为 {{1}}，可检索 {{2}} 篇出版物中的 {{3}} 项蛋白质相互作用与遗传相互作用、{{4}} 项化学相互作用，以及来自主要模式生物物种的 {{5}} 项翻译后修饰。所有数据均通过我们的检索索引{{6}}提供，并提供多种标准化格式供下载。"
+    },
+    {
+      "pat": "The BioGRID Open Respository of CRISPR Screens (ORCS) is a publicly accessible {{1}} compiled through comprehensive curation of all genome-wide CRISPR screen data reported in the biomedical literature. ORCS is updated on a quarterly basis and is fully searchable by gene/protein, phenotype, cell line, authors, and other attributes. Each screen recorded in ORCS is accompanied by structured metadata annotation that captures salient CRISPR experimental details. All data in ORCS can be downloaded in standard formats.",
+      "zh": "BioGRID 开放的 CRISPR 筛选库（ORCS）是一个可公开访问的{{1}}，其数据通过全面整理生物医学文献中报道的所有全基因组 CRISPR 筛选数据汇编而成。ORCS 每季度更新，可按基因/蛋白质、表型、细胞系、作者等属性完整检索。ORCS 中记录的每项筛选都附带结构化元数据注释，用来记录关键的 CRISPR 实验细节。ORCS 中的所有数据都可以按标准格式下载。"
+    },
+    {
+      "pat": "The {{1}}'s curated set of data have been updated to include interactions, chemical associations, and post-translational modifications (PTM) from {{2}} publications. These additions bring our total number of non-redundant interactions to {{3}}, raw interactions to {{4}}, non-redundant chemical associations to {{5}}, raw chemical associations to {{6}}, Non-Redundant PTM Sites to {{7}} and Un-Assigned PTMs to {{8}}. {{9}}{{10}} New curated data are added in curation updates on a monthly basis. For a more comprehensive breakdown of our numbers, check out our latest {{11}}. To download these data, visit our {{12}} or utilize our {{13}}.",
+      "zh": "{{1}} 整理的数据集已更新，新增了来自 {{2}} 篇出版物的相互作用、化学关联与翻译后修饰（PTM）数据。这些新增使我们的非冗余相互作用总数达到 {{3}}，原始相互作用达到 {{4}}，非冗余化学关联达到 {{5}}，原始化学关联达到 {{6}}，非冗余 PTM 位点达到 {{7}}，未分配 PTM 达到 {{8}}。{{9}}{{10}}新增整理数据按月更新。要更全面地了解我们的数据明细，请查看最新的{{11}}。要下载这些数据，请访问我们的{{12}}或使用{{13}}。"
+    },
+    {
+      "pat": "You've followed a link to a topic that doesn't exist yet. If permissions allow, you may create it by clicking on {{1}}.",
+      "zh": "你访问的链接指向一个尚不存在的主题。如果权限允许，你可以点击{{1}}创建该页面。"
+    }
+  ]
+}

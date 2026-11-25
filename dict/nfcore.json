@@ -1,0 +1,700 @@
+{
+  "meta": {
+    "family": "nf-core",
+    "sites": [
+      "nf-co.re"
+    ],
+    "note": "nf-core 文档、流程目录与单个流程页"
+  },
+  "exact": {
+    "Pipelines": "流程",
+    "Docs": "文档",
+    "Resources": "资源",
+    "Community": "社区",
+    "Modules": "模块",
+    "Subworkflows": "子流程",
+    "Configs": "配置",
+    "Shared configs": "共享配置",
+    "Plugins & Actions": "插件与操作",
+    "What's happening": "最新动态",
+    "Advisories": "安全公告",
+    "Blog": "博客",
+    "Newsletter": "通讯",
+    "Events": "活动",
+    "Hackathons": "黑客松",
+    "Training": "培训",
+    "Talks": "讲座",
+    "Weekly Helpdesks": "每周答疑",
+    "Programs and groups": "项目与小组",
+    "Special interest groups": "特别兴趣小组",
+    "In-progress RFCs": "进行中的 RFC",
+    "Mentorships": "导师计划",
+    "Contributors": "贡献者",
+    "Shop": "商店",
+    "Connect game 👾": "连线游戏 👾",
+    "About nf-core": "关于 nf-core",
+    "nf-core Lore": "nf-core 轶事",
+    "Stickers": "贴纸",
+    "Governance": "治理",
+    "Marketing": "市场推广",
+    "Code of conduct": "行为准则",
+    "Publications": "论文",
+    "Join nf-core": "加入 nf-core",
+    "Select theme": "选择主题",
+    "Light": "浅色",
+    "Dark": "深色",
+    "System": "跟随系统",
+    "Documentation": "文档",
+    "Making awesome workflows since 2018.": "自 2018 年起打造优秀的工作流。",
+    "Supported by:": "支持方：",
+    "A global community collaborating to build open-source Nextflow components and pipelines": "一个协作构建开源 Nextflow 组件与流程的全球社区",
+    "View Pipelines": "查看流程",
+    "For organisations": "面向机构",
+    "Highly optimised pipelines with excellent reporting. Validated releases ensure reproducibility.": "高度优化的流程，报告功能完善。经过验证的发布版本确保可重复性。",
+    "For users": "面向用户",
+    "For developers": "面向开发者",
+    "Companion templates and tools help to validate your code and simplify common tasks.": "配套模板与工具可帮助验证代码并简化常见任务。",
+    "nf-core is published in Nature Biotechnology!": "nf-core 已发表在 Nature Biotechnology 上！",
+    "Nextflow is an incredibly powerful and flexible workflow language.": "Nextflow 是一种极其强大且灵活的工作流语言。",
+    "Everyone is welcome": "欢迎所有人",
+    "Fully featured pipelines": "功能齐全的流程",
+    "Extensive documentation covering installation, usage and description of output files ensures that you won't be left in the dark.": "详尽的文档涵盖安装、使用与输出文件说明，让你不会一头雾水。",
+    "Stable Releases": "稳定发布版",
+    "nf-core pipelines use GitHub releases to tag stable versions of the code and software. Pipelines are exceptionally well tested and easy to run.": "nf-core 流程使用 GitHub 发布版标记代码与软件的稳定版本。流程经过严格测试，运行简单。",
+    "Open source": "开源",
+    "All nf-core code is licensed under the MIT license and is available on GitHub. Pipelines can be used, modified, and forked - by anyone.": "所有 nf-core 代码均以 MIT 许可证授权，并托管在 GitHub。任何人都可以使用、修改和复刻这些流程。",
+    "CI Testing": "持续集成测试",
+    "Every time a change is made to the pipeline code, nf-core pipelines use continuous-integration testing to ensure that nothing has broken.": "每当流程代码发生变更，nf-core 流程都会运行持续集成测试，确保没有引入问题。",
+    "Run anywhere": "随处运行",
+    "Pipelines are ultra-portable and run on most laptops, HPCs and clouds. Tests run on AWS after every release: you can browse results on the website and use for your own benchmarking.": "流程高度可移植，可在大多数笔记本电脑、HPC 与云平台上运行。每次发布后都会在 AWS 上运行测试：你可以在网站上浏览结果，用于自己的基准测试。",
+    "Packaged software": "软件打包",
+    "Pipeline dependencies are automatically downloaded and handled using Docker, Singularity, Conda or others. No need for any software installations.": "流程依赖会通过 Docker、Singularity、Conda 等自动下载和处理，无需手动安装任何软件。",
+    "Everyone is welcome to use, contribute to, and help maintain nf-core.": "欢迎所有人使用、贡献并帮助维护 nf-core。",
+    "Stay in the loop": "保持关注",
+    "Get the nf-core newsletter: community news, pipeline releases, and events, once a month.": "订阅 nf-core 通讯：每月一期，包含社区动态、流程发布与活动信息。",
+    "Subscribe": "订阅",
+    "More about the newsletter": "了解通讯详情",
+    "follow on LinkedIn": "在 LinkedIn 上关注我们",
+    "How to get involved": "如何参与",
+    "Start small or go big": "从小处着手或做大",
+    "You start wherever you like: Typo fixes in docs? No module for your favourite tool? Missing a pipeline? We are looking for all types of contributions!": "你可以从任何地方开始：文档里的错别字？常用工具还缺模块？还缺某个流程？我们欢迎各种类型的贡献！",
+    "Get started": "开始使用",
+    "Develop with the community": "与社区共同开发",
+    "Join forces with others! We promote collaboration over duplication: before you start coding, please propose your idea in Slack.": "与他人携手！我们提倡协作而非重复开发：动手写代码前，请先在 Slack 中提出你的想法。",
+    "Join Slack": "加入 Slack",
+    "Start from the template": "从模板开始",
+    "Read the docs": "阅读文档",
+    "Introduction to nf-core": "nf-core 简介",
+    "Play": "播放",
+    "nf-core YouTube channel": "nf-core YouTube 频道",
+    "Upcoming Events": "即将举行的活动",
+    "Past Events": "往期活动",
+    "Export event": "导出活动",
+    "Download iCal Event": "下载 iCal 活动",
+    "Add to Google Calendar": "添加到 Google 日历",
+    "Add to Microsoft Outlook": "添加到 Microsoft Outlook",
+    "Our weekly series of short talks.": "我们每周的短讲座系列。",
+    "Get started in minutes": "几分钟即可上手",
+    "Nextflow lets you run nf-core pipelines on virtually any computing environment.": "Nextflow 让你几乎可以在任何计算环境中运行 nf-core 流程。",
+    "The nf-core companion tool makes it easy to list all available nf-core pipelines and shows which are available locally. Local versions are checked against the latest available release.": "配套工具 nf-core 可轻松列出所有可用的 nf-core 流程，并显示哪些已在本地可用；本地版本会与最新发布版进行比对。",
+    "The nf-core companion tool also provides a range of helper functions to make it easier to work with nf-core pipelines, such as downloading pipelines for offline use, an interactive command-line launch wizard and helper functions to generate commented config file templates for any pipeline.": "配套工具 nf-core 还提供一系列辅助功能，让 nf-core 流程的使用更轻松，例如下载流程供离线使用、交互式命令行启动向导，以及为任意流程生成带注释配置文件模板的辅助功能。",
+    "See what's available": "看看有哪些可用",
+    "Check out the available pipelines to see if we have what you need. Each comes with release details, keywords and a description.": "浏览可用的流程，看看是否有你需要的。每个流程都附有发布信息、关键词和描述。",
+    "Available pipelines": "可用流程",
+    "Run a pipeline": "运行流程",
+    "Read the quickstart tutorial to learn how to get set up with the required software and tools, and how to launch a nf-core pipeline.": "阅读快速入门教程，了解如何安装所需软件与工具，以及如何启动 nf-core 流程。",
+    "Quickstart Tutorial": "快速入门教程",
+    "Get into the code": "深入了解代码",
+    "If you're interested in contributing to nf-core, take a look at the developer documentation to see what's required.": "如果你有兴趣为 nf-core 做贡献，请查看开发者文档，了解具体要求。",
+    "Developer docs": "开发者文档",
+    "See a complete list »": "查看完整列表 »",
+    "Used by groups all over the world": "世界各地的团队都在使用",
+    "The nf-core community is spread all over the globe and includes a large number of contributing users.": "nf-core 社区遍布全球，拥有大量贡献用户。",
+    "Latest bytesize": "最新一期 Bytesize",
+    "Status": "状态",
+    "Last release": "最近发布",
+    "Name": "名称",
+    "Stars": "星标",
+    "Hint:": "提示：",
+    "Command-line tools and API for working with nf-core": "用于处理 nf-core 的命令行工具与 API",
+    "Installation": "安装",
+    "Install nf-core/tools": "安装 nf-core/tools",
+    "Explore commands graphically": "以图形界面浏览命令",
+    "Test datasets": "测试数据集",
+    "Browse API reference": "浏览 API 参考",
+    "Scaffold new pipelines": "搭建新流程",
+    "List pipelines": "列出流程",
+    "Launch pipelines via TUI or GUI": "通过 TUI 或 GUI 启动流程",
+    "Create parameter files": "创建参数文件",
+    "Download pipelines and dependencies": "下载流程与依赖",
+    "Print software licenses": "打印软件许可证",
+    "Create RO-Crates": "创建 RO-Crate",
+    "Lint pipelines": "检查流程",
+    "Build schema files": "构建 schema 文件",
+    "Bump pipeline versions": "提升流程版本",
+    "Sync pipelines with template": "将流程与模板同步",
+    "Create pipeline logos": "创建流程标志",
+    "List modules": "列出模块",
+    "View module information": "查看模块信息",
+    "Install modules": "安装模块",
+    "Update modules": "更新模块",
+    "Remove modules": "移除模块",
+    "Create module patches": "创建模块补丁",
+    "Create modules": "创建模块",
+    "Lint modules": "检查模块",
+    "Create module tests": "创建模块测试",
+    "Bump module versions": "提升模块版本",
+    "List subworkflows": "列出子流程",
+    "View subworkflow information": "查看子流程信息",
+    "Install subworkflows": "安装子流程",
+    "Update subworkflows": "更新子流程",
+    "Remove subworkflows": "移除子流程",
+    "Create subworkflows": "创建子流程",
+    "Lint subworkflows": "检查子流程",
+    "Create subworkflow tests": "创建子流程测试",
+    "List test dataset files": "列出测试数据集文件",
+    "List test dataset branches": "列出测试数据集分支",
+    "Search test dataset files": "搜索测试数据集文件",
+    "nf-core Utilities Guide": "nf-core 实用工具指南",
+    "Nextflow Pipeline Extension": "Nextflow 流程扩展",
+    "References Extension Guide": "引用扩展指南",
+    "Utilities": "实用工具",
+    "Configuration Validation Tutorial": "配置校验教程",
+    "Pipeline Notifications Tutorial": "流程通知教程",
+    "MultiQC Integration Tutorial": "MultiQC 集成教程",
+    "nf-core documentation": "nf-core 文档",
+    "Learn to use nf-core pipelines, develop workflows, and contribute to the community": "学习使用 nf-core 流程、开发工作流并为社区做贡献",
+    "New to nf-core? Start here to learn the basics and run your first pipeline.": "刚接触 nf-core？从这里开始了解基础知识并运行你的第一个流程。",
+    "What is nf-core?": "什么是 nf-core？",
+    "Introduction to the nf-core project and community": "nf-core 项目与社区简介",
+    "Environment setup": "环境配置",
+    "Set up your system to run nf-core pipelines": "配置系统以运行 nf-core 流程",
+    "Run your first pipeline": "运行你的第一个流程",
+    "Step-by-step guide to running an nf-core pipeline": "运行 nf-core 流程的分步指南",
+    "Topics": "目录",
+    "Explore documentation by topic.": "按主题浏览文档。",
+    "Running": "运行",
+    "Run and configure nf-core pipelines": "运行并配置 nf-core 流程",
+    "Developing": "开发",
+    "Create and maintain nf-core pipelines, components, and configs": "创建并维护 nf-core 流程、组件与配置",
+    "Contributing": "贡献",
+    "Contribute to the nf-core community": "为 nf-core 社区做贡献",
+    "Specifications": "规范",
+    "Technical specifications for nf-core pipelines, components, and test data": "nf-core 流程、组件与测试数据的技术规范",
+    "Community resources and guidelines": "社区资源与准则",
+    "Additional resources": "其他资源",
+    "Learn Nextflow and nf-core through comprehensive documentation and hands-on training materials.": "通过完整文档与实操培训材料学习 Nextflow 和 nf-core。",
+    "Nextflow documentation": "Nextflow 文档",
+    "Official Nextflow language documentation and guides": "Nextflow 语言官方文档与指南",
+    "Nextflow and nf-core training": "Nextflow 与 nf-core 培训",
+    "Hands-on training materials and workshops": "实操培训材料与工作坊",
+    "Software dependencies": "软件依赖",
+    "nf-core tools": "nf-core 工具",
+    "Dev Containers": "开发容器",
+    "Troubleshooting": "故障排查",
+    "Advanced topics": "进阶主题",
+    "Managing work directory growth": "管理工作目录增长",
+    "Configuration": "配置",
+    "Configuration options": "配置选项",
+    "GPU pipelines": "GPU 流程",
+    "System requirements": "系统要求",
+    "Reference genomes": "参考基因组",
+    "Running pipelines": "运行流程",
+    "Running pipelines offline": "离线运行流程",
+    "Tutorials": "教程",
+    "Configure a pipeline run": "配置流程运行",
+    "Testing": "测试",
+    "Assertions": "断言",
+    "Advanced assertions": "高级断言",
+    "CI runners": "CI 运行器",
+    "Automated methods": "自动化方式",
+    "Creating components": "创建组件",
+    "Cross organisational components": "跨机构组件",
+    "Deprecating components": "弃用组件",
+    "ext arguments": "ext 参数",
+    "GPU modules": "GPU 模块",
+    "Meta maps": "元数据映射",
+    "Setting custom remotes": "设置自定义远程仓库",
+    "Containers": "容器",
+    "ARM64 on Bioconda": "Bioconda 上的 ARM64",
+    "Seqera Containers": "Seqera 容器",
+    "Style guide": "风格指南",
+    "Topic types": "主题类型",
+    "Website Markdown": "网站 Markdown",
+    "External use": "外部使用",
+    "Institutional profiles": "机构配置",
+    "File structure": "文件结构",
+    "Preparing to write": "写作准备",
+    "Migration guides": "迁移指南",
+    "Migrating to strict syntax": "迁移到严格语法",
+    "Migrating to topic channels": "迁移到主题通道",
+    "Adding modules": "添加模块",
+    "Renaming branches": "重命名分支",
+    "Template files": "模板文件",
+    "Template syncs": "模板同步",
+    "Fixing a broken TEMPLATE branch": "修复损坏的 TEMPLATE 分支",
+    "Manually syncing your pipeline": "手动同步你的流程",
+    "Merging automated PRs": "合并自动 PR",
+    "Setting up a pipeline sync retrospectively": "事后设置流程同步",
+    "Writing nf-core modules": "编写 nf-core 模块",
+    "Chapter 1: Introduction": "第 1 章：简介",
+    "Chapter 2: Getting started": "第 2 章：入门",
+    "Chapter 3: What is a module?": "第 3 章：什么是模块？",
+    "Chapter 4: Boilerplate files": "第 4 章：样板文件",
+    "Chapter 5: Writing modules": "第 5 章：编写模块",
+    "Chapter 6: Testing modules": "第 6 章：测试模块",
+    "Chapter 7: Development workflow": "第 7 章：开发工作流",
+    "Chapter 8: Using modules": "第 8 章：使用模块",
+    "How to contribute": "如何贡献",
+    "Contributor types": "贡献者类型",
+    "Contributor's list": "贡献者名单",
+    "Existing pipelines": "现有流程",
+    "New pipelines": "新流程",
+    "Project proposals": "项目提案",
+    "Release procedure": "发布流程",
+    "Reviewing pull requests": "审查拉取请求",
+    "Codeowners": "代码负责人",
+    "nf-core bot": "nf-core 机器人",
+    "Review checklists": "审查清单",
+    "Reviewing components": "审查组件",
+    "Reviewing configs": "审查配置",
+    "Reviewing nf-core/tools": "审查 nf-core/tools",
+    "Reviewing pipeline releases": "审查流程发布",
+    "Two factor authentication": "双重身份验证",
+    "General": "通用",
+    "Naming conventions": "命名规范",
+    "Input/output Options": "输入/输出选项",
+    "Parameters": "参数",
+    "Resource requirements": "资源需求",
+    "Software": "软件",
+    "Formatting": "格式",
+    "Input output options": "输入输出选项",
+    "Subworkflow parameters": "子流程参数",
+    "Maintenance and deprecation": "维护与弃用",
+    "Recommendations": "建议",
+    "Publication credit": "发表署名",
+    "Build with community": "与社区共建",
+    "Cloud compatible": "兼容云端",
+    "Custom containers": "自定义容器",
+    "DOIs": "DOI 列表",
+    "File formats": "文件格式",
+    "Requirements": "要求",
+    "Acknowledgements": "致谢",
+    "CI testing": "CI 测试",
+    "Community owned": "社区所有",
+    "Git branches": "Git 分支",
+    "Identity branding": "品牌标识",
+    "Keywords": "关键词",
+    "Linting": "代码检查",
+    "Minimum inputs": "最小输入",
+    "MIT license": "MIT 许可证",
+    "Semantic versioning": "语义化版本",
+    "Single command": "单条命令",
+    "Use the template": "使用模板",
+    "Workflow name": "流程名称",
+    "Workflow size": "流程规模",
+    "Workflow specificity": "流程专用性",
+    "Very important pipelines": "重要流程",
+    "Reviews": "审查",
+    "Request reviewers": "请求审查人",
+    "Rapid merge": "快速合并",
+    "Review scope": "审查范围",
+    "Commit strategy": "提交策略",
+    "Test data": "测试数据",
+    "Brand": "品牌",
+    "Overview": "概览",
+    "Colours": "颜色",
+    "Fonts": "字体",
+    "Logos": "徽标",
+    "Presentations": "演示报告",
+    "Workflow schematics": "流程示意图",
+    "Core team tasks": "核心团队任务",
+    "Maintainers tasks": "维护者任务",
+    "Teams": "团队",
+    "Checklist": "清单",
+    "Terminology": "术语",
+    "Introduction": "简介",
+    "Usage": "使用",
+    "Output": "输出",
+    "Results": "结果",
+    "Releases": "版本发布",
+    "On this page": "本页内容",
+    "subscribers": "订阅者",
+    "stars": "星标",
+    "open issues": "待处理问题",
+    "open PRs": "待合并 PR",
+    "last release": "最近发布",
+    "last update": "最近更新",
+    "minimum Nextflow version": "最低 Nextflow 版本",
+    "included modules": "包含的模块",
+    "included subworkflows": "包含的子流程",
+    "contributors": "贡献者",
+    "get help": "获取帮助",
+    "Ask a question on Slack": "在 Slack 上提问",
+    "Open an issue on GitHub": "在 GitHub 上提交问题",
+    "See the source code for this page": "查看本页源代码",
+    "run with": "使用以下命令运行",
+    "RNA sequencing analysis pipeline using STAR, RSEM, HISAT2 or Salmon with gene/isoform counts and extensive quality control.": "使用 STAR、RSEM、HISAT2 或 Salmon 的 RNA 测序分析流程，提供基因/异构体计数与全面的质量控制。",
+    "Note": "说明",
+    "Warning": "警告",
+    "Tip": "提示",
+    "Edit": "编辑",
+    "static version": "静态版本",
+    "test your setup": "测试你的环境",
+    "talk to us in Slack": "在 Slack 里与我们交流",
+    "except for parameters": "但参数除外",
+    "Input/output options": "输入/输出选项",
+    "Reference genome options": "参考基因组选项",
+    "Read trimming options": "读段修剪选项",
+    "Read filtering options": "读段过滤选项",
+    "UMI options": "UMI 选项",
+    "Alignment options": "比对选项",
+    "Optional outputs": "可选输出",
+    "Quality Control": "质量控制",
+    "Process skipping options": "流程跳过选项",
+    "Institutional config options": "机构配置选项",
+    "Generic options": "通用选项",
+    "Define where the pipeline should find input data and save output data.": "定义流程在何处查找输入数据、在何处保存输出数据。",
+    "Reference genome related files and options required for the workflow.": "工作流所需的参考基因组相关文件与选项。",
+    "Options to adjust read trimming criteria.": "用于调整读段修剪条件的选项。",
+    "Options for filtering reads prior to alignment": "比对前过滤读段的选项",
+    "Options for processing reads with unique molecular identifiers": "处理带唯一分子标识符读段的选项",
+    "Options to adjust parameters and filtering criteria for read alignments.": "用于调整读段比对参数与过滤条件的选项。",
+    "Additional output files produces as intermediates that can be saved": "可作为中间结果保存的额外输出文件",
+    "Additional quality control options.": "额外的质量控制选项。",
+    "Options to skip various steps within the workflow.": "用于跳过工作流中若干步骤的选项。",
+    "Parameters used to describe centralised config profiles. These should not be edited.": "用于描述集中式配置档的参数，请勿编辑。",
+    "Less common options for the pipeline, typically set in a config file.": "流程中较少使用的选项，通常在配置文件中设置。",
+    "Help text": "帮助文本",
+    "type:": "类型：",
+    "pattern:": "匹配模式：",
+    "default:": "默认值：",
+    "See details": "查看详情",
+    "Pipeline output": "流程输出",
+    "Online videos": "在线视频",
+    "Credits": "致谢",
+    "Contributions and Support": "贡献与支持",
+    "video introduction": "视频简介",
+    "this page": "本页",
+    "usage documentation": "使用文档",
+    "parameter documentation": "参数文档",
+    "output documentation": "输出文档",
+    "contributing guidelines": "贡献指南",
+    "channel": "频道",
+    "this invite": "此邀请链接",
+    "nf-core events page": "nf-core 活动页面",
+    "full-sized test dataset": "完整规模测试数据集",
+    "First, prepare a samplesheet with your input data that looks as follows:": "首先，准备一个如下所示的输入数据样本表：",
+    "Now, you can run the pipeline using:": "现在，可以用以下命令运行该流程：",
+    "Extensive quality control:": "全面的质量控制：",
+    "experimental": "实验性",
+    "optional": "可选",
+    "National Genomics Infrastructure": "国家基因组基础设施",
+    "Seqera Labs, Spain": "西班牙 Seqera Labs",
+    "Show hidden": "显示隐藏项",
+    "Show all help texts": "显示全部帮助文本",
+    "Under development": "开发中",
+    "Archived": "已归档",
+    "Many thanks to other who have helped out along the way too, including (but not limited to):": "许多人也在过程中提供了帮助，在此一并致谢（包括但不限于）：",
+    "(experimental).": "（实验性）。",
+    "community owned": "归社区所有",
+    "Pipeline overview": "流程概览",
+    "Preprocessing": "预处理",
+    "Alignment and quantification": "比对与定量",
+    "Alignment post-processing": "比对后处理",
+    "Other steps": "其他步骤",
+    "Pseudoalignment and quantification": "伪比对与定量",
+    "Quality control": "质量控制",
+    "Workflow reporting and genomes": "工作流报告与基因组",
+    "Pipeline information": "流程信息",
+    "Reference genome files": "参考基因组文件"
+  },
+  "rules": [
+    {
+      "re": "^Browse the ([\\d,]+) pipelines that are currently available as part of nf-core\\.$",
+      "to": "nf-core 目前共有 $1 个可用流程，欢迎浏览。"
+    },
+    {
+      "re": "^Launch version (.+)$",
+      "to": "启动版本 $1"
+    },
+    {
+      "re": "^and (\\d+) more modules$",
+      "to": "另有 $1 个模块"
+    },
+    {
+      "re": "^and (\\d+) more subworkflows$",
+      "to": "另有 $1 个子流程"
+    },
+    {
+      "re": "^Built less than a minute ago$",
+      "to": "不到一分钟前构建"
+    },
+    {
+      "re": "^Built (\\d+) seconds? ago$",
+      "to": "构建于 $1 秒前"
+    },
+    {
+      "re": "^Built (\\d+) minutes? ago$",
+      "to": "构建于 $1 分钟前"
+    },
+    {
+      "re": "^Built (\\d+) hours? ago$",
+      "to": "构建于 $1 小时前"
+    },
+    {
+      "re": "^Built (\\d+) days? ago$",
+      "to": "构建于 $1 天前"
+    },
+    {
+      "re": "^Built (\\d+) weeks? ago$",
+      "to": "构建于 $1 周前"
+    },
+    {
+      "re": "^Built (\\d+) months? ago$",
+      "to": "构建于 $1 个月前"
+    },
+    {
+      "re": "^Built (\\d+) years? ago$",
+      "to": "构建于 $1 年前"
+    },
+    {
+      "re": "^(\\d+) days? ago$",
+      "to": "$1 天前"
+    },
+    {
+      "re": "^(\\d+) hours? ago$",
+      "to": "$1 小时前"
+    },
+    {
+      "re": "^(\\d+) minutes? ago$",
+      "to": "$1 分钟前"
+    },
+    {
+      "re": "^(\\d+) months? ago$",
+      "to": "$1 个月前"
+    },
+    {
+      "re": "^(\\d+) years? ago$",
+      "to": "$1 年前"
+    },
+    {
+      "re": "^([a-z0-9_]+) \\(default\\)$",
+      "to": "$1（默认）"
+    },
+    {
+      "re": "^released (.+)$",
+      "to": "发布于 $1"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Portable, documented and easy to use workflows.{{1}}Pipelines that you can trust.",
+      "zh": "可移植、文档齐全且易于使用的工作流。{{1}}值得信赖的流程。"
+    },
+    {
+      "pat": "{{1}} pipelines adhere to strict guidelines - if one works, they all will.",
+      "zh": "{{1}} 流程遵循严格的规范——只要一个能用，其他也都能用。"
+    },
+    {
+      "pat": "All nf-core code is {{1}}.",
+      "zh": "所有 nf-core 代码{{1}}。"
+    },
+    {
+      "pat": "{{1}} to contribute, in any way!",
+      "zh": "{{1}}，以任何方式参与贡献！"
+    },
+    {
+      "pat": "Contribute ideas and code directly via {{1}}, or come {{2}}.",
+      "zh": "可以直接通过 {{1}} 贡献想法与代码，也可以{{2}}。"
+    },
+    {
+      "pat": "Pipelines, modules and subworkflows are based on a template, created using {{1}} . An automated sync keeps pipelines up to date.",
+      "zh": "流程、模块与子流程都基于模板创建，模板由 {{1}} 生成。自动同步会让流程保持最新。"
+    },
+    {
+      "pat": "See the source code for this website on GitHub:{{1}}{{2}}",
+      "zh": "在本站 GitHub 上查看源代码：{{1}}{{2}}"
+    },
+    {
+      "pat": "{{1}} Scope your search to one field with a prefix: {{2}}(keyword/topic),{{3}}(name),{{4}}(description),{{5}}(exact keyword/topic).",
+      "zh": "{{1}} 用前缀把检索范围限定到单个字段：{{2}}（关键词/主题），{{3}}（名称），{{4}}（描述），{{5}}（精确关键词/主题）。"
+    },
+    {
+      "pat": "{{1}} is a bioinformatics pipeline that can be used to analyse RNA sequencing data obtained from organisms with a reference genome and annotation. It takes a samplesheet with FASTQ files or pre-aligned BAM files as input, performs quality control (QC), trimming and (pseudo-)alignment, and produces a gene expression matrix and extensive QC report.",
+      "zh": "{{1}} 是一个生物信息学流程，可用于分析来自具有参考基因组和注释的物种的 RNA 测序数据。它以包含 FASTQ 文件或已比对 BAM 文件的样本表作为输入，执行质量控制（QC）、修剪与（伪）比对，并生成基因表达矩阵和详尽的质量控制报告。"
+    },
+    {
+      "pat": "In case the image above is not loading, please have a look at the {{1}}.",
+      "zh": "如果上方图片无法加载，请查看{{1}}。"
+    },
+    {
+      "pat": "Merge re-sequenced FastQ files ({{1}})",
+      "zh": "合并重新测序的 FastQ 文件（{{1}}）"
+    },
+    {
+      "pat": "Auto-infer strandedness by subsampling and pseudoalignment ({{1}}, {{2}})",
+      "zh": "通过子采样与伪比对自动推断链方向（{{1}}、{{2}}）"
+    },
+    {
+      "pat": "UMI extraction ({{1}})",
+      "zh": "UMI 提取（{{1}}）"
+    },
+    {
+      "pat": "Adapter and quality trimming ({{1}})",
+      "zh": "接头与质量修剪（{{1}}）"
+    },
+    {
+      "pat": "Removal of genome contaminants ({{1}})",
+      "zh": "去除基因组污染物（{{1}}）"
+    },
+    {
+      "pat": "Removal of ribosomal RNA ({{1}})",
+      "zh": "去除核糖体 RNA（{{1}}）"
+    },
+    {
+      "pat": "Choice of multiple alignment and quantification routes ({{1}}):",
+      "zh": "多种比对与定量路线可选（{{1}}）："
+    },
+    {
+      "pat": "Contamination detection on selected screening reads (unaligned by default); {{1}}",
+      "zh": "对选定的筛查读段进行污染检测（默认使用未比对读段）；{{1}}"
+    },
+    {
+      "pat": "For {{1}} the sentieon implementation can be chosen",
+      "zh": "{{1}}可选用 sentieon 实现"
+    },
+    {
+      "pat": "Sort and index alignments ({{1}})",
+      "zh": "比对结果排序并建立索引（{{1}}）"
+    },
+    {
+      "pat": "UMI-based deduplication ({{1}})",
+      "zh": "基于 UMI 去重（{{1}}）"
+    },
+    {
+      "pat": "Duplicate read marking ({{1}})",
+      "zh": "标记重复读段（{{1}}）"
+    },
+    {
+      "pat": "Transcript assembly and quantification ({{1}})",
+      "zh": "转录本组装与定量（{{1}}）"
+    },
+    {
+      "pat": "Create bigWig coverage files ({{1}}, {{2}})",
+      "zh": "生成 bigWig 覆盖度文件（{{1}}、{{2}}）"
+    },
+    {
+      "pat": "disabled by default; enable with {{1}}",
+      "zh": "默认禁用；用 {{1}} 启用"
+    },
+    {
+      "pat": "Or, {{1}}: {{2}} as a single-pass alternative to RSeQC, Qualimap, dupRadar, Preseq, and SAMtools stats (enable with {{3}}; recommend trialling on pilot data first).",
+      "zh": "或者，{{1}}：{{2}} 作为 RSeQC、Qualimap、dupRadar、Preseq 和 SAMtools stats 的单遍替代方案（用 {{3}} 启用；建议先在试点数据上试用）。"
+    },
+    {
+      "pat": "Pseudoalignment and quantification ({{1}} or {{2}}; {{3}})",
+      "zh": "伪比对与定量（{{1}} 或 {{2}}；{{3}}）"
+    },
+    {
+      "pat": "Present QC for raw read, alignment, gene biotype, sample similarity, and strand-specificity checks ({{1}}, {{2}})",
+      "zh": "呈现原始读段、比对、基因类型、样本相似性与链特异性检查的质控结果（{{1}}、{{2}}）"
+    },
+    {
+      "pat": "The SRA download functionality has been removed from the pipeline ( {{1}}) and ported to an independent workflow called {{2}}. You can provide {{3}} when running nf-core/fetchngs to download and auto-create a samplesheet containing publicly available samples that can be accepted directly as input by this pipeline.",
+      "zh": "SRA 下载功能已从该流程中移除（{{1}}），并迁移到名为 {{2}} 的独立工作流。运行 nf-core/fetchngs 时可以提供 {{3}}，以下载并自动创建样本表，其中包含可直接作为本流程输入的公开样本。"
+    },
+    {
+      "pat": "Quantification isn't performed if using {{1}} due to the lack of an appropriate option to calculate accurate expression estimates from HISAT2 derived genomic alignments. However, you can use this route if you have a preference for the alignment, QC and other types of downstream analysis compatible with the output of HISAT2.",
+      "zh": "如果使用 {{1}}，则不会执行定量，因为缺少合适选项来从 HISAT2 生成的基因组比对中计算准确的表达估计值。不过，如果你偏好与 HISAT2 输出兼容的比对、质控及其他下游分析，可以使用这条路线。"
+    },
+    {
+      "pat": "If you are new to Nextflow and nf-core, please refer to {{1}} on how to set-up Nextflow. Make sure to {{2}} with {{3}} before running the workflow on actual data.",
+      "zh": "如果你是 Nextflow 和 nf-core 的新手，请参阅{{1}}了解如何安装 Nextflow。在真实数据上运行工作流之前，请务必用 {{3}} {{2}}。"
+    },
+    {
+      "pat": "Each row represents a fastq file (single-end) or a pair of fastq files (paired end). Rows with the same sample identifier are considered technical replicates and merged automatically. The strandedness refers to the library preparation and will be automatically inferred if set to {{1}}. The {{2}} column is optional; for a single platform across all samples, use the {{3}} parameter instead.",
+      "zh": "每一行代表一个 fastq 文件（单端）或一对 fastq 文件（双端）。样本标识相同的行会被视为技术重复并自动合并。strandedness 指文库制备方式，若设为 {{1}} 将自动推断。{{2}} 列是可选的；如果所有样本使用同一平台，请改用 {{3}} 参数。"
+    },
+    {
+      "pat": "The pipeline supports a two-step reprocessing workflow using BAM files from previous runs. Run initially with {{1}} to generate a samplesheet with BAM paths, then reprocess using {{2}} for efficient downstream analysis without repeating expensive alignment steps. This feature is designed specifically for pipeline-generated BAMs.",
+      "zh": "该流程支持使用此前运行的 BAM 文件进行两步重处理。先以 {{1}} 运行，生成包含 BAM 路径的样本表，然后用 {{2}} 重处理，从而高效完成下游分析，无需重复昂贵的比对步骤。此功能专为流程生成的 BAM 设计。"
+    },
+    {
+      "pat": "Please provide pipeline parameters via the CLI or Nextflow {{1}} option. Custom config files including those provided by the {{2}} Nextflow option can be used to provide any configuration {{3}}; see {{4}}.",
+      "zh": "请通过 CLI 或 Nextflow 的 {{1}} 选项提供流程参数。自定义配置文件（包括通过 Nextflow 的 {{2}} 选项提供的文件）可以用来提供任何配置，{{3}}；参见{{4}}。"
+    },
+    {
+      "pat": "For more details and further functionality, please refer to the {{1}} and the {{2}}.",
+      "zh": "更多细节与功能请参阅{{1}}和{{2}}。"
+    },
+    {
+      "pat": "To see the results of an example test run with a full size dataset refer to the {{1}} tab on the nf-core website pipeline page. For more details about the output files and reports, please refer to the {{2}}.",
+      "zh": "要查看使用完整数据集进行的示例测试运行结果，请参阅 nf-core 网站流程页面上的{{1}}选项卡。有关输出文件与报告的更多细节，请参阅{{2}}。"
+    },
+    {
+      "pat": "This pipeline quantifies RNA-sequenced reads relative to genes/transcripts in the genome and normalizes the resulting data. It does not compare the samples statistically in order to assign significance in the form of FDR or P-values. For downstream analyses, the output files from this pipeline can be analysed directly in statistical environments like {{1}}, {{2}} or via the {{3}} pipeline.",
+      "zh": "该流程将 RNA 测序读段相对基因组中的基因/转录本进行定量，并对结果数据做归一化。它不会对样本做统计比较，因此不会给出 FDR 或 P 值形式的显著性。若需下游分析，可直接在 {{1}}、{{2}} 等统计环境中分析该流程的输出文件，或通过 {{3}} 流程进行分析。"
+    },
+    {
+      "pat": "A short talk about the history, current status and functionality on offer in this pipeline was given by Harshil Patel ({{1}}) on {{2}} as part of the nf-core/bytesize series.",
+      "zh": "Harshil Patel（{{1}}）于 {{2}} 在 nf-core/bytesize 系列中作了简短报告，介绍了该流程的历史、现状与功能。"
+    },
+    {
+      "pat": "You can find numerous talks on the {{1}} from various topics including writing pipelines/modules in Nextflow DSL2, using nf-core tooling, running nf-core pipelines as well as more generic content like contributing to Github. Please check them out!",
+      "zh": "在{{1}}上可以找到大量讲座，主题涵盖用 Nextflow DSL2 编写流程/模块、使用 nf-core 工具、运行 nf-core 流程，以及为 Github 做贡献等更通用的内容。欢迎去看看！"
+    },
+    {
+      "pat": "These scripts were originally written for use at the {{1}}, part of {{2}} in Stockholm, Sweden, by Phil Ewels ({{3}}) and Rickard Hammarén ({{4}}).",
+      "zh": "这些脚本最初由 Phil Ewels（{{3}}）和 Rickard Hammarén（{{4}}）为瑞典斯德哥尔摩的 {{1}}（隶属于 {{2}}）编写。"
+    },
+    {
+      "pat": "The pipeline was re-written in Nextflow DSL2 by Harshil Patel ({{1}}) from {{2}}, and is currently maintained by Jonathan Manning ({{3}}) and the nf-core community.",
+      "zh": "该流程由来自 {{2}} 的 Harshil Patel（{{1}}）用 Nextflow DSL2 重写，目前由 Jonathan Manning（{{3}}）和 nf-core 社区维护。"
+    },
+    {
+      "pat": "The pipeline workflow diagram was initially designed by Sarah Guinchard ({{1}}) and James Fellows Yates ({{2}}), further modifications where made by Harshil Patel ({{3}}) and Maxime Garcia ({{4}}).",
+      "zh": "该流程的工作流图最初由 Sarah Guinchard（{{1}}）和 James Fellows Yates（{{2}}）设计，后续修改由 Harshil Patel（{{3}}）和 Maxime Garcia（{{4}}）完成。"
+    },
+    {
+      "pat": "If you would like to contribute to this pipeline, please see the {{1}}.",
+      "zh": "如果你想为该流程做贡献，请参阅{{1}}。"
+    },
+    {
+      "pat": "For further information or help, don't hesitate to get in touch on the {{1}} (you can join with {{2}}).",
+      "zh": "如需更多信息或帮助，欢迎通过{{1}}联系我们（可通过{{2}}加入）。"
+    },
+    {
+      "pat": "If you use nf-core/rnaseq for your analysis, please cite it using the following doi: {{1}}",
+      "zh": "如果你在分析中使用 nf-core/rnaseq，请使用以下 doi 引用：{{1}}"
+    },
+    {
+      "pat": "An extensive list of references for the tools used by the pipeline can be found in the {{1}} file.",
+      "zh": "该流程所用工具的详尽参考文献列表可在 {{1}} 文件中找到。"
+    },
+    {
+      "pat": "You can cite the {{1}} publication as follows:",
+      "zh": "可按如下方式引用{{1}}论文："
+    },
+    {
+      "pat": "See the {{1}}on how to configure the Seqera Platform CLI.",
+      "zh": "有关如何配置 Seqera Platform CLI，参见{{1}}。"
+    },
+    {
+      "pat": "This document describes the output produced by the pipeline. Most of the plots are taken from the MultiQC report generated from the {{1}} for the pipeline using a command similar to the one below:",
+      "zh": "本文档介绍该流程产生的输出。大部分图表取自 MultiQC 报告，该报告由{{1}}使用与下方类似的命令生成："
+    },
+    {
+      "pat": "Many of the BAM files produced by this pipeline can be reused as input for future runs with {{1}}. This is particularly useful for reprocessing data or running downstream analysis steps without repeating computationally expensive alignment. See the {{2}} for details on using BAM files as input.",
+      "zh": "该流程产生的许多 BAM 文件可以通过 {{1}} 作为后续运行的输入复用。这在重新处理数据或运行下游分析步骤时特别有用，可避免重复耗时的比对。有关将 BAM 文件用作输入的详情，请参阅{{2}}。"
+    },
+    {
+      "pat": "When running with {{1}}, the output directory structure changes from tool-centric (e.g. {{2}}, {{3}}) to sample-centric (e.g. {{4}}, {{5}}). Shared outputs like reference genome files and pipeline metadata remain at the top level. See the {{6}} for details.",
+      "zh": "使用 {{1}} 运行时，输出目录结构会从以工具为中心（例如 {{2}}、{{3}}）变为以样本为中心（例如 {{4}}、{{5}}）。参考基因组文件和流程元数据等共享输出仍位于顶层。详情请参阅{{6}}。"
+    },
+    {
+      "pat": "The pipeline is built using {{1}} and processes data using the following steps:",
+      "zh": "该流程基于 {{1}} 构建，并使用以下步骤处理数据："
+    }
+  ]
+}

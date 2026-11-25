@@ -2008,6 +2008,104 @@
       "scope": "body",
       "proseExempt": ".vf-banner",
       "spa": false
+    },
+    {
+      "id": "nfcore",
+      "name": "nf-core",
+      "hosts": [
+        "nf-co.re"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "nfcore"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "body",
+      "skip": ".doc-subpage-list a"
+    },
+    {
+      "id": "galaxy",
+      "name": "Galaxy",
+      "hosts": [
+        "usegalaxy.org",
+        "galaxyproject.org",
+        "www.galaxyproject.org"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "galaxy"
+      ],
+      "scope": "body, #everything",
+      "spa": true,
+      "waitFor": "body",
+      "scopedExact": [
+        {
+          "sel": "h1",
+          "exact": {
+            "Your Data Analysis Platform": "你的数据分析平台",
+            "Meet Galaxy": "认识 Galaxy"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bioc",
+      "name": "Bioconductor",
+      "hosts": [
+        "bioconductor.org",
+        "www.bioconductor.org"
+      ],
+      "dicts": [
+        "common",
+        "bioc"
+      ],
+      "scope": "body",
+      "attrs": [
+        "title",
+        "alt",
+        "placeholder"
+      ]
+    },
+    {
+      "id": "biogrid",
+      "name": "BioGRID",
+      "hosts": [
+        "wiki.thebiogrid.org",
+        "thebiogrid.org",
+        "www.thebiogrid.org"
+      ],
+      "dicts": [
+        "common",
+        "biogrid"
+      ],
+      "scope": "body",
+      "attrs": [
+        "title",
+        "alt",
+        "placeholder",
+        "label"
+      ]
+    },
+    {
+      "id": "ensemblgenomes",
+      "name": "Ensembl Genomes",
+      "hosts": [
+        "ensemblgenomes.org",
+        "www.ensemblgenomes.org",
+        "*.ensemblgenomes.org"
+      ],
+      "dicts": [
+        "common",
+        "anatomy",
+        "spa",
+        "ensembl-extra",
+        "ensemblgenomes"
+      ],
+      "scope": "body",
+      "spa": true
     }
   ]
 }

@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "family": "ensembl",
+    "sites": [
+      "ensemblgenomes.org"
+    ],
+    "area": "Ensembl Genomes 门户（首页五个分类门户入口与新版站点指引、页头标语、检索页的检索框/分类群下拉/结果标签与分页、404 页、Cookie 提示条与页脚署名）",
+    "note": "子门户（plants/fungi/metazoa/protists/bacteria.ensembl.org）由 ensembl 站点配置覆盖，本册只收 ensemblgenomes.org 门户自身文案。物种名与拉丁名（Bread wheat、Baker’s yeast、Triticum aestivum 等）、装配名（IWGSC、TAIR10）、产品名（EnsemblPlants/EnsemblMetazoa/EnsemblFungi/EnsemblBacteria/EnsemblProtists）、登录号与检索结果里的基因描述正文保持英文。"
+  },
+  "exact": {
+    "Providing genome data for non-vertebrate species, with tools for the manipulation, analysis and visualisation of that data": "为非脊椎动物物种提供基因组数据，以及处理、分析与可视化这些数据的工具",
+    "Latest release notes, updates & news from our blog": "博客上的最新发布说明、更新与新闻",
+    "Search all genomes": "检索全部基因组",
+    "Go": "检索",
+    "This is the new home for genome data from across the tree of life, all in one platform": "这里是生命之树各分支基因组数据的新家，全部汇集于一个平台",
+    "Go to the new Ensembl site": "前往新版 Ensembl 站点",
+    "Go to Ensembl Plants": "前往 Ensembl Plants",
+    "Go to Ensembl Metazoa": "前往 Ensembl Metazoa",
+    "Go to Ensembl Protists": "前往 Ensembl Protists",
+    "Go to Ensembl Fungi": "前往 Ensembl Fungi",
+    "Go to Ensembl Bacteria": "前往 Ensembl Bacteria",
+    "Search in division": "在分类群中检索",
+    "Bacteria": "细菌",
+    "Fungi": "真菌",
+    "Metazoa": "后生动物",
+    "Plants": "植物",
+    "Protists": "原生生物",
+    "Search bacteria": "检索细菌",
+    "Search fungi": "检索真菌",
+    "Search metazoa": "检索后生动物",
+    "Search plants": "检索植物",
+    "Search protists": "检索原生生物",
+    "Privacy Policy": "隐私政策",
+    "Terms of Use": "使用条款",
+    "I agree": "我同意",
+    "« first": "« 首页",
+    "last »": "末页 »",
+    "Home page": "首页",
+    "ensembl logo": "Ensembl 标志",
+    "ensembl blog": "Ensembl 博客",
+    "embl-ebi logo": "EMBL-EBI 标志",
+    "elixir logo": "ELIXIR 标志",
+    "Transcripts:": "转录本：",
+    "Peptides:": "肽段："
+  },
+  "rules": [
+    {
+      "re": "^(\\d+) results? for (\"[^\"]*\")$",
+      "to": "$1 条结果：$2"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Ensembl Genomes is developed by {{1}}",
+      "zh": "Ensembl Genomes 由 {{1}} 开发"
+    },
+    {
+      "pat": "This website requires cookies in order to function. By using the site you are agreeing to this as outlined in our {{1}} and {{2}}.",
+      "zh": "本网站需要 Cookie 才能正常运行。使用本网站即表示你同意我们{{1}}和{{2}}中所述的做法。"
+    },
+    {
+      "pat": "Please try a Search or go to the {{1}}",
+      "zh": "请尝试检索，或返回{{1}}"
+    }
+  ]
+}

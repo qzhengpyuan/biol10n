@@ -119,8 +119,8 @@
       "zh": "在 Expression Atlas 中，您可以经由我们的{{1}}逐个下载每个数据集。"
     },
     {
-      "pat": "You can also download multiple experiment files as a single ZIP archive using the command line with curl. For example: {{1}} Replace {{2}} and {{3}} with the experiment accessions you wish to download.",
-      "zh": "您还可以在命令行中使用 curl 将多个实验文件下载为单个 ZIP 归档。例如：{{1}} 请将{{2}}与{{3}}替换为您要下载的实验登录号。"
+      "pat": "You can also download multiple experiment files as a single ZIP archive using the command line with {{1}}.{{2}} For example:{{3}} {{4}} {{5}} Replace {{6}} and {{7}} with the experiment accessions you wish to download.",
+      "zh": "您也可以使用命令行，通过 {{1}} 将多个实验文件下载为单个 ZIP 归档。{{2}} 例如：{{3}} {{4}} {{5}} 请将 {{6}} 和 {{7}} 替换为您要下载的实验登录号。"
     },
     {
       "pat": "For two-channel microarray experiments you can download the log{{1}} fold changes using the {{2}} button.",

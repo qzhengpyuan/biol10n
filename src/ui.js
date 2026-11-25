@@ -613,12 +613,17 @@ function createBioL10nUI(opts) {
 
   function copyPayload(payload, okMsg) {
     if (!payload) { toast("没有可复制的内容"); return false; }
-    var done = function () { toast(okMsg || "已复制"); };
-    var fail = function () { toast("复制失败，请手动选中"); };
+    // 页面没焦点时 navigator.clipboard.writeText 可能一直 pending（不 resolve 也不 reject），
+    // 用户点了按钮却看不到任何反馈；900ms 后换 execCommand 兜底，保证一定有提示。
+    var settled = false;
+    var done = function () { if (settled) return; settled = true; toast(okMsg || "已复制"); };
+    var fail = function () { if (settled) return; settled = true; toast("复制失败，请手动选中"); };
+    var fallback = function () { if (settled) return; legacyCopy(payload) ? done() : fail(); };
     if (win.navigator && win.navigator.clipboard && win.navigator.clipboard.writeText) {
-      win.navigator.clipboard.writeText(payload).then(done, function () { legacyCopy(payload) ? done() : fail(); });
+      win.setTimeout(fallback, 900);
+      win.navigator.clipboard.writeText(payload).then(done, fallback);
     } else {
-      legacyCopy(payload) ? done() : fail();
+      fallback();
     }
     return true;
   }

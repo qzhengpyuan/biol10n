@@ -516,7 +516,8 @@
     "Bioinformatics Pipeline: Copy Number Variation Analysis": "生物信息学流程：拷贝数变异分析",
     "Bioinformatics Pipeline: Methylation Analysis Pipeline": "生物信息学流程：甲基化分析流程",
     "Bioinformatics Pipeline: Protein Expression": "生物信息学流程：蛋白表达",
-    "Copy Number Segment": "拷贝数片段"
+    "Copy Number Segment": "拷贝数片段",
+    "NIH Websites Are Changing": "NIH 网站正在变更"
   },
   "rules": [
     {
@@ -879,6 +880,10 @@
     {
       "pat": "The GDC draws upon the expertise of collaborators in the development of pipelines supporting data processing including the standardization of associated biospecimen and clinical data, the re-alignment of DNA and RNA sequence data against a common reference genome build, and the generation of derived data. GDC pipelines are implemented using data processing software and algorithms selected in consultation with the expert genomics community. GDC Workflows including fully implemented bioinformatics tools, Common Workflow Language (CWL) scripts, and Docker files are available in the {{1}} for reproducibility and are documented in the {{2}}.",
       "zh": "GDC 借助合作者的专业能力开发支持数据处理的流程，涵盖相关生物样本与临床数据的标准化、将 DNA 与 RNA 序列数据重新比对到统一的参考基因组版本，以及衍生数据的生成。GDC 流程使用经与基因组学专家社区协商选定的数据处理软件与算法实现。包含完整实现的生物信息学工具、通用工作流语言（CWL）脚本与 Docker 文件的 GDC 工作流可在{{1}}中获取以保证可重现性，并记录在{{2}}中。"
+    },
+    {
+      "pat": "Per {{1}}, federal agencies are now using \"Super Intelligence\" (SI) in place of \"Artificial Intelligence\" (AI). You may see both terms across NIH content during this transition.",
+      "zh": "根据{{1}}，联邦机构现已用「超级智能」（SI）取代「人工智能」（AI）。在此过渡期间，NIH 内容中这两种说法都可能出现。"
     }
   ]
 }

@@ -519,7 +519,8 @@
     "The GDC API is the external facing REST interface for the GDC.": "GDC API 是 GDC 面向外部的 REST 接口。",
     "The GDC provides documentation and support resources to assist users.": "GDC 提供文档与支持资源以帮助用户。",
     "The latest news and more about the GDC.": "关于 GDC 的最新新闻与更多内容。",
-    "Filter your cohort by:": "按以下条件筛选队列："
+    "Filter your cohort by:": "按以下条件筛选队列：",
+    "NIH Websites Are Changing": "NIH 网站正在变更"
   },
   "rules": [
     {
@@ -601,6 +602,12 @@
     {
       "re": "^The Next Generation Cancer Knowledge Base \\| NCI Genomic Data Commons$",
       "to": "下一代癌症知识库 | NCI 基因组数据共享平台"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Per {{1}}, federal agencies are now using \"Super Intelligence\" (SI) in place of \"Artificial Intelligence\" (AI). You may see both terms across NIH content during this transition.",
+      "zh": "根据{{1}}，联邦机构现已用「超级智能」（SI）取代「人工智能」（AI）。在此过渡期间，NIH 内容中这两种说法都可能出现。"
     }
   ]
 }

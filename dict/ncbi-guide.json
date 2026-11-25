@@ -371,7 +371,8 @@
     "View genotype frequency data for a gene, disease or short genetic variation": "查看基因、疾病或短遗传变异的基因型频率数据",
     "Download a large, custom set of records from NCBI": "从 NCBI 下载大批量自定义记录集",
     "support page for Firefox": "Firefox 支持页面",
-    "NCBI Web Site": "NCBI 网站"
+    "NCBI Web Site": "NCBI 网站",
+    "Site Guide": "站点指南"
   },
   "rules": [
     {

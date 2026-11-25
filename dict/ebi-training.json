@@ -37,12 +37,38 @@
     "Close and delete": "关闭并删除",
     "EMBL-EBI Training is part of the ELIXIR infrastructure": "EMBL-EBI 培训是 ELIXIR 基础设施的组成部分",
     "The EMBL-EBI Training Programme contributes to the ELIXIR Training Platform": "EMBL-EBI 培训计划为 ELIXIR 培训平台提供支持",
-    "European Molecular Biology Laboratory": "欧洲分子生物学实验室"
+    "European Molecular Biology Laboratory": "欧洲分子生物学实验室",
+    "Breadcrumb": "面包屑导航",
+    "Search within on-demand training": "在点播培训中检索",
+    "Pagination": "页码",
+    "Go to first page": "转到第一页",
+    "Go to previous page": "上一页",
+    "Go to next page": "下一页",
+    "Go to last page": "转到最后一页",
+    "Open chat": "打开聊天",
+    "Ada - Training AI Assistant": "Ada - 培训 AI 助手",
+    "Chatbot header": "聊天机器人标题栏",
+    "Chatbot selector": "聊天机器人选择器",
+    "Minimize chatbot": "最小化聊天机器人",
+    "Close chatbot": "关闭聊天机器人",
+    "Chatbot welcome screen": "聊天机器人欢迎界面",
+    "AI Assistant": "AI 助手",
+    "Chat messages": "聊天消息",
+    "Chat message input": "聊天消息输入框",
+    "Ask me ...": "问我……",
+    "Send message": "发送消息",
+    "footnote": "脚注",
+    "Leave feedback (opens in new tab)": "提供反馈（在新标签页打开）",
+    "Close dialog": "关闭对话框"
   },
   "rules": [
     {
       "re": "^Showing ([\\d,]+) out of ([\\d,]+) in on-demand training$",
       "to": "点播培训共 $2 项，当前显示 $1 项"
+    },
+    {
+      "re": "^Go to page number (\\d+)$",
+      "to": "转到第 $1 页"
     }
   ],
   "templates": []

@@ -83,7 +83,7 @@ const header = [
   "// @icon64       https://raw.githubusercontent.com/qzhengpyuan/biol10n/main/assets/icon-64.png",
   "// @downloadURL  " + RAW_URL,
   "// @updateURL    " + RAW_URL,
-  "// @run-at       document-end",
+  "// @run-at       document-start",
   "// @grant        none",
   matches,
   "// ==/UserScript==",

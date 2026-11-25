@@ -71,6 +71,33 @@
     return null;
   }
 
+  // 注入时机：脚本是 document-start 注入的，但翻译必须等 body 有内容。
+  // 为什么不留在 document-end：有些站点 HTML 一直流不完（dbSNP 变异页 25 秒后 document.readyState
+  // 仍是 "loading"，DOMContentLoaded 从不触发），document-end 的脚本根本不会被注入，整页零汉化。
+  function whenBodyReady(fn) {
+    var started = false;
+    function go() {
+      if (started || !document.body) return;
+      started = true;
+      fn();
+    }
+    if (document.body && document.readyState !== "loading") { go(); return; }
+    document.addEventListener("DOMContentLoaded", go);
+    var tries = 0;
+    var timer = setInterval(function () {
+      tries++;
+      if (document.body && (document.body.childElementCount > 0 || document.readyState !== "loading")) {
+        clearInterval(timer);
+        go();
+      } else if (tries > 12) {   // 6 秒还没铺开也先跑，MutationObserver 会继续补后续节点
+        clearInterval(timer);
+        go();
+      }
+    }, 500);
+  }
+
+  whenBodyReady(function () {
+
   var site = pick(SITES.sites);
   if (!site) return;
   // Cloudflare 质询页 / 维护页不翻：这类页面正文就是挑战文案（请稍候… / Ray ID），
@@ -188,5 +215,6 @@
       else { eng.enable(); chinese = true; }
       try { ui.refreshState(); } catch (e) {}
     }
+  });
   });
 })();

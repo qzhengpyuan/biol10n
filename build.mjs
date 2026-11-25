@@ -38,6 +38,25 @@ if (unused.length) {
   process.exit(1);
 }
 
+// 词条形状校验：rules 必须是 {"re","to"} 对象、templates 必须是 {"pat","zh"}。
+// 写成 ["正则","替换"] 数组时构建不报错，但运行期 translateRules 会直接抛 TypeError，
+// 整个站的翻译当场瘫掉（0.12.7 开发 ebi-training 时踩到，靠单测才发现）。
+for (const id of Object.keys(dict)) {
+  const d = dict[id];
+  (d.rules || []).forEach((r, i) => {
+    if (!r || typeof r.re !== "string" || typeof r.to !== "string") {
+      console.error("构建中止：" + id + ".rules[" + i + "] 必须是 {\"re\":\"…\",\"to\":\"…\"}，实际 " + JSON.stringify(r));
+      process.exit(1);
+    }
+  });
+  (d.templates || []).forEach((t, i) => {
+    if (!t || typeof t.pat !== "string" || typeof t.zh !== "string") {
+      console.error("构建中止：" + id + ".templates[" + i + "] 必须是 {\"pat\":\"…\",\"zh\":\"…\"}，实际 " + JSON.stringify(t));
+      process.exit(1);
+    }
+  });
+}
+
 const hosts = new Set();
 for (const s of sites.sites) for (const h of s.hosts) hosts.add(h);
 const matchLines = [];

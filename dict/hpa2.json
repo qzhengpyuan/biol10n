@@ -54,9 +54,189 @@
     "isoform specific protein expression": "异构体特异性蛋白质表达",
     "the catalogue of genes with a dominant isoform or other categories based on aggregated data": "基于汇总数据、具有优势异构体或其他类别的基因目录",
     "RNA expression profiles across major organs and tissues in different mammalian species": "不同哺乳动物物种主要器官与组织中的 RNA 表达谱",
-    "Conservation and divergence of gene expression patterns during mammalian evolution": "哺乳动物演化过程中基因表达模式的保守与分化"
+    "Conservation and divergence of gene expression patterns during mammalian evolution": "哺乳动物演化过程中基因表达模式的保守与分化",
+    "THE CANCER PROTEOMES": "癌症蛋白质组",
+    "(Transcriptomics)": "（转录组学）",
+    "TCGA only": "仅 TCGA",
+    "TCGA + validation": "TCGA + 验证",
+    "(Mass spectrometry)": "（质谱）",
+    "ProteinTalks DB only": "仅 ProteinTalks DB",
+    "(Immunohistochemistry)": "（免疫组织化学）",
+    "Head and neck": "头颈部",
+    "Liver and biliary tract": "肝脏与胆道",
+    "Biliary tract cancer": "胆道癌",
+    "Thymic cancer": "胸腺癌",
+    "Male": "男性",
+    "Stomach cancer": "胃癌",
+    "Female": "女性",
+    "Fallopian tube cancer": "输卵管癌",
+    "Renal cancer": "肾癌",
+    "Urothelial cancer": "尿路上皮癌",
+    "TCGA dataset": "TCGA 数据集",
+    "PROGNOSTIC AND DIFFERENTIALLY ABUNDANT GENES": "预后与差异丰度基因",
+    "Prognostic genes (TCGA)": "预后基因（TCGA）",
+    "Differential abundance (MS)": "差异丰度（MS）",
+    "HUMAN CANCER": "人类癌症",
+    "The human cancer proteome": "人类癌症蛋白质组",
+    "Hallmarks of cancer": "癌症标志",
+    "Cancer statistics": "癌症统计",
+    "Glioblastoma multiforme": "多形性胶质母细胞瘤",
+    "Thyroid carcinoma": "甲状腺癌",
+    "Lung adenocarcinoma": "肺腺癌",
+    "Lung squamous cell carcinoma": "肺鳞状细胞癌",
+    "Head and neck squamous cell carcinoma": "头颈部鳞状细胞癌",
+    "Colon adenocarcinoma": "结肠腺癌",
+    "Rectum adenocarcinoma": "直肠腺癌",
+    "Stomach adenocarcinoma": "胃腺癌",
+    "Liver hepatocellular carcinoma": "肝细胞癌",
+    "Pancreatic adenocarcinoma": "胰腺腺癌",
+    "Bladder urothelial carcinoma": "膀胱尿路上皮癌",
+    "Kidney chromophobe": "肾嫌色细胞癌",
+    "Kidney renal clear cell carcinoma": "肾透明细胞癌",
+    "Kidney renal papillary cell carcinoma": "肾乳头状细胞癌",
+    "Prostate adenocarcinoma": "前列腺腺癌",
+    "Testicular germ cell tumor": "睾丸生殖细胞肿瘤",
+    "Breast invasive carcinoma": "乳腺浸润性癌",
+    "Ovary serous cystadenocarcinoma": "卵巢浆液性囊腺癌",
+    "Uterine corpus endometrial carcinoma": "子宫体子宫内膜癌",
+    "Skin cutaneous melanoma": "皮肤黑色素瘤",
+    "Organelle": "细胞器",
+    "Cell cycle dependent transcriptome and proteome": "细胞周期依赖的转录组与蛋白质组",
+    "Nucleus": "细胞核",
+    "Endomembrane System": "内膜系统",
+    "Endomembrane system": "内膜系统",
+    "Secretory": "分泌型",
+    "Secreted Proteins": "分泌蛋白",
+    "Secreted proteins": "分泌蛋白",
+    "- Secreted proteins": "- 分泌蛋白",
+    "Rods and rings": "杆环结构",
+    "Metabolic proteome": "代谢蛋白质组",
+    "Subcell location UMAP": "亚细胞定位 UMAP",
+    "A Journey through the Cell": "细胞之旅",
+    "Programmatic data access": "程序化数据访问",
+    "FAQ": "常见问题",
+    "Data questions": "数据问题",
+    "General questions": "通用问题",
+    "Help texts are available for all data pages via the \"i\" in the table headlines.": "所有数据页的表格标题处均可通过「i」查看帮助文本。",
+    "There are numerous ways you can download data:": "下载数据有多种方式：",
+    "Obtain a subset of the data as XML and TAB files containing data from the result of a search. Use the links located at the far right in the table header of the search result.": "以 XML 与 TAB 文件获取包含检索结果数据的子集。使用检索结果表格标题最右侧的链接。",
+    "The best way to save or download a specific search result from the Human Protein Atlas is to use the TAB-file option located at the far right in the table header of the search result list.": "保存或下载人类蛋白质图谱中特定检索结果的最佳方式，是使用检索结果列表表格标题最右侧的 TAB 文件选项。",
+    "No, unfortunately not. The easiest way to extract the information is probably to use XML transformation such as XSLT.": "很遗憾，没有。提取这些信息最简单的办法大概是使用 XSLT 之类的 XML 转换。",
+    "Unfortunately not, the available data is already listed on the homepage (gender, age, diagnosis and grade, if known) and since all material is anonymized there is no possibility to find further information than what we are already showing.": "很遗憾，不能。可用数据已在主页列出（性别、年龄、诊断与分级，如有），且所有材料均已匿名化，无法找到比现有展示更多的信息。",
+    "Start by looking at the antibodies used in the \"antibody/antigen\" tag; provider and product name are listed there, follow the provider-link and search for the product name (HPA antibodies are directly linked).": "先查看「antibody/antigen」标签中所用抗体；那里列出了供应商与产品名称，点击供应商链接并检索产品名称（HPA 抗体已直接链接）。",
+    "Stomach 1 & stomach 2, endometrium 1 & endometrium 2, soft tissue 1 and 2:": "胃 1 与胃 2、子宫内膜 1 与子宫内膜 2、软组织 1 与 2：",
+    "Skin 1 and skin 2:": "皮肤 1 与皮肤 2：",
+    "Data usage policy": "数据使用政策",
+    "downloadable data section": "可下载数据部分",
+    "search help page": "检索帮助页面",
+    "xml files": "XML 文件",
+    "the licence & citation page": "许可与引用页面",
+    "download page": "下载页面",
+    "Tissue methods summary": "组织方法摘要",
+    "Tissues methods summary": "组织方法摘要",
+    "the Cell Atlas": "细胞图谱",
+    "article": "文章",
+    "following page": "以下页面",
+    "How can I download your data?": "如何下载你们的数据？",
+    "Is the primary data based on manual evaluation of antibody staining available for download?": "基于人工评估抗体染色的原始数据可供下载吗？",
+    "Is it possible to save the result of a search?": "可以保存检索结果吗？",
+    "Is it possible to extract a list of a certain protein class such as all secreted proteins?": "可以导出某一蛋白质类别（例如全部分泌蛋白）的列表吗？",
+    "Is there an efficient way to download the subcellular images for a set of proteins?": "有没有高效下载一组蛋白质亚细胞图像的方法？",
+    "Do you provide a parser script that we can use to convert the XML file into a more readable format?": "你们提供可用于把 XML 文件转换为更易读格式的解析脚本吗？",
+    "Can we look at your RNA-seq raw data?": "我们能查看你们的 RNA-seq 原始数据吗？",
+    "Is it possible to use your data for commercial purposes?": "可以将你们的数据用于商业用途吗？",
+    "Is it possible to obtain more detailed patient data?": "可以获得更详细的患者数据吗？",
+    "I cannot find antibody/images/data I previously saw in the Human Protein Atlas, why?": "我在人类蛋白质图谱中之前看到的抗体／图像／数据找不到了，为什么？",
+    "I am interested in buying one of the antibodies you have tested, where can I find it?": "我想购买你们检测过的某种抗体，在哪里可以找到？",
+    "Can I get the protocol used for staining the antibody?": "可以获取抗体染色所用的实验方案吗？",
+    "How are the reliability scores set?": "可靠性评分是如何设定的？",
+    "How is the protein expression scored?": "蛋白质表达是如何评分的？",
+    "The stained image is brown, but the expression score says \"not detected\", why?": "染色图像呈棕色，但表达评分显示「未检出」，为什么？",
+    "We would like to include images (results) from the Human Protein Atlas in our publication, is that possible?": "我们想在论文中使用人类蛋白质图谱的图像（结果），可以吗？",
+    "How do I cite the Human Protein Atlas?": "如何引用人类蛋白质图谱？",
+    "Are you able to provide tissue sample for testing?": "你们能提供组织样本用于检测吗？",
+    "The gene that I am interested in is still missing protein expression data, when can that data be expected to be included in the database?": "我关注的基因仍缺少蛋白质表达数据，预计何时会纳入数据库？",
+    "In the Tissue Atlas, some tissues are denoted 1 and 2, e.g. stomach 1 and stomach 2. What do the numbers mean?": "在组织图谱中，有些组织标注为 1 和 2（例如胃 1 与胃 2），这些数字是什么意思？",
+    "Are the tissue samples in the Tissue Atlas from healthy individuals?": "组织图谱中的组织样本来自健康个体吗？",
+    "How do I interpret the Kaplan-Meier plots in the Cancer Atlas?": "如何解读癌症图谱中的 Kaplan-Meier 曲线？",
+    "The cancer proteome pages are organized according to normal tissue of origin and each page can be accessed by clicking on a cancer type name or symbol in the figure below. A gene is considered prognostic if correlation analysis of gene expression and clinical outcome resulted in Kaplan-Meier plots with high significance (p<0.001).": "癌症蛋白质组页面按正常起源组织编排，点击下图中的癌症类型名称或符号即可进入各页面。若基因表达与临床结局的相关性分析得到高显著性（p<0.001）的 Kaplan-Meier 曲线，则该基因被视为预后相关基因。",
+    "RNA-seq data from 21 cancer types, generated by The Cancer Genome Atlas (TCGA) and downloaded and processed by the HPA. Genes are classified based on pTPM levels across the 21 cancer types.": "由癌症基因组图谱（TCGA）生成、并由 HPA 下载处理的 21 种癌症类型的 RNA-seq 数据。基因依据其在 21 种癌症类型中的 pTPM 水平分类。",
+    "Correlation analysis resulted in more than 10000 prognostic genes. The number of prognostic genes with regard to cancer type and association with the favorable or unfavorable clinical outcome are summarized in the interactive chart below.": "相关性分析得到超过 10000 个预后基因。下图以交互式图表汇总了各癌症类型中与预后良好或预后不良相关的预后基因数量。",
+    "Laryngeal carcinoma": "喉癌",
+    "Tongue carcinoma": "舌癌",
+    "Mucinous colon adenocarcinoma": "黏液性结肠腺癌",
+    "Cholangiocarcinoma": "胆管癌",
+    "Renal clear cell carcinoma": "肾透明细胞癌",
+    "Prostate carcinoma": "前列腺癌",
+    "Testicular seminoma": "睾丸精原细胞瘤",
+    "Cervical carcinoma": "宫颈癌",
+    "Endometrial carcinoma": "子宫内膜癌",
+    "Fallopian tube carcinoma": "输卵管癌",
+    "High grade serous ovarian cancer": "高级别浆液性卵巢癌",
+    "Clear cell ovarian cancer": "卵巢透明细胞癌",
+    "Leiomyosarcoma": "平滑肌肉瘤",
+    "Gastrointestinal stromal tumor": "胃肠道间质瘤",
+    "Lymphoma": "淋巴瘤",
+    "Thymic epithelial tumors": "胸腺上皮肿瘤",
+    "Head and Neck Squamous Cell Carcinoma": "头颈部鳞状细胞癌",
+    "Pancreatic ductal adenocarcinoma": "胰腺导管腺癌",
+    "Renal cell carcinoma": "肾细胞癌",
+    "Uterine Corpus Endometrial Carcinoma": "子宫体子宫内膜癌",
+    "Ovary Serous Cystadenocarcinoma": "卵巢浆液性囊腺癌",
+    "No, we are not.": "不提供。"
   },
-  "rules": [],
+  "rules": [
+    {
+      "re": "^(.+), unfavorable - potential prognostic genes: (\\d+)$",
+      "to": "$1：预后不良的潜在预后基因 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), unfavorable - validated prognostic genes: (\\d+)$",
+      "to": "$1：预后不良的已验证预后基因 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), favorable - potential prognostic genes: (\\d+)$",
+      "to": "$1：预后良好的潜在预后基因 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), favorable - validated prognostic genes: (\\d+)$",
+      "to": "$1：预后良好的已验证预后基因 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), downregulated in both ProteinTalks DB and CPTAC \\((.+)\\): (\\d+)$",
+      "to": "$1：在 ProteinTalks DB 与 CPTAC 中均下调 $3 个（对应$2）",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), upregulated in both ProteinTalks DB and CPTAC \\((.+)\\): (\\d+)$",
+      "to": "$1：在 ProteinTalks DB 与 CPTAC 中均上调 $3 个（对应$2）",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), downregulated in ProteinTalks DB: (\\d+)$",
+      "to": "$1：在 ProteinTalks DB 中下调 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+), upregulated in ProteinTalks DB: (\\d+)$",
+      "to": "$1：在 ProteinTalks DB 中上调 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+) \\(CPTAC\\), downregulated: (\\d+)$",
+      "to": "$1（CPTAC）：下调 $2 个",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+) \\(CPTAC\\), upregulated: (\\d+)$",
+      "to": "$1（CPTAC）：上调 $2 个",
+      "requireHit": true
+    }
+  ],
   "templates": [
     {
       "pat": "The {{1}} resource, showing the distribution of the proteins across all major tissues and organs in the human body",
@@ -121,6 +301,78 @@
     {
       "pat": "The UMAP was generated by clustering genes based on expression patterns. The colored areas represent the area in the UMAP where most of the genes of each cluster reside. Click on a cluster or {{1}} to view an interactive UMAP and details about all cluster annotations.",
       "zh": "UMAP 由基于表达模式的基因聚类生成。彩色区域表示各聚类中大多数基因在 UMAP 中所处的区域。点击某个聚类或{{1}}，即可查看交互式 UMAP 及所有聚类注释的详情。"
+    },
+    {
+      "pat": "If you do not find the answer to your question in the available help text or the FAQ below, do not hesitate to contact us: {{1}}",
+      "zh": "如果在可用帮助文本或下方常见问题中找不到答案，欢迎联系我们：{{1}}"
+    },
+    {
+      "pat": "Specific information with examples on how to use the search function can be found on the {{1}}",
+      "zh": "关于如何使用检索功能的具体信息与示例，请见{{1}}"
+    },
+    {
+      "pat": "If you want to programmatically access data more information can be found on the {{1}}",
+      "zh": "如需以程序方式访问数据，更多信息请见{{1}}"
+    },
+    {
+      "pat": "Most of the data (complete or partial) is available as CSV/TSV or XML files in the {{1}}.",
+      "zh": "大部分数据（全部或部分）以 CSV/TSV 或 XML 文件形式提供于{{1}}。"
+    },
+    {
+      "pat": "Fetch a single entry of data/images as a TSV or XML file for one gene by URL: for instance {{1}}",
+      "zh": "可通过 URL 获取单个基因的单条数据／图像（TSV 或 XML 文件），例如 {{1}}"
+    },
+    {
+      "pat": "The protein scores of the specific cell types are available in the {{1}}.",
+      "zh": "特定细胞类型的蛋白质评分可在 {{1}} 中获取。"
+    },
+    {
+      "pat": "The list of specific protein classes as for instance predicted secreted proteins, can be found by using the protein atlas search: {{1}}. From the search result page you can then download the list of genes as tab separated values by clicking \"TAB\" located at the far right in the table header.",
+      "zh": "特定蛋白质类别（例如预测的分泌蛋白）列表可通过蛋白质图谱检索获取：{{1}}。随后在检索结果页点击表格标题最右侧的「TAB」，即可把基因列表下载为制表符分隔值。"
+    },
+    {
+      "pat": "TPM-tables of the RNA data can be found on our {{1}}.{{2}} Due to GDPR legislation we do currently not provide human tissue RNA-Seq data in raw format. We are working on making the raw RNA-Seq data available through a secure federated EGA repository where access can be managed. Timelines for this is however uncertain.",
+      "zh": "RNA 数据的 TPM 表可在我们的{{1}}上找到。{{2}}出于 GDPR 法规，我们目前不提供原始格式的人体组织 RNA-Seq 数据。我们正努力通过访问可受管理的安全联邦 EGA 仓库提供原始 RNA-Seq 数据，但相关时间表尚不确定。"
+    },
+    {
+      "pat": "Yes, please see {{1}} for full details.",
+      "zh": "可以，详见{{1}}。"
+    },
+    {
+      "pat": "We update the Human Protein Atlas regularly based on careful curation of the data. Curation involves, among other things, removal of data/antibody/images which do not meet our quality criteria. When possible we replace data/antibody/images with more recent improved versions.{{1}}{{2}}Please visit {{3}} to find out in which version the antibody of your interest was removed or old images were replaced with more recent ones. You can access previous versions of the Human Protein Atlas by typing vX.proteinatlas.org in your web browser and replace X with the version relevant for you.",
+      "zh": "我们依据对数据的仔细审校定期更新人类蛋白质图谱。审校包括移除不符合我们质量标准的数据／抗体／图像等。条件允许时，我们会用更新的改进版本替换数据／抗体／图像。{{1}}{{2}}请访问{{3}}，查看你关注的抗体是在哪个版本中被移除的，或旧图像在哪个版本中被替换为新图像。你可以在浏览器中输入 vX.proteinatlas.org（把 X 换成所需的版本号）访问人类蛋白质图谱的旧版本。"
+    },
+    {
+      "pat": "Yes, you can download the protocol for both {{1}} and {{2}}.",
+      "zh": "可以，{{1}} 与 {{2}} 的实验方案均可下载。"
+    },
+    {
+      "pat": "The guidelines for the reliability scores are specific for each sub-atlas. You can read more about the guidelines for the Tissue Atlas {{1}} and the Cell Atlas {{2}}. The reliability score is based on consistency with internal RNA-seq data, support from external sources (UniprotKB/Swiss-Prot), as well as staining pattern similarity between independent antibodies.",
+      "zh": "可靠性评分指南因各子图谱而异。有关组织图谱指南的更多内容请见{{1}}，细胞图谱请见{{2}}。可靠性评分依据与内部 RNA-seq 数据的一致性、外部来源（UniprotKB/Swiss-Prot）的支持，以及不同独立抗体间染色模式的相似性。"
+    },
+    {
+      "pat": "Protein expression score is based on immunohistochemical data manually scored with regard to staining intensity (negative, weak, moderate or strong) and fraction of stained cells (<25%, 25-75% or >75%). Each combination of intensity and fractions is automatically converted into an protein expression level score as follows: negative - not detected; weak <25% - not detected; weak combined with either 25 - 75% or 75% - low; moderate <25% - low; moderate combined with either 25 - 75% or 75% - medium; strong <25% - medium, strong combined with either 25 - 75% or 75% - high. In addition to this, protein expression values are manually adjusted as necessary when evaluated by our expert annotators. More information about knowledge-based annotation is available in the {{1}}.{{2}}{{3}}An comprehensive summary of immunohistochemical primary data is available for each gene on the “Primary data page”, e.g. {{4}}",
+      "zh": "蛋白质表达评分依据免疫组化数据，由人工按染色强度（阴性、弱、中等或强）与染色细胞比例（小于 25%、25-75% 或大于 75%）评分。各强度与比例的组会自动换算为蛋白质表达水平评分：阴性 - 未检出；弱且小于 25% - 未检出；弱且 25-75% 或 75% - 低；中等且小于 25% - 低；中等且 25-75% 或 75% - 中；强且小于 25% - 中，强且 25-75% 或 75% - 高。此外，经我们的专家注释员评估后，蛋白质表达值会按需人工调整。关于基于知识的注释的更多信息请见{{1}}。{{2}}{{3}}每个基因的免疫组化原始数据汇总见「原始数据页」，例如 {{4}}"
+    },
+    {
+      "pat": "The images on the atlas are the raw data that show the immunohistochemical staining of each antibody. The expression score describes a knowledge-based best estimate of the true protein expression. This means that an expert has manually analyzed all images and assessed if the staining is likely to be the true protein expression or not. If the expert determined that the staining seen is not the true protein expression, the score will be set to \"not detected\". {{1}}{{2}}More information about annotation of antibody staining is available in the {{3}}. {{4}}{{5}}More information about knowledge-based annotation of protein expression is available in the {{6}}.",
+      "zh": "图谱中的图像是展示各抗体免疫组化染色的原始数据。表达评分是基于知识的、对真实蛋白质表达的最佳估计。这意味着由专家人工分析全部图像，并判断染色是否可能代表真实的蛋白质表达。若专家判定所见染色并非真实的蛋白质表达，评分将设为「未检出」。{{1}}{{2}}关于抗体染色注释的更多信息请见{{3}}。{{4}}{{5}}关于基于知识的蛋白质表达注释的更多信息请见{{6}}。"
+    },
+    {
+      "pat": "Yes, the use of data and images from the Human Protein Atlas in publications and presentations is permitted as long as the {{1}} conditions are met.",
+      "zh": "可以。只要满足{{1}}条件，就允许在出版物与演示中使用人类蛋白质图谱的数据与图像。"
+    },
+    {
+      "pat": "Please cite one of our publications as stated in the {{1}}.",
+      "zh": "请按{{1}}所述引用我们的某篇论文。"
+    },
+    {
+      "pat": "We usually release new data 1-2 times every year and are trying our best to continue exploring the uncharacterized targets.All genes have general gene information and RNA expression data . If you have questions regarding a specific gene please email {{1}} and we might be able to tell you if there are any unpublished results.",
+      "zh": "我们通常每年发布 1–2 次新数据，并尽力持续探索尚未表征的靶标。所有基因都有基本基因信息与 RNA 表达数据。如果对某个特定基因有疑问，请发邮件至 {{1}}，我们或许能告诉你是否有尚未发表的结果。"
+    },
+    {
+      "pat": "The Kaplan-Meier plot shows the probability of survival at different time-points e.g. the probability of surviving 5 years while having the disease. The plot describes that at the start, i.e. at time-point zero, 100% of patients were alive. Over time, with each death, the number of patients alive decreases, which leads to a drop in the curve. This in turn means that with each death the probability of survival for remaining patients decreases. So, those patients who have lived 10 years have lower probability of survival than those who have lived 5 years. In order to see if the expression of a certain gene affects the survival rate, the patient material has been divided into two groups, with high or low expression. If a gene is unfavourable, the group with highest expression will have lower survival rate, i.e. the curve will drop earlier. For more information about Kaplan-Meier plots, including how probability is calculated, we would recommend this {{1}}",
+      "zh": "Kaplan-Meier 曲线展示不同时间点的生存概率，例如患病后存活 5 年的概率。曲线表明，起点（即时间点 0）时 100% 的患者均存活。随着时间推移，每出现一例死亡，存活患者数就减少，曲线随之下移。这也意味着每出现一例死亡，剩余患者的生存概率都会下降。因此，已存活 10 年的患者，其生存概率低于已存活 5 年的患者。为判断某基因的表达是否影响生存率，患者材料被分为高表达与低表达两组。若某基因不利，则高表达组的生存率更低，即曲线下降更早。关于 Kaplan-Meier 曲线（包括概率如何计算）的更多信息，我们推荐阅读这篇{{1}}"
     }
   ]
 }

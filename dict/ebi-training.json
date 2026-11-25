@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "family": "ebi",
+    "version": "0.1.0",
+    "sites": [
+      "www.ebi.ac.uk"
+    ],
+    "area": "training/online hero+filter+ada-chat+footer"
+  },
+  "exact": {
+    "Discover our online tutorials and webinar library, designed and delivered by EMBL-EBI experts and our wider training faculty. Openly accessible and available whenever you need them - enabling you to learn flexibly at your own pace, wherever you may be.": "浏览我们的在线教程与网络研讨会库，由 EMBL-EBI 专家及更广泛的教学团队设计并讲授。全部开放获取、随时可用，让你不受地点限制，按自己的节奏灵活学习。",
+    "We also offer": "我们还提供",
+    "Recent first": "最新优先",
+    "Course materials": "课程材料",
+    "Recorded webinar": "录制网络研讨会",
+    "Webinar series": "系列研讨会",
+    "Online tutorial": "在线教程",
+    "Collection": "合集",
+    "Less than 1 hour": "1 小时以内",
+    "1 to 3 hours": "1 至 3 小时",
+    "More than 3 hours": "3 小时以上",
+    "Search our courses, webinars and online tutorials": "检索课程、网络研讨会与在线教程",
+    "Recorded:": "录制于：",
+    "Ask Ada": "询问 Ada",
+    "Hello, I'm here to help you explore bioinformatics by answering questions and guiding you to relevant EMBL-EBI on-demand training resources.": "你好，我可以回答问题、带你找到相关的 EMBL-EBI 点播培训资源，帮你探索生物信息学。",
+    "Try asking me:": "可以试着问我：",
+    "Getting started in bioinformatics?": "刚接触生物信息学，从哪里开始？",
+    "What is a molecular network?": "什么是分子网络？",
+    "Predicting protein structures?": "想预测蛋白质结构？",
+    "How can I submit my proteomics data?": "如何提交我的蛋白质组学数据？",
+    "Help us improve. Share your feedback on your experience with Ada": "帮助我们改进：欢迎分享你使用 Ada 的体验",
+    "EMBL-EBI's AI chatbot disclaimer": "EMBL-EBI 的 AI 聊天机器人免责声明",
+    "Close chat and delete conversation?": "关闭聊天并删除对话？",
+    "Are you sure you want to close the chat?": "确定要关闭聊天吗？",
+    "Your current conversation history will be permanently deleted.": "当前对话历史将被永久删除。",
+    "Keep chat open": "保持聊天打开",
+    "Close and delete": "关闭并删除",
+    "EMBL-EBI Training is part of the ELIXIR infrastructure": "EMBL-EBI 培训是 ELIXIR 基础设施的组成部分",
+    "The EMBL-EBI Training Programme contributes to the ELIXIR Training Platform": "EMBL-EBI 培训计划为 ELIXIR 培训平台提供支持",
+    "European Molecular Biology Laboratory": "欧洲分子生物学实验室"
+  },
+  "rules": [
+    {
+      "re": "^Showing ([\\d,]+) out of ([\\d,]+) in on-demand training$",
+      "to": "点播培训共 $2 项，当前显示 $1 项"
+    }
+  ],
+  "templates": []
+}

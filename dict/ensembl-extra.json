@@ -345,7 +345,79 @@
     "Search this genome": "搜索此基因组",
     "Find a feature in the selected genome": "在所选基因组中查找特征",
     "Show/hide rows": "显示/隐藏行",
-    "HGNC Symbol": "HGNC 符号"
+    "HGNC Symbol": "HGNC 符号",
+    "Frequently Asked Questions": "常见问题",
+    "Help topics": "帮助主题",
+    "Export, uploads and downloads": "导出、上传与下载",
+    "Other data": "其他数据",
+    "developers' mailing list": "开发者邮件列表",
+    "When is new data (eg new dbSNP build, a genome assembly, or updated ENCODE data) released on Ensembl ?": "Ensembl 何时发布新数据（例如新的 dbSNP 构建、基因组组装或更新的 ENCODE 数据）？",
+    "What is a genome assembly?": "什么是基因组组装？",
+    "What human genome assembly and coordinate system is Ensembl using?": "Ensembl 使用哪个人类基因组组装与坐标系统？",
+    "What haplotypes and assembly patches can I see for human?": "人类可以查看哪些单倍型与组装补丁？",
+    "How can I obtain the constrained elements, i.e the conserved sequences, for multiple species?": "如何获取多个物种的受约束元件（即保守序列）？",
+    "Can I get the conservation scores (GERP scores) for nucleotides in whole genome alignments?": "能否获取全基因组比对中核苷酸的保守性评分（GERP 评分）？",
+    "How does Ensembl determine homology relationships?": "Ensembl 如何判定同源关系？",
+    "Can I view syntenic regions in Ensembl?": "我可以在 Ensembl 中查看共线性区域吗？",
+    "I would like a list of homologues to my gene. Should I look at the gene trees or the families?": "我想要一份与我的基因同源的基因列表，应该看基因树还是基因家族？",
+    "I have an error message when I try to connect to the Perl API.": "我尝试连接 Perl API 时收到错误信息。",
+    "How can I export sequence?": "如何导出序列？",
+    "How can I download all the gene/transcript/protein sequences for a species? Do I use BioMart?": "如何下载某个物种的全部基因/转录本/蛋白序列？要用 BioMart 吗？",
+    "I've created a customised view in Ensembl. Can I share this with my colleagues and collaborators by email?": "我在 Ensembl 中创建了自定义视图，可以通过电子邮件分享给同事和合作者吗？",
+    "Can I install a local copy of the Ensembl database(s)?": "我可以安装一份本地 Ensembl 数据库吗？",
+    "Can I export a nice picture of my data in Ensembl?": "我可以在 Ensembl 中导出数据的精美图片吗？",
+    "I would like to export an image of a particular view in Ensembl. Which image export option should I use?": "我想导出 Ensembl 中某个特定视图的图片，应该使用哪个图片导出选项？",
+    "Can I view exons, introns, and flanking sequence to a transcript?": "我可以查看转录本的外显子、内含子与侧翼序列吗？",
+    "What is the difference between Ensembl, Havana and Ensembl/Havana merged transcripts? And what does known and novel mean?": "Ensembl、Havana 与 Ensembl/Havana 合并转录本之间有什么区别？known 和 novel 又是什么意思？",
+    "Which transcript should I use?": "我应该使用哪个转录本？",
+    "How do I access RefSeq annotation in Ensembl?": "如何在 Ensembl 中访问 RefSeq 注释？",
+    "My gene has changed, and I don't know why.": "我的基因变了，但我不知道原因。",
+    "What is GENCODE?": "什么是 GENCODE？",
+    "How can I view RNASeq data in Ensembl?": "如何在 Ensembl 中查看 RNA-seq 数据？",
+    "I've identified some new genes/transripts/RNASeq reads and would like them to be added to the Ensembl gene set. How do I submit them?": "我鉴定出了一些新基因/转录本/RNA-seq 读段，希望把它们加入 Ensembl 基因集，该如何提交？",
+    "What do the different biotypes in Ensembl mean?": "Ensembl 中不同的生物类型是什么意思？",
+    "What type of regulatory annotations can I find?": "可以找到哪些类型的调控注释？",
+    "How can I view and download regulation data?": "如何查看并下载调控数据？",
+    "How is Ensembl regulatory annotation generated?": "Ensembl 调控注释是如何生成的？",
+    "Where are disease and phenotype associations from OMIM (for human)?": "来自 OMIM 的疾病与表型关联（人类）在哪里？",
+    "What is an LRG?": "什么是 LRG？",
+    "What do the population codes for human allele frequencies mean?": "人类等位基因频率的人群代码是什么意思？",
+    "How do you define the cut-off between an indel and a structural variant?": "如何界定 indel 与结构变异之间的分界？",
+    "Does Ensembl report variation alleles on the forward strand or reverse strand?": "Ensembl 报告变异等位基因时使用正链还是反链？",
+    "What does the evidence status mean for a variant?": "变异的证据状态是什么意思？",
+    "How do I view clone sets, such as BACs?": "如何查看克隆集，例如 BAC？",
+    "Why do I see different hits when I use BLAT or BLAST from Ensembl, UCSC, and NCBI?": "为什么我从 Ensembl、UCSC 和 NCBI 使用 BLAT 或 BLAST 时看到的命中不同？",
+    "What styles are available for the data tracks in views like Region in detail?": "在“区域详情”这类视图中，数据轨道有哪些可用样式？",
+    "How do I cite Ensembl?": "如何引用 Ensembl？",
+    "What are the differences between BLAST and BLAT?": "BLAST 与 BLAT 有什么区别？",
+    "What is an Ensembl release?": "什么是 Ensembl 版本发布？",
+    "I have an Ensembl ID, what can I tell about it from the ID?": "我有一个 Ensembl ID，从 ID 本身能看出什么？",
+    "More ▼": "更多 ▼",
+    "Show": "显示",
+    "Please enable javascript to view the Ensembl app": "请启用 JavaScript 以查看 Ensembl 应用",
+    "Ensembl name and logo policy": "Ensembl 名称与徽标政策",
+    "Favourite": "收藏",
+    "Additional release data stored as flat files rather than MySQL for performance reasons": "为提升性能，额外发布数据以平面文件形式存储，而非 MySQL",
+    "Alignments against the genome": "针对基因组的比对",
+    "Alignments of resequencing data from the ensembl_compara database": "来自 ensembl_compara 数据库的重测序数据比对",
+    "All Ensembl MySQL databases are available in text format as are the SQL table definition files": "所有 Ensembl MySQL 数据库均提供文本格式，SQL 表定义文件同样如此",
+    "Ancestral Allele data in FASTA format": "FASTA 格式的祖先等位基因数据",
+    "Cache files for use with the Ensembl VEP script": "供 Ensembl VEP 脚本使用的缓存文件",
+    "Coding sequences for Ensembl or \"ab initio\" predicted genes": "Ensembl 或“ab initio”预测基因的编码序列",
+    "Constrained elements calculated using GERP": "使用 GERP 计算的受约束元件",
+    "Ensembl database dumps in EMBL nucleotide sequence database format": "EMBL 核酸序列数据库格式的 Ensembl 数据库转储",
+    "Ensembl database dumps in GenBank nucleotide sequence database format": "GenBank 核酸序列数据库格式的 Ensembl 数据库转储",
+    "External references and other annotation data in RDF format": "RDF 格式的外部引用与其他注释数据",
+    "External references in TSV format": "TSV 格式的外部引用",
+    "GFF3 provides access to all annotated transcripts which make up an Ensembl gene set": "GFF3 提供构成 Ensembl 基因集的全部已注释转录本",
+    "Gene sets for each species. These files include annotations of both coding and non-coding genes": "各物种的基因集。这些文件包含编码基因与非编码基因的注释",
+    "Masked and unmasked genome sequences associated with the assembly (contigs, chromosomes etc.)": "与该组装相关的掩码与非掩码基因组序列（重叠群、染色体等）",
+    "Non-coding RNA gene predictions": "非编码 RNA 基因预测",
+    "Protein sequences for Ensembl or \"ab initio\" predicted genes": "Ensembl 或“ab initio”预测基因的蛋白序列",
+    "Regulation data in GFF format": "GFF 格式的调控数据",
+    "Variation data in GVF format": "GVF 格式的变异数据",
+    "Variation data in VCF format": "VCF 格式的变异数据",
+    "cDNA sequences for both Ensembl and \"ab initio\" predicted genes": "Ensembl 与“ab initio”预测基因的 cDNA 序列"
   },
   "rules": [
     {
@@ -363,6 +435,24 @@
     {
       "re": "^rows$",
       "to": "行"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "If you have any other questions about Ensembl, please do not hesitate to {{1}}. You may also like to subscribe to the {{2}}.",
+      "zh": "如果对 Ensembl 还有其他问题，请随时{{1}}。你也可以订阅{{2}}。"
+    },
+    {
+      "pat": "To facilitate storage and download all databases are {{1}} (gzip, *.gz) compressed.",
+      "zh": "为便于存储与下载，所有数据库均以 {{1}}（gzip、*.gz）形式压缩。"
+    },
+    {
+      "pat": "Looking for {{1}} to install databases locally?",
+      "zh": "需要在本地安装数据库，正在寻找{{1}}？"
+    },
+    {
+      "pat": "{{1}} See our {{2}} for full details.",
+      "zh": "{{1}}完整详情请参见我们的{{2}}。"
     }
   ]
 }

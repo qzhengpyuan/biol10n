@@ -61,8 +61,14 @@ const bodyText = (doc) => (doc.body.textContent || "").replace(/\s+/g, " ").trim
 test("词库可解析，meta 指向 hpa", () => {
   assert.equal(dict.meta.family, "hpa");
   assert.deepEqual(dict.meta.sites, ["www.proteinatlas.org"]);
-  assert.ok(Array.isArray(dict.rules), "rules 必须是数组（本册不用规则）");
-  assert.equal(dict.rules.length, 0, "本册不引入规则，避免误伤数值与专名");
+  assert.ok(Array.isArray(dict.rules), "rules 必须是数组");
+  // 本册早期不收规则，怕把图表里的数值与专名翻坏；0.13.0 起只为「图表 tooltip 整句」收规则，
+  // 每条都必须 requireHit（要求命中已知词才替换），否则数字与基因名会被规则吞掉。
+  for (const r of dict.rules) {
+    assert.equal(typeof r.re, "string", "规则必须是 {re,to} 对象");
+    assert.equal(typeof r.to, "string");
+    assert.equal(r.requireHit, true, "hpa2 的规则必须 requireHit，避免误伤数值与专名：" + r.re);
+  }
 });
 
 test("exact 与 templates 规模合理", () => {

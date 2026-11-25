@@ -509,7 +509,9 @@
     "Google Chrome extension": "Google Chrome 扩展",
     "Google Chrome web browser": "Google Chrome 网页浏览器",
     "Variant Type": "变异类型",
-    "Entity": "实体"
+    "Entity": "实体",
+    "Generates manifests for use with GDC Data Transfer Tool": "生成可与 GDC 数据传输工具配合使用的清单文件",
+    "Generates manifests for use with GDC Data Transfer Tool.": "生成可与 GDC 数据传输工具配合使用的清单文件。"
   },
   "rules": [
     {

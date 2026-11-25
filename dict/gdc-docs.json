@@ -537,7 +537,17 @@
     "Center for Cancer Genomics": "癌症基因组学中心",
     "NCI Genomic Data Commons (GDC)": "NCI 基因组数据共享平台（GDC）",
     "or": "或",
-    "To learn more about the GDC, please visit the": "要了解更多关于 GDC 的信息，请访问："
+    "To learn more about the GDC, please visit the": "要了解更多关于 GDC 的信息，请访问：",
+    "Data Dictionary Components:": "数据字典组成：",
+    "Standards and Conventions": "标准与约定",
+    "Data Dictionary Viewer": "数据字典查看器",
+    "Components of the Data Dictionary Viewer": "数据字典查看器的组成",
+    "Search Tool": "检索工具",
+    "Components of the Search Tool": "检索工具的组成",
+    "Search Tool Modifiers": "检索工具修饰符",
+    "Result Fields": "结果字段",
+    "Data Dictionary API": "数据字典 API",
+    "Properties": "属性"
   },
   "rules": [
     {

@@ -1,872 +1,1550 @@
 {
-  "meta": {
-    "family": "ucsc",
-    "version": "0.1.0",
-    "sites": [
-      "genome.ucsc.edu"
-    ]
-  },
-  "exact": {
-    "Get a link to this view to share with others": "获取此视图的链接以便分享给他人",
-    "Show DNA sequence in view": "显示视图中的 DNA 序列",
-    "Show a table of all chromsomes in this assembly (or scaffolds/contigs) and their sizes.": "显示该组装体中全部染色体（或 scaffold/contig）及其大小的表格。",
-    "Show current sequence on a third-party website": "在第三方网站上显示当前序列",
-    "Open configuration menu": "打开配置菜单",
-    "Show multi-region options": "显示多区域选项",
-    "Show only default tracks": "仅显示默认轨道",
-    "Re-order tracks to be in default order": "把轨道重新排列为默认顺序",
-    "Remove all highlights on all genomes": "移除所有基因组上的全部高亮",
-    "Clear user data, e.g. active tracks, track configuration, custom data, ...": "清除用户数据，例如启用的轨道、轨道配置、自定义数据等……",
-    "Configure multi-region display mode": "配置多区域显示模式",
-    "click to copy chromosome range to input box": "单击可把染色体范围复制到输入框",
-    "Documentation on what you can enter into the Genome Browser search box": "关于基因组浏览器检索框可输入内容的说明文档",
-    "click & drag to scroll; shift+click & drag to zoom": "单击并拖动可滚动；Shift + 单击并拖动可缩放",
-    "drag select or click to zoom": "拖动选择或单击以缩放",
-    "Update image with your changes. Any of the refresh buttons on this page may be used.": "用你的更改更新图像。本页任意刷新按钮均可使用。",
-    "Hide all currently visible tracks - keyboard shortcut: h, then a": "隐藏当前全部可见轨道 - 快捷键：h，然后 a",
-    "Add your own custom tracks - keyboard shortcut: c, then t": "添加你自己的自定义轨道 - 快捷键：c，然后 t",
-    "Configure image and track selection - keyboard shortcut: c, then f": "配置图像与轨道选择 - 快捷键：c，然后 f",
-    "Show reverse strand at this location - keyboard shortcut: r, then v": "在此位置显示反义链 - 快捷键：r，然后 v",
-    "Resize image width to browser window size - keyboard shortcut: r, then s": "把图像宽度调整为浏览器窗口大小 - 快捷键：r，然后 s",
-    "Configure track": "配置轨道",
-    "Hide track": "隐藏轨道",
-    "Collapse this group": "折叠此分组",
-    "Expand this group": "展开此分组",
-    "Hide all tracks in this group": "隐藏此分组中的全部轨道",
-    "Collapse all track groups": "折叠全部轨道分组",
-    "Expand all track groups": "展开全部轨道分组",
-    "Search for tracks in this genome assembly": "在此基因组组装中检索轨道",
-    "Add custom tracks": "添加自定义轨道",
-    "The folder icon indicates a container track. Click the track name to see all subtracks.": "文件夹图标表示容器轨道。点击轨道名称可查看全部子轨道。",
-    "Base": "碱基层级",
-    "Base Position": "碱基位置",
-    "Assembly Tracks": "组装轨道",
-    "Centromeres": "着丝粒",
-    "Chromosome Band": "染色体带",
-    "Clone Ends": "克隆末端",
-    "Exome Probesets": "外显子探针集",
-    "GC Percent": "GC 含量",
-    "GRC Incident": "GRC 事件",
-    "Hg19 Diff": "与 hg19 的差异",
-    "LiftOver & ReMap": "LiftOver 与 ReMap",
-    "LRG Regions": "LRG 区域",
-    "Mappability": "可比对性",
-    "Recomb Rate": "重组率",
-    "RefSeq Acc": "RefSeq 登录号",
-    "Restr Enzymes": "限制性内切酶",
-    "Short Match": "短匹配",
-    "Assembly from Fragments": "由片段拼接的组装",
-    "Centromere Locations": "着丝粒位置",
-    "Chromosome Bands Localized by FISH Mapping Clones": "由 FISH 定位克隆确定的染色体带",
-    "Gap Locations": "缺口位置",
-    "GC Percent in 5-Base Windows": "5 碱基窗口的 GC 含量",
-    "GRC Incident Database": "GRC 事件数据库",
-    "RefSeq Accession": "RefSeq 登录号",
-    "Restriction Enzymes from REBASE": "来自 REBASE 的限制性内切酶",
-    "Consensus CDS": "一致性编码序列",
-    "HUGO Gene Nomenclature": "HUGO 基因命名",
-    "Non-Human RefSeq Genes": "非人类 RefSeq 基因",
-    "Pfam Domains in GENCODE Genes": "GENCODE 基因中的 Pfam 结构域",
-    "Coriell Cell Line Copy Number Variants": "Coriell 细胞系拷贝数变异",
-    "Human Gene Mutation Database - Public Version 2025": "人类基因突变数据库 - 公开版 2025",
-    "Orphadata: Aggregated Data From Orphanet": "Orphadata：来自 Orphanet 的汇总数据",
-    "CRISPR Targets": "CRISPR 靶点",
-    "GENCODE Archive": "GENCODE 存档",
-    "GENCODE Versions": "GENCODE 版本",
-    "IKMC Genes Mapped": "已定位的 IKMC 基因",
-    "LRG Transcripts": "LRG 转录本",
-    "MGC/ORFeome Genes": "MGC/ORFeome 基因",
-    "NMD Escape": "NMD 逃逸",
-    "Non-canonical ORFs": "非经典开放阅读框",
-    "Non-coding RNA": "非编码 RNA",
-    "Other RefSeq": "其它 RefSeq 基因",
-    "Pfam in GENCODE": "GENCODE 中的 Pfam 结构域",
-    "Prediction Archive": "预测存档",
-    "Pseudogenes": "假基因",
-    "RetroGenes V9": "逆转座基因 V9",
-    "UCSC Alt Events": "UCSC 可变剪接事件",
-    "Cancer Gene Expr": "癌症基因表达",
-    "ClinGen CNVs": "ClinGen 拷贝数变异",
-    "ClinVar Variants": "ClinVar 变异",
-    "Constraint scores": "约束评分",
-    "Coriell CNVs": "Coriell 拷贝数变异",
-    "COSMIC Regions": "COSMIC 区域",
-    "COVID Data": "COVID 数据",
-    "Deleteriousness Predictions": "有害性预测",
-    "Development Delay": "发育迟缓",
-    "Dosage Sensitivity": "剂量敏感性",
-    "G2P Project": "G2P 项目",
-    "GWAS Catalog": "GWAS 目录",
-    "HGMD Public 2025": "HGMD 公开版 2025",
-    "LOVD Variants": "LOVD 变异",
-    "REVEL Scores": "REVEL 评分",
-    "Splicing Impact": "剪接影响",
-    "TCGA Pan-Cancer": "TCGA 泛癌",
-    "UniProt Variants": "UniProt 变异",
-    "Variants in Papers": "论文中的变异",
-    "Ancient Hominids": "古人类",
-    "Array Probesets": "芯片探针集",
-    "dbSNP Archive": "dbSNP 存档",
-    "dbVar Struct Var": "dbVar 结构变异",
-    "DGV Struct Var": "DGV 结构变异",
-    "Long-read SVs": "长读长结构变异",
-    "Mobile Element Insertions": "移动元件插入",
-    "Phased Variants": "定相变异",
-    "Platinum Genomes": "Platinum 基因组",
-    "SNV Frequencies": "SNV 频率",
-    "Tandem Repeat Variation": "串联重复变异",
-    "Interrupted Rpts": "中断的重复序列",
-    "Microsatellite": "微卫星",
-    "NuMTs Sequence": "NuMT 序列",
-    "RepeatMasker Viz.": "RepeatMasker 可视化",
-    "Segmental Dups": "片段重复",
-    "Self Alignment": "自身比对",
-    "Simple Repeats": "简单重复",
-    "Human ESTs": "人类 EST",
-    "Human mRNAs": "人类 mRNA",
-    "Long-read Transcripts": "长读长转录本",
-    "Other ESTs": "其它 EST",
-    "Other mRNAs": "其它 mRNA",
-    "SIB Alt-Splicing": "SIB 可变剪接",
-    "Spliced ESTs": "已剪接 EST",
-    "GTEx RNA-Seq Coverage": "GTEx RNA-Seq 覆盖度",
-    "Affy Archive": "Affy 芯片存档",
-    "EPDnew Promoters": "EPDnew 启动子",
-    "GNF Atlas 2": "GNF 表达图谱 2",
-    "GTEx Gene": "GTEx 基因",
-    "GTEx Transcript": "GTEx 转录本",
-    "GWIPS-viz Riboseq": "GWIPS-viz 核糖体测序",
-    "MaveDB Experiments": "MaveDB 实验",
-    "miRNA Tissue Atlas": "miRNA 组织图谱",
-    "Single Cell Expression": "单细胞表达",
-    "Single Cell RNA-seq": "单细胞 RNA-seq",
-    "Human Pangenome - HPRC": "人类泛基因组 - HPRC",
-    "ENCODE3 Regulation": "ENCODE3 调控",
-    "DNA Methylation": "DNA 甲基化",
-    "CpG Islands": "CpG 岛",
-    "Episignatures": "表观遗传特征",
-    "GTEx cis-eQTLs": "GTEx 顺式 eQTL",
-    "JASPAR Transcription Factors": "JASPAR 转录因子",
-    "RefSeq Func Elems": "RefSeq 功能元件",
-    "VISTA Enhancers": "VISTA 增强子",
-    "Zoonomia 241 Placent": "Zoonomia 241 种胎盘哺乳动物",
-    "UCSC 30 Primates": "UCSC 30 种灵长类",
-    "Primate Chain/Net": "灵长类 Chain/Net 比对",
-    "Placental Chain/Net": "胎盘哺乳动物 Chain/Net 比对",
-    "Vertebrate Chain/Net": "脊椎动物 Chain/Net 比对",
-    "CHM13 alignments": "CHM13 比对",
-    "Hiller Lab 470 Mammals": "Hiller 实验室 470 种哺乳动物",
-    "Unusually Conserved": "异常保守区",
-    "Gencode Transcript:": "GENCODE 转录本：",
-    "Gencode Gene:": "GENCODE 基因：",
-    "Total Exon Count:": "外显子总数：",
-    "Coding Exon Count:": "编码外显子数：",
-    "Coding Region": "编码区",
-    "Page Index": "页面索引",
-    "Data last updated at UCSC:": "UCSC 最后更新于：",
-    "SEQUENCE CAUTION:": "序列提示：",
-    "Click here to load the transcript sequence and exon structure into Primer3Plus": "点击此处把转录本序列与外显子结构载入 Primer3Plus",
-    "Click here to open Exonprimer with this transcript": "点击此处用该转录本打开 ExonPrimer",
-    "MalaCards Gene Search:": "MalaCards 基因检索：",
-    "Diseases sorted by gene-association score:": "按基因关联评分排序的疾病：",
-    "The following chemicals interact with this gene": "以下化学物质与该基因相互作用",
-    "Highest median expression:": "最高中位表达：",
-    "Total median expression:": "总中位表达：",
-    "View in GTEx track of Genome Browser": "在基因组浏览器的 GTEx 轨道中查看",
-    "View at GTEx portal": "在 GTEx 门户中查看",
-    "View GTEx Body Map": "查看 GTEx 人体图谱",
-    "Expression ratio colors:": "表达比值配色：",
-    "Red high/green low": "红高/绿低",
-    "Yellow high/blue low": "黄高/蓝低",
-    "Fold Energy": "折叠自由能",
-    "Energy/Base": "能量/碱基",
-    "Display As": "显示为",
-    "InterPro Domains:": "InterPro 结构域：",
-    "Graphical view of domain structure": "结构域结构的图形视图",
-    "Pfam Domains:": "Pfam 结构域：",
-    "ModBase Predicted Comparative 3D Structure on": "ModBase 预测的比较 3D 结构：",
-    "No ortholog": "无直系同源基因",
-    "Gene Details": "基因详情",
-    "Protein Sequence": "蛋白质序列",
-    "Cellular Component:": "细胞组分：",
-    "Alternate Gene Symbols:": "替代基因符号：",
-    "UCSC ID:": "UCSC 基因 ID：",
-    "RefSeq Accession:": "RefSeq 登录号：",
-    "Anatomy graphic of GTEx tissues": "GTEx 组织的解剖图",
-    "Select dataset": "选择数据集",
-    "Define region of interest": "定义感兴趣区域",
-    "Identifiers (names/accessions):": "标识符（名称/登录号）：",
-    "Optional: Subset, combine, compare with another track": "可选：与另一条轨道进行取子集、合并、比较",
-    "Retrieve and display data": "检索并显示数据",
-    "Signal data points format:": "信号数据点格式：",
-    "Intersection:": "交集：",
-    "Intersection": "交集",
-    "Need to intersect on position?": "需要按位置取交集吗？",
-    "Output field separator:": "输出字段分隔符：",
-    "File type returned:": "返回的文件类型：",
-    "Clade:": "分支：",
-    "Lookup:": "查找：",
-    "Output:": "输出：",
-    "Data points": "数据点",
-    "Get output:": "获取输出：",
-    "Summary/statistics:": "汇总/统计：",
-    "Data format description:": "数据格式说明：",
-    "Send output to": "发送输出到",
-    "Send output to Galaxy:": "把输出发送到 Galaxy：",
-    "Send output to GREAT:": "把输出发送到 GREAT：",
-    "Send output to Galaxy": "把输出发送到 Galaxy",
-    "Send output to GREAT": "把输出发送到 GREAT",
-    "For a description of the controls below, see": "有关下方控件的说明，请参阅",
-    "Specify the genome, track and data table to be used as the data source.": "指定用作数据来源的基因组、轨道与数据表。",
-    "Press 'create' button and select parameters for optional operations.": "按「create」按钮并选择可选操作参数。",
-    "Specify output options and press the 'get output' button.": "指定输出选项并按「get output」按钮。",
-    "Specifies which clade the organism is in.": "指定该生物所属的分支。",
-    "Specifies which organism data to use.": "指定要使用哪个生物的数据。",
-    "Specifies which version of the organism's genome sequence to use.": "指定要使用该生物基因组序列的哪个版本。",
-    "Displays format information for the tables or files associated with the selected track.": "显示所选轨道相关表或文件的格式信息。",
-    "Submits a data query based on the specified parameters and returns the output.": "按指定参数提交数据查询并返回输出。",
-    "Displays statistics about the data specified by the parameters.": "显示由参数指定的数据的统计信息。",
-    "Table Browser GTF files contain transcripts, but no gene identifiers or symbols.": "Table Browser 的 GTF 文件包含转录本，但不含基因标识符或符号。",
-    "(selected tracks only)": "（仅限所选轨道）",
-    "Search any species, genome or assembly name": "检索任意物种、基因组或组装名称",
-    "Show recent and popular assemblies": "显示最近和常用的组装",
-    "Show popular assemblies": "显示常用组装",
-    "Position range": "位置范围",
-    "For a detailed set of statistics about this assembly, see the": "有关该组装体的详细统计信息，请参阅",
-    "alternate loci scaffolds": "替代位点 scaffold",
-    "UCSC Genome Browser Basics Part 1": "UCSC 基因组浏览器基础 第 1 部分",
-    "Intro to UCSC SARS-CoV-2 Browser": "UCSC SARS-CoV-2 浏览器简介",
-    "Saving and Sharing Sessions in the Genome Browser": "在基因组浏览器中保存与共享会话",
-    "Hide all other tracks": "隐藏其他所有轨道",
-    "Move to top": "移至顶部",
-    "Move to bottom": "移至底部",
-    "Change Track Color": "更改轨道颜色",
-    "Reset filters to defaults": "将过滤器重置为默认值",
-    "View image": "查看图像",
-    "Track Description": "轨道说明",
-    "Add a highlight that covers the entire currently shown region, using the default color. Keyboard shortcut memo is": "添加一个覆盖当前整个显示区域的高亮，使用默认颜色。键盘快捷键提示：",
-    "Add a highlight that covers the entire region shown&lt;br&gt;&lt;i&gt;Keyboard shortcut:&lt;/i&gt; h, then m": "添加一个覆盖当前整个显示区域的高亮。键盘快捷键：先按 h，再按 m",
-    "Strand:": "链：",
-    "Exon:": "外显子：",
-    "Intron:": "内含子：",
-    "Length:": "长度：",
-    "Exon Length:": "外显子长度：",
-    "Codons:": "密码子：",
-    "Codon phase": "密码子相位",
-    "in-frame exon": "框内外显子",
-    "out-of-frame exon": "框外外显子",
-    "Databases:": "数据库：",
-    "Score:": "得分：",
-    "Gap:": "间隙：",
-    "CATALYTIC ACTIVITY:": "催化活性：",
-    "ENZYME REGULATION:": "酶调控：",
-    "PATHWAY:": "通路：",
-    "POLYMORPHISM:": "多态性：",
-    "MISCELLANEOUS:": "其他信息：",
-    "MASS SPECTROMETRY:": "质谱：",
-    "CAUTION:": "注意事项：",
-    "PHARMACEUTICAL:": "药物信息：",
-    "* = Manually curated disease association": "* = 人工策展的疾病关联",
-    "Track Name:": "轨道名称：",
-    "Data Format:": "数据格式：",
-    "Include Public Hub Search Results:": "包含公共 Hub 检索结果：",
-    "NOTE: Including public hubs in results may be slow": "注意：在结果中包含公共 Hub 可能较慢",
-    "About Track Search": "关于轨道检索",
-    "more help": "更多帮助",
-    "Alternate sequence names": "替代序列名称",
-    "docs page": "文档页面",
-    "for more information": "了解更多信息",
-    "Add Custom Tracks": "添加自定义轨道",
-    "request nearly any Genbank assembly": "申请几乎任何 Genbank 组装版本",
-    "search box": "搜索框",
-    "Gateway page": "网关页",
-    "\"r\" then \"v\"": "「r」再「v」",
-    "reverse complements the entire display": "将整个显示区反向互补",
-    "Reverse button": "反向按钮",
-    "Configuring Multi-View Tracks": "配置多视图轨道",
-    "Select views": "选择视图",
-    "Select subtracks": "选择子轨道",
-    "Select subtracks further by": "按以下条件进一步筛选子轨道",
-    "Filter items by": "按以下条件筛选条目",
-    "Highlight items by": "按以下条件高亮条目",
-    "List subtracks": "子轨道列表",
-    "Selecting subtracks": "选择子轨道",
-    "Sorting subtracks": "排序子轨道",
-    "Configuring individual subtracks": "配置单个子轨道",
-    "More details": "更多详情",
-    "Selecting filter categories": "选择筛选类别",
-    "Selecting highlighting categories": "选择高亮类别",
-    "hide": "隐藏",
-    "Wrench Icon": "扳手图标",
-    "Down arrow": "向下箭头",
-    "Frequently Asked Questions: BLAT": "常见问题：BLAT",
-    "Topics": "目录",
-    "BLAT vs. BLAST": "BLAT 与 BLAST 对比",
-    "BLAT cannot find a sequence at all or not all expected matches": "BLAT 完全找不到序列，或未找到全部预期匹配",
-    "BLAT use restrictions": "BLAT 使用限制",
-    "Downloading BLAT source and documentation": "下载 BLAT 源代码与文档",
-    "Replicating web-based BLAT parameters in command-line version": "在命令行版本中复现网页版 BLAT 参数",
-    "Replicating web-based BLAT percent identity and score calculations": "复现网页版 BLAT 的相似度百分比与评分计算",
-    "Replicating web-based BLAT \"I'm feeling lucky\" search results": "复现网页版 BLAT 的「手气不错」检索结果",
-    "Using BLAT for short sequences with maximum sensitivity": "以最高灵敏度用 BLAT 检索短序列",
-    "BLAT ALL genomes: No matches found": "BLAT 全基因组检索：未找到匹配",
-    "Approximating web-based BLAT results using gfServer/gfClient": "用 gfServer/gfClient 近似网页版 BLAT 结果",
-    "Standalone or gfServer/gfClient result start positions off by one": "独立版或 gfServer/gfClient 的结果起始位置相差一",
-    "Protein-translated BLAT having different results": "蛋白翻译版 BLAT 结果不同",
-    "Querying BLAT programmatically using URLs": "通过 URL 以编程方式查询 BLAT",
-    "Running BLAT locally": "在本地运行 BLAT",
-    "Running BLAT Locally": "在本地运行 BLAT",
-    "Return to FAQ Table of Contents": "返回常见问题目录",
-    "What are the differences between BLAT and BLAST?": "BLAT 与 BLAST 有什么区别？",
-    "BLAT can't find a sequence or not all expected matches": "BLAT 找不到序列，或未找到全部预期匹配",
-    "BLAT usage restrictions": "BLAT 使用限制",
-    "Is the BLAT source available for download? Is documentation available?": "BLAT 源代码可以下载吗？有文档吗？",
-    "How do I configure BLAT for short sequences with maximum sensitivity?": "如何以最高灵敏度配置 BLAT 检索短序列？",
-    "How do I blat queries for the default genome assemblies of all organisms?": "如何对全部生物的默认基因组组装做 BLAT 检索？",
-    "Blat ALL genomes": "对所有基因组进行 BLAT 比对",
-    "Replicating web-based Blat parameters in command-line version": "在命令行版本中复现网页版 BLAT 参数",
-    "Replicating web-based Blat percent identity and score calculations": "复现网页版 BLAT 相似度百分比与评分计算",
-    "Replicating web-based Blat \"I'm feeling lucky\" search results": "复现网页版 BLAT「手气不错」检索结果",
-    "Notes on repMatch:": "关于 repMatch 的说明：",
-    "BLAT FAQ": "BLAT 常见问题",
-    "BLAT specifications": "BLAT 规格说明",
-    "Output type": "输出类型",
-    "Assembly list": "组装列表",
-    "Search ALL": "全库检索",
-    "Blat search:": "BLAT 检索：",
-    "BLAT server (capable of PCR):": "BLAT 服务器（支持 PCR）：",
-    "translated BLAT server:": "翻译版 BLAT 服务器：",
-    "From a practical standpoint, BLAT has several advantages over BLAST:": "从实用角度看，BLAT 相对 BLAST 有几项优势：",
-    "speed (no queues, response in seconds) at the price of lesser homology depth": "速度快（无需排队，几秒内响应），代价是同源检索深度较低",
-    "the ability to submit a long list of simultaneous queries in fasta format": "可一次以 FASTA 格式提交一长串查询",
-    "five convenient output sort options": "五种便捷的输出排序选项",
-    "a direct link into the UCSC browser": "可直接链接到 UCSC 浏览器",
-    "alignment block details in natural genomic order": "比对区块详情按基因组自然顺序排列",
-    "an option to launch the alignment later as part of a custom track": "可选择稍后把比对结果作为自定义轨道载入",
-    "Do not use masking command-line options.": "不要使用屏蔽类命令行选项。",
-    "If the sequence is longer than 8kbp, the request must be sent via HTTP POST.": "若序列超过 8 kbp，请求必须通过 HTTP POST 发送。",
-    "Query types include DNA, protein, translated RNA and translated DNA:": "查询类型包括 DNA、蛋白质、翻译 RNA 与翻译 DNA：",
-    "Uses soft masking to convert Fasta format to the 2bit format for BLAT input.": "使用软屏蔽把 FASTA 格式转换为 BLAT 输入所需的 2bit 格式。",
-    "The default setting for Blat dna matches is: repMatch = 1024 (if tileSize=11).": "Blat DNA 匹配的默认设置为：repMatch = 1024（当 tileSize=11 时）。",
-    "Frequently Asked Questions: Data File Formats": "常见问题：数据文件格式",
-    "General formats": "通用格式",
-    "ENCODE-specific formats": "ENCODE 专用格式",
-    "Download-only formats": "仅下载格式",
-    "MAF quality value": "MAF 质量值",
-    "Raw quality score range": "原始质量分数范围",
-    "Quality level": "质量等级",
-    "The first three required BED fields are:": "BED 的前三个必填字段是：",
-    "The 9 additional optional BED fields are:": "另有 9 个可选 BED 字段：",
-    "Requirements": "要求",
-    "Example:": "示例：",
-    "How to make a bigBed file": "如何制作 bigBed 文件",
-    "move start": "移动起点",
-    "move end": "移动终点",
-    ".sql file:": ".sql 文件：",
-    ".txt.gz file:": ".txt.gz 文件：",
-    "Track settings showing the Duplicate track link next to the Display mode dropdown": "轨道设置：显示模式下拉框旁的「复制轨道」链接",
-    "Track settings for a duplicated GENCODE V43 track with independent configuration": "复制出的 GENCODE V43 轨道的设置，配置相互独立",
-    "Track settings showing the option to remove a duplicated GENCODE V43 track": "轨道设置：提供移除复制出的 GENCODE V43 轨道的选项",
-    "Browser view showing two copies of the GENCODE V43 track with different display settings": "浏览器视图：GENCODE V43 轨道的两份副本，显示设置不同",
-    "Configuration menu options": "配置菜单选项",
-    "Ex. white/gray arrows for next/previous exon/item": "示例：用于上/下一个外显子或条目的白色/灰色箭头",
-    "Example right-click to highlight a gene": "示例：右键高亮一个基因",
-    "Genome Browser Multi-View": "基因组浏览器多视图"
-  },
-  "rules": [
-    {
-      "re": "^Move (\\d+(?:\\.\\d+)?)% to the left$",
-      "to": "向左移动 $1%"
-    },
-    {
-      "re": "^Move (\\d+(?:\\.\\d+)?)% to the right$",
-      "to": "向右移动 $1%"
-    },
-    {
-      "re": "^(.+) click or right click to configure\\.\\.\\. drag to reorder highlighted subtracks$",
-      "to": "$1：点击或右键单击可配置，拖动可重新排序高亮的子轨道"
-    },
-    {
-      "re": "^(.+) click or right click to configure\\.\\.\\. drag to reorder$",
-      "to": "$1：点击或右键单击可配置，拖动可重新排序"
-    },
-    {
-      "re": "^(.+) drag to reorder$",
-      "to": "$1：拖动可重新排序"
-    },
-    {
-      "re": "^Click to alter the display density of (.+)$",
-      "to": "点击可更改 $1 的显示密度"
-    },
-    {
-      "re": "^Includes annotations on (.+) patch sequences$",
-      "to": "包含 $1 补丁序列上的注释"
-    },
-    {
-      "re": "^lifted from (.+)$",
-      "to": "从 $1 迁移而来"
-    },
-    {
-      "re": "^(.+) - container, (\\d+) subtracks?$",
-      "to": "$1 - 容器，$2 个子轨道"
-    },
-    {
-      "re": "^(.+) - container, (\\d+) tracks?$",
-      "to": "$1 - 容器，$2 条轨道"
-    },
-    {
-      "re": "^for details on how this gene model was made and data restrictions if any\\.$",
-      "to": "查看该基因模型如何构建以及（如有）数据使用限制的详情。"
-    },
-    {
-      "re": "^For more information about the files included in the (.+) GenBank submission, see the$",
-      "to": "有关 $1 GenBank 提交中所含文件的更多信息，请参阅"
-    },
-    {
-      "re": "^(.+) click or right click to configure\\.\\.\\.$",
-      "to": "$1：点击或右键单击可配置"
-    },
-    {
-      "re": "^Configure (.+) track set\\.\\.\\.$",
-      "to": "配置 $1 轨道集……"
-    },
-    {
-      "re": "^Configure (.+)$",
-      "to": "配置 $1"
-    },
-    {
-      "re": "^Track Description (.+)$",
-      "to": "轨道说明：$1"
-    },
-    {
-      "re": "^Intron (\\d+) of (\\d+)$",
-      "to": "第 $1 个（共 $2 个）"
-    },
-    {
-      "re": "^Exon (\\d+) of (\\d+)$",
-      "to": "第 $1 个（共 $2 个）"
-    },
-    {
-      "re": "^Codon phase: (\\d+)$",
-      "to": "密码子相位：$1"
-    },
-    {
-      "re": "^Search for Tracks in the (.+) Assembly$",
-      "to": "在 $1 组装体中检索轨道"
-    },
-    {
-      "re": "^Alternative sequence names can be used in the position box, custom tracks, track hubs, bigBed, bigWig, and similar files\\. See the$",
-      "to": "替代序列名称可用于位置框、自定义轨道、轨道 Hub、bigBed、bigWig 及类似文件。参见"
-    },
-    {
-      "re": "^(.+) table format$",
-      "to": "$1 表格式"
-    },
-    {
-      "re": "^(.+) format \\(historical\\)$",
-      "to": "$1 格式（历史）"
-    },
-    {
-      "re": "^(.+) format$",
-      "to": "$1 格式"
-    }
-  ],
-  "templates": [
-    {
-      "pat": "The best way to find an assembly is the {{1}} on our {{2}}. If your assembly of interest is not available, you can {{3}} as long as it has a {{4}} or {{5}} accession.",
-      "zh": "查找组装版本的最佳方式，是使用我们{{2}}上的{{1}}。如果感兴趣的组装不可用，只要具备 {{4}} 或 {{5}} 登录号，就可以{{3}}。"
-    },
-    {
-      "pat": "The {{1}} button below the tracks image, or the shortcut {{2}}, {{3}} and not just the DNA sequence. Every annotation flips to the minus strand, which makes a gene transcribed right to left far easier to read.",
-      "zh": "轨道图像下方的{{1}}按钮，或快捷键 {{2}}，会{{3}}，而不只是 DNA 序列。所有注释都会翻转到负链，这让从右向左转录的基因读起来容易得多。"
-    },
-    {
-      "pat": "{{1}}{{2}} The {{3}} section is a grid of checkboxes that provides a quick way to select a set of subtracks according to some attribute, such as \"cell line\" or \"antibody\". Note that selections made using these boxes reset any selections made on the individual subtracks in the {{4}} section below.",
-      "zh": "{{1}}{{2}} {{3}} 分区是一个复选框网格，可按细胞系、抗体等属性快速选择一组子轨道。注意：用这些复选框做的选择，会重置下方 {{4}} 分区中对单个子轨道所做的选择。"
-    },
-    {
-      "pat": "Some tracks allow you to {{1}} additional categories such as \"treatment\". Click on a menu to see all of the available choices. Choices that are not compatible with the current set of selected subtracks may be grayed out. Click on one or more choices to select them.",
-      "zh": "有些轨道允许你{{1}}诸如「treatment」之类的额外类别。点击菜单可查看所有可用选项。与当前所选子轨道不兼容的选项可能变灰。点击一个或多个选项即可选中。"
-    },
-    {
-      "pat": "{{1}}{{2}} The order of subtracks in the {{3}} section determines the display position on the main Genome Browser display page. Tracks can be sorted by clicking on the attribute links at the top of the column (if any). The arrows next to the attribute links indicate which direction the columns are being sorted. The numbers next to the arrows indicate the priority of the sort for each attribute. Additionally, some subtracks can be ordered by \"drag and drop\": click and hold a subtrack checkbox in the {{4}} section and release it in a new position. Note that tracks may be reordered by \"drag and drop\" in the main Genome Browser display. Those changes will not be reflected in this list.",
-      "zh": "{{1}}{{2}} {{3}} 分区中子轨道的顺序决定它们在基因组浏览器主显示页上的显示位置。点击列顶部的属性链接（如有）可排序。属性链接旁的箭头表示该列的排序方向，箭头旁的数字表示各属性排序的优先级。此外，部分子轨道可用拖放排序：按住 {{4}} 分区中的子轨道复选框拖到新位置后松开。注意：在基因组浏览器主显示页中拖放重排轨道，不会反映到本列表。"
-    },
-    {
-      "pat": "{{1}}{{2}} Subtracks can have display and configuration settings that are distinct from the set they belong to. Click on the display mode (hide, dense, etc.) of a subtrack shown in the {{3}} to change it or click on the wrench icon ({{4}}) to change the configuration settings for an individual subtrack. Individual subtrack settings will be overwritten anytime the set of tracks is configured as a whole.",
-      "zh": "{{1}}{{2}} 子轨道可以有自己的显示与配置设置，与所属集合不同。点击 {{3}} 中某个子轨道的显示模式（hide、dense 等）即可更改，或点击扳手图标（{{4}}）更改单个子轨道的配置。只要整体配置该轨道集合，单个子轨道的设置就会被覆盖。"
-    },
-    {
-      "pat": "{{1}}{{2}} To learn more about the underlying data for a subtrack, press the down arrow ({{3}}) next to the subtrack name in the {{4}} section. This section will expand to display information such as the name of the data contributor, the cell line and antibody used in the experiment, the data submission date and more. To see a full description of the underlying table, press the \"schema\" link.",
-      "zh": "{{1}}{{2}} 想了解某子轨道的底层数据，请按 {{4}} 分区中子轨道名称旁的向下箭头（{{3}}）。该分区会展开，显示数据贡献者名称、实验所用的细胞系与抗体、数据提交日期等信息。要查看底层数据表的完整说明，请点击「schema」链接。"
-    },
-    {
-      "pat": "{{1}}{{2}} Some tracks allow you to control the items that appear in displayed subtracks using {{3}} categories. Click on a filter menu to see all of the available item types. Click on one or more item types to select them.",
-      "zh": "{{1}}{{2}} 有些轨道允许你按 {{3}} 类别控制所显示子轨道中出现的条目。点击筛选菜单可查看全部可用条目类型。点击一个或多个条目类型即可选中。"
-    },
-    {
-      "pat": "{{1}}{{2}} Some tracks allow you to highlight the items by various attributes using {{3}} categories. Click on a highlight menu to see all of the available item types. Click on one or more item types to select them.",
-      "zh": "{{1}}{{2}} 有些轨道允许你按 {{3}} 类别以各种属性高亮条目。点击高亮菜单可查看全部可用条目类型。点击一个或多个条目类型即可选中。"
-    },
-    {
-      "pat": "For users with high-volume Blat demands, we recommend downloading the BLAT tool for local use. For more information, see {{1}}.",
-      "zh": "对于 BLAT 使用量很大的用户，建议下载 BLAT 工具在本地使用。详情请参阅{{1}}。"
-    },
-    {
-      "pat": "BLAT source and executables are freely available for academic, nonprofit and personal use. Commercial licensing information is available on the {{1}}.",
-      "zh": "BLAT 源代码与可执行程序可免费用于学术、非营利与个人用途。商业授权信息见{{1}}。"
-    },
-    {
-      "pat": "BLAT source may be downloaded from {{1}} (located at /kent/src/blat within the most recent jksrc*.zip source tree). For BLAT executables, go to {{2}} and choose your machine type.",
-      "zh": "BLAT 源代码可从 {{1}} 下载（位于最新 jksrc*.zip 源码树的 /kent/src/blat 下）。BLAT 可执行程序请到 {{2}} 并按机器类型选择。"
-    },
-    {
-      "pat": "Documentation on BLAT program specifications is available {{1}}. Note that the command-line BLAT does not return matches to U nucleotides in the query sequence.",
-      "zh": "BLAT 程序的规格说明见{{1}}。注意：命令行版 BLAT 不会返回对查询序列中 U 核苷酸的匹配。"
-    },
-    {
-      "pat": "{{1}} There are cases where the gfServer/gfClient approach provide a better approximation of web results than standalone Blat. See the {{2}} for an overview of this process.",
-      "zh": "{{1}} 有些情况下，gfServer/gfClient 方式比独立版 Blat 更接近网页结果。该流程概述见{{2}}。"
-    },
-    {
-      "pat": "Blat search:{{1}} {{2}}{{3}}",
-      "zh": "BLAT 检索：{{1}} {{2}}{{3}}"
-    },
-    {
-      "pat": "{{1}} (this is how the UCSC web-based BLAT servers are configured):",
-      "zh": "{{1}}（UCSC 网页版 BLAT 服务器就是这样配置的）："
-    },
-    {
-      "pat": "BLAT server (capable of PCR):{{1}} {{2}}",
-      "zh": "BLAT 服务器（支持 PCR）：{{1}} {{2}}"
-    },
-    {
-      "pat": "translated BLAT server:{{1}} {{2}}",
-      "zh": "翻译版 BLAT 服务器：{{1}} {{2}}"
-    },
-    {
-      "pat": "Set {{1}} and {{2}}. This will result in some low-scoring, generally spurious hits, but for interactive use it's sufficiently easy to ignore them (because results are sorted by score) and sometimes the low-scoring hits come in handy.",
-      "zh": "把 {{1}} 与 {{2}} 都设为 0。这样会出现一些低分、通常是虚假的命中；但交互使用时很容易忽略（结果按分数排序），而且低分命中有时也有用。"
-    },
-    {
-      "pat": "For more information about how to replicate the score and percent identity matches displayed by our web-based Blat, please see this {{1}}.",
-      "zh": "关于如何复现网页版 Blat 显示的评分与相似度百分比匹配，请参阅这份{{1}}。"
-    },
-    {
-      "pat": "For more information on the parameters available for BLAT, gfServer, and gfClient, see the {{1}}.",
-      "zh": "BLAT、gfServer 与 gfClient 可用参数的更多说明见{{1}}。"
-    },
-    {
-      "pat": "Using the {{1}} flag",
-      "zh": "使用 {{1}} 选项"
-    },
-    {
-      "pat": "What does the {{1}} flag do?",
-      "zh": "{{1}} 选项有什么作用？"
-    },
-    {
-      "pat": "Using any {{1}} option in BLAT, such as {{2}}, speeds up searches similar to repeat-masking sequence. The {{3}} file contains sequences determined to be over-represented in the genome sequence. To improve search speed, these sequences are not used when seeding an alignment against the genome. For reasonably sized sequences, this will not create a problem and will significantly reduce processing time.",
-      "zh": "在 BLAT 中使用任意 {{1}} 选项（如 {{2}}）都能加快检索，效果类似重复序列屏蔽。{{3}} 文件收录的是判定为在基因组序列中过度代表的序列。为提升检索速度，用这些序列对基因组建立比对种子时不予使用。对于长度合理的序列，这不会造成问题，并能明显缩短处理时间。"
-    },
-    {
-      "pat": "By not using the {{1}} file, you will increase alignment time, but will also slightly increase sensitivity. This may be important if you are aligning shorter sequences or sequences of poor quality. For example, if a particular sequence consists primarily of sequences in the {{2}} file, it will never be seeded correctly for an alignment if the {{3}} flag is used.",
-      "zh": "不使用 {{1}} 文件会增加比对时间，但灵敏度也会略有提高。这在比对较短或质量较差的序列时可能很重要。例如，若某段序列主要由 {{2}} 文件中的序列构成，使用 {{3}} 选项时就永远无法正确建立比对种子。"
-    },
-    {
-      "pat": "In summary, if you are not finding certain sequences and can afford the extra processing time, you may want to run BLAT without the {{1}} file if your particular situation warrants its use.",
-      "zh": "总之，如果某些序列找不到，而且你能接受额外的处理时间，在具体情形允许时可以不使用 {{1}} 文件来运行 BLAT。"
-    },
-    {
-      "pat": "View the perl script from the source tree: {{1}}",
-      "zh": "查看源码树中的 perl 脚本：{{1}}"
-    },
-    {
-      "pat": "View the corresponding C program: {{1}} and associated library functions {{2}} and {{3}} in {{4}}",
-      "zh": "查看对应的 C 程序：{{1}}，以及 {{4}} 中相关的库函数 {{2}} 与 {{3}}"
-    },
-    {
-      "pat": "See our {{1}} on source code licensing and downloads for information on obtaining the source.",
-      "zh": "获取源代码的说明，请参阅我们的{{1}}（涉及源码许可与下载）。"
-    },
-    {
-      "pat": "To replicate any of the sort options involving score, you first must calculate the score for each result in your PSL output file, then sort the results by score or other combination ({{1}} \"query, score\" and \"chrom, score\"). See the section on {{2}} for information on calculating the score.",
-      "zh": "要复现涉及评分的任一排序选项，先要算出 PSL 输出文件中每条结果的评分，再按评分或其他组合排序（{{1}}「query, score」与「chrom, score」）。评分的计算方法见{{2}}一节。"
-    },
-    {
-      "pat": "Use a large value for {{1}} (e.g. {{2}} = 1000000) to reduce the chance of a tile being marked as over-used.",
-      "zh": "把 {{1}} 设得很大（例如 {{2}} = 1000000），可降低某个 tile 被标记为过度使用的概率。"
-    },
-    {
-      "pat": "Do not use an {{1}} file.",
-      "zh": "不要使用 {{1}} 文件。"
-    },
-    {
-      "pat": "{{1}} - The name of the chromosome (e.g. chr3, chrY, chr2_random) or scaffold (e.g. scaffold10671). Many assemblies also support several different {{2}} (e.g. '1' or 'NC_000001.11' in place of 'chr1').",
-      "zh": "{{1}} —— 染色体名称（如 chr3、chrY、chr2_random）或 scaffold 名称（如 scaffold10671）。许多组装还支持多种{{2}}（例如用 '1' 或 'NC_000001.11' 代替 'chr1'）。"
-    },
-    {
-      "pat": "{{1}} - The starting position of the feature in the chromosome or scaffold. The first base in a chromosome is numbered 0.",
-      "zh": "{{1}} —— 特征在染色体或 scaffold 上的起始位置。染色体第一个碱基的编号为 0。"
-    },
-    {
-      "pat": "{{1}} - The ending position of the feature in the chromosome or scaffold. The {{2}} base is not included in the display of the feature, however, the number in {{3}} will be represented. For example, the first 100 bases of chromosome 1 are defined as {{4}}, and span the bases numbered 0-99 in our software (not 0-100), but will represent the position notation chr1:1-100. Read more {{5}}. {{6}}{{7}} and {{8}} can be identical, creating a feature of length 0, commonly used for insertions. For example, use {{9}} to represent an insertion before the first nucleotide of a chromosome.",
-      "zh": "{{1}} —— 特征在染色体或 scaffold 上的结束位置。{{2}} 这个碱基不计入特征显示范围，但 {{3}} 中的数字仍会体现。例如染色体 1 的前 100 个碱基写作 {{4}}，在我们的软件里覆盖编号 0–99 的碱基（不是 0–100），但位置记法为 chr1:1-100。更多说明见{{5}}。{{6}}{{7}} 与 {{8}} 可以相同，从而生成长度为 0 的特征，常用于表示插入。例如用 {{9}} 表示染色体第一个核苷酸之前的插入。"
-    },
-    {
-      "pat": "{{1}} - Defines the name of the BED line. This label is displayed to the left of the BED line in the Genome Browser window when the track is open to full display mode or directly to the left of the item in pack mode.",
-      "zh": "{{1}} —— 定义 BED 行的名称。轨道处于 full 显示模式时，该标签显示在基因组浏览器窗口中 BED 行的左侧；pack 模式下则直接显示在条目左侧。"
-    },
-    {
-      "pat": "{{1}} - Defines the strand. Either \".\" (=no strand) or \"+\" or \"-\".",
-      "zh": "{{1}} —— 定义链。取值为 \".\"（表示无链）、\"+\" 或 \"-\"。"
-    },
-    {
-      "pat": "{{1}} - The starting position at which the feature is drawn thickly (for example, the start codon in gene displays). When there is no thick part, thickStart and thickEnd are usually set to the chromStart position.",
-      "zh": "{{1}} —— 特征被画成粗线的起始位置（例如基因显示中的起始密码子）。没有粗线部分时，thickStart 与 thickEnd 通常设为 chromStart 的位置。"
-    },
-    {
-      "pat": "{{1}} - The ending position at which the feature is drawn thickly (for example the stop codon in gene displays).",
-      "zh": "{{1}} —— 特征被画成粗线的结束位置（例如基因显示中的终止密码子）。"
-    },
-    {
-      "pat": "{{1}} - An RGB value of the form R,G,B (e.g. 255,0,0). If the track line {{2}} attribute is set to \"On\", this RGB value will determine the display color of the data contained in this BED line. NOTE: It is recommended that a simple color scheme (eight colors or less) be used with this attribute to avoid overwhelming the color resources of the Genome Browser and your Internet browser.",
-      "zh": "{{1}} —— 形如 R,G,B 的 RGB 值（如 255,0,0）。若轨道行的 {{2}} 属性设为「On」，该 RGB 值决定这一 BED 行数据的显示颜色。注意：建议只用简单配色（八种颜色以内），以免耗尽基因组浏览器与你的浏览器可用的颜色资源。"
-    },
-    {
-      "pat": "{{1}} - The number of blocks (exons) in the BED line.",
-      "zh": "{{1}} —— BED 行中的区块（外显子）数量。"
-    },
-    {
-      "pat": "{{1}} - A comma-separated list of the block sizes. The number of items in this list should correspond to {{2}}.",
-      "zh": "{{1}} —— 以逗号分隔的区块大小列表。列表项数应与 {{2}} 对应。"
-    },
-    {
-      "pat": "{{1}} - A comma-separated list of block starts. All of the {{2}} positions should be calculated relative to {{3}}. The number of items in this list should correspond to {{4}}.",
-      "zh": "{{1}} —— 以逗号分隔的区块起始位置列表。所有 {{2}} 位置都应相对于 {{3}} 计算。列表项数应与 {{4}} 对应。"
-    },
-    {
-      "pat": "In BED files with block definitions, the first {{1}} value must be 0, so that the first block begins at {{2}}. Similarly, the final {{3}} position plus the final {{4}} value must equal {{5}}. Blocks may not overlap.",
-      "zh": "在带区块定义的 BED 文件中，第一个 {{1}} 值必须为 0，这样第一个区块才从 {{2}} 开始。同理，最后的 {{3}} 位置加上最后的 {{4}} 值必须等于 {{5}}。区块之间不得重叠。"
-    },
-    {
-      "pat": "PSL lines represent alignments, and are typically taken from files generated by BLAT or psLayout. See the {{1}} for more details. PSL data tracks can also be visualized in {{2}}. All of the following fields are required on each data line within a PSL file:",
-      "zh": "PSL 行表示比对结果，通常来自 BLAT 或 psLayout 生成的文件。更多说明见{{1}}。PSL 数据轨道也可以用{{2}}可视化。PSL 文件每条数据行都必须包含以下全部字段："
-    },
-    {
-      "pat": "{{1}} - Number of bases that match that aren't repeats",
-      "zh": "{{1}} —— 匹配且不属于重复序列的碱基数"
-    },
-    {
-      "pat": "{{1}} - Number of bases that don't match",
-      "zh": "{{1}} —— 不匹配的碱基数"
-    },
-    {
-      "pat": "{{1}} - Number of bases that match but are part of repeats",
-      "zh": "{{1}} —— 匹配但属于重复序列的碱基数"
-    },
-    {
-      "pat": "{{1}} - Number of \"N\" bases",
-      "zh": "{{1}} —— \"N\" 碱基数"
-    },
-    {
-      "pat": "{{1}} - Number of inserts in query",
-      "zh": "{{1}} —— 查询序列中的插入片段数"
-    },
-    {
-      "pat": "{{1}} - Number of bases inserted in query",
-      "zh": "{{1}} —— 查询序列中插入的碱基数"
-    },
-    {
-      "pat": "{{1}} - Number of inserts in target",
-      "zh": "{{1}} —— 目标序列中的插入片段数"
-    },
-    {
-      "pat": "{{1}} - Number of bases inserted in target",
-      "zh": "{{1}} —— 目标序列中插入的碱基数"
-    },
-    {
-      "pat": "{{1}} - \"+\" or \"-\" for query strand. For translated alignments, second \"+\"or \"-\" is for target genomic strand.",
-      "zh": "{{1}} —— 查询链，取 \"+\" 或 \"-\"。翻译比对时，第二个 \"+\" 或 \"-\" 表示目标基因组链。"
-    },
-    {
-      "pat": "{{1}} - Query sequence name",
-      "zh": "{{1}} —— 查询序列名称"
-    },
-    {
-      "pat": "{{1}} - Query sequence size.",
-      "zh": "{{1}} —— 查询序列长度。"
-    },
-    {
-      "pat": "{{1}} - Alignment start position in query",
-      "zh": "{{1}} —— 比对在查询序列中的起始位置"
-    },
-    {
-      "pat": "{{1}} - Alignment end position in query",
-      "zh": "{{1}} —— 比对在查询序列中的结束位置"
-    },
-    {
-      "pat": "{{1}} - Target sequence name",
-      "zh": "{{1}} —— 目标序列名称"
-    },
-    {
-      "pat": "{{1}} - Target sequence size",
-      "zh": "{{1}} —— 目标序列长度"
-    },
-    {
-      "pat": "{{1}} - Alignment start position in target",
-      "zh": "{{1}} —— 比对在目标序列中的起始位置"
-    },
-    {
-      "pat": "{{1}} - Alignment end position in target",
-      "zh": "{{1}} —— 比对在目标序列中的结束位置"
-    },
-    {
-      "pat": "{{1}} - Number of blocks in the alignment (a block contains no gaps)",
-      "zh": "{{1}} —— 比对中的区块数（区块内不含空位）"
-    },
-    {
-      "pat": "{{1}} - Comma-separated list of sizes of each block. If the query is a protein and the target the genome, blockSizes are in amino acids. See below for more information on protein query PSLs.",
-      "zh": "{{1}} —— 以逗号分隔的各区块大小列表。若查询是蛋白质、目标是基因组，blockSizes 以氨基酸为单位。蛋白质查询 PSL 的更多说明见下文。"
-    },
-    {
-      "pat": "{{1}} - Comma-separated list of starting positions of each block in query",
-      "zh": "{{1}} —— 以逗号分隔的各区块在查询序列中的起始位置"
-    },
-    {
-      "pat": "{{1}} - Comma-separated list of starting positions of each block in target",
-      "zh": "{{1}} —— 以逗号分隔的各区块在目标序列中的起始位置"
-    },
-    {
-      "pat": "{{1}}{{2}} Here's an example of an annotation track, introduced by a {{3}}, that is followed by a complete BED definition:",
-      "zh": "{{1}}{{2}} 下面是一个注释轨道的示例，由 {{3}} 引出，后接完整的 BED 定义："
-    },
-    {
-      "pat": "{{1}}{{2}} Here is an example of an annotation track in PSL format.",
-      "zh": "{{1}}{{2}} 下面是一个 PSL 格式的注释轨道示例。"
-    },
-    {
-      "pat": "To see an example of turning a bedDetail custom track into the {{1}} format, see this {{2}} blog post.",
-      "zh": "把 bedDetail 自定义轨道转换为 {{1}} 格式的示例，见这篇{{2}}博客文章。"
-    },
-    {
-      "pat": "{{1}} for BED detail custom tracks are: fields must be tab-separated, \"type=bedDetail\" must be included in the {{2}}, and the name and position fields should uniquely describe items so that the correct ID and description will be displayed on the details pages.",
-      "zh": "BED detail 自定义轨道的{{1}}是：字段必须以制表符分隔，{{2}} 中必须包含 \"type=bedDetail\"，且 name 与 position 字段应能唯一标识条目，以便详情页显示正确的 ID 与描述。"
-    },
-    {
-      "pat": "Visit our {{1}} for more videos.",
-      "zh": "观看更多视频，请访问我们的{{1}}。"
-    },
-    {
-      "pat": "Track data can be viewed as text tables using the {{1}}.",
-      "zh": "轨道数据可用{{1}}以文本表格形式查看。"
-    },
-    {
-      "pat": "For information on using the Table Browser features, refer to the {{1}}.",
-      "zh": "表格浏览器各项功能的用法，请参阅{{1}}。"
-    },
-    {
-      "pat": "For more detailed information on using the Session tool, see the {{1}}.",
-      "zh": "会话工具的详细用法，请参阅{{1}}。"
-    },
-    {
-      "pat": "For information on using the Genome Graphs features, refer to the {{1}}.",
-      "zh": "基因组图谱各项功能的用法，请参阅{{1}}。"
-    },
-    {
-      "pat": "For more information please click {{1}}.",
-      "zh": "更多信息请点击{{1}}。"
-    },
-    {
-      "pat": "{{1}} {{2}} When I click the {{3}} button, I get the error message \"line 1 of custom input:\".",
-      "zh": "{{1}} {{2}} 单击{{3}}按钮后，出现错误信息「line 1 of custom input:」。"
-    },
-    {
-      "pat": "{{1}} {{2}} When I click the {{3}} button, I get the error message \"line # of custom input: missing = in var/val pair\".",
-      "zh": "{{1}} {{2}} 单击{{3}}按钮后，出现错误信息「line # of custom input: missing = in var/val pair」。"
-    },
-    {
-      "pat": "{{1}} {{2}} When I click the {{3}} button, the Genome Browser track window displays OK, but my track isn't visible.",
-      "zh": "{{1}} {{2}} 单击{{3}}按钮后，基因组浏览器轨道窗口显示正常，但我的轨道看不到。"
-    },
-    {
-      "pat": "{{1}} {{2}} Defines a URL for an HTML description page to be displayed with this track. There is no default for this attribute. A template for a standard format HTML track description is {{3}}.",
-      "zh": "{{1}} {{2}} 定义随该轨道显示的 HTML 说明页 URL。该属性没有默认值。标准格式 HTML 轨道说明的模板见 {{3}}。"
-    },
-    {
-      "pat": "{{1}} - a tool that allows you to upload and display genome-wide data sets such as the results of genome-wide SNP association studies, linkage studies and homozygosity mapping. {{2}}.",
-      "zh": "{{1}} —— 一个可上传并显示全基因组数据集的工具，例如全基因组 SNP 关联研究、连锁研究与纯合性定位的结果。{{2}}。"
-    },
-    {
-      "pat": "{{1}} It is not recommeneded to use LiftOver to convert SNPs between assemblies, and more information about how to convert SNPs between assemblies can be found on the following {{2}}.",
-      "zh": "{{1}} 不建议用 LiftOver 在不同组装之间转换 SNP；关于如何转换的更多说明见下面的{{2}}。"
-    },
-    {
-      "pat": "Enter one or more URLs for custom tracks (one per line) in the data text box. The Genome Browser supports both the HTTP and FTP (passive-only) protocols. Data provided by a URL may need to be proceeded by a separate line defining {{1}} required for some tracks, for example such as \"track type=broadPeak\". {{2}} {{3}}",
-      "zh": "在数据文本框中输入一个或多个自定义轨道的 URL（每行一个）。基因组浏览器支持 HTTP 与 FTP（仅被动模式）协议。由 URL 提供的数据可能需要在前面单独加一行，定义部分轨道必需的 {{1}}，例如 \"track type=broadPeak\"。{{2}} {{3}}"
-    },
-    {
-      "pat": "The output file {{1}} should have results very similar to web-based Blat.",
-      "zh": "输出文件 {{1}} 的结果应与网页版 Blat 非常接近。"
-    },
-    {
-      "pat": "Once you have the downloaded the {{1}} program to your computer, ensure the 'execute' bit is on for permissions:",
-      "zh": "把 {{1}} 程序下载到本机后，确认权限里已打开「执行」位："
-    },
-    {
-      "pat": "If the permissions indicate something like: {{1}}, then you will need to enable the ability to execute the program:",
-      "zh": "若权限显示类似 {{1}}，则需要开启程序的可执行权限："
-    },
-    {
-      "pat": "If you have access to a Linux or Mac OSX command-line you can run {{1}} locally. The blat binary is available under the directory for your system type under the {{2}} on our download server.",
-      "zh": "如果你有 Linux 或 Mac OSX 命令行，可以在本地运行 {{1}}。blat 可执行文件放在我们下载服务器上 {{2}} 中对应你系统类型的目录下。"
-    },
-    {
-      "pat": "If the {{1}} is changed to {{2}} on web Blat, the same zero-based half open coordinate results will be seen as the standalone Blat and gfServer/gfClient procedures.",
-      "zh": "若在网页版 Blat 中把 {{1}} 改为 {{2}}，得到的结果与独立版 Blat 及 gfServer/gfClient 流程一致，都是零基半开区间坐标。"
-    },
-    {
-      "pat": "This usually occurs on the newer genome assemblies, such as hg38, when you search a sequence that has an \"alternate\" or \"fix\" sequence. To improve the quality of these assemblies, curators have added multiple versions of some important loci, e.g. the MHC regions. They also add fix sequences to resolve errors without changing the reference. See our {{1}} for more information.",
-      "zh": "这种情况通常出现在较新的基因组组装（如 hg38）中，当你检索的序列存在「alternate」或「fix」序列时就会发生。为提高这些组装的质量，策展人员为某些重要位点（例如 MHC 区域）加入了多个版本，也会加入 fix 序列以在不改变参考序列的前提下修正错误。更多说明见{{1}}。"
-    },
-    {
-      "pat": "GFF (General Feature Format) lines are based on the Sanger {{1}}. GFF lines have nine required fields that {{2}} be tab-separated. If the fields are separated by spaces instead of tabs, the track will not display correctly. For more information on GFF format, refer to Sanger's {{3}}.",
-      "zh": "GFF（General Feature Format）行基于 Sanger 的{{1}}。GFF 行有九个必填字段，{{2}} 以制表符分隔。若字段之间用空格而非制表符分隔，轨道将无法正确显示。GFF 格式的更多说明见 Sanger 的{{3}}。"
-    },
-    {
-      "pat": "{{1}} - The name of the sequence. Must be a chromosome or scaffold.",
-      "zh": "{{1}} —— 序列名称。必须是染色体或 scaffold。"
-    },
-    {
-      "pat": "{{1}} - The program that generated this feature.",
-      "zh": "{{1}} —— 生成该特征的程序。"
-    },
-    {
-      "pat": "{{1}} - The name of this type of feature. Some examples of standard feature types are \"CDS\" \"start_codon\" \"stop_codon\" and \"exon\".",
-      "zh": "{{1}} —— 该特征类型的名称。标准特征类型的例子有 \"CDS\"、\"start_codon\"、\"stop_codon\" 与 \"exon\"。"
-    },
-    {
-      "pat": "{{1}} - The starting position of the feature in the sequence. The first base is numbered 1.",
-      "zh": "{{1}} —— 特征在序列中的起始位置。第一个碱基编号为 1。"
-    },
-    {
-      "pat": "{{1}} - The ending position of the feature (inclusive).",
-      "zh": "{{1}} —— 特征的结束位置（含该位置）。"
-    },
-    {
-      "pat": "{{1}} - A score between 0 and 1000. If the track line {{2}} attribute is set to 1 for this annotation data set, the {{3}} value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). If there is no score value, enter \".\".",
-      "zh": "{{1}} —— 0 到 1000 的分数。若该注释数据集的轨道行 {{2}} 属性设为 1，则 {{3}} 值决定该特征显示的灰度（数值越大越深）。没有分值时填 \".\"。"
-    },
-    {
-      "pat": "{{1}} - Valid entries include \"+\", \"-\", or \".\" (for don't know/don't care).",
-      "zh": "{{1}} —— 可取 \"+\"、\"-\" 或 \".\"（表示不知道/不关心）。"
-    },
-    {
-      "pat": "{{1}} - If the feature is a coding exon, {{2}} should be a number between 0-2 that represents the reading frame of the first base. If the feature is not a coding exon, the value should be \".\".",
-      "zh": "{{1}} —— 若该特征是编码外显子，{{2}} 应为 0–2 之间的数字，表示第一个碱基的阅读框。若该特征不是编码外显子，值应为 \".\"。"
-    },
-    {
-      "pat": "{{1}} - All lines with the same group are linked together into a single item.",
-      "zh": "{{1}} —— 同一 group 的所有行会连成一个条目。"
-    }
+ "meta": {
+  "family": "ucsc",
+  "version": "0.2.0",
+  "sites": [
+   "genome.ucsc.edu"
   ]
+ },
+ "exact": {
+  "Get a link to this view to share with others": "获取此视图的链接以便分享给他人",
+  "Show DNA sequence in view": "显示视图中的 DNA 序列",
+  "Show a table of all chromsomes in this assembly (or scaffolds/contigs) and their sizes.": "显示该组装体中全部染色体（或 scaffold/contig）及其大小的表格。",
+  "Show current sequence on a third-party website": "在第三方网站上显示当前序列",
+  "Open configuration menu": "打开配置菜单",
+  "Show multi-region options": "显示多区域选项",
+  "Show only default tracks": "仅显示默认轨道",
+  "Re-order tracks to be in default order": "把轨道重新排列为默认顺序",
+  "Remove all highlights on all genomes": "移除所有基因组上的全部高亮",
+  "Clear user data, e.g. active tracks, track configuration, custom data, ...": "清除用户数据，例如启用的轨道、轨道配置、自定义数据等……",
+  "Configure multi-region display mode": "配置多区域显示模式",
+  "click to copy chromosome range to input box": "单击可把染色体范围复制到输入框",
+  "Documentation on what you can enter into the Genome Browser search box": "关于基因组浏览器检索框可输入内容的说明文档",
+  "click & drag to scroll; shift+click & drag to zoom": "单击并拖动可滚动；Shift + 单击并拖动可缩放",
+  "drag select or click to zoom": "拖动选择或单击以缩放",
+  "Update image with your changes. Any of the refresh buttons on this page may be used.": "用你的更改更新图像。本页任意刷新按钮均可使用。",
+  "Hide all currently visible tracks - keyboard shortcut: h, then a": "隐藏当前全部可见轨道 - 快捷键：h，然后 a",
+  "Add your own custom tracks - keyboard shortcut: c, then t": "添加你自己的自定义轨道 - 快捷键：c，然后 t",
+  "Configure image and track selection - keyboard shortcut: c, then f": "配置图像与轨道选择 - 快捷键：c，然后 f",
+  "Show reverse strand at this location - keyboard shortcut: r, then v": "在此位置显示反义链 - 快捷键：r，然后 v",
+  "Resize image width to browser window size - keyboard shortcut: r, then s": "把图像宽度调整为浏览器窗口大小 - 快捷键：r，然后 s",
+  "Configure track": "配置轨道",
+  "Hide track": "隐藏轨道",
+  "Collapse this group": "折叠此分组",
+  "Expand this group": "展开此分组",
+  "Hide all tracks in this group": "隐藏此分组中的全部轨道",
+  "Collapse all track groups": "折叠全部轨道分组",
+  "Expand all track groups": "展开全部轨道分组",
+  "Search for tracks in this genome assembly": "在此基因组组装中检索轨道",
+  "Add custom tracks": "添加自定义轨道",
+  "The folder icon indicates a container track. Click the track name to see all subtracks.": "文件夹图标表示容器轨道。点击轨道名称可查看全部子轨道。",
+  "Base": "碱基层级",
+  "Base Position": "碱基位置",
+  "Assembly Tracks": "组装轨道",
+  "Centromeres": "着丝粒",
+  "Chromosome Band": "染色体带",
+  "Clone Ends": "克隆末端",
+  "Exome Probesets": "外显子探针集",
+  "GC Percent": "GC 含量",
+  "GRC Incident": "GRC 事件",
+  "Hg19 Diff": "与 hg19 的差异",
+  "LiftOver & ReMap": "LiftOver 与 ReMap",
+  "LRG Regions": "LRG 区域",
+  "Mappability": "可比对性",
+  "Recomb Rate": "重组率",
+  "RefSeq Acc": "RefSeq 登录号",
+  "Restr Enzymes": "限制性内切酶",
+  "Short Match": "短匹配",
+  "Assembly from Fragments": "由片段拼接的组装",
+  "Centromere Locations": "着丝粒位置",
+  "Chromosome Bands Localized by FISH Mapping Clones": "由 FISH 定位克隆确定的染色体带",
+  "Gap Locations": "缺口位置",
+  "GC Percent in 5-Base Windows": "5 碱基窗口的 GC 含量",
+  "GRC Incident Database": "GRC 事件数据库",
+  "RefSeq Accession": "RefSeq 登录号",
+  "Restriction Enzymes from REBASE": "来自 REBASE 的限制性内切酶",
+  "Consensus CDS": "一致性编码序列",
+  "HUGO Gene Nomenclature": "HUGO 基因命名",
+  "Non-Human RefSeq Genes": "非人类 RefSeq 基因",
+  "Pfam Domains in GENCODE Genes": "GENCODE 基因中的 Pfam 结构域",
+  "Coriell Cell Line Copy Number Variants": "Coriell 细胞系拷贝数变异",
+  "Human Gene Mutation Database - Public Version 2025": "人类基因突变数据库 - 公开版 2025",
+  "Orphadata: Aggregated Data From Orphanet": "Orphadata：来自 Orphanet 的汇总数据",
+  "CRISPR Targets": "CRISPR 靶点",
+  "GENCODE Archive": "GENCODE 存档",
+  "GENCODE Versions": "GENCODE 版本",
+  "IKMC Genes Mapped": "已定位的 IKMC 基因",
+  "LRG Transcripts": "LRG 转录本",
+  "MGC/ORFeome Genes": "MGC/ORFeome 基因",
+  "NMD Escape": "NMD 逃逸",
+  "Non-canonical ORFs": "非经典开放阅读框",
+  "Non-coding RNA": "非编码 RNA",
+  "Other RefSeq": "其它 RefSeq 基因",
+  "Pfam in GENCODE": "GENCODE 中的 Pfam 结构域",
+  "Prediction Archive": "预测存档",
+  "Pseudogenes": "假基因",
+  "RetroGenes V9": "逆转座基因 V9",
+  "UCSC Alt Events": "UCSC 可变剪接事件",
+  "Cancer Gene Expr": "癌症基因表达",
+  "ClinGen CNVs": "ClinGen 拷贝数变异",
+  "ClinVar Variants": "ClinVar 变异",
+  "Constraint scores": "约束评分",
+  "Coriell CNVs": "Coriell 拷贝数变异",
+  "COSMIC Regions": "COSMIC 区域",
+  "COVID Data": "COVID 数据",
+  "Deleteriousness Predictions": "有害性预测",
+  "Development Delay": "发育迟缓",
+  "Dosage Sensitivity": "剂量敏感性",
+  "G2P Project": "G2P 项目",
+  "GWAS Catalog": "GWAS 目录",
+  "HGMD Public 2025": "HGMD 公开版 2025",
+  "LOVD Variants": "LOVD 变异",
+  "REVEL Scores": "REVEL 评分",
+  "Splicing Impact": "剪接影响",
+  "TCGA Pan-Cancer": "TCGA 泛癌",
+  "UniProt Variants": "UniProt 变异",
+  "Variants in Papers": "论文中的变异",
+  "Ancient Hominids": "古人类",
+  "Array Probesets": "芯片探针集",
+  "dbSNP Archive": "dbSNP 存档",
+  "dbVar Struct Var": "dbVar 结构变异",
+  "DGV Struct Var": "DGV 结构变异",
+  "Long-read SVs": "长读长结构变异",
+  "Mobile Element Insertions": "移动元件插入",
+  "Phased Variants": "定相变异",
+  "Platinum Genomes": "Platinum 基因组",
+  "SNV Frequencies": "SNV 频率",
+  "Tandem Repeat Variation": "串联重复变异",
+  "Interrupted Rpts": "中断的重复序列",
+  "Microsatellite": "微卫星",
+  "NuMTs Sequence": "NuMT 序列",
+  "RepeatMasker Viz.": "RepeatMasker 可视化",
+  "Segmental Dups": "片段重复",
+  "Self Alignment": "自身比对",
+  "Simple Repeats": "简单重复",
+  "Human ESTs": "人类 EST",
+  "Human mRNAs": "人类 mRNA",
+  "Long-read Transcripts": "长读长转录本",
+  "Other ESTs": "其它 EST",
+  "Other mRNAs": "其它 mRNA",
+  "SIB Alt-Splicing": "SIB 可变剪接",
+  "Spliced ESTs": "已剪接 EST",
+  "GTEx RNA-Seq Coverage": "GTEx RNA-Seq 覆盖度",
+  "Affy Archive": "Affy 芯片存档",
+  "EPDnew Promoters": "EPDnew 启动子",
+  "GNF Atlas 2": "GNF 表达图谱 2",
+  "GTEx Gene": "GTEx 基因",
+  "GTEx Transcript": "GTEx 转录本",
+  "GWIPS-viz Riboseq": "GWIPS-viz 核糖体测序",
+  "MaveDB Experiments": "MaveDB 实验",
+  "miRNA Tissue Atlas": "miRNA 组织图谱",
+  "Single Cell Expression": "单细胞表达",
+  "Human Pangenome - HPRC": "人类泛基因组 - HPRC",
+  "ENCODE3 Regulation": "ENCODE3 调控",
+  "DNA Methylation": "DNA 甲基化",
+  "CpG Islands": "CpG 岛",
+  "Episignatures": "表观遗传特征",
+  "GTEx cis-eQTLs": "GTEx 顺式 eQTL",
+  "JASPAR Transcription Factors": "JASPAR 转录因子",
+  "RefSeq Func Elems": "RefSeq 功能元件",
+  "VISTA Enhancers": "VISTA 增强子",
+  "Zoonomia 241 Placent": "Zoonomia 241 种胎盘哺乳动物",
+  "UCSC 30 Primates": "UCSC 30 种灵长类",
+  "Primate Chain/Net": "灵长类 Chain/Net 比对",
+  "Placental Chain/Net": "胎盘哺乳动物 Chain/Net 比对",
+  "Vertebrate Chain/Net": "脊椎动物 Chain/Net 比对",
+  "CHM13 alignments": "CHM13 比对",
+  "Hiller Lab 470 Mammals": "Hiller 实验室 470 种哺乳动物",
+  "Unusually Conserved": "异常保守区",
+  "Gencode Transcript:": "GENCODE 转录本：",
+  "Gencode Gene:": "GENCODE 基因：",
+  "Total Exon Count:": "外显子总数：",
+  "Coding Exon Count:": "编码外显子数：",
+  "Coding Region": "编码区",
+  "Page Index": "页面索引",
+  "Data last updated at UCSC:": "UCSC 最后更新于：",
+  "SEQUENCE CAUTION:": "序列提示：",
+  "Click here to load the transcript sequence and exon structure into Primer3Plus": "点击此处把转录本序列与外显子结构载入 Primer3Plus",
+  "Click here to open Exonprimer with this transcript": "点击此处用该转录本打开 ExonPrimer",
+  "MalaCards Gene Search:": "MalaCards 基因检索：",
+  "Diseases sorted by gene-association score:": "按基因关联评分排序的疾病：",
+  "The following chemicals interact with this gene": "以下化学物质与该基因相互作用",
+  "Highest median expression:": "最高中位表达：",
+  "Total median expression:": "总中位表达：",
+  "View in GTEx track of Genome Browser": "在基因组浏览器的 GTEx 轨道中查看",
+  "View at GTEx portal": "在 GTEx 门户中查看",
+  "View GTEx Body Map": "查看 GTEx 人体图谱",
+  "Expression ratio colors:": "表达比值配色：",
+  "Red high/green low": "红高/绿低",
+  "Yellow high/blue low": "黄高/蓝低",
+  "Fold Energy": "折叠自由能",
+  "Energy/Base": "能量/碱基",
+  "Display As": "显示为",
+  "InterPro Domains:": "InterPro 结构域：",
+  "Graphical view of domain structure": "结构域结构的图形视图",
+  "Pfam Domains:": "Pfam 结构域：",
+  "ModBase Predicted Comparative 3D Structure on": "ModBase 预测的比较 3D 结构：",
+  "No ortholog": "无直系同源基因",
+  "Gene Details": "基因详情",
+  "Protein Sequence": "蛋白质序列",
+  "Cellular Component:": "细胞组分：",
+  "Alternate Gene Symbols:": "替代基因符号：",
+  "UCSC ID:": "UCSC 基因 ID：",
+  "RefSeq Accession:": "RefSeq 登录号：",
+  "Anatomy graphic of GTEx tissues": "GTEx 组织的解剖图",
+  "Select dataset": "选择数据集",
+  "Define region of interest": "定义感兴趣区域",
+  "Identifiers (names/accessions):": "标识符（名称/登录号）：",
+  "Optional: Subset, combine, compare with another track": "可选：与另一条轨道进行取子集、合并、比较",
+  "Retrieve and display data": "检索并显示数据",
+  "Signal data points format:": "信号数据点格式：",
+  "Intersection:": "交集：",
+  "Intersection": "交集",
+  "Need to intersect on position?": "需要按位置取交集吗？",
+  "Output field separator:": "输出字段分隔符：",
+  "File type returned:": "返回的文件类型：",
+  "Clade:": "分支：",
+  "Lookup:": "查找：",
+  "Output:": "输出：",
+  "Data points": "数据点",
+  "Get output:": "获取输出：",
+  "Summary/statistics:": "汇总/统计：",
+  "Data format description:": "数据格式说明：",
+  "Send output to": "发送输出到",
+  "Send output to Galaxy:": "把输出发送到 Galaxy：",
+  "Send output to GREAT:": "把输出发送到 GREAT：",
+  "Send output to Galaxy": "把输出发送到 Galaxy",
+  "Send output to GREAT": "把输出发送到 GREAT",
+  "For a description of the controls below, see": "有关下方控件的说明，请参阅",
+  "Specify the genome, track and data table to be used as the data source.": "指定用作数据来源的基因组、轨道与数据表。",
+  "Press 'create' button and select parameters for optional operations.": "按「create」按钮并选择可选操作参数。",
+  "Specify output options and press the 'get output' button.": "指定输出选项并按「get output」按钮。",
+  "Specifies which clade the organism is in.": "指定该生物所属的分支。",
+  "Specifies which organism data to use.": "指定要使用哪个生物的数据。",
+  "Specifies which version of the organism's genome sequence to use.": "指定要使用该生物基因组序列的哪个版本。",
+  "Displays format information for the tables or files associated with the selected track.": "显示所选轨道相关表或文件的格式信息。",
+  "Submits a data query based on the specified parameters and returns the output.": "按指定参数提交数据查询并返回输出。",
+  "Displays statistics about the data specified by the parameters.": "显示由参数指定的数据的统计信息。",
+  "Table Browser GTF files contain transcripts, but no gene identifiers or symbols.": "Table Browser 的 GTF 文件包含转录本，但不含基因标识符或符号。",
+  "(selected tracks only)": "（仅限所选轨道）",
+  "Search any species, genome or assembly name": "检索任意物种、基因组或组装名称",
+  "Show recent and popular assemblies": "显示最近和常用的组装",
+  "Show popular assemblies": "显示常用组装",
+  "Position range": "位置范围",
+  "For a detailed set of statistics about this assembly, see the": "有关该组装体的详细统计信息，请参阅",
+  "alternate loci scaffolds": "替代位点 scaffold",
+  "UCSC Genome Browser Basics Part 1": "UCSC 基因组浏览器基础 第 1 部分",
+  "Intro to UCSC SARS-CoV-2 Browser": "UCSC SARS-CoV-2 浏览器简介",
+  "Saving and Sharing Sessions in the Genome Browser": "在基因组浏览器中保存与共享会话",
+  "Hide all other tracks": "隐藏其他所有轨道",
+  "Move to top": "移至顶部",
+  "Move to bottom": "移至底部",
+  "Change Track Color": "更改轨道颜色",
+  "Reset filters to defaults": "将过滤器重置为默认值",
+  "View image": "查看图像",
+  "Track Description": "轨道说明",
+  "Add a highlight that covers the entire currently shown region, using the default color. Keyboard shortcut memo is": "添加一个覆盖当前整个显示区域的高亮，使用默认颜色。键盘快捷键提示：",
+  "Add a highlight that covers the entire region shown&lt;br&gt;&lt;i&gt;Keyboard shortcut:&lt;/i&gt; h, then m": "添加一个覆盖当前整个显示区域的高亮。键盘快捷键：先按 h，再按 m",
+  "Strand:": "链：",
+  "Exon:": "外显子：",
+  "Intron:": "内含子：",
+  "Length:": "长度：",
+  "Exon Length:": "外显子长度：",
+  "Codons:": "密码子：",
+  "Codon phase": "密码子相位",
+  "in-frame exon": "框内外显子",
+  "out-of-frame exon": "框外外显子",
+  "Databases:": "数据库：",
+  "Score:": "得分：",
+  "Gap:": "间隙：",
+  "CATALYTIC ACTIVITY:": "催化活性：",
+  "ENZYME REGULATION:": "酶调控：",
+  "PATHWAY:": "通路：",
+  "POLYMORPHISM:": "多态性：",
+  "MISCELLANEOUS:": "其他信息：",
+  "MASS SPECTROMETRY:": "质谱：",
+  "CAUTION:": "注意事项：",
+  "PHARMACEUTICAL:": "药物信息：",
+  "* = Manually curated disease association": "* = 人工策展的疾病关联",
+  "Track Name:": "轨道名称：",
+  "Data Format:": "数据格式：",
+  "Include Public Hub Search Results:": "包含公共 Hub 检索结果：",
+  "NOTE: Including public hubs in results may be slow": "注意：在结果中包含公共 Hub 可能较慢",
+  "About Track Search": "关于轨道检索",
+  "more help": "更多帮助",
+  "Alternate sequence names": "替代序列名称",
+  "docs page": "文档页面",
+  "for more information": "了解更多信息",
+  "Add Custom Tracks": "添加自定义轨道",
+  "request nearly any Genbank assembly": "申请几乎任何 Genbank 组装版本",
+  "search box": "搜索框",
+  "Gateway page": "网关页",
+  "\"r\" then \"v\"": "「r」再「v」",
+  "reverse complements the entire display": "将整个显示区反向互补",
+  "Reverse button": "反向按钮",
+  "Configuring Multi-View Tracks": "配置多视图轨道",
+  "Select views": "选择视图",
+  "Select subtracks": "选择子轨道",
+  "Select subtracks further by": "按以下条件进一步筛选子轨道",
+  "Filter items by": "按以下条件筛选条目",
+  "Highlight items by": "按以下条件高亮条目",
+  "List subtracks": "子轨道列表",
+  "Selecting subtracks": "选择子轨道",
+  "Sorting subtracks": "排序子轨道",
+  "Configuring individual subtracks": "配置单个子轨道",
+  "More details": "更多详情",
+  "Selecting filter categories": "选择筛选类别",
+  "Selecting highlighting categories": "选择高亮类别",
+  "hide": "隐藏",
+  "Wrench Icon": "扳手图标",
+  "Down arrow": "向下箭头",
+  "Frequently Asked Questions: BLAT": "常见问题：BLAT",
+  "Topics": "目录",
+  "BLAT vs. BLAST": "BLAT 与 BLAST 对比",
+  "BLAT cannot find a sequence at all or not all expected matches": "BLAT 完全找不到序列，或未找到全部预期匹配",
+  "BLAT use restrictions": "BLAT 使用限制",
+  "Downloading BLAT source and documentation": "下载 BLAT 源代码与文档",
+  "Replicating web-based BLAT parameters in command-line version": "在命令行版本中复现网页版 BLAT 参数",
+  "Replicating web-based BLAT percent identity and score calculations": "复现网页版 BLAT 的相似度百分比与评分计算",
+  "Replicating web-based BLAT \"I'm feeling lucky\" search results": "复现网页版 BLAT 的「手气不错」检索结果",
+  "Using BLAT for short sequences with maximum sensitivity": "以最高灵敏度用 BLAT 检索短序列",
+  "BLAT ALL genomes: No matches found": "BLAT 全基因组检索：未找到匹配",
+  "Approximating web-based BLAT results using gfServer/gfClient": "用 gfServer/gfClient 近似网页版 BLAT 结果",
+  "Standalone or gfServer/gfClient result start positions off by one": "独立版或 gfServer/gfClient 的结果起始位置相差一",
+  "Protein-translated BLAT having different results": "蛋白翻译版 BLAT 结果不同",
+  "Querying BLAT programmatically using URLs": "通过 URL 以编程方式查询 BLAT",
+  "Running BLAT locally": "在本地运行 BLAT",
+  "Running BLAT Locally": "在本地运行 BLAT",
+  "Return to FAQ Table of Contents": "返回常见问题目录",
+  "What are the differences between BLAT and BLAST?": "BLAT 与 BLAST 有什么区别？",
+  "BLAT can't find a sequence or not all expected matches": "BLAT 找不到序列，或未找到全部预期匹配",
+  "BLAT usage restrictions": "BLAT 使用限制",
+  "Is the BLAT source available for download? Is documentation available?": "BLAT 源代码可以下载吗？有文档吗？",
+  "How do I configure BLAT for short sequences with maximum sensitivity?": "如何以最高灵敏度配置 BLAT 检索短序列？",
+  "How do I blat queries for the default genome assemblies of all organisms?": "如何对全部生物的默认基因组组装做 BLAT 检索？",
+  "Blat ALL genomes": "对所有基因组进行 BLAT 比对",
+  "Replicating web-based Blat parameters in command-line version": "在命令行版本中复现网页版 BLAT 参数",
+  "Replicating web-based Blat percent identity and score calculations": "复现网页版 BLAT 相似度百分比与评分计算",
+  "Replicating web-based Blat \"I'm feeling lucky\" search results": "复现网页版 BLAT「手气不错」检索结果",
+  "Notes on repMatch:": "关于 repMatch 的说明：",
+  "BLAT FAQ": "BLAT 常见问题",
+  "BLAT specifications": "BLAT 规格说明",
+  "Output type": "输出类型",
+  "Assembly list": "组装列表",
+  "Search ALL": "全库检索",
+  "Blat search:": "BLAT 检索：",
+  "BLAT server (capable of PCR):": "BLAT 服务器（支持 PCR）：",
+  "translated BLAT server:": "翻译版 BLAT 服务器：",
+  "From a practical standpoint, BLAT has several advantages over BLAST:": "从实用角度看，BLAT 相对 BLAST 有几项优势：",
+  "speed (no queues, response in seconds) at the price of lesser homology depth": "速度快（无需排队，几秒内响应），代价是同源检索深度较低",
+  "the ability to submit a long list of simultaneous queries in fasta format": "可一次以 FASTA 格式提交一长串查询",
+  "five convenient output sort options": "五种便捷的输出排序选项",
+  "a direct link into the UCSC browser": "可直接链接到 UCSC 浏览器",
+  "alignment block details in natural genomic order": "比对区块详情按基因组自然顺序排列",
+  "an option to launch the alignment later as part of a custom track": "可选择稍后把比对结果作为自定义轨道载入",
+  "Do not use masking command-line options.": "不要使用屏蔽类命令行选项。",
+  "If the sequence is longer than 8kbp, the request must be sent via HTTP POST.": "若序列超过 8 kbp，请求必须通过 HTTP POST 发送。",
+  "Query types include DNA, protein, translated RNA and translated DNA:": "查询类型包括 DNA、蛋白质、翻译 RNA 与翻译 DNA：",
+  "Uses soft masking to convert Fasta format to the 2bit format for BLAT input.": "使用软屏蔽把 FASTA 格式转换为 BLAT 输入所需的 2bit 格式。",
+  "The default setting for Blat dna matches is: repMatch = 1024 (if tileSize=11).": "Blat DNA 匹配的默认设置为：repMatch = 1024（当 tileSize=11 时）。",
+  "Frequently Asked Questions: Data File Formats": "常见问题：数据文件格式",
+  "General formats": "通用格式",
+  "ENCODE-specific formats": "ENCODE 专用格式",
+  "Download-only formats": "仅下载格式",
+  "MAF quality value": "MAF 质量值",
+  "Raw quality score range": "原始质量分数范围",
+  "Quality level": "质量等级",
+  "The first three required BED fields are:": "BED 的前三个必填字段是：",
+  "The 9 additional optional BED fields are:": "另有 9 个可选 BED 字段：",
+  "Requirements": "要求",
+  "Example:": "示例：",
+  "How to make a bigBed file": "如何制作 bigBed 文件",
+  "move start": "移动起点",
+  "move end": "移动终点",
+  ".sql file:": ".sql 文件：",
+  ".txt.gz file:": ".txt.gz 文件：",
+  "Track settings showing the Duplicate track link next to the Display mode dropdown": "轨道设置：显示模式下拉框旁的「复制轨道」链接",
+  "Track settings for a duplicated GENCODE V43 track with independent configuration": "复制出的 GENCODE V43 轨道的设置，配置相互独立",
+  "Track settings showing the option to remove a duplicated GENCODE V43 track": "轨道设置：提供移除复制出的 GENCODE V43 轨道的选项",
+  "Browser view showing two copies of the GENCODE V43 track with different display settings": "浏览器视图：GENCODE V43 轨道的两份副本，显示设置不同",
+  "Configuration menu options": "配置菜单选项",
+  "Ex. white/gray arrows for next/previous exon/item": "示例：用于上/下一个外显子或条目的白色/灰色箭头",
+  "Example right-click to highlight a gene": "示例：右键高亮一个基因",
+  "Genome Browser Multi-View": "基因组浏览器多视图",
+  "score in range": "评分区间",
+  "BLAT this actual sequence against hg19 for a real-world example:": "用 hg19 对这个实际序列做 BLAT，作为真实示例：",
+  "To find the size of a target exon in nucleic acids, use the formula:": "要计算目标外显子在核酸中的长度，用以下公式：",
+  "Or, to find the end position of a target exon, use the formula:": "或者，要计算目标外显子的结束位置，用以下公式：",
+  "Here is a brief description of the GFF fields:": "下面是 GFF 字段的简要说明：",
+  "The attribute list must begin with the two mandatory attributes:": "属性列表必须以这两个必需属性开头：",
+  "a \"q\" line indicating the quality of each aligned base for the species": "一行 “q” 行，表示该物种每个比对碱基的质量",
+  "The following variables can be specified in the track line of a custom MAF:": "自定义 MAF 的轨道行中可以指定以下变量：",
+  "The second line of a custom MAF track must be a header line as described below.": "自定义 MAF 轨道的第二行必须如下文所述的表头行。",
+  "Header Line": "表头行",
+  "The currently defined variables are:": "目前定义的变量有：",
+  "Undefined variables are ignored by the parser.": "未定义的变量会被解析器忽略。",
+  "Lines starting with \"s\" -- a sequence within an alignment block": "以 “s” 开头的行——比对区块中的一条序列",
+  "The status characters can be one of the following values:": "状态字符可以是以下值之一：",
+  "Lines starting with \"e\" -- information about empty parts of the alignment block": "以 “e” 开头的行——比对区块中空段的信息",
+  "The status character can be one of the following values:": "状态字符可以是以下值之一：",
+  "This results in the following mapping:": "由此得到以下映射：",
+  "Manually assigned": "手动指定",
+  "A Simple Example": "简单示例",
+  "The file begins with a 16-byte header containing the following fields:": "文件以一个 16 字节的表头开始，其中包含以下字段：",
+  "The index is followed by the sequence records, which contain nine fields:": "索引之后是序列记录，每条包含九个字段：",
+  "The numerical representations for the bases are:": "各碱基的数值表示如下：",
+  "The most significant bit in a nibble is set if the base is masked.": "若碱基被屏蔽，则半字节中的最高位被置位。",
+  "Gene Predictions": "基因预测",
+  "Gene Predictions (Extended)": "基因预测（扩展）",
+  "Gene Predictions and RefSeq Genes with Gene Names": "基因预测与带基因名的 RefSeq 基因",
+  "Here is an example of narrowPeak format:": "下面是 narrowPeak 格式的示例：",
+  "There is also a format of narrowPeak called": "另有一种 narrowPeak 格式叫",
+  ", a version of": "，它是",
+  ", which enables using this point-source display in Track Hubs.": "，可在轨道 Hub 中使用这种点源显示。",
+  "Here is an example of broadPeak format:": "下面是 broadPeak 格式的示例：",
+  "Here is an example of gappedPeak format:": "下面是 gappedPeak 格式的示例：",
+  "Here is an example of tagAlign format:": "下面是 tagAlign 格式的示例：",
+  "[default: 0.95]": "[默认值：0.95]",
+  "[default: off]": "[默认值：off]",
+  "[default: 0]": "[默认值：0]",
+  "[default: 1]": "[默认值：1]",
+  "Translated Queries:": "翻译查询：",
+  "Protein Query:": "蛋白质查询：",
+  "The exonFrames field:": "exonFrames 字段：",
+  "General Structure": "总体结构",
+  "Alignment Block Lines": "比对区块行",
+  "Using the": "使用",
+  "Try using": "试试",
+  "Do not use": "不要使用",
+  "flag": "选项",
+  "standalone Blat": "独立版 Blat",
+  "mirrored": "被镜像",
+  "graphical version of BLAT": "图形版 BLAT",
+  "expect small differences": "预期会有小差异",
+  "locally": "在本地",
+  "hyperlink": "超链接",
+  "utilities directory": "utilities 目录",
+  "download server": "下载服务器",
+  "example below": "下面的示例",
+  "patches blog post": "patches 博客文章",
+  "Kent Informatics website": "Kent Informatics 网站",
+  "NCBI website": "NCBI 网站",
+  "Wikiwand website": "Wikiwand 网站",
+  "self-chain track": "self-chain 轨道",
+  "\"Short match\" track": "「Short match」轨道",
+  "chromosome aliases": "染色体别名",
+  "blog post": "博客文章",
+  "example": "示例",
+  "example's": "示例的",
+  "track and data lines": "轨道行与数据行",
+  "track line": "轨道行",
+  "extract DNA": "提取 DNA",
+  "Coordinate Transforms": "坐标变换",
+  "Genome Browser Wiki": "基因组浏览器 Wiki",
+  "GFF page": "GFF 页面",
+  "GFF2 specification": "GFF2 规范",
+  "must": "必须",
+  "FAQ on GTF format": "GTF 格式常见问题",
+  "generating GTF or GFF gene file": "生成 GTF 或 GFF 基因文件",
+  "Genes in gtf or gff format": "gtf 或 gff 格式的基因",
+  "coding/non-coding genes FAQ": "编码/非编码基因常见问题",
+  "phase documentation": "phase 说明文档",
+  "rearrangement display mode": "重排显示模式",
+  "in situ": "原位",
+  "e.g.": "例如",
+  "Click": "点击",
+  ", and": "和"
+ },
+ "rules": [
+  {
+   "re": "^Move (\\d+(?:\\.\\d+)?)% to the left$",
+   "to": "向左移动 $1%"
+  },
+  {
+   "re": "^Move (\\d+(?:\\.\\d+)?)% to the right$",
+   "to": "向右移动 $1%"
+  },
+  {
+   "re": "^(.+) click or right click to configure\\.\\.\\. drag to reorder highlighted subtracks$",
+   "to": "$1：点击或右键单击可配置，拖动可重新排序高亮的子轨道"
+  },
+  {
+   "re": "^(.+) click or right click to configure\\.\\.\\. drag to reorder$",
+   "to": "$1：点击或右键单击可配置，拖动可重新排序"
+  },
+  {
+   "re": "^(.+) drag to reorder$",
+   "to": "$1：拖动可重新排序"
+  },
+  {
+   "re": "^Click to alter the display density of (.+)$",
+   "to": "点击可更改 $1 的显示密度"
+  },
+  {
+   "re": "^Includes annotations on (.+) patch sequences$",
+   "to": "包含 $1 补丁序列上的注释"
+  },
+  {
+   "re": "^lifted from (.+)$",
+   "to": "从 $1 迁移而来"
+  },
+  {
+   "re": "^(.+) - container, (\\d+) subtracks?$",
+   "to": "$1 - 容器，$2 个子轨道"
+  },
+  {
+   "re": "^(.+) - container, (\\d+) tracks?$",
+   "to": "$1 - 容器，$2 条轨道"
+  },
+  {
+   "re": "^for details on how this gene model was made and data restrictions if any\\.$",
+   "to": "查看该基因模型如何构建以及（如有）数据使用限制的详情。"
+  },
+  {
+   "re": "^For more information about the files included in the (.+) GenBank submission, see the$",
+   "to": "有关 $1 GenBank 提交中所含文件的更多信息，请参阅"
+  },
+  {
+   "re": "^(.+) click or right click to configure\\.\\.\\.$",
+   "to": "$1：点击或右键单击可配置"
+  },
+  {
+   "re": "^Configure (.+) track set\\.\\.\\.$",
+   "to": "配置 $1 轨道集……"
+  },
+  {
+   "re": "^Configure (.+)$",
+   "to": "配置 $1"
+  },
+  {
+   "re": "^Track Description (.+)$",
+   "to": "轨道说明：$1"
+  },
+  {
+   "re": "^Intron (\\d+) of (\\d+)$",
+   "to": "第 $1 个（共 $2 个）"
+  },
+  {
+   "re": "^Exon (\\d+) of (\\d+)$",
+   "to": "第 $1 个（共 $2 个）"
+  },
+  {
+   "re": "^Codon phase: (\\d+)$",
+   "to": "密码子相位：$1"
+  },
+  {
+   "re": "^Search for Tracks in the (.+) Assembly$",
+   "to": "在 $1 组装体中检索轨道"
+  },
+  {
+   "re": "^Alternative sequence names can be used in the position box, custom tracks, track hubs, bigBed, bigWig, and similar files\\. See the$",
+   "to": "替代序列名称可用于位置框、自定义轨道、轨道 Hub、bigBed、bigWig 及类似文件。参见"
+  },
+  {
+   "re": "^(.+) table format$",
+   "to": "$1 表格式"
+  },
+  {
+   "re": "^(.+) format \\(historical\\)$",
+   "to": "$1 格式（历史）"
+  },
+  {
+   "re": "^(.+) format$",
+   "to": "$1 格式"
+  }
+ ],
+ "templates": [
+  {
+   "pat": "The best way to find an assembly is the {{1}} on our {{2}}. If your assembly of interest is not available, you can {{3}} as long as it has a {{4}} or {{5}} accession.",
+   "zh": "查找组装版本的最佳方式，是使用我们{{2}}上的{{1}}。如果感兴趣的组装不可用，只要具备 {{4}} 或 {{5}} 登录号，就可以{{3}}。"
+  },
+  {
+   "pat": "The {{1}} button below the tracks image, or the shortcut {{2}}, {{3}} and not just the DNA sequence. Every annotation flips to the minus strand, which makes a gene transcribed right to left far easier to read.",
+   "zh": "轨道图像下方的{{1}}按钮，或快捷键 {{2}}，会{{3}}，而不只是 DNA 序列。所有注释都会翻转到负链，这让从右向左转录的基因读起来容易得多。"
+  },
+  {
+   "pat": "{{1}}{{2}} The {{3}} section is a grid of checkboxes that provides a quick way to select a set of subtracks according to some attribute, such as \"cell line\" or \"antibody\". Note that selections made using these boxes reset any selections made on the individual subtracks in the {{4}} section below.",
+   "zh": "{{1}}{{2}} {{3}} 分区是一个复选框网格，可按细胞系、抗体等属性快速选择一组子轨道。注意：用这些复选框做的选择，会重置下方 {{4}} 分区中对单个子轨道所做的选择。"
+  },
+  {
+   "pat": "Some tracks allow you to {{1}} additional categories such as \"treatment\". Click on a menu to see all of the available choices. Choices that are not compatible with the current set of selected subtracks may be grayed out. Click on one or more choices to select them.",
+   "zh": "有些轨道允许你{{1}}诸如「treatment」之类的额外类别。点击菜单可查看所有可用选项。与当前所选子轨道不兼容的选项可能变灰。点击一个或多个选项即可选中。"
+  },
+  {
+   "pat": "{{1}}{{2}} The order of subtracks in the {{3}} section determines the display position on the main Genome Browser display page. Tracks can be sorted by clicking on the attribute links at the top of the column (if any). The arrows next to the attribute links indicate which direction the columns are being sorted. The numbers next to the arrows indicate the priority of the sort for each attribute. Additionally, some subtracks can be ordered by \"drag and drop\": click and hold a subtrack checkbox in the {{4}} section and release it in a new position. Note that tracks may be reordered by \"drag and drop\" in the main Genome Browser display. Those changes will not be reflected in this list.",
+   "zh": "{{1}}{{2}} {{3}} 分区中子轨道的顺序决定它们在基因组浏览器主显示页上的显示位置。点击列顶部的属性链接（如有）可排序。属性链接旁的箭头表示该列的排序方向，箭头旁的数字表示各属性排序的优先级。此外，部分子轨道可用拖放排序：按住 {{4}} 分区中的子轨道复选框拖到新位置后松开。注意：在基因组浏览器主显示页中拖放重排轨道，不会反映到本列表。"
+  },
+  {
+   "pat": "{{1}}{{2}} Subtracks can have display and configuration settings that are distinct from the set they belong to. Click on the display mode (hide, dense, etc.) of a subtrack shown in the {{3}} to change it or click on the wrench icon ({{4}}) to change the configuration settings for an individual subtrack. Individual subtrack settings will be overwritten anytime the set of tracks is configured as a whole.",
+   "zh": "{{1}}{{2}} 子轨道可以有自己的显示与配置设置，与所属集合不同。点击 {{3}} 中某个子轨道的显示模式（hide、dense 等）即可更改，或点击扳手图标（{{4}}）更改单个子轨道的配置。只要整体配置该轨道集合，单个子轨道的设置就会被覆盖。"
+  },
+  {
+   "pat": "{{1}}{{2}} To learn more about the underlying data for a subtrack, press the down arrow ({{3}}) next to the subtrack name in the {{4}} section. This section will expand to display information such as the name of the data contributor, the cell line and antibody used in the experiment, the data submission date and more. To see a full description of the underlying table, press the \"schema\" link.",
+   "zh": "{{1}}{{2}} 想了解某子轨道的底层数据，请按 {{4}} 分区中子轨道名称旁的向下箭头（{{3}}）。该分区会展开，显示数据贡献者名称、实验所用的细胞系与抗体、数据提交日期等信息。要查看底层数据表的完整说明，请点击「schema」链接。"
+  },
+  {
+   "pat": "{{1}}{{2}} Some tracks allow you to control the items that appear in displayed subtracks using {{3}} categories. Click on a filter menu to see all of the available item types. Click on one or more item types to select them.",
+   "zh": "{{1}}{{2}} 有些轨道允许你按 {{3}} 类别控制所显示子轨道中出现的条目。点击筛选菜单可查看全部可用条目类型。点击一个或多个条目类型即可选中。"
+  },
+  {
+   "pat": "{{1}}{{2}} Some tracks allow you to highlight the items by various attributes using {{3}} categories. Click on a highlight menu to see all of the available item types. Click on one or more item types to select them.",
+   "zh": "{{1}}{{2}} 有些轨道允许你按 {{3}} 类别以各种属性高亮条目。点击高亮菜单可查看全部可用条目类型。点击一个或多个条目类型即可选中。"
+  },
+  {
+   "pat": "For users with high-volume Blat demands, we recommend downloading the BLAT tool for local use. For more information, see {{1}}.",
+   "zh": "对于 BLAT 使用量很大的用户，建议下载 BLAT 工具在本地使用。详情请参阅{{1}}。"
+  },
+  {
+   "pat": "BLAT source and executables are freely available for academic, nonprofit and personal use. Commercial licensing information is available on the {{1}}.",
+   "zh": "BLAT 源代码与可执行程序可免费用于学术、非营利与个人用途。商业授权信息见{{1}}。"
+  },
+  {
+   "pat": "BLAT source may be downloaded from {{1}} (located at /kent/src/blat within the most recent jksrc*.zip source tree). For BLAT executables, go to {{2}} and choose your machine type.",
+   "zh": "BLAT 源代码可从 {{1}} 下载（位于最新 jksrc*.zip 源码树的 /kent/src/blat 下）。BLAT 可执行程序请到 {{2}} 并按机器类型选择。"
+  },
+  {
+   "pat": "Documentation on BLAT program specifications is available {{1}}. Note that the command-line BLAT does not return matches to U nucleotides in the query sequence.",
+   "zh": "BLAT 程序的规格说明见{{1}}。注意：命令行版 BLAT 不会返回对查询序列中 U 核苷酸的匹配。"
+  },
+  {
+   "pat": "{{1}} There are cases where the gfServer/gfClient approach provide a better approximation of web results than standalone Blat. See the {{2}} for an overview of this process.",
+   "zh": "{{1}} 有些情况下，gfServer/gfClient 方式比独立版 Blat 更接近网页结果。该流程概述见{{2}}。"
+  },
+  {
+   "pat": "Blat search:{{1}} {{2}}{{3}}",
+   "zh": "BLAT 检索：{{1}} {{2}}{{3}}"
+  },
+  {
+   "pat": "{{1}} (this is how the UCSC web-based BLAT servers are configured):",
+   "zh": "{{1}}（UCSC 网页版 BLAT 服务器就是这样配置的）："
+  },
+  {
+   "pat": "BLAT server (capable of PCR):{{1}} {{2}}",
+   "zh": "BLAT 服务器（支持 PCR）：{{1}} {{2}}"
+  },
+  {
+   "pat": "translated BLAT server:{{1}} {{2}}",
+   "zh": "翻译版 BLAT 服务器：{{1}} {{2}}"
+  },
+  {
+   "pat": "Set {{1}} and {{2}}. This will result in some low-scoring, generally spurious hits, but for interactive use it's sufficiently easy to ignore them (because results are sorted by score) and sometimes the low-scoring hits come in handy.",
+   "zh": "把 {{1}} 与 {{2}} 都设为 0。这样会出现一些低分、通常是虚假的命中；但交互使用时很容易忽略（结果按分数排序），而且低分命中有时也有用。"
+  },
+  {
+   "pat": "For more information about how to replicate the score and percent identity matches displayed by our web-based Blat, please see this {{1}}.",
+   "zh": "关于如何复现网页版 Blat 显示的评分与相似度百分比匹配，请参阅这份{{1}}。"
+  },
+  {
+   "pat": "For more information on the parameters available for BLAT, gfServer, and gfClient, see the {{1}}.",
+   "zh": "BLAT、gfServer 与 gfClient 可用参数的更多说明见{{1}}。"
+  },
+  {
+   "pat": "Using the {{1}} flag",
+   "zh": "使用 {{1}} 选项"
+  },
+  {
+   "pat": "What does the {{1}} flag do?",
+   "zh": "{{1}} 选项有什么作用？"
+  },
+  {
+   "pat": "Using any {{1}} option in BLAT, such as {{2}}, speeds up searches similar to repeat-masking sequence. The {{3}} file contains sequences determined to be over-represented in the genome sequence. To improve search speed, these sequences are not used when seeding an alignment against the genome. For reasonably sized sequences, this will not create a problem and will significantly reduce processing time.",
+   "zh": "在 BLAT 中使用任意 {{1}} 选项（如 {{2}}）都能加快检索，效果类似重复序列屏蔽。{{3}} 文件收录的是判定为在基因组序列中过度代表的序列。为提升检索速度，用这些序列对基因组建立比对种子时不予使用。对于长度合理的序列，这不会造成问题，并能明显缩短处理时间。"
+  },
+  {
+   "pat": "By not using the {{1}} file, you will increase alignment time, but will also slightly increase sensitivity. This may be important if you are aligning shorter sequences or sequences of poor quality. For example, if a particular sequence consists primarily of sequences in the {{2}} file, it will never be seeded correctly for an alignment if the {{3}} flag is used.",
+   "zh": "不使用 {{1}} 文件会增加比对时间，但灵敏度也会略有提高。这在比对较短或质量较差的序列时可能很重要。例如，若某段序列主要由 {{2}} 文件中的序列构成，使用 {{3}} 选项时就永远无法正确建立比对种子。"
+  },
+  {
+   "pat": "In summary, if you are not finding certain sequences and can afford the extra processing time, you may want to run BLAT without the {{1}} file if your particular situation warrants its use.",
+   "zh": "总之，如果某些序列找不到，而且你能接受额外的处理时间，在具体情形允许时可以不使用 {{1}} 文件来运行 BLAT。"
+  },
+  {
+   "pat": "View the perl script from the source tree: {{1}}",
+   "zh": "查看源码树中的 perl 脚本：{{1}}"
+  },
+  {
+   "pat": "View the corresponding C program: {{1}} and associated library functions {{2}} and {{3}} in {{4}}",
+   "zh": "查看对应的 C 程序：{{1}}，以及 {{4}} 中相关的库函数 {{2}} 与 {{3}}"
+  },
+  {
+   "pat": "See our {{1}} on source code licensing and downloads for information on obtaining the source.",
+   "zh": "获取源代码的说明，请参阅我们的{{1}}（涉及源码许可与下载）。"
+  },
+  {
+   "pat": "To replicate any of the sort options involving score, you first must calculate the score for each result in your PSL output file, then sort the results by score or other combination ({{1}} \"query, score\" and \"chrom, score\"). See the section on {{2}} for information on calculating the score.",
+   "zh": "要复现涉及评分的任一排序选项，先要算出 PSL 输出文件中每条结果的评分，再按评分或其他组合排序（{{1}}「query, score」与「chrom, score」）。评分的计算方法见{{2}}一节。"
+  },
+  {
+   "pat": "Use a large value for {{1}} (e.g. {{2}} = 1000000) to reduce the chance of a tile being marked as over-used.",
+   "zh": "把 {{1}} 设得很大（例如 {{2}} = 1000000），可降低某个 tile 被标记为过度使用的概率。"
+  },
+  {
+   "pat": "Do not use an {{1}} file.",
+   "zh": "不要使用 {{1}} 文件。"
+  },
+  {
+   "pat": "{{1}} - The name of the chromosome (e.g. chr3, chrY, chr2_random) or scaffold (e.g. scaffold10671). Many assemblies also support several different {{2}} (e.g. '1' or 'NC_000001.11' in place of 'chr1').",
+   "zh": "{{1}} —— 染色体名称（如 chr3、chrY、chr2_random）或 scaffold 名称（如 scaffold10671）。许多组装还支持多种{{2}}（例如用 '1' 或 'NC_000001.11' 代替 'chr1'）。"
+  },
+  {
+   "pat": "{{1}} - The starting position of the feature in the chromosome or scaffold. The first base in a chromosome is numbered 0.",
+   "zh": "{{1}} —— 特征在染色体或 scaffold 上的起始位置。染色体第一个碱基的编号为 0。"
+  },
+  {
+   "pat": "{{1}} - The ending position of the feature in the chromosome or scaffold. The {{2}} base is not included in the display of the feature, however, the number in {{3}} will be represented. For example, the first 100 bases of chromosome 1 are defined as {{4}}, and span the bases numbered 0-99 in our software (not 0-100), but will represent the position notation chr1:1-100. Read more {{5}}. {{6}}{{7}} and {{8}} can be identical, creating a feature of length 0, commonly used for insertions. For example, use {{9}} to represent an insertion before the first nucleotide of a chromosome.",
+   "zh": "{{1}} —— 特征在染色体或 scaffold 上的结束位置。{{2}} 这个碱基不计入特征显示范围，但 {{3}} 中的数字仍会体现。例如染色体 1 的前 100 个碱基写作 {{4}}，在我们的软件里覆盖编号 0–99 的碱基（不是 0–100），但位置记法为 chr1:1-100。更多说明见{{5}}。{{6}}{{7}} 与 {{8}} 可以相同，从而生成长度为 0 的特征，常用于表示插入。例如用 {{9}} 表示染色体第一个核苷酸之前的插入。"
+  },
+  {
+   "pat": "{{1}} - Defines the name of the BED line. This label is displayed to the left of the BED line in the Genome Browser window when the track is open to full display mode or directly to the left of the item in pack mode.",
+   "zh": "{{1}} —— 定义 BED 行的名称。轨道处于 full 显示模式时，该标签显示在基因组浏览器窗口中 BED 行的左侧；pack 模式下则直接显示在条目左侧。"
+  },
+  {
+   "pat": "{{1}} - Defines the strand. Either \".\" (=no strand) or \"+\" or \"-\".",
+   "zh": "{{1}} —— 定义链。取值为 \".\"（表示无链）、\"+\" 或 \"-\"。"
+  },
+  {
+   "pat": "{{1}} - The starting position at which the feature is drawn thickly (for example, the start codon in gene displays). When there is no thick part, thickStart and thickEnd are usually set to the chromStart position.",
+   "zh": "{{1}} —— 特征被画成粗线的起始位置（例如基因显示中的起始密码子）。没有粗线部分时，thickStart 与 thickEnd 通常设为 chromStart 的位置。"
+  },
+  {
+   "pat": "{{1}} - The ending position at which the feature is drawn thickly (for example the stop codon in gene displays).",
+   "zh": "{{1}} —— 特征被画成粗线的结束位置（例如基因显示中的终止密码子）。"
+  },
+  {
+   "pat": "{{1}} - An RGB value of the form R,G,B (e.g. 255,0,0). If the track line {{2}} attribute is set to \"On\", this RGB value will determine the display color of the data contained in this BED line. NOTE: It is recommended that a simple color scheme (eight colors or less) be used with this attribute to avoid overwhelming the color resources of the Genome Browser and your Internet browser.",
+   "zh": "{{1}} —— 形如 R,G,B 的 RGB 值（如 255,0,0）。若轨道行的 {{2}} 属性设为「On」，该 RGB 值决定这一 BED 行数据的显示颜色。注意：建议只用简单配色（八种颜色以内），以免耗尽基因组浏览器与你的浏览器可用的颜色资源。"
+  },
+  {
+   "pat": "{{1}} - The number of blocks (exons) in the BED line.",
+   "zh": "{{1}} —— BED 行中的区块（外显子）数量。"
+  },
+  {
+   "pat": "{{1}} - A comma-separated list of the block sizes. The number of items in this list should correspond to {{2}}.",
+   "zh": "{{1}} —— 以逗号分隔的区块大小列表。列表项数应与 {{2}} 对应。"
+  },
+  {
+   "pat": "{{1}} - A comma-separated list of block starts. All of the {{2}} positions should be calculated relative to {{3}}. The number of items in this list should correspond to {{4}}.",
+   "zh": "{{1}} —— 以逗号分隔的区块起始位置列表。所有 {{2}} 位置都应相对于 {{3}} 计算。列表项数应与 {{4}} 对应。"
+  },
+  {
+   "pat": "In BED files with block definitions, the first {{1}} value must be 0, so that the first block begins at {{2}}. Similarly, the final {{3}} position plus the final {{4}} value must equal {{5}}. Blocks may not overlap.",
+   "zh": "在带区块定义的 BED 文件中，第一个 {{1}} 值必须为 0，这样第一个区块才从 {{2}} 开始。同理，最后的 {{3}} 位置加上最后的 {{4}} 值必须等于 {{5}}。区块之间不得重叠。"
+  },
+  {
+   "pat": "PSL lines represent alignments, and are typically taken from files generated by BLAT or psLayout. See the {{1}} for more details. PSL data tracks can also be visualized in {{2}}. All of the following fields are required on each data line within a PSL file:",
+   "zh": "PSL 行表示比对结果，通常来自 BLAT 或 psLayout 生成的文件。更多说明见{{1}}。PSL 数据轨道也可以用{{2}}可视化。PSL 文件每条数据行都必须包含以下全部字段："
+  },
+  {
+   "pat": "{{1}} - Number of bases that match that aren't repeats",
+   "zh": "{{1}} —— 匹配且不属于重复序列的碱基数"
+  },
+  {
+   "pat": "{{1}} - Number of bases that don't match",
+   "zh": "{{1}} —— 不匹配的碱基数"
+  },
+  {
+   "pat": "{{1}} - Number of bases that match but are part of repeats",
+   "zh": "{{1}} —— 匹配但属于重复序列的碱基数"
+  },
+  {
+   "pat": "{{1}} - Number of \"N\" bases",
+   "zh": "{{1}} —— \"N\" 碱基数"
+  },
+  {
+   "pat": "{{1}} - Number of inserts in query",
+   "zh": "{{1}} —— 查询序列中的插入片段数"
+  },
+  {
+   "pat": "{{1}} - Number of bases inserted in query",
+   "zh": "{{1}} —— 查询序列中插入的碱基数"
+  },
+  {
+   "pat": "{{1}} - Number of inserts in target",
+   "zh": "{{1}} —— 目标序列中的插入片段数"
+  },
+  {
+   "pat": "{{1}} - Number of bases inserted in target",
+   "zh": "{{1}} —— 目标序列中插入的碱基数"
+  },
+  {
+   "pat": "{{1}} - \"+\" or \"-\" for query strand. For translated alignments, second \"+\"or \"-\" is for target genomic strand.",
+   "zh": "{{1}} —— 查询链，取 \"+\" 或 \"-\"。翻译比对时，第二个 \"+\" 或 \"-\" 表示目标基因组链。"
+  },
+  {
+   "pat": "{{1}} - Query sequence name",
+   "zh": "{{1}} —— 查询序列名称"
+  },
+  {
+   "pat": "{{1}} - Query sequence size.",
+   "zh": "{{1}} —— 查询序列长度。"
+  },
+  {
+   "pat": "{{1}} - Alignment start position in query",
+   "zh": "{{1}} —— 比对在查询序列中的起始位置"
+  },
+  {
+   "pat": "{{1}} - Alignment end position in query",
+   "zh": "{{1}} —— 比对在查询序列中的结束位置"
+  },
+  {
+   "pat": "{{1}} - Target sequence name",
+   "zh": "{{1}} —— 目标序列名称"
+  },
+  {
+   "pat": "{{1}} - Target sequence size",
+   "zh": "{{1}} —— 目标序列长度"
+  },
+  {
+   "pat": "{{1}} - Alignment start position in target",
+   "zh": "{{1}} —— 比对在目标序列中的起始位置"
+  },
+  {
+   "pat": "{{1}} - Alignment end position in target",
+   "zh": "{{1}} —— 比对在目标序列中的结束位置"
+  },
+  {
+   "pat": "{{1}} - Number of blocks in the alignment (a block contains no gaps)",
+   "zh": "{{1}} —— 比对中的区块数（区块内不含空位）"
+  },
+  {
+   "pat": "{{1}} - Comma-separated list of sizes of each block. If the query is a protein and the target the genome, blockSizes are in amino acids. See below for more information on protein query PSLs.",
+   "zh": "{{1}} —— 以逗号分隔的各区块大小列表。若查询是蛋白质、目标是基因组，blockSizes 以氨基酸为单位。蛋白质查询 PSL 的更多说明见下文。"
+  },
+  {
+   "pat": "{{1}} - Comma-separated list of starting positions of each block in query",
+   "zh": "{{1}} —— 以逗号分隔的各区块在查询序列中的起始位置"
+  },
+  {
+   "pat": "{{1}} - Comma-separated list of starting positions of each block in target",
+   "zh": "{{1}} —— 以逗号分隔的各区块在目标序列中的起始位置"
+  },
+  {
+   "pat": "{{1}}{{2}} Here's an example of an annotation track, introduced by a {{3}}, that is followed by a complete BED definition:",
+   "zh": "{{1}}{{2}} 下面是一个注释轨道的示例，由 {{3}} 引出，后接完整的 BED 定义："
+  },
+  {
+   "pat": "{{1}}{{2}} Here is an example of an annotation track in PSL format.",
+   "zh": "{{1}}{{2}} 下面是一个 PSL 格式的注释轨道示例。"
+  },
+  {
+   "pat": "To see an example of turning a bedDetail custom track into the {{1}} format, see this {{2}} blog post.",
+   "zh": "把 bedDetail 自定义轨道转换为 {{1}} 格式的示例，见这篇{{2}}博客文章。"
+  },
+  {
+   "pat": "{{1}} for BED detail custom tracks are: fields must be tab-separated, \"type=bedDetail\" must be included in the {{2}}, and the name and position fields should uniquely describe items so that the correct ID and description will be displayed on the details pages.",
+   "zh": "BED detail 自定义轨道的{{1}}是：字段必须以制表符分隔，{{2}} 中必须包含 \"type=bedDetail\"，且 name 与 position 字段应能唯一标识条目，以便详情页显示正确的 ID 与描述。"
+  },
+  {
+   "pat": "Visit our {{1}} for more videos.",
+   "zh": "观看更多视频，请访问我们的{{1}}。"
+  },
+  {
+   "pat": "Track data can be viewed as text tables using the {{1}}.",
+   "zh": "轨道数据可用{{1}}以文本表格形式查看。"
+  },
+  {
+   "pat": "For information on using the Table Browser features, refer to the {{1}}.",
+   "zh": "表格浏览器各项功能的用法，请参阅{{1}}。"
+  },
+  {
+   "pat": "For more detailed information on using the Session tool, see the {{1}}.",
+   "zh": "会话工具的详细用法，请参阅{{1}}。"
+  },
+  {
+   "pat": "For information on using the Genome Graphs features, refer to the {{1}}.",
+   "zh": "基因组图谱各项功能的用法，请参阅{{1}}。"
+  },
+  {
+   "pat": "For more information please click {{1}}.",
+   "zh": "更多信息请点击{{1}}。"
+  },
+  {
+   "pat": "{{1}} {{2}} When I click the {{3}} button, I get the error message \"line 1 of custom input:\".",
+   "zh": "{{1}} {{2}} 单击{{3}}按钮后，出现错误信息「line 1 of custom input:」。"
+  },
+  {
+   "pat": "{{1}} {{2}} When I click the {{3}} button, I get the error message \"line # of custom input: missing = in var/val pair\".",
+   "zh": "{{1}} {{2}} 单击{{3}}按钮后，出现错误信息「line # of custom input: missing = in var/val pair」。"
+  },
+  {
+   "pat": "{{1}} {{2}} When I click the {{3}} button, the Genome Browser track window displays OK, but my track isn't visible.",
+   "zh": "{{1}} {{2}} 单击{{3}}按钮后，基因组浏览器轨道窗口显示正常，但我的轨道看不到。"
+  },
+  {
+   "pat": "{{1}} {{2}} Defines a URL for an HTML description page to be displayed with this track. There is no default for this attribute. A template for a standard format HTML track description is {{3}}.",
+   "zh": "{{1}} {{2}} 定义随该轨道显示的 HTML 说明页 URL。该属性没有默认值。标准格式 HTML 轨道说明的模板见 {{3}}。"
+  },
+  {
+   "pat": "{{1}} - a tool that allows you to upload and display genome-wide data sets such as the results of genome-wide SNP association studies, linkage studies and homozygosity mapping. {{2}}.",
+   "zh": "{{1}} —— 一个可上传并显示全基因组数据集的工具，例如全基因组 SNP 关联研究、连锁研究与纯合性定位的结果。{{2}}。"
+  },
+  {
+   "pat": "{{1}} It is not recommeneded to use LiftOver to convert SNPs between assemblies, and more information about how to convert SNPs between assemblies can be found on the following {{2}}.",
+   "zh": "{{1}} 不建议用 LiftOver 在不同组装之间转换 SNP；关于如何转换的更多说明见下面的{{2}}。"
+  },
+  {
+   "pat": "Enter one or more URLs for custom tracks (one per line) in the data text box. The Genome Browser supports both the HTTP and FTP (passive-only) protocols. Data provided by a URL may need to be proceeded by a separate line defining {{1}} required for some tracks, for example such as \"track type=broadPeak\". {{2}} {{3}}",
+   "zh": "在数据文本框中输入一个或多个自定义轨道的 URL（每行一个）。基因组浏览器支持 HTTP 与 FTP（仅被动模式）协议。由 URL 提供的数据可能需要在前面单独加一行，定义部分轨道必需的 {{1}}，例如 \"track type=broadPeak\"。{{2}} {{3}}"
+  },
+  {
+   "pat": "The output file {{1}} should have results very similar to web-based Blat.",
+   "zh": "输出文件 {{1}} 的结果应与网页版 Blat 非常接近。"
+  },
+  {
+   "pat": "Once you have the downloaded the {{1}} program to your computer, ensure the 'execute' bit is on for permissions:",
+   "zh": "把 {{1}} 程序下载到本机后，确认权限里已打开「执行」位："
+  },
+  {
+   "pat": "If the permissions indicate something like: {{1}}, then you will need to enable the ability to execute the program:",
+   "zh": "若权限显示类似 {{1}}，则需要开启程序的可执行权限："
+  },
+  {
+   "pat": "If you have access to a Linux or Mac OSX command-line you can run {{1}} locally. The blat binary is available under the directory for your system type under the {{2}} on our download server.",
+   "zh": "如果你有 Linux 或 Mac OSX 命令行，可以在本地运行 {{1}}。blat 可执行文件放在我们下载服务器上 {{2}} 中对应你系统类型的目录下。"
+  },
+  {
+   "pat": "If the {{1}} is changed to {{2}} on web Blat, the same zero-based half open coordinate results will be seen as the standalone Blat and gfServer/gfClient procedures.",
+   "zh": "若在网页版 Blat 中把 {{1}} 改为 {{2}}，得到的结果与独立版 Blat 及 gfServer/gfClient 流程一致，都是零基半开区间坐标。"
+  },
+  {
+   "pat": "This usually occurs on the newer genome assemblies, such as hg38, when you search a sequence that has an \"alternate\" or \"fix\" sequence. To improve the quality of these assemblies, curators have added multiple versions of some important loci, e.g. the MHC regions. They also add fix sequences to resolve errors without changing the reference. See our {{1}} for more information.",
+   "zh": "这种情况通常出现在较新的基因组组装（如 hg38）中，当你检索的序列存在「alternate」或「fix」序列时就会发生。为提高这些组装的质量，策展人员为某些重要位点（例如 MHC 区域）加入了多个版本，也会加入 fix 序列以在不改变参考序列的前提下修正错误。更多说明见{{1}}。"
+  },
+  {
+   "pat": "GFF (General Feature Format) lines are based on the Sanger {{1}}. GFF lines have nine required fields that {{2}} be tab-separated. If the fields are separated by spaces instead of tabs, the track will not display correctly. For more information on GFF format, refer to Sanger's {{3}}.",
+   "zh": "GFF（General Feature Format）行基于 Sanger 的{{1}}。GFF 行有九个必填字段，{{2}} 以制表符分隔。若字段之间用空格而非制表符分隔，轨道将无法正确显示。GFF 格式的更多说明见 Sanger 的{{3}}。"
+  },
+  {
+   "pat": "{{1}} - The name of the sequence. Must be a chromosome or scaffold.",
+   "zh": "{{1}} —— 序列名称。必须是染色体或 scaffold。"
+  },
+  {
+   "pat": "{{1}} - The program that generated this feature.",
+   "zh": "{{1}} —— 生成该特征的程序。"
+  },
+  {
+   "pat": "{{1}} - The name of this type of feature. Some examples of standard feature types are \"CDS\" \"start_codon\" \"stop_codon\" and \"exon\".",
+   "zh": "{{1}} —— 该特征类型的名称。标准特征类型的例子有 \"CDS\"、\"start_codon\"、\"stop_codon\" 与 \"exon\"。"
+  },
+  {
+   "pat": "{{1}} - The starting position of the feature in the sequence. The first base is numbered 1.",
+   "zh": "{{1}} —— 特征在序列中的起始位置。第一个碱基编号为 1。"
+  },
+  {
+   "pat": "{{1}} - The ending position of the feature (inclusive).",
+   "zh": "{{1}} —— 特征的结束位置（含该位置）。"
+  },
+  {
+   "pat": "{{1}} - A score between 0 and 1000. If the track line {{2}} attribute is set to 1 for this annotation data set, the {{3}} value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). If there is no score value, enter \".\".",
+   "zh": "{{1}} —— 0 到 1000 的分数。若该注释数据集的轨道行 {{2}} 属性设为 1，则 {{3}} 值决定该特征显示的灰度（数值越大越深）。没有分值时填 \".\"。"
+  },
+  {
+   "pat": "{{1}} - Valid entries include \"+\", \"-\", or \".\" (for don't know/don't care).",
+   "zh": "{{1}} —— 可取 \"+\"、\"-\" 或 \".\"（表示不知道/不关心）。"
+  },
+  {
+   "pat": "{{1}} - If the feature is a coding exon, {{2}} should be a number between 0-2 that represents the reading frame of the first base. If the feature is not a coding exon, the value should be \".\".",
+   "zh": "{{1}} —— 若该特征是编码外显子，{{2}} 应为 0–2 之间的数字，表示第一个碱基的阅读框。若该特征不是编码外显子，值应为 \".\"。"
+  },
+  {
+   "pat": "{{1}} - All lines with the same group are linked together into a single item.",
+   "zh": "{{1}} —— 同一 group 的所有行会连成一个条目。"
+  },
+  {
+   "pat": "BED information should not be mixed as explained above (BED3 should not be mixed with BED4), rather additional column information must be filled for consistency, for example with a \".\" in some circumstances, if the field content is to be empty. BED fields in custom tracks can be whitespace-delimited or tab-delimited. Only some variations of BED types, such as {{1}}, require a tab character delimitation for the detail columns.",
+   "zh": "BED 信息不应如上面解释的那样混用（BED3 不应与 BED4 混用），而应为保持一致补齐额外的列信息，例如在字段内容为空时视情况填入“.”。自定义轨道中的 BED 字段可以用空白分隔，也可以用制表符分隔。只有某些 BED 变体（如 {{1}}）才要求详情列用制表符分隔。"
+  },
+  {
+   "pat": "If your data set is BED-like, but it is very large (over 50MB) and you would like to keep it on your own server, you should use the {{1}} data format. Read a {{2}} for step-by-step instructions.",
+   "zh": "如果你的数据集是类 BED 格式，但体积很大（超过 50MB）且希望保留在自己的服务器上，就应使用 {{1}} 数据格式。阅读{{2}}获取分步说明。"
+  },
+  {
+   "pat": "{{1}} - A score between 0 and 1000. If the track line {{2}} attribute is set to 1 for this annotation data set, the {{3}} value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). This table shows the Genome Browser's translation of BED score values into shades of gray:",
+   "zh": "{{1}} —— 0 到 1000 之间的评分。若该注释数据集把轨道行的 {{2}} 属性设为 1，则该 {{3}} 值决定此特征显示的灰度深浅（数值越大，灰色越深）。下表列出基因组浏览器把 BED 评分值换算成灰度的对应关系："
+  },
+  {
+   "pat": "{{1}}{{2}} This example shows an annotation track that uses the itemRgb attribute to individually color each data line. In this track, the color scheme distinguishes between items named \"Pos*\" and those named \"Neg*\". See the usage note in the {{3}} description above for color palette restrictions. NOTE: The {{4}} in this example have been reformatted for documentation purposes. This {{5}} can be pasted into the browser without editing.",
+   "zh": "{{1}}{{2}} 本示例展示一个用 itemRgb 属性为每行数据单独着色的注释轨道。此轨道中，配色方案区分名为“Pos*”与“Neg*”的条目。配色限制见上文 {{3}} 说明中的用法提示。注意：本示例中的{{4}}为便于说明已重新排版。此{{5}}可以原样粘贴进浏览器。"
+  },
+  {
+   "pat": "{{1}}{{2}} It is also possible to color items by strand in a BED track using the {{3}} attribute in the {{4}} as shown below. For BED tracks, this attribute functions only for custom tracks with 6 to 8 fields (i.e. BED6 through BED8). NOTE: The track and data lines in this example have been reformatted for documentation purposes. This {{5}} can be pasted into the browser without editing.",
+   "zh": "{{1}}{{2}} 也可以用轨道行中的 {{3}} 属性按链为 BED 轨道条目着色，如下所示。对 BED 轨道而言，该属性只对含 6 到 8 个字段的自定义轨道（即 BED6 到 BED8）有效。注意：本示例中的{{4}}为便于说明已重新排版。此{{5}}可以原样粘贴进浏览器。"
+  },
+  {
+   "pat": "Be aware that the coordinates for a negative strand in a dna query PSL line are handled in a special way. In the {{1}} and {{2}} fields, the coordinates indicate the position where the query matches from the point of view of the forward strand, even when the match is on the reverse strand. However, in the {{3}} list, the coordinates are reversed.",
+   "zh": "注意：dna 查询的 PSL 行中，负链坐标的处理方式很特殊。在 {{1}} 与 {{2}} 字段中，坐标表示查询序列匹配的位置，且以正链视角给出，即使匹配发生在负链上也是如此。但在 {{3}} 列表中，坐标是反向的。"
+  },
+  {
+   "pat": "Essentially, the minus strand {{1}} and {{2}} are what you would get if you reverse-complemented the query. However, the {{3}} and {{4}} are not reversed. Use the following formulas to convert one to the other:",
+   "zh": "本质上，负链的 {{1}} 与 {{2}} 就是把查询序列反向互补后得到的结果。而 {{3}} 与 {{4}} 不会反向。用下面的公式可以把两者互相换算："
+  },
+  {
+   "pat": "{{1}}{{2}} Translated queries translate both the query and target dna into amino acids for greater sensitivity. They are also used for protein search, although in that case the query does not need to be translated. For these search types, the strand field lists two values, the first for the query strand (qStrand) and the second for the target strand (tStrand).{{3}} The following rules apply, where x can be q or t:{{4}} If xStrand is negative, the xStarts list has negative-strand coordinates. {{5}} However, the xStart,xEnd values are always given in positive-strand coordinates, regardless of xStrand.{{6}}",
+   "zh": "{{1}}{{2}} 翻译查询会把查询序列与目标 DNA 都翻译成氨基酸，以提高灵敏度。它们也用于蛋白质检索，只是这种情况下查询序列无需翻译。在这类检索中，strand 字段列出两个值：第一个是查询链（qStrand），第二个是目标链（tStrand）。{{3}} 以下规则适用于 x 为 q 或 t 的情形：{{4}} 若 xStrand 为负，则 xStarts 列表中为负链坐标。{{5}} 但无论 xStrand 如何，xStart,xEnd 值始终以正链坐标给出。{{6}}"
+  },
+  {
+   "pat": "{{1}}{{2}} A protein query consists of amino acids. To align amino acids against a database of nucleic acids, each target chromosome is first translated into amino acids for each of the six different reading frames. The resulting protein PSL is a hybrid; the query fields are all in amino acid coordinates and sizes, while the target database fields are in nucleic acid chromosome coordinates and sizes. The fields shared by query and target are blockCount and blockSizes. But blockSizes differ between query (AA) and target (NA), so a single field cannot represent both. A choice was therefore made to report the blockSizes field in amino acids since it is a protein query.",
+   "zh": "{{1}}{{2}} 蛋白质查询由氨基酸组成。要把氨基酸比对到核酸数据库，先把每条目标染色体按六种阅读框分别翻译成氨基酸。得到的蛋白质 PSL 是混合体：查询序列字段全为氨基酸坐标与长度，目标数据库字段则为核酸染色体坐标与长度。查询与目标共享的字段是 blockCount 与 blockSizes。但 blockSizes 在查询（氨基酸）与目标（核酸）中含义不同，单个字段无法同时表示两者。因此既然这是蛋白质查询，blockSizes 字段就按氨基酸报告。"
+  },
+  {
+   "pat": "If you would like to obtain browser data in GFF (GTF) format, please refer to {{1}} on the Wiki.",
+   "zh": "如果希望以 GFF（GTF）格式获取浏览器数据，请参阅 Wiki 上的{{1}}。"
+  },
+  {
+   "pat": "{{1}}{{2}} Here's an example of a GFF-based track. This data format requires tabs and some operating systems convert tabs to spaces. If pasting doesn't work, this {{3}} contents or the url itself can be pasted into the custom track text box.",
+   "zh": "{{1}}{{2}} 下面是一个基于 GFF 的轨道示例。此数据格式要求使用制表符，而某些操作系统会把制表符转成空格。如果粘贴不成功，可以把本{{3}}内容或 URL 本身粘贴到自定义轨道文本框中。"
+  },
+  {
+   "pat": "GTF (Gene Transfer Format, GTF2.2) is an extension to, and backward compatible with, GFF2. The first eight GTF fields are the same as GFF. The {{1}} field is the same as GFF, with the exception that it also includes the following optional values: {{2}} and {{3}}. The {{4}} field has been expanded into a list of {{5}}. Each attribute consists of a type/value pair. Attributes must end in a semi-colon, and be separated from any following attribute by exactly one space.",
+   "zh": "GTF（Gene Transfer Format，GTF2.2）是对 GFF2 的扩展，并向后兼容 GFF2。GTF 的前八个字段与 GFF 相同。{{1}} 字段与 GFF 相同，只是还额外包含以下可选值：{{2}} 与 {{3}}。{{4}} 字段已扩展为{{5}}列表。每个属性由类型/值对组成。属性必须以分号结尾，并与后面的属性之间恰好用一个空格分隔。"
+  },
+  {
+   "pat": "{{1}} - A globally unique identifier for the genomic source of the sequence.",
+   "zh": "{{1}} —— 序列所属基因组来源的全局唯一标识符。"
+  },
+  {
+   "pat": "{{1}} - A globally unique identifier for the predicted transcript.",
+   "zh": "{{1}} —— 预测转录本的全局唯一标识符。"
+  },
+  {
+   "pat": "{{1}}{{2}} Here is an example of the ninth field in a GTF data line:",
+   "zh": "{{1}}{{2}} 下面是 GTF 数据行中第九个字段的示例："
+  },
+  {
+   "pat": "The Genome Browser groups together GTF lines that have the same {{1}} value. It only looks at features of type {{2}} and {{3}}.",
+   "zh": "基因组浏览器会把 {{1}} 值相同的 GTF 行归为一组。它只看类型为 {{2}} 与 {{3}} 的特征。"
+  },
+  {
+   "pat": "For more information regarding the GTF2.2 UCSC supported format, see {{1}}. If you would like to obtain browser data in GTF format, please refer to our {{2}} or our wiki page on {{3}}",
+   "zh": "GTF2.2 UCSC 支持格式的更多说明见 {{1}}。如果希望以 GTF 格式获取浏览器数据，请参阅我们的{{2}}，或我们的 Wiki 页面{{3}}。"
+  },
+  {
+   "pat": "HAL is a graph-based structure to efficiently store and index multiple genome alignments and ancestral reconstructions. HAL files are represented in {{1}}, an open standard for storing and indexing large, compressed scientific data sets. Genomes within HAL are organized according to the phylogenetic tree that relate them: each genome is segmented into pairwise DNA alignment blocks with respect to its parent and children (if present) in the tree. Note that if the phylogeny is unknown, a star tree can be used. The modularity provided by this tree-based decomposition allows for efficient querying of sub-alignments, as well as the ability to add, remove and update genomes within the alignment with only local modifications to the structure. Another important feature of HAL is reference independence: alignments in this format can be queried with respect to the coordinates of any genome they contain.",
+   "zh": "HAL 是一种基于图的结构，用于高效存储与索引多个基因组比对及祖先重建结果。HAL 文件以 {{1}} 表示，这是一种用于存储与索引大型压缩科学数据集的开放标准。HAL 中的基因组按它们之间的系统发生树组织：每个基因组相对于其在树中的父节点与子节点（若有）被切分成两两 DNA 比对区块。注意若系统发生关系未知，可以使用星形树。这种基于树的分解带来的模块化，使得可以高效查询子比对，也可以在只对结构做局部修改的情况下增删与更新比对中的基因组。HAL 的另一个重要特性是参考无关：该格式的比对可以按其中任一所含基因组的坐标来查询。"
+  },
+  {
+   "pat": "HAL files can be created or read with a comprehensive C++ API (click {{1}} for source code and manual). A set of command line tools is included to perform basic operations, such as importing and exporting data, identifying mutations, coordinate mapping (liftOver), and comparative assembly hub generation.",
+   "zh": "HAL 文件可以用一套完整的 C++ API 创建或读取（源代码与手册见{{1}}）。其中还包含一组命令行工具，用于执行导入导出数据、识别突变、坐标映射（liftOver）与比较组装 hub 生成等基本操作。"
+  },
+  {
+   "pat": "HAL is the native output format of the Progressive Cactus alignment pipeline, and is included in the {{1}} installation package.",
+   "zh": "HAL 是 Progressive Cactus 比对流程的原生输出格式，并包含在 {{1}} 安装包中。"
+  },
+  {
+   "pat": "The longrange track is a bed format-like file type. Each row contains columns that define chromosome, start position (0-based), and end position (not included), and interaction target in this format chr2:333-444,55. For examples, see the source of this format at {{1}}.",
+   "zh": "longrange 轨道是一种类似 bed 格式的文件类型。每行包含定义染色体、起始位置（0 基）与结束位置（不含）以及交互目标的列，格式如 chr2:333-444,55。示例见该格式在 {{1}} 上的源码。"
+  },
+  {
+   "pat": "{{1}}{{2}} The {{3}} format is line-oriented. Each multiple alignment begins with the reference genome line and ends with a blank line. Each sequence in an alignment is on a single line, which can get quite long, but there is no length limit. Words in a line are delimited by any white space. Lines starting with # are considered to be comments. Lines starting with ## can be ignored by most programs, but contain meta-data of one form or another.",
+   "zh": "{{1}}{{2}} {{3}} 格式是按行组织的。每个多比对以参考基因组行开始，以空行结束。比对中的每条序列占一行，行可以很长，但没有长度限制。一行中的词以任意空白分隔。以 # 开头的行视为注释。以 ## 开头的行大多数程序可以忽略，但它们含有某种形式的元数据。"
+  },
+  {
+   "pat": "{{1}} - Required. Name of the track.",
+   "zh": "{{1}} —— 必需。轨道名称。"
+  },
+  {
+   "pat": "{{1}} - Optional. Assigns a long name for the track.",
+   "zh": "{{1}} —— 可选。为轨道指定一个长名称。"
+  },
+  {
+   "pat": "{{1}} - Optional. Use dots instead of bases when bases are identical.",
+   "zh": "{{1}} —— 可选。碱基相同时用点代替碱基显示。"
+  },
+  {
+   "pat": "{{1}} - Optional. Sets the default visibility mode for this track.",
+   "zh": "{{1}} —— 可选。设置该轨道的默认显示模式。"
+  },
+  {
+   "pat": "{{1}} - Optional. White-space separated list specifying the order in which the sequences in the maf should be displayed.",
+   "zh": "{{1}} —— 可选。以空白分隔的列表，指定 maf 中各序列的显示顺序。"
+  },
+  {
+   "pat": "The first line of a {{1}} file begins with ##maf. This word is followed by white-space-separated variable=value pairs. There should be {{2}} white space surrounding the \"=\".",
+   "zh": "{{1}} 文件的第一行以 ##maf 开头。该词后面是空白分隔的 变量=值 对。“=”两侧不应有{{2}}空白。"
+  },
+  {
+   "pat": "{{1}} - Required. Currently set to one.",
+   "zh": "{{1}} —— 必需。目前设为 1。"
+  },
+  {
+   "pat": "{{1}} - blastz scoring scheme -- roughly 100 points per aligning base.",
+   "zh": "{{1}} —— blastz 评分方案——每个比对碱基约 100 分。"
+  },
+  {
+   "pat": "{{1}} - some score normalized between 0 and 1.",
+   "zh": "{{1}} —— 归一化到 0 与 1 之间的某种评分。"
+  },
+  {
+   "pat": "{{1}} - Optional. Name of the program generating the alignment.",
+   "zh": "{{1}} —— 可选。生成该比对的程序名称。"
+  },
+  {
+   "pat": "{{1}} (lines starting with \"a\" -- parameters for a new alignment block)",
+   "zh": "{{1}}（以 \"a\" 开头的行——新比对区块的参数）"
+  },
+  {
+   "pat": "{{1}} -- The start of the aligning region in the source sequence. This is a zero-based number. If the strand field is \"-\" then this is the start relative to the reverse-complemented source sequence (see {{2}}).",
+   "zh": "{{1}} —— 比对区域在源序列中的起点。这是 0 基数字。若 strand 字段为 \"-\"，则这是相对于反向互补源序列的起点（见{{2}}）。"
+  },
+  {
+   "pat": "{{1}} -- the sequence before or after is contiguous with this block.",
+   "zh": "{{1}} —— 该区块之前或之后的序列与本区块连续。"
+  },
+  {
+   "pat": "{{1}} -- this is the first sequence from this src chrom or scaffold.",
+   "zh": "{{1}} —— 这是来自该 src 染色体或 scaffold 的第一条序列。"
+  },
+  {
+   "pat": "{{1}} -- there is missing data before or after this block (Ns in the sequence).",
+   "zh": "{{1}} —— 该区块之前或之后存在缺失数据（序列中的 N）。"
+  },
+  {
+   "pat": "{{1}} -- The name of one of the source sequences for the alignment.",
+   "zh": "{{1}} —— 比对的其中一条源序列的名称。"
+  },
+  {
+   "pat": "{{1}} -- The start of the non-aligning region in the source sequence. This is a zero-based number. If the strand field is \"-\" then this is the start relative to the reverse-complemented source sequence (see {{2}}).",
+   "zh": "{{1}} —— 源序列中非比对区域的起点。这是 0 基数字。若 strand 字段为 \"-\"，则这是相对于反向互补源序列的起点（见{{2}}）。"
+  },
+  {
+   "pat": "{{1}} -- The size in base pairs of the non-aligning region in the source sequence.",
+   "zh": "{{1}} —— 源序列中非比对区域的大小（碱基对）。"
+  },
+  {
+   "pat": "For a complete description of the microarray track format and an explanation of how to construct a microarray custom track, see the {{1}}.",
+   "zh": "微阵列轨道格式的完整说明，以及如何构建微阵列自定义轨道，请参阅{{1}}。"
+  },
+  {
+   "pat": "{{1}} - the number of sequences in the file",
+   "zh": "{{1}} —— 文件中的序列数量"
+  },
+  {
+   "pat": "{{1}} - always zero for now",
+   "zh": "{{1}} —— 目前恒为零"
+  },
+  {
+   "pat": "{{1}} - a byte containing the length of the name field",
+   "zh": "{{1}} —— 一个字节，表示名称字段的长度"
+  },
+  {
+   "pat": "{{1}} - number of bases of DNA in the sequence",
+   "zh": "{{1}} —— 序列中 DNA 的碱基数"
+  },
+  {
+   "pat": "{{1}} - the number of blocks of Ns in the file (representing unknown sequence)",
+   "zh": "{{1}} —— 文件中 N 区块（表示未知序列）的数量"
+  },
+  {
+   "pat": "{{1}} - the number of masked (lower-case) blocks",
+   "zh": "{{1}} —— 被屏蔽（小写）区块的数量"
+  },
+  {
+   "pat": "For a complete definition of all fields in the twoBit format, see {{1}} description in the source code. Click these links to see examples of using the {{2}} commands, and how to {{3}} from 2bit files, including with our {{4}}.",
+   "zh": "twoBit 格式全部字段的完整定义，见源代码中的{{1}}说明。点击这些链接可查看使用 {{2}} 命令的示例，以及如何从 2bit 文件中{{3}}，包括用我们的 {{4}}。"
+  },
+  {
+   "pat": "If you would like to obtain browser data in GFF (GTF) format, please refer to {{1}} on the Wiki. There is also a format of genePred called {{2}}, a version of {{3}}, which enables custom tracks to display codon numbers and amino acids when zoomed in to the base level.",
+   "zh": "如果希望以 GFF（GTF）格式获取浏览器数据，请参阅 Wiki 上的{{1}}。另有一种 genePred 格式叫 {{2}}，它是 {{3}} 的变体，可让自定义轨道在放大到碱基级时显示密码子编号与氨基酸。"
+  },
+  {
+   "pat": "The fields cdsStartStat and cdsEndStat can have the following values: 'none' = none, 'unk' = unknown, 'incmpl' = incomplete, and 'cmpl' = complete. However, the values are not used for our display and cannot be used to identify which genes are coding or non-coding. To determine whether a transcript is non-coding, check whether {{1}} equals {{2}} (coding transcripts have {{3}}). For most purposes, to get more information about a transcript, other tables will need to be used. For instance, in the case of hg38, the tables named wgEncodeGencodeAttrsVxx, where xx is the Gencode Version number. See this {{4}} for more information.",
+   "zh": "cdsStartStat 与 cdsEndStat 字段可以取以下值：'none' = 无，'unk' = 未知，'incmpl' = 不完整，'cmpl' = 完整。但这些值不用于我们的显示，也不能用来判断哪些基因是编码或非编码。要判断某个转录本是否非编码，请检查 {{1}} 是否等于 {{2}}（编码转录本有 {{3}}）。多数情况下，要获取转录本的更多信息还需使用其它表。例如在 hg38 中，可用名为 wgEncodeGencodeAttrsVxx 的表，其中 xx 是 Gencode 版本号。更多信息见{{4}}。"
+  },
+  {
+   "pat": "{{1}} The field {{2}} is a comma-separated list of the numbers with the possible values 0, 1, 2 or -1, one per exon, in order of transcription. This is different than the exonStarts and exonEnds fields - if the transcript is on the negative strand, exonFrames are in the reverse order relative than exonStarts. Put differently, it means that the first value for a transcript on the minus (-) strand is the exon on the right of the screen on the Genome Browser. A value of zero means that the first codon of the exon starts at the first nucleotide of the exon. A value of one means that the first codon starts after the first nucleotide and a value of two means that it starts after the second nucleotide. See also our {{3}}. UTRs are non-coding and their exonFrame value is -1.",
+   "zh": "{{1}} {{2}} 字段是一个逗号分隔的数字列表，取值可能为 0、1、2 或 -1，每个外显子一个，按转录顺序排列。这与 exonStarts 和 exonEnds 字段不同——若转录本位于负链，exonFrames 的顺序相对于 exonStarts 是反的。换句话说，负（-）链转录本的第一个值对应基因组浏览器屏幕右侧的外显子。值为 0 表示该外显子的第一个密码子从外显子第一个核苷酸开始。值为 1 表示第一个密码子从第一个核苷酸之后开始，值为 2 表示从第二个核苷酸之后开始。另见我们的{{3}}。UTR 是非编码的，其 exonFrame 值为 -1。"
+  },
+  {
+   "pat": "{{1}} - The ending position of the feature in the chromosome or scaffold. The {{2}} base is not included in the display of the feature. For example, the first 100 bases of a chromosome are defined as {{3}}, and span the bases numbered 0-99.",
+   "zh": "{{1}} —— 特征在染色体或 scaffold 上的结束位置。{{2}} 这个碱基不计入特征显示范围。例如染色体前 100 个碱基写作 {{3}}，覆盖编号 0-99 的碱基。"
+  },
+  {
+   "pat": "{{1}} - The number of alleles listed in the name field.",
+   "zh": "{{1}} —— name 字段中列出的等位基因数量。"
+  },
+  {
+   "pat": "{{1}} - Name of the chromosome (or contig, scaffold, etc.).",
+   "zh": "{{1}} —— 染色体名称（或 contig、scaffold 等）。"
+  },
+  {
+   "pat": "{{1}} - Name given to a region (preferably unique). Use \".\" if no name is assigned.",
+   "zh": "{{1}} —— 区域名称（最好是唯一的）。未命名时用 \".\"。"
+  },
+  {
+   "pat": "{{1}} - Expression level, e.g. RPKM or FPKM.",
+   "zh": "{{1}} —— 表达水平，例如 RPKM 或 FPKM。"
+  },
+  {
+   "pat": "{{1}} - Statistical significance, e.g. IDR.",
+   "zh": "{{1}} —— 统计显著性，例如 IDR。"
+  },
+  {
+   "pat": "{{1}} - Additional measurement/count, e.g. number of reads.",
+   "zh": "{{1}} —— 附加的度量/计数，例如 reads 数。"
+  },
+  {
+   "pat": "{{1}} - Measurement of overall (usually, average) enrichment for the region.",
+   "zh": "{{1}} —— 该区域总体（通常是平均）富集程度的度量。"
+  },
+  {
+   "pat": "{{1}} - The ending position of the feature in the chromosome or scaffold. The {{2}} base is not included in the display of the feature. For example, the first 100 bases of a chromosome are defined as {{3}}, and span the bases numbered 0-99. If all scores were \"0\" when the data were submitted to the DCC, the DCC assigned scores 1-1000 based on signal value. Ideally the average signalValue per base spread is between 100-1000.",
+   "zh": "{{1}} —— 特征在染色体或 scaffold 上的结束位置。{{2}} 这个碱基不计入特征显示范围。例如染色体前 100 个碱基写作 {{3}}，覆盖编号 0-99 的碱基。若提交给 DCC 时所有评分均为“0”，则 DCC 会依据信号值分配 1-1000 的评分。理想情况下，每个碱基的平均 signalValue 分布在 100-1000 之间。"
+  },
+  {
+   "pat": "{{1}} - Indicates how dark the peak will be displayed in the browser (0-1000).",
+   "zh": "{{1}} —— 表示该峰在浏览器中的显示深浅（0-1000）。"
+  },
+  {
+   "pat": "{{1}} - A comma-separated list of block starts. The first value must be 0 and all of the {{2}} positions should be calculated relative to {{3}}. The number of items in this list should correspond to {{4}}.",
+   "zh": "{{1}} —— 逗号分隔的区块起始位置列表。第一个值必须为 0，所有 {{2}} 位置都应相对于 {{3}} 计算。列表项数应与 {{4}} 对应。"
+  },
+  {
+   "pat": "{{1}} - Name of the chromosome.",
+   "zh": "{{1}} —— 染色体名称。"
+  },
+  {
+   "pat": "{{1}} - Sequence of this read.",
+   "zh": "{{1}} —— 本条 read 的序列。"
+  },
+  {
+   "pat": "{{1}} - Indicates uniqueness or quality (preferably 1000/alignmentCount).",
+   "zh": "{{1}} —— 表示唯一性或质量（最好是 1000/alignmentCount）。"
+  },
+  {
+   "pat": "{{1}} - Orientation of this read (+ or -).",
+   "zh": "{{1}} —— 本条 read 的链方向（+ 或 -）。"
+  },
+  {
+   "pat": "{{1}} - Identifier of paired-read.",
+   "zh": "{{1}} —— 配对 read 的标识符。"
+  },
+  {
+   "pat": "{{1}} - Indicates uniqueness or quality (preferably 1000/alignment-count).",
+   "zh": "{{1}} —— 表示唯一性或质量（最好是 1000/alignment-count）。"
+  },
+  {
+   "pat": "{{1}} - Sequence of first read.",
+   "zh": "{{1}} —— 第一条 read 的序列。"
+  },
+  {
+   "pat": "{{1}} - Sequence of second read.",
+   "zh": "{{1}} —— 第二条 read 的序列。"
+  },
+  {
+   "pat": "{{1}} - The peptide sequence.",
+   "zh": "{{1}} —— 肽段序列。"
+  },
+  {
+   "pat": "{{1}} - Raw score for this hit, as estimated through HMM analysis.",
+   "zh": "{{1}} —— 本条命中的原始评分，由 HMM 分析估计。"
+  },
+  {
+   "pat": "{{1}} - Non-unique identifier for the spectrum file.",
+   "zh": "{{1}} —— 谱文件的非唯一标识符。"
+  },
+  {
+   "pat": "{{1}} - Rank of this hit, for peptides with multiple genomic hits.",
+   "zh": "{{1}} —— 本条命中的排名，用于有多个基因组命中的肽段。"
+  },
+  {
+   "pat": "{{1}} - Indicates how many times this same hit was observed.",
+   "zh": "{{1}} —— 表示同一命中被观察到的次数。"
+  },
+  {
+   "pat": "A blue navigation bar at the top of the browser provides links to several other tools and data sources. For instance, under the \"View\" menu, the \"DNA\" link enables the user to view the raw genomic DNA sequence for the coordinate range displayed in the browser window. This DNA can encode track features via elaborate text formatting options. Other links tie the Genome Browser to the BLAT alignment tool, provide access to the underlying relational database via the Table Browser, convert coordinates across different assembly dates, and open the window at the complementary {{1}} or {{2}} annotation.",
+   "zh": "浏览器顶部的蓝色导航栏提供指向其它工具与数据源的链接。例如在「View」菜单下，「DNA」链接可查看浏览器窗口中所示坐标范围对应的原始基因组 DNA 序列。该 DNA 可通过丰富的文本格式选项编码轨道特征。其它链接把基因组浏览器与 BLAT 比对工具相连，经表浏览器访问底层关系数据库，在不同组装版本之间转换坐标，以及把窗口打开到互补的 {{1}} 或 {{2}} 注释。"
+  },
+  {
+   "pat": "{{1}} Aligning regions (usually exons when the query is cDNA) are shown as black blocks. In dense display mode, the degree of darkness corresponds to the number of features aligning to the region or the degree of quality of the match. In pack or full display mode, the aligning regions are connected by lines representing gaps in the alignment (typically spliced-out introns), with arrowheads indicating the orientation of the alignment, pointing right if the query sequence was aligned to the forward strand of the genome and left if aligned to the reverse strand. Two parallel lines are drawn over double-sided alignment gaps, which skip over unalignable sequence in both target and query. For alignments of ESTs, the arrows may be reversed to show the apparent direction of transcription deduced from splice junction sequences. In situations where no gap lines are visible, the arrowheads are displayed on the block itself. To prevent display problems, the Genome Browser imposes an upper limit on the number of alignments that can be viewed simultaneously within the tracks image. When this limit is exceeded, the Browser displays the best several hundred alignments in a condensed display mode, then lists the number of undisplayed alignments in the last row of the track. In this situation, try zooming in to display more entries or to return the track to full display mode. For some PSL tracks, {{2}} to indicate mismatching bases and query-only gaps may be available.",
+   "zh": "{{1}} 比对区域（查询为 cDNA 时通常是外显子）显示为黑色区块。在 dense 显示模式下，颜色深浅对应比对到该区域的特征数量或匹配质量。在 pack 或 full 显示模式下，比对区域之间用线连接，表示比对中的缺口（通常是被剪接掉的内含子），箭头指示比对方向：若查询序列比对到基因组正链则朝右，比对到负链则朝左。双向比对缺口上会画两条平行线，表示同时跳过目标与查询中无法比对的序列。对于 EST 比对，箭头可能反向，以显示由剪接位点序列推断出的转录方向。看不到缺口线时，箭头画在区块本身上。为避免显示问题，基因组浏览器对轨道图像中可同时查看的比对数量设有上限。超过上限时，浏览器会以压缩显示模式显示最好的数百条比对，并在轨道最后一行列出未显示的比对数量。这种情况下，可以放大以显示更多条目，或把轨道切回 full 显示模式。某些 PSL 轨道还提供 {{2}}，用于标出不一致的碱基与仅存在于查询中的缺口。"
+  },
+  {
+   "pat": "Mouse {{1}} images from the {{2}} (GXD) at MGI",
+   "zh": "小鼠{{1}}图像，来自 MGI 的{{2}}（GXD）"
+  },
+  {
+   "pat": "Mouse head and brain {{1}} images from NCBI's {{2}} (GENSAT) database",
+   "zh": "小鼠头部与脑的{{1}}图像，来自 NCBI 的{{2}}（GENSAT）数据库"
+  },
+  {
+   "pat": "{{1}} Left-arrow key or {{2}} key",
+   "zh": "{{1}} 左方向键或 {{2}} 键"
+  },
+  {
+   "pat": "{{1}} Right-arrow key or {{2}} key",
+   "zh": "{{1}} 右方向键或 {{2}} 键"
+  },
+  {
+   "pat": "{{1}} Up-arrow key or {{2}} key",
+   "zh": "{{1}} 上方向键或 {{2}} 键"
+  },
+  {
+   "pat": "{{1}} Down-arrow key or {{2}} key",
+   "zh": "{{1}} 下方向键或 {{2}} 键"
+  },
+  {
+   "pat": "The UCSC Genome Browser FTP server contains download directories for all genome versions currently accessible in the Genome Browser. The FTP URLs {{1}}, {{2}}, or will take you to a directory that contains the genome download directories. This download method is not recommended if you plan to download a large file or multiple files from a single directory compared to rsync (see above). You can, however, use the {{3}} command to download multiple files: {{4}}, or {{5}} (to download all the files in the directory).",
+   "zh": "UCSC 基因组浏览器 FTP 服务器包含当前基因组浏览器中可访问的所有基因组版本的下载目录。FTP URL {{1}}、{{2}} 或 会将你带到一个包含各基因组下载目录的目录。与 rsync（见上文）相比，如果你打算从同一目录下载一个大文件或多个文件，不推荐使用这种下载方式。不过，你可以用 {{3}} 命令下载多个文件：{{4}}，或 {{5}}（下载目录中的全部文件）。"
+  },
+  {
+   "pat": "Click the {{1}} link on the left side bar on the UCSC Genome Browser home page to display a list of all database directories available for download. If the data you wish to download pre-dates the assembly versions listed, look for the data on our {{2}} page.",
+   "zh": "点击 UCSC 基因组浏览器首页左侧栏的 {{1}} 链接，可显示所有可下载数据库目录的列表。如果要下载的数据早于所列组装版本，请到我们的 {{2}} 页面查找。"
+  },
+  {
+   "pat": "{{1}} Description of how the assembly was generated, unpacking to one file per chromosome.",
+   "zh": "{{1}} 组装生成方式的说明，解包后每条染色体一个文件。"
+  },
+  {
+   "pat": "{{1}} Sequences of all GenBank ESTs for the selected species.",
+   "zh": "{{1}} 所选物种的全部 GenBank EST 序列。"
+  },
+  {
+   "pat": "{{1}} The offsets of contigs within chromosomes.",
+   "zh": "{{1}} contig 在染色体中的偏移量。"
+  },
+  {
+   "pat": "{{1}} mRNAs in GenBank from the selected species.",
+   "zh": "{{1}} 所选物种在 GenBank 中的 mRNA。"
+  },
+  {
+   "pat": "{{1}} RefSeq mRNAs from the selected species.",
+   "zh": "{{1}} 所选物种的 RefSeq mRNA。"
+  },
+  {
+   "pat": "{{1}} Same as upstream1000, but with 2000 bases.",
+   "zh": "{{1}} 与 upstream1000 相同，但为 2000 个碱基。"
+  },
+  {
+   "pat": "{{1}} Same as upstream1000, but with 5000 bases.",
+   "zh": "{{1}} 与 upstream1000 相同，但为 5000 个碱基。"
+  },
+  {
+   "pat": "{{1}} All GenBank mRNAs from species other than that of the selected one.",
+   "zh": "{{1}} 来自所选物种以外其它物种的全部 GenBank mRNA。"
+  },
+  {
+   "pat": "{{1}} {{2}} Determines the part of the genome that the Genome Browser will initially open to, in chromosome:start-end format.",
+   "zh": "{{1}} {{2}} 决定基因组浏览器初始打开的基因组位置，格式为 染色体:起始-结束。"
+  },
+  {
+   "pat": "{{1}} {{2}} Displays all tracks in pack mode. See NOTE for \"dense all\".",
+   "zh": "{{1}} {{2}} 以 pack 模式显示所有轨道。参见「dense all」的说明。"
+  },
+  {
+   "pat": "{{1}} {{2}} Displays all tracks in squish mode. See NOTE for \"dense all\".",
+   "zh": "{{1}} {{2}} 以 squish 模式显示所有轨道。参见「dense all」的说明。"
+  },
+  {
+   "pat": "{{1}} {{2}} Displays all tracks in full mode. See NOTE for \"dense all\".",
+   "zh": "{{1}} {{2}} 以 full 模式显示所有轨道。参见「dense all」的说明。"
+  },
+  {
+   "pat": "{{1}} {{2}} Defines the track type. The track type attribute is required for {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}}, {{10}}, {{11}}, {{12}}, {{13}}, {{14}}, {{15}}, {{16}}, {{17}}, {{18}}, {{19}}, {{20}}, {{21}} and {{22}} tracks.",
+   "zh": "{{1}} {{2}} 定义轨道类型。{{3}}、{{4}}、{{5}}、{{6}}、{{7}}、{{8}}、{{9}}、{{10}}、{{11}}、{{12}}、{{13}}、{{14}}、{{15}}、{{16}}、{{17}}、{{18}}、{{19}}、{{20}}、{{21}} 与 {{22}} 轨道都必须有这个类型属性。"
+  },
+  {
+   "pat": "{{1}} {{2}} Defines the initial display mode of the annotation track. The numerical values or the words can be used, i.e., full mode may be specified by \"2\" or \"full\". The default is \"1\". {{3}} Values for {{4}} include:",
+   "zh": "{{1}} {{2}} 定义注释轨道的初始显示模式。可以用数值或单词，即 full 模式可写作「2」或「full」。默认值为「1」。{{3}} {{4}} 的取值包括："
+  },
+  {
+   "pat": "{{1}} {{2}} If this attribute is present and is set to 1, the {{3}} field in each of the track's data lines will be used to determine the level of shading in which the data is displayed. The track will display in shades of gray unless the {{4}} attribute is set to 100,50,0 (shades of brown) or 0,60,120 (shades of blue). The default setting for {{5}} is \"0\". This table shows the Genome Browser's translation of BED score values into shades of gray:",
+   "zh": "{{1}} {{2}} 若存在该属性且设为 1，则用轨道各行数据中的 {{3}} 字段决定数据的深浅显示。除非把 {{4}} 属性设为 100,50,0（棕色调）或 0,60,120（蓝色调），轨道将以灰度显示。{{5}} 的默认值为「0」。下表列出基因组浏览器把 BED 评分值换算成灰度的对应关系："
+  },
+  {
+   "pat": "{{1}} {{2}} Defines a URL to the data file for {{3}}, {{4}}, {{5}}, {{6}} or {{7}} tracks. This is a required attribute for those track types. There is no default for this attribute. {{8}}",
+   "zh": "{{1}} {{2}} 定义 {{3}}、{{4}}、{{5}}、{{6}} 或 {{7}} 轨道数据文件的 URL。这些轨道类型必须提供该属性。该属性没有默认值。{{8}}"
+  },
+  {
+   "pat": "{{1}} {{2}} The URL of the BAI/TBI index file for {{3}} and {{4}} files. By default, these index files are assumed to be at the same URL as the data file, but with the extension .bai. For example, if the data file is https://genome.gov/genome.bam, the index file by default must be at https://genome.gov/genome.bam.bai. If that is not the case, the bigDataIndex option must be used to point to the index file.",
+   "zh": "{{1}} {{2}} {{3}} 与 {{4}} 文件的 BAI/TBI 索引文件 URL。默认情况下，索引文件与数据文件位于相同的 URL，只是扩展名为 .bai。例如若数据文件是 https://genome.gov/genome.bam，则索引文件默认必须在 https://genome.gov/genome.bam.bai。如果不是这样，必须用 bigDataIndex 选项指向索引文件。"
+  },
+  {
+   "pat": "{{1}} {{2}} The doWiggle setting enables BAM custom tracks to be displayed as bar graphs where the height is proportional to the number of reads mapped to each genomic position. This display is described as a density graph and is best viewed with the track set to full and scaling set to auto-scale. See the Track Database Definition {{3}} for more information about the use in hubs and the {{4}} and the {{5}} help pages to learn how to further change the display.",
+   "zh": "{{1}} {{2}} doWiggle 设置可让 BAM 自定义轨道显示为柱状图，柱高与比对到每个基因组位置的 reads 数成正比。这种显示称为密度图，最好把轨道设为 full、缩放设为 auto-scale 查看。在 hub 中的用法见轨道数据库定义中的 {{3}}，要进一步修改显示请参阅 {{4}} 与 {{5}} 帮助页。"
+  },
+  {
+   "pat": "A special blog post discusses and provides examples of many of these parameters such as {{1}}, {{2}}, {{3}}, and {{4}} to attach custom tracks, track hubs, assembly hubs, and even track hubs to assembly hubs, all in a single URL. Read an overview of ways to share Genome Browser data views in the {{5}} blog post.",
+   "zh": "一篇专题博客文章讨论并给出了许多此类参数的示例，例如 {{1}}、{{2}}、{{3}} 与 {{4}}，可在单个 URL 中附加自定义轨道、轨道 hub、组装 hub，甚至把轨道 hub 挂到组装 hub 上。关于共享基因组浏览器数据视图的各种方式，请阅读 {{5}} 博客文章中的概述。"
+  },
+  {
+   "pat": "When I click the {{1}} button,",
+   "zh": "当我点击{{1}}按钮，"
+  },
+  {
+   "pat": "Now, there is a trackDb option to have your entire track hub inside of one file, {{1}}. Adding the {{2}} line to the hub.txt section of the file allows the contents of all three files to be referenced inside of one file. We recommend the single hub.txt file's contents be in the following order: hub.txt, genomes.txt, then trackDb.txt.",
+   "zh": "现在有一个 trackDb 选项，可以把整个轨道 hub 放进一个文件：{{1}}。在文件的 hub.txt 部分加入 {{2}} 这一行后，就可以在同一个文件里引用全部三个文件的内容。我们建议单个 hub.txt 文件的内容按以下顺序排列：hub.txt、genomes.txt，然后是 trackDb.txt。"
+  },
+  {
+   "pat": "BLAT is an alignment tool like BLAST, but it is structured differently. On DNA, BLAT works by keeping an index of an entire genome in memory. Thus, the target database of BLAT is not a set of GenBank sequences, but instead an index derived from the assembly of the entire genome. By default, the index consists of all non-overlapping 11-mers except for those heavily involved in repeats, and it uses less than a gigabyte of RAM. This smaller size means that BLAT is far more easily {{1}} than BLAST. Blat of DNA is designed to quickly find sequences of 95% and greater similarity of length 40 bases or more. It may miss more divergent or shorter sequence alignments. (The default settings and expected behavior of standalone Blat are slightly different from those on the {{2}}.)",
+   "zh": "BLAT 是一种类似 BLAST 的比对工具，但结构不同。在处理 DNA 时，BLAT 会在内存中保存整个基因组的索引。因此 BLAT 的目标数据库不是一组 GenBank 序列，而是由整个基因组组装派生的索引。默认情况下，索引由所有互不重叠的 11-mer 组成，重度重复的除外，占用不到 1GB 内存。体积更小意味着 BLAT 比 BLAST 更容易{{1}}。DNA 版 BLAT 旨在快速找出相似度 95% 以上、长度 40 个碱基以上的序列。它可能漏掉差异更大或更短的序列比对。（独立版 Blat 的默认设置与预期行为与 {{2}} 略有不同。）"
+  },
+  {
+   "pat": "Very short sequences that go over a splice site in a cDNA sequence can't be found, as they are not in the genome. qPCR primers are a typical example. For these cases, try using {{1}} and selecting a gene set as the target. In general, the In-Silico PCR tool is more sensitive and should be preferred for pairs of primers.",
+   "zh": "跨过剪接位点的极短 cDNA 序列找不到，因为它们不在基因组中。qPCR 引物就是典型例子。这类情况可改用{{1}}，并把基因集选作目标。一般来说，In-Silico PCR 工具灵敏度更高，成对引物应优先使用它。"
+  },
+  {
+   "pat": "Often for repeat sequences, you can use the {{1}} to find the other matches, but only if the other matches are long and specific enough. You can check whether any sequence is present at a particular location by using the {{2}} if your sequence is less than 30 bp. You can work around this minimum length limitation by adding more flanking sequence to your query to make the query unique enough. If this is not possible, the only alternative is to download the executables of BLAT and the .2bit file of a genome to your own machine and use BLAT on the command line. See {{3}} for more information. When using the command line version of BLAT, you can set the repMatch option to a large value to try to improve finding matches in repetitive regions and do not use one of the default 11.ooc repeat masking files.",
+   "zh": "对于重复序列，通常可以用{{1}}找出其它匹配，但前提是其它匹配足够长且足够特异。若序列短于 30 bp，可以用{{2}}检查某段序列是否出现在特定位置。也可以给查询序列加上更多侧翼序列，使其足够独特，从而绕过这个最小长度限制。若无法做到，唯一的替代方案是把 BLAT 可执行程序与基因组的 .2bit 文件下载到本机，在命令行中使用 BLAT。更多信息见{{3}}。使用命令行版 BLAT 时，可以把 repMatch 选项设得很大，以改善在重复区域的匹配效果，并且不要使用默认的 11.ooc 重复屏蔽文件。"
+  },
+  {
+   "pat": "When you blat or isPCR a sequence which matches a chromosome location that also has a fix or alt sequence, you will see a match on the reference chromosome (e.g. \"chr1\") and another match on the patch sequence (e.g. chr1_KN196472v1_fix). In most cases it is safe to ignore the patch hit, as a human genome will not contain both the reference and alternate sequence at the same time. For more information on the specific kinds of patch sequences see our {{1}} on the topic.",
+   "zh": "当你对一段匹配到染色体位置、而该位置同时存在 fix 或 alt 序列的序列做 blat 或 isPCR 时，会看到参考染色体上有一个匹配（如 “chr1”），patch 序列上还有一个匹配（如 chr1_KN196472v1_fix）。多数情况下可以安全地忽略 patch 命中，因为人类基因组不会同时包含参考序列与替代序列。关于各类 patch 序列的更多说明见我们的{{1}}。"
+  },
+  {
+   "pat": "We almost always {{1}} between the hgBLAT/gfServer and the stand-alone, command-line Blat. The best matches can be found using pslReps and pslCDnaFilter utilities. The web-based Blat is tuned permissively with a minimum cut-off score of 20, which will display most of the alignments. We advise deciding which filtering parameters make the most sense for the experiment or analysis. Often these settings will be different and more stringent than those of the web-based Blat. With that in mind, use the following settings to approximate the search results of the web-based Blat:",
+   "zh": "我们几乎总是{{1}} hgBLAT/gfServer 与独立的命令行 Blat 之间存在差异。最佳匹配可以用 pslReps 与 pslCDnaFilter 工具找到。网页版 Blat 的调参较宽松，最低截止评分为 20，因此会显示大多数比对。我们建议根据实验或分析的具体情况决定哪些过滤参数最合适。这些设置往往与网页版 Blat 不同，且更严格。考虑到这一点，可用以下设置来接近网页版 Blat 的检索结果："
+  },
+  {
+   "pat": "Alternatively, you can try filtering your Blat PSL output using either the {{1}} or {{2}} program available in the Genome Browser source code. For information on obtaining the source code, see our {{3}} on source code licensing and downloads.",
+   "zh": "另一种做法是用基因组浏览器源码中提供的 {{1}} 或 {{2}} 程序过滤 Blat 的 PSL 输出。获取源码的方法见我们关于源码许可与下载的{{3}}。"
+  },
+  {
+   "pat": "The formula to find the shortest query size that will guarantee a match (if matching tiles are not marked as overused) is: 2 * {{1}} + {{2}} - 1 {{3}} For example, with {{4}} set to 5 and {{5}} set to 11, matches of query size 2 * 5 + 11 - 1 = 20 bp will be found if the query matches the target exactly.{{6}} The {{7}} parameter can range from 1 to {{8}}.{{9}} The {{10}} parameter can range from 6 to 15. For protein, the range starts lower.{{11}} For {{12}}=1 (e.g., protein), the minimum guaranteed match length is: 1 * {{13}} + {{14}} - 1{{15}} Note: There is also a \"minimum lucky size\" for hits. This is the smallest possible hit that BLAT can find. This minimum lucky size can be calculated using the formula: {{16}} + {{17}}. For example, if we use a {{18}} of 11 and {{19}} of 5, hits smaller than 16 bases won't be reported.",
+   "zh": "保证能匹配到的最短查询长度（前提是匹配的 tile 未被标记为过度使用）的公式是：2 * {{1}} + {{2}} - 1 {{3}} 例如，当 {{4}} 设为 5、{{5}} 设为 11 时，若查询与目标完全匹配，查询长度为 2 * 5 + 11 - 1 = 20 bp 的匹配就能找到。{{6}} {{7}} 参数的取值范围是 1 到 {{8}}。{{9}} {{10}} 参数的取值范围是 6 到 15。对蛋白质而言，范围起点更低。{{11}} 对 {{12}}=1（例如蛋白质），保证的最短匹配长度是：1 * {{13}} + {{14}} - 1{{15}} 注意：命中还有一个「最小幸运长度」，即 BLAT 能找出的最小可能命中。这个最小幸运长度可用公式计算：{{16}} + {{17}}。例如，若 {{18}} 用 11、{{19}} 用 5，则小于 16 个碱基的命中不会被报告。"
+  },
+  {
+   "pat": "A note on filtering output: increasing the {{1}} parameter value beyond one-half of the query size has no further effect. Therefore, use either the {{2}} or {{3}} program available in the Genome Browser source code to filter for the size, score, coverage, or quality desired. For information on obtaining the source code, see our {{4}} on source code licensing and downloads.",
+   "zh": "关于输出过滤的说明：把 {{1}} 参数值提高到超过查询长度的一半不会再有额外效果。因此，请用基因组浏览器源码中提供的 {{2}} 或 {{3}} 程序，按所需的大小、评分、覆盖度或质量进行过滤。获取源码的方法见我们关于源码许可与下载的{{4}}。"
+  },
+  {
+   "pat": "BLAT is designed to quickly find sequence similarity between query and target sequences. Generally, BLAT is used to find locations of sequence homology in a single target genome or determine the exon structure of an mRNA. BLAT also allows users to compare the query sequence against all of the default assemblies for organisms hosted on the UCSC Genome Browser. The {{1}} feature may be useful if you have an ambiguous query sequence and are trying to determine what organism it may belong to.",
+   "zh": "BLAT 用于快速找出查询序列与目标序列之间的相似性。通常，BLAT 用来在单个目标基因组中查找序列同源位置，或确定 mRNA 的外显子结构。BLAT 还允许用户把查询序列与 UCSC 基因组浏览器托管的全部生物默认组装进行比对。如果你的查询序列有歧义、想确定它可能属于哪个物种，{{1}} 功能会很有用。"
+  },
+  {
+   "pat": "Selecting the \"Search ALL\" checkbox above the Genome drop-down list allows you to search the genomes of the default assemblies for all of our organisms. It also searches any attached hubs' Blat servers, meaning you can search your user-generated assembly hubs. {{1}} {{2}} The new dynamic BLAT servers allow one to perform BLAT searches on an unlimited number of genomes with a fixed amount of memory, however it takes time to swap virtual pages from the storage device. Currently dynamic BLAT servers are not supported for \"Search ALL\", and they are noted as skipped in the output. {{3}} {{4}} The results page displays an ordered list of all our organisms and their homology with your query sequence. The results are ordered so that the organism with the best alignment score is at the top, indicating which region(s) of that organism has the greatest homology with your query sequence. The entire alignment, including mismatches and gaps, must {{5}} 20 or higher in order to appear in the Blat output. By clicking into a link in the {{6}} you will be taken to a new page displaying various locations and scores of sequence homology in the assembly of interest.",
+   "zh": "勾选 Genome 下拉列表上方的「Search ALL」复选框，可以检索我们全部生物的默认组装的基因组。它还会检索所挂载 hub 的 Blat 服务器，也就是说可以检索你自建的组装 hub。{{1}} {{2}} 新的动态 BLAT 服务器允许在固定内存下对不限数量的基因组做 BLAT 检索，但从存储设备换入虚拟页需要时间。目前「Search ALL」不支持动态 BLAT 服务器，输出中会把它们标为已跳过。{{3}} {{4}} 结果页会显示我们全部生物的有序列表及其与你查询序列的同源性。排序使比对评分最好的生物排在最前，表明该生物哪些区域与你查询序列同源性最高。整个比对（包括错配与缺口）必须{{5}}达到 20 或更高，才会出现在 Blat 输出中。点击 {{6}} 中的链接，会打开新页面，显示感兴趣组装中序列同源性的各个位置与评分。"
+  },
+  {
+   "pat": "For example, if two 11-base tile hits align perfectly, it would result in a score of 22. This is above the minimum required score of 20 (see {{1}}), and would be reported as an alignment. However, there are penalties for gaps and mismatches, as well as potential overlap (see stepsize in {{2}}), all of which could bring the score below 20. In that case, Blat ALL would report 2 \"hits\", but clicking into the assembly would report no matches. This most often occurs when there are only a few (1-3) hits reported by Blat ALL.",
+   "zh": "例如，若两个 11 碱基的 tile 命中完美比对，评分会是 22。这高于最低要求的 20 分（见{{1}}），会作为一条比对报告。然而缺口与错配会扣分，还可能存在重叠（见 {{2}} 中的 stepsize），这些都可能把评分降到 20 以下。此时 Blat ALL 会报告 2 个「命中」，但点进该组装却报告没有匹配。这种情况最常出现在 Blat ALL 只报告少数（1-3 个）命中时。"
+  },
+  {
+   "pat": "Protein-translated BLAT (protein or translated RNA queries) uses the standard vertebrate genetic code. It will be slightly less sensitive on mitochondria and species using other genetic codes. More information on standard genetic codes can be found on the {{1}}. Additional details on mitochondria codon tables can be found on the {{2}}.",
+   "zh": "蛋白质翻译版 BLAT（蛋白质或翻译 RNA 查询）使用标准脊椎动物遗传密码。它对线粒体和使用其它遗传密码的物种灵敏度会略低。标准遗传密码的更多信息见{{1}}。线粒体密码子表的补充细节见{{2}}。"
+  },
+  {
+   "pat": "{{1}} Open programmatic access was removed in 2025 due to bot abuse. BLAT queries can be run with an API key through the {{2}} of our REST API. If you would like to request access, please {{3}}. Keep in mind that BLAT can also be run {{4}}, which can lead to improved performance. A {{5}} is required for commercial use of the local BLAT utility.",
+   "zh": "{{1}} 由于机器人滥用，开放的程序化访问已于 2025 年移除。BLAT 查询可以通过我们 REST API 的 {{2}} 使用 API 密钥运行。如果想申请访问权限，请{{3}}。请记住，BLAT 也可以{{4}}运行，性能可能更好。本地 BLAT 工具用于商业用途需要{{5}}。"
+  },
+  {
+   "pat": "You can download the 2bit file for your assembly of interest from the {{1}} under the \"Genome sequence files and select annotations (2bit, GTF, GC-content, etc)\" link. For example, the hg38.2bit sequence can be found {{2}}.",
+   "zh": "可以从{{1}}下载感兴趣组装的 2bit 文件，位于「Genome sequence files and select annotations (2bit, GTF, GC-content, etc)」链接下。例如，hg38.2bit 序列可以在{{2}}找到。"
+  },
+  {
+   "pat": "{{1}} - Optional. Tells the browser which table to grab the gene frames from. This is usually associated with an N-way alignment where the name ends in the string \"Frames\".",
+   "zh": "{{1}} - 可选。告诉浏览器从哪张表获取基因读框。通常用于名字以「Frames」结尾的 N 路比对。"
+  },
+  {
+   "pat": "{{1}} - roughly corresponds to blast bit values (roughly 2 points per aligning base minus penalties for mismatches and inserts).",
+   "zh": "{{1}} - 大致对应 blast 的 bit 值（每个比对碱基约 2 分，再减去错配与插入的罚分）。"
+  },
+  {
+   "pat": "{{1}} -- Optional. Positive integer value. For programs that do multiple pass alignments such as blastz, this shows which pass this alignment came from. Typically, pass 1 will find the strongest alignments genome-wide, and pass 2 will find weaker alignments between two first-pass alignments.",
+   "zh": "{{1}} -- 可选。正整数。对于 blastz 这类做多轮比对的程序，此项表示该比对来自第几轮。通常第 1 轮找出全基因组最强的比对，第 2 轮则在两段第一轮比对之间找出较弱的比对。"
+  },
+  {
+   "pat": "{{1}} -- The name of one of the source sequences for the alignment. For sequences that are resident in a browser assembly, the form 'database.chromosome' allows automatic creation of links to other assemblies. Non-browser sequences are typically referenced by the species name alone.",
+   "zh": "{{1}} -- 比对的源序列之一的名称。对于驻留在浏览器组装中的序列，'database.chromosome' 形式会自动创建到其它组装的链接。非浏览器的序列通常只用物种名引用。"
+  },
+  {
+   "pat": "{{1}} -- The size of the entire source sequence, not just the parts involved in the alignment.",
+   "zh": "{{1}} -- 整个源序列的长度，而不只是参与比对的那些部分。"
+  },
+  {
+   "pat": "{{1}} -- A character that specifies the relationship between the sequence in this block and the sequence that appears in the previous block.",
+   "zh": "{{1}} -- 一个字符，说明本区块中的序列与上一个区块中出现的序列之间的关系。"
+  },
+  {
+   "pat": "{{1}} -- Usually the number of bases in the aligning species between the start of this alignment and the end of the previous one.",
+   "zh": "{{1}} -- 通常是对齐物种中，从本次比对开头到上一次比对结尾之间的碱基数。"
+  },
+  {
+   "pat": "{{1}} -- A character that specifies the relationship between the sequence in this block and the sequence that appears in the subsequent block.",
+   "zh": "{{1}} -- 一个字符，说明本区块中的序列与后续区块中出现的序列之间的关系。"
+  },
+  {
+   "pat": "{{1}} -- Usually the number of bases in the aligning species between the end of this alignment and the start of the next one.",
+   "zh": "{{1}} -- 通常是对齐物种中，从本次比对结尾到下一次比对开头之间的碱基数。"
+  },
+  {
+   "pat": "{{1}} -- there are bases between the bases in this block and the one before or after it.",
+   "zh": "{{1}} -- 本区块与它前一个或后一个区块之间存在碱基。"
+  },
+  {
+   "pat": "{{1}} -- this is the first sequence from this src chrom or scaffold but it is bridged by another alignment from a different chrom or scaffold.",
+   "zh": "{{1}} -- 这是来自该 src 染色体或 scaffold 的第一条序列，但它被另一条来自不同染色体或 scaffold 的比对桥接。"
+  },
+  {
+   "pat": "{{1}} -- the sequence in this block has been used before in a previous block (likely a tandem duplication)",
+   "zh": "{{1}} -- 本区块中的序列在此前的区块中已经用过（很可能是串联重复）。"
+  },
+  {
+   "pat": "{{1}} -- The size of the entire source sequence, not just the parts involved in the alignment; alignment and any insertions (dashes) as well.",
+   "zh": "{{1}} -- 整个源序列的长度，而不只是参与比对的那些部分；也包括比对本身以及所有插入（短横线）。"
+  },
+  {
+   "pat": "Here is a simple example of three alignment blocks derived from five starting sequences. The first {{1}} line is necessary for custom tracks, but should be removed otherwise. Repeats are shown as lowercase, and each block may have a subset of the input sequences. All sequence columns and rows must contain at least one nucleotide (no columns or rows that contain only insertions).",
+   "zh": "这是一个由五条起始序列得到三个比对区块的简单示例。第一行 {{1}} 行对自定义轨道是必需的，其它情况下应当删掉。重复序列以小写表示，每个区块可以只含输入序列的一个子集。所有序列的列与行都必须至少含一个核苷酸（不能有只含插入的列或行）。"
+  },
+  {
+   "pat": "The datasets for the built-in microarray tracks in the Genome Browser are stored in BED15 format, an extension of {{1}} format that includes three additional fields: expCount, expIds, and expScores. To display correctly in the Genome Browser, microarray tracks require the setting of several attributes in the trackDb file associated with the track's genome assembly. Each microarray track set must also have an associated microarrayGroups.ra configuration file that contains additional information about the data in each of the arrays.",
+   "zh": "基因组浏览器内置的微阵列轨道，其数据以 BED15 格式保存，这是 {{1}} 格式的扩展，多出三个字段：expCount、expIds 和 expScores。要在基因组浏览器中正确显示，微阵列轨道需要在与该轨道所在基因组组装关联的 trackDb 文件中设置若干属性。每个微阵列轨道集还必须有一个关联的 microarrayGroups.ra 配置文件，其中包含各阵列中数据的附加信息。"
+  },
+  {
+   "pat": "{{1}} - the number 0x1A412743 in the architecture of the machine that created the file",
+   "zh": "{{1}} - 创建该文件的机器架构下的数值 0x1A412743"
+  },
+  {
+   "pat": "{{1}} - the 32-bit offset of the sequence data relative to the start of the file, not aligned to any 4-byte padding boundary",
+   "zh": "{{1}} - 序列数据相对于文件起始位置的 32 位偏移量，不按任何 4 字节填充边界对齐"
+  },
+  {
+   "pat": "{{1}} - an array of length nBlockCount of 32 bit integers indicating the (0-based) starting position of a block of Ns",
+   "zh": "{{1}} - 长度为 nBlockCount 的 32 位整数数组，给出每个 N 区块的（0 起始）起始位置"
+  },
+  {
+   "pat": "{{1}} - an array of length nBlockCount of 32 bit integers indicating the length of a block of Ns",
+   "zh": "{{1}} - 长度为 nBlockCount 的 32 位整数数组，给出每个 N 区块的长度"
+  },
+  {
+   "pat": "{{1}} - an array of length maskBlockCount of 32 bit integers indicating the (0-based) starting position of a masked block",
+   "zh": "{{1}} - 长度为 maskBlockCount 的 32 位整数数组，给出每个被屏蔽区块的（0 起始）起始位置"
+  },
+  {
+   "pat": "{{1}} - an array of length maskBlockCount of 32 bit integers indicating the length of a masked block",
+   "zh": "{{1}} - 长度为 maskBlockCount 的 32 位整数数组，给出每个被屏蔽区块的长度"
+  },
+  {
+   "pat": "{{1}} - the DNA packed to two bits per base, represented as so: T - 00, C - 01, A - 10, G - 11. The first base is in the most significant 2-bit byte; the last base is in the least significant 2 bits. For example, the sequence TCAG is represented as 00011011.",
+   "zh": "{{1}} - 以每碱基两位打包的 DNA，表示方式为：T - 00，C - 01，A - 10，G - 11。第一个碱基位于最高有效 2 位字节，最后一个碱基位于最低有效 2 位。例如序列 TCAG 表示为 00011011。"
+  },
+  {
+   "pat": "{{1}} - A comma-separated list of the frequency of each allele, given in the same order as the name field. If unknown, a list of zeroes (matching the alleleCount) should be used.",
+   "zh": "{{1}} - 以逗号分隔的各等位基因频率列表，顺序与 name 字段一致。若未知，应使用与 alleleCount 数量一致的零值列表。"
+  },
+  {
+   "pat": "{{1}} - A comma-separated list of the quality score of each allele, given in the same order as the name field. If unknown, a list of zeroes (matching the alleleCount) should be used.",
+   "zh": "{{1}} - 以逗号分隔的各等位基因质量分列表，顺序与 name 字段一致。若未知，应使用与 alleleCount 数量一致的零值列表。"
+  },
+  {
+   "pat": "{{1}} - Measurement of statistical significance (-log10). Use -1 if no pValue is assigned.",
+   "zh": "{{1}} - 统计显著性的度量（-log10）。若未指派 pValue，使用 -1。"
+  },
+  {
+   "pat": "{{1}} - Measurement of statistical significance using false discovery rate (-log10). Use -1 if no qValue is assigned.",
+   "zh": "{{1}} - 用错误发现率衡量的统计显著性（-log10）。若未指派 qValue，使用 -1。"
+  },
+  {
+   "pat": "{{1}} - Point-source called for this peak; 0-based offset from chromStart. Use -1 if no point-source called.",
+   "zh": "{{1}} - 为该峰判定的点源；相对于 chromStart 的 0 起始偏移。若未判定点源，使用 -1。"
+  },
+  {
+   "pat": "{{1}} - The ending position of the feature in the chromosome or scaffold.",
+   "zh": "{{1}} - 特征在染色体或 scaffold 上的结束位置。"
+  },
+  {
+   "pat": "{{1}} - The starting position of the feature in the chromosome or scaffold.",
+   "zh": "{{1}} - 特征在染色体或 scaffold 上的起始位置。"
+  }
+ ]
 }

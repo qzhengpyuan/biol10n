@@ -177,7 +177,35 @@
     "RSS feeds": "RSS 订阅源",
     "Bethesda (MD):": "贝塞斯达（马里兰州）：",
     "Participation Agreement": "参与协议",
-    "Bookshelf provides free online access to books and documents in life science and healthcare. Search, read, and discover.": "Bookshelf 免费提供生命科学与医疗健康领域的图书与文档。可检索、阅读并发现内容。"
+    "Bookshelf provides free online access to books and documents in life science and healthcare. Search, read, and discover.": "Bookshelf 免费提供生命科学与医疗健康领域的图书与文档。可检索、阅读并发现内容。",
+    "GeneReviews Links": "GeneReviews 链接",
+    "Key Sections in this GeneReview": "本 GeneReview 的关键章节",
+    "Glossary": "术语表",
+    "Resource Materials": "资源材料",
+    "Author List": "作者列表",
+    "For Current/Prospective Authors": "面向现任作者与准作者",
+    "Personnel": "人员",
+    "Download/Link to": "下载/链接到",
+    "Contact Us": "联系我们",
+    "GeneReviews by Title": "按书名浏览 GeneReviews",
+    "GeneReviews Advanced Search": "GeneReviews 高级检索",
+    "Bookshelf Copyright Notice": "Bookshelf 版权声明",
+    "Related OMIM records": "相关 OMIM 记录",
+    "PubMed Central citations": "PubMed Central 引用",
+    "Links to PubMed": "PubMed 链接",
+    "Locus Links": "基因座链接",
+    "Gene(s)": "基因",
+    "Disorder": "疾病",
+    "Features of Disorder": "疾病特征",
+    "Evaluation": "评估",
+    "System/Concern": "系统/关注点",
+    "Manifestation/Concern": "表现/关注点",
+    "Considerations/Other": "注意事项/其他",
+    "Chromosome Locus": "染色体位点",
+    "Locus-Specific Databases": "基因座特异性数据库",
+    "DNA Nucleotide Change": "DNA 核苷酸变化",
+    "Predicted Protein Change": "预测蛋白质变化",
+    "Comment [Reference]": "注释 [参考文献]"
   },
   "rules": [
     {
@@ -275,6 +303,10 @@
     {
       "re": "^(.+?) \\[Internet\\]\\. Bethesda \\(MD\\): National Center for Biotechnology Information \\(US\\); (.+)$",
       "to": "$1 [Internet]。贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；$2"
+    },
+    {
+      "re": "^Table ([A-Z])\\.$",
+      "to": "表 $1."
     }
   ],
   "templates": [
@@ -285,6 +317,26 @@
     {
       "pat": "This publication is in the public domain. For more information, see the {{1}}.",
       "zh": "本出版物属于公有领域。更多信息请参见{{1}}。"
+    },
+    {
+      "pat": "Overlapping w/{{1}} HC",
+      "zh": "与 {{1}} HC 重叠"
+    },
+    {
+      "pat": "Distinguishing from {{1}} HC",
+      "zh": "与 {{1}} HC 鉴别"
+    },
+    {
+      "pat": "Proportion of Pathogenic Alleles {{1}} Identified by Method",
+      "zh": "按方法识别的致病等位基因占比{{1}}"
+    },
+    {
+      "pat": "Please see the {{1}} video for a brief introduction.",
+      "zh": "请观看{{1}}视频了解简要介绍。"
+    },
+    {
+      "pat": "Please see the {{1}} for details and changes.",
+      "zh": "详情与变更请参见{{1}}。"
     }
   ]
 }

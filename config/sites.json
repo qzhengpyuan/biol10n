@@ -1494,8 +1494,10 @@
       "path": "^/gxa",
       "dicts": [
         "common",
+        "anatomy",
         "string-atlas",
-        "string-atlas2"
+        "string-atlas2",
+        "gxa"
       ],
       "scope": "body",
       "proseExempt": "nav, footer, .info-section a"

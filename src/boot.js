@@ -98,7 +98,7 @@
 
     // 面板先建好：引擎第一次扫描就会产生"漏翻"回调，晚建会丢掉首页那一批。
     var ui = createBioL10nUI({
-      site: { id: site.id, name: site.name || site.id },
+      site: { id: site.id, name: site.name || site.id, missNoise: site.missNoise || [] },
       dicts: dictInfo,
       version: VERSION
     });

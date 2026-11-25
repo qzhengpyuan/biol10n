@@ -1220,6 +1220,30 @@
             "Entity": "实体"
           }
         }
+      ],
+      "missNoise": [
+        "ABSOLUTE LiftOver",
+        "Affymetrix SNP",
+        "Aliquot Ensemble",
+        "Annotations TCGA",
+        "BCGSC",
+        "BWA",
+        "CellRanger",
+        "FM Simple",
+        "FoundationOne",
+        "GATK4",
+        "MuSE",
+        "MuTect2",
+        "Pindel",
+        "SeSAMe",
+        "Seurat",
+        "STAR 2-Pass",
+        "STAR Counts",
+        "TCGA Barcode",
+        "TCGA VCF",
+        "VCF LiftOver",
+        "GDC API",
+        "NIH... Turning Discovery"
       ]
     },
     {

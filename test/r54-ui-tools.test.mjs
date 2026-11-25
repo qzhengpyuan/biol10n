@@ -94,6 +94,20 @@ test("收集漏翻：只收短英文，跳过中文、代码块与本脚本 UI",
   } finally { win.close(); }
 });
 
+test("站级噪音名单里的流程名/工具名不进漏翻清单", () => {
+  const html = "<main><p>BWA with BQSR</p><p>Getting Started</p></main>";
+  const { factory, doc, win } = boot(html, "https://docs.gdc.cancer.gov/");
+  try {
+    const ui = factory.createBioL10nUI({
+      site: { id: "gdc-docs", name: "GDC 文档站", missNoise: ["BWA", "CellRanger"] },
+      dicts: [], version: "0.11.6"
+    });
+    const texts = ui.collectMisses().map((x) => x.t);
+    assert.ok(!texts.some((t) => /BWA/.test(t)), "噪音名单命中应跳过");
+    assert.ok(texts.includes("Getting Started"), "非噪音照常收集");
+  } finally { win.close(); }
+});
+
 test("收集漏翻写入本机存储且同一句不重复计数", () => {
   const { factory, doc, win } = boot("<main><p>Getting Started</p><p>Data Portal</p></main>");
   try {

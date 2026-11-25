@@ -51,6 +51,7 @@ function createBioL10nUI(opts) {
   var site = opts.site || {};
   var dicts = opts.dicts || [];
   var version = opts.version || "";
+  var missNoise = (opts.site && opts.site.missNoise) || [];
   var settings = bioL10nReadSettings();
   var engine = null;
   var settingsOpen = false;
@@ -647,7 +648,18 @@ function createBioL10nUI(opts) {
     return true;
   }
 
-  /** 扫本页仍是英文的短句（跳过代码块与 UI 自身）；返回去重后的条目。 */
+  /** 站级噪音名单：流程名/工具名/品牌这类「本来就不翻」的词，不进漏翻清单。 */
+  function isNoise(t) {
+    if (!missNoise.length) return false;
+    var s = String(t).toLowerCase();
+    for (var i = 0; i < missNoise.length; i++) {
+      var n = String(missNoise[i] || "").toLowerCase().trim();
+      if (n && s.indexOf(n) >= 0) return true;
+    }
+    return false;
+  }
+
+  /** 扫本页仍是英文的短句（跳过代码块、UI 自身与站级噪音名单）；返回去重后的条目。 */
   function collectMisses() {
     var body = doc.body;
     if (!body) return [];
@@ -658,7 +670,7 @@ function createBioL10nUI(opts) {
       var p = n.parentElement;
       if (!p || (p.closest && p.closest(SKIP))) continue;
       var t = String(n.nodeValue || "").replace(/\s+/g, " ").trim();
-      if (!looksUntranslated(t) || seen[t]) continue;
+      if (!looksUntranslated(t) || seen[t] || isNoise(t)) continue;
       try {
         var cs = win.getComputedStyle(p);
         if (cs && (cs.display === "none" || cs.visibility === "hidden")) continue;

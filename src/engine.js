@@ -1989,7 +1989,10 @@ function createEngine(options) {
     Database: 1, Handbook: 1, Bookshelf: 1, Help: 1, Glossary: 1, Terms: 1,
     Study: 1, Studies: 1, Details: 1, Home: 1,
     // CT 的 ``List Results`` / ``Table Results`` 视图：没有规则时整条标题会被判英文
-    List: 1, Table: 1, Results: 1
+    List: 1, Table: 1, Results: 1,
+    // GDC 流程页标题里保留的测序术语：整条标题已由词库翻成中文，只有这些缩写留下，
+    // 不在白名单里就会被 titleAcceptable 整条退回（mRNA/miRNA 不是全大写，绕不过大小写兜底）。
+    mRNA: 1, miRNA: 1, rRNA: 1, tRNA: 1, ncRNA: 1, lncRNA: 1, "DNA-Seq": 1, "RNA-Seq": 1
   };
   /** 标题里允许剩下的英文：品牌名、全大写缩写、带数字的标识符。 */
   /** 没有翻译、原样保留的标题分段：只允许"含品牌名/全大写/带数字"的段整段留下，

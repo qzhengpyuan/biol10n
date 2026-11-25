@@ -633,8 +633,9 @@ function createBioL10nUI(opts) {
   var MISS_KEY = "biol10n:misses";
 
   function looksUntranslated(t) {
-    if (!t || t.length < 3 || t.length > 120) return false;
+    if (!t || t.length < 3 || t.length > 90) return false;
     if (/[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/.test(t)) return false;
+    if (/[：，。；！？、（）「」【】《》]/.test(t)) return false;   // 全角标点：已中文化或标识符
     if (!/[A-Za-z]{2}/.test(t)) return false;
     if (/^[\s\dA-Za-z._:/-]+$/.test(t) && !/ /.test(t)) return false;   // 纯编号/ID/文件名
     if (/@|https?:\/\/|www\./i.test(t)) return false;                  // 邮箱/URL

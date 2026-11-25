@@ -76,6 +76,8 @@ test("收集漏翻：只收短英文，跳过中文、代码块与本脚本 UI",
     <span class="bl-badge">中</span>
     <p>P04637</p>
     <p>Contact support@example.org</p>
+    <p>PMID：29165669</p>
+    <p>This sentence is deliberately long enough to look like body prose rather than a short interface label that somebody would actually add to a dictionary.</p>
   </main>`;
   const { factory, doc, win } = boot(html);
   try {
@@ -87,6 +89,8 @@ test("收集漏翻：只收短英文，跳过中文、代码块与本脚本 UI",
     assert.ok(!texts.some((t) => /const x/.test(t)), "代码块不应收集");
     assert.ok(!texts.some((t) => /P04637/.test(t)), "纯编号不应收集");
     assert.ok(!texts.some((t) => /support@example/.test(t)), "邮箱不应收集");
+    assert.ok(!texts.some((t) => /PMID/.test(t)), "全角标点的标识符不应收集");
+    assert.ok(!texts.some((t) => /deliberately long/.test(t)), "过长正文不应收集");
   } finally { win.close(); }
 });
 

@@ -769,7 +769,8 @@ function createBioL10nUI(opts) {
     if (!orig || orig === now) { toast("这段没有可还原的原文"); return; }
     e.preventDefault();
     e.stopPropagation();
-    showCard(String(orig), e.clientX, e.clientY);
+    // 原文常带缩进/换行（HTML 里的制表符与换行），卡片里折成单行更好读
+    showCard(String(orig).replace(/\s+/g, " ").trim(), e.clientX, e.clientY);
   }
 
   function updateTitle() {

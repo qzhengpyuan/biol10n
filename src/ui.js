@@ -1041,11 +1041,19 @@ function createBioL10nUI(opts) {
     var rec = o[k];
     if (!rec || !rec.y || rec.y < 400) return 0;
     var go = function () {
-      if ((win.pageYOffset || win.scrollY || 0) > 40) return;
+      if ((win.pageYOffset || win.scrollY || 0) > 40) return;   // 用户自己滚过就不再抢
       try { win.scrollTo(0, rec.y); } catch (e) {}
     };
     if (immediate) { go(); return rec.y; }
-    win.setTimeout(go, 1200);
+    // 首次 1.2s 时页面可能还没铺开，scrollTo 会被文档高度夹短；隔一会儿再看一次
+    var tries = 0;
+    var attempt = function () {
+      go();
+      tries++;
+      var cur = win.pageYOffset || win.scrollY || 0;
+      if (tries < 3 && cur < rec.y - 60) win.setTimeout(attempt, 1500);
+    };
+    win.setTimeout(attempt, 1200);
     return rec.y;
   }
 

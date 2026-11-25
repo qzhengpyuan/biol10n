@@ -157,7 +157,27 @@
     "Clustering Methods": "聚类方法",
     "Manual Curation": "人工校订",
     "Cluster Display": "聚类展示",
-    "Access": "访问"
+    "Access": "访问",
+    "Using Bookshelf": "使用 Bookshelf",
+    "Quick Start Guide": "快速入门指南",
+    "Tutorials": "教程",
+    "New Releases": "新书发布",
+    "Participate": "参与",
+    "Authors and Publishers": "作者与出版者",
+    "How to Apply": "如何申请",
+    "File Submission Specifications": "文件提交规范",
+    "New & Updated": "新增与更新",
+    "Featured Titles": "精选书目",
+    "NLM Literature Archive": "NLM 文献存档",
+    "Open Access Subset": "开放获取子集",
+    "Librarians": "图书馆员",
+    "Related NLM Catalog Entries": "NLM 目录中的相关条目",
+    "Book thumbnail": "图书缩略图",
+    "RSS Feed": "RSS 订阅源",
+    "RSS feeds": "RSS 订阅源",
+    "Bethesda (MD):": "贝塞斯达（马里兰州）：",
+    "Participation Agreement": "参与协议",
+    "Bookshelf provides free online access to books and documents in life science and healthcare. Search, read, and discover.": "Bookshelf 免费提供生命科学与医疗健康领域的图书与文档。可检索、阅读并发现内容。"
   },
   "rules": [
     {
@@ -209,6 +229,14 @@
       "to": "PDF 版（$1）"
     },
     {
+      "re": "^Created: (.+?); Last Update: (.+?)\\.$",
+      "to": "创建于 $1；最后更新：$2。"
+    },
+    {
+      "re": "^Created: (.+?)\\.$",
+      "to": "创建于 $1。"
+    },
+    {
       "re": "^Created: (.+); Last Update: (.+)$",
       "to": "创建于 $1；最后更新：$2"
     },
@@ -229,14 +257,34 @@
       "to": "NCBI 手册 - NCBI 书架"
     },
     {
+      "re": "^Last Update: (.+?)\\.$",
+      "to": "最后更新：$1。"
+    },
+    {
+      "re": "^Last Update: (.+)$",
+      "to": "最后更新：$1"
+    },
+    {
+      "re": "^Cover of (.+)$",
+      "to": "$1 封面"
+    },
+    {
       "re": "^Bethesda \\(MD\\): National Center for Biotechnology Information \\(US\\); (.+)$",
       "to": "贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；$1"
+    },
+    {
+      "re": "^(.+?) \\[Internet\\]\\. Bethesda \\(MD\\): National Center for Biotechnology Information \\(US\\); (.+)$",
+      "to": "$1 [Internet]。贝塞斯达（马里兰州）：美国国家生物技术信息中心（US）；$2"
     }
   ],
   "templates": [
     {
       "pat": "Bethesda (MD): {{1}}; {{2}}-.",
       "zh": "贝塞斯达（马里兰州）：{{1}}；{{2}}-."
+    },
+    {
+      "pat": "This publication is in the public domain. For more information, see the {{1}}.",
+      "zh": "本出版物属于公有领域。更多信息请参见{{1}}。"
     }
   ]
 }

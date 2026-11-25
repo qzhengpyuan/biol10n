@@ -1040,18 +1040,20 @@ function createBioL10nUI(opts) {
     var k = (win.location.pathname || "/") + (win.location.search || "");
     var rec = o[k];
     if (!rec || !rec.y || rec.y < 400) return 0;
-    var go = function () {
-      if ((win.pageYOffset || win.scrollY || 0) > 40) return;   // 用户自己滚过就不再抢
+    if (immediate) {
       try { win.scrollTo(0, rec.y); } catch (e) {}
-    };
-    if (immediate) { go(); return rec.y; }
-    // 首次 1.2s 时页面可能还没铺开，scrollTo 会被文档高度夹短；隔一会儿再看一次
-    var tries = 0;
+      return rec.y;
+    }
+    // 首次 1.2s 时页面可能还没铺开，scrollTo 会被文档高度夹短；隔一会儿再补两次。
+    // 只有在「我们还没动过、用户也没动过」时才抢滚动，之后只补夹短的差额。
+    var tries = 0, did = false;
     var attempt = function () {
-      go();
-      tries++;
       var cur = win.pageYOffset || win.scrollY || 0;
-      if (tries < 3 && cur < rec.y - 60) win.setTimeout(attempt, 1500);
+      if (!did && cur > 40) return;   // 用户自己先滚了，不再抢
+      try { win.scrollTo(0, rec.y); } catch (e) {}
+      did = true;
+      tries++;
+      if (tries < 4 && (win.pageYOffset || win.scrollY || 0) < rec.y - 60) win.setTimeout(attempt, 1600);
     };
     win.setTimeout(attempt, 1200);
     return rec.y;

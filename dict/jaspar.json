@@ -1,0 +1,585 @@
+{
+  "meta": {
+    "family": "jaspar",
+    "sites": [
+      "jaspar.genereg.net",
+      "jaspar.elixir.no"
+    ],
+    "note": "JASPAR 转录因子结合谱"
+  },
+  "exact": {
+    "Toggle navigation": "切换导航",
+    "You have 0 profile(s) in cart.": "购物车中有 0 个配置文件。",
+    "Search profiles and add to cart": "检索配置文件并加入购物车",
+    "JASPAR Blog": "JASPAR 博客",
+    "About JASPAR": "关于 JASPAR",
+    "FAQ": "常见问题",
+    "Documentation": "文档",
+    "Privacy Policy": "隐私政策",
+    "Changelog": "更新日志",
+    "Search by profile": "按配置文件检索",
+    "Search by pattern": "按模式检索",
+    "Browse JASPAR CORE": "浏览 JASPAR CORE",
+    "Unvalidated Profiles": "未验证配置文件",
+    "Deep Learning Collection": "深度学习合集",
+    "Browse Collections": "浏览合集",
+    "External tools": "外部工具",
+    "Download Data": "下载数据",
+    "Matrix Clusters": "矩阵聚类",
+    "Genome Tracks": "基因组轨迹",
+    "Enrichment Analysis": "富集分析",
+    "TFBS extraction": "TFBS 提取",
+    "LLM-extracted TF Targets": "LLM 提取的 TF 靶标",
+    "News & Updates": "新闻与更新",
+    "View all news": "查看全部新闻",
+    "More ...": "更多…",
+    "Welcome to our new website!": "欢迎访问我们的新网站！",
+    "Released RESTful API!": "已发布 RESTful API！",
+    "JASPAR interactive tour": "JASPAR 交互式导览",
+    "JASPAR video tour": "JASPAR 视频导览",
+    "Blog and News": "博客与新闻",
+    "Contact Us": "联系我们",
+    "Profile versions": "配置文件版本",
+    "Q&A Forum": "问答论坛",
+    "Examples:": "示例：",
+    "Advanced Options": "高级选项",
+    "Collection:": "合集：",
+    "Taxon:": "类群：",
+    "Species:": "物种：",
+    "Data type:": "数据类型：",
+    "Class:": "类别：",
+    "Family:": "家族：",
+    "Versions:": "版本：",
+    "All collection": "全部合集",
+    "All taxonomic groups": "全部类群",
+    "All species": "全部物种",
+    "All data types": "全部数据类型",
+    "All classes": "全部类别",
+    "All families": "全部家族",
+    "All versions": "全部版本",
+    "Latest version": "最新版本",
+    "Search JASPAR database...": "检索 JASPAR 数据库……",
+    "You can search by TF name or ID, species, taxon, UniProt ID or any other keyword.": "可按 TF 名称或 ID、物种、类群、UniProt ID 或任意关键词检索。",
+    "Fungi": "真菌",
+    "Plants": "植物",
+    "Insects": "昆虫",
+    "Nematodes": "线虫",
+    "Urochordates": "尾索动物",
+    "Vertebrates": "脊椎动物",
+    "Diatoms": "硅藻",
+    "Trematodes": "吸虫",
+    "Cnidaria": "刺胞动物",
+    "Oomycota": "卵菌",
+    "Dictyostelium": "网柄菌",
+    "Browse JASPAR CORE for 6 different taxonomic groups": "按 6 个类群浏览 JASPAR CORE",
+    "About JASPAR CORE": "关于 JASPAR CORE",
+    "Info about other collections": "其他合集的信息",
+    "The JASPAR CORE database contains a curated, non-redundant set of profiles, derived from published collections of experimentally defined transcription factor binding sites for eukaryotes. JASPAR is committed to providing open data access and non-redundant, high-quality binding profiles.": "JASPAR CORE 数据库收录了一套经人工审编、非冗余的配置文件，来源于已发表的、实验确定的真核生物转录因子结合位点集合。JASPAR 致力于提供开放数据访问以及非冗余的高质量结合谱。",
+    "When should it be used?": "何时使用？",
+    "When seeking models for specific factors or structural classes, or if experimental evidence is paramount.": "在寻找针对特定因子或结构类别的模型时，或实验证据至关重要时使用。",
+    "The high-quality transcription factor binding profile database": "高质量的转录因子结合谱数据库",
+    "Read more about JASPAR": "进一步了解 JASPAR",
+    "Citing JASPAR 2026": "引用 JASPAR 2026",
+    "Ask questions about JASPAR here": "在此提出关于 JASPAR 的问题",
+    "Access JASPAR database programmatically": "通过程序访问 JASPAR 数据库",
+    "Batch download PFMs, TFFMs, sites, and more": "批量下载 PFM、TFFM、位点等数据",
+    "A Pythonic interface to JASPAR motifs": "JASPAR 基序的 Python 接口",
+    "Creative Commons Attribution 4.0 International License.": "知识共享署名 4.0 国际许可协议",
+    "Your privacy matters": "您的隐私很重要",
+    "Accept": "接受",
+    "Opt out": "退出",
+    "Read more": "了解更多",
+    "This website uses Matomo analytics to collect and analyse traffic data. The information obtained is used solely to assess website performance, improve the quality of our services, and facilitate the effective continuation and enhancement of our operations.": "本网站使用 Matomo 分析工具收集和分析流量数据。所获信息仅用于评估网站性能、改进服务质量，以及支持业务的持续运行与提升。",
+    "The site processes certain personal information. Such data is retained for a period of two years, after which it is deleted. Aggregated statistical information derived from this data may be retained indefinitely for analytical and reporting purposes.": "本站会处理某些个人信息。此类数据保留两年后删除；由这些数据汇总得到的统计信息可能为分析和报告目的被无限期保留。",
+    "This data is co-processed and co-controlled following the Consortium Agreement on ELIXIR4OLS Enabling Open Life Science in Norway, between:": "这些数据依据挪威 ELIXIR4OLS“赋能开放生命科学”联盟协议共同处理与共同控制，协议方包括：",
+    "For more information about how we process your data, please read our": "如需了解我们如何处理您的数据，请阅读我们的",
+    "Profile summary": "配置文件摘要",
+    "Add to cart": "加入购物车",
+    "Add to the cart": "加入购物车",
+    "Name:": "名称：",
+    "Matrix ID:": "矩阵 ID：",
+    "Data Type:": "数据类型：",
+    "Validation:": "验证：",
+    "Source:": "来源：",
+    "Comment:": "注释：",
+    "Sequence logo": "序列标识图",
+    "Download SVG": "下载 SVG",
+    "Frequency matrix": "频率矩阵",
+    "RAW PFM": "原始 PFM",
+    "Reverse comp.": "反向互补",
+    "Reverse complement": "反向互补",
+    "Binding sites information": "结合位点信息",
+    "HTML file": "HTML 文件",
+    "FASTA file": "FASTA 文件",
+    "External links": "外部链接",
+    "Version information": "版本信息",
+    "ChIP-seq centrality": "ChIP-seq 中心性",
+    "ChIP-seq Centrality": "ChIP-seq 中心性",
+    "First order TFFM": "一阶 TFFM",
+    "Detailed TFFM": "详细 TFFM",
+    "Wordclouds": "词云",
+    "More details": "更多详情",
+    "There is no centrality information of the model.": "该模型没有中心性信息。",
+    "TFFM details": "TFFM 详情",
+    "-log(P-value):": "-log(P 值)：",
+    "TFFM Docs and API": "TFFM 文档与 API",
+    "TFFM first order summary logos": "TFFM 一阶汇总标识图",
+    "TFFM detailed summary logos": "TFFM 详细汇总标识图",
+    "Alias:": "别名：",
+    "Symbol:": "符号：",
+    "Consensus:": "一致性序列：",
+    "Included Models:": "包含的模型：",
+    "GC Content:": "GC 含量：",
+    "Base ID": "基础 ID",
+    "Class": "类别",
+    "Matrix ID": "矩阵 ID",
+    "Validation": "验证",
+    "Taxon": "分类单元",
+    "Collection": "合集",
+    "Data type": "数据类型",
+    "Download JASPAR data": "下载 JASPAR 数据",
+    "JASPAR collections (PFMs)": "JASPAR 合集（PFM）",
+    "Matrix clustering": "矩阵聚类",
+    "Familial binding sites": "家族性结合位点",
+    "Metadata": "元数据",
+    "Other data": "其他数据",
+    "Taxonomic groups": "类群",
+    "All": "全部",
+    "Individual PFMs (zip)": "单个 PFM（zip）",
+    "Single batch file (txt)": "单一批量文件（txt）",
+    "PFMs (non-redundant)": "PFM（非冗余）",
+    "PFMs (redundant)": "PFM（冗余）",
+    "Collections": "收藏集",
+    "Radial tree [zip]": "径向树 [zip]",
+    "Clustering summary [zip]": "聚类摘要 [zip]",
+    "These profiles are considered unvalidated because our curators were unable to find any orthogonal support in the existing literature. We encourage the community to conduct experiments and/or point us to relevant literature that our curators may have missed, in order to support these profiles.": "这些配置文件被视为未验证，是因为我们的审编人员在现有文献中未能找到任何正交支持证据。我们鼓励社区开展实验，和/或向我们指出审编人员可能遗漏的相关文献，以支持这些配置文件。",
+    "These profiles are not non-validated, so we recommend using them with caution.": "这些配置文件并非未经验证，因此建议谨慎使用。",
+    "Download other data including sites, sequence logos, bed files.": "下载其他数据，包括位点、序列标识图和 BED 文件。",
+    "Sites files": "位点文件",
+    "BED files": "BED 文件",
+    "Logos": "徽标",
+    "Centrality plots": "中心性图",
+    "Download JASPAR CORE matrix clustering for 6 taxonomic groups.": "下载 6 个类群的 JASPAR CORE 矩阵聚类数据。",
+    "Download familial binding site data.": "下载家族性结合位点数据。",
+    "Download all the PFMs in JASPAR, MEME and TRANSFAC matrix format for various JASPAR collections.": "下载各 JASPAR 合集的 PFM，提供 JASPAR、MEME 和 TRANSFAC 矩阵格式。",
+    "Here you can download XML files for each of the Transcription Factor Flexible Models (TFFMs). For each TFFM there is both a 1st-order and a detailed model each of which is described in a separate XML file.": "在此可下载每个转录因子柔性模型（TFFM）的 XML 文件。每个 TFFM 都有一阶模型和详细模型，各自在单独的 XML 文件中描述。",
+    "TFFM_table.csv gives additional information about each TFFM. It contains the following columns:": "TFFM_table.csv 提供每个 TFFM 的附加信息，包含以下列：",
+    "TFFM ID - the unique ID of the TFFM including version number": "TFFM ID - TFFM 的唯一 ID，含版本号",
+    "PFM ID - the JASPAR matrix ID of the profile used initially to train the TFFM": "PFM ID - 最初用于训练该 TFFM 的配置文件的 JASPAR 矩阵 ID",
+    "TF Name - name of the transcription factor": "TF Name - 转录因子名称",
+    "ChIP-seq file - name of the ChIP-seq peak data file used to train the TFFM": "ChIP-seq file - 用于训练该 TFFM 的 ChIP-seq 峰数据文件名",
+    "1st-order log(p) - log(p-value) of the 1st-order TFFM model": "1st-order log(p) - 一阶 TFFM 模型的 log(p 值)",
+    "Detailed log(p) - log(p-value) of the detailed TFFM model": "Detailed log(p) - 详细 TFFM 模型的 log(p 值)",
+    "Download the JASPAR2026 database as SQL dump file.": "下载 JASPAR2026 数据库的 SQL 转储文件。",
+    ": SQL dump file": "：SQL 转储文件",
+    ": SQLite file": "：SQLite 文件",
+    "To instantiate an SQLite database from the SQL dump file, use the following command in a Unix shell session:": "要从 SQL 转储文件创建 SQLite 数据库，请在 Unix shell 会话中执行以下命令：",
+    "Download the JASPAR2026 metadata.": "下载 JASPAR2026 元数据。",
+    "CORE metadata file": "CORE 元数据文件",
+    "UNVALIDATED metadata file": "UNVALIDATED 元数据文件",
+    "DL metadata file": "深度学习元数据文件",
+    ": JASPAR2026 CORE metadata table": "：JASPAR2026 CORE 元数据表",
+    ": JASPAR2026 UNVALIDATED metadata table": "：JASPAR2026 UNVALIDATED 元数据表",
+    ": JASPAR2026 DL metadata table": "：JASPAR2026 深度学习元数据表",
+    ": This tar file contains XML files for each of the Transcription Factor Flexible Models (TFFMs)": "：该 tar 文件包含每个转录因子柔性模型（TFFM）的 XML 文件",
+    ": This file contains additional information about each TFFMs": "：该文件包含每个 TFFM 的附加信息",
+    ": The sequences used to generate the PFM": "：用于生成 PFM 的序列",
+    ": The genomic coordinates of the sequences": "：序列的基因组坐标",
+    ": Sequence logos in SVG format": "：SVG 格式的序列标识图",
+    ": The plots of centrality": "：中心性图",
+    "Search profile(s)": "检索配置文件",
+    "Display": "显示",
+    "profiles": "个配置文件",
+    "Analyze selected profiles": "分析所选配置文件",
+    "Please select matrix profiles on the left side to add to your cart or perform the following analysis.": "请在左侧选择矩阵配置文件加入购物车，或执行以下分析。",
+    "View cart": "查看购物车",
+    "Scan": "扫描",
+    "Basic sequence analysis": "基础序列分析",
+    "Load example sequence": "载入示例序列",
+    "Enter FASTA sequence here:": "在此输入 FASTA 序列：",
+    "nucleotides left)": "个核苷酸可用）",
+    "Enter fasta-formatted sequence ...": "输入 FASTA 格式序列……",
+    "Please submit a fasta sequence less than 3000 nucleotides.": "请提交长度小于 3000 个核苷酸的 FASTA 序列。",
+    "Relative profile score threshold": "相对配置文件得分阈值",
+    "Cluster": "聚类",
+    "Dynamic clustering of matrices": "矩阵动态聚类",
+    "Column comparison metric": "列比较指标",
+    "Alignment method": "比对方法",
+    "Tree-building method": "建树方法",
+    "Multiple alignment method": "多序列比对方法",
+    "Download models": "下载模型",
+    "Download type": "下载类型",
+    "Combined text file": "合并文本文件",
+    "Individual zip file": "单个 zip 文件",
+    "Matrix format": "矩阵格式",
+    "InMOTIFin Sequence Insert": "inMOTIFin 序列插入",
+    "Input a (FASTA-formatted) sequence or simulate one to insert the selected matrix models.": "输入（FASTA 格式）序列，或模拟一条序列，以插入所选矩阵模型。",
+    "Input Sequence": "输入序列",
+    "Simulate Sequence": "模拟序列",
+    "Upload your FASTA file:": "上传 FASTA 文件：",
+    "No. of background sequences to simulate": "模拟的背景序列数量",
+    "Length of background sequences to simulate": "模拟的背景序列长度",
+    "Probability of the letters in the background alphabet (ACGT). Note: probabilities should sum to 1.": "背景字母表（ACGT）中各字母的概率。注意：概率之和应为 1。",
+    "Number of motif-in-sequence to create": "要生成的序列内基序数量",
+    "Insert": "插入",
+    "You can use the Newick tree from results to visualize on": "可用结果中的 Newick 树在以下平台可视化：",
+    "Select all profiles": "全选配置文件",
+    "Click to view details": "点击查看详情",
+    "Your input sequence is not FASTA-formatted to scan with selected matrix models.": "您的输入序列不是 FASTA 格式，无法用所选矩阵模型扫描。",
+    "Input sequence is not FASTA-formatted": "输入序列不是 FASTA 格式",
+    "Total 4572 profiles": "共 4572 个配置文件",
+    "A database of transcription factor binding profiles": "转录因子结合谱数据库",
+    "Download data": "下载数据",
+    "Frequently Asked Questions": "常见问题",
+    "Tools": "工具",
+    "Browse Collection core": "浏览 CORE 合集",
+    "Browse Collection unvalidated": "浏览 UNVALIDATED 合集",
+    "Browse Collection deep-learning": "浏览深度学习合集",
+    "profile summary": "配置文件摘要",
+    "Downloads": "下载",
+    "Browsable API": "可浏览 API",
+    "API Overview": "API 概览",
+    "Live API": "在线 API",
+    "API Clients": "API 客户端",
+    "JASPAR Releases": "JASPAR 版本",
+    "Matrices": "矩阵",
+    "DL Collection": "深度学习合集",
+    "Welcome to the": "欢迎使用",
+    "Try it Now": "立即试用",
+    "Citing JASPAR RESTful API along with the specific release JASPAR database": "引用 JASPAR RESTful API 时请同时引用对应的 JASPAR 数据库版本",
+    "JASPAR tools": "JASPAR 工具",
+    "JASPAR software tools": "JASPAR 软件工具",
+    "R Bioconductor Package": "R Bioconductor 软件包",
+    "JASPAR TFBS extraction tool": "JASPAR TFBS 提取工具",
+    "Profile Inference": "配置文件推断",
+    "Matrix Align": "矩阵比对",
+    "TFBS enrichment analysis": "TFBS 富集分析",
+    "Biopython module": "Biopython 模块",
+    "Bioconductor TFBSTools package": "Bioconductor TFBSTools 软件包",
+    "Transcript Factor Flexible Models (TFFM)": "转录因子柔性模型（TFFM）",
+    "JASPAR enrichment tool": "JASPAR 富集工具",
+    "source code": "源代码",
+    "repository": "代码仓库",
+    "documentation": "文档",
+    "To read more about it, visit": "如需了解更多，请访问",
+    "To read more about its usage, visit": "如需了解用法，请访问",
+    "For more information, please refer to the": "更多信息请参阅",
+    "Or via PyPI:": "或通过 PyPI：",
+    "pyJASPAR can be easily installed using Bioconda:": "可用 Bioconda 轻松安装 pyJASPAR：",
+    "It can be used as a Pixi package or as a Docker image, and can generate both a CSV summary report and aligned SVG sequence logos.": "它可作为 Pixi 软件包或 Docker 镜像使用，并能生成 CSV 摘要报告和对齐的 SVG 序列标识图。",
+    "JASPAR Matrix Aligner": "JASPAR 矩阵比对器",
+    "List of questions": "问题列表",
+    "How do I cite JASPAR?": "如何引用 JASPAR？",
+    "What motif formats does JASPAR support?": "JASPAR 支持哪些基序格式？",
+    "How are TFBSs for a profile in JASPAR computed?": "JASPAR 中某个配置文件的 TFBS 如何计算？",
+    "How should I interpret the TFBS score?": "如何解读 TFBS 得分？",
+    "How are familial binding sites computed?": "家族性结合位点如何计算？",
+    "Where do I download TFBSs for a profile in JASPAR?": "在哪里下载 JASPAR 中某个配置文件的 TFBS？",
+    "Where do I download the sequences used to construct the JASPAR PFMs?": "在哪里下载用于构建 JASPAR PFM 的序列？",
+    "Why are specific sequences not downloadable from JASPAR CORE?": "为什么某些序列无法从 JASPAR CORE 下载？",
+    "Why is my matrix study not included in JASPAR CORE?": "为什么我的矩阵研究没有收录进 JASPAR CORE？",
+    "Who is JASPAR anyhow?": "JASPAR 究竟是什么？",
+    "If you simply want to acknowledge that you used the latest version of the database, use this citation:": "如果只想说明使用了最新版数据库，请使用以下引用：",
+    "The complete list of citations are as follows:": "完整引用列表如下：",
+    "The original JASPAR paper:": "JASPAR 原始论文：",
+    "The first extension (JASPAR FAM and PHYLOFACTS collections):": "首次扩展（JASPAR FAM 与 PHYLOFACTS 合集）：",
+    "Second expansion (POLII, SPLICE, CNE, many changes in the web service including matrix permutations):": "第二次扩展（POLII、SPLICE、CNE，Web 服务有多处改动，包括矩阵置换）：",
+    "Third expansion (Large expansion of the CORE collection, including yeast and worm matrices. Also includes new PBM collections):": "第三次扩展（CORE 合集大幅扩充，加入酵母与线虫矩阵，还新增 PBM 合集）：",
+    "Fourth expansion:": "第四次扩展：",
+    "Fifth expansion:": "第五次扩展：",
+    "Sixth expansion (new web and REST interface):": "第六次扩展（新版 Web 与 REST 接口）：",
+    "Seventh expansion (introducing unvalidated TF-binding profiles):": "第七次扩展（引入未验证的 TF 结合谱）：",
+    "Eighth expansion:": "第八次扩展：",
+    "Ninth expansion:": "第九次扩展：",
+    "Tenth expansion:": "第十次扩展：",
+    "JASPAR Documentation": "JASPAR 文档",
+    "JASPAR core principles": "JASPAR 核心原则",
+    "JASPAR PFM Collections": "JASPAR PFM 合集",
+    "JASPAR Collections": "JASPAR 合集",
+    "JASPAR Metadata": "JASPAR 元数据",
+    "JASPAR Matrix formats": "JASPAR 矩阵格式",
+    "Accessing and Downloading JASPAR Data": "访问与下载 JASPAR 数据",
+    "Browsing JASPAR motif clusters": "浏览 JASPAR 基序聚类",
+    "JASPAR Software Tools": "JASPAR 软件工具",
+    "Table of contents": "目录",
+    "JASPAR DL": "JASPAR 深度学习",
+    "Version control": "版本控制",
+    "JASPAR downloads": "JASPAR 下载",
+    "Supported Input Formats": "支持的输入格式",
+    "Search Options & Filters": "检索选项与筛选条件",
+    "Results & Outputs": "结果与输出",
+    "Entry": "条目",
+    "Note": "说明",
+    "Table 1. The metadata categories that are displayed in a profile page.": "表 1. 配置文件页面显示的元数据类别。",
+    "Metadata categories (green numbers) are explained in more detail in Table 1.": "元数据类别（绿色编号）在表 1 中有更详细的说明。",
+    "Each category of the metadata has a number assigned and is also shown in Figure 4.": "每个元数据类别都分配了编号，并在图 4 中显示。",
+    "A link to the corresponding UniProt record.": "指向对应 UniProt 记录的链接。",
+    "A reference to the data, which was used to build a profile and where the profile was taken from.": "指向构建配置文件所用数据的参考文献，以及配置文件的来源。",
+    "For some matrices, a curator comment is added.": "部分矩阵会附加审编注释。",
+    "Indicating which collection the profile belongs: CORE or UNVALIDATED.": "指示配置文件所属的合集：CORE 或 UNVALIDATED。",
+    "Group of species, currently consisting of 6 larger groups: vertebrate, plants, fungi, insects, urochordata and nematodes.": "物种分组，目前包含 6 个大类：脊椎动物、植物、真菌、昆虫、尾索动物和线虫。",
+    "Methodology used for matrix construction, e.g., ChIP-seq, PBM, SELEX.": "构建矩阵所用的方法，例如 ChIP-seq、PBM、SELEX。",
+    "Code": "代码",
+    "Bases": "碱基",
+    "Frequency Distribution [A, C, G, T]": "频率分布 [A, C, G, T]",
+    "Single base": "单碱基",
+    "1.0 for target base, 0.0 for others": "目标碱基为 1.0，其他为 0.0",
+    "Figure 1.": "图 1.",
+    "Figure 2.": "图 2.",
+    "Figure 3. Screengrab of the DPF1 profile (UN0116.1).": "图 3. DPF1 配置文件（UN0116.1）的截图。",
+    "Figure 4. GATA2 profile in JASPAR": "图 4. JASPAR 中的 GATA2 配置文件",
+    "Figure 5. Screengrab of JASPAR Download page.": "图 5. JASPAR 下载页面截图。",
+    "Figure 6. Browsing matrix clustering in JASPAR.": "图 6. 在 JASPAR 中浏览矩阵聚类。",
+    "New": "新增",
+    "Logo": "标识",
+    "(current)": "（当前）",
+    "Where:": "其中：",
+    "There are two solutions to overcome this challenge:": "有两种解决方案可应对这一挑战：",
+    "let us know!": "请告诉我们！",
+    "Community curation": "社区审编",
+    "What is JASPAR?": "什么是 JASPAR？",
+    "JASPAR collections data growth per release": "JASPAR 各版本的合集数据增长",
+    "Collection core": "CORE 合集",
+    "Collection unvalidated": "UNVALIDATED 合集",
+    "Collection deep-learning": "深度学习合集",
+    "Pearson Correlation Coefficient": "皮尔逊相关系数",
+    "ALLR with low score limit of 2": "ALLR（低分限 2）",
+    "Average Log-Likelihood Ratio": "平均对数似然比",
+    "Chi-Squared": "卡方",
+    "Kullback-Lieber": "KL 散度",
+    "Sum of Squared Distances": "平方距离和",
+    "Smith-Waterman (ungapped & extended)": "Smith-Waterman（无空位与扩展）",
+    "Unweighted Pair Group Method with Arithmetic Mean": "非加权组平均法",
+    "Self-Organizing Tree Algorithm": "自组织树算法",
+    "Progressive Profile Alignment": "渐进式配置文件比对",
+    "Iterative Refinement": "迭代优化",
+    "How is old Jaspar these days?": "老 JASPAR 近来如何？",
+    "Dead.": "死了。",
+    "How?": "怎么死的？",
+    "I killed him.": "我杀了他。",
+    "[Loud cheer].": "【欢呼】。",
+    "JASPAR Q&A Forum.": "JASPAR 问答论坛。",
+    "…and with all haste, we will meet at Old Jaspar’s tavern": "……然后我们会尽快在老 JASPAR 酒馆碰面",
+    "JASPAR Matrix Aligner Tool": "JASPAR 矩阵比对工具"
+  },
+  "rules": [
+    {
+      "re": "^Matrix > (.+)$",
+      "to": "矩阵 > $1"
+    },
+    {
+      "re": "^Total (\\d+) profiles$",
+      "to": "共 $1 个配置文件"
+    },
+    {
+      "re": "^You have (\\d+) profile\\(s\\) in cart\\.$",
+      "to": "购物车中有 $1 个配置文件。"
+    },
+    {
+      "re": "^You have (\\d+) profile\\(s\\) in your cart\\.$",
+      "to": "购物车中有 $1 个配置文件。"
+    },
+    {
+      "re": "^(\\d+) profile\\(s\\) found$",
+      "to": "找到 $1 个配置文件"
+    },
+    {
+      "re": "^(\\d{1,2}) Jan\\.? (\\d{4})$",
+      "to": "$2 年 1 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Feb\\.? (\\d{4})$",
+      "to": "$2 年 2 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Mar\\.? (\\d{4})$",
+      "to": "$2 年 3 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Apr\\.? (\\d{4})$",
+      "to": "$2 年 4 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) May\\.? (\\d{4})$",
+      "to": "$2 年 5 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Jun\\.? (\\d{4})$",
+      "to": "$2 年 6 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Jul\\.? (\\d{4})$",
+      "to": "$2 年 7 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Aug\\.? (\\d{4})$",
+      "to": "$2 年 8 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Sep\\.? (\\d{4})$",
+      "to": "$2 年 9 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Oct\\.? (\\d{4})$",
+      "to": "$2 年 10 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Nov\\.? (\\d{4})$",
+      "to": "$2 年 11 月 $1 日"
+    },
+    {
+      "re": "^(\\d{1,2}) Dec\\.? (\\d{4})$",
+      "to": "$2 年 12 月 $1 日"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "{{1}} is an open-access database of curated, non-redundant transcription factor (TF) binding profiles, stored as position frequency matrices (PFMs), as well as deep learning (DL) models, covering multiple species in six taxonomic groups.",
+      "zh": "{{1}} 是一个开放获取数据库，收录经人工审编、非冗余的转录因子（TF）结合谱，以位置频率矩阵（PFM）和深度学习（DL）模型形式存储，覆盖六个类群中的多个物种。"
+    },
+    {
+      "pat": "You are viewing data from the 11th release ({{1}}) of JASPAR.",
+      "zh": "您正在查看 JASPAR 第 11 次发布（{{1}}）的数据。"
+    },
+    {
+      "pat": "{{1}} is brought to you by a collaborative effort of several research labs and it is licensed under the {{2}}",
+      "zh": "{{1}} 由多家研究实验室协作提供，采用 {{2}} 授权。"
+    },
+    {
+      "pat": "For more information about how we process your data, please read our {{1}}.",
+      "zh": "如需了解我们如何处理您的数据，请阅读我们的{{1}}。"
+    },
+    {
+      "pat": "{{1}} profile(s) found",
+      "zh": "找到 {{1}}个配置文件"
+    },
+    {
+      "pat": "Showing {{1}} profiles of page {{2}} from {{3}} pages",
+      "zh": "显示第 {{2}} 页的 {{1}}个配置文件，共 {{3}} 页"
+    },
+    {
+      "pat": "Detailed information of matrix profile {{1}}",
+      "zh": "矩阵配置文件 {{1}} 的详细信息"
+    },
+    {
+      "pat": "Download PFM data for {{1}} in {{2}}.",
+      "zh": "下载 {{2}} 中 {{1}} 的 PFM 数据。"
+    },
+    {
+      "pat": "Download PFM data in the {{1}} collection.",
+      "zh": "下载 {{1}} 合集中的 PFM 数据。"
+    },
+    {
+      "pat": "Download clustering data for {{1}} in the {{2}} and {{3}} collections.",
+      "zh": "下载 {{2}} 与 {{3}} 合集中 {{1}} 的聚类数据。"
+    },
+    {
+      "pat": "Input a ({{1}}) sequence to scan with selected matrix models.",
+      "zh": "输入（{{1}}）序列，用所选矩阵模型进行扫描。"
+    },
+    {
+      "pat": "Download the PFMs of the model(s) selected in four different {{1}}.",
+      "zh": "下载所选模型的 PFM，提供四种不同的{{1}}。"
+    },
+    {
+      "pat": "Cluster selected models using {{1}} tool.",
+      "zh": "使用 {{1}} 工具对所选模型进行聚类。"
+    },
+    {
+      "pat": "Structural class of the transcription factor, based on the {{1}}.",
+      "zh": "转录因子的结构类别，依据 {{1}}。"
+    },
+    {
+      "pat": "Structural sub-class of the transcription factor, based on the {{1}}.",
+      "zh": "转录因子的结构亚类，依据 {{1}}。"
+    },
+    {
+      "pat": "{{1}} You have {{2}} profile(s) in your cart. You can add profiles to the cart to download or perform analysis.",
+      "zh": "{{1}} 您的购物车中有 {{2}} 个配置文件。您可以将配置文件加入购物车以下载或执行分析。"
+    },
+    {
+      "pat": "This API provides an easy-to-use REST web interface to query/retrieve matrix profile data from the latest version of the JASPAR database. The API comes with a human browsable interface and also a programmatic interface which return the results in eight different formats, including {{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}} and {{8}}.",
+      "zh": "本 API 提供易用的 REST Web 接口，用于查询/获取最新版 JASPAR 数据库中的矩阵配置文件数据。API 同时提供供人浏览的界面和编程接口，可按八种不同格式返回结果，包括 {{1}}、{{2}}、{{3}}、{{4}}、{{5}}、{{6}}、{{7}} 和 {{8}}。"
+    },
+    {
+      "pat": "A RESTful {{1}} to programmatically access the latest version of the {{2}} database.",
+      "zh": "{{1}} 用于以编程方式访问最新版本的 {{2}} 数据库。"
+    },
+    {
+      "pat": "JASPAR is supported by a growing number of open source software tools and APIs implemented in various programming languages, including Perl, Python/Biopython, R/Bioconductor, and Ruby. In addition, the TFBS enrichment tool was introduced in the 2022 release. The TFBS extraction tool has been described since 2024. In the 2026 release, we introduced a regulatory sequence simulation tool {{1}}. Each of those resources is described in more detail below.",
+      "zh": "JASPAR 得到越来越多开源软件工具和 API 的支持，涵盖 Perl、Python/Biopython、R/Bioconductor 和 Ruby 等多种编程语言。此外，TFBS 富集工具于 2022 年版本引入，TFBS 提取工具自 2024 年起提供。2026 年版本中，我们引入了调控序列模拟工具 {{1}}。以下对各资源作更详细的介绍。"
+    },
+    {
+      "pat": "Did not find what you were looking for? You can also check or ask your question in the {{1}}",
+      "zh": "没有找到需要的内容？也可以在 {{1}} 中查看或提问"
+    },
+    {
+      "pat": "JASPAR provides genomic TFBS predictions for eight organisms ({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, and {{8}}) with the JASPAR CORE PFMs associated with the corresponding taxon.",
+      "zh": "JASPAR 为八个物种提供基因组 TFBS 预测（{{1}}、{{2}}、{{3}}、{{4}}、{{5}}、{{6}}、{{7}} 与 {{8}}），使用与相应类群对应的 JASPAR CORE PFM。"
+    },
+    {
+      "pat": "DNA sequences were scanned with JASPAR CORE TF-binding profiles for each taxa independently using {{1}}. We selected TFBS predictions with a PWM relative score ≥ 0.8 and a p-value < 0.05.",
+      "zh": "使用 {{1}} 分别对每个类群的 DNA 序列进行 JASPAR CORE TF 结合谱扫描。我们选取 PWM 相对得分 ≥ 0.8 且 p 值 < 0.05 的 TFBS 预测。"
+    },
+    {
+      "pat": "Weight = log( {{1}} / {{2}} )",
+      "zh": "权重 = log( {{1}} / {{2}} )"
+    },
+    {
+      "pat": "{{1}} corresponds to the probability of observing a sequence given the frequencies at the PFMs.",
+      "zh": "{{1}} 表示在 PFM 给定频率下观察到某序列的概率。"
+    },
+    {
+      "pat": "{{1}} corresponds to the probability of observing a sequence given the frequencies described by the background model.",
+      "zh": "{{1}} 表示在背景模型所描述频率下观察到某序列的概率。"
+    },
+    {
+      "pat": "The relative score {{1}} is computed as:",
+      "zh": "相对得分 {{1}} 的计算方式为："
+    },
+    {
+      "pat": "where {{1}} is the score of the sequence given the PWM, {{2}} ({{3}}) is the minimal (maximal) score that can be obtained from the PWM.",
+      "zh": "其中 {{1}} 是序列在给定 PWM 下的得分，{{2}}（{{3}}）是 PWM 可能得到的最小（最大）得分。"
+    },
+    {
+      "pat": "Calculate a site P-value. This provides a better understanding of the risk associated with each prediction. See {{1}} and {{2}}.",
+      "zh": "计算位点 P 值，有助于更好地理解每个预测所伴随的风险。参见 {{1}} 与 {{2}}。"
+    },
+    {
+      "pat": "There are two principal explanations. The most likely is that we were not aware of your work: please {{1}} Another possible reason is that the publication did not meet the curators' expectations. As we have human curation of all JASPAR CORE matrices, this is to some degree an arbitrary call - we are happy to discuss it with you.",
+      "zh": "主要有两种解释。最可能的一种是我们不了解您的工作：{{1}}另一种可能是该论文未达到审编人员的预期。由于 JASPAR CORE 的全部矩阵都经过人工审编，这在一定程度上是主观判断，我们乐意与您讨论。"
+    },
+    {
+      "pat": "However, maybe your motif is already part of the UNVALIDATED collection, where we store motifs without supporting orthogonal literature. In case your motifs of interest are part of the UNVALIDATED collection, please fill in the fields provided at the {{1}} section at each motif page (e.g., a literature support for your motif) so our curation team can have a look and evaluate its further incorporation into the CORE collection.",
+      "zh": "不过，您的基序可能已收录于 UNVALIDATED 合集，该合集存放缺乏正交文献支持的基序。如果您的目标基序属于 UNVALIDATED 合集，请在每个基序页面的{{1}}部分填写相应字段（例如为您的基序提供文献支持），以便我们的审编团队查看并评估是否将其进一步纳入 CORE 合集。"
+    },
+    {
+      "pat": "{{1}} is a Pythonic interface to JASPAR TF motifs. It utilizes Biopython and SQLite3 to provide a serverless interface to the JASPAR database, enabling queries and access to TF motif profiles across various JASPAR releases. The pyJASPAR package will be updated when future JASPAR releases become available.",
+      "zh": "{{1}} 是 JASPAR TF 基序的 Python 接口。它利用 Biopython 与 SQLite3 提供对 JASPAR 数据库的无服务器接口，可跨多个 JASPAR 版本查询和访问 TF 基序配置文件。未来 JASPAR 发布新版本时，pyJASPAR 软件包也会随之更新。"
+    },
+    {
+      "pat": "{{1}} is a Python package for creating simulated motifs, dimers, background, and complete regulatory sequences. Using user-provided parameters and/or input files, inMOTIFin inserts motif instances into background sequences in a controlled manner.",
+      "zh": "{{1}} 是一个 Python 软件包，用于生成模拟基序、二聚体、背景序列和完整的调控序列。它依据用户提供的参数和/或输入文件，以可控方式将基序实例插入背景序列。"
+    },
+    {
+      "pat": "The {{1}} aligns an input DNA binding motif (PFM matrix, JASPAR string, or IUPAC sequence) against motifs retrieved from the JASPAR database.",
+      "zh": "{{1}}可将输入的 DNA 结合基序（PFM 矩阵、JASPAR 字符串或 IUPAC 序列）与从 JASPAR 数据库检索到的基序进行比对。"
+    },
+    {
+      "pat": "The {{1}} predicts which sets of TFBSs from the CORE collection in the JASPAR database are enriched in a set of given genomic regions. Enrichment computations are performed using the LOLA tool. The tool allows for two types of computations:",
+      "zh": "{{1}} 可预测 JASPAR 数据库中 CORE 合集的哪些 TFBS 集合在给定基因组区域集合中富集。富集计算使用 LOLA 工具完成。该工具支持两类计算："
+    },
+    {
+      "pat": "The {{1}} allows the extraction of JASPAR TFBSs intersecting with an input set of genomic regions in BED format.",
+      "zh": "{{1}}可提取与输入的 BED 格式基因组区域集合相交的 JASPAR TFBS。"
+    },
+    {
+      "pat": "The Biopython package {{1}} has a subpackage dedicated to JASPAR, which is called {{2}}. It allows the retrieval of profiles from the JASPAR database as well as reading and writing motifs in various flat file formats. To read more about this module, please visit {{3}}.",
+      "zh": "Biopython 包 {{1}} 有一个专门面向 JASPAR 的子包，名为 {{2}}。它可以从 JASPAR 数据库检索配置文件，并读写多种平面文件格式的基序。欲了解该模块的更多信息，请访问 {{3}}。"
+    },
+    {
+      "pat": "A Ruby gem providing basic functionality for parsing, searching, and comparing JASPAR motifs. To learn more about this tool please visit {{1}} and the repository at {{2}}.",
+      "zh": "一个 Ruby gem，提供解析、检索和比较 JASPAR 基序的基本功能。欲了解该工具的更多信息，请访问 {{1}}，代码仓库见 {{2}}。"
+    }
+  ]
+}

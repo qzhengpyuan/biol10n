@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "family": "cellxgene",
+    "version": "0.1.0",
+    "sites": [
+      "cellxgene.cziscience.com"
+    ],
+    "area": "单细胞数据门户：数据集/合集列表、基因表达查询入口与首页说明",
+    "note": "CZ CELLxGENE Discover：首页卡片与说明句、数据集/合集列表的表头与筛选器、基因表达查询入口骨架"
+  },
+  "exact": {
+    "Application": "应用",
+    "Collections": "收藏集",
+    "Gene Expression": "基因表达",
+    "Cell Guide": "细胞指南",
+    "Differential Expression": "差异表达",
+    "Models": "模型",
+    "Help & Documentation": "帮助与文档",
+    "Discover the mechanisms of human health": "探索人类健康的机制",
+    "Download and visually explore data to understand the functionality of human tissues at the cellular level with Chan Zuckerberg CELL by GENE Discover (CZ CELLxGENE Discover).": "借助 Chan Zuckerberg CELL by GENE Discover（CZ CELLxGENE Discover），下载并以可视化方式探索数据，在细胞层面理解人体组织的功能。",
+    "unique cells": "唯一细胞",
+    "datasets": "数据集",
+    "cell types": "细胞类型",
+    "Explorer": "探索器",
+    "Collections & Datasets": "收藏集与数据集",
+    "Annotate": "注释",
+    "Select two custom cell groups based on metadata to find their top differentially expressed genes. Leverage millions of cells from the integrated CZ CELLxGENE corpus for powerful analysis.": "基于元数据选择两个自定义细胞分组，找出差异表达最显著的基因。借助整合后的 CZ CELLxGENE 语料库中数百万个细胞，开展有力的分析。",
+    "Execute interactive analyses on a dataset to explore how patterns of gene expression are determined by spatial, environmental, and genetic factors using an interactive speed no-code UI. Understand published datasets or use them as a launchpad to identify new cell sub-types and states.": "在数据集上执行交互式分析，借助交互流畅的无代码界面，探索基因表达模式如何由空间、环境和遗传因素决定。既可理解已发表的数据集，也可将其作为起点，发现新的细胞亚型与状态。",
+    "Census provides access to any custom slice of standardized cell data available on CZ CELLxGENE Discover in R and Python.": "Census 让你在 R 与 Python 中访问 CZ CELLxGENE Discover 上任意自定义切片的标准化细胞数据。",
+    "Explore an interactive encyclopedia of 700+ cell types that provides detailed definitions, marker genes, lineage, and relevant datasets in one place.": "浏览收录 700 多种细胞类型的交互式百科，在一处获取详细定义、标记基因、谱系与相关数据集。",
+    "Browse and download hundreds of standardized data collections and 1,000+ datasets characterizing the functionality of healthy mouse and human tissues.": "浏览并下载数百个标准化数据收藏集与 1,000 多个数据集，它们刻画了健康小鼠与人体组织的功能。",
+    "Visualize the expression of genes and gene sets using a normalized view of our data corpus of over 35 million cells.": "以我们超过 3,500 万个细胞的数据语料的归一化视图，可视化基因与基因集的表达。",
+    "Expedite cell type characterization and eliminate communication overhead by empowering tissue experts to directly explore and annotate datasets.": "让组织专家直接探索与注释数据集，从而加快细胞类型鉴定、减少沟通开销。",
+    "Explore the application": "探索该应用",
+    "Explore a multi-tissue atlas": "探索多组织图谱",
+    "Explore the studies": "浏览相关研究",
+    "Browse tutorials": "浏览教程",
+    "See quick start tutorial": "查看快速入门教程",
+    "Search for a cell type or tissue": "检索细胞类型或组织",
+    "Browse datasets": "浏览数据集",
+    "Explore the tool": "探索工具",
+    "Explore CZ CELLxGENE Annotate": "探索 CZ CELLxGENE Annotate",
+    "Watch a behind-the-scenes look at CZ CELLxGENE and explore how the platform can help scientists quickly surface important information that could lead to discoveries in treating disease.": "观看 CZ CELLxGENE 的幕后花絮，了解该平台如何帮助科学家快速发掘重要信息，从而推动疾病治疗领域的发现。",
+    "Publications": "论文",
+    "CELL X GENE IN THE NEWS": "CELLxGENE 新闻报道",
+    "Read More": "阅读更多",
+    "Explore Datasets": "探索数据集",
+    "Careers": "招聘",
+    "Terms": "条款",
+    "Sitemap": "站点地图",
+    "Contact Us": "联系我们",
+    "In partnership with:": "合作伙伴：",
+    "Subscribe": "订阅",
+    "to our newsletter to receive updates about new features.": "订阅我们的新闻通讯，获取新功能更新。",
+    "Send us feedback with this": "欢迎通过这份",
+    "quick survey.": "快速问卷。",
+    "Explore": "探索",
+    "Assay": "检测方法",
+    "Cells": "细胞数",
+    "Publication": "发表文献",
+    "No publication": "无发表文献",
+    "No Publication": "无发表文献",
+    "No consortium": "无联盟",
+    "No Results": "无结果",
+    "Other Organisms": "其他物种",
+    "Create Collection": "创建收藏集",
+    "Create an account or sign-in to get started": "创建账户或登录以开始",
+    "This collection was withdrawn. You've been redirected to Collections.": "该收藏集已撤回，你已被重定向到收藏集列表。",
+    "Cell Type": "细胞类型",
+    "Cell Class": "细胞大类",
+    "Cell Subclass": "细胞亚类",
+    "Cell Count": "细胞数",
+    "Gene Count": "基因数量",
+    "Development Stage": "发育阶段",
+    "Suspension Type": "悬液类型",
+    "Self-Reported Ethnicity": "自报族裔",
+    "Publication Date": "出版日期",
+    "Consortia": "联盟",
+    "Curator": "策展人",
+    "SYSTEM": "系统",
+    "Organ": "器官",
+    "ORGAN": "器官",
+    "TISSUE": "组织",
+    "Sex": "性别",
+    "There are no values that meet the current filter criteria": "没有符合当前筛选条件的值",
+    "Self-Reported Ethnicity only applies to Homo sapiens which is not selected in the Organism filter.": "自报族裔仅适用于智人（Homo sapiens），当前物种筛选中未选择智人。",
+    "Prenatal (conception–birth)": "产前（受孕至出生）",
+    "Embryonic human (0–56 days)": "人胚胎期（0–56 天）",
+    "Fetal (>56 days–birth)": "胎儿期（56 天以上至出生）",
+    "Postnatal human": "人出生后",
+    "Pediatric (0-15 years)": "儿童（0-15 岁）",
+    "Newborn human (0-28 days)": "新生儿（0-28 天）",
+    "Infant (28 days-1 year)": "婴儿（28 天至 1 岁）",
+    "Child (1-5 years)": "幼儿（1-5 岁）",
+    "Juvenile (5-15 years)": "少年（5-15 岁）",
+    "Adult (15+ years)": "成人（15 岁以上）",
+    "Young adult (15-40 years)": "青年（15-40 岁）",
+    "Middle aged (40-60 years)": "中年（40-60 岁）",
+    "Late adult (60+ years)": "老年（60 岁以上）",
+    "Prenatal": "产前",
+    "Embryonic mouse": "小鼠胚胎期",
+    "Fetal (TS23–26)": "小鼠胎儿期（TS23–26）",
+    "Postnatal mouse": "小鼠出生后",
+    "Immature (0-6 weeks)": "未成熟（0-6 周）",
+    "Mature (6+ weeks)": "成熟（6 周以上）",
+    "Prime adult (6 weeks-18 months)": "壮年（6 周至 18 个月）",
+    "Young adult (6 weeks-10 months)": "青年（6 周至 10 个月）",
+    "Middle aged (10-18 months)": "中年（10-18 个月）",
+    "Late adult (18+ months)": "老年（18 个月以上）",
+    "Group By": "分组依据",
+    "View Options": "视图选项",
+    "Sort Cell Types": "细胞类型排序",
+    "Sort Genes": "基因排序",
+    "Cell Ontology": "细胞本体",
+    "As Entered": "按输入顺序",
+    "Hierarchical": "层级结构",
+    "Color Scale": "色阶",
+    "Scaled": "缩放",
+    "Unscaled": "不缩放",
+    "Source Data": "源数据",
+    "Expressed in Cells (%)": "表达细胞占比（%）",
+    "Expressed in Cells": "表达细胞占比",
+    "Search cell types": "检索细胞类型",
+    "Add Genes": "添加基因",
+    "Clear Genes": "清除基因",
+    "No Marker Genes": "无标记基因",
+    "No reliable marker genes for this cell type.": "该细胞类型暂无可靠的标记基因。",
+    "Cell types within Blood are closely related, so we are unable to generate high value marker genes at this time.": "血液中的细胞类型彼此亲缘很近，因此目前无法生成高价值的标记基因。",
+    "You can add multiple genes using a comma-separated list. Press enter to add.": "可用逗号分隔一次添加多个基因，按回车添加。",
+    "This will reset the dot plot and remove all selected genes and filters.": "这将重置点图，并移除所有已选基因与筛选条件。",
+    "Specificity": "特异性",
+    "No options": "无选项",
+    "Failed to load collection information": "无法加载收藏集信息",
+    "Source Data for Gene Expression": "基因表达的源数据",
+    "We regularly expand our single cell data corpus to improve results. Downloaded data and figures may differ in the future.": "我们会持续扩充单细胞数据语料以改进结果，下载的数据与图表可能随版本变化。",
+    "to our newsletter to receive updates about new features. Send us feedback with this": "订阅我们的新闻通讯，获取新功能动态。欢迎通过这份",
+    "Prenatal (conception-birth)": "产前（受孕至出生）",
+    "Embryonic human (0-56 days)": "人胚胎期（0–56 天）",
+    "Fetal (>56 days-birth)": "胎儿期（56 天以上至出生）",
+    "Fetal (TS23-26)": "小鼠胎儿期（TS23–26）"
+  },
+  "rules": [
+    {
+      "re": "^Gene Expression - CZ CELLxGENE Discover$",
+      "to": "基因表达 - CZ CELLxGENE Discover"
+    },
+    {
+      "re": "^Collections - CZ CELLxGENE Discover$",
+      "to": "收藏集 - CZ CELLxGENE Discover"
+    },
+    {
+      "re": "^Datasets - CZ CELLxGENE Discover$",
+      "to": "数据集 - CZ CELLxGENE Discover"
+    },
+    {
+      "re": "^CZ CELLxGENE Discover - Cellular Visualization Tool$",
+      "to": "CZ CELLxGENE Discover - 细胞可视化工具"
+    },
+    {
+      "re": "^([\\d,]+) of ([\\d,]+)$",
+      "to": "$1 / $2 条"
+    },
+    {
+      "re": "^([\\d,]+) consortia$",
+      "to": "$1 个联盟"
+    },
+    {
+      "re": "^Gene not found: (.+)$",
+      "to": "未找到基因：$1"
+    },
+    {
+      "re": "^(\\d[\\d,]*) 组织$",
+      "to": "$1 个组织",
+      "repair": true
+    },
+    {
+      "re": "^(\\d[\\d,]*) 疾病$",
+      "to": "$1 种疾病",
+      "repair": true
+    },
+    {
+      "re": "^(\\d[\\d,]*) 检测方法$",
+      "to": "$1 种检测方法",
+      "repair": true
+    },
+    {
+      "re": "^(\\d[\\d,]*) 论文$",
+      "to": "$1 篇发表文献",
+      "repair": true
+    },
+    {
+      "re": "^(\\d[\\d,]*) 联盟$",
+      "to": "$1 个联盟",
+      "repair": true
+    },
+    {
+      "re": "^(\\d[\\d,]*) 发表文献$",
+      "to": "$1 篇发表文献",
+      "repair": true
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Behind-the-scenes of {{1}} CELLxGENE",
+      "zh": "{{1}} CELLxGENE 的幕后"
+    }
+  ]
+}

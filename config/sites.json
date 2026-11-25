@@ -1994,6 +1994,22 @@
       "spa": true
     },
     {
+      "id": "intact",
+      "name": "IntAct",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/intact",
+      "dicts": [
+        "common",
+        "string-atlas",
+        "spa",
+        "intact"
+      ],
+      "scope": "body",
+      "spa": true
+    },
+    {
       "id": "embl-ebi",
       "name": "EMBL-EBI",
       "hosts": [
@@ -2103,6 +2119,62 @@
         "spa",
         "ensembl-extra",
         "ensemblgenomes"
+      ],
+      "scope": "body",
+      "spa": true
+    },
+    {
+      "id": "addgene",
+      "name": "Addgene",
+      "hosts": [
+        "addgene.org",
+        "www.addgene.org"
+      ],
+      "dicts": [
+        "common",
+        "addgene"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "jaspar",
+      "name": "JASPAR",
+      "hosts": [
+        "jaspar.genereg.net",
+        "jaspar.elixir.no"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "jaspar"
+      ],
+      "scope": "body",
+      "spa": true
+    },
+    {
+      "id": "cellxgene",
+      "name": "CZ CELLxGENE",
+      "hosts": [
+        "cellxgene.cziscience.com"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "cellxgene"
+      ],
+      "scope": "body",
+      "spa": true
+    },
+    {
+      "id": "scp",
+      "name": "Single Cell Portal",
+      "hosts": [
+        "singlecell.broadinstitute.org"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "scp"
       ],
       "scope": "body",
       "spa": true

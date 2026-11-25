@@ -660,7 +660,19 @@ function createBioL10nUI(opts) {
       }
     }
     var en = revIndex.get(t);
-    return en ? { en: en, zh: t } : null;
+    if (en) return { en: en, zh: t };
+    // 选中的往往只是长句/长标签里的一段（如「数据提交」之于「数据提交门户」），
+    // 精确匹配不到时退回包含匹配，优先取最短的那条词条。
+    var best = null;
+    var ks2 = Object.keys(dict || {});
+    for (var j = 0; j < ks2.length; j++) {
+      var k = ks2[j], v2 = dict[k];
+      if (!v2) continue;
+      if (v2.indexOf(t) >= 0 || k.toLowerCase().indexOf(t.toLowerCase()) >= 0) {
+        if (!best || k.length < best.en.length) best = { en: k, zh: v2 };
+      }
+    }
+    return best;
   }
 
   function visibleText() {
@@ -980,13 +992,16 @@ function createBioL10nUI(opts) {
     for (var i = 0; i < els.length && i < 4000; i++) {
       var e = els[i];
       if (e.closest && e.closest("[data-biol10n-ui]")) continue;
+      // 导航/页眉/页脚里的短链接不适合逐条加原文，会把菜单撑乱
+      if (e.closest && e.closest("nav,header,footer,.md-nav,.md-sidebar,.md-header,.toc,.navbar")) continue;
       if (dualDone.has(e)) continue;
       var orig = null;
       try { orig = engine.originalText(e); } catch (err) {}
       if (!orig) continue;
       var now = normTerm(e.textContent);
       orig = normTerm(orig);
-      if (!orig || orig === now || orig.length < 12 || !/[A-Za-z]{3}/.test(orig)) continue;
+      var minLen = (e.tagName === "LI" || e.tagName === "TD" || e.tagName === "TH") ? 40 : 12;
+      if (!orig || orig === now || orig.length < minLen || !/[A-Za-z]{3}/.test(orig)) continue;
       var line = el("div", "bl-dual", orig.length > 420 ? orig.slice(0, 420) + "…" : orig);
       line.setAttribute("data-biol10n-ui", "1");
       line.setAttribute("data-bl-dual", "1");

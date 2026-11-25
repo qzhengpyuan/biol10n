@@ -56,6 +56,8 @@ test("中英互查：英文查中文、中文查英文都能命中", () => {
     });
     assert.deepEqual(ui.lookupPair("Data Portal"), { en: "Data Portal", zh: "数据门户" });
     assert.deepEqual(ui.lookupPair("数据门户"), { en: "Data Portal", zh: "数据门户" });
+    // 选中的只是长词条里的一段时退回包含匹配
+    assert.deepEqual(ui.lookupPair("数据"), { en: "Data Portal", zh: "数据门户" });
     assert.equal(ui.lookupPair("不存在"), null);
   } finally { win.close(); }
 });

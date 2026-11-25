@@ -134,6 +134,7 @@
         rescan: site.rescan,
         blocks: site.blocks || [],
         spa: !!site.spa,
+        scopedExact: site.scopedExact || [],
         waitFor: site.waitFor || ""
       },
       onMiss: function (text, ctx) { ui.addMiss(text, ctx); }
@@ -161,11 +162,13 @@
         toggle: function () {
           if (engine.stats && engine.stats.enabled === false) engine.enable();
           else engine.disable();
+          ui.refreshState();
           return engine.stats && engine.stats.enabled !== false;
         },
-        disable: function () { engine.disable(); },
-        enable: function () { engine.enable(); },
+        disable: function () { engine.disable(); ui.refreshState(); },
+        enable: function () { engine.enable(); ui.refreshState(); },
         ui: ui,
+        originalText: function (el) { return engine.originalText(el); },
         tpl: function () { return { count: templates.length }; },
         timing: function () { return timing; }
       };
@@ -182,6 +185,7 @@
     function editorToggle(eng) {
       if (chinese) { eng.disable(); chinese = false; }
       else { eng.enable(); chinese = true; }
+      try { ui.refreshState(); } catch (e) {}
     }
   });
 })();

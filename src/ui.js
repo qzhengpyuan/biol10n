@@ -9,7 +9,8 @@ function bioL10nLS() {
 }
 
 function bioL10nReadSettings() {
-  var def = { log: false, badge: true, open: false };
+  // 0.11.0 起新增：contrast（悬停对照原文）、paused（记住暂停的站点）、pos（悬浮球位置）
+  var def = { log: false, badge: true, open: false, contrast: false, paused: [], pos: null };
   var ls = bioL10nLS();
   if (!ls) return def;
   try {
@@ -19,6 +20,9 @@ function bioL10nReadSettings() {
     if (v && typeof v === "object") {
       def.log = !!v.log;
       def.badge = v.badge !== false;
+      def.contrast = !!v.contrast;
+      if (Array.isArray(v.paused)) def.paused = v.paused.filter(function (h) { return typeof h === "string" && h; }).slice(-50);
+      if (v.pos && typeof v.pos.x === "number" && typeof v.pos.y === "number") def.pos = { x: v.pos.x, y: v.pos.y };
     }
   } catch (e) { /* 隐私模式/禁用存储时用默认值 */ }
   return def;
@@ -27,7 +31,15 @@ function bioL10nReadSettings() {
 function bioL10nSaveSettings(s) {
   var ls = bioL10nLS();
   if (!ls) return;
-  try { ls.setItem("biol10n:settings", JSON.stringify({ log: !!s.log, badge: s.badge !== false })); } catch (e) {}
+  try {
+    ls.setItem("biol10n:settings", JSON.stringify({
+      log: !!s.log,
+      badge: s.badge !== false,
+      contrast: !!s.contrast,
+      paused: (s.paused || []).slice(-50),
+      pos: s.pos || null
+    }));
+  } catch (e) {}
 }
 
 function createBioL10nUI(opts) {
@@ -124,6 +136,21 @@ function createBioL10nUI(opts) {
     ".bl-btn.bl-primary:hover{background:#1667d2}",
     ".bl-ft{color:#8c959f;font-size:10px;padding:6px 11px 8px;border-top:1px solid #eaeef2}",
     ".bl-toast{position:fixed;right:14px;bottom:54px;background:#24292f;color:#fff;border-radius:6px;padding:6px 10px;font-size:11px;z-index:2147483647;opacity:0;transition:opacity .2s}",
+    ".bl-pop{position:fixed;width:208px;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.28);z-index:2147483647;font-size:12px;line-height:1.5;padding:8px}",
+    ".bl-pop-hd{display:flex;align-items:center;gap:6px;color:#6e7781;font-size:11px;margin:0 0 6px 2px}",
+    ".bl-pop-btn{display:block;width:100%;border:1px solid #1a73e8;background:#1a73e8;color:#fff;border-radius:7px;padding:7px 8px;font-size:12.5px;font-weight:600;cursor:pointer;text-align:center}",
+    ".bl-pop-btn:hover{background:#1667d2}",
+    ".bl-pop-btn.bl-off{background:#f6f8fa;border-color:#d0d7de;color:#24292f}",
+    ".bl-pop-row{display:flex;align-items:center;gap:7px;margin-top:6px;padding:3px 2px;cursor:pointer;color:#24292f;border-radius:5px}",
+    ".bl-pop-row:hover{background:#f0f4f9}",
+    ".bl-pop-row input{margin:0;flex:0 0 auto}",
+    ".bl-pop-row span{flex:1;min-width:0}",
+    ".bl-pop-sep{border-top:1px solid #eaeef2;margin:7px 0 0}",
+    ".bl-pop-more{border:0;background:none;color:#1a73e8;font-size:11.5px;cursor:pointer;padding:6px 2px 0;display:block;width:100%;text-align:left}",
+    ".bl-pop-more:hover{text-decoration:underline}",
+    ".bl-orig{position:fixed;z-index:2147483647;max-width:480px;background:#24292f;color:#fff;border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none;white-space:pre-wrap;word-break:break-word}",
+    ".bl-orig[hidden]{display:none}",
+    "@media (prefers-color-scheme:dark){.bl-pop{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-pop-hd{color:#8b949e}.bl-pop-row:hover{background:#21262d}.bl-pop-sep{border-color:#30363d}.bl-pop-btn.bl-off{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-orig{background:#e6edf3;color:#0d1117}}",
     "@media (prefers-color-scheme:dark){.bl-panel{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-hd{background:#161b22;border-color:#30363d}.bl-x:hover{color:#e6edf3}.bl-chip{background:#12233d;border-color:#1f4b85;color:#9ecbff}.bl-list{background:#0d1117;border-color:#30363d}.bl-item{border-color:#21262d}.bl-item:hover{background:#12233d}.bl-btn{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-sec,.bl-ft{border-color:#30363d}}"
   ].join("");
 
@@ -136,13 +163,241 @@ function createBioL10nUI(opts) {
     (doc.head || doc.documentElement).appendChild(st);
   }
 
+  function placeBadge() {
+    if (!badge) return;
+    if (settings.pos) {
+      badge.style.left = Math.max(0, Math.min(win.innerWidth - 36, settings.pos.x)) + "px";
+      badge.style.top = Math.max(0, Math.min(win.innerHeight - 36, settings.pos.y)) + "px";
+      badge.style.right = "auto";
+      badge.style.bottom = "auto";
+    } else {
+      badge.style.left = "";
+      badge.style.top = "";
+      badge.style.right = "14px";
+      badge.style.bottom = "14px";
+    }
+  }
+
   function makeBadge() {
     badge = el("button", "bl-badge", "中");
     badge.type = "button";
     badge.setAttribute("data-biol10n-ui", "1");
-    badge.setAttribute("aria-label", "BioL10n 设置");
-    badge.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); togglePanel(); });
+    badge.setAttribute("aria-label", "BioL10n 快捷菜单（拖动可移动）");
+    placeBadge();
+
+    // 单击=快捷菜单；双击=立即中英切换；按住拖动=挪位置（移动超过 4px 就不算点击）
+    var drag = null;
+    badge.addEventListener("pointerdown", function (e) {
+      if (e.button !== 0) return;
+      var r = badge.getBoundingClientRect();
+      drag = { id: e.pointerId, x: e.clientX, y: e.clientY, left: r.left, top: r.top, moved: false };
+      try { badge.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    badge.addEventListener("pointermove", function (e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (!drag.moved && Math.abs(dx) + Math.abs(dy) < 4) return;
+      drag.moved = true;
+      settings.pos = { x: drag.left + dx, y: drag.top + dy };
+      placeBadge();
+      if (pop && pop) positionPop();
+    });
+    badge.addEventListener("pointerup", function (e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      var moved = drag.moved;
+      drag = null;
+      try { badge.releasePointerCapture(e.pointerId); } catch (err) {}
+      if (moved) {
+        if (settings.pos) {
+          settings.pos = {
+            x: Math.max(0, Math.min(win.innerWidth - 36, settings.pos.x)),
+            y: Math.max(0, Math.min(win.innerHeight - 36, settings.pos.y))
+          };
+          placeBadge();
+        }
+        bioL10nSaveSettings(settings);
+        return;
+      }
+      toggleQuick();
+    });
+    badge.addEventListener("dblclick", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (pop) toggleQuick(false);
+      toggleLanguage();
+    });
     (doc.body || doc.documentElement).appendChild(badge);
+  }
+
+  // ---------- 快捷菜单（悬浮球单击） ----------
+  var pop = null;
+  var popOpen = false;
+
+  function positionPop() {
+    if (!pop || !badge) return;
+    var r = badge.getBoundingClientRect();
+    var w = 208;
+    var left = Math.min(Math.max(6, r.left + r.width / 2 - w / 2), win.innerWidth - w - 6);
+    var top = r.top - (pop.offsetHeight || 170) - 8;
+    if (top < 6) top = Math.min(win.innerHeight - (pop.offsetHeight || 170) - 6, r.bottom + 8);
+    pop.style.left = Math.round(left) + "px";
+    pop.style.top = Math.round(top) + "px";
+  }
+
+  function langOn() {
+    return !(engine && engine.stats && engine.stats.enabled === false);
+  }
+
+  function toggleLanguage() {
+    if (!engine) { toast("页面还在初始化，稍后再试"); return; }
+    if (langOn()) engine.disable(); else engine.enable();
+    refreshState();
+    toast(langOn() ? "已切回中文" : "已切回原文");
+  }
+
+  function hostPaused() {
+    var h = win.location.hostname || "";
+    return (settings.paused || []).indexOf(h) >= 0;
+  }
+
+  function setPaused(on) {
+    var h = win.location.hostname || "";
+    settings.paused = (settings.paused || []).filter(function (x) { return x !== h; });
+    if (on) settings.paused.push(h);
+    bioL10nSaveSettings(settings);
+    if (!engine) return;
+    if (on && langOn()) engine.disable();
+    if (!on && !langOn()) engine.enable();
+    refreshState();
+    toast(on ? "本站已记住：默认显示原文" : "本站已恢复：默认显示中文");
+  }
+
+  function buildPop() {
+    pop = el("div", "bl-pop");
+    pop.setAttribute("data-biol10n-ui", "1");
+    pop.setAttribute("role", "menu");
+
+    var hd = el("div", "bl-pop-hd");
+    hd.appendChild(el("span", null, "BioL10n 快捷菜单"));
+    pop.appendChild(hd);
+
+    nodes.langBtn = el("button", "bl-pop-btn", "切回原文");
+    nodes.langBtn.type = "button";
+    nodes.langBtn.addEventListener("click", function (e) { e.stopPropagation(); toggleLanguage(); });
+    pop.appendChild(nodes.langBtn);
+
+    nodes.contrast = popRow("对照模式（悬停看原文）", function (box) {
+      settings.contrast = box.checked;
+      bioL10nSaveSettings(settings);
+      applyContrast();
+    });
+    pop.appendChild(nodes.contrast.row);
+
+    nodes.pauseRow = popRow("本站暂停（记住）", function (box) { setPaused(box.checked); });
+    pop.appendChild(nodes.pauseRow.row);
+
+    pop.appendChild(el("div", "bl-pop-sep"));
+    var more = el("button", "bl-pop-more", "更多设置与漏翻记录…");
+    more.type = "button";
+    more.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleQuick(false);
+      togglePanel(true);
+    });
+    pop.appendChild(more);
+
+    pop.addEventListener("pointerdown", function (e) { e.stopPropagation(); });
+    (doc.body || doc.documentElement).appendChild(pop);
+    applyContrast();
+    refreshState();
+  }
+
+  function popRow(label, onChange) {
+    var row = el("label", "bl-pop-row");
+    var box = doc.createElement("input");
+    box.type = "checkbox";
+    box.addEventListener("change", function () { onChange(box); });
+    row.appendChild(box);
+    row.appendChild(el("span", null, label));
+    return { row: row, box: box };
+  }
+
+  function toggleQuick(force) {
+    var want = force === undefined ? !popOpen : !!force;
+    if (want && !pop) buildPop();
+    if (!pop) return;
+    popOpen = want;
+    pop.style.display = want ? "" : "none";
+    if (want) {
+      refreshState();
+      positionPop();
+    }
+  }
+
+  function refreshState() {
+    var on = langOn();
+    if (badge) {
+      badge.className = "bl-badge" + (on ? "" : " bl-off");
+      badge.textContent = on ? "中" : "英";
+    }
+    if (nodes.langBtn) {
+      nodes.langBtn.textContent = on ? "切回原文" : "显示中文";
+      nodes.langBtn.className = "bl-pop-btn" + (on ? "" : " bl-off");
+    }
+    if (nodes.contrast && nodes.contrast.box) nodes.contrast.box.checked = !!settings.contrast;
+    if (nodes.pauseRow && nodes.pauseRow.box) nodes.pauseRow.box.checked = hostPaused();
+    updateTitle();
+  }
+
+  // ---------- 对照模式：悬停看英文原文 ----------
+  var origTip = null;
+  var contrastBound = false;
+
+  function showOrig(x, y, text) {
+    if (!origTip) {
+      origTip = el("div", "bl-orig");
+      origTip.setAttribute("data-biol10n-ui", "1");
+      origTip.hidden = true;
+      (doc.body || doc.documentElement).appendChild(origTip);
+    }
+    origTip.textContent = text;
+    origTip.hidden = false;
+    var w = origTip.offsetWidth, h = origTip.offsetHeight;
+    origTip.style.left = Math.max(6, Math.min(win.innerWidth - w - 6, x - w / 2)) + "px";
+    origTip.style.top = (y - h - 12 < 6 ? y + 18 : y - h - 12) + "px";
+  }
+
+  function hideOrig() {
+    if (origTip) origTip.hidden = true;
+  }
+
+  function onHover(e) {
+    if (!settings.contrast || !engine) return;
+    var el0 = e.target;
+    for (var i = 0; i < 4 && el0; i++) {
+      try {
+        if (el0.getAttribute && el0.getAttribute("data-biol10n-ui")) return;
+        var orig = engine.originalText(el0);
+        var now = (el0.textContent || "").replace(/\s+/g, " ").trim();
+        if (orig && orig !== now && /[A-Za-z]/.test(orig)) {
+          showOrig(e.clientX, e.clientY, orig.length > 600 ? orig.slice(0, 600) + "…" : orig);
+          return;
+        }
+      } catch (err) {}
+      el0 = el0.parentElement;
+    }
+    hideOrig();
+  }
+
+  function applyContrast() {
+    if (settings.contrast && !contrastBound) {
+      doc.addEventListener("mousemove", onHover, true);
+      contrastBound = true;
+    } else if (!settings.contrast && contrastBound) {
+      doc.removeEventListener("mousemove", onHover, true);
+      contrastBound = false;
+      hideOrig();
+    }
   }
 
   function statLine() {
@@ -256,7 +511,8 @@ function createBioL10nUI(opts) {
     var t = el("div", "bl-toast", msg);
     t.setAttribute("data-biol10n-ui", "1");
     (doc.body || doc.documentElement).appendChild(t);
-    win.requestAnimationFrame(function () { t.style.opacity = "1"; });
+    if (typeof win.requestAnimationFrame === "function") win.requestAnimationFrame(function () { t.style.opacity = "1"; });
+    else t.style.opacity = "1";
     win.setTimeout(function () {
       t.style.opacity = "0";
       win.setTimeout(function () { t.remove(); }, 250);
@@ -364,7 +620,10 @@ function createBioL10nUI(opts) {
   }
 
   function onKey(e) {
-    if (e.key === "Escape" && settingsOpen) { togglePanel(false); return; }
+    if (e.key === "Escape") {
+      if (settingsOpen) { togglePanel(false); return; }
+      if (popOpen) { toggleQuick(false); return; }
+    }
     if (e.altKey && e.shiftKey && (e.key === "B" || e.key === "b")) {
       settings.badge = !settings.badge;
       bioL10nSaveSettings(settings);
@@ -376,16 +635,27 @@ function createBioL10nUI(opts) {
   function mount() {
     injectCSS();
     if (settings.badge) makeBadge();
-    updateTitle();
+    refreshState();
+    applyContrast();
     doc.addEventListener("keydown", onKey, true);
-    // 统计与漏翻列表是活的：面板开着时每秒刷新一次
-    // 徽标计数与面板统计都是活数据：每秒刷一次（徽标只在文案变化时才写 DOM）
-    win.setInterval(function () { updateTitle(); if (settingsOpen) refresh(); }, 1000);
+    // 点空白处收起快捷菜单
+    doc.addEventListener("pointerdown", function (e) {
+      if (!popOpen) return;
+      var t = e.target;
+      if (t === badge || (pop && pop.contains(t)) || (badge && badge.contains(t))) return;
+      toggleQuick(false);
+    }, true);
+    win.addEventListener("resize", function () { if (popOpen) positionPop(); });
+    // 徽标/统计/面板都是活数据：每秒刷一次（只在文案变化时才写 DOM）
+    win.setInterval(function () { refreshState(); if (settingsOpen) refresh(); }, 1000);
   }
 
   function attach(eng) {
     engine = eng;
-    updateTitle();
+    // 记住过「本站暂停」的站点，刷新后直接保持原文
+    if (hostPaused() && langOn()) engine.disable();
+    applyContrast();
+    refreshState();
     if (settingsOpen) refresh();
   }
 
@@ -398,6 +668,8 @@ function createBioL10nUI(opts) {
     attach: attach,
     addMiss: addMiss,
     toggle: togglePanel,
+    toggleLanguage: toggleLanguage,
+    refreshState: refreshState,
     badge: function () { return badge; },
     panel: function () { return panel; },
     entries: function () { return entries.slice(); }

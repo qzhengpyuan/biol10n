@@ -1210,6 +1210,16 @@
         "title",
         "aria-label",
         "alt"
+      ],
+      "scopedExact": [
+        {
+          "sel": "a.md-tabs__link, label.md-nav__title, span.md-ellipsis",
+          "exact": {
+            "Data": "数据",
+            "Tool": "工具",
+            "Entity": "实体"
+          }
+        }
       ]
     },
     {

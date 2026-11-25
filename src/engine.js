@@ -77,10 +77,24 @@ function createEngine(options) {
   var originals = new WeakMap();
   var propOriginals = new WeakMap(); // 通过 el.value 写入的默认文字
   var blockOriginals = new WeakMap(); // 整块替换时摘下的原始子节点（disable 时要挂回去）
+  // 「看一眼原文」：整块/模板替换前把当时的英文文本记下来，UI 悬停时直接显示，
+  // 不必关脚本再刷新（用户明确要这个）。只记整块级，逐节点替换用 originals 推。
+  var origText = new WeakMap();
+  // 按选择器精确替换：导航标签这类「单词级」词条（Data / Tool / Entity）只该在
+  // 指定的元素里生效，写进通用 exact 会漏进正文句子（0.10.65 那条 ^(.+) Tool$ 的教训）。
+  // site.scopedExact = [{ sel: "a.md-tabs__link", exact: { "Data": "数据" } }]
+  var scopedList = [];
+  ((site && site.scopedExact) || []).forEach(function (e) {
+    if (!e || !e.sel || !e.exact) return;
+    var map = {};
+    Object.keys(e.exact).forEach(function (k) { map[normalize(k)] = e.exact[k]; });
+    scopedList.push({ sel: e.sel, map: map });
+  });
+  var scopedEls = new WeakMap(); // Element -> 该元素适用的精确表
   var svgTexts = []; // SVG <text> 的逐节点原文（元素不在文本节点还原范围内，单独记）
   var misses = new Set();
   // enabled 放在 stats 上而不是只做闭包变量：boot 的 toggle 靠它判断该开还是该关
-  var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, tpl: 0, enabled: true };
+  var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, tpl: 0, scoped: 0, enabled: true };
   var enabled = true;
   var observer = null;
   var queue = new Set();
@@ -691,7 +705,12 @@ function createEngine(options) {
     }
 
     stats.nodes++;
-    var out = translate(text);
+    // 按选择器精确替换优先：导航标签里的 Data/Tool 这类单词只在该元素里翻，
+    // 不影响正文句子（通用 exact 里放这种词会把「… with GDC Data Transfer Tool」翻成半中半英）。
+    var scopedMap = scopedFor(node.parentElement);
+    var out = scopedMap && scopedMap[text] !== undefined ? scopedMap[text] : null;
+    if (out !== null) stats.scoped = (stats.scoped || 0) + 1;
+    if (out === null) out = translate(text);
     if (out === null) { recordMiss(text); processed.add(node); return; }
 
     var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(raw);
@@ -941,7 +960,10 @@ function createEngine(options) {
       if (out === null && alt !== null) out = translate(alt);
     }
     if (out === null) return false;
-    if (!blockOriginals.has(el)) blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+    if (!blockOriginals.has(el)) {
+      blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+      origText.set(el, String(el.textContent || ""));
+    }
     try { el.setAttribute("data-biol10n-block", "1"); } catch (e) { /* ignore */ }
     while (el.firstChild) el.removeChild(el.firstChild);
     el.appendChild(doc.createTextNode(out));
@@ -999,7 +1021,10 @@ function createEngine(options) {
     }
     if (guardTag) return false;
     brDone.add(el);
-    if (!blockOriginals.has(el)) blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+    if (!blockOriginals.has(el)) {
+      blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+      origText.set(el, String(el.textContent || ""));
+    }
     try { el.setAttribute("data-biol10n-block", "1"); } catch (e) { /* ignore */ }
     while (el.firstChild) el.removeChild(el.firstChild);
     el.appendChild(doc.createTextNode(out));
@@ -1389,6 +1414,28 @@ function createEngine(options) {
     for (var k = 0; k < batch.length; k++) handleTextNode(batch[k]);
   }
 
+  /** 把 site.scopedExact 里各选择器命中的元素登记下来（Element -> 该元素适用的精确表）。 */
+  function markScoped(root) {
+    if (!scopedList.length || !root || !root.querySelectorAll) return;
+    for (var i = 0; i < scopedList.length; i++) {
+      var entry = scopedList[i], els;
+      try { els = root.querySelectorAll(entry.sel); } catch (e) { continue; }
+      for (var j = 0; j < els.length; j++) scopedEls.set(els[j], entry.map);
+    }
+  }
+
+  /** 从文本节点的父元素往上找最多 3 层，看它是否落在某个 scoped 选择器里。 */
+  function scopedFor(el) {
+    var hops = 0;
+    while (el && hops < 3) {
+      var m = scopedEls.get(el);
+      if (m) return m;
+      el = el.parentElement;
+      hops++;
+    }
+    return null;
+  }
+
   function scopeRoots() {
     var sel = site.scope;
     if (!sel) return [doc.body];
@@ -1430,6 +1477,7 @@ function createEngine(options) {
       if (hit === null || !hasCJK(hit)) continue;
       if (!blockOriginals.has(el)) {
         blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+        origText.set(el, String(el.textContent || ""));
       }
       while (el.firstChild) el.removeChild(el.firstChild);
       el.appendChild(doc.createTextNode(hit));
@@ -1537,6 +1585,7 @@ function createEngine(options) {
       // 先备份整块子节点，disable 时原样挂回
       if (!blockOriginals.has(el)) {
         blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+        origText.set(el, String(el.textContent || ""));
       }
       var frag = doc.createDocumentFragment();
       var last = 0;
@@ -1585,6 +1634,7 @@ function createEngine(options) {
         // 先把原始子节点摘下来存着，disable 时原样挂回去（保留链接与事件）
         if (!blockOriginals.has(el)) {
           blockOriginals.set(el, Array.prototype.slice.call(el.childNodes));
+          origText.set(el, String(el.textContent || ""));
         }
         while (el.firstChild) el.removeChild(el.firstChild);
         el.appendChild(doc.createTextNode(b.text));
@@ -1625,6 +1675,7 @@ function createEngine(options) {
             observer.observe(sr, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: attrs });
           } catch (e0) { /* ignore */ }
         }
+        markScoped(sr);
         translateTemplates(sr);
         walk(sr);
         translateInlineInCJK(sr);
@@ -1669,6 +1720,7 @@ function createEngine(options) {
             observer.observe(body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: attrs });
           } catch (e0) { /* ignore */ }
         }
+        markScoped(body);
         translateParagraphs(body);
         translateTemplates(body);
         walk(body);
@@ -1679,6 +1731,32 @@ function createEngine(options) {
       } catch (e1) { /* frame 里的异常不能打断主文档 */ }
       translateFrames(body);
     }
+  }
+
+  /** 返回某个元素（或它最近的已替换祖先）被翻之前的英文文本；没有则 null。
+   *  UI 的「对照」模式靠它悬停显示原文，用户不必关脚本刷新。 */
+  function originalText(el) {
+    if (!el || el.nodeType !== 1) return null;
+    var cur = el, hops = 0;
+    while (cur && hops < 6) {
+      if (origText.has(cur)) return origText.get(cur);
+      if (blockOriginals.has(cur)) return joinOrigKids(blockOriginals.get(cur));
+      cur = cur.parentElement;
+      hops++;
+    }
+    var parts = [], found = false;
+    var w = doc.createTreeWalker(el, 4, null, false), n;
+    while ((n = w.nextNode())) {
+      if (originals.has(n)) { parts.push(String(originals.get(n))); found = true; }
+      else if (processed.has(n)) parts.push(String(n.nodeValue || ""));
+    }
+    return found ? parts.join("") : null;
+  }
+
+  function joinOrigKids(kids) {
+    var s = "";
+    for (var i = 0; i < kids.length; i++) s += String((kids[i] && kids[i].textContent) || "");
+    return s;
   }
 
   function debugWhy(node) {
@@ -1705,7 +1783,7 @@ function createEngine(options) {
     applyBlocks();
     var roots = scopeRoots();
     T.push(now());
-    for (var q = 0; q < roots.length; q++) translateParagraphs(roots[q]);
+    for (var q = 0; q < roots.length; q++) { markScoped(roots[q]); translateParagraphs(roots[q]); }
     for (var tq = 0; tq < roots.length; tq++) translateTemplates(roots[tq]);
     T.push(now());
     for (var i = 0; i < roots.length; i++) walk(roots[i]);
@@ -2041,6 +2119,7 @@ function createEngine(options) {
     /** 干跑：只返回译文，不写 DOM，供覆盖率统计与词表调试使用 */
     translateText: function (s) { return translate(normalize(s)); },
     debugWhy: debugWhy,
+    originalText: originalText,
     stats: stats,
     misses: function () { return Array.from(misses); },
     restore: restore

@@ -10,7 +10,7 @@ function bioL10nLS() {
 
 function bioL10nReadSettings() {
   // 0.11.0 起新增：contrast（悬停对照原文）、paused（记住暂停的站点）、pos（悬浮球位置）
-  var def = { log: false, badge: true, open: false, contrast: false, paraOrig: true, paused: [], pos: null };
+  var def = { log: false, badge: true, open: false, contrast: false, paraOrig: true, dual: false, scrollMem: true, paused: [], pos: null };
   var ls = bioL10nLS();
   if (!ls) return def;
   try {
@@ -22,6 +22,8 @@ function bioL10nReadSettings() {
       def.badge = v.badge !== false;
       def.contrast = !!v.contrast;
       def.paraOrig = v.paraOrig !== false;
+      def.dual = !!v.dual;
+      def.scrollMem = v.scrollMem !== false;
       if (Array.isArray(v.paused)) def.paused = v.paused.filter(function (h) { return typeof h === "string" && h; }).slice(-50);
       if (v.pos && typeof v.pos.x === "number" && typeof v.pos.y === "number") def.pos = { x: v.pos.x, y: v.pos.y };
     }
@@ -38,6 +40,8 @@ function bioL10nSaveSettings(s) {
       badge: s.badge !== false,
       contrast: !!s.contrast,
       paraOrig: s.paraOrig !== false,
+      dual: !!s.dual,
+      scrollMem: s.scrollMem !== false,
       paused: (s.paused || []).slice(-50),
       pos: s.pos || null
     }));
@@ -52,6 +56,7 @@ function createBioL10nUI(opts) {
   var dicts = opts.dicts || [];
   var version = opts.version || "";
   var missNoise = (opts.site && opts.site.missNoise) || [];
+  var dict = opts.dict || {};
   var settings = bioL10nReadSettings();
   var engine = null;
   var settingsOpen = false;
@@ -148,6 +153,17 @@ function createBioL10nUI(opts) {
     ".bl-card-bd{white-space:pre-wrap;word-break:break-word;margin-bottom:8px;max-height:38vh;overflow:auto}",
     ".bl-card-x{margin-left:auto;border:0;background:none;color:#8c959f;font-size:16px;line-height:1;cursor:pointer;padding:0 2px}",
     ".bl-card-x:hover{color:#1f2328}",
+    ".bl-dual{display:block;margin-top:3px;padding-left:7px;border-left:2px solid #c9d6e2;color:#6e7781;font-size:.86em;line-height:1.5;white-space:pre-wrap;word-break:break-word}",
+    ".bl-hit{outline:2px solid #f59f00 !important;outline-offset:2px;background:#fff4d6 !important;border-radius:3px}",
+    ".bl-hit-cur{outline-color:#f76707 !important;background:#ffd8a8 !important}",
+    ".bl-find{display:flex;gap:5px;align-items:center;margin-top:8px}",
+    ".bl-find input{flex:1;min-width:0;border:1px solid #d0d7de;border-radius:6px;padding:4px 6px;font-size:11.5px;color:#24292f;background:#fff}",
+    ".bl-find button{border:1px solid #d0d7de;background:#f6f8fa;border-radius:6px;padding:4px 6px;font-size:11.5px;cursor:pointer;color:#24292f;white-space:nowrap}",
+    ".bl-find button:hover{background:#eef1f4}",
+    ".bl-find-hint{color:#8c959f;font-size:10.5px;margin:4px 0 0}",
+    ".bl-sel{position:fixed;z-index:2147483647;max-width:320px;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.22);padding:7px 9px;font-size:12px;line-height:1.5;cursor:copy}",
+    ".bl-sel b{font-weight:600}",
+    ".bl-sel .bl-sel-k{color:#8c959f;font-size:10.5px}",
     ".bl-pop-hd{display:flex;align-items:center;gap:6px;color:#6e7781;font-size:11px;margin:0 0 6px 2px}",
     ".bl-pop-btn{display:block;width:100%;border:1px solid #1a73e8;background:#1a73e8;color:#fff;border-radius:7px;padding:7px 8px;font-size:12.5px;font-weight:600;cursor:pointer;text-align:center}",
     ".bl-pop-btn:hover{background:#1667d2}",
@@ -159,7 +175,7 @@ function createBioL10nUI(opts) {
     ".bl-pop-sep{border-top:1px solid #eaeef2;margin:7px 0 0}",
     ".bl-pop-more{border:0;background:none;color:#1a73e8;font-size:11.5px;cursor:pointer;padding:6px 2px 0;display:block;width:100%;text-align:left}",
     ".bl-pop-more:hover{text-decoration:underline}",
-    "@media (prefers-color-scheme:dark){.bl-card{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-card-x:hover{color:#e6edf3}.bl-pop-sbtn{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-pop-sbtn:hover{background:#30363d}}",
+    "@media (prefers-color-scheme:dark){.bl-card{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-card-x:hover{color:#e6edf3}.bl-pop-sbtn{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-pop-sbtn:hover{background:#30363d}.bl-sel{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-find input{background:#0d1117;color:#e6edf3;border-color:#30363d}.bl-find button{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-dual{border-color:#30363d;color:#8b949e}}",
     ".bl-orig{position:fixed;z-index:2147483647;max-width:480px;background:#24292f;color:#fff;border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none;white-space:pre-wrap;word-break:break-word}",
     ".bl-orig[hidden]{display:none}",
     "@media (prefers-color-scheme:dark){.bl-pop{background:#161b22;color:#e6edf3;border-color:#30363d}.bl-pop-hd{color:#8b949e}.bl-pop-row:hover{background:#21262d}.bl-pop-sep{border-color:#30363d}.bl-pop-btn.bl-off{background:#21262d;border-color:#30363d;color:#e6edf3}.bl-orig{background:#e6edf3;color:#0d1117}}",
@@ -262,7 +278,7 @@ function createBioL10nUI(opts) {
 
   function toggleLanguage() {
     if (!engine) { toast("页面还在初始化，稍后再试"); return; }
-    if (langOn()) engine.disable(); else engine.enable();
+    if (langOn()) { engine.disable(); removeDual(); } else { engine.enable(); if (settings.dual) applyDual(); }
     refreshState();
     toast(langOn() ? "已切回中文" : "已切回原文");
   }
@@ -308,6 +324,21 @@ function createBioL10nUI(opts) {
     nodes.pauseRow = popRow("本站暂停（记住）", function (box) { setPaused(box.checked); });
     pop.appendChild(nodes.pauseRow.row);
 
+    nodes.dualRow = popRow("双语对照（中文下显示原文）", function (box) {
+      settings.dual = box.checked;
+      bioL10nSaveSettings(settings);
+      if (box.checked) { var n = applyDual(); toast(n ? "已在 " + n + " 段下方显示原文" : "本页没有可对照的段落"); }
+      else { removeDual(); toast("已关闭双语对照"); }
+    });
+    pop.appendChild(nodes.dualRow.row);
+
+    nodes.scrollRow = popRow("记住阅读位置", function (box) {
+      settings.scrollMem = box.checked;
+      bioL10nSaveSettings(settings);
+      toast(box.checked ? "下次打开同一页会回到上次位置" : "已关闭阅读位置记忆");
+    });
+    pop.appendChild(nodes.scrollRow.row);
+
     nodes.paraRow = popRow("段落看原文（按住 Alt 点击）", function (box) {
       settings.paraOrig = box.checked;
       bioL10nSaveSettings(settings);
@@ -332,6 +363,29 @@ function createBioL10nUI(opts) {
     cMiss.addEventListener("click", function (e) { e.stopPropagation(); reportMisses(); });
     mini.appendChild(cMiss);
     pop.appendChild(mini);
+
+    pop.appendChild(el("div", "bl-pop-sep"));
+
+    var findBox = el("div", "bl-find");
+    findInput = doc.createElement("input");
+    findInput.type = "search";
+    findInput.placeholder = "教程里的英文名，如 Submit";
+    findInput.setAttribute("data-biol10n-ui", "1");
+    findInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); runFind(); }
+    });
+    findBox.appendChild(findInput);
+    var goBtn = el("button", null, "定位");
+    goBtn.type = "button";
+    goBtn.addEventListener("click", function (e) { e.stopPropagation(); runFind(); });
+    findBox.appendChild(goBtn);
+    var nextBtn = el("button", null, "下一个");
+    nextBtn.type = "button";
+    nextBtn.addEventListener("click", function (e) { e.stopPropagation(); nextHit(); });
+    findBox.appendChild(nextBtn);
+    pop.appendChild(findBox);
+    findHint = el("div", "bl-find-hint", "输入原文里的英文名，页面上对应控件会高亮并滚到视野内");
+    pop.appendChild(findHint);
 
     pop.appendChild(el("div", "bl-pop-sep"));
     var more = el("button", "bl-pop-more", "更多设置与漏翻记录…");
@@ -384,6 +438,8 @@ function createBioL10nUI(opts) {
     if (nodes.contrast && nodes.contrast.box) nodes.contrast.box.checked = !!settings.contrast;
     if (nodes.pauseRow && nodes.pauseRow.box) nodes.pauseRow.box.checked = hostPaused();
     if (nodes.paraRow && nodes.paraRow.box) nodes.paraRow.box.checked = settings.paraOrig !== false;
+    if (nodes.dualRow && nodes.dualRow.box) nodes.dualRow.box.checked = !!settings.dual;
+    if (nodes.scrollRow && nodes.scrollRow.box) nodes.scrollRow.box.checked = settings.scrollMem !== false;
     updateTitle();
   }
 
@@ -586,6 +642,27 @@ function createBioL10nUI(opts) {
   // ---------- 复制正文 / 收集漏翻 / 段落看原文（0.11.2） ----------
   var PAGE_SKIP = "script,style,noscript,template,svg,textarea,[data-biol10n-ui]";
 
+  // ---------- 中英互查（选中即查 / 英文名定位 共用） ----------
+  var revIndex = null;
+
+  function normTerm(s) { return String(s || "").replace(/\s+/g, " ").trim(); }
+
+  function lookupPair(term) {
+    var t = normTerm(term);
+    if (!t) return null;
+    if (dict && Object.prototype.hasOwnProperty.call(dict, t)) return { en: t, zh: dict[t] };
+    if (!revIndex) {
+      revIndex = new Map();
+      var ks = Object.keys(dict || {});
+      for (var i = 0; i < ks.length; i++) {
+        var v = dict[ks[i]];
+        if (v && !revIndex.has(v)) revIndex.set(v, ks[i]);
+      }
+    }
+    var en = revIndex.get(t);
+    return en ? { en: en, zh: t } : null;
+  }
+
   function visibleText() {
     var body = doc.body;
     if (!body) return "";
@@ -785,6 +862,178 @@ function createBioL10nUI(opts) {
     showCard(String(orig).replace(/\s+/g, " ").trim(), e.clientX, e.clientY);
   }
 
+
+  // ---------- 选中即查：选中中文/英文，浮出中英对照（0.12.0） ----------
+  var selPop = null;
+
+  function hideSel() {
+    if (selPop) { try { selPop.remove(); } catch (e) {} selPop = null; }
+  }
+
+  function showSel(pair, x, y) {
+    hideSel();
+    selPop = el("div", "bl-sel");
+    selPop.setAttribute("data-biol10n-ui", "1");
+    var r1 = el("div", null);
+    r1.appendChild(el("span", "bl-sel-k", "英文 "));
+    r1.appendChild(el("b", null, pair.en));
+    selPop.appendChild(r1);
+    var r2 = el("div", null);
+    r2.appendChild(el("span", "bl-sel-k", "中文 "));
+    r2.appendChild(el("b", null, pair.zh));
+    selPop.appendChild(r2);
+    selPop.appendChild(el("div", "bl-sel-k", "点击复制中英对照"));
+    selPop.addEventListener("click", function () { copyPayload(pair.zh + "\t" + pair.en, "已复制中英对照"); hideSel(); });
+    (doc.body || doc.documentElement).appendChild(selPop);
+    var w = selPop.offsetWidth || 240, h = selPop.offsetHeight || 70;
+    selPop.style.left = Math.max(6, Math.min(win.innerWidth - w - 6, (x || 12))) + "px";
+    selPop.style.top = Math.max(6, Math.min(win.innerHeight - h - 6, (y || 12) + 16)) + "px";
+  }
+
+  function onSelect(e) {
+    if (e && e.target && e.target.closest && e.target.closest("[data-biol10n-ui]")) return;
+    win.setTimeout(function () {
+      var s = "";
+      try { s = String(win.getSelection ? win.getSelection().toString() : ""); } catch (err) {}
+      s = normTerm(s);
+      if (!s || s.length > 60 || s.indexOf("\n") >= 0) { hideSel(); return; }
+      var pair = lookupPair(s);
+      if (!pair) { hideSel(); return; }
+      showSel(pair, e.clientX, e.clientY);
+    }, 30);
+  }
+
+  // ---------- 按英文名找控件（教程里点名的按钮） ----------
+  var findList = [], findIdx = -1, findInput = null, findHint = null;
+
+  function clearHits() {
+    for (var i = 0; i < findList.length; i++) {
+      var h = findList[i];
+      if (h && h.classList) { h.classList.remove("bl-hit"); h.classList.remove("bl-hit-cur"); }
+    }
+    findList = [];
+    findIdx = -1;
+  }
+
+  function findEnglish(q) {
+    clearHits();
+    q = normTerm(q).toLowerCase();
+    if (!q || !engine) return 0;
+    var cands = doc.body ? doc.body.querySelectorAll("a,button,label,th,td,li,h1,h2,h3,h4,h5,h6,span,div,option,p,summary") : [];
+    var out = [];
+    for (var i = 0; i < cands.length && out.length < 400; i++) {
+      var e = cands[i];
+      if (e.closest && e.closest("[data-biol10n-ui]")) continue;
+      var orig = null;
+      try { orig = engine.originalText(e); } catch (err) {}
+      if (!orig) continue;
+      var o = normTerm(orig).toLowerCase();
+      if (!o || o.indexOf(q) < 0) continue;
+      out.push(e);
+    }
+    // 父子同时命中时只留后代，避免一个容器和它里面的按钮同时高亮
+    findList = out.filter(function (e) {
+      return !out.some(function (x) { return x !== e && e.contains && e.contains(x); });
+    }).slice(0, 80);
+    for (var j = 0; j < findList.length; j++) if (findList[j].classList) findList[j].classList.add("bl-hit");
+    findIdx = findList.length ? 0 : -1;
+    if (findIdx >= 0) scrollHit();
+    return findList.length;
+  }
+
+  function scrollHit() {
+    if (findIdx < 0 || !findList[findIdx]) return;
+    var target = findList[findIdx];
+    for (var i = 0; i < findList.length; i++) if (findList[i].classList && findList[i] !== target) findList[i].classList.remove("bl-hit-cur");
+    if (target.classList) target.classList.add("bl-hit-cur");
+    try { target.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) { try { target.scrollIntoView(); } catch (e2) {} }
+    if (findHint) findHint.textContent = "第 " + (findIdx + 1) + " / " + findList.length + " 个匹配";
+  }
+
+  function nextHit() {
+    if (!findList.length) { if (findHint) findHint.textContent = "先输入英文名再定位"; return; }
+    findIdx = (findIdx + 1) % findList.length;
+    scrollHit();
+  }
+
+  function runFind() {
+    if (!findInput) return 0;
+    var n = findEnglish(findInput.value);
+    if (findHint) findHint.textContent = n ? "找到 " + n + " 个匹配，按「下一个」逐个跳" : "没找到：试试更短的英文或控件全名";
+    return n;
+  }
+
+  // ---------- 双语对照（中文段落下方灰字原文） ----------
+  var DUAL_SEL = "p,li,dd,dt,td,th,caption,figcaption,blockquote,h1,h2,h3,h4";
+  var dualDone = new WeakSet();
+
+  function removeDual() {
+    var nodes = doc.querySelectorAll(".bl-dual");
+    for (var i = 0; i < nodes.length; i++) nodes[i].remove();
+    dualDone = new WeakSet();
+  }
+
+  function applyDual() {
+    if (!settings.dual || !engine || (engine.stats && engine.stats.enabled === false)) { removeDual(); return 0; }
+    var els = doc.body ? doc.body.querySelectorAll(DUAL_SEL) : [];
+    var added = 0;
+    for (var i = 0; i < els.length && i < 4000; i++) {
+      var e = els[i];
+      if (e.closest && e.closest("[data-biol10n-ui]")) continue;
+      if (dualDone.has(e)) continue;
+      var orig = null;
+      try { orig = engine.originalText(e); } catch (err) {}
+      if (!orig) continue;
+      var now = normTerm(e.textContent);
+      orig = normTerm(orig);
+      if (!orig || orig === now || orig.length < 12 || !/[A-Za-z]{3}/.test(orig)) continue;
+      var line = el("div", "bl-dual", orig.length > 420 ? orig.slice(0, 420) + "…" : orig);
+      line.setAttribute("data-biol10n-ui", "1");
+      line.setAttribute("data-bl-dual", "1");
+      e.appendChild(line);
+      dualDone.add(e);
+      added++;
+    }
+    return added;
+  }
+
+  // ---------- 记住阅读位置 ----------
+  var SCROLL_KEY = "biol10n:scroll";
+
+  function scrollStore() {
+    try { return JSON.parse(win.localStorage.getItem(SCROLL_KEY) || "{}") || {}; } catch (e) { return {}; }
+  }
+
+  function saveScroll() {
+    if (!settings.scrollMem) return;
+    var y = win.pageYOffset || win.scrollY || 0;
+    if (y < 200) return;
+    var o = scrollStore();
+    var k = (win.location.pathname || "/") + (win.location.search || "");
+    o[k] = { y: Math.round(y), t: Date.now() };
+    var keys = Object.keys(o);
+    if (keys.length > 80) {
+      keys.sort(function (a, b) { return (o[a].t || 0) - (o[b].t || 0); });
+      keys.slice(0, keys.length - 80).forEach(function (x) { delete o[x]; });
+    }
+    try { win.localStorage.setItem(SCROLL_KEY, JSON.stringify(o)); } catch (e1) {}
+  }
+
+  function restoreScroll(immediate) {
+    if (!settings.scrollMem) return 0;
+    var o = scrollStore();
+    var k = (win.location.pathname || "/") + (win.location.search || "");
+    var rec = o[k];
+    if (!rec || !rec.y || rec.y < 400) return 0;
+    var go = function () {
+      if ((win.pageYOffset || win.scrollY || 0) > 40) return;
+      try { win.scrollTo(0, rec.y); } catch (e) {}
+    };
+    if (immediate) { go(); return rec.y; }
+    win.setTimeout(go, 1200);
+    return rec.y;
+  }
+
   function updateTitle() {
     if (!badge) return;
     var s = statLine();
@@ -862,6 +1111,8 @@ function createBioL10nUI(opts) {
 
   function onKey(e) {
     if (e.key === "Escape") {
+      if (selPop) { hideSel(); return; }
+      if (findList.length) { clearHits(); if (findHint) findHint.textContent = ""; return; }
       if (cardEl) { hideCard(); return; }
       if (settingsOpen) { togglePanel(false); return; }
       if (popOpen) { toggleQuick(false); return; }
@@ -882,9 +1133,17 @@ function createBioL10nUI(opts) {
     doc.addEventListener("keydown", onKey, true);
     // 按住 Alt 点段落 = 就地看该段英文原文（不整页切换、不刷新）
     doc.addEventListener("click", onAltClick, true);
-    // 点空白处收起快捷菜单与原文卡片
+    // 选中即查：选中一段中文或英文，浮出中英对照
+    doc.addEventListener("mouseup", onSelect, true);
+    // 记住阅读位置：离开页面前存，进页面后恢复
+    win.addEventListener("pagehide", saveScroll);
+    win.addEventListener("beforeunload", saveScroll);
+    doc.addEventListener("visibilitychange", function () { if (doc.visibilityState === "hidden") saveScroll(); });
+    restoreScroll(false);
+    // 点空白处收起快捷菜单、原文卡片与选中查询
     doc.addEventListener("pointerdown", function (e) {
       var t = e.target;
+      if (selPop && !selPop.contains(t)) hideSel();
       if (cardEl && !cardEl.contains(t)) hideCard();
       if (!popOpen) return;
       if (t === badge || (pop && pop.contains(t)) || (badge && badge.contains(t))) return;
@@ -893,6 +1152,8 @@ function createBioL10nUI(opts) {
     win.addEventListener("resize", function () { if (popOpen) positionPop(); });
     // 徽标/统计/面板都是活数据：每秒刷一次（只在文案变化时才写 DOM）
     win.setInterval(function () { refreshState(); if (settingsOpen) refresh(); }, 1000);
+    // 双语对照要跟得上 SPA 新渲染的段落；没开启时这个定时器只做一次布尔判断
+    win.setInterval(function () { if (settings.dual) applyDual(); }, 2500);
   }
 
   function attach(eng) {
@@ -901,6 +1162,7 @@ function createBioL10nUI(opts) {
     if (hostPaused() && langOn()) engine.disable();
     applyContrast();
     refreshState();
+    if (settings.dual) applyDual();
     if (settingsOpen) refresh();
   }
 
@@ -924,6 +1186,15 @@ function createBioL10nUI(opts) {
     collectMisses: collectMisses,
     reportMisses: reportMisses,
     card: function () { return cardEl; },
+    // 0.12.0：中英互查、英文名定位、双语对照、阅读位置
+    lookupPair: lookupPair,
+    findEnglish: findEnglish,
+    nextHit: nextHit,
+    applyDual: applyDual,
+    removeDual: removeDual,
+    saveScroll: saveScroll,
+    restoreScroll: restoreScroll,
+    selPair: function () { return selPop; },
     misses: function () {
       try { return JSON.parse(win.localStorage.getItem(MISS_KEY) || "[]"); } catch (e) { return []; }
     }

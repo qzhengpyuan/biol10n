@@ -100,6 +100,7 @@
     var ui = createBioL10nUI({
       site: { id: site.id, name: site.name || site.id, missNoise: site.missNoise || [] },
       dicts: dictInfo,
+      dict: exact,
       version: VERSION
     });
 

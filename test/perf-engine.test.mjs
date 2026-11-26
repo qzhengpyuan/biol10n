@@ -1,7 +1,10 @@
 // 引擎性能基准：不是"必须跑多快"的硬指标，而是防止扫描退化到"网页卡死几秒"。
-// 2000 行 × 6 单元格的合成表格（约 3.6 万元素 / 3.4 万文本节点）上，
-// 优化前 start 约 3300 ms、重扫约 1200 ms；现在分别约 2400 / 850。
-// 上限按 2 倍余量给（慢机器/CI 抖动不会误报），超过说明有 O(n²) 之类的回退。
+// 2000 行 × 6 单元格的合成表格（约 3.6 万元素 / 3.4 万文本节点）上：
+//   优化前 start 约 3300 ms、重扫约 1200 ms；
+//   现在约 930 / 350 ms（-72% / -71%）。
+// 重复内容页（2000 行 × 10 单元格，同一批词反复出现）：
+//   优化前 first 约 2300 ms、重扫约 540 ms；现在约 550 / 175 ms。
+// 上限按 3–4 倍余量给（慢机器/CI 抖动不会误报），超过说明出现了 O(n²) 之类的回退。
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -27,6 +30,17 @@ const data = () => {
   return { exact, rules, templates };
 };
 
+function makeEngine(html) {
+  const dom = new JSDOM(html, { url: "https://docs.gdc.cancer.gov/Data/" });
+  const engine = createEngine({
+    document: dom.window.document,
+    window: dom.window,
+    data: data(),
+    site: { scope: "body", block: "pre, code", rescan: false, attrs: ["title", "alt", "placeholder", "aria-label"] }
+  });
+  return { dom, engine };
+}
+
 function pageHtml(rows) {
   let html = "<table><thead><tr><th>File Name</th><th>Data Category</th><th>Data Type</th><th>Project ID</th><th>File Size</th><th>Access</th></tr></thead><tbody>";
   for (let i = 0; i < rows; i++) {
@@ -38,16 +52,17 @@ function pageHtml(rows) {
   return html + "</tbody></table>";
 }
 
-test("引擎性能：3.6 万节点的表格首扫与重扫不退化", () => {
-  const rows = 2000;
-  const dom = new JSDOM(pageHtml(rows), { url: "https://docs.gdc.cancer.gov/Data/" });
-  const engine = createEngine({
-    document: dom.window.document,
-    window: dom.window,
-    data: data(),
-    site: { scope: "body", block: "pre, code", rescan: false, attrs: ["title", "alt", "placeholder", "aria-label"] }
-  });
+function repHtml(rows) {
+  const keys = ["Data Category", "File Name", "Project ID", "Open", "Search", "Download", "Sample Type", "Submit", "Analyze", "Documentation"];
+  let html = "<table><tbody>";
+  for (let i = 0; i < rows; i++) {
+    html += "<tr>" + keys.map((k) => "<td><span>" + k + "</span></td>").join("") + "</tr>";
+  }
+  return html + "</tbody></table>";
+}
 
+test("引擎性能：3.6 万节点的表格首扫与重扫不退化", () => {
+  const { dom, engine } = makeEngine(pageHtml(2000));
   const t0 = Date.now();
   engine.start();
   const first = Date.now() - t0;
@@ -59,8 +74,26 @@ test("引擎性能：3.6 万节点的表格首扫与重扫不退化", () => {
   engine.scan();
   const second = Date.now() - t1;
 
-  // 只报数字，方便对照历史；上限留 2 倍余量
+  // 只报数字，方便对照历史；上限留 3–4 倍余量
   console.log("perf: elements=" + elCount + " first=" + first + "ms rescan=" + second + "ms");
-  assert.ok(first < 7000, "首扫耗时退化：" + first + "ms");
-  assert.ok(second < 2500, "重扫耗时退化：" + second + "ms");
+  assert.ok(first < 4000, "首扫耗时退化：" + first + "ms");
+  assert.ok(second < 1500, "重扫耗时退化：" + second + "ms");
+});
+
+test("引擎性能：重复内容的大页面（同一批词 2 万次）不退化", () => {
+  const { dom, engine } = makeEngine(repHtml(2000));
+  const t0 = Date.now();
+  engine.start();
+  const first = Date.now() - t0;
+  const elCount = dom.window.document.querySelectorAll("*").length;
+  assert.ok(elCount > 40000, "合成页元素数不足：" + elCount);
+  assert.ok(engine.stats.hitExact > 5000, "重复内容命中数异常：" + engine.stats.hitExact);
+
+  const t1 = Date.now();
+  engine.scan();
+  const second = Date.now() - t1;
+
+  console.log("perf-rep: elements=" + elCount + " first=" + first + "ms rescan=" + second + "ms");
+  assert.ok(first < 3000, "首扫耗时退化：" + first + "ms");
+  assert.ok(second < 1200, "重扫耗时退化：" + second + "ms");
 });

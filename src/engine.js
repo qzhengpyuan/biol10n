@@ -4,6 +4,9 @@
  * 只做两件事：替换文本节点的 nodeValue、替换白名单属性。
  */
 function createEngine(options) {
+  // normalize 的开销全在 5 个正则上：不需要归一化的串（纯 ASCII、首尾无空白、无连续空白）
+  // 直接原样返回。这行必须在建词库（会先调 normalize）之前执行。
+  var NEEDS_NORM = /[\u00a0\u2000-\u200b\u3000\u2018\u2019\u02bc\u201c\u201d]|[\t\n\r]|\s{2,}|^\s|\s$/;
   var doc = options.document;
   var win = options.window;
   var data = options.data || {};
@@ -81,6 +84,7 @@ function createEngine(options) {
   var blockCache = new WeakMap();
   var skipElCache = new WeakMap();
   var proseFastCache = new WeakMap();
+  var ATTR_NAMES = attrs.slice();
   var ATTR_SET = {};
   var ATTR_SELECTOR = "";
   for (var an = 0; an < attrs.length; an++) { ATTR_SET[attrs[an]] = 1; ATTR_SELECTOR += (an ? "," : "") + "[" + attrs[an] + "]"; }
@@ -89,6 +93,11 @@ function createEngine(options) {
     skipCacheNo = new WeakMap();
     blockCache = new WeakMap();
     skipElCache = new WeakMap();
+    skipUpCache = new WeakMap();
+    skipUpNo = new WeakMap();
+    blockUpCache = new WeakMap();
+    proseHitCache = new WeakMap();
+    blockAncCache = new WeakMap();
     proseFastCache = new WeakMap();
     proseBlockCache = new WeakMap();
     proseFlagsCache = new WeakMap();
@@ -98,12 +107,14 @@ function createEngine(options) {
   }
   // 元素自己有没有「会翻的属性」：绝大多数元素只有 class/href，走一次属性表遍历就够，
   // 不必对 6 个属性逐个 getAttribute（大页面上是十几万次 DOM 调用）。
+  // 逐属性 hasAttribute 比遍历 attributes 集合快 3 倍（36k 元素：14ms vs 40ms），
+  // 也比一次属性选择器查询快 4 倍（58ms）。无属性的元素先用 hasAttributes 一次挡掉。
   function hasTargetAttr(el) {
     if (el.tagName === "OPTGROUP") return true;
-    var as = el.attributes;
-    if (!as || !as.length) return false;
-    for (var i = 0; i < as.length; i++) {
-      if (ATTR_SET[as[i].name] === 1) return true;
+    if (!el.hasAttributes || !el.hasAttributes()) return false;
+    var list = ATTR_NAMES;
+    for (var i = 0; i < list.length; i++) {
+      if (el.hasAttribute(list[i])) return true;
     }
     return false;
   }
@@ -135,7 +146,10 @@ function createEngine(options) {
   var queue = new Set();
   var timer = null;
 
+  // 绝大多数要翻的串是纯 ASCII、无首尾空格、无连续空白：这种串过一遍 5 个 replace 结果是
+  // 原样返回，但一次正则扫描都不做更省。大表格上 normalize 以前是 45–75 ms 纯开销。
   function normalize(s) {
+    if (!NEEDS_NORM.test(s)) return s;
     return s
       .replace(/[\u00a0\u2000-\u200b\u3000]/g, " ")
       // 弯/直撇号、弯/直引号归一：站点 DOM 里是直撇号（you've），词库里有 103 条写成弯撇号（you’ve），
@@ -147,6 +161,9 @@ function createEngine(options) {
   }
 
   function hasCJK(s) { return CJK.test(s); }
+  var CN_PREV = /[\u3400-\u9fff，。、；：！？）]/;
+  var CN_NEXT = /[\u3400-\u9fff（]/;
+  var WS_CODE = /\s/;
 
   /** 去掉句尾标点后再试一次（"Search:" 也要能命中 "Search"） */
   function variants(s) {
@@ -428,39 +445,79 @@ function createEngine(options) {
     return v;
   }
 
+  /** 单个元素自己是否就是"整块跳过"的起点（与具体文本节点无关的那几类判据）。 */
+  /** HTML 文档里 tagName 已是大写，只有 SVG/XML 才是小写：省掉一次字符串分配。 */
+  function tagUpper(el) {
+    var t = el.tagName;
+    if (!t) return "";
+    return t.charCodeAt(0) > 96 ? t.toUpperCase() : t;
+  }
+
+  function hardSkipEl(el) {
+    var tagU = tagUpper(el);
+    if (SKIP_TAGS[tagU] === 1) {
+      // <title> 在 HTML 里是页面标题（必须挡），但 SVG 里的 <title> 是图表 tooltip
+      // （cBio 饼图「Mixed Histology (NOS):30」），要按 SVG 文本照翻。
+      if (tagU === "TITLE" && String(el.namespaceURI || "").indexOf("svg") >= 0) return false;
+      return true;
+    }
+    // 无属性的元素占绝大多数：先一次 hasAttributes 挡掉后面的 3 次 hasAttribute + dataset
+    if (!el.hasAttributes || !el.hasAttributes()) return false;
+    if (el.isContentEditable) return true;
+    if (el.hasAttribute("data-biol10n-ui") || el.hasAttribute("data-biol10n-block") || el.hasAttribute("data-biol10n-skip")) return true;
+    if (el.getAttribute("data-l10n-scope") === "off") return true;
+    return false;
+  }
+
+  /** 祖先结论的元素级缓存：h=从该元素（含）向上出现过"硬跳过"，t=最近的 translate="no" 屏障。
+   *  大表格上同一行 6 个单元格共享 tr/tbody/table，每个新元素只需付自身 6 项检查。 */
+  var skipUpCache = new WeakMap();
+  /** 与 skipUpCache 配套：只有 bit2 置位时才在这张表里存最近的 translate="no" 元素。 */
+  var skipUpNo = new WeakMap();
+
   function skipNodeInner(node, skipTranslateNo) {
     var p = node.parentElement;
+    var chain = [];
+    var h = false, tno = null;
     var guard = 0;
     while (p && guard++ < 40) {
       // 图表里的文字（<text>/<tspan>）照翻：HPA 的饼图图例、坐标轴标签都在 SVG 里。
-      // 其余 SVG 内部节点（图形、路径）没有可读文本，照样跳过。
+      // 其余 SVG 内部节点（图形、路径）没有可读文本，照样跳过。SVG 子树结论与具体
+      // 文本节点相关，不进上面的元素级缓存，逐层判定即可（SVG 节点数少）。
       if (p.tagName === "SVG" || p.tagName === "svg") {
         // 不能只看 node.parentElement.tagName：HPA 本体图是 <text><a>Brain</a></text>，
         // 文本节点的父级是 <a>，整批图例标签会被误判成图形节点跳过。
         var pe = node.parentElement;
         var t = pe && pe.closest ? pe.closest("text,tspan,title,desc") : null;
-        return !t;
+        return !(t && (p === t || p.contains(t)));
       }
-      // SVG 里的 <style> 是 SVG 命名空间元素，tagName 是小写 "style"，
-      // 用大写比较才能挡住 <style>.cls-1{fill:#737373}</style> 这种被当正文的 CSS。
-      var tagU = String(p.tagName || "").toUpperCase();
-      // <title> 在 HTML 里是页面标题（必须挡），但 SVG 里的 <title> 是图表 tooltip
-      // （cBio 饼图「Mixed Histology (NOS):30」），要按 SVG 文本照翻。
-      var isSvgTitle = tagU === "TITLE" && String(p.namespaceURI || "").indexOf("svg") >= 0;
-      if (!isSvgTitle && SKIP_TAGS[tagU] === 1) return true;
-      if (p.isContentEditable) return true;
-      if (p.dataset && p.dataset.l10nScope === "off") return true;
-      // 设置面板自己的文字（BioL10n 等英文标签）永远不参与翻译
-      if (p.hasAttribute && p.hasAttribute("data-biol10n-ui")) return true;
-      if (p.hasAttribute && p.hasAttribute("data-biol10n-block")) return true;
-      // 页面/用户自己标注的数据区：<div data-biol10n-skip> 里的内容一律不翻。
-      // 给「数据集名、专有名词、动态渲染的列表」留一个不依赖站点配置的出口。
-      if (p.hasAttribute && p.hasAttribute("data-biol10n-skip")) return true;
-      // 站点自己声明"这段别翻"（UniProt 的示例检索词按钮就是 <span translate="no">Human</span>）
-      if (!skipTranslateNo && p.getAttribute && p.getAttribute("translate") === "no") {
-        if (!allowInsideNo(node, p)) return true;
+      var c = skipUpCache.get(p);
+      if (c !== undefined) {
+        h = (c & 1) === 1;
+        tno = (c & 2) === 2 ? (skipUpNo.get(p) || null) : null;
+        break;
       }
+      chain.push(p);
       p = p.parentElement;
+    }
+    // 从最外层往内收，把结论填给这一串新元素
+    for (var i = chain.length - 1; i >= 0; i--) {
+      var el = chain[i];
+      if (!h && hardSkipEl(el)) h = true;
+      if (!tno && el.hasAttributes && el.hasAttributes() && el.getAttribute("translate") === "no") tno = el;
+      skipUpCache.set(el, (h ? 1 : 0) | (tno ? 2 : 0));
+      if (tno) skipUpNo.set(el, tno);
+    }
+    if (h) return true;
+    // 站点自己声明"这段别翻"（UniProt 的示例检索词按钮就是 <span translate="no">Human</span>）
+    if (!skipTranslateNo && tno && !allowInsideNo(node, tno)) return true;
+    // 内层 translate="no" 被放行时，外层可能还有一层（少见）：继续往上确认
+    if (!skipTranslateNo && tno) {
+      var up = tno.parentElement, g = 0;
+      while (up && g++ < 40) {
+        if (up.getAttribute && up.getAttribute("translate") === "no" && !allowInsideNo(node, up)) return true;
+        up = up.parentElement;
+      }
     }
     return false;
   }
@@ -479,13 +536,41 @@ function createEngine(options) {
     return false;
   }
 
+  /** BLOCK 选择器拆成「裸标签集合 + 剩余复杂选择器」：closest 一次要逐选择器 × 逐层匹配，
+   *  大表格上（GDC 2 万单元格）是纯浪费。裸标签走 Set，剩下的才交给 matches。 */
+  var BLOCK_TAG_SET = {}, BLOCK_COMPLEX = "";
+  (function () {
+    var parts = String(BLOCK).split(",");
+    var rest = [];
+    for (var i = 0; i < parts.length; i++) {
+      var s = parts[i].trim();
+      if (!s) continue;
+      if (/^[a-zA-Z][a-zA-Z0-9-]*$/.test(s)) BLOCK_TAG_SET[s.toUpperCase()] = 1;
+      else rest.push(s);
+    }
+    BLOCK_COMPLEX = rest.join(", ");
+  })();
+  /** 元素级「本元素到根之间有没有块级禁区」缓存（单调：命中即整棵子树都算）。 */
+  var blockUpCache = new WeakMap();
   function inBlock(el) {
-    if (!el || !el.closest) return false;
+    if (!el) return false;
     var v = blockCache.get(el);
     if (v !== undefined) return v;
-    try { v = !!el.closest(BLOCK); } catch (e) { v = false; }
-    blockCache.set(el, v);
-    return v;
+    var chain = [], cur = el, hit = false, guard = 0;
+    while (cur && guard++ < 60) {
+      var t = tagUpper(cur);
+      if (BLOCK_TAG_SET[t] === 1) { hit = true; break; }
+      if (BLOCK_COMPLEX && cur.matches) {
+        try { if (cur.matches(BLOCK_COMPLEX)) { hit = true; break; } } catch (e) {}
+      }
+      var c = blockUpCache.get(cur);
+      if (c !== undefined) { hit = c; break; }
+      chain.push(cur);
+      cur = cur.parentElement;
+    }
+    for (var i = 0; i < chain.length; i++) blockUpCache.set(chain[i], hit);
+    blockCache.set(el, hit);
+    return hit;
   }
 
   /** 长正文保护：段落里的零散单词不翻，避免中英混排（正文整段留英文比半翻更好读）。
@@ -569,6 +654,46 @@ function createEngine(options) {
     return f;
   }
 
+  var CTRL_TAGS = { BUTTON: 1, SUMMARY: 1, LABEL: 1, SELECT: 1, OPTION: 1, TH: 1 };
+  var BLOCK_ANC_TAGS = { P: 1, BLOCKQUOTE: 1, DD: 1, DT: 1, LI: 1, TD: 1, FIGCAPTION: 1, DIV: 1, SECTION: 1, ARTICLE: 1 };
+  /** 元素级「本元素及以上有没有控件祖先 / 站点放行块」：1 位。 */
+  var proseHitCache = new WeakMap();
+  function proseHitAbove(el) {
+    var chain = [], cur = el, hit = 0, guard = 0;
+    while (cur && guard++ < 60) {
+      var v = proseHitCache.get(cur);
+      if (v !== undefined) { hit = v; break; }
+      var t = tagUpper(cur);
+      if (CTRL_TAGS[t] === 1) { hit = 1; break; }
+      if (cur.hasAttributes && cur.hasAttributes()) {
+        var role = cur.getAttribute("role");
+        if (role === "button") { hit = 1; break; }
+        if (site.proseExempt && cur.matches) {
+          try { if (cur.matches(site.proseExempt)) { hit = 1; break; } } catch (e) {}
+        }
+      }
+      chain.push(cur);
+      cur = cur.parentElement;
+    }
+    for (var i = 0; i < chain.length; i++) proseHitCache.set(chain[i], hit);
+    return hit === 1;
+  }
+
+  /** 最近的块级容器（段落保护的作用域）：同样元素级缓存，命中祖先即整链复用。 */
+  var blockAncCache = new WeakMap();
+  function blockAnc(el) {
+    var chain = [], cur = el, hit = null, guard = 0;
+    while (cur && guard++ < 60) {
+      if (BLOCK_ANC_TAGS[tagUpper(cur)] === 1) { hit = cur; break; }
+      var c = blockAncCache.get(cur);
+      if (c !== undefined) { hit = c; break; }
+      chain.push(cur);
+      cur = cur.parentElement;
+    }
+    for (var i = 0; i < chain.length; i++) blockAncCache.set(chain[i], hit);
+    return hit;
+  }
+
   function inLongProse(node) {
     if (site.proseGuard === false) return false;
     var el = node && node.nodeType === 3 ? node.parentElement : node;
@@ -579,17 +704,12 @@ function createEngine(options) {
     if (fast === true) return false;
     var p = null;
     if (fast === undefined) {
-      var hit = false;
-      try {
-        if (el.closest("button, summary, label, select, option, th, [role='button']")) hit = true;
-        // 站点指定的固定提示语（免责声明、cookie 条、公告）：整块放行，但如果这块本身是成句的正文，
-        // 放行会把"英文句子里的名词"逐词翻成中英混排，所以按句读特征再挡一次。
-        else if (site.proseExempt && el.closest(site.proseExempt)) hit = true;
-      } catch (e) { /* ignore */ }
-      if (hit) { proseFastCache.set(el, true); return false; }
+      // 控件祖先 / 站点放行块：两条选择器 closest 以前每个元素各跑一次（大表格上占正文保护
+      // 开销的大头）。改成「元素级单调缓存 + 裸标签集合」，同一行 6 个单元格只算一次。
+      if (proseHitAbove(el)) { proseFastCache.set(el, true); return false; }
       // 段落类容器之外，KEGG 这类老站点把正文直接放在 <div> 里（"<b>KEGG PATHWAY</b> is a collection of…"），
       // 所以要找到最近的"块级容器"再判是不是成句正文。
-      p = el.closest("p, blockquote, dd, dt, li, td, figcaption, div, section, article");
+      p = blockAnc(el);
       if (!p) { proseFastCache.set(el, true); return false; }
       var blk = String(p.textContent || "");
       proseLenCache.set(p, blk);
@@ -784,9 +904,11 @@ function createEngine(options) {
     // 只挡「含数字、没有字母也没有汉字」的节点（坐标、ID、百分数、日期片段）；
     // 纯标点是 localizePunct 的活儿，不能一起挡掉。
     if (!/[A-Za-z\u3400-\u9fff]/.test(quick) && /\d/.test(quick)) return;
+    // parentElement 在 jsdom 里是一次接口包装访问，后面五六处都要用，只取一次
+    var pe = node.parentElement;
     if (handleSvgText(node)) return;
-    if (handleSplitText(node)) return;
-    if (handleBrJoin(node)) return;
+    if (handleSplitText(node, pe)) return;
+    if (handleBrJoin(node, pe)) return;
     var raw = node.nodeValue;
     if (!raw) return;
     var text = normalize(raw);
@@ -809,7 +931,7 @@ function createEngine(options) {
     // 下载格式名（FASTA/TSV/List…）是约定俗成的标识，不翻；其余 <option> 照翻文字、
     // 但绝不碰 value 属性——筛选器的 value 和显示文字常常一模一样，按 value 一刀切会把
     // 「Mutagenesis」这类该翻的筛选项整类留下（UniProt 就这样）。
-    var opt = node.parentElement;
+    var opt = pe;
     if (opt && opt.tagName === "OPTION" && FORMAT_OPTION.test(text)) { processed.add(node); return; }
     // 公式碎片：Log<sub>2</sub>、10<sup>-6</sup> 这类，前一半单独翻会变成「对数2」
     var nsEl = node.nextSibling;
@@ -817,7 +939,7 @@ function createEngine(options) {
     // 只挡真正的数字上标（Log<sub>2</sub>、10<sup>-6</sup>）；字母上标是 HPA 的帮助图标
     // <sup class="help_i">i</sup>，挡掉会把整类标签（Tissue specificity 等）留在英文。
     if (nsEl && nsEl.nodeType === 1 && /^(SUB|SUP)$/.test(nsEl.tagName) && /^[+\-]?[\d.]+$/.test(String(nsEl.textContent || "").trim())) { processed.add(node); return; }
-    if (skipNode(node) || inBlock(node.parentElement) || inSkip(node.parentElement)) { processed.add(node); return; }
+    if (skipNode(node) || inBlock(pe) || inSkip(pe)) { processed.add(node); return; }
     // 正文保护挡下的节点不记入 processed：块内容会随其它节点被翻译而变中文
     // （RCSB 构建器先被翻成「选择一个 attribute 进行检索…」），下一轮补扫要能重新判一次。
     // 但词库里明确收录的整段（帮助页、FAQ、首页简介）是人工核对过的译文，
@@ -831,15 +953,18 @@ function createEngine(options) {
     stats.nodes++;
     // 按选择器精确替换优先：导航标签里的 Data/Tool 这类单词只在该元素里翻，
     // 不影响正文句子（通用 exact 里放这种词会把「… with GDC Data Transfer Tool」翻成半中半英）。
-    var scopedMap = scopedFor(node.parentElement);
+    var scopedMap = scopedFor(pe);
     var out = scopedMap && scopedMap[text] !== undefined ? scopedMap[text] : null;
     if (out !== null) stats.scoped = (stats.scoped || 0) + 1;
     if (out === null) out = translate(text);
     if (out === null) { recordMiss(text); processed.add(node); return; }
 
-    var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(raw);
-    var lead = m ? m[1] : "";
-    var trail = m ? m[3] : "";
+    // 首尾空白用下标扫描（原来是一条惰性量词正则，每个命中节点都跑一遍）
+    var l0 = 0, l1 = raw.length;
+    while (l0 < l1 && WS_CODE.test(raw.charAt(l0))) l0++;
+    while (l1 > l0 && WS_CODE.test(raw.charAt(l1 - 1))) l1--;
+    var lead = l0 ? raw.slice(0, l0) : "";
+    var trail = l1 < raw.length ? raw.slice(l1) : "";
     // 中英混排里最常见的瑕疵：源 DOM 把空格放在独立的纯空白文本节点里
     //（" as a" + " " + <a>），译文是中文时这些空格留着就会变成「作为 蛋白名称」。
     // 译文以中文开头就吃掉前面的空格节点、以中文结尾就吃掉后面的。
@@ -848,12 +973,9 @@ function createEngine(options) {
     if (/[\u3400-\u9fff]$/.test(out)) blankSibling(node, "nextSibling");
     // 节点自带的空格要看"另一侧是谁"：
     // 中文接中文 → 丢掉空格（「， 基因本体」）；中文接数字/英文 → 保留（「59,140 结果」）。
-    var prevCh = neighborChar(node, -1);
-    var nextCh = neighborChar(node, 1);
-    var cnPrev = /[\u3400-\u9fff，。、；：！？）]/.test(prevCh);
-    var cnNext = /[\u3400-\u9fff（]/.test(nextCh);
-    if (/^\s+$/.test(lead) && /^[\u3400-\u9fff（「【]/.test(out) && cnPrev) lead = "";
-    if (/^\s+$/.test(trail) && /[\u3400-\u9fff，。、；：！？]$/.test(out) && cnNext) trail = "";
+    // neighborChar 要读兄弟节点链，只有「本节点带着空白、且译文贴边是汉字」时才需要问
+    if (lead && /^[\u3400-\u9fff（「【]/.test(out) && CN_PREV.test(neighborChar(node, -1))) lead = "";
+    if (trail && /[\u3400-\u9fff，。、；：！？]$/.test(out) && CN_NEXT.test(neighborChar(node, 1))) trail = "";
     // 译文自带句末标点、原句尾还挂着一个 "。" 的独立节点 → 吞掉，避免「肿瘤缩写。。」
     if (/[。！？，、；：]$/.test(out)) {
       var nxtNode = node.nextSibling;
@@ -928,6 +1050,10 @@ function createEngine(options) {
   function handleSvgText(node) {
     var pe = node.parentElement;
     if (!pe || !pe.closest) return false;
+    // 便宜的命名空间闸：HTML 元素的命名空间是 xhtml，没有 SVG 命名空间祖先，
+    // 不必为每个文本节点跑一次 closest("text")（大表格上 3–5 万次）。
+    var ns = pe.namespaceURI;
+    if (!ns || ns.indexOf("svg") < 0) return false;
     var t = null;
     try { t = pe.closest("text"); } catch (e) { return false; }
     if (!t) return false;
@@ -1046,9 +1172,11 @@ function createEngine(options) {
   }
   /** 同一元素里的文本被站点拆成多个文本节点（cBioPortal 的 <h4>Horizontal\nAxis</h4>），
    *  整串比对才命得中词表。只在元素没有子元素时动手，替换后按整块记录，disable 能还原。 */
-  function handleSplitText(node) {
-    var el = node.parentElement;
-    if (!el || el.childNodes.length < 2) return false;
+  function handleSplitText(node, el) {
+    if (!el) el = node.parentElement;
+    // 用 firstChild.nextSibling 判"至少两个子节点"：childNodes.length 每次都新建 NodeList 包装，
+    // 大表格上 3 万多个文本节点光这一句就是几十毫秒。
+    if (!el || !el.firstChild || !el.firstChild.nextSibling) return false;
     if (skipNode(node) || inBlock(el) || inSkip(el)) return false;
     // 子元素全是内联标签时也拼（UALCAN 的校名被 <font> 切成 6 段、PubMed 的
     // <span>09</span>:<span>15</span>）；<a> 与表单控件不在此列——把链接/input 拍平成文本
@@ -1112,8 +1240,8 @@ function createEngine(options) {
     return true;
   }
 
-  function handleBrJoin(node) {
-    var el = node.parentElement;
+  function handleBrJoin(node, el) {
+    if (!el) el = node.parentElement;
     if (!el) return false;
     // 只看直接子节点里的 <br>：以前用 el.querySelector("br")，节点在带 <br> 的大容器里时
     // 每次都要扫整棵子树，PubMed 帮助页这种长文档上是 O(n²)。
@@ -1289,6 +1417,9 @@ function createEngine(options) {
     while ((n = w.nextNode())) {
       var v = String(n.nodeValue || "");
       if (!v) continue;
+      // 本通道只修中文标点、重复句号与字面 <br>：成段英文/编号（表格数据占绝大多数）
+      // 直接跳过，省掉后面每条正则。纯空白与 ≤2 字符的标点节点必须放行（它们是修复对象）。
+      if (v.length > 2 && v.indexOf("<") < 0 && !CJK.test(v) && !/^\s*[)\]]/.test(v) && !/^\s+$/.test(v)) continue;
       // 页面把转义标签当文本渲染出来（NCBI MeSH 的 brieflinkpopdesc 里是字面 <br/>）：
       // 不清理的话用户看到的是「…factors.<br/>Year introduced: 1966」。
       if (/<\s*br\s*\/?>/i.test(v) && !inBlock(n.parentElement) && !inSkip(n.parentElement)) {
@@ -1547,13 +1678,20 @@ function createEngine(options) {
     // 省掉两轮全量选择器查询（大页面上是几百毫秒）。
     if (root.nodeType === 1 || root.nodeType === 11) {
       if (root.nodeType === 1 && hasTargetAttr(root)) handleAttributes(root);
-      // 属性通道只取「带可翻属性」的元素：一次属性选择器查询代替对每个元素逐个
-      // getAttribute/hasAttribute（大页面上是十几万次 DOM 调用，属性通道一度占到扫描的 1/8）。
-      var sub;
-      try {
-        sub = root.querySelectorAll ? root.querySelectorAll(ATTR_SELECTOR) : [];
-      } catch (e) { sub = []; }
-      for (var i = 0; i < sub.length; i++) handleAttributes(sub[i]);
+      // 属性通道复用 scan 已经查好的元素表：hasAttribute 探测比再一次属性选择器
+      // 全量查询快得多（36k 元素：14ms vs 58ms）。
+      if (preEls) {
+        for (var pi = 0; pi < preEls.length; pi++) {
+          var pe2 = preEls[pi];
+          if (hasTargetAttr(pe2)) handleAttributes(pe2);
+        }
+      } else {
+        var sub;
+        try {
+          sub = root.querySelectorAll ? root.querySelectorAll(ATTR_SELECTOR) : [];
+        } catch (e) { sub = []; }
+        for (var i = 0; i < sub.length; i++) handleAttributes(sub[i]);
+      }
       // OPTGROUP 的 label 不在默认属性表里，单独补一遍
       if (root.querySelector) {
         var ogs;
@@ -1626,12 +1764,16 @@ function createEngine(options) {
       var el = els[i];
       if (preEls && !PARAS_TAGS[String(el.tagName || "").toUpperCase()]) continue;
       if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
+      // 先按原串长度粗筛：整段文案至少 100 字符。大表格里绝大多数单元格是短标签，
+      // 这一句把它们挡在 inBlock/inSkip/parasSubFlags（三次 closest）之前。
+      var raw = el.textContent || "";
+      if (raw.length < 100) continue;
       if (inBlock(el) || inSkip(el)) continue;
       var subFlags = parasSubFlags(el, 0);
       if (subFlags & SUB_BLOCK) continue;
       // 列表项整段替换会连里面的链接一起抹掉，所以只收没有链接的 li
       if (String(el.tagName || "").toUpperCase() === "LI" && (subFlags & SUB_ANCHOR)) continue;
-      var text = normalize(el.textContent || "");
+      var text = normalize(raw);
       if (text.length < 100 || text.length > 1800 || hasCJK(text)) continue;
       var hit = lookupExact(text);
       if (hit === null || !hasCJK(hit)) continue;
@@ -1729,6 +1871,18 @@ function createEngine(options) {
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (preEls && !TPL_TAGS[String(el.tagName || "").toUpperCase()]) continue;
+      // 模板必须有「文字 + 至少一个槽位元素」才可能成立（单个 {{1}} 只有 6 字符，
+      // 永远过不了 pat ≥20 的闸）：先看子节点形态，绝大多数表格单元格在这里就出局，
+      // 不必构造 pat 字符串。
+      var c0 = el.firstChild;
+      if (!c0 || !c0.nextSibling) continue;
+      var hasElem = false, hasText = false;
+      for (var cc = c0; cc; cc = cc.nextSibling) {
+        if (cc.nodeType === 1) hasElem = true;
+        else if (cc.nodeType === 3 && String(cc.nodeValue || "").trim()) hasText = true;
+        if (hasElem && hasText) break;
+      }
+      if (!hasElem || !hasText) continue;
       if (el.getAttribute && el.getAttribute("data-biol10n-block")) continue;
       // 已经按模板替换过的元素正常跳过；但站点框架会把整块重渲染回英文（ENA 的 Angular
       // 就把 {{1}} 链接换回 <a>Query Syntax documentation</a>），此后中文消失、标记还在，
@@ -1971,7 +2125,10 @@ function createEngine(options) {
     // 原来三条通道各查一次全量选择器，大页面上光查询就是几百毫秒。
     var elSets = [];
     for (var eq = 0; eq < roots.length; eq++) {
-      elSets.push(roots[eq].querySelectorAll ? roots[eq].querySelectorAll("*") : []);
+      // 转成真数组再传下去：jsdom 的 HTMLCollection/NodeList 每次按下标取元素都要新建一次
+      // 接口包装（36k 元素上 22ms vs 数组 5ms），三条通道各遍历一遍就白付三次。
+      var nl = roots[eq].querySelectorAll ? roots[eq].querySelectorAll("*") : null;
+      elSets.push(nl && nl.length ? Array.prototype.slice.call(nl) : []);
     }
     for (var q = 0; q < roots.length; q++) { markScoped(roots[q]); translateParagraphs(roots[q], elSets[q]); }
     for (var tq = 0; tq < roots.length; tq++) translateTemplates(roots[tq], elSets[tq]);
@@ -1998,10 +2155,13 @@ function createEngine(options) {
     translateTitle();
   }
 
+  /** 上一轮 flush 因时间预算没用完的节点，下一拍接着处理。 */
+  var flushPending = [];
   function flush() {
     timer = null;
-    if (!enabled) return;
-    var items = Array.from(queue);
+    if (!enabled) { flushPending = []; return; }
+    var items = flushPending.length ? flushPending.concat(Array.from(queue)) : Array.from(queue);
+    flushPending = [];
     queue.clear();
     // 一屏渲染常在同一批里塞进几十个互相嵌套的节点（React 先插容器、再逐个填表），
     // 逐个 walk 会把同一棵子树重复翻十几遍。祖先已在队列里的直接跳过。
@@ -2016,8 +2176,16 @@ function createEngine(options) {
         return true;
       });
     }
-    items.forEach(function (n) {
-      if (!n.isConnected && n !== doc) return;
+    // 时间预算：页面持续渲染时（CELLxGENE 的数据集表格一秒能插上千行）一次 flush
+    // 处理完所有节点会把主线程占住好几秒。超过 120ms 就把剩下的留到下一拍，
+    // 翻译变成渐进式，滚动和点击不再卡顿。
+    var budgetStart = 0;
+    if (items.length > 40) budgetStart = Date.now();
+    var pendingFrom = -1;
+    for (var fi = 0; fi < items.length; fi++) {
+      var n = items[fi];
+      if (budgetStart && fi % 20 === 19 && Date.now() - budgetStart > 120) { pendingFrom = fi; break; }
+      if (!n.isConnected && n !== doc) continue;
       var host = n.nodeType === 1 ? n : n.parentNode;
       // 动态插入的整块（NCBI 的改版公告、MedGen 公告条）必须也过一遍模板通道：
       // 否则只有 walk 的逐节点命中，会出现「根据第 14434 号行政令, federal agencies are …」这种半中半英。
@@ -2028,7 +2196,11 @@ function createEngine(options) {
       walk(host);
       // 运行时才挂上的 shadow root（React 组件后插）不会被 scan 看到，flush 里补一次
       translateShadowRoots(host);
-    });
+    }
+    if (pendingFrom >= 0) {
+      flushPending = items.slice(pendingFrom);
+      if (!timer) timer = setTimeout(flush, 16);
+    }
     translateFrames(doc.documentElement);
     // SPA 路由后 <title> 由 React Helmet 之类改写，改的是 head 里的文本节点：
     // 它不在 scope 内，walk 拿不到，也不会再触发 scan()，标题就停在占位串
@@ -2289,6 +2461,7 @@ function createEngine(options) {
     stats.enabled = false;
     try { observer && observer.disconnect(); } catch (e) {}
     if (timer) clearTimeout(timer);
+    flushPending = [];
     restore();
     // SPA 可能在中间又改写过 <title>（GDC 的首页就是这样），导致 doc.title 不再等于
     // translatedTitle；只要当前标题还是中文，就说明它仍是我们写的，照原样还回去。

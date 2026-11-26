@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "family": "proteomexchange",
+    "version": "0.1.0",
+    "sites": [
+      "proteomexchange.org",
+      "www.proteomexchange.org"
+    ],
+    "area": "ProteomeXchange 联盟官网：首页（使命、公开数据、数据提交、订阅、成员仓库、发表文献、全球核心生物数据资源）、/submission 提交入口、/subscribe 订阅方式、/contact 联系方式与协调人页",
+    "note": "只翻界面骨架与固定说明句。仓库名（PRIDE、PeptideAtlas、MassIVE、jPOST、iProx、Panorama Public、ProteomeCentral、PASSEL）、PXD 登录号、论文题录与 DOI/PMID、人名与邮箱、机构缩写（EMBL-EBI、ISB、UCSD）保持原文。带链接的整段走模板通道，链接节点原样搬回。"
+  },
+  "exact": {
+    "Mission": "使命",
+    "Data Submission Guidelines": "数据提交指南",
+    "Guidelines for Reprocessed datasets": "重处理数据集指南",
+    "PX Membership Agreement": "PX 成员协议",
+    "original Nature Biotechnology publication": "Nature Biotechnology 原始论文",
+    "Public Data": "公开数据",
+    "RSS feed": "RSS 订阅源",
+    "Data Submission": "数据提交",
+    "ProteomeXchange fully supports both MS/MS proteomics and SRM data submission. Submissions of other types of proteomics data is also possible using the Partial Submission mechanism.": "ProteomeXchange 全面支持 MS/MS 蛋白质组学数据与 SRM 数据提交。其他类型的蛋白质组学数据也可通过「部分提交」机制提交。",
+    "Subscribe": "订阅",
+    "Subscribe to receive all new ProteomeXchange announcements!": "订阅以接收所有新的 ProteomeXchange 公告！",
+    "Member repositories": "成员仓库",
+    "Publication": "发表文献",
+    "Global Biodata Coalition": "全球生物数据联盟",
+    "ProteomeXchange is a Global Core Biodata Resource, which are those biodata resources that are of fundamental importance to the wider biological and life sciences community and the long term preservation of biological data": "ProteomeXchange 是全球核心生物数据资源（Global Core Biodata Resource），这类资源对更广泛的生物与生命科学界具有根本重要性，并关乎生物数据的长期保存。",
+    "Contact Us": "联系我们",
+    "Tweets by @ProteomeXchange": "@ProteomeXchange 的推文",
+    "ProteomeXchange supports submission of experiments coming from all proteomics data workflows.": "ProteomeXchange 支持提交来自所有蛋白质组学数据工作流的实验。",
+    "How to get subscribed to the announcements of new public ProteomeXchange (PX) datasets": "如何订阅新的公开 ProteomeXchange（PX）数据集公告",
+    "There are currently three ways for external users to do this:": "目前外部用户有三种方式：",
+    "Google group.": "Google 群组",
+    "Please contact the following ProteomeXchange Partner Repository Coordinators in case you have questions or comments.": "如有问题或建议，请联系以下 ProteomeXchange 合作伙伴仓库协调人。",
+    "Proteomics Team Leader": "蛋白质组学团队负责人",
+    "Senior Research Scientist (Institute for Systems Biology, Seattle, USA)": "资深研究科学家（美国西雅图系统生物学研究所）",
+    "Associate Professor - Skaggs School of Pharmacy and Pharmaceutical Sciences; Executive Director - Center for Computational Mass Spectrometry, University of California, San Diego": "副教授——Skaggs 药学与药物科学学院；执行主任——计算质谱中心，加利福尼亚大学圣迭戈分校",
+    "Professor at University of Kyoto": "京都大学教授",
+    "Professor at National Center for Protein Sciences, Beijing, China": "中国北京国家蛋白质科学中心教授"
+  },
+  "rules": [
+    {
+      "re": "^(\\d[\\d,]*) (?:new )?(?:public )?datasets$",
+      "to": "$1 个数据集"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The ProteomeXchange Consortium was established to provide globally coordinated standard data submission and dissemination pipelines involving the main proteomics repositories, and to encourage open data policies in the field. Please review our {{1}}, {{2}} and {{3}}.",
+      "zh": "ProteomeXchange 联盟的成立旨在为主要蛋白质组学数据仓库提供全球协调的标准数据提交与分发流程，并推动该领域的开放数据政策。请参阅我们的 {{1}}、{{2}} 和 {{3}}。"
+    },
+    {
+      "pat": "See also the {{1}} and the {{2}}, {{3}} and {{4}} update papers.",
+      "zh": "另见 {{1}}，以及 {{2}}、{{3}} 和 {{4}} 年的更新论文。"
+    },
+    {
+      "pat": "Public PXD datasets can be browsed over at {{1}}. An {{2}} is also available.",
+      "zh": "公开的 PXD 数据集可在 {{1}} 浏览。也可使用 {{2}}。"
+    },
+    {
+      "pat": "The current members of the Consortium are: {{1}} (EMBL-EBI, Cambridge, UK), {{2}} (ISB, Seattle, WA, USA) (both of them are the founding members), {{3}} (UCSD, San Diego, CA, USA), {{4}} (various institutions, Japan), {{5}} (National Center for Protein Sciences, Beijing, China) and {{6}} (University of Washington, Seattle, WA, USA)\".",
+      "zh": "本联盟目前的成员包括：{{1}}（EMBL-EBI，英国剑桥）、{{2}}（ISB，美国华盛顿州西雅图）（两者均为创始成员）、{{3}}（UCSD，美国加利福尼亚州圣迭戈）、{{4}}（多家机构，日本）、{{5}}（中国北京国家蛋白质科学中心）以及 {{6}}（美国华盛顿州西雅图华盛顿大学）。"
+    },
+    {
+      "pat": "SRM/MRM data can be submitted to {{1}}.",
+      "zh": "SRM/MRM 数据可提交至 {{1}}。"
+    },
+    {
+      "pat": "Shotgun proteomics data can be submitted to {{1}}.",
+      "zh": "鸟枪法蛋白质组学数据可提交至 {{1}}。"
+    },
+    {
+      "pat": "Follow the ProteomeXchange Twitter feed {{1}}",
+      "zh": "关注 ProteomeXchange 的 Twitter 动态 {{1}}"
+    },
+    {
+      "pat": "Using an RSS feed reader. The PX feed URL can be accessed at: {{1}}",
+      "zh": "使用 RSS 阅读器。PX 订阅源地址：{{1}}"
+    },
+    {
+      "pat": "Getting e-mail updates by joining the ProteomeXchange {{1}}Choose your preferred option for receiving the e-mails with the new datasets.",
+      "zh": "通过加入 ProteomeXchange 的 {{1}} 获取电子邮件更新；请选择你接收新数据集邮件的方式。"
+    },
+    {
+      "pat": "This page was developed by ProteomeXchange Team {{1}}",
+      "zh": "本页面由 ProteomeXchange 团队制作 · {{1}}"
+    }
+  ]
+}

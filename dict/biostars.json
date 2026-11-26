@@ -1,0 +1,339 @@
+{
+  "meta": {
+    "family": "biostars",
+    "sites": [
+      "www.biostars.org",
+      "biostars.org"
+    ],
+    "area": "Biostars 生物信息学问答站：首页问题列表与侧栏（时间范围/排序、结果计数与分页、票数/回复/浏览计数、最近得票/最近访问位置/最近获得的奖项、访问量）、标签页 /t/ 与标签筛选条、帖子页工具条（添加评论/添加回复/编辑模式/相似帖子/登录提示）与投票收藏按钮、用户列表页（时间范围/排序/访问时间）、用户资料页标签与资料表、徽章列表页（徽章名称与获得条件、表头）、注册/登录/重置密码表单（自动登录、邮箱登录、社交登录说明、表单标签）、全站页脚",
+    "note": "只翻界面骨架、固定枚举（排序/时间范围/徽章名称与条件/表单标签）与固定提示句。帖子标题与正文、用户名、标签名、地区、基因名/工具名、GitHub/Twitter/Google 等专名、RSS/API/Planet 等协议与栏目专名一律保留英文；时间与计数走规则，页面结构里的用户名与数字原样保留。"
+  },
+  "exact": {
+    "ADD COMMENT": "添加评论",
+    "ADD REPLY": "添加回复",
+    "About": "关于",
+    "Access": "访问",
+    "Active": "启用",
+    "Admin": "管理员",
+    "Answer": "回答",
+    "Answer:": "回答：",
+    "Appreciated": "备受赞赏",
+    "Autobiographer": "自传作者",
+    "Automated Signup": "自动注册",
+    "Automatic Login": "自动登录",
+    "Awarded": "获奖次数",
+    "Awards": "奖项",
+    "Badges": "徽章",
+    "Bookmark": "书签",
+    "Bookmark:": "收藏：",
+    "Captcha": "验证码",
+    "Centurion": "百夫长",
+    "Click the link below to log in or sign up automatically:": "点击下方链接即可自动登录或注册：",
+    "Comment": "评论",
+    "Commentator": "评论家",
+    "Community": "社区",
+    "Content": "内容",
+    "Email Login": "邮箱登录",
+    "Email Signup": "邮箱注册",
+    "Enter your email": "输入你的邮箱",
+    "Entering edit mode": "正在进入编辑模式",
+    "Epic Question": "史诗问题",
+    "FAQ": "常见问题",
+    "Forgot your password?": "忘记密码？",
+    "Forum": "论坛",
+    "Gold Standard": "金标准",
+    "Good Answer": "优质回答",
+    "Good Question": "优质问题",
+    "Google Scholar:": "Google 学术：",
+    "Great Question": "精彩问题",
+    "Guru": "大师",
+    "Handle:": "用户名：",
+    "Help": "帮助",
+    "Job": "职位",
+    "Job:": "职位：",
+    "Jobs": "招聘",
+    "Joined:": "加入时间：",
+    "Last seen:": "上次访问：",
+    "Latest": "最新",
+    "Librarian": "图书管理员",
+    "Loading Similar Posts": "正在加载相似帖子",
+    "Location:": "位置：",
+    "Log In": "登录",
+    "Login": "登录",
+    "New Post": "发帖",
+    "News": "新闻",
+    "News:": "新闻：",
+    "No posts found.": "未找到帖子。",
+    "Oracle": "神谕",
+    "Password": "密码",
+    "Password Confirmation": "确认密码",
+    "Password reset": "重置密码",
+    "Poll": "投票",
+    "Poll:": "投票：",
+    "Popular Question": "热门问题",
+    "Posts": "帖子",
+    "Powered by the": "技术支持",
+    "Prophet": "先知",
+    "Pundit": "评论员",
+    "Rank": "综合排名",
+    "Recent Replies": "最近回复",
+    "Recent Votes": "最近得票",
+    "Replies": "回复数",
+    "Reputation:": "声望：",
+    "Rising Star": "新星",
+    "Role:": "角色：",
+    "Scholar": "学者",
+    "Search": "检索",
+    "Search ...": "检索……",
+    "Select one of the providers to sign up automatically:": "选择以下任一服务商即可自动注册：",
+    "Sign Up": "注册",
+    "Sign up with email": "使用邮箱注册",
+    "Similar Posts": "相似帖子",
+    "Social login is used for authentication only.": "社交账号登录仅用于身份验证。",
+    "Stats": "统计",
+    "Status:": "状态：",
+    "Student": "学生",
+    "Supporter": "支持者",
+    "Tags": "标签",
+    "Teacher": "教师",
+    "Tool": "工具",
+    "Tool:": "工具：",
+    "Topic contains no posts.": "该主题暂无帖子。",
+    "Tutorials": "教程",
+    "User Agreement and Privacy Policy": "用户协议与隐私政策",
+    "Users": "用户",
+    "Views": "浏览量",
+    "Voter": "投票者",
+    "Votes": "得票数",
+    "activity level": "活跃度",
+    "all time": "全部时间",
+    "asked a question that was upvoted at least 5 times": "提出的问题被赞同至少 5 次",
+    "asked a question with at least 3 up-votes": "提出的问题获得至少 3 个赞同",
+    "created 100 posts": "发布 100 个帖子",
+    "created 50 posts within first three months of joining": "加入后前三个月内发布 50 个帖子",
+    "created a comment with at least 3 up-votes": "评论获得至少 3 个赞同",
+    "created a comment with more than 10 votes": "评论获得超过 10 票",
+    "created a post with more than 10 bookmarks": "发布的帖子被收藏超过 10 次",
+    "created a post with more than 20 followers": "发布的帖子有超过 20 人关注",
+    "created a post with more than 25 bookmarks": "发布的帖子被收藏超过 25 次",
+    "created a post with more than 5 votes": "发布的帖子获得超过 5 票",
+    "created a question with more than 1,000 views": "提出的问题浏览量超过 1,000",
+    "created a question with more than 10,000 views": "提出的问题浏览量超过 10,000",
+    "created a question with more than 5,000 views": "提出的问题浏览量超过 5,000",
+    "created an answer that has been accepted": "回答已被采纳",
+    "created an answer that was upvoted at least 5 times": "回答被赞同至少 5 次",
+    "created an answer with at least 3 up-votes": "回答获得至少 3 个赞同",
+    "created more than 1,000 posts (questions + answers + comments)": "发布超过 1,000 个帖子（问题 + 回答 + 评论）",
+    "date joined": "加入日期",
+    "has more than 80 characters in the information field of the user's profile": "在个人资料的信息栏填写超过 80 个字符",
+    "received 1,000 up votes": "获得 1,000 个赞同",
+    "received more than 100 upvotes": "获得超过 100 个赞同",
+    "recent visit": "最近访问",
+    "replies": "回复",
+    "reply": "回复",
+    "reputation": "声望",
+    "reset": "重置",
+    "this month": "本月",
+    "this week": "本周",
+    "this year": "今年",
+    "today": "今天",
+    "view": "次浏览",
+    "views": "次浏览",
+    "vote": "票",
+    "voted at least 25 times": "投票至少 25 次",
+    "voted more than 100 times": "投票超过 100 次",
+    "votes": "票"
+  },
+  "rules": [
+    {
+      "re": "^Limit\\s*:\\s*(all time|today|this week|this month|this year)$",
+      "to": "时间范围：$1"
+    },
+    {
+      "re": "^Sort\\s*:\\s*(Rank|Views|Votes|Replies|recent visit|reputation|date joined|activity level)$",
+      "to": "排序：$1"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) seconds?$",
+      "to": "$1 秒"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) minutes?$",
+      "to": "$1 分钟"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) hours?$",
+      "to": "$1 小时"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) days?$",
+      "to": "$1 天"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) weeks?$",
+      "to": "$1 周"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) months?$",
+      "to": "$1 个月"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) years?$",
+      "to": "$1 年"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) seconds? ago$",
+      "to": "$1 秒前"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) minutes? ago$",
+      "to": "$1 分钟前"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) hours? ago$",
+      "to": "$1 小时前"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) days? ago$",
+      "to": "$1 天前"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) weeks? ago$",
+      "to": "$1 周前"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) months? ago$",
+      "to": "$1 个月前"
+    },
+    {
+      "re": "^(\\d+(?:\\.\\d+)?) years? ago$",
+      "to": "$1 年前"
+    },
+    {
+      "re": "^seconds? ago by$",
+      "to": "秒前 · "
+    },
+    {
+      "re": "^minutes? ago by$",
+      "to": "分钟前 · "
+    },
+    {
+      "re": "^hours? ago by$",
+      "to": "小时前 · "
+    },
+    {
+      "re": "^days? ago by$",
+      "to": "天前 · "
+    },
+    {
+      "re": "^weeks? ago by$",
+      "to": "周前 · "
+    },
+    {
+      "re": "^months? ago by$",
+      "to": "个月前 · "
+    },
+    {
+      "re": "^years? ago by$",
+      "to": "年前 · "
+    },
+    {
+      "re": "^(.+) • written (.+) ago by$",
+      "to": "$1 • 写于 $2前 · "
+    },
+    {
+      "re": "^(.+) • updated (.+) ago by$",
+      "to": "$1 • 更新于 $2前 · "
+    },
+    {
+      "re": "^(.+) • written (.+) ago$",
+      "to": "$1 • 写于 $2前"
+    },
+    {
+      "re": "^(.+) • updated (.+) ago$",
+      "to": "$1 • 更新于 $2前"
+    },
+    {
+      "re": "^written (.+) ago by$",
+      "to": "写于 $1前 · "
+    },
+    {
+      "re": "^updated (.+) ago by$",
+      "to": "更新于 $1前 · "
+    },
+    {
+      "re": "^(.+) ago by$",
+      "to": "$1前 · "
+    },
+    {
+      "re": "^visited (.+) ago$",
+      "to": "$1前访问"
+    },
+    {
+      "re": "^• ([\\d,]+) views?$",
+      "to": "• $1 次浏览"
+    },
+    {
+      "re": "^([\\d,]+) follow$",
+      "to": "$1 人关注"
+    },
+    {
+      "re": "^([\\d,]+) results? • Page$",
+      "to": "共 $1 条结果 •"
+    },
+    {
+      "re": "^(\\d+) of ([\\d,]+)$",
+      "to": "第 $1 页，共 $2 页"
+    },
+    {
+      "re": "^Traffic: ([\\d,]+) users visited in the last hour$",
+      "to": "访问量：过去一小时有 $1 位用户访问"
+    },
+    {
+      "re": "^((?:Comment|Answer|Job|News|Tool|Poll|Bookmark)): (.+)$",
+      "to": "$1：$2"
+    },
+    {
+      "re": "^A: (.+)$",
+      "to": "回答：$1"
+    },
+    {
+      "re": "^Q: (.+)$",
+      "to": "提问：$1"
+    },
+    {
+      "re": "^version (\\d+(?:\\.\\d+)+)$",
+      "to": "版本 $1"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Use of this site constitutes acceptance of our {{1}}.",
+      "zh": "使用本站即表示你接受{{1}}。"
+    },
+    {
+      "pat": "{{1}} before adding your answer.",
+      "zh": "请先{{1}}，然后才能添加回答。"
+    },
+    {
+      "pat": "Enter your email and press {{1}} to receive an email with password reset instructions.",
+      "zh": "输入你的邮箱并点击{{1}}，即可收到包含密码重置说明的邮件。"
+    },
+    {
+      "pat": "Recent Locations • {{1}}",
+      "zh": "最近访问位置 • {{1}}"
+    },
+    {
+      "pat": "Recent Awards • {{1}}",
+      "zh": "最近获得的奖项 • {{1}}"
+    },
+    {
+      "pat": "Showing top results for tag: {{1}} • {{2}}",
+      "zh": "显示标签 {{1}} 的热门结果 {{2}}"
+    },
+    {
+      "pat": "{{1}} to {{2}} {{3}}",
+      "zh": "{{1}} 授予 {{2}} {{3}}"
+    }
+  ]
+}

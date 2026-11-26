@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "family": "nextflow",
+    "sites": [
+      "nextflow.io",
+      "www.nextflow.io",
+      "docs.nextflow.io"
+    ],
+    "note": "Nextflow 官网、文档站（Docusaurus）与博客列表界面"
+  },
+  "exact": {
+    "Nextflow.io is not changing. Our new product, Nextflow Frontier, is live, built on Nextflow by the team who created it.": "Nextflow.io 不会改变。我们的新产品 Nextflow Frontier 已经上线，由创造 Nextflow 的团队基于 Nextflow 打造。",
+    "Learn more": "了解更多",
+    "Documentation": "文档",
+    "Training": "培训",
+    "Forums": "论坛",
+    "Examples": "示例",
+    "Tools": "工具",
+    "Resources": "资源",
+    "Blog": "博客",
+    "Podcast": "播客",
+    "Community forum": "社区论坛",
+    "Slack community chat": "Slack 社区聊天",
+    "nf-core pipelines": "nf-core 流程",
+    "About Nextflow": "关于 Nextflow",
+    "Nextflow Ambassadors": "Nextflow 大使",
+    "GitHub repository": "GitHub 仓库",
+    "Basic pipeline": "基础流程",
+    "Mixing scripting languages": "混合脚本语言",
+    "BLAST pipeline": "BLAST 流程",
+    "RNA-Seq pipeline": "RNA-Seq 流程",
+    "Machine Learning pipeline": "机器学习流程",
+    "Implementation patterns": "实现模式",
+    "Pipelines": "流程",
+    "Containers": "容器",
+    "Plugins": "插件",
+    "Reproducible Scientific Workflows at Scale": "可扩展的可重复科学工作流",
+    "Nextflow enables scalable, reproducible, and portable scientific workflows for research and production use cases.": "Nextflow 为科研与生产场景提供可扩展、可重复、可移植的科学工作流。",
+    "Open-source software supported by": "开源软件支持方：",
+    "> Features": "> 功能",
+    "Nextflow supercharges science with reproducible containers, streamlined Git collaboration, and frictionless cloud and HPC for scale": "Nextflow 以可重复的容器、顺畅的 Git 协作和无摩擦的云端与 HPC 扩展能力，为科学研究提速",
+    "Fast prototyping": "快速原型开发",
+    "Nextflow allows you to write a computational pipeline by making it simpler to put together many different tasks. You may reuse your existing scripts and tools and you don't need to learn a new language or API to start using it.": "Nextflow 让你可以编写计算流程：把许多不同的任务组合起来更简单。你可以复用现有的脚本与工具，无需学习新语言或 API 即可上手。",
+    "Reproducibility": "可重复性",
+    "Continuous checkpoints": "持续检查点",
+    "All the intermediate results produced during the pipeline execution are automatically tracked.": "流程执行期间产生的所有中间结果都会被自动跟踪。",
+    "This allows you to resume its execution, from the last successfully executed step, no matter what the reason was for it stopping.": "无论因何停止，都可以从最后一次成功执行的步骤继续运行。",
+    "Portable": "可移植",
+    "Nextflow provides an abstraction layer between your pipeline's logic and the execution layer, so that it can be executed on multiple platforms without it changing.": "Nextflow 在流程逻辑与执行层之间提供抽象层，因此流程无需改动即可在多个平台上运行。",
+    "Stream oriented": "面向流",
+    "Nextflow extends the Unix pipes model with a fluent DSL, allowing you to handle complex stream interactions easily. It promotes a programming approach, based on functional composition, that results in resilient and easily reproducible pipelines.": "Nextflow 以流畅的 DSL 扩展 Unix 管道模型，让你可以轻松处理复杂的流交互。它提倡基于函数式组合的编程方式，从而得到健壮且易于复现的流程。",
+    "Unified parallelism": "统一并行",
+    "Nextflow is based on the dataflow programming model which greatly simplifies writing complex distributed pipelines.": "Nextflow 基于数据流编程模型，极大简化了复杂分布式流程的编写。",
+    "Parallelisation is implicitly defined by the processes input and output declarations. The resulting applications are inherently parallel and can scale-up or scale-out, transparently, without having to adapt to a specific platform architecture.": "并行化由进程的输入与输出声明隐式定义。由此得到的应用天然并行，可透明地纵向或横向扩展，无需适配特定平台架构。",
+    "> Community resources": "> 社区资源",
+    "Containers, tools and workflows for everyone": "面向所有人的容器、工具与工作流",
+    "Launch pipelines": "启动流程",
+    "Build containers": "构建容器",
+    "> Next steps": "> 后续步骤",
+    "Boost your developer experience": "提升开发者体验",
+    "Boost Your Workflow with the Nextflow Extension": "用 Nextflow 扩展提升你的工作流",
+    "Streamline pipeline development right from your IDE with the official Nextflow extension for Visual Studio Code.": "借助面向 Visual Studio Code 的官方 Nextflow 扩展，直接在 IDE 里简化流程开发。",
+    "Install from VS Code Marketplace": "从 VS Code 市场安装",
+    "Got Questions? Ask AI.": "有疑问？问 AI。",
+    "Explore Seqera's AI-powered assistant to get instant answers about Nextflow, nf-core, and more — right from the source.": "探索 Seqera 的 AI 助手，直接从源头获取关于 Nextflow、nf-core 等的即时解答。",
+    "Ask Seqera AI": "询问 Seqera AI",
+    "Check out the documentation": "查看文档",
+    "The Nextflow reference manual is available at the above link.": "Nextflow 参考手册可通过上方链接获取。",
+    "Get Started": "开始使用",
+    "Look at the examples": "查看示例",
+    "See example code to get a feel for how Nextflow pipelines work.": "查看示例代码，了解 Nextflow 流程如何工作。",
+    "Follow the training": "参加培训",
+    "Check out the Nextflow training portal for video and written exercies to get started with Nextflow.": "访问 Nextflow 培训门户，通过视频与书面练习入门 Nextflow。",
+    "Confused? Ask the community": "有困惑？问问社区",
+    "Get help on the Seqera Community Forum.": "在 Seqera 社区论坛获取帮助。",
+    "Report bugs or request features": "报告缺陷或请求新功能",
+    "Bug reports help Nextflow improve, so please report any issue you may have!": "缺陷报告有助于 Nextflow 改进，请报告你遇到的任何问题！",
+    "Find pipelines": "查找流程",
+    "Browse open-source pipelines that you can use today, developed by the Nextflow community.": "浏览 Nextflow 社区开发、当下即可使用的开源流程。",
+    "Training portal": "培训门户",
+    "Community Forum": "社区论坛",
+    "Skip to main content": "跳到主要内容",
+    "Log In": "登录",
+    "Sign Up": "注册",
+    "Help": "帮助",
+    "Forum": "论坛",
+    "Support Portal": "支持门户",
+    "Company": "公司",
+    "Contact us": "联系我们",
+    "Submit Feedback": "提交反馈",
+    "Cloud": "云平台",
+    "Enterprise": "企业版",
+    "Platform API": "平台 API",
+    "Changelog": "更新日志",
+    "Getting started": "入门指南",
+    "Overview": "概览",
+    "Installation": "安装",
+    "Environment setup": "环境配置",
+    "Your first script": "第一个脚本",
+    "Running pipelines": "运行流程",
+    "Developing pipelines": "开发流程",
+    "Modules": "模块",
+    "Software dependencies": "软件依赖",
+    "Storage": "存储",
+    "Language reference": "语言参考",
+    "Runtime reference": "运行时参考",
+    "Updates": "更新",
+    "Contributing": "贡献",
+    "Tutorials": "教程",
+    "Guides": "指南",
+    "Home": "首页",
+    "On this page": "本页内容",
+    "On this Page": "本页内容",
+    "Nextflow is a workflow system for creating scalable, portable, and reproducible workflows. Its dataflow programming model lets you describe how data moves between steps, and Nextflow works out what can run in parallel. As well as containers, it supports package managers such as Conda and Spack for managing software.": "Nextflow 是一个用于创建可扩展、可移植、可重复工作流的工作流系统。它的数据流编程模型让你描述数据如何在各步骤之间流动，由 Nextflow 判断哪些部分可以并行。除容器外，它还支持 Conda 与 Spack 等包管理器来管理软件。",
+    "To get started with Nextflow:": "要开始使用 Nextflow：",
+    "Nextflow community training portal": "Nextflow 社区培训门户",
+    "Seqera Events": "Seqera 活动",
+    "Nextflow community forum": "Nextflow 社区论坛",
+    "GitHub issues": "GitHub 议题",
+    "If you use Nextflow in your work, please cite:": "如果你在工作中使用 Nextflow，请引用：",
+    "Get started": "开始使用",
+    "Community": "社区",
+    "License": "许可",
+    "Citations": "引文",
+    "Install SDKMAN": "安装 SDKMAN",
+    "Open a new terminal.": "打开新的终端。",
+    "Install Java:": "安装 Java：",
+    "To install Java with SDKMAN:": "使用 SDKMAN 安装 Java：",
+    "Confirm that Java is installed correctly:": "确认 Java 已正确安装：",
+    "Nextflow is distributed as a self-installing package. It is also distributed via Conda and as a standalone distribution.": "Nextflow 以自安装包的形式分发，也可通过 Conda 以及独立发行版获取。",
+    "Self-install": "自安装",
+    "To install Nextflow with the self-installing package:": "使用自安装包安装 Nextflow：",
+    "Download Nextflow:": "下载 Nextflow：",
+    "Nextflow updates its executable during the self-install process. An update can fail if the executable is placed in a directory with restricted permissions.": "Nextflow 在自安装过程中会更新其可执行文件。如果可执行文件所在目录的权限受限，更新可能失败。",
+    "Make Nextflow executable:": "使 Nextflow 可执行：",
+    "Move Nextflow into an executable path. For example:": "将 Nextflow 移到可执行路径下。例如：",
+    "Confirm Nextflow is installed correctly:": "确认 Nextflow 已正确安装：",
+    "Install without Java": "无需 Java 的安装",
+    "You can install Nextflow with its own Java runtime for Linux and macOS.": "在 Linux 与 macOS 上，可以安装自带 Java 运行时的 Nextflow。",
+    "The bundled Java runtime trusts the operating system's certificates on macOS and on Linux distributions with a Java trust store. On other systems, it uses its own certificates.": "在 macOS 以及带 Java 信任库的 Linux 发行版上，捆绑的 Java 运行时会信任操作系统的证书。在其他系统上，它使用自带的证书。",
+    "Behind a proxy that inspects TLS traffic, do one of the following:": "在会检查 TLS 流量的代理之后，请执行以下操作之一：",
+    "To install Nextflow with Conda:": "使用 Conda 安装 Nextflow：",
+    "Create an environment with Nextflow:": "创建包含 Nextflow 的环境：",
+    "Activate the environment:": "激活环境：",
+    "Installing Nextflow via Conda may lead to outdated versions, dependency conflicts, and Java compatibility issues. Using the self-installing package is recommended for a more reliable and up-to-date installation.": "通过 Conda 安装 Nextflow 可能导致版本过旧、依赖冲突以及 Java 兼容性问题。建议使用自安装包，以获得更可靠、更新的安装。",
+    "Standalone distribution (legacy)": "独立发行版（旧版）",
+    "Java bundle": "Java 捆绑包",
+    "To use the standalone distribution:": "使用独立发行版：",
+    "GitHub releases page": "GitHub 发布页面",
+    "Grant execution permissions to the downloaded file. For example:": "为下载的文件授予执行权限。例如：",
+    "Launching from Seqera provides you with:": "从 Seqera 启动可为你提供：",
+    "User-friendly launch interfaces.": "易用的启动界面。",
+    "Automated cloud infrastructure creation.": "自动创建云基础设施。",
+    "Organizational user management.": "组织级用户管理。",
+    "Advanced analytics with resource optimization.": "带资源优化的高级分析。",
+    "Requirements": "要求",
+    "The Seqera Blog": "Seqera 博客",
+    "Platform": "平台",
+    "Open Source": "开源",
+    "Solutions": "解决方案",
+    "View All": "查看全部",
+    "Studios": "工作室",
+    "Compute": "计算",
+    "Pricing": "定价",
+    "Professional Services": "专业服务",
+    "Book a demo": "预约演示",
+    "Whitepapers": "白皮书",
+    "Case Studies": "案例研究",
+    "Events": "活动",
+    "Partners": "合作方",
+    "About": "关于",
+    "Careers": "招聘",
+    "Newsletter": "通讯",
+    "Contact": "联系方式",
+    "Trust Center": "信任中心",
+    "Social Media": "社交媒体",
+    "Scientists": "科学家",
+    "User agreement": "用户协议",
+    "Privacy statement": "隐私声明",
+    "User Agreement": "用户协议",
+    "Privacy Statement": "隐私声明",
+    "Nextflow Training": "Nextflow 培训",
+    "Contact Us": "联系我们",
+    "Install": "安装",
+    "Run": "运行",
+    "Warning": "警告",
+    "more": "更多",
+    "Announcement": "公告",
+    "People": "人员",
+    "Install Nextflow": "安装 Nextflow",
+    "Updating Nextflow": "更新 Nextflow",
+    "Java 17 (or later, up to 26)": "Java 17（或更高，最高 26）",
+    "install Nextflow without Java": "不安装 Java 的 Nextflow",
+    "Nextflow VS Code extension": "Nextflow VS Code 扩展",
+    "your first script": "第一个脚本",
+    "registered trademark": "注册商标",
+    "Seqera. All Rights Reserved.": "Seqera。保留所有权利。",
+    "Image Processing": "图像处理",
+    "Protein Analysis": "蛋白质分析",
+    "Drug Discovery": "药物发现",
+    "Biopharma": "生物制药",
+    "Clinical Diagnostics": "临床诊断",
+    "Public Research": "公共研究",
+    "Agriculture": "农业",
+    "Tools for manipulating next-generation sequencing data": "用于处理新一代测序数据的工具",
+    "Check prerequisites": "检查前置条件",
+    "Java 17 or later is required": "需要 Java 17 或更高版本",
+    "Make sure Java 17 or later is installed on your computer by using the command:": "请先确认电脑上已安装 Java 17 或更高版本，可使用以下命令：",
+    "Set up": "安装配置",
+    "Dead easy to install": "安装极其简单",
+    "Enter this command in your terminal:": "在终端中输入以下命令：",
+    "Launch": "运行",
+    "Try a simple demo": "试试简单示例",
+    "Run the classic Hello world by entering the following command:": "输入以下命令，运行经典的 Hello world："
+  },
+  "rules": [
+    {
+      "re": "^Updated (\\d+) months? ago$",
+      "to": "$1 个月前更新"
+    },
+    {
+      "re": "^Updated (\\d+) years? ago$",
+      "to": "$1 年前更新"
+    },
+    {
+      "re": "^Added in version ([\\d.]+)$",
+      "to": "新增于 $1 版本"
+    },
+    {
+      "re": "^Deprecated in version ([\\d.]+)$",
+      "to": "已于 $1 版本弃用"
+    },
+    {
+      "re": "^Copyright © (\\d{4}) Seqera\\. All rights reserved\\.$",
+      "to": "版权所有 © $1 Seqera。保留所有权利。"
+    },
+    {
+      "re": "^© (\\d{4}) Seqera\\. All Rights Reserved\\.$",
+      "to": "© $1 Seqera。保留所有权利。"
+    },
+    {
+      "re": "^Direct link to (.+)$",
+      "to": "$1的直达链接"
+    },
+    {
+      "re": "^(?:environment|Environment)$",
+      "to": "环境"
+    },
+    {
+      "re": "^(\\d+) months? ago$",
+      "to": "$1 个月前"
+    },
+    {
+      "re": "^(\\d+) years? ago$",
+      "to": "$1 年前"
+    },
+    {
+      "re": "^(\\d+) days? ago$",
+      "to": "$1 天前"
+    },
+    {
+      "re": "^A DSL for parallel and scalable computational pipelines \\| Nextflow$",
+      "to": "并行可扩展计算流程的 DSL | Nextflow"
+    },
+    {
+      "re": "^Nextflow \\| Seqera Docs$",
+      "to": "Nextflow | Seqera 文档"
+    },
+    {
+      "re": "^Installation \\| Seqera Docs$",
+      "to": "安装 | Seqera 文档"
+    },
+    {
+      "re": "^Step (\\d+)$",
+      "to": "第 $1 步"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "Many scientific and data-intensive analyses are a chain of command-line tools that pass data to each other as files, rather than through databases or APIs. These pipelines run over thousands of inputs, each step can take hours, and each tool needs specific software versions. Running that reliably means moving files to where the work runs, splitting the work into parallel jobs, submitting them to a cluster or cloud, retrying failures, and keeping track of what has already finished. Nextflow handles this for you. You write each step in any language, and Nextflow stages each task's input files into its own working directory, whether they are stored locally or in cloud object storage. It runs every file through the pipeline in parallel, can give each task its own container, and runs the same pipeline on a laptop, an HPC cluster, or the cloud with only a configuration change. There is no server to deploy, and if a run fails, {{1}} picks up where it stopped.",
+      "zh": "许多科学与数据密集型分析都是由命令行工具串联而成，工具之间通过文件而非数据库或 API 传递数据。这类流程要处理成千上万的输入，每一步可能耗时数小时，而且每个工具都需要特定的软件版本。要可靠地跑起来，就得把文件搬到实际计算的位置、把工作拆成并行作业、提交到集群或云端、重试失败的作业，并跟踪哪些已经完成。Nextflow 会替你处理这些。你可以用任意语言编写每一步，Nextflow 会把每个任务的输入文件暂存到它自己的工作目录，无论文件存储在本地还是云对象存储。它会并行处理每个文件，可以让每个任务拥有自己的容器，并且只需改一份配置，就能在笔记本、HPC 集群或云端运行同一套流程。无需部署服务器；如果运行失败，{{1}} 会从上次中断处继续。"
+    },
+    {
+      "pat": "See the Nextflow {{1}} to learn key concepts",
+      "zh": "参见 Nextflow {{1}}，了解关键概念"
+    },
+    {
+      "pat": "Download and {{1}} Nextflow",
+      "zh": "下载并{{1}} Nextflow"
+    },
+    {
+      "pat": "Set up an {{1}} with the {{2}}",
+      "zh": "用 {{2}} 搭建{{1}}"
+    },
+    {
+      "pat": "To continue learning about Nextflow, visit the {{1}} and find a training course that is right for you. Seqera, the company that develops Nextflow, also runs a variety of training events. See {{2}} for more information.",
+      "zh": "要继续学习 Nextflow，请访问 {{1}}，找到适合你的培训课程。开发 Nextflow 的公司 Seqera 也会举办各种培训活动。更多信息请参见 {{2}}。"
+    },
+    {
+      "pat": "You can post questions in the {{1}} or the {{2}}. Bugs and feature requests should be reported as {{3}}.",
+      "zh": "你可以在 {{1}} 或 {{2}} 中提问。缺陷与功能请求应通过 {{3}} 报告。"
+    },
+    {
+      "pat": "The Nextflow community is highly active with regular community meetings, events, a podcast, and more. You can view this material on the {{1}} YouTube channel.",
+      "zh": "Nextflow 社区非常活跃，定期举办社区会议、活动、播客等。你可以在 {{1}} YouTube 频道查看这些内容。"
+    },
+    {
+      "pat": "The {{1}} project is a community effort aggregating high-quality Nextflow workflows that can be used by everyone.",
+      "zh": "{{1}} 项目是一项社区努力，汇聚了人人可用的高质量 Nextflow 工作流。"
+    },
+    {
+      "pat": "Contributions to Nextflow are welcome. See {{1}} for details.",
+      "zh": "欢迎为 Nextflow 贡献。详情请参见{{1}}。"
+    },
+    {
+      "pat": "Nextflow is released under the Apache 2.0 license. Nextflow is a {{1}}.",
+      "zh": "Nextflow 采用 Apache 2.0 许可证发布。Nextflow 是{{1}}。"
+    },
+    {
+      "pat": "Nextflow supports {{1}} and {{2}} containers technology.",
+      "zh": "Nextflow 支持 {{1}} 与 {{2}} 容器技术。"
+    },
+    {
+      "pat": "This, along with the integration of the {{1}} code sharing platform, allows you to write self-contained pipelines, manage versions and to rapidly reproduce any former configuration.",
+      "zh": "结合 {{1}} 代码共享平台的集成，你可以编写自包含的流程、管理版本，并快速复现任何此前的配置。"
+    },
+    {
+      "pat": "It provides out of the box executors for GridEngine, SLURM, LSF, PBS, Moab and HTCondor batch schedulers and for {{1}}, {{2}}, {{3}} and {{4}} platforms.",
+      "zh": "它开箱即用地提供 GridEngine、SLURM、LSF、PBS、Moab 与 HTCondor 批处理调度器的执行器，以及 {{1}}、{{2}}、{{3}} 与 {{4}} 平台。"
+    },
+    {
+      "pat": "Nextflow can be used on any POSIX-compatible system (Linux, macOS, etc), and on Windows through {{1}}. This page describes how to install Nextflow.",
+      "zh": "Nextflow 可用于任何兼容 POSIX 的系统（Linux、macOS 等）；在 Windows 上可通过 {{1}} 使用。本页介绍如何安装 Nextflow。"
+    },
+    {
+      "pat": "New versions of Nextflow are released regularly. See {{1}} for more information about Nextflow release cadence, how to update Nextflow, and how select your version of Nextflow.",
+      "zh": "Nextflow 新版本会定期发布。有关 Nextflow 发布节奏、如何更新 Nextflow 以及如何选择 Nextflow 版本的更多信息，请参见{{1}}。"
+    },
+    {
+      "pat": "Nextflow requires Bash 3.2 (or later) and {{1}} to be installed. To see which version of Java you have, run the following command:",
+      "zh": "Nextflow 需要安装 Bash 3.2（或更高版本）与 {{1}}。要查看你当前的 Java 版本，请运行以下命令："
+    },
+    {
+      "pat": "If you don't have a compatible version of Java, it is recommended that you install the latest Long-Term Support (LTS) version of Temurin through {{1}}. Alternatively, {{2}}.",
+      "zh": "如果你没有兼容的 Java 版本，建议通过 {{1}} 安装最新的 Temurin 长期支持（LTS）版本。或者选择{{2}}。"
+    },
+    {
+      "pat": "Ensure the directory {{1}} is included in your {{2}} variable. Add the directory to {{3}} by adding {{4}} to your shell configuration file, such as {{5}} or {{6}}. Alternatively, move the {{7}} executable to a directory already in your {{8}}.",
+      "zh": "确保目录 {{1}} 已包含在 {{2}} 变量中。把 {{4}} 加入 shell 配置文件（例如 {{5}} 或 {{6}}），即可将该目录加入 {{3}}。或者，把 {{7}} 可执行文件移到已在 {{8}} 中的目录。"
+    },
+    {
+      "pat": "To install Nextflow without Java, follow the {{1}} steps, but download Nextflow with:",
+      "zh": "要安装不带 Java 的 Nextflow，请按{{1}}步骤操作，但改用以下命令下载 Nextflow："
+    },
+    {
+      "pat": "Nextflow downloads a bundle for each version the first time that version runs, unless {{1}} is set. The bundle contains the Java runtime and a startup cache. If the download fails, Nextflow uses the system Java and retries at the next launch. {{2}} keeps this setting. Set {{3}} to use the system Java instead, or set {{4}} to use another Java installation.",
+      "zh": "Nextflow 在每个版本首次运行时都会下载该版本的捆绑包，除非设置了 {{1}}。捆绑包包含 Java 运行时与启动缓存。如果下载失败，Nextflow 会改用系统 Java，并在下次启动时重试。{{2}} 会保留此设置。设置 {{3}} 可改用系统 Java，或设置 {{4}} 以使用另一个 Java 安装。"
+    },
+    {
+      "pat": "Set {{1}} to a Java installation that trusts the proxy.",
+      "zh": "将 {{1}} 设为信任该代理的 Java 安装。"
+    },
+    {
+      "pat": "Specify a trust store in {{1}}, for example {{2}}.",
+      "zh": "在 {{1}} 中指定信任库，例如 {{2}}。"
+    },
+    {
+      "pat": "To run Nextflow offline, use the {{1}} instead.",
+      "zh": "如需离线运行 Nextflow，请改用 {{1}}。"
+    },
+    {
+      "pat": "The Nextflow standalone distribution (i.e., the {{1}} release) is a self-contained {{2}} executable that can run without needing to download core dependencies at runtime. This distribution is useful for offline environments as well as building and testing Nextflow locally. The standalone distribution will still download core and third-party plugins at runtime.",
+      "zh": "Nextflow 独立发行版（即 {{1}} 发行版）是一个自包含的 {{2}} 可执行文件，运行时无需下载核心依赖。该发行版适用于离线环境，也适合在本地构建和测试 Nextflow。独立发行版在运行时仍会下载核心插件与第三方插件。"
+    },
+    {
+      "pat": "Download the standalone distribution from Assets section of the {{1}}.",
+      "zh": "从 {{1}} 的 Assets 部分下载独立发行版。"
+    },
+    {
+      "pat": "Use it as a drop-in replacement for {{1}} command. For example:",
+      "zh": "可将其作为 {{1}} 命令的直接替代品使用。例如："
+    },
+    {
+      "pat": "You can launch workflows directly from {{1}} without installing Nextflow locally.",
+      "zh": "你可以直接从 {{1}} 启动工作流，而无需在本地安装 Nextflow。"
+    },
+    {
+      "pat": "Seqera Cloud Basic is free for small teams. Researchers at qualifying academic institutions can apply for free access to Seqera Cloud Pro. See {{1}} to get started.",
+      "zh": "Seqera Cloud Basic 对小团队免费。符合条件的学术机构研究人员可申请免费使用 Seqera Cloud Pro。请参见 {{1}} 开始使用。"
+    },
+    {
+      "pat": "If you have installed Nextflow locally, you can use the {{1}} command to authenticate with Seqera and automatically configure workflow monitoring.",
+      "zh": "如果你已在本地安装 Nextflow，可以使用 {{1}} 命令向 Seqera 认证，并自动配置工作流监控。"
+    },
+    {
+      "pat": "If you have trouble installing or upgrading Java, see our {{1}} for more information.",
+      "zh": "如果安装或升级 Java 遇到问题，请参阅{{1}}以了解更多信息。"
+    },
+    {
+      "pat": "Nextflow can also be installed from {{1}} or downloaded from {{2}}. See {{3}} for more information.",
+      "zh": "Nextflow 也可以从 {{1}} 安装，或从 {{2}} 下载。更多信息请参见{{3}}。"
+    },
+    {
+      "pat": "Make the binary executable and move it to a directory in your PATH. See {{1}} for more information.",
+      "zh": "让该二进制文件可执行，并把它移到 PATH 中的某个目录。更多信息请参见{{1}}。"
+    }
+  ]
+}

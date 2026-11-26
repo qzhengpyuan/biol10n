@@ -2010,6 +2010,22 @@
       "spa": true
     },
     {
+      "id": "metabolights",
+      "name": "MetaboLights",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/metabolights",
+      "dicts": [
+        "common",
+        "string-atlas",
+        "spa",
+        "metabolights"
+      ],
+      "scope": "body",
+      "spa": true
+    },
+    {
       "id": "embl-ebi",
       "name": "EMBL-EBI",
       "hosts": [
@@ -2178,6 +2194,78 @@
       ],
       "scope": "body",
       "spa": true
+    },
+    {
+      "id": "proteomexchange",
+      "name": "ProteomeXchange",
+      "hosts": [
+        "proteomexchange.org",
+        "www.proteomexchange.org"
+      ],
+      "dicts": [
+        "common",
+        "proteomexchange"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "imagej",
+      "name": "ImageJ Wiki",
+      "hosts": [
+        "imagej.net",
+        "www.imagej.net"
+      ],
+      "dicts": [
+        "common",
+        "imagej"
+      ],
+      "scope": "body, .md-content",
+      "attrs": [
+        "title",
+        "alt",
+        "placeholder"
+      ]
+    },
+    {
+      "id": "biostars",
+      "name": "Biostars",
+      "hosts": [
+        "biostars.org",
+        "www.biostars.org"
+      ],
+      "dicts": [
+        "common",
+        "biostars"
+      ],
+      "scope": "body"
+    },
+    {
+      "id": "snakemake",
+      "name": "Snakemake",
+      "hosts": [
+        "snakemake.github.io"
+      ],
+      "dicts": [
+        "common",
+        "snakemake"
+      ],
+      "scope": "body, .md-content"
+    },
+    {
+      "id": "nextflow",
+      "name": "Nextflow",
+      "hosts": [
+        "nextflow.io",
+        "www.nextflow.io",
+        "docs.nextflow.io",
+        "docs.seqera.io"
+      ],
+      "dicts": [
+        "common",
+        "spa",
+        "nextflow"
+      ],
+      "scope": "body"
     }
   ]
 }

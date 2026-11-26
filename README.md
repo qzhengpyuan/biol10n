@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2096 KB**（2,146,393 字节）；词库里 114 个文件共 35211 条词条（含 1800 条规则）+ 2183 条模板，覆盖 91 个站点
+- 单文件产物 **2097 KB**（2,147,569 字节）；词库里 114 个文件共 35252 条词条（含 1800 条规则）+ 2183 条模板，覆盖 91 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -199,7 +199,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | books | 198 | 25 | 7 | NCBI Bookshelf（书架页、检索） |
 | cbio-docs | 232 | 4 | 30 | cBioPortal 文档站（Retype 站点） |
 | cbioportal | 1189 | 55 |  | cBioPortal |
-| cbioportal2 | 54 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
+| cbioportal2 | 86 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
 | cellxgene | 144 | 14 | 1 |  |
 | clingen | 437 | 10 | 27 | ClinGen 与 ClinPGx |
 | clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
@@ -225,8 +225,8 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | fill-r19 | 37 |  | 20 | GTEx 数据集、HPA 单细胞、PubMed 首页补漏 |
 | galaxy | 350 | 18 | 24 | Galaxy 主站与项目官网（usegalaxy.org、galaxyproject.org） |
 | gdc | 514 | 20 | 1 | GDC Data Portal |
-| gdc-docs | 1113 | 12 | 126 | GDC 文档站（API 指南、数据字典、生信流程） |
-| gdc2 | 8 | 3 |  | GDC Data Portal 补漏 |
+| gdc-docs | 1114 | 12 | 126 | GDC 文档站（API 指南、数据字典、生信流程） |
+| gdc2 | 16 | 3 |  | GDC Data Portal 补漏 |
 | gdv | 103 | 6 | 1 | NCBI GDV（基因组数据查看器） |
 | gdv2 | 60 | 11 |  | GDV 配置轨道面板、轨道集线器、帮助页 |
 | gene | 246 | 37 |  | NCBI Gene |
@@ -302,7 +302,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 769 | 16 |  | UniProt |
 | uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **35211 条 / 1800 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **35252 条 / 1800 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

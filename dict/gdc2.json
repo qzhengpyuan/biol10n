@@ -1,7 +1,7 @@
 {
   "meta": {
     "family": "gdc",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "sites": [
       "portal.gdc.cancer.gov"
     ],
@@ -15,7 +15,15 @@
     "unknown": "未知",
     "open": "公开",
     "tumor": "肿瘤",
-    "metastatic": "转移性"
+    "metastatic": "转移性",
+    "Your cart is empty.": "你的数据车为空。",
+    "Manage your saved sets": "管理已保存的集合",
+    "No saved sets available": "暂无已保存的集合",
+    "Create Set": "创建集合",
+    "Create gene and mutation sets using the": "创建基因与突变集合，可使用",
+    "button or from the": "按钮，或从",
+    "Mutation Frequency app": "突变频率应用",
+    "Sort Cases numerically": "按数值排序病例"
   },
   "rules": [
     {

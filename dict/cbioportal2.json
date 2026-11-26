@@ -1,7 +1,7 @@
 {
   "meta": {
     "family": "cbioportal2",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "sites": [
       "cbioportal.org"
     ],
@@ -61,7 +61,39 @@
     "In CIViC, no oncogenic activity info": "CIViC 中无致癌活性信息",
     "You can either copy and paste your input into the text field below or select a file with mutation data for upload.": "您可以将输入内容复制粘贴到下方的文本框中，或选择包含突变数据的文件上传。",
     "Mutation files should be tab delimited, and should at least have the genomic location headers in the first line for a successful annotation. Note that all variants have to be reported for genome build GRCh37 (hg19).": "突变文件应为制表符分隔，且第一行至少应包含基因组位置表头，才能成功注释。注意：所有变异都必须以 GRCh37（hg19）基因组构建版本报告。",
-    "If your mutation input doesn't contain the genomic location headers, but you still want to visualize your data, your input should at least have the following headers:": "如果您的突变输入不含基因组位置表头，但仍希望可视化数据，则输入至少应包含以下表头："
+    "If your mutation input doesn't contain the genomic location headers, but you still want to visualize your data, your input should at least have the following headers:": "如果您的突变输入不含基因组位置表头，但仍希望可视化数据，则输入至少应包含以下表头：",
+    "Sort a-Z": "按 A 到 Z 排序",
+    "Sort Z-a": "按 Z 到 A 排序",
+    "Don't sort track": "不对轨道排序",
+    "Show Gaps": "显示空白",
+    "Show Gaps (w/%)": "显示空白（含百分比）",
+    "Edit Colors": "编辑颜色",
+    "Save tracks": "保存轨道",
+    "Mutation spectrum": "突变谱",
+    "Ignore VUS": "忽略意义未明变异",
+    "Color by": "着色依据",
+    "Somatic vs Germline": "体细胞与生殖系",
+    "Annotate and Filter": "注释与筛选",
+    "Annotate Data": "注释数据",
+    "Driver annotations:": "驱动注释：",
+    "Hotspots": "热点",
+    "Filter Data": "筛选数据",
+    "Show only drivers": "仅显示驱动突变",
+    "Show only somatic": "仅显示体细胞突变",
+    "Show only profiled": "仅显示已检测",
+    "Events per sample": "每个样本的事件数",
+    "Events per patient": "每位患者的事件数",
+    "Show unaltered columns": "显示未改变的列",
+    "Show whitespace between columns": "在列之间显示空白",
+    "Show legends for clinical tracks": "显示临床轨道图例",
+    "Only show clinical track legends for altered": "仅显示有改变项的临床轨道图例",
+    "Show OQL filters": "显示 OQL 筛选器",
+    "Open in JupyterNoteBook": "在 JupyterNoteBook 中打开",
+    "Toggle settings menu": "切换设置菜单",
+    "Menu Dots Icon": "菜单图标",
+    "Zoom to Fit Icon": "缩放至合适大小图标",
+    "queried genes/profiles": "查询的基因/分子谱",
+    "Clinical": "临床"
   },
   "rules": [
     {

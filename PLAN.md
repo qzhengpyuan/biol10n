@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-26，对应版本 0.16.4。
+> 最后更新：2026-11-27，对应版本 0.16.5。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -13,20 +13,20 @@
 4. **不翻专有名词**：基因/蛋白符号、变异命名、物种拉丁名、accession、序列、坐标、文件名、数据值原样保留。
 5. **宁可留英文，不可半中半英**：整块留英文可接受；一句里半英半中是缺陷。
 
-## 现状（2026-11-26）
+## 现状（2026-11-27）
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.16.4 |
-| 词库 | 114 册 / 35161 exact / 1798 规则 / 2183 模板 |
+| 版本 | 0.16.5 |
+| 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2275 条全绿（`npm test`，约 175 s） |
-| 产物 | `dist/biol10n.user.js` 2,144,217 字节（约 2094 KB） |
+| 单测 | 2313 条全绿（`npm test`，约 180 s） |
+| 产物 | `dist/biol10n.user.js` 2,147,569 字节（约 2097 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.16.4 已于 2026-11-26 推送（main 与 release 同版本对齐，release 头 = v0.16.4）。
+0.16.0–0.16.5 已推送（main 与 release 同版本对齐，release 头 = v0.16.5）。
 
 ## 结构
 
@@ -92,20 +92,36 @@ node tools/apply.mjs
   `pubmed-extra.test.mjs` 里那条「翻成月/日」的断言已改回不译，与 `ncbi-aria.test.mjs` 的既有判据统一。
 - **词库卫生**：删除 `pubmed2` 的 `MM`/`DD`（与上一条一致）；`hpa2` 的两条新规则补 `requireHit`（p 值捕获组那条例外，见坑）；
   `test/hpa2.test.mjs` 加例外白名单，`test/kegg-docs2.test.mjs` 的模板数 3→4。
+本轮（2026-11-27 凌晨，0.16.5）收掉的：
+
+- **gdc / cBioPortal 补译**（第二轮，上一轮被 dsh 重启打断、零改动）：GDC 门户（首页、Projects、Repository、Downloads、
+  CohortBuilder、项目页、cart、manage_sets）+ GDC 文档站 + cBioPortal（首页、datasets、study summary、results），
+  三册合计 +41 exact（`gdc2` 8→16、`gdc-docs` 1113→1114、`cbioportal2` 54→86），`test/gdc-cbio-r2.test.mjs` 12 条。
+  GDC 门户的两个 8.6 MB Next.js chunk 在本网络必截断，要用 CDP Fetch 回灌本地副本才能渲染（工装 `/tmp/gdc-load.mjs`，不入库）。
+- **SCP app 内文案**（上一轮记的是「bundle 下不完」）：真因是 HTTP/2 —— h2 下 210 s 节点数恒为 12、
+  控制台 `ERR_HTTP2_PROTOCOL_ERROR`、5.4 MB 的 app JS 单连接只下到 2.9 MB 就断；加 `--disable-http2` 后 5.5–6.6 s 下完、节点 12→543。
+  `dict/scp.json` +50 exact / +1 规则，`test/r73-scp-app.test.mjs` 12 条；列表页剩 40 条英文全是物种/器官/建库方案/研究名（数据，不翻）。
+- **`tools/miss-report.mjs` 加 `VIA_HOME=1`**：SPA 站先开首页再点导航进目标页。CELLxGENE 的 `/datasets`、`/collections`
+  直连时 SSR 只吐 header、客户端不 hydrate，直接 navigate 只拿到 22 个节点（看着「没缺口」）；走首页点链接后 19,353 个节点 / 4,667 精确命中。
+- **Europe PMC 的 `.highlight` 放出来**：实测该站 `.highlight` 只用于关于页侧栏当前项（1 个），检索页与文章页各 0 个，
+  不是检索词高亮。给 `europepmc` 站点加 `block` 覆盖（去掉 `.highlight`），并让 `src/boot.js` 真正支持 `site.block`
+  覆盖 `defaults.block`（原先硬取 defaults，站点级覆盖是死配置）。`test/epmc-highlight.test.mjs` 7 条。
+- **`new` 徽章统一**：cellxgene / cBioPortal / PubMed / GDC 的徽章是「新增」，UCSC track 菜单的按钮是「新建」。
+  common 里放大小写敏感的规则 `^new$`（只命中全小写），UCSC 继续用自己册的 exact（exact 优先于规则）；`test/badge-new.test.mjs` 6 条。
+  `string-atlas` 与 `gxa` 的「Expression Atlas」按既有惯例裁决：站内自称翻「表达图谱」，他站引用保留品牌英文（HPA 同处理）。
+- **PLAN 去重**：文件曾被贴成同一份两遍、中间一条坑断在半句，已修回单份。
+- 验收：`npm test` 2313 条全绿；`dict-lint` 35252 条、跨册冲突 57 组未涨；`dist/biol10n.user.js` 2,147,569 字节。
+
 待办（按优先级）：
 
-1. **gdc / cBioPortal 补译**：上轮子代理被 dsh 重启打断，没留下改动，整批重做（口径同 `CDP_PORT=92xx INJECT=1 node tools/miss-report.mjs`）。
-2. **GreasyFork**：尚未发布（要不要发待定）。
-3. **`tools/miss-report.mjs` 支持「SPA 站先跳首页」**：CELLxGENE 的 `/datasets`、`/collections` 直连时 `<main>` 是空的
-   （SSR 只有 header，客户端不 hydrate），直接 navigate 会把这页误判成「只有 22 个节点、无缺口」。
-4. **SCP 换时段复测**：`singlecell.broadinstitute.org` 的两个 JS bundle 昨天要 90 s 以上还没下完，研究列表没渲染，
-   app 内文案没取证（站壳已 100% 中文）。
-5. **`new` 徽章与 string-atlas 译法统一**：ucsc 册 `new`→新建 与 cellxgene 的 `NEW` 徽章要一起改；
-   `string-atlas` 册里「Expression Atlas」译作「表达图谱」还是保留品牌，得单独定，别在子代理里各改各的。
-6. **Europe PMC 关于页 `.highlight` 被全局 block 跳过**：先实测该站 `.highlight` 是否也用于检索词高亮；
-   若两种用途并存，只能加 `scopedExact` 白名单，不能整站去掉 `.highlight`。
-7. **性能余量**：`walk` 里剩余开销大半是 jsdom 的接口包装（真实浏览器不存在）；
-   若还要做，方向是「只翻视口附近 + 空闲补」（IntersectionObserver + 分片），风险中等。
+1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
+   要么维持现状（GitHub release 分支 raw 直链安装）。
+2. **性能余量**：`walk` 里剩余开销大半是 jsdom 的接口包装（真实浏览器不存在）；若还要做，方向是「只翻视口附近 + 空闲补」（IntersectionObserver + 分片），风险中等。
+3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
+4. **GDC 文档站不翻白名单**：BWA / ASCAT2 / ABSOLUTE LiftOver 这类流程名反复进 miss 清单干扰判读，建议登记显式不翻名单。
+5. **cBioPortal 研究显示名的译法**：`cbioportal.json` 有「疾病名（队列）→中文」的既有沉淀，与「研究名不翻」原则有张力；动之前先看测试依赖，单独一轮。
+6. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
+7. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
 ## 踩过的坑（每条都真实踩过，改之前先看）
 
 - **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。
@@ -155,10 +171,18 @@ node tools/apply.mjs
   这类要写进测试的例外白名单并注明理由，不要为了过测试硬加标志。
 - **`readme-sync` 只改字节数会造出「假一致」**：体积行里同时嵌着词条数/规则数/模板数/站数，
   少改一处 `--check` 照样报一致，但 README 上就有一半是旧数字（0.16.4 已修）。
+- **HTTP/2 会把大 bundle 掐断**：SCP 的 5.4 MB app JS、GDC 门户的两个 8.6 MB Next.js chunk，在本网络走 h2 时
+  单连接只下到一半就 `ERR_HTTP2_PROTOCOL_ERROR`，页面永远空白，看起来像「站点慢」或「SPA 没 hydrate」。
+  取证实例一律加 `--disable-http2`；GDC 那种必截断的还要用 CDP Fetch 拦 document 请求、回灌本地副本。
+- **`common` 里的小写 exact 会被 Title-case 命中**：引擎有 `lowerIndex` 小写兜底，在 `common` 写 `"new": "新增"`
+  会让页面上的 `New`（Ensembl 页签 / Biomart 按钮）抢在站内规则 `^New$ → 新建` 之前被翻成「新增」，
+  两套既有测试直接红。小写词要通用化时用**大小写敏感的规则**（`^new$`），不要进 exact。
+- **验收顺序：先 `npm run build` 再 `readme-sync`**：`readme-sync` 会把 `dist/biol10n.user.js` 的字节数写进 README，
+  顺序反了会写进旧字节数，`readme-stats` 照报不一致。
 
 ## 验收标准
 
-- `npm test` 全绿（2275 条，当前）
+- `npm test` 全绿（2313 条，当前）
 - `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
 - 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
 - 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms

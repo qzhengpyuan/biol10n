@@ -6,6 +6,9 @@
  *
  * 两种跑法：
  *   1) neo + ScriptCat 装了本脚本 —— 直接读 \`window.__BIOL10N\`。
+ *   VIA_HOME=1：SPA 站（CELLxGENE 的 /datasets、/collections）先开首页再点导航进目标页，
+ *   直接 navigate 会拿到「只有 header、<main> 为空」的假页面。
+ *
  *   2) 直连 headless（站点走系统代理时 neo 打不开，用 --no-proxy-server 起一个 Chrome，
  *      设 INJECT=1 让本工具在 document-start 注入 dist/biol10n.user.js，等价于脚本猫注入）：
  *        google-chrome --headless=new --no-proxy-server --remote-debugging-port=9231 \
@@ -113,15 +116,49 @@ if (process.env.INJECT) {
   await send("Page.addScriptToEvaluateOnNewDocument", { source: fs.readFileSync(p, "utf8") });
   console.log("# 注入 " + p);
 }
-await send("Page.navigate", { url });
-
-const deadline = Date.now() + 45000;
-while (Date.now() < deadline) {
-  const s = await send("Runtime.evaluate", { expression: "document.readyState", returnByValue: true });
-  if (s.result.value === "complete") break;
-  await new Promise((r) => setTimeout(r, 500));
+async function waitReady() {
+  const deadline = Date.now() + 45000;
+  while (Date.now() < deadline) {
+    const s = await send("Runtime.evaluate", { expression: "document.readyState", returnByValue: true });
+    if (s.result.value === "complete") break;
+    await new Promise((r) => setTimeout(r, 500));
+  }
 }
-await new Promise((r) => setTimeout(r, waitMs));
+
+// VIA_HOME=1：从站点首页「点导航」进目标页，而不是直接 navigate。
+// 有些 SPA（CELLxGENE 的 /datasets、/collections）直连时 SSR 只吐 header，客户端不 hydrate，
+// <main> 是空的；直接导航会把整页误判成「22 个节点、无缺口」。走首页再点链接才会渲染。
+// 找不到对应链接时退化为 history.pushState + popstate（React Router 一般认这个）。
+const viaHome = process.env.VIA_HOME === "1" || process.env.VIA_HOME === "true";
+if (viaHome) {
+  const home = new URL(url).origin + "/";
+  console.log("# VIA_HOME：先开首页 " + home + "，再点导航进 " + url);
+  await send("Page.navigate", { url: home });
+  await waitReady();
+  await new Promise((r) => setTimeout(r, Math.max(waitMs, 8000)));
+  const hop = await send("Runtime.evaluate", {
+    expression: "(async () => {" +
+      "const want = " + JSON.stringify(url) + ";" +
+      "const u = new URL(want);" +
+      "const path = u.pathname + u.search;" +
+      "const as = [...document.querySelectorAll('a[href]')];" +
+      "const hit = as.find((a) => { try { const h = new URL(a.href, location.origin); return h.origin === u.origin && (h.pathname + h.search) === path; } catch (e) { return false; } });" +
+      "if (hit) { hit.click(); return 'click'; }" +
+      "history.pushState(null, '', path);" +
+      "window.dispatchEvent(new PopStateEvent('popstate', { state: null }));" +
+      "return 'pushState';" +
+    "})()",
+    returnByValue: true,
+    awaitPromise: true
+  });
+  console.log("# 导航方式: " + (hop.result && hop.result.value));
+  await waitReady();
+  await new Promise((r) => setTimeout(r, waitMs));
+} else {
+  await send("Page.navigate", { url });
+  await waitReady();
+  await new Promise((r) => setTimeout(r, waitMs));
+}
 // 滚动一遍，触发懒加载
 await send("Runtime.evaluate", {
   expression: "(()=>{let y=0;const h=()=>document.body.scrollHeight;const id=setInterval(()=>{window.scrollBy(0,800);y+=800;if(y>h()){clearInterval(id);window.__l10nScrollDone=true;}},120);window.__l10nScroll=id;return 'scrolling'})()",

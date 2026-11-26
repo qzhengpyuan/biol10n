@@ -1794,6 +1794,7 @@
         "europepmc"
       ],
       "scope": "body",
+      "block": "pre, code, kbd, samp, textarea, [contenteditable='true'], .blob-code, .code",
       "proseExempt": "#data-protection-banner-left, .partnership-and-funding, .feature p",
       "attrs": [
         "value"

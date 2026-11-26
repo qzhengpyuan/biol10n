@@ -145,7 +145,9 @@
       data: { exact: exact, rules: rules, templates: templates },
       site: {
         scope: site.scope || "",
-        block: (SITES.defaults && SITES.defaults.block) || "",
+        // 站点可以整条覆盖默认 blocklist（Europe PMC 的侧栏当前项是 div.highlight，
+        // 全局 blacklist 会把它整块跳过；站点级覆盖只影响该站，别改 defaults）
+        block: site.block || (SITES.defaults && SITES.defaults.block) || "",
         attrs: mergedAttrs(site),
         skip: site.skip || "",
         skipFree: site.skipFree || [],

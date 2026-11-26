@@ -11,7 +11,8 @@
     "lint": "node tools/check.mjs",
     "coverage": "node tools/coverage.mjs",
     "terms": "node tools/terms.mjs",
-    "smoke": "node tools/smoke.mjs"
+    "smoke": "node tools/smoke.mjs",
+    "readme": "node tools/readme-sync.mjs"
   },
   "devDependencies": {
     "jsdom": "^31.0.1"

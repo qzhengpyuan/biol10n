@@ -557,7 +557,26 @@
     "young": "年轻",
     "young adult": "青年",
     "zone of skin": "皮肤区",
-    "zygote": "受精卵"
+    "zygote": "受精卵",
+    "Alphabetical order": "按字母顺序",
+    "Baseline expression": "基线表达",
+    "By experiment type": "按实验类型",
+    "Clinical information": "临床信息",
+    "Expression rank": "按表达量排序",
+    "Filter your results": "筛选结果",
+    "Individual": "个体",
+    "Results for": "检索结果：",
+    "Sampling site": "采样部位",
+    "Sampling time point": "采样时间点",
+    "Show anatomograms": "显示人体图谱",
+    "Somite stage": "体节期",
+    "Below cutoff": "低于阈值",
+    "High": "高",
+    "Medium": "中",
+    "Low": "低",
+    "Transcriptomics": "转录组学",
+    "RNA interference": "RNA 干扰",
+    "genetic modification": "基因修饰"
   },
   "rules": [
     {
@@ -711,6 +730,70 @@
     {
       "re": "^Over ([\\d.,]+) years?$",
       "to": "$1 岁以上"
+    },
+    {
+      "re": "^(.+) — Organism part$",
+      "to": "$1 — 生物体部位"
+    },
+    {
+      "re": "^(.+) — Developmental stage$",
+      "to": "$1 — 发育阶段"
+    },
+    {
+      "re": "^(.+) — Cell type$",
+      "to": "$1 — 细胞类型"
+    },
+    {
+      "re": "^(.+) — Cell line$",
+      "to": "$1 — 细胞系"
+    },
+    {
+      "re": "^(.+) — Disease$",
+      "to": "$1 — 疾病"
+    },
+    {
+      "re": "^(.+) — Individual$",
+      "to": "$1 — 个体"
+    },
+    {
+      "re": "^(.+) — Age$",
+      "to": "$1 — 年龄"
+    },
+    {
+      "re": "^(.+) — Sex$",
+      "to": "$1 — 性别"
+    },
+    {
+      "re": "^(.+) — Time$",
+      "to": "$1 — 时间"
+    },
+    {
+      "re": "^(.+) — Sampling site$",
+      "to": "$1 — 采样部位"
+    },
+    {
+      "re": "^(.+) — Sampling time point$",
+      "to": "$1 — 采样时间点"
+    },
+    {
+      "re": "^(.+) — Genotype$",
+      "to": "$1 — 基因型"
+    },
+    {
+      "re": "^(.+) — Compound$",
+      "to": "$1 — 化合物"
+    },
+    {
+      "re": "^(.+) — Somite stage$",
+      "to": "$1 — 体节期"
+    },
+    {
+      "re": "^(.+) — Clinical information$",
+      "to": "$1 — 临床信息"
+    },
+    {
+      "re": "^Showing ([\\d,]+) experiments?:$",
+      "to": "显示 $1 个实验："
     }
   ],
   "templates": []

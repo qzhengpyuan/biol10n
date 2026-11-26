@@ -454,7 +454,11 @@
     "track and data lines": "轨道行与数据行",
     "track line": "轨道行",
     "translated BLAT server:": "翻译版 BLAT 服务器：",
-    "utilities directory": "utilities 目录"
+    "utilities directory": "utilities 目录",
+    "The Genome Browser is protecting itself from bots. This will just take a few seconds.": "基因组浏览器正在防范机器人访问，只需稍等几秒。",
+    "To make programmatic queries, see our FAQ: https://genome.ucsc.edu/FAQ/FAQdownloads.html#CAPTCHA.": "如需进行程序化查询，请参阅常见问题里的 CAPTCHA 说明。",
+    "Only the most recent assemblies are fully active. The data for older assemblies may be available on our": "只有最新的组装才是完全可用的，较旧组装的数据可能位于我们的",
+    "If you encounter difficulties displaying your annotation, read the section": "如果显示注释时遇到困难，请阅读"
   },
   "rules": [
     {

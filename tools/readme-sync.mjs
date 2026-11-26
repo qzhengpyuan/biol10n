@@ -54,6 +54,12 @@ for (const line of src.split("\n")) {
     const kb = Math.round(fs.statSync(dist).size / 1024);
     let next = size[1] + bytes + size[3];
     next = next.replace(/\*\*(\d+) KB\*\*/, "**" + kb + " KB**");
+    // 体积行里还嵌着「N 个文件共 X 条词条（含 Y 条规则）+ Z 条模板，覆盖 S 个站点」，
+    // 只改字节数会留下一半新一半旧的假一致（--check 也照样报「一致」）。
+    next = next.replace(/\d+ 个文件共 \d+ 条词条/, files.length + " 个文件共 " + exact + " 条词条");
+    next = next.replace(/（含 \d+ 条规则）/, "（含 " + rules + " 条规则）");
+    next = next.replace(/\+ \d+ 条模板/, "+ " + tpl + " 条模板");
+    next = next.replace(/覆盖 \d+ 个站点/, "覆盖 " + sites.length + " 个站点");
     if (next !== line) changes.push("体积行：" + line.trim() + " → " + next.trim());
     outLines.push(next);
     continue;

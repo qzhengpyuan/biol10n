@@ -264,7 +264,15 @@
     "Add to list": "加入列表",
     "Please sign in to save and receive email updates for new results.": "请登录后保存，并接收新结果的邮件提醒。",
     "This article has been corrected. See": "本文已更正。参见",
-    "A comment on this article appears in \"": "本文评论见：\""
+    "A comment on this article appears in \"": "本文评论见：\"",
+    "Support by a group of international science": "Europe PMC 的运行得益于一批国际科学",
+    "makes Europe PMC possible.": "的支持。",
+    "refines a search, one term must be present, while the other term is excluded from the results.": "精炼检索，一个词必须出现，另一个词从结果中排除。",
+    "containing preprint abstracts and full text for preprints on COVID-19": "收录关于 COVID-19 预印本的摘要与全文",
+    "from various life science databases text-mined from publications.": "来自各生命科学数据库，经文献文本挖掘得到。",
+    ": Building on emerging trends in scholarly communication, from including preprints to integrating ORCIDs.": "：把握学术交流的新兴趋势，从收录预印本到整合 ORCID。",
+    ": Supporting open data re-use by linking publications with underlying data.": "：通过把文献与底层数据关联，支持开放数据的再利用。",
+    ": Enabling data-driven discovery by offering more efficient ways to read and process scientific literature with the help of text-mining and machine learning technologies.": "：借助文本挖掘与机器学习技术，提供更高效的文献阅读与处理方式，实现数据驱动的发现。"
   },
   "rules": [
     {

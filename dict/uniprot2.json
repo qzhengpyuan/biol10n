@@ -105,7 +105,9 @@
     "Strongly reduced phosphorylation.": "磷酸化显著降低。",
     "Reduced phosphorylation.": "磷酸化降低。",
     "Constitutively activated kinase.": "激酶持续激活。",
-    "Decreased palmitoylation.": "棕榈酰化降低。"
+    "Decreased palmitoylation.": "棕榈酰化降低。",
+    "Load more articles": "加载更多文章",
+    "Allergen": "过敏原"
   },
   "rules": [
     {
@@ -159,6 +161,14 @@
     {
       "re": "^([\\d,]+) antibodies$",
       "to": "$1 个抗体"
+    },
+    {
+      "re": "^There are ([\\d,]+) potential isoforms mapped to this entry$",
+      "to": "本条目映射了 $1 个潜在异构体。"
+    },
+    {
+      "re": "^This entry describes (\\d+) isoforms produced by (.+)\\.$",
+      "to": "本条目描述了由$2产生的 $1 个异构体。"
     }
   ],
   "templates": []

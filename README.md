@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2080 KB**（2,129,957 字节）；词库里 114 个文件共 34823 条词条（含 1772 条规则）+ 2172 条模板，覆盖 91 个站点
+- 单文件产物 **2094 KB**（2,144,213 字节）；词库里 114 个文件共 35161 条词条（含 1798 条规则）+ 2183 条模板，覆盖 91 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -188,7 +188,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | 词库 | 条数 | 规则 | 模板 | 覆盖 |
 |---|---|---|---|---|
 | addgene | 501 | 2 | 48 |  |
-| alphafold | 434 | 28 | 102 | AlphaFold DB（首页、条目页、检索、下载） |
+| alphafold | 436 | 30 | 102 | AlphaFold DB（首页、条目页、检索、下载） |
 | amigo | 156 | 7 | 2 | AmiGO 2（首页、检索、术语页、浏览） |
 | anatomy | 574 | 6 |  | 解剖、组织、细胞类型（多站复用） |
 | bioc | 278 | 15 | 30 | Bioconductor 官网（首页、安装、关于、帮助、BiocViews） |
@@ -200,7 +200,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | cbio-docs | 232 | 4 | 30 | cBioPortal 文档站（Retype 站点） |
 | cbioportal | 1189 | 55 |  | cBioPortal |
 | cbioportal2 | 54 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
-| cellxgene | 129 | 13 | 1 |  |
+| cellxgene | 144 | 14 | 1 |  |
 | clingen | 437 | 10 | 27 | ClinGen 与 ClinPGx |
 | clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
 | clinicaltrials | 734 | 57 | 131 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
@@ -216,11 +216,11 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ebi-training | 52 | 2 |  | EMBL-EBI 培训（课程、线上讲座、材料） |
 | ena | 513 | 28 | 29 | ENA Browser（记录页、检索、序列检索、Webin） |
 | ensembl | 394 | 10 | 16 | Ensembl（含新前端、文档、API、VEP、切碎句） |
-| ensembl-extra | 409 | 4 | 4 | Ensembl 补充（文档侧栏、API、VEP、镜像安装） |
+| ensembl-extra | 452 | 4 | 4 | Ensembl 补充（文档侧栏、API、VEP、镜像安装） |
 | ensembl-tpl | 116 |  | 71 | Ensembl 整段模板 |
 | ensembl2 | 129 | 1 | 15 | Ensembl 新前端与 BioMart 深层 |
 | ensemblgenomes | 34 | 1 | 3 | Ensembl Genomes（细菌/真菌/植物/原生生物门户） |
-| europepmc | 255 | 32 | 12 | Europe PMC（检索、过滤面板、文章页、导出与引文） |
+| europepmc | 263 | 32 | 12 | Europe PMC（检索、过滤面板、文章页、导出与引文） |
 | expasy | 318 | 11 | 48 | Expasy 资源门户（工具目录、帮助、新闻） |
 | fill-r19 | 37 |  | 20 | GTEx 数据集、HPA 单细胞、PubMed 首页补漏 |
 | galaxy | 350 | 18 | 24 | Galaxy 主站与项目官网（usegalaxy.org、galaxyproject.org） |
@@ -233,22 +233,22 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | gene2 | 42 | 6 | 2 | NCBI Gene 补漏 |
 | geneontology | 529 | 2 | 4 | 基因本体资源（首页、文档、下载、工具目录） |
 | geo-docs | 432 | 1 | 60 | GEO 文档体系（/geo/info、FAQ、MIAME、提交指南） |
-| geo-extra | 155 | 5 |  | GEO / GDS / SRA 检索页补漏 |
+| geo-extra | 199 | 5 |  | GEO / GDS / SRA 检索页补漏 |
 | gepia2 | 180 | 9 |  | GEPIA2 |
 | gnomad | 245 | 10 | 5 | gnomAD |
 | gtex | 536 | 14 | 41 | GTEx Portal（含数据集页与文档） |
 | gtex-home | 245 | 13 | 33 | GTEx 首页与文档补漏 |
-| gxa | 551 | 38 |  | Expression Atlas（实验页、组织枚举、下载） |
-| hpa | 1779 | 137 | 27 | Human Protein Atlas |
-| hpa2 | 176 | 10 | 34 | Human Protein Atlas 补漏（组织、单细胞、信息图） |
+| gxa | 570 | 54 |  | Expression Atlas（实验页、组织枚举、下载） |
+| hpa | 1779 | 139 | 27 | Human Protein Atlas |
+| hpa2 | 268 | 12 | 44 | Human Protein Atlas 补漏（组织、单细胞、信息图） |
 | hpo | 184 | 10 | 9 | Human Phenotype Ontology（首页、术语页、基因页、注释与下载） |
 | imagej | 374 | 2 | 82 | ImageJ / Fiji Wiki（下载、插件、更新站点） |
 | intact | 219 | 7 | 56 |  |
-| interpro | 329 | 16 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
+| interpro | 369 | 16 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
 | jaspar | 353 | 17 | 37 |  |
 | kegg | 567 | 16 |  | KEGG（含帮助文档与通路图查看页） |
 | kegg-docs | 113 | 1 | 3 | KEGG 帮助文档 |
-| kegg-docs2 | 79 | 2 | 3 | KEGG 文档补漏（通路、模块、KO） |
+| kegg-docs2 | 89 | 2 | 4 | KEGG 文档补漏（通路、模块、KO） |
 | medgen-gtr | 335 | 72 | 2 | MedGen / GTR |
 | mesh | 83 | 7 |  | NCBI MeSH |
 | metabolights | 315 | 15 | 11 | MetaboLights 代谢组学数据库（实验页、下载、帮助） |
@@ -270,19 +270,19 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | nfcore | 401 | 19 | 52 | nf-core 官网（首页、流程目录、工具、文档） |
 | onco | 239 | 9 |  | TCGA 队列、变异类型、生存统计 |
 | opentargets | 410 | 24 | 32 | Open Targets Platform（靶点页、疾病页、证据面板、下载） |
-| pdbe | 210 | 9 | 2 | PDBe（首页、条目页、检索、下载与文档） |
+| pdbe | 223 | 9 | 2 | PDBe（首页、条目页、检索、下载与文档） |
 | pharmgkb | 88 | 8 | 15 | PharmGKB / ClinPGx（首页、基因页、变异页、说明书注释、下载） |
 | pmc | 82 | 17 |  | NCBI PMC（首页、页眉页脚、文章骨架） |
 | pmc-home | 47 | 5 | 4 | PMC 首页与检索 |
 | pride | 394 | 43 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
 | proteomexchange | 27 | 1 | 10 | ProteomeXchange 蛋白质组数据联盟（提交与数据集检索） |
-| pubchem-dbgap | 695 | 18 | 3 | PubChem 与 dbGaP |
-| pubmed2 | 26 | 3 | 1 | PubMed 首页与结果页补漏 |
+| pubchem-dbgap | 738 | 18 | 3 | PubChem 与 dbGaP |
+| pubmed2 | 31 | 3 | 1 | PubMed 首页与结果页补漏 |
 | rcsb | 723 | 34 | 3 | RCSB PDB（含新版首页与检索） |
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
-| reactome | 541 | 57 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
+| reactome | 541 | 58 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
 | rfam | 363 | 37 | 31 | Rfam（首页、家族页、检索、下载、帮助文档） |
-| scp | 199 | 4 | 7 |  |
+| scp | 201 | 4 | 7 |  |
 | seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
 | snakemake | 207 | 17 | 86 | Snakemake 工作流文档（教程、参考、部署） |
@@ -295,14 +295,14 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
 | ucsc | 1008 | 9 | 49 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
-| ucsc-extra | 448 | 24 | 248 | UCSC 补充（hgTracks 工具栏、轨道名、hgTables） |
+| ucsc-extra | 452 | 24 | 248 | UCSC 补充（hgTracks 工具栏、轨道名、hgTables） |
 | ucsc-hggene | 55 | 6 |  | hgGene / hgGeneGraph 基因页正文与控件 |
 | ucsc-tpl | 80 | 7 | 75 | UCSC 整段模板 |
 | ucsc-vai | 151 |  | 18 | UCSC Variant Annotation Integrator |
-| uniprot | 773 | 16 |  | UniProt |
-| uniprot2 | 98 | 13 |  | UniProt 补漏（条目页、检索、下载） |
+| uniprot | 769 | 16 |  | UniProt |
+| uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **34823 条 / 1772 条规则 / 2172 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **35161 条 / 1798 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

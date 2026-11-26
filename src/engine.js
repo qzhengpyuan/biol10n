@@ -2308,9 +2308,14 @@ function createEngine(options) {
    *  结果是中文品牌名后面挂一截英文（"…in Breast Invasive Carcinoma（TCGA，泛癌图谱）"）。
    *  分段时每段也只用 exact：命中的段换成中文，没命中的（品牌名）原样留着。 */
   function titleBySegments(t) {
-    var seps = [" — ", " – ", " | ", " :: ", " · ", ": ", " - ", " < ", " / "];
-    for (var s = 0; s < seps.length; s++) {
-      var sep = seps[s];
+    return splitTitle(t, 0);
+  }
+
+  var TITLE_SEPS = [" — ", " – ", " | ", " :: ", " · ", ": ", " - ", " < ", " / "];
+
+  function splitTitle(t, depth) {
+    for (var s = 0; s < TITLE_SEPS.length; s++) {
+      var sep = TITLE_SEPS[s];
       if (t.indexOf(sep) < 0) continue;
       var parts = t.split(sep);
       if (parts.length < 2 || parts.length > 4) continue;
@@ -2319,12 +2324,22 @@ function createEngine(options) {
         var p = String(parts[i]).trim();
         if (!p || p.length > 60) { ok = false; break; }
         var tr = lookupExact(p);
-        if (tr !== null) { out.push(tr); changed = true; } else { out.push(p); kept.push(p); }
+        if (tr !== null) { out.push(tr); changed = true; continue; }
+        // 只切一层会留下半中半英：HPA 的 "Search: TP53 - The Human Protein Atlas"
+        // 先被 ": " 切成 "Search" + "TP53 - The Human Protein Atlas"，后半段整段落进 kept，
+        // 标题就成了「检索：TP53 - The Human Protein Atlas」。未命中的段再按其余分隔符
+        // 拆一层（最多两层），拆不动就照旧整段保留。
+        if (depth < 2) {
+          var sub = splitTitle(p, depth + 1);
+          if (sub) { out.push(sub.text); kept = kept.concat(sub.kept); changed = true; continue; }
+        }
+        out.push(p); kept.push(p);
       }
-      if (ok && changed) {
-        for (var q = 0; q < kept.length; q++) if (!keptOk(kept[q])) return null;
-        return { text: out.join(sep === ": " ? "：" : sep), kept: kept };
-      }
+      if (!ok || !changed) continue;
+      var bad = false;
+      for (var q = 0; q < kept.length; q++) if (!keptOk(kept[q])) { bad = true; break; }
+      if (bad) continue;
+      return { text: out.join(sep === ": " ? "：" : sep), kept: kept };
     }
     return null;
   }

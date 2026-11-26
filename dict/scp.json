@@ -205,7 +205,9 @@
     "delete this label": "删除此标记",
     "Remove groups to avoid plot limit.": "请移除分组以避免超出图表上限。",
     "Filter by name, description, or owner email": "按名称、描述或所有者邮箱筛选",
-    "Related genes": "相关基因"
+    "Related genes": "相关基因",
+    "Single Cell Portal logo": "Single Cell Portal 徽标",
+    "Broad logo": "Broad 徽标"
   },
   "rules": [
     {

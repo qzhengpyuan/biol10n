@@ -1789,6 +1789,14 @@
   },
   "rules": [
     {
+      "re": "^Brain tissue expression of (.+) - Summary - The Human Protein Atlas$",
+      "to": "脑组织表达 - $1 - 摘要 - 人类蛋白质图谱"
+    },
+    {
+      "re": "^Brain tissue expression of (.+) - The Human Protein Atlas$",
+      "to": "脑组织表达 - $1 - 人类蛋白质图谱"
+    },
+    {
       "re": "^Search: (.+) - (.+)$",
       "to": "检索：$1 - $2"
     },

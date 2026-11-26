@@ -137,7 +137,22 @@
     "Prenatal (conception-birth)": "产前（受孕至出生）",
     "Embryonic human (0-56 days)": "人胚胎期（0–56 天）",
     "Fetal (>56 days-birth)": "胎儿期（56 天以上至出生）",
-    "Fetal (TS23-26)": "小鼠胎儿期（TS23–26）"
+    "Fetal (TS23-26)": "小鼠胎儿期（TS23–26）",
+    "Download Data": "下载数据",
+    "Browser": "浏览",
+    "Gene Matrix": "基因矩阵",
+    "Download Details": "下载详情",
+    "Hierarchical data format used to store annotated data matrices, typically for single-cell omics data, including gene expression, metadata, and embeddings.": "用于存储带注释数据矩阵的层级化数据格式，常见于单细胞组学数据，包含基因表达、元数据与嵌入向量。",
+    "This download link permanently references": "此下载链接永久指向",
+    "this version": "此版本",
+    "of the dataset. If this dataset is updated, a new download link will be created that permanently references the next version of this dataset.": "的数据集。如果数据集更新，将生成一个永久指向该数据集下一版本的新下载链接。",
+    "The": "该",
+    "dataset schema": "数据集模式",
+    "describes the required metadata embedded in all datasets submitted to CZ CELLxGENE Discover.": "说明了提交至 CZ CELLxGENE Discover 的所有数据集必须内嵌的元数据。",
+    "Search cell types or tissues": "搜索细胞类型或组织",
+    "CellGuide is a": "本指南是",
+    "comprehensive resource for": "一个全面的资源库，提供",
+    "knowledge about cell types": "细胞类型的知识"
   },
   "rules": [
     {
@@ -197,6 +212,10 @@
       "re": "^(\\d[\\d,]*) 发表文献$",
       "to": "$1 篇发表文献",
       "repair": true
+    },
+    {
+      "re": "^CellGuide Cell Types and Cell Tissues - CZ CELLxGENE$",
+      "to": "细胞指南：细胞类型与组织 - CZ CELLxGENE"
     }
   ],
   "templates": [

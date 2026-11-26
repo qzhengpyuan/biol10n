@@ -442,7 +442,9 @@
     "Show predictions for sequences found only in UniProt reference proteomes": "仅显示出现在 UniProt 参考蛋白质组中的序列的预测",
     "Homodimer": "同源二聚体",
     "Heterodimer": "异源二聚体",
-    "Multimer": "多聚体"
+    "Multimer": "多聚体",
+    "help icon": "帮助图标",
+    "Select all on page": "全选本页"
   },
   "rules": [
     {
@@ -556,6 +558,14 @@
     {
       "re": "^(\\d+) copy of (.+)$",
       "to": "$2 的 1 个副本"
+    },
+    {
+      "re": "^([\\d.]+) \\((Confident)\\)$",
+      "to": "$1（可信）"
+    },
+    {
+      "re": "^([\\d.]+) \\((Very high)\\)$",
+      "to": "$1（极高）"
     }
   ],
   "templates": [

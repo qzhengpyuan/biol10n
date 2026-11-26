@@ -218,7 +218,20 @@
     "Use 'Advanced search' form to search Entries": "使用“高级检索”表单检索条目",
     "X-ray diffraction": "X 射线衍射",
     "Back to PDBe homepage": "返回 PDBe 首页",
-    "Compounds": "化合物"
+    "Compounds": "化合物",
+    "3D viewer paused due to slow connection": "因连接缓慢，3D 视图已暂停",
+    "Loading may take longer than usual.": "加载时间可能比平时更长。",
+    "Load 3D anyway": "仍然加载 3D",
+    "3D viewer paused": "3D 视图已暂停",
+    "Important dates related to this PDB entry": "与此 PDB 条目相关的重要日期",
+    "Date when the coordinates were deposited to the PDB archive": "坐标提交到 PDB 归档的日期",
+    "Date when the coordinates were released in the PDB archive": "坐标在 PDB 归档中发布的日期",
+    "Date of the current version or last minor or major revision of a PDB entry": "PDB 条目当前版本或最近一次修订的日期",
+    "Entry percentile scores": "条目百分位得分",
+    "help icon": "帮助图标",
+    "Column with Header Selection": "带表头选择的列",
+    "or": "或",
+    "Tel: +44 (0)1223 49 44 44": "电话：+44 (0)1223 49 44 44"
   },
   "rules": [
     {

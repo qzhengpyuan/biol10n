@@ -87,7 +87,17 @@
     "nt number": "nt 编号",
     "H number": "H 编号",
     "D number": "D 编号",
-    "DG number": "DG 编号"
+    "DG number": "DG 编号",
+    "KEGG Identifier": "KEGG 标识符",
+    "is a collection of manually drawn pathway maps representing our knowledge of the molecular interaction, reaction and relation networks for:": "收录人工绘制的通路图，呈现我们对下列各方面的分子相互作用、反应与关系网络的认识：",
+    "are used for different types of maps.": "用于不同类型的图。",
+    "Pathway maps are associated with": "通路图与",
+    "KEGG modules": "KEGG 模块",
+    "reaction modules": "反应模块",
+    "KEGG networks": "KEGG 网络",
+    "taxonomic groups": "分类群",
+    "of constituent modules.": "中的组成模块相关。",
+    "and": "和"
   },
   "rules": [
     {
@@ -111,6 +121,10 @@
     {
       "pat": "{{1}}, {{2}}, {{3}} and {{4}} tools",
       "zh": "{{1}}、{{2}}、{{3}} 与 {{4}} 工具"
+    },
+    {
+      "pat": "Each pathway map is identified by the combination of 2-4 letter prefix code and 5 digit number (see {{1}}). The prefix has the following meaning:",
+      "zh": "每张通路图由 2-4 个字母的前缀代码与 5 位数字组合标识（参见{{1}}）。各前缀的含义如下："
     }
   ]
 }

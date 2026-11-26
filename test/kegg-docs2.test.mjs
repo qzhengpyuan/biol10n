@@ -49,7 +49,7 @@ test("词库结构：规模、规则锚定、模板占位符", () => {
   assert.equal(dict.meta.family, "kegg-docs2");
   for (const host of ["www.kegg.jp", "www.genome.jp"]) assert.ok(dict.meta.sites.includes(host));
   assert.ok(Object.keys(dict.exact).length >= 70, "exact 少于 70 条");
-  assert.equal(dict.templates.length, 3);
+  assert.equal(dict.templates.length, 4);
   assert.equal(dict.rules.length, 2);
   for (const r of dict.rules) {
     assert.ok(r.re.startsWith("^") && r.re.endsWith("$"), "规则未锚定: " + r.re);

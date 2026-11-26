@@ -183,7 +183,99 @@
     "Renal cell carcinoma": "肾细胞癌",
     "Uterine Corpus Endometrial Carcinoma": "子宫体子宫内膜癌",
     "Ovary Serous Cystadenocarcinoma": "卵巢浆液性囊腺癌",
-    "No, we are not.": "不提供。"
+    "No, we are not.": "不提供。",
+    "IMMUNOHISTOCHEMISTRY DATA": "免疫组织化学数据",
+    "PROGNOSTIC SUMMARY": "预后摘要",
+    "PROTEIN STAINING": "蛋白质染色",
+    "PROTEIN STAINING SUMMARY": "蛋白质染色摘要",
+    "CANCER PROTEOME (TUMOR VS ADJACENT NORMAL)": "癌症蛋白质组（肿瘤与癌旁正常组织）",
+    "TUMOR VS ADJACENT NON-TUMOR": "肿瘤与癌旁非肿瘤组织",
+    "RNA category": "RNA 类别",
+    "RNA specificity": "RNA 特异性",
+    "RNA distribution": "RNA 分布",
+    "Protein category": "蛋白质类别",
+    "Consensus (normal tissue):": "共识（正常组织）：",
+    "Cell line (cancer):": "细胞系（癌症）：",
+    "TCGA (cancer):": "TCGA（癌症）：",
+    "ProteinTalks DB (cancer):": "ProteinTalks DB（癌症）：",
+    "Protein cancer category:": "蛋白质癌症类别：",
+    "Reliability score -": "可靠性评分 -",
+    "Drag to zoom, double-click to reset": "拖动可缩放，双击可重置",
+    "Hide points": "隐藏数据点",
+    "Show points": "显示数据点",
+    "Hide lines": "隐藏连线",
+    "Show lines": "显示连线",
+    "Without outliers": "不含离群值",
+    "With outliers": "含离群值",
+    "Potential prognostic - favorable": "潜在预后 - 有利",
+    "mRNA data": "mRNA 数据",
+    "histological dictionary": "组织学词典",
+    "classification": "分类",
+    "The Cancer Genome Atlas": "癌症基因组图谱（TCGA）",
+    "Toggle channels": "切换通道",
+    "View proteome in REACTOME": "在 Reactome 中查看蛋白质组",
+    "Compare selected": "比较所选",
+    "Target protein": "目标蛋白",
+    "Objects": "对象",
+    "Please wait until image is loaded before changing channels": "请等待图像加载完成后再切换通道",
+    "Thumbnail 10x": "缩略图 10x",
+    "Thumbnail 40x": "缩略图 40x",
+    "Origin": "来源",
+    "peak phase": "峰值时相",
+    "Cell cycle dependency": "细胞周期依赖性",
+    "Buttons for turning on and off the different channels in the multi-color images.": "用于开启或关闭多色图像中各通道的按钮。",
+    "Observed subcellular location(s).": "观察到的亚细胞定位。",
+    "Subcellular location of the protein(s) in U-2 OS FUCCI.": "U-2 OS FUCCI 中蛋白质的亚细胞定位。",
+    "Cell cycle dependent variation": "细胞周期依赖性变化",
+    "Cell lines ordered by organ of phenotypic resemblance.": "细胞系按表型相似器官排序。",
+    "Cell lines ordered by biological source for establishment order.": "细胞系按建系的生物学来源排序。",
+    "Cell lines ordered by descending RNA expression order.": "细胞系按 RNA 表达量降序排序。",
+    "Cell lines in alphabetically order.": "细胞系按字母顺序排列。",
+    "siRNA VALIDATION": "siRNA 验证",
+    "siRNA validation": "siRNA 验证",
+    "Enhanced: Significant downregulation > 25% by one siRNA.": "增强：被一条 siRNA 显著下调超过 25%。",
+    "Nuclear region of segmented cells in 10x-images": "10x 图像中分割细胞的核区域",
+    "siRNA that was used for the analysis.": "用于分析的 siRNA。",
+    "cell structure dictionary": "细胞结构词典",
+    "Cell line RNA Expression (nTPM)": "细胞系 RNA 表达（nTPM）",
+    "Protein expression across cell cycle": "细胞周期中的蛋白质表达",
+    "RNA expression across cell cycle": "细胞周期中的 RNA 表达",
+    "indirect immunofluorescence and confocal microscopy": "间接免疫荧光与共聚焦显微镜",
+    "indirect immunofluorescence microscopy": "间接免疫荧光显微镜",
+    "Single-cell variation": "单细胞变异",
+    "single-cell variations": "单细胞变异",
+    "Subcellular proteome": "亚细胞蛋白质组",
+    "Human gene name": "人类基因名",
+    "Human gene": "人类基因",
+    "Antibodies in assay": "检测所用抗体",
+    "No antibodies in assay": "检测未使用抗体",
+    "Intra-species specificity categories": "种内特异性类别",
+    "Regional specificity": "脑区特异性",
+    "Domain specificity": "脑域特异性",
+    "Regional distribution": "脑区分布",
+    "Enrichment change": "富集变化",
+    "Cross region category": "跨脑区类别",
+    "Detected in one or more regions but not spatially distinctive in any": "在一个或多个脑区检出，但在任一处都不具空间特异性",
+    "Specificity summary": "特异性摘要",
+    "Low niche specificity in all niches.": "各微环境的微环境特异性均低。",
+    "Niche specificity": "微环境特异性",
+    "Highest nCPM": "最高 nCPM",
+    "The data is based on": "数据来自",
+    "RNA cell type tau score:": "RNA 细胞类型 Tau 评分：",
+    "RNA neuronal cell type specificity:": "RNA 神经元细胞类型特异性：",
+    "RNA neuronal cell type tau score:": "RNA 神经元细胞类型 Tau 评分：",
+    "Single nuclei cell types": "单细胞核类型",
+    "Brain proteome": "脑蛋白质组",
+    "Brain cells": "脑细胞",
+    "nearest neighbours based on brain RNA expression": "基于脑 RNA 表达的最近邻",
+    "Human cell lines": "人类细胞系",
+    "Cell line methods": "细胞系方法",
+    "Cell line distribution": "细胞系分布",
+    "CELL LINE GROUPS": "细胞系分组",
+    "Cell line categories": "细胞系类别",
+    "COMMON CELL LINES": "常见细胞系",
+    "CELL LINE DATA": "细胞系数据",
+    "Pan-Cancer Atlas project": "泛癌图谱计划"
   },
   "rules": [
     {
@@ -235,6 +327,14 @@
       "re": "^(.+) \\(CPTAC\\), upregulated: (\\d+)$",
       "to": "$1（CPTAC）：上调 $2 个",
       "requireHit": true
+    },
+    {
+      "re": "^Non-significant \\((p<[0-9eE.+-]+)\\)$",
+      "to": "不显著（$1）"
+    },
+    {
+      "re": "^(.+) is a prognostic marker in:$",
+      "to": "$1 是以下癌症的预后标志物："
     }
   ],
   "templates": [
@@ -373,6 +473,46 @@
     {
       "pat": "The Kaplan-Meier plot shows the probability of survival at different time-points e.g. the probability of surviving 5 years while having the disease. The plot describes that at the start, i.e. at time-point zero, 100% of patients were alive. Over time, with each death, the number of patients alive decreases, which leads to a drop in the curve. This in turn means that with each death the probability of survival for remaining patients decreases. So, those patients who have lived 10 years have lower probability of survival than those who have lived 5 years. In order to see if the expression of a certain gene affects the survival rate, the patient material has been divided into two groups, with high or low expression. If a gene is unfavourable, the group with highest expression will have lower survival rate, i.e. the curve will drop earlier. For more information about Kaplan-Meier plots, including how probability is calculated, we would recommend this {{1}}",
       "zh": "Kaplan-Meier 曲线展示不同时间点的生存概率，例如患病后存活 5 年的概率。曲线表明，起点（即时间点 0）时 100% 的患者均存活。随着时间推移，每出现一例死亡，存活患者数就减少，曲线随之下移。这也意味着每出现一例死亡，剩余患者的生存概率都会下降。因此，已存活 10 年的患者，其生存概率低于已存活 5 年的患者。为判断某基因的表达是否影响生存率，患者材料被分为高表达与低表达两组。若某基因不利，则高表达组的生存率更低，即曲线下降更早。关于 Kaplan-Meier 曲线（包括概率如何计算）的更多信息，我们推荐阅读这篇{{1}}"
+    },
+    {
+      "pat": "Summary of data presented in the {{1}}, with representative images of protein expression in cancer (left) and correlation between mRNA expression and patient survival (right). Images are clickable and redirect to pages with more data.",
+      "zh": "本页汇总了{{1}}中展示的数据，包括癌症中蛋白质表达的代表性图像（左）以及 mRNA 表达与患者生存的相关性（右）。图像可点击，将跳转至含有更多数据的页面。"
+    },
+    {
+      "pat": "This section contains {{1}} and {{2}} of mRNA expression and patient survival . The protein expression data is derived from antibody-based protein profiling using immunohistochemistry.",
+      "zh": "本节包含{{1}}与{{2}}，涉及 mRNA 表达与患者生存。蛋白质表达数据来自基于抗体的免疫组织化学蛋白质谱分析。"
+    },
+    {
+      "pat": "A summary of RNA categories for human tissues, cell lines and cancer tissues. Categories for {{1}} include tissue enriched, group enriched, tissue enhanced, low tissue specificity and not detected. Categories for {{2}} include detected in single, detected in some, detected in many, detected in all and not detected.",
+      "zh": "汇总人体组织、细胞系与癌症组织的 RNA 类别。{{1}}的类别包括组织富集、组富集、组织增强、低组织特异性与未检出。{{2}}的类别包括单一检出、部分检出、多数检出、全部检出与未检出。"
+    },
+    {
+      "pat": "Human tissue RNA category is based on the {{1}} dataset, which is a combination of RNA data from human tissues from three sources: {{2}}, {{3}} and {{4}}. Cell line RNA category is based on RNA data from {{5}}. More information can be found about the {{6}} and {{7}} of these datasets.",
+      "zh": "人类组织 RNA 类别基于{{1}}数据集，该数据集由三个来源的人体组织 RNA 数据组合而成：{{2}}、{{3}} 与 {{4}}。细胞系 RNA 类别基于{{5}}的 RNA 数据。关于这些数据集的{{6}}与{{7}}，可查阅更多信息。"
+    },
+    {
+      "pat": "Cancer tissue RNA category is based on RNA data from the {{1}}.",
+      "zh": "癌症组织 RNA 类别基于{{1}}的 RNA 数据。"
+    },
+    {
+      "pat": "Antibody staining in 20 different cancers is summarized by a selection of four standard cancer tissue samples representative of the overall staining pattern. From left: colorectal cancer, breast cancer, prostate cancer and lung cancer. An additional fifth image can be added as a complement. The assay and annotation is described {{1}}. Note that samples used for immunohistochemistry by the Human Protein Atlas do not correspond to samples in the TCGA dataset. For histological reference, visit the {{2}}.",
+      "zh": "20 种癌症中的抗体染色由四张代表性的标准癌组织样本图像概括，以反映整体染色模式。从左至右依次为：结直肠癌、乳腺癌、前列腺癌与肺癌。可另加第五张图像作为补充。检测方法与注释见{{1}}。请注意，人类蛋白质图谱用于免疫组织化学的样本与 TCGA 数据集中的样本并不对应。组织学参考请查阅{{2}}。"
+    },
+    {
+      "pat": "Cell line used for analysis. Read more about the {{1}} in the Human Protein Atlas.",
+      "zh": "分析所用的细胞系。关于人类蛋白质图谱中{{1}}的更多信息见链接。"
+    },
+    {
+      "pat": "The CAGE method is described in detail {{1}}.",
+      "zh": "CAGE 方法的详细说明见{{1}}。"
+    },
+    {
+      "pat": "Non curated brain data available in the {{1}}.",
+      "zh": "{{1}}中提供未经整理的脑数据。"
+    },
+    {
+      "pat": "Please refer to the {{1}} of this section for more details.",
+      "zh": "更多细节请参阅本节的{{1}}。"
     }
   ]
 }

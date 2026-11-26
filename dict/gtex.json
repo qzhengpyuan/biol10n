@@ -579,7 +579,7 @@
     },
     {
       "re": "^©(\\d{4}) Broad Institute of MIT and Harvard\\. All rights reserved\\.$",
-      "to": "©$1 Broad Institute of MIT and Harvard 保留所有权利。"
+      "to": "©$1 Broad Institute of MIT and Harvard。保留所有权利。"
     },
     {
       "re": "^(.+) \\[Source:HGNC Symbol;Acc:(HGNC:\\d+)\\]$",

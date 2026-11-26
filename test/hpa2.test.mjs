@@ -64,9 +64,18 @@ test("词库可解析，meta 指向 hpa", () => {
   assert.ok(Array.isArray(dict.rules), "rules 必须是数组");
   // 本册早期不收规则，怕把图表里的数值与专名翻坏；0.13.0 起只为「图表 tooltip 整句」收规则，
   // 每条都必须 requireHit（要求命中已知词才替换），否则数字与基因名会被规则吞掉。
+  // 例外：捕获组按设计就不该翻——
+  //   「Non-significant (p<0.05)」：捕获组是 p 值，永远命中不了词表，requireHit 会让规则失效；
+  //   「TP53 is a prognostic marker in:」：捕获组是基因符号，本来就要原样保留，requireHit 同样会挡掉。
+  // 两条都是固定句式 + 槽位，不会误伤数值与专名。
+  const noRequireHit = new Set([
+    "^Non-significant \\((p<[0-9eE.+-]+)\\)$",
+    "^(.+) is a prognostic marker in:$",
+  ]);
   for (const r of dict.rules) {
     assert.equal(typeof r.re, "string", "规则必须是 {re,to} 对象");
     assert.equal(typeof r.to, "string");
+    if (noRequireHit.has(r.re)) continue;
     assert.equal(r.requireHit, true, "hpa2 的规则必须 requireHit，避免误伤数值与专名：" + r.re);
   }
 });

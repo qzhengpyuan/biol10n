@@ -77,3 +77,26 @@ cd dist && python3 -m http.server 8765 --bind 127.0.0.1
   `--load-extension=<profile 目录>/extensions/scriptcat` 与
   `--disable-features=DisableLoadExtensionCommandLineSwitch`（Chrome 137 起需要显式关掉这条 feature 才能命令行加载扩展）。
 - 验收期间的探针脚本 `SC Probe` 已删除（`chrome.storage.local` 里 `script:`/`scriptCode:` 记录一并清掉），PubMed 不再带 `data-sc-probe`。
+
+## 2026-11-26 复核（v0.16.3）
+
+环境换了：neo 影子实例走系统代理（FlClash 7897），外网站点（cellxgene、docs.cbioportal.org）打不开，
+所以这一轮改用**直连 headless + document-start 注入构建产物**，页面渲染与引擎口径与脚本猫一致：
+
+```bash
+google-chrome --headless=new --no-proxy-server --remote-debugging-port=9231 \
+  --user-data-dir=/tmp/biol10n-chk-profile-9231 about:blank &
+cd /mnt/E/code/biol10n
+CDP_PORT=9231 INJECT=1 node tools/miss-report.mjs cbio-docs 'https://docs.cbioportal.org/user-guide/faq/' 9000
+```
+
+| 站点 | 页面 | 结果 |
+|---|---|---|
+| CZ CELLxGENE | `/datasets` | 首扫 **526 ms**（此前 7007 ms）；全量重扫 **1026 ms**；单轮 19,286 节点 / 4,637 精确 / 812 规则；标题「数据集 - CZ CELLxGENE Discover」 |
+| cBioPortal 文档站 | 首页 | 42 节点 / 33 精确 / 1 规则；侧栏、页头、页脚全中文，标题「欢迎来到 cBioPortal 文档！」 |
+| cBioPortal 文档站 | FAQ | 401 节点 / 21 精确；正文（prose）按设计留英文，剩 0 条界面英文 |
+| cBioPortal 文档站 | 不存在的路径（404） | 标题「文件未找到」、正文「文档未找到」、通知句「更多信息请参阅故障排查指南以获取帮助。」；新增 6 条词条后剩 0 条界面英文 |
+
+新增词条：`Document not found`、`File Not Found`、`Please see the`、`troubleshooting`、`guide for assistance.`、`User guide free icon`。
+注意整句词条 `Please see the troubleshooting guide for assistance.` 匹配不到 —— Retype 把句子拆成三个节点，
+必须逐段登记；`Please see the` 的值与其他册对齐（`更多信息请参阅`），否则 `dict-lint` 跨册冲突会从 57 涨到 58。

@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2080 KB**（2,129,849 字节）；词库里 114 个文件共 34817 条词条（含 1772 条规则）+ 2172 条模板，覆盖 91 个站点
+- 单文件产物 **2080 KB**（2,129,957 字节）；词库里 114 个文件共 34823 条词条（含 1772 条规则）+ 2172 条模板，覆盖 91 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -197,7 +197,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | biostars | 134 | 40 | 7 | Biostars 生信问答站（排序/时限、登录、工具栏、徽章） |
 | biostudies | 262 | 26 | 23 | BioStudies（研究详情、集合、帮助、提交） |
 | books | 198 | 25 | 7 | NCBI Bookshelf（书架页、检索） |
-| cbio-docs | 223 | 4 | 30 | cBioPortal 文档站（Retype 站点） |
+| cbio-docs | 232 | 4 | 30 | cBioPortal 文档站（Retype 站点） |
 | cbioportal | 1189 | 55 |  | cBioPortal |
 | cbioportal2 | 54 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
 | cellxgene | 129 | 13 | 1 |  |
@@ -238,11 +238,11 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | gnomad | 245 | 10 | 5 | gnomAD |
 | gtex | 536 | 14 | 41 | GTEx Portal（含数据集页与文档） |
 | gtex-home | 245 | 13 | 33 | GTEx 首页与文档补漏 |
-| gxa | 548 | 38 |  | Expression Atlas（实验页、组织枚举、下载） |
+| gxa | 551 | 38 |  | Expression Atlas（实验页、组织枚举、下载） |
 | hpa | 1779 | 137 | 27 | Human Protein Atlas |
 | hpa2 | 176 | 10 | 34 | Human Protein Atlas 补漏（组织、单细胞、信息图） |
 | hpo | 184 | 10 | 9 | Human Phenotype Ontology（首页、术语页、基因页、注释与下载） |
-| imagej | 355 |  | 82 | ImageJ / Fiji Wiki（下载、插件、更新站点） |
+| imagej | 374 | 2 | 82 | ImageJ / Fiji Wiki（下载、插件、更新站点） |
 | intact | 219 | 7 | 56 |  |
 | interpro | 329 | 16 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
 | jaspar | 353 | 17 | 37 |  |
@@ -285,7 +285,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | scp | 199 | 4 | 7 |  |
 | seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
-| snakemake | 204 | 17 | 86 | Snakemake 工作流文档（教程、参考、部署） |
+| snakemake | 207 | 17 | 86 | Snakemake 工作流文档（教程、参考、部署） |
 | snp | 123 | 4 | 5 | NCBI dbSNP |
 | spa | 136 |  |  | 各站共用的单页应用骨架词 |
 | string-atlas | 700 | 43 | 40 | STRING 与 EMBL-EBI Expression Atlas |
@@ -302,13 +302,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 773 | 16 |  | UniProt |
 | uniprot2 | 98 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **34789 条 / 1770 条规则 / 2172 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **34823 条 / 1772 条规则 / 2172 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（2166 条）
+npm test             # 引擎、面板、站点与产物单测（2,000+ 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

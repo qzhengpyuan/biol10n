@@ -2,7 +2,15 @@
 /**
  * 用真实浏览器（CDP）打开一个页面，列出「脚本跑完后仍然是英文」的短文本与属性。
  * 用法: node tools/miss-report.mjs <siteId> <url> [waitMs]
- * 依赖: 本机已跑 BrowserOS neo 并开放 --remote-debugging-port（默认 9227）
+ * 依赖: 一个开放 CDP 的浏览器（端口取 CDP_PORT，默认 9227 = BrowserOS neo）。
+ *
+ * 两种跑法：
+ *   1) neo + ScriptCat 装了本脚本 —— 直接读 \`window.__BIOL10N\`。
+ *   2) 直连 headless（站点走系统代理时 neo 打不开，用 --no-proxy-server 起一个 Chrome，
+ *      设 INJECT=1 让本工具在 document-start 注入 dist/biol10n.user.js，等价于脚本猫注入）：
+ *        google-chrome --headless=new --no-proxy-server --remote-debugging-port=9231 \
+ *          --user-data-dir=/tmp/biol10n-chk-profile-9231 about:blank &
+ *        CDP_PORT=9231 INJECT=1 node tools/miss-report.mjs cbioportal-docs <url>
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -53,7 +61,8 @@ const COLLECTOR = `(() => {
     const n = tw.currentNode;
     const p = n.parentElement;
     if (!p || SKIP.has(p.tagName)) continue;
-    if (p.closest("code,pre,svg,script,style,.highlight,.blob-code")) continue;
+    // head 里的 <link title> 之类不可见，报出来只是噪音（每站都会撞上一条 "Sitemap"）
+    if (p.closest("head,code,pre,svg,script,style,.highlight,.blob-code")) continue;
     const t = (n.nodeValue || "").replace(/\\s+/g, " ").trim();
     if (!t || t.length > 80) continue;
     if (/[\\u3400-\\u9fff]/.test(t)) continue;
@@ -63,6 +72,8 @@ const COLLECTOR = `(() => {
   const attrs = [];
   const seen = new Set();
   for (const el of document.querySelectorAll("input,textarea,img,button,a,[placeholder],[title],[aria-label],[alt]")) {
+    // 同上：<head> 里的 <link rel=alternate title=Sitemap> 是给浏览器/爬虫看的，不是界面文字
+    if (el.closest("head")) continue;
     const names = ["placeholder", "title", "aria-label", "alt"];
     // 隐藏控件（type=hidden）里的 value 是给站点 JS 读的配置，不是可见文字，翻它反而会改坏行为
     if ((el.tagName === "INPUT" && el.type !== "hidden") || el.tagName === "TEXTAREA") names.push("value");
@@ -95,6 +106,13 @@ const { sessionId } = await b.send("Target.attachToTarget", { targetId, flatten:
 const send = (m, p = {}) => b.send(m, p, sessionId);
 await send("Page.enable");
 await send("Runtime.enable");
+// INJECT=1（或给具体文件路径）：在 document-start 注入构建产物，替代脚本猫。
+// 注入发生在导航之前，与 userscript 的 run-at document-start 一致，so 首扫口径可比。
+if (process.env.INJECT) {
+  const p = process.env.INJECT === "1" ? path.join(root, "dist/biol10n.user.js") : process.env.INJECT;
+  await send("Page.addScriptToEvaluateOnNewDocument", { source: fs.readFileSync(p, "utf8") });
+  console.log("# 注入 " + p);
+}
 await send("Page.navigate", { url });
 
 const deadline = Date.now() + 45000;

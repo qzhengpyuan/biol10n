@@ -440,3 +440,29 @@ test("rules：搜索面板的 Top N results / N results 按数字改写", () => 
   const ps = [...doc.querySelectorAll("p")].map((e) => zh(e.textContent));
   assert.deepEqual(ps, ["前 20 条结果", "3 条结果", "1 条结果", "抱歉，未找到结果。"]);
 });
+// ---------------- 404 页与通知句（Retype 内置页，2026-11-26 站点恢复后实测） ----------------
+
+test("新增条目：404 页标题/正文与通知句片段", () => {
+  assert.equal(dict.exact["Document not found"], "文档未找到");
+  assert.equal(dict.exact["File Not Found"], "文件未找到");
+  // 站点把整句拆成「Please see the」+ <a>troubleshooting</a> + 「guide for assistance.」三个节点，
+  // 整句词条永远匹配不到；值与其他册的「Please see the」对齐（dict-lint 跨册冲突）
+  assert.equal(dict.exact["Please see the"], "更多信息请参阅");
+  assert.equal(dict.exact["troubleshooting"], "故障排查");
+  assert.equal(dict.exact["guide for assistance."], "指南以获取帮助。");
+  assert.equal(dict.exact["User guide free icon"], "用户指南图标");
+});
+
+test("404 页：拆成三个节点的通知句逐段译出，链接与 href 保留", () => {
+  const { doc } = mount(
+    '<main><div class="relative retype-markdown" id="retype-content">' +
+      '<p>Please see the <a href="https://docs.cbioportal.org/troubleshooting/">troubleshooting</a> guide for assistance.</p>' +
+      '<h1>Document not found</h1>' +
+      '</div></main>',
+    "https://docs.cbioportal.org/3.0-datasets/downloads/"
+  );
+  const p = doc.querySelector("p");
+  assert.equal(zh(p.textContent), "更多信息请参阅故障排查指南以获取帮助。");
+  assert.equal(p.querySelector("a").getAttribute("href"), "https://docs.cbioportal.org/troubleshooting/");
+  assert.equal(zh(doc.querySelector("h1").textContent), "文档未找到");
+});

@@ -12,6 +12,8 @@ const warn = (m) => { warns++; console.log("  ⚠ " + m); };
 
 const CJK = /[\u4e00-\u9fff]/;
 // 不含任何个人标识：只匹配通用形式的绝对路径与邮箱
+const LOCAL_PATH = /(\/mnt\/|\/home\/|\/Users\/[^/\s]+|C:\\\\Users\\\\)/i;
+const EMAIL = /[\w.+-]+@[\w-]+\.[\w.]+/gi;
 const BAD_VALUE = /(\/mnt\/|\/home\/|\/Users\/[^/\s]+|C:\\\\Users\\\\|[\w.+-]+@[\w-]+\.[\w.]+)/i;
 
 // ---------- 1. 词库 ----------
@@ -51,7 +53,12 @@ for (const f of files) {
     if (!t || typeof t.pat !== "string" || typeof t.zh !== "string") { err(f + " 模板缺 pat/zh"); continue; }
     if (CJK.test(t.pat)) err(f + " 模板 pat 含中文: " + t.pat.slice(0, 60));
     if (!CJK.test(t.zh)) err(f + " 模板 zh 不含中文: " + t.pat.slice(0, 60));
-    if (BAD_VALUE.test(t.zh)) err(f + " 模板 zh 含本机信息: " + t.pat.slice(0, 60));
+    // 模板原文里本来就有联系邮箱（Addgene 的 help@addgene.org、NCBI 的 info@ncbi.nlm.nih.gov）时，
+    // 译文照抄该邮箱是正确行为（test/r44、r69 明确断言「邮箱不应被改写」）；只拦译文自己编出来的地址。
+    if (LOCAL_PATH.test(t.zh)) err(f + " 模板 zh 含本机路径: " + t.pat.slice(0, 60));
+    for (const mail of t.zh.match(EMAIL) || []) {
+      if (!t.pat.includes(mail)) err(f + " 模板 zh 含 pat 里没有的邮箱: " + t.pat.slice(0, 60) + " → " + mail);
+    }
     const nums = (s) => (s.match(/\{\{(\d+)\}\}/g) || []).map((x) => Number(x.replace(/\D/g, "")));
     const a = nums(t.pat), b = nums(t.zh);
     if (!a.length) err(f + " 模板 pat 没有占位符: " + t.pat.slice(0, 60));

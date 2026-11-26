@@ -75,7 +75,15 @@ test("词库结构与站点栈：条数、键值形态、规则可编译、模�
   assert.deepEqual(site.hosts, ["imagej.net", "www.imagej.net"]);
   assert.ok(Object.keys(book.exact).length >= 300, "exact 至少 300 条，实际 " + Object.keys(book.exact).length);
   assert.ok(book.templates.length >= 75, "模板至少 75 条，实际 " + book.templates.length);
-  assert.equal(book.rules.length, 0, "本站日期由 common 的通用日期规则兜住，本册不重复写");
+  // 日期由 common 的通用日期规则兜住，本册只允许「单标签别名」规则：
+  // 与其它册同键异义、又不能进 exact 的界面词（Contribute / Process）走 ^词$ 形式，
+  // 这样不会影响其它站点的译文，也不增加跨册 exact 冲突。
+  const labelRules = (book.rules || []).filter((r) => /^\^[^$(){}\[\]?*+|]+\$$/.test(r.re));
+  assert.equal(
+    (book.rules || []).length,
+    labelRules.length,
+    "本册只允许单标签别名规则，不允许日期/捕获组类规则"
+  );
   const seen = new Set();
   for (const [k, v] of Object.entries(book.exact)) {
     assert.ok(!CJK.test(k), "键里不能有中文: " + k);
@@ -91,7 +99,10 @@ test("词库结构与站点栈：条数、键值形态、规则可编译、模�
     assert.ok(r.re.startsWith("^") && r.re.endsWith("$"), "规则必须首尾锚定: " + r.re);
     assert.doesNotThrow(() => new RegExp(r.re), "规则正则必须能编译: " + r.re);
     assert.ok(CJK.test(r.to), "规则译文里必须有中文: " + r.re);
-    assert.ok(/\$\d/.test(r.to), "带捕获组的规则要用到占位符: " + r.re);
+    // 单标签别名规则（^Contribute$）没有捕获组，也不该出现占位符；
+    // 其余带捕获组的规则必须把每个捕获组都用上。
+    if (/\$\d/.test(r.to)) continue;
+    assert.ok(!/\([^)]*\)/.test(r.re), "规则有捕获组却没用到占位符: " + r.re);
   }
   const pats = new Set();
   for (const t of book.templates) {
@@ -113,6 +124,31 @@ test("exact 通道：全量命中，且不改动插件名 / 版本号 / URL", ()
     assert.equal(engine.translateText(en), zh, "未命中: " + en);
   }
   for (const keep of ["BoneJ", "TrackMate", "2.16.0", "https://ij.imjoy.io", "ImgLib2", "SCIFIO"]) {
+    const out = engine.translateText(keep);
+    assert.ok(out === null || out === keep, "不该翻的保持英文: " + keep + " -> " + out);
+  }
+});
+
+test("左侧导航长树：顶层与二级标签全覆盖，箭头符号随文字保留", () => {
+  const { engine } = boot("");
+  const want = {
+    "Contribute": "参与贡献",
+    "IDEs": "集成开发环境",
+    "Users ▼": "用户 ▼",
+    "▲ Community ▲": "▲ 社区 ▲",
+    "▼ Developers": "▼ 开发者",
+    "Public domain": "公有领域",
+    "Raspberry Pi": "树莓派",
+    "Changing Location of Plugins Directory": "更改插件目录位置",
+    "Why Open Source?": "为什么选择开源？",
+    "Voxelization": "体素化",
+    "on a Mac": "在 Mac 上"
+  };
+  for (const [en, zh] of Object.entries(want)) {
+    assert.equal(engine.translateText(en), zh, "导航标签未翻: " + en);
+  }
+  // 插件名、平台名、许可名保持英文
+  for (const keep of ["BoneJ", "ImgLib2", "Maven", "NetBeans", "MIT License", "Zeiss LSM"]) {
     const out = engine.translateText(keep);
     assert.ok(out === null || out === keep, "不该翻的保持英文: " + keep + " -> " + out);
   }

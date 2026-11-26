@@ -112,7 +112,8 @@
           "match": "or HTTPS means",
           "text": "锁形图标或 HTTPS 表示你已安全连接到 .gov 网站。仅在官方安全网站上分享敏感信息。"
         }
-      ]
+      ],
+      "fixVertical": true
     },
     {
       "hosts": [

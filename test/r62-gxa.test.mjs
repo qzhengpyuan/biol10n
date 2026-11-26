@@ -242,3 +242,19 @@ test("同一批术语在 gxa 与 anatomy 之间大小写不打架（小写形态
     }
   }
 });
+
+test("搜索后端不可用时的 400 报错页：整句与返回链接都中文化，链接与 href 保留", () => {
+  const { doc } = makeEngine(
+    '<div role="main"><div class="row"><div class="small-6 small-centered columns">' +
+      '<h4>错误<span style="color:indianred;font-weight: bold;">400</span></h4>' +
+      "<div><h5>The Expression Atlas Solr server could not be reached.</h5></div>" +
+      '<h5 class="margin-top-xlarge">Go back to <a href="/gxa/home">Expression Atlas home page</a>.</h5>' +
+      "</div></div></div>",
+    "https://www.ebi.ac.uk/gxa/search"
+  );
+  const h5 = [...doc.querySelectorAll("h5")].map((h) => h.textContent.replace(/\s+/g, " ").trim());
+  assert.equal(h5[0], "无法连接到 Expression Atlas 的 Solr 服务器。");
+  // 句末的英文句点由 punctFix 统一成全角句号
+  assert.equal(h5[1], "返回 Expression Atlas 首页。");
+  assert.equal(doc.querySelector("h5 a").getAttribute("href"), "/gxa/home");
+});

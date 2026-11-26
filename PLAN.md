@@ -97,7 +97,7 @@ node tools/apply.mjs
 - **gdc / cBioPortal 补译**（第二轮，上一轮被 dsh 重启打断、零改动）：GDC 门户（首页、Projects、Repository、Downloads、
   CohortBuilder、项目页、cart、manage_sets）+ GDC 文档站 + cBioPortal（首页、datasets、study summary、results），
   三册合计 +41 exact（`gdc2` 8→16、`gdc-docs` 1113→1114、`cbioportal2` 54→86），`test/gdc-cbio-r2.test.mjs` 12 条。
-  GDC 门户的两个 8.6 MB Next.js chunk 在本网络必截断，要用 CDP Fetch 回灌本地副本才能渲染（工装 `/tmp/gdc-load.mjs`，不入库）。
+  GDC 门户的两个 8.6 MB Next.js chunk 在本网络必截断，要用 CDP Fetch 回灌本地副本才能渲染（回灌工装留档 `/mnt/E/临时文件/biol10n-gdc-load.mjs`，不入库）。
 - **SCP app 内文案**（上一轮记的是「bundle 下不完」）：真因是 HTTP/2 —— h2 下 210 s 节点数恒为 12、
   控制台 `ERR_HTTP2_PROTOCOL_ERROR`、5.4 MB 的 app JS 单连接只下到 2.9 MB 就断；加 `--disable-http2` 后 5.5–6.6 s 下完、节点 12→543。
   `dict/scp.json` +50 exact / +1 规则，`test/r73-scp-app.test.mjs` 12 条；列表页剩 40 条英文全是物种/器官/建库方案/研究名（数据，不翻）。
@@ -173,7 +173,8 @@ node tools/apply.mjs
   少改一处 `--check` 照样报一致，但 README 上就有一半是旧数字（0.16.4 已修）。
 - **HTTP/2 会把大 bundle 掐断**：SCP 的 5.4 MB app JS、GDC 门户的两个 8.6 MB Next.js chunk，在本网络走 h2 时
   单连接只下到一半就 `ERR_HTTP2_PROTOCOL_ERROR`，页面永远空白，看起来像「站点慢」或「SPA 没 hydrate」。
-  取证实例一律加 `--disable-http2`；GDC 那种必截断的还要用 CDP Fetch 拦 document 请求、回灌本地副本。
+  取证实例一律加 `--disable-http2`；GDC 那种必截断的还要用 CDP Fetch 拦 document 请求、回灌本地副本
+  （工装 `/mnt/E/临时文件/biol10n-gdc-load.mjs`）。
 - **`common` 里的小写 exact 会被 Title-case 命中**：引擎有 `lowerIndex` 小写兜底，在 `common` 写 `"new": "新增"`
   会让页面上的 `New`（Ensembl 页签 / Biomart 按钮）抢在站内规则 `^New$ → 新建` 之前被翻成「新增」，
   两套既有测试直接红。小写词要通用化时用**大小写敏感的规则**（`^new$`），不要进 exact。

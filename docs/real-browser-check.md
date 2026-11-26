@@ -100,3 +100,33 @@ CDP_PORT=9231 INJECT=1 node tools/miss-report.mjs cbio-docs 'https://docs.cbiopo
 新增词条：`Document not found`、`File Not Found`、`Please see the`、`troubleshooting`、`guide for assistance.`、`User guide free icon`。
 注意整句词条 `Please see the troubleshooting guide for assistance.` 匹配不到 —— Retype 把句子拆成三个节点，
 必须逐段登记；`Please see the` 的值与其他册对齐（`更多信息请参阅`），否则 `dict-lint` 跨册冲突会从 57 涨到 58。
+
+## 2026-11-27 复核（v0.16.5 途中）
+
+两条工具/配置变化来自这一轮的实测：
+
+1. **SPA 站必须走「首页再点导航」**：CELLxGENE 的 `/datasets`、`/collections` 直连时 SSR 只吐 header、客户端不 hydrate，
+   直接 `Page.navigate` 拿到的是 22 个节点、3 条文本的假页面（看着「没有缺口」）；先在首页等渲染，再 `click` 导航链接，
+   同一页是 19,353 个节点 / 4,667 精确命中。`tools/miss-report.mjs` 现在支持：
+
+```bash
+CDP_PORT=9231 INJECT=1 VIA_HOME=1 node tools/miss-report.mjs cellxgene https://cellxgene.cziscience.com/datasets 18000
+```
+
+   找不到对应链接时退化为 `history.pushState` + `popstate`（日志里会打「导航方式: click / pushState」）。
+
+2. **Europe PMC 的 `.highlight` 不是检索词高亮**：关于页 `/about` 只有 1 个 `.highlight`（侧栏当前项 `What is Europe PMC?`），
+   检索页 `/search?query=BRCA1` 与文章页 `/article/MED/…` 各 0 个、也没有 `<mark>`。全局 blocklist 里的 `.highlight` 会把它整块跳过，
+   所以给 `europepmc` 站点加了一条 `block` 覆盖（去掉 `.highlight`，其余默认项照旧），并在 `src/boot.js` 让 `site.block` 真正生效。
+   复核同一页：exact 134→136、文本 63→62，侧栏当前项变中文，代码块仍跳过。
+
+   Cloudflare：Europe PMC 用 headless（带或不带 `--no-proxy-server`）都会停在「请稍候…」挑战页；
+   用 `:99` 上的**非 headless** Chrome（`--no-proxy-server`）能过，命令：
+
+```bash
+env -u WAYLAND_DISPLAY -u WAYLAND_SOCKET DISPLAY=:99 google-chrome \
+  --user-data-dir=/tmp/biol10n-chk-epmc2 --remote-debugging-port=9235 --no-proxy-server \
+  --window-size=1280,900 about:blank &
+```
+
+   STRING（`string-db.org`）即使非 headless 也过不去 Cloudflare（页面一直是「请稍候…」，等 40 s 不变）。

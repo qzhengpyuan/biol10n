@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2094 KB**（2,144,213 字节）；词库里 114 个文件共 35161 条词条（含 1798 条规则）+ 2183 条模板，覆盖 91 个站点
+- 单文件产物 **2096 KB**（2,146,393 字节）；词库里 114 个文件共 35211 条词条（含 1800 条规则）+ 2183 条模板，覆盖 91 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -210,7 +210,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | clinvar-help | 608 | 3 | 10 | ClinVar 文档（FAQ、审核状态、字段定义） |
 | clinvar-submit | 214 | 8 |  | ClinVar 提交门户与高级检索构建器 |
 | clinvar-tip | 41 |  |  | ClinVar 工具提示与气泡 |
-| common | 698 | 51 | 1 | 跨站通用界面词与规范化规则 |
+| common | 698 | 52 | 1 | 跨站通用界面词与规范化规则 |
 | dbvar-bioproject | 201 | 20 | 2 | dbVar / BioProject |
 | ebi-home | 61 | 2 | 1 | EMBL-EBI 全局页头页脚与首页（多站复用） |
 | ebi-training | 52 | 2 |  | EMBL-EBI 培训（课程、线上讲座、材料） |
@@ -282,7 +282,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
 | reactome | 541 | 58 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
 | rfam | 363 | 37 | 31 | Rfam（首页、家族页、检索、下载、帮助文档） |
-| scp | 201 | 4 | 7 |  |
+| scp | 251 | 5 | 7 |  |
 | seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
 | snakemake | 207 | 17 | 86 | Snakemake 工作流文档（教程、参考、部署） |
@@ -302,7 +302,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 769 | 16 |  | UniProt |
 | uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **35161 条 / 1798 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **35211 条 / 1800 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

@@ -108,8 +108,11 @@ const boot = read("src/boot.js")
   .replace("__BIOL10N_VERSION__", () => pkg.version);
 
 const out = header + "\n" + engine + "\n" + ui + "\n" + boot;
-fs.mkdirSync(path.join(root, "dist"), { recursive: true });
-fs.writeFileSync(path.join(root, "dist/biol10n.user.js"), out);
+// OUT=<路径> 时写到别处（并行子代理各建各的产物，不再互相覆盖 dist/）。
+// dist/build-meta.json 只对默认产物写：它是 dist-fresh.test.mjs 的判据，别让旁路构建把它刷旧。
+const outPath = process.env.OUT ? path.resolve(process.env.OUT) : path.join(root, "dist/biol10n.user.js");
+fs.mkdirSync(path.dirname(outPath), { recursive: true });
+fs.writeFileSync(outPath, out);
 
 // 构建指纹：单测拿它和磁盘词库比，防止「盘上改了、dist 还是旧的」这种假修复
 // （检查方 r22 的 P0-2 就是这样连着两轮报的）。
@@ -154,8 +157,8 @@ for (const id of Object.keys(dict)) {
     return new Date(mx).toISOString();
   })()
 };
-fs.writeFileSync(path.join(root, "dist/build-meta.json"), JSON.stringify(stamp, null, 2) + "\n");
+if (!process.env.OUT) fs.writeFileSync(path.join(root, "dist/build-meta.json"), JSON.stringify(stamp, null, 2) + "\n");
 
 const kb = (out.length / 1024).toFixed(1);
-console.log("已生成 dist/biol10n.user.js  (" + kb + " KB, " +
+console.log("已生成 " + (process.env.OUT ? outPath : path.relative(root, outPath)) + "  (" + kb + " KB, " +
   Object.keys(dict).length + " 个词库, " + sites.sites.length + " 个站点)");

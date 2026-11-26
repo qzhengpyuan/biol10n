@@ -187,6 +187,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | bioc | 278 | 15 | 30 | Bioconductor 官网（首页、安装、关于、帮助、BiocViews） |
 | biogrid | 121 | 8 | 7 | BioGRID 主站与帮助 wiki（检索框、统计、发布） |
 | biomart | 338 | 23 |  | Ensembl BioMart（数据集、Filters/Attributes、Results、导出） |
+| biostars | 134 | 40 | 7 | Biostars 生信问答站（排序/时限、登录、工具栏、徽章） |
 | biostudies | 262 | 26 | 23 | BioStudies（研究详情、集合、帮助、提交） |
 | books | 198 | 25 | 7 | NCBI Bookshelf（书架页、检索） |
 | cbio-docs | 223 | 4 | 30 | cBioPortal 文档站（Retype 站点） |
@@ -234,6 +235,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | hpa | 1779 | 137 | 27 | Human Protein Atlas |
 | hpa2 | 176 | 10 | 34 | Human Protein Atlas 补漏（组织、单细胞、信息图） |
 | hpo | 184 | 10 | 9 | Human Phenotype Ontology（首页、术语页、基因页、注释与下载） |
+| imagej | 355 |  | 82 | ImageJ / Fiji Wiki（下载、插件、更新站点） |
 | intact | 219 | 7 | 56 |  |
 | interpro | 329 | 16 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
 | jaspar | 353 | 17 | 37 |  |
@@ -242,6 +244,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | kegg-docs2 | 79 | 2 | 3 | KEGG 文档补漏（通路、模块、KO） |
 | medgen-gtr | 335 | 72 | 2 | MedGen / GTR |
 | mesh | 83 | 7 |  | NCBI MeSH |
+| metabolights | 315 | 15 | 11 | MetaboLights 代谢组学数据库（实验页、下载、帮助） |
 | mirbase | 162 | 22 |  | miRBase |
 | misc-extra | 217 | 5 | 3 | UALCAN / GTEx / GEPIA2 补漏 |
 | misc-tpl | 32 |  | 83 | 杂项整段模板 |
@@ -255,6 +258,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ncbi-home | 42 | 5 |  | NCBI 首页与全站导航 |
 | ncbi-new2 | 158 | 12 | 2 | MedGen / GTR / dbVar / BioProject / Structure / NLM Catalog / ORFfinder / Guide / Datasets 深页 |
 | ncbi-struct | 197 | 27 |  | Structure / CCD / IPG 记录页 |
+| nextflow | 203 | 15 | 32 | Nextflow 官网与文档站（含 docs.seqera.io） |
 | nextprot | 12 |  | 9 | neXtProt 退役归档页 |
 | nfcore | 401 | 19 | 52 | nf-core 官网（首页、流程目录、工具、文档） |
 | onco | 239 | 9 |  | TCGA 队列、变异类型、生存统计 |
@@ -264,6 +268,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | pmc | 82 | 17 |  | NCBI PMC（首页、页眉页脚、文章骨架） |
 | pmc-home | 47 | 5 | 4 | PMC 首页与检索 |
 | pride | 394 | 43 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
+| proteomexchange | 27 | 1 | 10 | ProteomeXchange 蛋白质组数据联盟（提交与数据集检索） |
 | pubchem-dbgap | 695 | 18 | 3 | PubChem 与 dbGaP |
 | pubmed2 | 26 | 3 | 1 | PubMed 首页与结果页补漏 |
 | rcsb | 723 | 34 | 3 | RCSB PDB（含新版首页与检索） |
@@ -273,6 +278,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | scp | 199 | 4 | 7 |  |
 | seq | 162 | 15 |  | NCBI Nucleotide / Protein / Assembly |
 | seq2 | 37 | 5 | 1 | NCBI Nucleotide / Protein 补漏 |
+| snakemake | 204 | 17 | 86 | Snakemake 工作流文档（教程、参考、部署） |
 | snp | 123 | 4 | 5 | NCBI dbSNP |
 | spa | 136 |  |  | 各站共用的单页应用骨架词 |
 | string-atlas | 700 | 43 | 40 | STRING 与 EMBL-EBI Expression Atlas |
@@ -289,13 +295,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 773 | 16 |  | UniProt |
 | uniprot2 | 98 | 13 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **33551 条 / 1682 条规则 / 1944 条模板**（108 册 / 85 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **34789 条 / 1770 条规则 / 2172 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
 ```bash
 npm install          # 只装 jsdom（仅测试用）
-npm test             # 引擎、面板、站点与产物单测（1994 条）
+npm test             # 引擎、面板、站点与产物单测（2166 条）
 node tools/check.mjs # 词库格式、代码红线、术语一致性
 node tools/terms.mjs # 术语一致性单独校验
 npm run build        # 生成 dist/biol10n.user.js（单文件、内联全部词库）

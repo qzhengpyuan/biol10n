@@ -231,7 +231,7 @@
     "All searches are performed against a subset of the archive specified by the Data type you choose to search against. You can then build your search query to specify what data you are looking for and select what fields you want to retrieve from your search. There are additional options to include/exclude specific datasets as well as filter the number of results you wish to return.": "所有检索都针对所选数据类型对应的档案子集进行。您可以再构建检索式来指明要找的数据，并选择希望从检索结果中获取的字段。此外还可以包含/排除特定数据集，以及限定返回的结果数量。",
     "If you want to access the same data programmatically, you can copy the produced curl request and run this yourself against the ENA Portal API.": "如需以编程方式访问相同数据，可复制生成的 curl 请求，自行对 ENA Portal API 执行。",
     "Data Type": "数据类型",
-    "Query": "查询式",
+    "Query": "查询",
     "Inclusion/Exclusion": "包含/排除",
     "Fields": "字段",
     "Data Filters": "数据筛选",

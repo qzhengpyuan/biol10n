@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.16.5。
+> 最后更新：2026-11-27，对应版本 0.16.6。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.16.5 |
+| 版本 | 0.16.6 |
 | 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2313 条全绿（`npm test`，约 180 s） |
-| 产物 | `dist/biol10n.user.js` 2,147,569 字节（约 2097 KB） |
+| 单测 | 2319 条全绿（`npm test`，约 180 s） |
+| 产物 | `dist/biol10n.user.js` 2,147,696 字节（约 2097 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.16.5 已推送（main 与 release 同版本对齐，release 头 = v0.16.5）。
+0.16.0–0.16.6 已推送（main 与 release 同版本对齐，release 头 = v0.16.6）。
 
 ## 结构
 
@@ -112,6 +112,16 @@ node tools/apply.mjs
 - **PLAN 去重**：文件曾被贴成同一份两遍、中间一条坑断在半句，已修回单份。
 - 验收：`npm test` 2313 条全绿；`dict-lint` 35252 条、跨册冲突 57 组未涨；`dist/biol10n.user.js` 2,147,569 字节。
 
+本轮（2026-11-27 凌晨，0.16.6）收掉的：
+
+- **站级不翻名单接进命令行工具**：`config/sites.json` 的 `missNoise` 原先只给页面内漏翻面板（`src/ui.js` 的 `isNoise`）用，
+  `tools/miss-report.mjs` 照样把流程名刷进清单。现在工具按站点 id 读同一份名单过滤：GDC 文档站那页从 53 条降到 1 条
+  （余下 `API` 是缩写，故意不进名单——子串匹配会顺带吃掉 `Rapid` 这类词）。
+- **gdc-docs 的 missNoise 补到 38 条**：BWA / ASCAT / Arriba / MuSE / VarScan2 / CellRanger / STAR / dbGaP / TCIA / UUID / USA.gov
+  等实测出现过的流程名与标识符。
+- **`Query` 标签改「查询」**（`common` 与 `ena` 同改，句子里的「检索式」不动）：页签上读「查询式」是把标签当检索表达式了。
+- `test/query-noise.test.mjs` 6 条：两册同值、正文句子不动、名单覆盖实测流程名、名单不吃界面词、词库确实没有这些流程名的 exact。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -183,7 +193,7 @@ node tools/apply.mjs
 
 ## 验收标准
 
-- `npm test` 全绿（2313 条，当前）
+- `npm test` 全绿（2319 条，当前）
 - `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
 - 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
 - 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms

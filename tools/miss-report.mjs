@@ -175,6 +175,22 @@ if (res.exceptionDetails) {
 }
 const data = JSON.parse(res.result.value);
 data.siteId = siteId;
+// 站点级噪音名单（config/sites.json 的 missNoise）：流程名/工具名/品牌本来就不翻，
+// 混在清单里会盖住真缺口。页面内的漏翻面板（src/ui.js 的 isNoise）早就按这份名单过滤，
+// 命令行工具这边也得一致，否则「每轮都要人工把这些名字划掉」。
+let siteNoise = [];
+try {
+  const cfg = JSON.parse(fs.readFileSync(path.join(root, "config/sites.json"), "utf8"));
+  const site = (cfg.sites || []).find((s) => s.id === siteId);
+  siteNoise = (site && site.missNoise) || [];
+} catch (e) { /* 没有配置就不过滤 */ }
+const isNoise = (t) => siteNoise.some((n) => n && String(t).toLowerCase().includes(String(n).toLowerCase().trim()));
+if (siteNoise.length) {
+  const t0 = data.texts.length, a0 = data.attrs.length;
+  data.texts = data.texts.filter((x) => !isNoise(x[0]));
+  data.attrs = data.attrs.filter((x) => !isNoise(x[1]));
+  data.noiseFiltered = { texts: t0 - data.texts.length, attrs: a0 - data.attrs.length, list: siteNoise.length };
+}
 data.collectedAt = new Date().toISOString();
 
 fs.mkdirSync(path.join(root, "research"), { recursive: true });
@@ -189,6 +205,7 @@ await b.send("Target.closeTarget", { targetId });
 b.close();
 
 console.log("#", siteId, "|", data.title, "| 已注入:", data.translated, "| 统计:", JSON.stringify(data.stats));
-console.log("# 文本 " + data.texts.length + " 条，属性 " + data.attrs.length + " 条");
+console.log("# 文本 " + data.texts.length + " 条，属性 " + data.attrs.length + " 条" +
+  (data.noiseFiltered ? "（已按站级 missNoise 过滤 " + data.noiseFiltered.texts + " 条文本 / " + data.noiseFiltered.attrs + " 条属性，" + data.noiseFiltered.list + " 条名单）" : ""));
 for (const [t, c] of data.texts.slice(0, 80)) console.log((c > 1 ? "[" + c + "] " : "      ") + t);
 for (const [name, v, tag] of data.attrs.slice(0, 25)) console.log("  @" + name + " <" + tag + "> " + v);

@@ -1,47 +1,107 @@
-# 工作计划
+# 工作计划（当前状态）
 
-## 约束（不变量）
+> 最后更新：2026-11-26，对应版本 0.16.2 / 提交 1c8bc97。
+> 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
+> 设计初稿与里程碑演进见 git 历史里的旧版本。
+
+## 约束（不变量，任何改动都不能破）
 
 1. **MIT 协议**：不整份复制 GPL 仓库的词库/代码。通用界面词（Search→搜索）是公共常识可独立撰写；
    任何成批抄来的词条都属于衍生作品，与 MIT 冲突。词条只从公开通用译法与自建采集来。
 2. **离线**：最终脚本不发任何网络请求，不用 `@require/@resource/@connect`，不带模型。
 3. **只改文本**：仅替换文本节点 `nodeValue` 与白名单属性，不增删元素、不改样式与事件。
-4. **不翻专有名词**：基因/蛋白符号、变异命名、物种拉丁名、accession、序列、坐标原样保留。
+4. **不翻专有名词**：基因/蛋白符号、变异命名、物种拉丁名、accession、序列、坐标、文件名、数据值原样保留。
+5. **宁可留英文，不可半中半英**：整块留英文可接受；一句里半英半中是缺陷。
 
-## 工作流
+## 现状（2026-11-26）
 
-| 编号 | 内容 | 产出 | 负责人 | 状态 |
-|---|---|---|---|---|
-| W1 | 引擎：整节点精确匹配 + 锚定模板 + 跳过规则 + 幂等/可逆 + 观察器 | `src/engine.js` | lead | 已完成，10 条单测通过 |
-| W2 | 构建与自检：把词库内联成单文件、红线检查 | `build.mjs` `tools/check.mjs` | lead | 已完成，可出 12 KB 脚本 |
-| W3 | 通用界面词库 | `dict/common.json` | 子代理 dict-common | 进行中 |
-| W4 | NCBI 家族词库（PubMed/GEO/BLAST/GDV） | `dict/ncbi.json` | 子代理 dict-ncbi | 进行中 |
-| W5 | KEGG / HPA / miRBase 词库 | `dict/kegg.json` 等 | 子代理 dict-sites | 进行中 |
-| W6 | 站点配置与回归：每站 scope/spa/waitFor + 真实页面验收 | `config/sites.json` | lead | 骨架已建，7 站 |
-| W7 | SPA 站点适配（Ensembl、cBioPortal、UniProt、GDV 实测） | 站点配置 + 补词 | lead | 未开始 |
-| W8 | 术语一致性门禁（terms.json + 校验） | `tools/terms.mjs` | lead | 未开始 |
-| W9 | 发布：README/CONTRIBUTING/issue 模板/GreasyFork | 仓库文档 | lead | 未开始 |
+| 项 | 值 |
+|---|---|
+| 版本 | 0.16.2 |
+| 词库 | 114 册 / 34817 exact / 1772 规则 / 2172 模板 |
+| 覆盖站点 | 91 个（`config/sites.json`） |
+| 单测 | 2170 条全绿（`npm test`，约 160 s） |
+| 产物 | `dist/biol10n.user.js` 2,129,849 字节（约 2080 KB） |
+| 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
+| 本机 | ScriptCat 扩展 `pfgknhjjodmdokgbmkgdnlbgfondkfhe`，用 `node tools/apply.mjs` 装（需 CDP 9227） |
 
-## 里程碑
+远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
+**注意**：0.16.0 / 0.16.1 / 0.16.2 三个提交只在本地（网络中断期间做的），推送时一次补上。
 
-- **M1（可试用）**：引擎 + 3 个服务端渲染站（PubMed/KEGG/HPA）+ 1000 条词库，装上能看出差别
-- **M2（NCBI 家族完整）**：PubMed/GEO/BLAST/GDV 四站，家族词库 1500 条
-- **M3（覆盖常用站）**：再加 Ensembl/UCSC/cBioPortal/UniProt/miRBase，30 站以内
-- **M4（发布）**：GreasyFork + GitHub Release，仓库自带 CI
+## 结构
+
+| 位置 | 作用 |
+|---|---|
+| `src/engine.js` | 引擎：哪些节点翻、被标签切碎的句子怎么拼、何时跳过、性能 |
+| `src/boot.js` | 注入入口：按 host 选站点、懒加载词库、挂观察器/热键/悬浮球 |
+| `src/ui.js` | 悬浮球与设置面板、阅读辅助（原文卡、双语对照、选中即查、英文名定位、位置记忆、漏翻记录） |
+| `build.mjs` | 把词库内联成单文件；含三条断言（词库全内嵌、有册必须挂站、@match 覆盖全部 host） |
+| `config/sites.json` | 站点表：hosts / path / dicts / scope / skip / attrs / spa / rescan / scopedExact 等 |
+| `dict/*.json` | 词库册：`exact` / `rules` / `templates`（格式见 `docs/engine-design.md`） |
+| `test/*.test.mjs` | jsdom 回放 + 静态断言；每批词条都要配一个测试文件 |
+| `tools/` | `release.mjs`（发版）、`apply.mjs`（装本机）、`dict-lint.mjs`（跨册冲突/卫生）、`attr-scan.mjs`（属性普查） |
+
+## 发版链（一字不改地按顺序跑）
+
+```bash
+cd /mnt/E/code/biol10n
+# 1. 改 package.json 的 version（ScriptCat 同版本不生效，必须 bump）
+# 2. 构建 + 全量测试
+npm run build && npm test
+# 3. 生成 dist 并过 dist-fresh 闸门
+node tools/release.mjs
+# 4. 提交并推送两个分支
+git commit -am "0.16.x：……" && git push origin main release
+# 5. 装到本机 ScriptCat（浏览器 CDP 9227 必须先起）
+node tools/apply.mjs
+```
+
+**脚本猫 webhook 会自动同步**：改 README 也必须走一次 release，否则商店页显示旧 README。
+
+## 当前进度与待办
+
+已完成：引擎（精确/规则/模板/跳过/正文保护/可逆）、17 站起步扩到 91 站、悬浮球与六项阅读辅助、
+性能两轮优化（大表格页首扫 3.3 s → 0.93 s，重扫 1.2 s → 0.35 s）。
+
+待办（按优先级）：
+
+1. **推送 + 实机复核**：网络恢复后 push main+release，`node tools/apply.mjs`，再上 CELLxGENE `/datasets`
+   实测首扫耗时（离线基准显示降到原来的约三分之一；该页此前单次扫描 7007 ms）。
+2. **cBioPortal 文档站**：`docs.cbioportal.org` 当前返回站点自身配置错误，恢复后复核 220 条词库。
+3. **GreasyFork**：尚未发布（要不要发待定）。
+4. **长尾补译**：按「某站修复 → 独立子代理复查 → 退回重修」的流程继续；新册必须同时挂进 `config/sites.json`。
+5. **性能余量**：`walk` 里剩余开销大半是 jsdom 的接口包装（真实浏览器不存在）；
+   若还要做，方向是「只翻视口附近 + 空闲补」（IntersectionObserver + 分片），风险中等。
+
+## 踩过的坑（每条都真实踩过，改之前先看）
+
+- **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。
+- **新站接线的顺序**：先写 stub 词库 → 进 `config/sites.json` → 再补词。没挂站的册会让 `build.mjs` 直接 exit 1。
+- **同一 host 多站**：`www.ebi.ac.uk` 靠 path 排序，新 EBI 站必须插在 `embl-ebi` 之前（boot 取首个匹配）。
+- **规则挂错词库**：页面由 site 的 `dicts` 决定，规则写进别的册等于没写（`/guide/` 归 `ncbi-guide`，不是 `ncbi-help`）。
+- **单词级词条**：只适合导航标签；放进通用册会漏进正文句子（「GDC Data Transfer Tool」→「…工具」）。
+   正文里的单词要用整句词条，或 `scopedExact` 限定到具体选择器。
+- **模板通道**：pat 必须与真实 DOM 的空白逐字符对齐；验模板前先 `__BIOL10N.disable()`，否则旧引擎处理过的 DOM 会让判据失真。
+- **跨册同键不同值**：`tools/dict-lint.mjs` 会报冲突；往 `common` 下沉前先 `grep` 全库。
+- **子代理不能改 `config/sites.json`**：接线、版本号、发版一律由 lead 做，否则会出现「词库写了但站点没启用」。
+- **`apply.mjs` 同版本无效**：ScriptCat 按版本号判断是否更新。
+- **`document-end` 在某些页面不注入**（HTML 流不结束）：脚本已改 `document-start` + `whenBodyReady()`，别改回去。
+- **复核用 CDP 探测脚本**：`node /mnt/E/临时文件/probe.mjs <URL> <waitMs> "<函数体必须 return>"`（每次 createTarget）。
 
 ## 验收标准
 
-- `npm test` 全绿
-- `npm run lint`（`tools/check.mjs`）0 错误
-- 真实页面抽查 20 个文本节点：**误翻 0 条**（宁留英文不可翻错）
-- 页面加载后 1 s 内不出现明显卡顿（观察器批量处理生效）
+- `npm test` 全绿（2170+）
+- `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
+- 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
+- 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms
 
 ## 风险与对策
 
 | 风险 | 对策 |
 |---|---|
-| 站点改版导致选择器失效 | 每站配置独立，出问题只改一行；issue 模板收集失效站点 |
-| 词库膨胀到 MB 级 | 词库按家族拆分，只加载当前站需要的；超过 500 KB 再考虑 `@resource` 打包 |
-| 术语漂移（同词两译） | `terms.json` 唯一数据源 + CI 校验，只拦新增 |
-| 误翻基因名 | 整节点匹配从机制上避免；再对 `code/pre` 与全大写短词做二次保护 |
-| SPA 抖动 | 200 ms 去抖 + 只处理新增子树 |
+| 站点改版导致选择器失效 | 每站配置独立，出问题只改一行 |
+| 词库膨胀 | 已按站点拆册 + 运行时懒加载（`parseDict` 只解析当前站用到的册） |
+| 术语漂移（同词两译） | `tools/dict-lint.mjs` 拦冲突，只拦新增 |
+| 误翻基因名/编号 | 整节点匹配机制 + 全部大写短词保护 + 词库卫生测试 |
+| SPA 抖动 | MutationObserver 去抖 + `flush` 120 ms 时间预算（超时留到下一拍） |
+| 大页面卡顿 | 元素级缓存 + 属性通道复用元素表 + 元素表转真数组（见 `docs/engine-design.md`） |

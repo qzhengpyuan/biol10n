@@ -19,15 +19,18 @@ const MAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]+/;
 const src = fs.readFileSync(path.join(root, "../src/engine.js"), "utf8");
 const createEngine = new Function(src + "; return createEngine;")();
 
-// pubmed 站点在 config/sites.json 里的实际配置（scope 之外只取影响翻译判定的字段）
+// 直接读 config/sites.json 的真实配置：以前这里手抄了一份 scope，
+// 结果站点把 scope 从 main 扩到 body（NCBI 页头页脚 40 条界面文字）时测试还照旧绿，漂移没人发现。
+const sitesCfg = JSON.parse(fs.readFileSync(path.join(root, "../config/sites.json"), "utf8"));
+const siteCfg = sitesCfg.sites.find((s) => s.id === "pubmed");
 const SITE = {
-  scope: "main, .site-content, .usa-skipnav, .no-session-banner, .no-script-banner, aside.page-sidebar, #article-page-header, #article-top-actions-bar",
-  block: "pre, code, kbd, samp, textarea, [contenteditable='true'], .highlight, .blob-code, .code",
-  attrs: ["placeholder", "title", "aria-label", "alt", "value"],
-  skip: ".docsum-title, h1.heading-title",
-  proseGuard: true,
-  proseMax: 120,
-  proseExempt: ".usa-banner, .usa-media_block-body, [class*=disclaimer]"
+  scope: siteCfg.scope,
+  block: sitesCfg.defaults.block,
+  attrs: [...new Set([...(sitesCfg.defaults.attrs || []), ...(siteCfg.attrs || [])])],
+  skip: siteCfg.skip || "",
+  proseGuard: siteCfg.proseGuard !== false,
+  proseMax: siteCfg.proseMax || 120,
+  proseExempt: siteCfg.proseExempt || ""
 };
 
 function boot(html) {

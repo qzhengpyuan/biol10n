@@ -11,7 +11,9 @@
   var parsedDicts = {};
   var dictPromises = {};
   var t0 = (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
-  var timing = { dict: 0, start: 0 };
+  // ready = 从脚本注入到 body 可翻（whenBodyReady 放行）的耗时；dict = ready + 解压解析本站词库，
+  // load = 纯词库解压解析耗时。冷启动慢在等 DOM 还是解压在词库，靠这三个数分开看。
+  var timing = { ready: 0, load: 0, dict: 0, start: 0 };
 
   function decodeB64(s) {
     var bin = atob(s);
@@ -71,7 +73,11 @@
     return null;
   }
 
-  // 注入时机：脚本是 document-start 注入的，但翻译必须等 body 有内容。
+  // 注入时机：脚本是 document-start 注入的，翻译从 body 出现那一刻就开始，不等 body 有内容。
+  // 早先的判据是「有子节点或 readyState 不是 loading」，实测代价很大：RCSB 结构页要 8.1 秒才
+  // 满足（SPA 先吐空壳再挂载），UniProt 0.78 秒，这段时间界面完全是英文。改成只看 body 是否存在，
+  // 实测 RCSB 降到 1.1 秒、UniProt 84 毫秒，节点数与命中数不变（首扫扫到的后续节点由
+  // MutationObserver 补，引擎按整节点匹配，半截句子基本不会命中词库）。
   // 为什么不留在 document-end：有些站点 HTML 一直流不完（dbSNP 变异页 25 秒后 document.readyState
   // 仍是 "loading"，DOMContentLoaded 从不触发），document-end 的脚本根本不会被注入，整页零汉化。
   function whenBodyReady(fn) {
@@ -81,22 +87,23 @@
       started = true;
       fn();
     }
-    if (document.body && document.readyState !== "loading") { go(); return; }
+    if (document.body) { go(); return; }
     document.addEventListener("DOMContentLoaded", go);
     var tries = 0;
     var timer = setInterval(function () {
       tries++;
-      if (document.body && (document.body.childElementCount > 0 || document.readyState !== "loading")) {
+      if (document.body) {
         clearInterval(timer);
         go();
-      } else if (tries > 12) {   // 6 秒还没铺开也先跑，MutationObserver 会继续补后续节点
+      } else if (tries > 240) {   // 24 秒还没有 body 属于异常页面，放弃（正常几十毫秒内就有）
         clearInterval(timer);
         go();
       }
-    }, 500);
+    }, 100);
   }
 
   whenBodyReady(function () {
+  timing.ready = Math.round(((typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now()) - t0);
 
   var site = pick(SITES.sites);
   if (!site) return;
@@ -108,8 +115,11 @@
     return;
   }
 
+  var tDict = ((typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now());
   Promise.all((site.dicts || ["common"]).map(loadDict)).then(function () {
-    timing.dict = Math.round(((typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now()) - t0);
+    var tNow = ((typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now());
+    timing.load = Math.round(tNow - tDict);
+    timing.dict = Math.round(tNow - t0);
     var exact = {};
     var rules = [];
     var templates = [];

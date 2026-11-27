@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.16.8。
+> 最后更新：2026-11-27，对应版本 0.16.9。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.16.8 |
+| 版本 | 0.16.9 |
 | 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2325 条全绿（`npm test`，约 163 s） |
-| 产物 | `dist/biol10n.user.js` 2,154,479 字节（约 2104 KB） |
+| 单测 | 2329 条全绿（`npm test`，约 163 s） |
+| 产物 | `dist/biol10n.user.js` 2,154,662 字节（约 2104 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.16.8 已推送（main 与 release 同版本对齐，release 头 = v0.16.8）。
+0.16.0–0.16.9 已推送（main 与 release 同版本对齐，release 头 = v0.16.9）。
 
 ## 结构
 
@@ -152,13 +152,26 @@ node tools/apply.mjs
   opentargets 246→229、rfam 317→310。rfam 收益小是因为那页大半是真的界面词与文献元数据标签（PMID/doi/Bibcode），属真缺口没进名单。
 - 名单覆盖站点数 9→15（另有 gdc-docs 为 0.16.6 所加，合计 16 站）。`test/miss-noise-regex.test.mjs` 的配置体检阈值同步到 16 站。
 - 验收：`npm test` 2325 条全绿；`dist/biol10n.user.js` 2,154,479 字节。
+本轮（2026-11-27 下午，0.16.9）收掉的：
+
+- **cBioPortal 研究显示名的口径定案：整名不翻。** `/datasets` 一页就有 588 个不同研究名，
+  `config/sites.json` 的 `skip` 里本来就排着 `.study-name` / `.dataset-name` / `.studyMeta` / `.headBlock .studyName`，
+  说明从一开始就是按「数据集身份」处理的；改成「疾病名翻、队列括号留英文」会撞上引擎设计文档里那条坑
+  （`Pan-Lung Cancer (TCGA, Nat Genet 2016)` 被套成全角括号的半中半英），也违反不变量 5。
+  疾病词汇另有出口：肿瘤类型选择器/筛选器里的病名早就有中文（`cbioportal.json` 里的「结直肠腺癌」「尤文肉瘤」等）。
+- **研究名形态的噪音正则补全**：原来只认 `(TCGA|MSK|TARGET|...)` 开头的括号，现在再补两条通用形态
+  ——「逗号 + 期刊/年份」`(…, Nat Med 2017)` 与「团队/会议 + 年份」`(SMC 2018)`，外加 `- iAtlas Harmonized` 后缀；
+  `/datasets` 回放从 439 条涨到 675 条被滤，真界面标签（`Study View`、`New Feature`、`Copy-number Alterations (OQL is not in effect)`）一条没误伤。
+  `OQL` 从缩写名单里拿掉（它是界面词，词库已有「Onco 查询语言（OQL）」）。
+- `test/cbio-study-names.test.mjs` 4 条：skip 名单里确有研究名容器、研究名整名保留无中文、通用形态都能滤、界面标签不误伤。
+- 验收：`npm test` 2329 条全绿。
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
    要么维持现状（GitHub release 分支 raw 直链安装）。
 2. **性能余量**：`walk` 里剩余开销大半是 jsdom 的接口包装（真实浏览器不存在）；若还要做，方向是「只翻视口附近 + 空闲补」（IntersectionObserver + 分片），风险中等。
 3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
-4. **cBioPortal 研究显示名的译法**：`cbioportal.json` 有「疾病名（队列）→中文」的既有沉淀，与「研究名不翻」原则有张力；动之前先看测试依赖，单独一轮。0.16.7 只把这类名字登记进 `missNoise`（不翻、也不进漏翻清单），译法问题没动。
+4. **cBioPortal 研究显示名**：已定案「整名不翻」（0.16.9，理由见上；`test/cbio-study-names.test.mjs` 钉住），此项结案。
 5. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
 6. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
 7. **其余站的名单还没补**：347 份 miss 报告里还有不少站没登记（kegg 的通路名与栏目、clinicaltrials 的疾病分期名、uci/geo 一类属性噪音），方法照 0.16.7–0.16.8 这两轮：先看报告里成片的同一形状，再决定子串还是正则；判据是「被滤掉的确实是数据，不是界面词」。
@@ -231,7 +244,7 @@ node tools/apply.mjs
 
 ## 验收标准
 
-- `npm test` 全绿（2325 条，当前）
+- `npm test` 全绿（2329 条，当前）
 - `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
 - 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
 - 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms

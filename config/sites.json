@@ -978,7 +978,10 @@
       "scope": "main, #root, .cbioportal-frontend",
       "missNoise": [
         "re:\\((?:MSK|TCGA|TARGET|GENIE|DFCI|Broad|ICGC|METABRIC|SU2C|MSKCC|BCCRC)[^()]*\\)$",
-        "re:\\b(?:CNA|RPPA|GISTIC|OQL)\\b"
+        "re:\\([^()]+, (?:[A-Za-z&][A-Za-z.&]{0,20} ){0,4}[0-9]{4}\\)(?: - iAtlas Harmonized)?$",
+        "re:\\([A-Z][A-Za-z.&' -]{1,30} [0-9]{4}\\)(?: - iAtlas Harmonized)?$",
+        "re: - iAtlas Harmonized$",
+        "re:\\b(?:CNA|RPPA|GISTIC)\\b"
       ],
       "spa": true,
       "waitFor": "#root",

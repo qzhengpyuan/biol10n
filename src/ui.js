@@ -56,6 +56,10 @@ function createBioL10nUI(opts) {
   var dicts = opts.dicts || [];
   var version = opts.version || "";
   var missNoise = (opts.site && opts.site.missNoise) || [];
+  // 站级 skip 与引擎同一语义：这些区块里的文字引擎根本不碰，漏翻清单也不该列
+  // （cBioPortal 正文、GEO 的结果标题、miRBase 的分类树都是这一类）。
+  var siteSkip = (opts.site && opts.site.skip) || "";
+  var siteSkipFree = (opts.site && opts.site.skipFree) || [];
   var dict = opts.dict || {};
   var settings = bioL10nReadSettings();
   var engine = null;
@@ -750,10 +754,15 @@ function createBioL10nUI(opts) {
     for (var i = 0; i < missNoise.length; i++) {
       var n = String(missNoise[i] || "").trim();
       if (!n) continue;
-      if (n.slice(0, 3).toLowerCase() === "re:") {
+      var low = n.toLowerCase();
+      // re: = 大小写不敏感正则；rec: = 大小写敏感正则（基因符号 A1BG 这类必须区分大小写，
+      // 否则 "Search" 也会被 ^[A-Z][A-Z0-9]*$ 吃掉）。
+      if (low.slice(0, 4) === "rec:") {
+        try { noiseRules.push({ re: new RegExp(n.slice(4)), cs: true }); } catch (e) {}
+      } else if (low.slice(0, 3) === "re:") {
         try { noiseRules.push({ re: new RegExp(n.slice(3), "i") }); } catch (e) {}
       } else {
-        noiseRules.push({ sub: n.toLowerCase() });
+        noiseRules.push({ sub: low });
       }
     }
     return noiseRules;
@@ -761,9 +770,13 @@ function createBioL10nUI(opts) {
   function isNoise(t) {
     var rules = noiseRuleSet();
     if (!rules.length) return false;
-    var s = String(t).toLowerCase().trim();
+    var raw = String(t).trim();
+    var s = raw.toLowerCase();
     for (var i = 0; i < rules.length; i++) {
-      if (rules[i].re ? rules[i].re.test(s) : s.indexOf(rules[i].sub) >= 0) return true;
+      var r = rules[i];
+      // rec: 的正则必须拿原串比：先把输入转小写，^[A-Z] 这类模式永远匹配不上
+      if (r.re) { if (r.re.test(r.cs ? raw : s)) return true; }
+      else if (s.indexOf(r.sub) >= 0) return true;
     }
     return false;
   }
@@ -778,6 +791,16 @@ function createBioL10nUI(opts) {
     while ((n = w.nextNode())) {
       var p = n.parentElement;
       if (!p || (p.closest && p.closest(SKIP))) continue;
+      if (siteSkip && p.closest) {
+        var skipped = false;
+        try { skipped = !!p.closest(siteSkip); } catch (e2) { skipped = false; }
+        if (skipped) {
+          for (var fi = 0; fi < siteSkipFree.length; fi++) {
+            try { if (p.closest(siteSkipFree[fi])) { skipped = false; break; } } catch (e3) {}
+          }
+        }
+        if (skipped) continue;
+      }
       var t = String(n.nodeValue || "").replace(/\s+/g, " ").trim();
       if (!looksUntranslated(t) || seen[t] || isNoise(t)) continue;
       try {

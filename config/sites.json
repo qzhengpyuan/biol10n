@@ -539,7 +539,34 @@
         ".rprtid th",
         ".resc .src"
       ],
-      "inlineExact": true
+      "inlineExact": true,
+      "missNoise": [
+        "re:^G(?:SE|SM|DS|PL|PR)[0-9]+$",
+        "re:^(?:Homo sapiens|Mus musculus|Rattus norvegicus|Danio rerio|Drosophila melanogaster|Caenorhabditis elegans|Saccharomyces cerevisiae|Arabidopsis thaliana|Sus scrofa|Bos taurus|Gallus gallus|Macaca mulatta|Debaryomyces hansenii)( .+)?$",
+        "re:^ToolKit[A-Za-z]*$",
+        "PubChem BioAssay",
+        "PubChem Compound",
+        "PubChem Substance",
+        "GTR",
+        "MedGen",
+        "OMIM",
+        "ClinVar",
+        "dbVar",
+        "BioProject",
+        "BioSample",
+        "dbGaP",
+        "RefSeq",
+        "UniGene",
+        "HomoloGene",
+        "PopSet",
+        "re:^GC[AF]_[0-9]+(\\.[0-9]+)?$",
+        "re:^x$",
+        "re:^(?:PubMed|PMC|SRA|MeSH|SNP|GEO|GDS|dbSNP)$",
+        "re:^(?:MM|DD|YYYY|YYYY/MM/DD|MM/DD/YYYY)$",
+        "re:^[0-9]{4} [A-Z][a-z]+ (?:Pike|Avenue|Street)$",
+        "re:^[A-Z][a-z]+, [A-Z]{2} [0-9]{5}$",
+        "re:^(?:NLM|NIH|HHS|HTTPS|USA\\.gov|GitHub|Youtube)$"
+      ]
     },
     {
       "id": "ncbi-gdv",
@@ -961,7 +988,11 @@
         "anatomy"
       ],
       "scope": "main, .container, body",
-      "name": "miRBase"
+      "name": "miRBase",
+      "skip": "li.node, li.end_node",
+      "missNoise": [
+        "re:^Arabidopsis$"
+      ]
     },
     {
       "id": "cbioportal",
@@ -1351,7 +1382,18 @@
         "anatomy"
       ],
       "scope": "body",
-      "name": "TIMER2.0/3.0"
+      "name": "TIMER2.0/3.0",
+      "missNoise": [
+        "rec:^[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$",
+        "rec:^[A-Z]{1,2}[0-9]{6,}(\\.[0-9]+)?$",
+        "rec:^[A-Z]{2,}[0-9A-Za-z-]*\\.[0-9]+$",
+        "rec:^[0-9]+_[0-9]+S_rRNA$",
+        "rec:^7SK$",
+        "rec:^\\[(?:DOI|PubMed|PMC|PMID)\\]$",
+        "rec:^[A-Za-z]{2,}_(?:GSE[0-9]+|PRJ[A-Z]*[0-9]+|phs[0-9]+|NCT[0-9]+|[A-Za-z]+_[0-9]{4}|[A-Za-z0-9]+)$",
+        "rec:^[A-Z]{1,3}[0-9]*orf[0-9]+$",
+        "rec:^[0-9]+S_rRNA$"
+      ]
     },
     {
       "id": "gtex",

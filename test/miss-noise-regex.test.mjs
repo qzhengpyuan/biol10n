@@ -53,6 +53,7 @@ test("正则不自动锚定：加了 ^ $ 只吃纯 ID，不加就按子串吃", 
 test("命令行工具与页面面板用同一套语义", () => {
   const toolSrc = fs.readFileSync(path.join(root, "../tools/miss-report.mjs"), "utf8");
   assert.match(toolSrc, /slice\(0, 3\)/, "工具也认 re: 前缀");
+  assert.match(toolSrc, /slice\(0, 4\)/, "工具也认 rec:（大小写敏感）前缀");
   assert.match(toolSrc, /new RegExp\(n\.slice\(3\)/, "工具也把条目当正则编译");
   assert.match(toolSrc, /includes\(r\.sub\)/, "普通条目仍是子串匹配");
 });

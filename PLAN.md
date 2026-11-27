@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.17.0。
+> 最后更新：2026-11-27，对应版本 0.17.1。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,11 +17,11 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.17.0 |
+| 版本 | 0.17.1 |
 | 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2333 条全绿（`npm test`，约 164 s） |
-| 产物 | `dist/biol10n.user.js` 2,158,435 字节（约 2108 KB） |
+| 单测 | 2339 条全绿（`npm test`，约 165 s） |
+| 产物 | `dist/biol10n.user.js` 2,160,888 字节（约 2110 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
@@ -184,6 +184,26 @@ node tools/apply.mjs
   关闭翻译后不再补 backlog（不会再冒出中文）。
 - 验收：`npm test` 2333 条全绿。
 
+本轮（2026-11-27，0.17.1）收掉的（第三批站级名单 + 面板/工具口径对齐）：
+
+- **`skip` 现在也管漏翻清单**：引擎本来就不碰 `site.skip` 区块，但页面内面板（`src/ui.js` 的 `collectMisses`）
+  和命令行工具（`tools/miss-report.mjs` 的采集器）各自独立扫 DOM，从来不读 `skip` —— 跳过区块里的文字一直被当漏翻。
+  `skip`/`skipFree`（含 `valueText` 的 value 口径）已传进面板与工具：miRBase 分类树、cBioPortal 正文、GEO 结果标题这类
+  「引擎明确不翻」的内容不再出现在清单里。
+- **`rec:` 前缀（大小写敏感正则）**：`re:` 编译时带 `i`，基因符号那种「全大写才算」的形状没法写。
+  新增 `rec:`，且 `isNoise` 不再先把输入转小写再比（否则 `^[A-Z]` 永远匹配不上）。
+- **timer2（TIMER3）**：9 条 `rec:` 正则覆盖基因符号（`TP53`、`A1BG-AS1`）、克隆登录号（`AC000003.1`、`ABC7-42391500H16.2`）、
+  数据集标签（`Melanoma_Nathanson_2017`）、`5S_rRNA`、`[DOI]/[PubMed]`；实测该页 3,210 条文本 → **30 条**。
+- **NCBI GEO**：25 条（GSE/GSM/GDS/GPL 登录号、GCA 组装号、13 个模式生物、NCBI 库名、NLM/NIH/HHS/USA.gov、
+  NCBI 地址、`MM/DD` 占位符、`GitHub`/`Youtube` 图标 aria-label）；实测 `/gds/?term=BRCA1` 44 条 → **7 条**，属性 13 条 → **0 条**。
+  `Add to Clipboard`、`Download data: TXT`、`Start from citation` 这些界面词没有被吃掉（词库已有译文，属真覆盖）。
+- **miRBase**：`skip` 加 `li.node, li.end_node`（分类树与物种叶节点），实测 `/browse/` 文本 2 条 → **0 条**。
+- 命令行的属性采集口径同步引擎：`value` 只收 submit/button/reset（或站点声明 `valueText` 的文本框），
+  hidden 与 option 的值不再进清单；含 `@`/URL 的文本按面板口径排除。
+- `test/miss-noise-batch3.test.mjs` 6 条：`rec:` 大小写敏感、timer2 正则不吃界面词、GEO 多词串过滤、`skip` 与 `skipFree` 对清单生效、
+  miRBase 配置、命令行与面板口径一致。
+- 验收：`npm test` 2339 条全绿。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -195,7 +215,9 @@ node tools/apply.mjs
 4. **cBioPortal 研究显示名**：已定案「整名不翻」（0.16.9，理由见上；`test/cbio-study-names.test.mjs` 钉住），此项结案。
 5. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
 6. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
-7. **其余站的名单还没补**：347 份 miss 报告里还有不少站没登记（kegg 的通路名与栏目、clinicaltrials 的疾病分期名、uci/geo 一类属性噪音），方法照 0.16.7–0.16.8 这两轮：先看报告里成片的同一形状，再决定子串还是正则；判据是「被滤掉的确实是数据，不是界面词」。
+7. **其余站的名单还没补**：还剩几站值得看 —— kegg（通路名是内容，得靠 skip 而不是名单，本机暂时连不上 genome.jp）、
+   europepmc（期刊名与作者名成片，但同页也有真界面缺口，边界不好划）、pubmed 剩下的医学分词片段。
+   方法照 0.16.7–0.17.1：先看报告里成片的同一形状，再决定子串 / `re:` / `rec:`；判据是「被滤掉的确实是数据，不是界面词」。
 ## 踩过的坑（每条都真实踩过，改之前先看）
 
 - **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。
@@ -252,6 +274,9 @@ node tools/apply.mjs
 - **`common` 里的小写 exact 会被 Title-case 命中**：引擎有 `lowerIndex` 小写兜底，在 `common` 写 `"new": "新增"`
   会让页面上的 `New`（Ensembl 页签 / Biomart 按钮）抢在站内规则 `^New$ → 新建` 之前被翻成「新增」，
   两套既有测试直接红。小写词要通用化时用**大小写敏感的规则**（`^new$`），不要进 exact。
+- **`re:` 正则编译带 `i`，`isNoise` 又先把输入转小写**：写 `^[A-Z][A-Z0-9]*$` 想匹配基因符号时，
+  `Search`/`Download` 也会命中。要大小写敏感就得用 `rec:`（且拿原串比），别用 `re:` 凑。
+- **`site.skip` 只作用于引擎，不作用于清单**：面板与命令行各自扫 DOM，加 skip 区块时两处都要跟（0.17.1 已接通）。
 - **`missNoise` 的普通条目是子串匹配，短词会吃掉界面词**：`PubChem` 会连 `PubChem SID:` 这类字段标签一起滤掉，
   `BLAST` 会吃掉 `blastn suite`，`AGR` 会吃掉 `agreement`。短词/通用词一律写成锚定正则（`re:^PubChem$`），
   只有品牌全名（`UniProt`、`CellRanger`）才用子串。加完名单回放报告，确认被滤掉的都是数据。

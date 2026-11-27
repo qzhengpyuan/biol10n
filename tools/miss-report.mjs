@@ -28,6 +28,17 @@ if (!siteId || !url) {
 }
 const waitMs = Number(waitArg || 15000);
 
+// 站级 skip 与引擎/uia 面板同一语义：这些区块里的文字引擎根本不碰，清单里也不该出现。
+// （cBioPortal 正文、GEO 结果标题、miRBase 的分类树都是这一类。）
+let siteSkip = "", siteSkipFree = [], siteValueText = false;
+try {
+  const cfg = JSON.parse(fs.readFileSync(path.join(root, "config/sites.json"), "utf8"));
+  const site = (cfg.sites || []).find((s) => s.id === siteId);
+  siteSkip = (site && site.skip) || "";
+  siteSkipFree = (site && site.skipFree) || [];
+  siteValueText = !!(site && site.valueText);
+} catch (e) { /* 没有配置就不按 skip 过滤 */ }
+
 function connect(wsUrl) {
   return new Promise((resolve, reject) => {
     const ws = new WebSocket(wsUrl);
@@ -58,6 +69,15 @@ function connect(wsUrl) {
 
 const COLLECTOR = `(() => {
   const SKIP = new Set(["SCRIPT","STYLE","NOSCRIPT","CODE","PRE","KBD","SAMP","TEXTAREA","SVG","MATH"]);
+  const SITE = window.__L10N_SITE_SKIP || { skip: "", free: [], valueText: false };
+  function inSiteSkip(el) {
+    if (!SITE.skip || !el || !el.closest) return false;
+    let hit = false;
+    try { hit = !!el.closest(SITE.skip); } catch (e) { return false; }
+    if (!hit) return false;
+    for (const f of SITE.free || []) { try { if (el.closest(f)) return false; } catch (e2) {} }
+    return true;
+  }
   const texts = new Map();
   const tw = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
   while (tw.nextNode()) {
@@ -66,7 +86,10 @@ const COLLECTOR = `(() => {
     if (!p || SKIP.has(p.tagName)) continue;
     // head 里的 <link title> 之类不可见，报出来只是噪音（每站都会撞上一条 "Sitemap"）
     if (p.closest("head,code,pre,svg,script,style,.highlight,.blob-code")) continue;
+    if (inSiteSkip(p)) continue;
     const t = (n.nodeValue || "").replace(/\\s+/g, " ").trim();
+    // 与 ui.js 的 looksUntranslated 对齐：邮箱/URL 不是界面文案
+    if (t.indexOf("@") >= 0 || /^https?:/.test(t) || t.indexOf("www.") === 0) continue;
     if (!t || t.length > 80) continue;
     if (/[\\u3400-\\u9fff]/.test(t)) continue;
     if (!/[A-Za-z]/.test(t)) continue;
@@ -77,9 +100,14 @@ const COLLECTOR = `(() => {
   for (const el of document.querySelectorAll("input,textarea,img,button,a,[placeholder],[title],[aria-label],[alt]")) {
     // 同上：<head> 里的 <link rel=alternate title=Sitemap> 是给浏览器/爬虫看的，不是界面文字
     if (el.closest("head")) continue;
+    if (inSiteSkip(el)) continue;
     const names = ["placeholder", "title", "aria-label", "alt"];
     // 隐藏控件（type=hidden）里的 value 是给站点 JS 读的配置，不是可见文字，翻它反而会改坏行为
-    if ((el.tagName === "INPUT" && el.type !== "hidden") || el.tagName === "TEXTAREA") names.push("value");
+    // 与引擎一致：value 只算「可见按钮」；文本框默认值只有站点声明 valueText 才翻
+    if (el.tagName === "INPUT") {
+      const ty = (el.type || "text").toLowerCase();
+      if (/^(submit|button|reset)$/.test(ty) || (SITE.valueText && /^(text|search|email|url|tel|)$/.test(ty))) names.push("value");
+    } else if (el.tagName === "TEXTAREA" && SITE.valueText) names.push("value");
     for (const name of names) {
       const v = (el.getAttribute(name) || "").replace(/\\s+/g, " ").trim();
       // 上限 200：miRBase 的 175 字符 textarea placeholder 曾被 100 的阈值整条漏掉
@@ -168,6 +196,10 @@ await new Promise((r) => setTimeout(r, 3000));
 await send("Runtime.evaluate", { expression: "(()=>{if(window.__l10nScroll)clearInterval(window.__l10nScroll);window.scrollTo(0,0);return 'reset'})()", returnByValue: true });
 await new Promise((r) => setTimeout(r, 1200));
 
+await send("Runtime.evaluate", {
+  expression: "window.__L10N_SITE_SKIP = " + JSON.stringify({ skip: siteSkip, free: siteSkipFree, valueText: siteValueText }),
+  returnByValue: true
+});
 const res = await send("Runtime.evaluate", { expression: COLLECTOR, returnByValue: true });
 if (res.exceptionDetails) {
   console.error("采集失败:", JSON.stringify(res.exceptionDetails).slice(0, 300));
@@ -189,15 +221,21 @@ const noiseRules = [];
 for (const raw of siteNoise) {
   const n = String(raw || "").trim();
   if (!n) continue;
-  if (n.slice(0, 3).toLowerCase() === "re:") {
+  const low = n.toLowerCase();
+  // rec: = 大小写敏感（基因符号这类必须区分大小写），re: 仍是不敏感
+  if (low.slice(0, 4) === "rec:") {
+    try { noiseRules.push({ re: new RegExp(n.slice(4)), cs: true }); } catch (e) { /* 写坏的正则不生效 */ }
+  } else if (low.slice(0, 3) === "re:") {
     try { noiseRules.push({ re: new RegExp(n.slice(3), "i") }); } catch (e) { /* 写坏的正则不生效 */ }
   } else {
-    noiseRules.push({ sub: n.toLowerCase() });
+    noiseRules.push({ sub: low });
   }
 }
 const isNoise = (t) => {
-  const s = String(t).toLowerCase().trim();
-  return noiseRules.some((r) => (r.re ? r.re.test(s) : s.includes(r.sub)));
+  const raw = String(t).trim();
+  const s = raw.toLowerCase();
+  // rec: 的正则拿原串比（大小写敏感），re: 走小写串
+  return noiseRules.some((r) => (r.re ? r.re.test(r.cs ? raw : s) : s.includes(r.sub)));
 };
 if (siteNoise.length) {
   const t0 = data.texts.length, a0 = data.attrs.length;

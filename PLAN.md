@@ -138,6 +138,8 @@ node tools/apply.mjs
 - 对既有报告回放的效果：uniprot 2784→439、hpa 303→98、ncbi-blast 20648→6943、cbioportal 1650→1211、
   clinicaltrials 973→640、cellxgene 2540→2370、pubchem 3783→3601、ncbi-snp 1475→1220、ucsc 321→300；
   剩余条目里仍未动的都是真缺口（`PubChem SID:`、`New Feature`、`Study View`、`Hide group`、`IntAct` 这类）。
+- 实机复核（直连 headless 9231 + `INJECT=1`）：UniProt 的 TP53 条目页 9,350 节点、exact 4,007，名单滤掉 2,343 条文本 / 8 条属性；
+  余下 414 条里成片的是单字母氨基酸代码与 `dbSNP:` / `PubMed:` 这类字段标签（真缺口，没进名单）。
 - 验收：`npm test` 2325 条全绿；`dist/biol10n.user.js` 2,152,797 字节（名单让产物涨约 5 KB）。
 
 待办（按优先级）：

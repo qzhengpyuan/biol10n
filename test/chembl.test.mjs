@@ -45,6 +45,7 @@ const SITE = {
   // 与 boot 一致：站级 attrs 是在 defaults 上追加
   attrs: [...((sitesCfg.defaults && sitesCfg.defaults.attrs) || [])],
   rescan: false,
+  skip: cfg.skip || "",
   scopedExact: cfg.scopedExact || [],
   missNoise: cfg.missNoise || []
 };
@@ -325,7 +326,6 @@ test("数据形状进噪音名单（登录号 / ATC / 本体 / 截断串 / 单�
     "N02BA01",
     "N02 -",
     "N -",
-    "Aspirin (25)",
     "Nervous system | …",
     "This is a truncated cell…",
     "S:",
@@ -347,8 +347,19 @@ test("真界面词不被噪音名单误伤", () => {
     "Include data from Alt. Forms",
     "Please try again.",
     "Download CSV",
+    "Aspirin (25)",
+    "Interval Size (10)",
     "Filter by",
     "View 3D"
   ];
   for (const s of ui) assert.ok(!isNoise(s), "不该被噪音名单吃掉：" + s);
+});
+
+test("Cookie 横幅整块不翻：链接不再单独变中文，避免半中半英", () => {
+  const html = `<div class="privacy-banner"><span class="privacy-banner__text">We use cookies to improve your experience on our site. By continuing to visit this site you agree to our use of cookies. Read our <a href="#">Privacy Notice</a> and <a href="#">Terms of Use</a>.</span></div>`;
+  const { doc } = boot(html);
+  const t = doc.querySelector(".privacy-banner__text").textContent;
+  assert.match(t, /We use cookies/);
+  assert.match(t, /Privacy Notice/);
+  assert.doesNotMatch(t, /隐私声明|使用条款|我们使用/);
 });

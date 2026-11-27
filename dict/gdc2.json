@@ -1,11 +1,11 @@
 {
   "meta": {
     "family": "gdc",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "sites": [
       "portal.gdc.cancer.gov"
     ],
-    "area": "portal/error-modal+table-a11y"
+    "area": "portal/error-modal+table-a11y+deep-pages(column-picker,custom-filter,annotations-vocab)"
   },
   "exact": {
     "Unexpected Error": "意外错误",
@@ -23,7 +23,75 @@
     "Create gene and mutation sets using the": "创建基因与突变集合，可使用",
     "button or from the": "按钮，或从",
     "Mutation Frequency app": "突变频率应用",
-    "Sort Cases numerically": "按数值排序病例"
+    "Sort Cases numerically": "按数值排序病例",
+    "File UUID": "文件 UUID",
+    "Case UUID": "病例 UUID",
+    "Entity UUID": "实体 UUID",
+    "Filter Columns": "筛选列",
+    "Search input for columns": "列检索输入框",
+    "restore default column ordering": "恢复默认列顺序",
+    "Search for a property": "检索属性",
+    "Only show properties with values": "仅显示有值的属性",
+    "aliquot": "等分样本",
+    "analyte": "分析物",
+    "portion": "分份样本",
+    "slide": "切片玻片",
+    "diagnosis": "诊断",
+    "structural_variation": "结构变异",
+    "masked_somatic_mutation": "掩蔽体细胞突变",
+    "submitted_unaligned_reads": "提交的未比对读段",
+    "biospecimen_supplement": "生物样本补充数据",
+    "slide_image": "切片图像",
+    "protein_expression": "蛋白表达",
+    "copy_number_segment": "拷贝数片段",
+    "copy_number_auxiliary_file": "拷贝数辅助文件",
+    "somatic_mutation_index": "体细胞突变索引",
+    "clinical_supplement": "临床补充数据",
+    "pathology_report": "病理报告",
+    "raw_methylation_array": "原始甲基化芯片",
+    "masked_methylation_array": "掩蔽甲基化芯片",
+    "copy_number_estimate": "拷贝数估计",
+    "methylation_beta_value": "甲基化 β 值",
+    "read_group": "读段组",
+    "centernotification": "中心通知",
+    "observation": "观察",
+    "item is noncanonical": "条目不符合规范",
+    "item flagged dnu": "条目标记为 DNU（勿使用）",
+    "prior malignancy": "既往恶性肿瘤",
+    "alternate sample pipeline": "备选样本流程",
+    "center qc failed": "中心质控未通过",
+    "history of unacceptable prior treatment related to a prior/other malignancy": "与既往/其他恶性肿瘤相关的不可接受既往治疗史",
+    "item in special subset": "条目属于特殊子集",
+    "synchronous malignancy": "同时性恶性肿瘤",
+    "neoadjuvant therapy": "新辅助治疗",
+    "genotype mismatch": "基因型不匹配",
+    "bcr notification": "BCR 通知",
+    "history of acceptable prior treatment related to a prior/other malignancy": "与既往/其他恶性肿瘤相关的可接受既往治疗史",
+    "item does not meet study protocol": "条目不符合研究方案",
+    "item flagged low quality": "条目标记为低质量",
+    "item may not meet study protocol": "条目可能不符合研究方案",
+    "case submitted is found to be a recurrence after submission": "提交后发现该病例为复发",
+    "permanently missing item or object": "永久缺失的条目或对象",
+    "duplicate case": "重复病例",
+    "duplicate item": "重复条目",
+    "subject identity unknown": "受试者身份未知",
+    "molecular analysis outside specification": "分子分析超出规范",
+    "pathology outside specification": "病理超出规范",
+    "barcode incorrect": "条码错误",
+    "acceptable treatment for tcga tumor": "TCGA 肿瘤的可接受治疗",
+    "biospecimen identity unknown": "生物样本身份未知",
+    "subject withdrew consent": "受试者撤回知情同意",
+    "qualification metrics changed": "合格性指标发生变化",
+    "inadvertently shipped": "误发运",
+    "qualified in error": "合格标记有误",
+    "normal tissue origin incorrect": "正常组织来源不正确",
+    "normal class but appears diseased": "分类为正常但呈现病变",
+    "tumor class but appears normal": "分类为肿瘤但呈现正常",
+    "sample compromised": "样本受损",
+    "tumor tissue origin incorrect": "肿瘤组织来源不正确",
+    "Remove the facet": "移除该筛选条件",
+    "Close Modal": "关闭弹窗",
+    "show only properties with values": "仅显示有值的属性"
   },
   "rules": [
     {
@@ -37,6 +105,10 @@
     {
       "re": "^Maintenance will be conducted on GDC's infrastructure today (.+) from (.+) to (.+) CT\\. During this time, intermittent connectivity loss to the GDC portal and API is expected\\. We apologize for any inconvenience\\.$",
       "to": "GDC 基础设施将于今日 $1 的 $2 至 $3（美国中部时间）进行维护。在此期间，GDC 门户与 API 预计会出现间歇性连接中断。由此带来的不便，我们深表歉意。"
+    },
+    {
+      "re": "^([\\d,]+) properties$",
+      "to": "$1 个属性"
     }
   ],
   "templates": []

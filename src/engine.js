@@ -928,6 +928,30 @@ function createEngine(options) {
 
   /** 中文语境下的标点本地化：链接/按钮被单独包在元素里时，紧跟的 "." "," 常常是独立文本节点 */
   var PUNCT = { ".": "。", ",": "，", ";": "；", ":": "：", "?": "？", "!": "！", ")": "）", "(": "（" };
+  // 左括号在文档顺序上先于被它包住的中文（"(" + <a>browse 50 gene sets</a> + ")"），
+  // 第一次走到它时右侧还是英文；等本轮回溯完再统一补一次，避免 "(浏览 50 个基因集）"。
+  var pendingPunct = [];
+  var pendingPunctSeen = new WeakSet();
+  function flushPunct() {
+    var keep = [];
+    for (var i = 0; i < pendingPunct.length; i++) {
+      var node = pendingPunct[i];
+      if (!node || node.isConnected === false || processed.has(node) || !node.parentNode) continue;
+      var nxt = node.nextSibling;
+      while (nxt && nxt.nodeType === 3 && !String(nxt.nodeValue || "").trim()) nxt = nxt.nextSibling;
+      var seg = nxt ? (nxt.nodeType === 1 ? String(nxt.textContent || "").trim() : String(nxt.nodeValue || "").trim()) : "";
+      // 右侧链接还在 backlog 里没翻完：留到下一拍再判，别把节点丢掉。
+      if (!/^[（「【\u3400-\u9fff]/.test(seg)) { keep.push(node); continue; }
+      if (!originals.has(node)) originals.set(node, node.nodeValue);
+      var raw = String(node.nodeValue || "");
+      var idx = raw.indexOf("(");
+      if (idx < 0) continue;
+      node.nodeValue = raw.slice(0, idx) + "（" + raw.slice(idx + 1);
+      processed.add(node);
+      stats.punct = (stats.punct || 0) + 1;
+    }
+    pendingPunct = keep;
+  }
   function localizePunct(node, text) {
     if (site.punctFix === false) return;
     if (!text || text.length > 2) return;
@@ -997,7 +1021,12 @@ function createEngine(options) {
         break;
       }
     }
-    if (!cnEnd && !cnStart) return;
+    if (!cnEnd && !cnStart) {
+      if (raw === "(") {
+        if (!pendingPunctSeen.has(node)) { pendingPunctSeen.add(node); pendingPunct.push(node); }
+      }
+      return;
+    }
     if (!originals.has(node)) originals.set(node, node.nodeValue);
     // 中文标点后面紧跟中文时，把节点自带的尾随空格丢掉（"…基因名称, 基因本体" → "…基因名称，基因本体"）
     var pv2 = node.nodeValue.replace(text.trim(), out);
@@ -1872,6 +1901,7 @@ function createEngine(options) {
       if (++n % 50 === 0 && Date.now() - t >= scanBudget) break;
     }
     if (backlogAt >= textBacklog.length) { textBacklog = []; backlogAt = 0; }
+    flushPunct();
     stats.backlog = textBacklog.length - backlogAt;
     if (backlogAt < textBacklog.length) scheduleBacklog();
   }
@@ -2308,6 +2338,7 @@ function createEngine(options) {
     scanDeadline = 0;
     T.push(now());
     for (var k = 0; k < roots.length; k++) translateInlineInCJK(roots[k]);
+    flushPunct();
     T.push(now());
     for (var j = 0; j < roots.length; j++) cleanupPass(roots[j]);
     for (var rj = 0; rj < roots.length; rj++) repairSweep(roots[rj]);
@@ -2657,6 +2688,8 @@ function createEngine(options) {
     }
     textBacklog = [];
     backlogAt = 0;
+    pendingPunct = [];
+    pendingPunctSeen = new WeakSet();
     stats.backlog = 0;
     restore();
     // SPA 可能在中间又改写过 <title>（GDC 的首页就是这样），导致 doc.title 不再等于

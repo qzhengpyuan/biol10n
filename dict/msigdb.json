@@ -309,6 +309,8 @@
     "Fill in the form below.": "请填写下方表单。",
     "Organization:": "单位：",
     "GSEA and MSigDB Privacy Policy": "GSEA 与 MSigDB 隐私政策",
+    "GSEA and MSigDB are supported by a grant from the National Cancer Institute of the NIH.": "GSEA 与 MSigDB 由美国国立卫生研究院（NIH）下属国家癌症研究所（NCI）的资助支持。",
+    "NOTE: we strongly discourage running analyses against the full Human MSigDB GMTs. We recommend using the above GMTs instead for more focused results.": "注意：我们强烈不建议针对完整的人类 MSigDB GMT 运行分析。建议改用上方提供的 GMT，以获得更聚焦的结果。",
     "GSEA and MSigDB Team": "GSEA 与 MSigDB 团队",
     "Current Team": "现任团队",
     "Past Team Members": "往届团队成员",
@@ -490,7 +492,7 @@
     },
     {
       "pat": "{{1}} between your gene set and gene sets in MSigDB.",
-      "zh": "{{1}}（您自己的基因集与 MSigDB 内基因集之间）。"
+      "zh": "{{1}}您的基因集与 MSigDB 内基因集之间的重叠。"
     },
     {
       "pat": "{{1}} members of a gene set by gene families.",
@@ -683,6 +685,10 @@
     {
       "pat": "PTMsigDB and PTM-SEA are developed by the {{1}} group at the Broad Institute. If you have questions or need help, please contact them through the group's contact page or by creating an issue in their GitHub repository.",
       "zh": "PTMsigDB 与 PTM-SEA 由 Broad Institute 的{{1}}团队开发。如有疑问或需要帮助，可通过该团队的联系页面或在其 GitHub 仓库提交 issue 联系他们。"
+    },
+    {
+      "pat": "The 35092 gene sets in the Human Molecular Signatures Database (MSigDB) are divided into 10 major collections, and several subcollections. See the table below for a brief description of each, and the {{1}} page for more detailed descriptions. See also the {{2}}.",
+      "zh": "人类分子特征数据库（MSigDB）的 35,092 个基因集分为 10 个主要集合与若干子集合。下表简要说明每个集合，更多详细说明见{{1}}。另请参阅{{2}}。"
     }
   ]
 }

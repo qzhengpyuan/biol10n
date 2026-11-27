@@ -40,7 +40,6 @@ test("站点配置：hosts 精确到 gsea-msigdb.org，path 收紧到 /gsea", ()
   assert.deepEqual(site.hosts.slice().sort(), ["gsea-msigdb.org", "www.gsea-msigdb.org"]);
   assert.equal(site.path, "^/gsea");
   assert.ok(site.dicts.includes("common") && site.dicts.includes("msigdb"));
-  assert.ok(site.attrs.includes("title"));
   assert.ok(site.missNoise.length >= 20);
   assert.equal(book.meta.sites[0], "msigdb");
   const others = sites.filter((s) => s.id !== "msigdb" && (s.hosts || []).some((h) => /gsea-msigdb\.org$/.test(h)));
@@ -135,3 +134,22 @@ test("数据噪音不进词表：基因符号与物种拉丁名保持原样", ()
   assert.deepEqual([...doc.querySelectorAll("td")].map(text), ["TP53", "Homo sapiens", "chr4q34"]);
 });
 
+
+test("集合页导语整段模板：两个链接保留，正文全中文", () => {
+  const doc = run(`<p>The 35092 gene sets in the Human Molecular Signatures Database (MSigDB) are divided into 10 major collections, and several subcollections. See the table below for a brief description of each, and the <a href="#">Human MSigDB Collections: Details and Acknowledgments</a> page for more detailed descriptions. See also the <a href="#">Latest MSigDB Release Notes</a>.</p>`);
+  const t = text(doc.querySelector("p"));
+  assert.match(t, /35,092 个基因集/);
+  assert.match(t, /详情与致谢/);
+  assert.doesNotMatch(t, /The 35092 gene sets/);
+  assert.equal(doc.querySelectorAll("p a").length, 2, "两个链接节点必须保留");
+});
+
+test("首页资助声明整句翻译", () => {
+  const doc = run("<p>GSEA and MSigDB are supported by a grant from the National Cancer Institute of the NIH.</p>");
+  assert.match(text(doc.querySelector("p")), /国家癌症研究所/);
+});
+
+test("完整 GMT 警告整句翻译（源节点含换行与制表符）", () => {
+  const doc = run("<p><strong>NOTE: we strongly discourage running analyses against the full Human MSigDB GMTs. We recommend using the above \n\t    GMTs instead for more focused results.</strong></p>");
+  assert.match(text(doc.querySelector("p")), /强烈不建议/);
+});

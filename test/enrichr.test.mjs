@@ -232,3 +232,16 @@ test("enrichr：missNoise 锚定、能压数据噪音、不吃界面词", () => 
   assert.ok(compiled.some((c) => c.re.test("ChEA 2022")), "至少能压住带年份的文库名");
   assert.ok(data.length >= 0);
 });
+
+test("更新内容/元数据/关于三个长页签整块留英文，不再漏出半中半英", () => {
+  const html = `<div id="new_t"><p>In the past year, we have rolled out major updates to Enrichr, including new libraries and faster analysis.</p></div>`;
+  const { doc } = boot(html);
+  const t = doc.querySelector("#new_t").textContent;
+  assert.match(t, /we have rolled out major updates/);
+  assert.doesNotMatch(t, /过去一年|已推出/);
+});
+
+test("Find knowledge 按钮翻译", () => {
+  const { doc } = boot(`<button class="proceed-button">Find knowledge</button>`);
+  assert.equal(doc.querySelector(".proceed-button").textContent, "查找知识");
+});

@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.17.6（本地，未推送） |
-| 词库 | 118 册 / 36338 exact / 1893 规则 / 2251 模板 |
+| 版本 | 0.17.7（本地，未推送） |
+| 词库 | 118 册 / 36405 exact / 1894 规则 / 2252 模板 |
 | 覆盖站点 | 95 个（`config/sites.json`） |
-| 单测 | 2493 条全绿（`npm test`，约 172 s） |
-| 产物 | `dist/biol10n.user.js` 2,228,370 字节（约 2176 KB） |
+| 单测 | 2509 条全绿（`npm test`，约 173 s） |
+| 产物 | `dist/biol10n.user.js` 2,232,264 字节（约 2180 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（已公开，站内搜「BioL10n」可得，线上 v0.17.3） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3–0.17.6 只存在于本地工作树，未经用户要求不推；脚本猫线上仍是 v0.17.3（改公开时一并发布）。
+0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3–0.17.7 只存在于本地工作树，未经用户要求不推；脚本猫线上仍是 v0.17.3（改公开时一并发布）。
 
 ## 结构
 
@@ -313,6 +313,17 @@ node tools/apply.mjs
 - **README**：`readme-sync.mjs` 只改数字不增行，四册要手工补表行（本轮的坑）。
 - 验收：`npm test` **2493 条全绿**；118 册 / 36338 exact / 1893 规则 / 2251 模板 / 95 站；产物 2,228,370 字节。
 
+本轮（2026-11-28 凌晨，0.17.7）收掉的（verify2 / verify3 复核后的修整）：
+
+- **左括号延迟本地化**（`src/engine.js`）：`("(" + <a>browse 50 gene sets</a> + ")")` 的 `(` 在文档顺序上先于链接，首次经过时右侧还是英文，导致 MSigDB 集合页 74 处 `(浏览 50 个基因集）` 半角开、全角合。新增 `pendingPunct` 队列，walk 结束后 `flushPunct()` 再判一次右侧是否中文；backlog 分片消费完也补一次。`test/punct-paren.test.mjs` 2 条（中文语境补全角、英文语境不动）。
+- **ChEMBL**：Cookie 横幅 `.privacy-banner` 整块 skip（此前整句英文里只有 Privacy Notice / Terms of Use 两个链接变中文，且 `and`→「和」）；删掉 Fraunhofer / Karolinska / British National Formulary / WHO ATC 全称的汉译（专名保留英文），`A - ADME` 不再补「性质」；补 `InChI Key`→`InChI 键`；`test/chembl.test.mjs` 加 Cookie 横幅断言，并把「Aspirin (25)」「Interval Size (10)」从噪音名单里移回真界面词（原宽泛规则 `re:^[A-Za-z][A-Za-z .&'-]* \(\d+\)$` 已删）。
+- **MSigDB**：集合页导语改整段模板（两个链接占槽位，数字 35092/10 硬编码 —— 版本号一变就退回英文，可接受）；补首页资助声明与「完整 Human MSigDB GMT」警告整句；`{{1}} between your gene set…` 模板改成「{{1}}您的基因集与 MSigDB 内基因集之间的重叠。」；删掉与 defaults 重复的 `attrs`；把吞全大写界面词的 `rec:^[A-Z0-9_.:/-]{3,}$` 收紧为必须含数字/分隔符（`DOWNLOAD` 不再被滤）。
+- **Enrichr**：`#new_t`（更新内容，约 2.2 万字）/ `#metadata_t` / `#about_t` 三个长内容页签整块 skip（此前不翻但会漏出零散半中半英）；补 `Find knowledge`→「查找知识」；删掉永不命中的 `#header h1 a` scopedExact。
+- **medRxiv**：`path` 简化成 `^/`（原多分支里 `^(/|…)` 已覆盖全站，其余是死分支）。
+- **复核结论**：medRxiv 首页 76/75/0、检索 325/288/0（skip 内 360 条不计），ZIP 地址/作者/期刊全保留；查阅文章页需绕过 Cloudflare（headless 默认 UA 403，桌面 UA 200），但该页 head 里外部脚本挂死、`document.body` 长时间不出现，本轮仍未取得文章页注入数据（userscript 用 Fetch 注入还会被 CSP 拦，属测量工具限制，不是脚本行为）。Enrichr 首页 261 条残留里 218 条是数据库专名/引用，非界面缺口。
+- **GDC 深路径**（gdc3 子代理）：`/projects`、`/repository` 的 404 不是配置能救的，真实路由是 `/analysis_page?app=Projects` 与 `/analysis_page?app=Downloads`；新增 `dict/gdc2.json` 68 条 exact + 1 条规则（16/3 → 84/4），`test/gdc-deep.test.mjs` 8 条。注释浏览器 271 节点 hitExact 145→155、attrs 56→66；Projects 232 节点 138/126；Downloads 339 节点 223/258。三页界面文案残留 0，余下全是 UUID/时间戳/病例号/项目 ID/格式/哈希/文件名。列选择器与「添加自定义筛选条件」对话框实测可翻；320 条 GDC API schema 属性名与 23 条分面数据值按「不是界面文案/数据」不翻。
+- 验收：`npm test` **2509 条全绿**；118 册 / 36405 exact / 1894 规则 / 2252 模板 / 95 站；产物 2,232,264 字节；`dict-lint` 58 组未涨；`npm run lint` 0 错误 / 1336 提示。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -322,7 +333,7 @@ node tools/apply.mjs
    判据同样是「最终覆盖率不变 + `test/perf-engine.test.mjs` 的三条不退化」。
 3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
 4. **cBioPortal 研究显示名**：已定案「整名不翻」（0.16.9，理由见上；`test/cbio-study-names.test.mjs` 钉住），此项结案。
-5. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
+5. **GDC `/projects`、`/repository`**：已查明是 404，真实页面在 `/analysis_page?app=…`，0.17.7 已补译并结案（`test/gdc-deep.test.mjs`）。
 6. **kegg `div.list` 待实机复核**（0.17.3 只做了静态回放）：genome.jp 网络恢复后抽 module / brite / ko / entry 三页，
    确认 `div.list` 里除 3 个 `span.new` 徽标外没有界面文字；若某页整块是界面控件，改成更窄的容器选择器或给该页单独 skipFree。
 7. **`<mark>` 修复的后验**：0.17.3 已在 InterPro 真实页面验证整条保持英文；剩余站点里 EBI Search / Ensembl 检索 / PRIDE / Expression Atlas 探测都是 0 个 `<mark>`，

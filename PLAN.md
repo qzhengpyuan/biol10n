@@ -50,11 +50,15 @@ cd /mnt/E/code/biol10n
 npm run build && npm test
 # 3. 生成 dist 并过 dist-fresh 闸门
 node tools/release.mjs
-# 4. 提交并推送两个分支
-git commit -am "0.16.x：……" && git push origin main release
+# 4. 只提交到本地（见下条硬规则，不要 push）
+git commit -am "0.16.x：……"
 # 5. 装到本机 ScriptCat（浏览器 CDP 9227 必须先起）
 node tools/apply.mjs
 ```
+
+**【硬】未经用户明确要求，不执行 `git push`**（2026-11-27 用户原话：「以后我没有让你push就不要push，只许commit到本地」）。
+发版照旧改版本、构建、测试、`release.mjs`、本地 commit、`apply.mjs`；要不要推到 GitHub 由用户当次说了算。
+推送时两个分支一起：`git push origin main release`。
 
 **脚本猫 webhook 会自动同步**：改 README 也必须走一次 release，否则商店页显示旧 README。
 
@@ -250,7 +254,10 @@ node tools/apply.mjs
    方法照 0.16.7–0.17.2：先看报告里成片的同一形状，再决定子串 / `re:` / `rec:`；判据是「被滤掉的确实是数据，不是界面词」。
 7. **`<mark>` 高亮切开的条目名**（interpro 检索结果 `Protein kinase-like domain superfamily` 被翻成「蛋白质 kinase-like …」）：
    词库侧无解，需要 `scopedExact` 或引擎把被高亮切成两段的同一节点按整句拼回去；先看还有几个站有 `<mark>`。
-8. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
+8. **发布面（2026-11-27 查证）**：ScriptCat 站上 `script-show-page/9127` 仍是 **v0.16.6**、标注未公开（后续版本只装在本机）；
+   改公开要在登录态下走站点后台。GreasyFork 从未发布过，本机直连被 DNS 污染 + Cloudflare IP 的 TLS RST 拦死，
+   系统代理（FlClash 7897）当时节点已死 —— 两件事都要等可用代理；登录态在用户自己的 Vivaldi profile 里（`scriptcat.org` 的 `login_id`+`token`）。
+9. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
    现在只能靠 `PROSITE profiles` 这类复合键挡；要动就三处一起核对（common / interpro / 其他含 Profile 的册）。
 ## 踩过的坑（每条都真实踩过，改之前先看）
 

@@ -12,7 +12,9 @@
     "coverage": "node tools/coverage.mjs",
     "terms": "node tools/terms.mjs",
     "smoke": "node tools/smoke.mjs",
-    "readme": "node tools/readme-sync.mjs"
+    "readme": "node tools/readme-sync.mjs",
+    "miss:replay": "node tools/miss-replay.mjs",
+    "miss:list": "node tools/miss-replay.mjs --list"
   },
   "devDependencies": {
     "jsdom": "^31.0.1"

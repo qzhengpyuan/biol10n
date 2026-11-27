@@ -39,7 +39,7 @@
 | `config/sites.json` | 站点表：hosts / path / dicts / scope / skip / attrs / spa / rescan / scopedExact 等 |
 | `dict/*.json` | 词库册：`exact` / `rules` / `templates`（格式见 `docs/engine-design.md`） |
 | `test/*.test.mjs` | jsdom 回放 + 静态断言；每批词条都要配一个测试文件 |
-| `tools/` | `release.mjs`（发版）、`apply.mjs`（装本机）、`dict-lint.mjs`（跨册冲突/卫生）、`attr-scan.mjs`（属性普查）、`miss-report.mjs`（真实页面「仍是英文」清单 + 截图）、`readme-sync.mjs`（把 README 词库表/合计/体积同步成当前值；`--check` 只报差异） |
+| `tools/` | `release.mjs`（发版）、`apply.mjs`（装本机）、`dict-lint.mjs`（跨册冲突/卫生）、`attr-scan.mjs`（属性普查）、`miss-report.mjs`（真实页面「仍是英文」清单 + 截图）、`readme-sync.mjs`（把 README 词库表/合计/体积同步成当前值；`--check` 只报差异）、`miss-replay.mjs`（用已有漏翻报告回放名单收益：`npm run miss:replay -- <siteId>`，`--candidates` 预览候选、`--list` 看各站报告量） |
 
 ## 发版链（一字不改地按顺序跑）
 
@@ -295,6 +295,12 @@ node tools/apply.mjs
 - **已知风险**：流式 SSR 页面（HTML 边流边解析）可能在文字完整前先扫一次；本次四个实测站节点数与命中数不变，
   但若以后发现某站首屏出现半截译文，先查该站是否流式输出，再考虑按站加 `waitFor`。
 - 观察：`reactome.org` 在旧版里 15 秒还采不到 `__BIOL10N`（SPA 空壳从未满足旧判据），早启动后 5.9 秒可翻、283 节点 252 命中。
+### 工具补充（同日，未单独发版）
+
+- `tools/miss-replay.mjs`：把 `research/miss-*.json` 按站点 `missNoise` 回放（普通条目=子串、`re:`=不敏感正则、`rec:`=敏感正则，与 `src/ui.js` 同一套语义），
+  打印「文本 N → 被滤 X → 剩余 Y」与剩余样本；`--candidates` 可在不写配置前预览候选名单收益，`--list` 看各站报告量。
+  换掉了此前每轮临时手写的回放脚本（存档在 `/mnt/E/备份文件/biol10n-临时脚本-20261127/miss-noise-replay.mjs`）。
+  入口：`npm run miss:replay -- <siteId>`、`npm run miss:list`；`test/miss-replay.test.mjs` 5 条钉住三种条目语义与路径优先顺序。
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，

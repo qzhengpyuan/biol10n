@@ -167,7 +167,11 @@
         scopedExact: site.scopedExact || [],
         waitFor: site.waitFor || ""
       },
-      onMiss: function (text, ctx) { ui.addMiss(text, ctx); }
+      onMiss: function (text, ctx) { ui.addMiss(text, ctx); },
+      // 首扫按 120ms 分片：超长页面（UCSC/GDC 表格动辄 3–6 万节点）上，
+      // 一轮同步 walk 会占住主线程半秒以上，滚动和点击都卡；分片后先翻文档顺序靠前的部分
+      // （基本就是首屏），其余在空闲回调里按同样预算补完。
+      scanBudgetMs: 120
     });
 
     ui.attach(engine);

@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.16.9。
+> 最后更新：2026-11-27，对应版本 0.17.0。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.16.9 |
+| 版本 | 0.17.0 |
 | 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2329 条全绿（`npm test`，约 163 s） |
-| 产物 | `dist/biol10n.user.js` 2,154,662 字节（约 2104 KB） |
+| 单测 | 2333 条全绿（`npm test`，约 164 s） |
+| 产物 | `dist/biol10n.user.js` 2,158,435 字节（约 2108 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.16.9 已推送（main 与 release 同版本对齐，release 头 = v0.16.9）。
+0.16.0–0.17.0 已推送（main 与 release 同版本对齐，release 头 = v0.17.0）。
 
 ## 结构
 
@@ -165,11 +165,32 @@ node tools/apply.mjs
   `OQL` 从缩写名单里拿掉（它是界面词，词库已有「Onco 查询语言（OQL）」）。
 - `test/cbio-study-names.test.mjs` 4 条：skip 名单里确有研究名容器、研究名整名保留无中文、通用形态都能滤、界面标签不误伤。
 - 验收：`npm test` 2329 条全绿。
+本轮（2026-11-27，0.17.0）收掉的：
+
+- **首扫分片（scanBudgetMs）**：`walk` 原来一次性处理整批文本节点，超长页面（UCSC/GDC 表格 3–6 万节点）
+  上一轮同步扫描能把主线程占住几百毫秒。现在引擎接受 `scanBudgetMs`（boot 传 120），`scan()` 开头定一个总截止时间，
+  `walk` 到点就把剩下的文本节点排进 backlog，由 `requestIdleCallback`（无则 setTimeout 16ms）按同样预算分批补完。
+  文档顺序基本就是从上到下，所以首屏/视口附近的文字天然先翻。
+  - backlog 用 WeakSet 去重：每次重扫/路由/rescan 的 `walk` 都会重新看到同一批节点，不去重时 UniProt 9.3k 节点页
+    5 秒内能堆到 4 万条（早期实测），全是白跑。
+  - jsdom 合成页（2000 行 × 10 列、4.2 万元素）：`start()` 同步阻塞 501 ms → **368 ms**（剩余在空闲回调补完，
+    最终 `hitExact` 与不分片完全一致，`test/perf-engine.test.mjs` 最后一条钉住）。
+  - 真机（直连 headless + document-start 注入 dist）：UniProt TP53 条目页 9,341 节点，`stats.time.walk` 136 → 75–80 ms；
+    `timing.start` 从 ~520 ms 降到 ~190 ms（含页面主线程争用，绝对值随机器波动）。长任务总量被页面自身 React 淹掉，
+    该页只有约 100 ms 的引擎侧收益。
+  - **没走 IntersectionObserver 的理由**：IO 回调是异步的，可见文字会先以英文出现、下一帧才变中文（闪一下，观感更差）；
+    逐块 `observe` 的注册成本随节点数线性涨；而文档顺序已经近似视口顺序，分片拿到大部分收益且不碰布局。
+- `test/scan-slices.test.mjs` 3 条：分片留下 backlog 并能补完、默认关闭时一次扫完（`stats.backlog` 恒 0）、
+  关闭翻译后不再补 backlog（不会再冒出中文）。
+- 验收：`npm test` 2333 条全绿。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
    要么维持现状（GitHub release 分支 raw 直链安装）。
-2. **性能余量**：`walk` 里剩余开销大半是 jsdom 的接口包装（真实浏览器不存在）；若还要做，方向是「只翻视口附近 + 空闲补」（IntersectionObserver + 分片），风险中等。
+2. **性能余量（分片已做，剩非 walk 阶段）**：0.17.0 的分片只覆盖 `walk` 里的文本节点；`blocks`/`paras`/`templates`/`cleanup`
+   四段仍在同一次同步扫描里跑完（4.2 万元素合成页上合计约 200 ms）。要再压就把这四段也切成任务单元，
+   判据同样是「最终覆盖率不变 + `test/perf-engine.test.mjs` 的三条不退化」。
 3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
 4. **cBioPortal 研究显示名**：已定案「整名不翻」（0.16.9，理由见上；`test/cbio-study-names.test.mjs` 钉住），此项结案。
 5. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。

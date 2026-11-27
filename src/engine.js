@@ -140,11 +140,24 @@ function createEngine(options) {
   var svgTexts = []; // SVG <text> 的逐节点原文（元素不在文本节点还原范围内，单独记）
   var misses = new Set();
   // enabled 放在 stats 上而不是只做闭包变量：boot 的 toggle 靠它判断该开还是该关
-  var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, tpl: 0, scoped: 0, enabled: true };
+  var stats = { nodes: 0, hitExact: 0, hitRule: 0, attrs: 0, skipped: 0, tpl: 0, scoped: 0, backlog: 0, enabled: true };
   var enabled = true;
   var observer = null;
   var queue = new Set();
   var timer = null;
+  // 首扫分片：大页面上一轮 walk 能把主线程占住几百毫秒（真机 9.3k 节点 ≈ 136ms，
+  // 36k 节点 ≈ 500ms）。scanBudgetMs > 0 时，walk 只处理前一段（文档顺序 ≈ 视口顺序），
+  // 剩下的文本节点进 backlog，由空闲回调按同样预算分批补完。ui/boot 之外的调用方
+  // 不传这个选项，行为与以前完全一致（测试与 CLI 都按整页扫）。
+  var scanBudget = (options && typeof options.scanBudgetMs === "number") ? options.scanBudgetMs : 0;
+  var textBacklog = [];
+  var backlogAt = 0;
+  var backlogTimer = null;
+  var scanDeadline = 0;
+  // 分片会把同一批节点重复排进 backlog：每次重扫/路由/rescan 的 walk 都会再看到它们。
+  // 用 WeakSet 去重，已翻过的（processed）直接跳过——否则 UniProt 这种 9k 节点页
+  // 5 秒内 backlog 能堆到 4 万条，全是白跑。
+  var backlogQueued = new WeakSet();
 
   // 绝大多数要翻的串是纯 ASCII、无首尾空格、无连续空白：这种串过一遍 5 个 replace 结果是
   // 原样返回，但一次正则扫描都不做更省。大表格上 normalize 以前是 45–75 ms 纯开销。
@@ -1703,7 +1716,53 @@ function createEngine(options) {
     var batch = [];
     var n;
     while ((n = walker.nextNode())) batch.push(n);
-    for (var k = 0; k < batch.length; k++) handleTextNode(batch[k]);
+    if (!scanBudget || batch.length < 40) {
+      for (var k0 = 0; k0 < batch.length; k0++) handleTextNode(batch[k0]);
+      return;
+    }
+    // scan() 开头定了一个总截止时间：本轮预算用完就把整批节点排进 backlog。
+    // 文档顺序基本等于从上到下，所以首屏/视口附近的文字天然先翻。
+    var t0b = Date.now();
+    // scan() 里的 walk 共用同一个总截止时间；flush()/mutation 触发的 walk 没有 scan 上下文
+    //（或 scanDeadline 已过期），各自从调用时刻起算一份预算。
+    var dl = scanDeadline > t0b ? scanDeadline : t0b + scanBudget;
+    var cut = -1;
+    for (var k = 0; k < batch.length; k++) {
+      if (Date.now() >= dl || (k && k % 50 === 0 && Date.now() - t0b >= scanBudget)) { cut = k; break; }
+      handleTextNode(batch[k]);
+    }
+    if (cut >= 0) {
+      for (var r = cut; r < batch.length; r++) enqueueBacklog(batch[r]);
+      stats.backlog = textBacklog.length - backlogAt;
+      scheduleBacklog();
+    }
+  }
+
+  function enqueueBacklog(n) {
+    if (processed.has(n) || backlogQueued.has(n)) return;
+    backlogQueued.add(n);
+    textBacklog.push(n);
+  }
+
+  /** backlog 的下一段从 backlogAt 开始消费；整批清空时把数组一起丢掉，避免无限增长。 */
+  function scheduleBacklog() {
+    if (!enabled || backlogAt >= textBacklog.length || backlogTimer) return;
+    var run = function () { backlogTimer = null; drainBacklog(); };
+    if (win.requestIdleCallback) backlogTimer = win.requestIdleCallback(run, { timeout: 500 });
+    else backlogTimer = setTimeout(run, 16);
+  }
+  function drainBacklog() {
+    if (!enabled) return;
+    var t = Date.now(), n = 0;
+    while (backlogAt < textBacklog.length) {
+      var bk = textBacklog[backlogAt++];
+      backlogQueued.delete(bk);
+      handleTextNode(bk);
+      if (++n % 50 === 0 && Date.now() - t >= scanBudget) break;
+    }
+    if (backlogAt >= textBacklog.length) { textBacklog = []; backlogAt = 0; }
+    stats.backlog = textBacklog.length - backlogAt;
+    if (backlogAt < textBacklog.length) scheduleBacklog();
   }
 
   /** 把 site.scopedExact 里各选择器命中的元素登记下来（Element -> 该元素适用的精确表）。 */
@@ -2116,6 +2175,7 @@ function createEngine(options) {
   function scan() {
     if (!enabled) return;
     resetNodeCaches();
+    scanDeadline = scanBudget ? Date.now() + scanBudget : 0;
     var now = (typeof performance !== "undefined" && performance.now) ? function () { return performance.now(); } : function () { return 0; };
     var T = [now()];
     applyBlocks();
@@ -2134,6 +2194,7 @@ function createEngine(options) {
     for (var tq = 0; tq < roots.length; tq++) translateTemplates(roots[tq], elSets[tq]);
     T.push(now());
     for (var i = 0; i < roots.length; i++) walk(roots[i], elSets[i]);
+    scanDeadline = 0;
     T.push(now());
     for (var k = 0; k < roots.length; k++) translateInlineInCJK(roots[k]);
     T.push(now());
@@ -2477,6 +2538,15 @@ function createEngine(options) {
     try { observer && observer.disconnect(); } catch (e) {}
     if (timer) clearTimeout(timer);
     flushPending = [];
+    // 未消费的分片在关闭后不再翻：否则用户刚点「关闭」，几百毫秒后页面又冒出中文。
+    if (backlogTimer) {
+      if (win.cancelIdleCallback) { try { win.cancelIdleCallback(backlogTimer); } catch (e1) {} }
+      clearTimeout(backlogTimer);
+      backlogTimer = null;
+    }
+    textBacklog = [];
+    backlogAt = 0;
+    stats.backlog = 0;
     restore();
     // SPA 可能在中间又改写过 <title>（GDC 的首页就是这样），导致 doc.title 不再等于
     // translatedTitle；只要当前标题还是中文，就说明它仍是我们写的，照原样还回去。

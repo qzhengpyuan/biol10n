@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.17.5（本地，未推送） |
-| 词库 | 114 册 / 35436 exact / 1819 规则 / 2185 模板 |
-| 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2434 条全绿（`npm test`，约 168 s） |
-| 产物 | `dist/biol10n.user.js` 2,182,381 字节（约 2131 KB） |
+| 版本 | 0.17.6（本地，未推送） |
+| 词库 | 118 册 / 36338 exact / 1893 规则 / 2251 模板 |
+| 覆盖站点 | 95 个（`config/sites.json`） |
+| 单测 | 2493 条全绿（`npm test`，约 172 s） |
+| 产物 | `dist/biol10n.user.js` 2,228,370 字节（约 2176 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（已公开，站内搜「BioL10n」可得，线上 v0.17.3） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3–0.17.5 只存在于本地工作树，未经用户要求不推；脚本猫线上仍是 v0.17.3（改公开时一并发布）。
+0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3–0.17.6 只存在于本地工作树，未经用户要求不推；脚本猫线上仍是 v0.17.3（改公开时一并发布）。
 
 ## 结构
 
@@ -295,6 +295,24 @@ node tools/apply.mjs
   复核用的是重建的旧门控产物（源码文本替换），旧门控 0.17.4 原产物未留档。
 - 复核顺带确认：6 站混合语抽查 old/new 完全一致（onlyNew = 0），无半句；`reactome` 站点本身 2.4 s 就会翻，此前「15 秒不翻」的记录不再复现。
 
+本轮（2026-11-28 凌晨，0.17.6 后段）收掉的（四个子代理并行补译新站）：
+
+- **ChEMBL**（`dict/chembl.json` 258 条：211 exact / 43 rules / 4 模板；站点插在 `embl-ebi` 之前、只吃 `^/chembl(/|$)`）：
+  首页/检索/报告卡命中 54→72、128→265、104→302；`/training/` 与基线逐项一致（没抢 `embl-ebi`）。
+  遗留：`All (6 more)` 被 common 的括号规则抢先译成「全部（6 更多）」；`From` 表头被 common 的「从」覆盖；气泡图多行标签逐行收。
+- **MSigDB / GSEA**（`dict/msigdb.json` 437 条：360/24/53）：11 个页面实测界面漏翻 0 条；
+  `collection_details.jsp` 的长散文 63 条整段留英文（设计内）。词条含 46 条名单，压掉作者/期刊/日期/物种/登录号噪音。
+- **Enrichr**（`dict/enrichr.json` 143 条：135/3/5；站点 `spa` + `waitFor` + 5 组 `scopedExact`）：
+  首页/文库/结果表/帮助漏翻 549→257（余下 218 条是数据库专名）、314→0、26→0；结果页 3,005 命中 + 460 模板。
+  取证时本网络不通 jQuery/DataTables CDN，子代理预注入本地副本才拉起表格；真实用户环境不需要。
+- **medRxiv**（`dict/medrxiv.json` 204 条：196/4/4）：首页/检索/文章页漏翻 63→0、252→0、193→0；
+  `skip` 掉结果标题、作者、机构与正文 `.highwire-markup`，剩余属性 2 条是上一篇/下一篇标题（元数据）。
+  风险：`inlineExact: true` 全站放开正文保护，三页实测无误翻，若日后发现应改成选择器级。
+- **合并口径**：四册都按多数册译法对齐跨册冲突（Collections/Collection/Overview/Release notes/See、Pathology/Pediatrics/Surgery/Subject/Through/Data availability、Gene Id/Nursing/Transplantation/Publisher/Order by/not 等），
+  唯一保留的是 `Terms`（Enrichr 表头=条目数 vs cBioPortal 条款，语义不同，记 1 组有意冲突）；`dict-lint` 57 → **58 组**。
+- **README**：`readme-sync.mjs` 只改数字不增行，四册要手工补表行（本轮的坑）。
+- 验收：`npm test` **2493 条全绿**；118 册 / 36338 exact / 1893 规则 / 2251 模板 / 95 站；产物 2,228,370 字节。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -309,8 +327,8 @@ node tools/apply.mjs
    确认 `div.list` 里除 3 个 `span.new` 徽标外没有界面文字；若某页整块是界面控件，改成更窄的容器选择器或给该页单独 skipFree。
 7. **`<mark>` 修复的后验**：0.17.3 已在 InterPro 真实页面验证整条保持英文；剩余站点里 EBI Search / Ensembl 检索 / PRIDE / Expression Atlas 探测都是 0 个 `<mark>`，
    NCBI / PubMed 被 reCAPTCHA 挡未取证 —— 有代理时补一次，确认没有新形状（`<mark>` 跨多个块级元素时不适用）。
-8. **发布面**：脚本猫 `9127` 已公开、线上 v0.17.3；本机装了 0.17.5。GitHub main/release 头仍是 v0.17.2，
-   0.17.3–0.17.5 只在本地 —— **【硬】未获明确要求不 push，且不许改一点就推**（用户 2026-11-28：「以后不要没完成一点小更改就推送」）。
+8. **发布面**：脚本猫 `9127` 已公开、线上 v0.17.3；本机装了 0.17.6。GitHub main/release 头仍是 v0.17.2，
+   0.17.3–0.17.6 只在本地 —— **【硬】未获明确要求不 push，且不许改一点就推**（用户 2026-11-28：「以后不要没完成一点小更改就推送」）。
    GreasyFork 用户说先算了，暂缓。
 9. **NCBI Gene 实机取证**：0.17.4 的 12 条是静态证据推导（672/7157 全被 reCAPTCHA 挡，curl 也只拿到挑战页）。
    有真实浏览器/可用代理时跑一次 `miss-report ncbi-gene`，确认没有再漏的界面词，也确认 `of` 分页片段是否值得做跨节点模板。
@@ -319,6 +337,11 @@ node tools/apply.mjs
 11. **kegg 仍不可达**：`genome.jp` 2026-11-28 复测仍是 000（15 s 超时），`div.list` 的 skip 只能继续挂静态回放；europepmc 也仍是 403 / Cloudflare 挑战。
 12. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
    现在只能靠 `PROSITE profiles` 这类复合键挡；要动就三处一起核对（common / interpro / 其他含 Profile 的册）。
+13. **ChEMBL 两个 common 抢先命中**：`All (6 more)` → 「全部（6 更多）」、`From` 表头 → 「从」。要修得动 common 的括号规则或给 common 加站点级豁免，
+    牵动面大，先记在这里；jsdom 下 `scopedExact` 对 Vuetify 表头无效（真实页走 inline/段落路径），已删死配置。
+14. **medRxiv `inlineExact: true` 的后验**：三页实测无误翻；若发现正文短句被误翻，改成选择器级 `inlineExact`。
+15. **Enrichr 取证环境**：结果表依赖 jQuery 1.9.1 + DataTables 1.9.4 CDN，本网络直连被断；复测要么走真实浏览器，要么像子代理那样预注入本地副本。
+
 ## 踩过的坑（每条都真实踩过，改之前先看）
 
 - **`tools/miss-report.mjs` 会覆盖 `research/` 里的同名报告**：`research/` 不在 git 里，覆盖就找不回来。要让子代理先建目标目录再备份（`mkdir -p` 之后 `cp`），
@@ -410,10 +433,14 @@ node tools/apply.mjs
   交回后先跑各自测试 → 再看 `dict-lint` 是否仍 57 组 → 统一 `npm run build` + `npm run readme` + `npm test`，
   否则中途的 `readme-stats` / `dist 指纹` 必然红（它们读的是磁盘词库与 dist 的一致性）。
 
+- **`readme-sync.mjs` 只改数字不增行**：新增词库册后 README 表要手工补一行（`| 册名 | exact | rules | templates | 说明 |`），否则 `readme-stats` 报「缺行」，合计行却已经是新值，看起来像「数字对不上」实为缺行。
+- **新站点插进 `config/sites.json` 要看顺序**：`pick()` 取第一个匹配，宽路径（无 `path` 的 `embl-ebi`）会把窄路径（`/chembl`）吃掉；窄的必须插在宽的之前，并在同域其他路径上回归一次。
+- **新册会带出跨册冲突**：同一英文键在不同册用了不同中文（`See` 查看/参见、`Publisher` 出版商/出版者）会让 `dict-lint` 计数上涨；先对齐多数册的写法，语义确实不同才保留并在 PLAN 记账。
+
 ## 验收标准
 
-- `npm test` 全绿（2378 条，当前）
-- `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
+- `npm test` 全绿（2493 条，当前）
+- `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 58 组；Enrichr 的 `Terms` 是有意保留的 1 组）
 - 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
 - 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms
 

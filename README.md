@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2131 KB**（2,182,583 字节）；词库里 114 个文件共 35436 条词条（含 1819 条规则）+ 2185 条模板，覆盖 91 个站点
+- 单文件产物 **2176 KB**（2,228,370 字节）；词库里 118 个文件共 36338 条词条（含 1893 条规则）+ 2251 条模板，覆盖 95 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -201,6 +201,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | cbioportal | 1189 | 55 |  | cBioPortal |
 | cbioportal2 | 86 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
 | cellxgene | 144 | 14 | 1 |  |
+| chembl | 211 | 43 | 4 | ChEMBL（化合物检索、报告卡、代谢图） |
 | clingen | 437 | 10 | 27 | ClinGen 与 ClinPGx |
 | clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
 | clinicaltrials | 734 | 57 | 131 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
@@ -215,6 +216,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ebi-home | 61 | 2 | 1 | EMBL-EBI 全局页头页脚与首页（多站复用） |
 | ebi-training | 52 | 2 |  | EMBL-EBI 培训（课程、线上讲座、材料） |
 | ena | 513 | 28 | 29 | ENA Browser（记录页、检索、序列检索、Webin） |
+| enrichr | 135 | 3 | 5 | Enrichr（富集结果表、文库、帮助） |
 | ensembl | 394 | 10 | 16 | Ensembl（含新前端、文档、API、VEP、切碎句） |
 | ensembl-extra | 452 | 4 | 4 | Ensembl 补充（文档侧栏、API、VEP、镜像安装） |
 | ensembl-tpl | 116 |  | 71 | Ensembl 整段模板 |
@@ -250,11 +252,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | kegg-docs | 113 | 1 | 3 | KEGG 帮助文档 |
 | kegg-docs2 | 89 | 2 | 4 | KEGG 文档补漏（通路、模块、KO） |
 | medgen-gtr | 335 | 72 | 2 | MedGen / GTR |
+| medrxiv | 196 | 4 | 4 | medRxiv 预印本（首页、检索、文章页） |
 | mesh | 83 | 7 |  | NCBI MeSH |
 | metabolights | 315 | 15 | 11 | MetaboLights 代谢组学数据库（实验页、下载、帮助） |
 | mirbase | 162 | 22 |  | miRBase |
 | misc-extra | 217 | 5 | 3 | UALCAN / GTEx / GEPIA2 补漏 |
 | misc-tpl | 32 |  | 83 | 杂项整段模板 |
+| msigdb | 360 | 24 | 53 | GSEA / MSigDB（首页、集合、浏览、基因集） |
 | ncbi | 1439 | 76 | 2 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
 | ncbi-cat | 162 | 10 | 4 | NCBI 目录站（Guide、NLM Catalog、ORFfinder） |
 | ncbi-deep2 | 84 | 14 | 1 | GTR 基因页 / MedGen / BioSample / CCDS / Datasets 深页 |
@@ -302,7 +306,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 769 | 16 |  | UniProt |
 | uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **35436 条 / 1819 条规则 / 2185 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **36338 条 / 1893 条规则 / 2251 条模板**（118 册 / 95 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

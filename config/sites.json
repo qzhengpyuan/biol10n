@@ -2346,6 +2346,38 @@
       "spa": true
     },
     {
+      "id": "chembl",
+      "name": "ChEMBL",
+      "hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "path": "^/chembl(/|$)",
+      "dicts": [
+        "common",
+        "chembl"
+      ],
+      "scope": "body",
+      "missNoise": [
+        "re:^[A-Za-z]$",
+        "re:^N/?A$",
+        "re:undefined$",
+        "rec:^CHEMBL\\d+$",
+        "re:^CHEBI:\\d+$",
+        "rec:^D\\d{5,6}$",
+        "rec:^(?:EFO|HP|MONDO|GO|SO):\\d+$",
+        "rec:^[A-Z] - [A-Z]",
+        "rec:^[A-Z]\\d{2}[A-Z]{0,2}\\d{0,2} - ",
+        "rec:^[A-Z]\\d{2}[A-Z]{0,2}\\d{0,2}$",
+        "re:^ChemSpider:",
+        "re:\\|.*…$",
+        "re:^[A-Za-z][A-Za-z .&'-]* \\(\\d+\\)$",
+        "rec:^[A-Z](?:\\d{2}[A-Z]{0,2}\\d{0,2})? -$",
+        "re:…$",
+        "re:^\\s*\\]",
+        "re:^[A-Z]:$"
+      ]
+    },
+    {
       "id": "embl-ebi",
       "name": "EMBL-EBI",
       "hosts": [
@@ -2591,6 +2623,186 @@
         "nextflow"
       ],
       "scope": "body"
+    },
+    {
+      "id": "msigdb",
+      "name": "GSEA / MSigDB",
+      "hosts": [
+        "www.gsea-msigdb.org",
+        "gsea-msigdb.org"
+      ],
+      "path": "^/gsea",
+      "dicts": [
+        "common",
+        "msigdb"
+      ],
+      "scope": "body",
+      "attrs": [
+        "title",
+        "value"
+      ],
+      "missNoise": [
+        "rec:^SysMyo has contributed a collection of Muscle Gene Sets:$",
+        "rec:^Nicolaas Van Renne et al\\. have contributed PorSignDB:$",
+        "rec:^their GitHub repository$",
+        "rec:^their website$",
+        "rec:^for more information\\.$",
+        "rec:^From the$",
+        "rec:^\\. See$",
+        "rec:^(?:PorSignDB|DSigDB)$",
+        "rec:^S\\. cerevisiae$",
+        "rec:^\"We generated",
+        "rec:^here$",
+        "rec:^Click here$",
+        "rec:^(?:a BSD-style license|full license terms are available here)$",
+        "rec:^(?!(?:Current|Past|GSEA|MSigDB|Human|Mouse|Gene|Genes|Data|Search|View|Download|License|Privacy|Release|Source|About|Home|Contact|Team|Principal|Molecular|Broad|Submit|Register|Login)\\b)[A-Z][A-Za-z\\u00C0-\\u024F.\\x27-]+(?: [A-Z][A-Za-z\\u00C0-\\u024F.\\x27-]+){1,2}$",
+        "rec:^[A-Z][A-Za-z]+, [A-Z][A-Za-z]+,? et al\\. [0-9]{4}$",
+        "rec:^[0-9]{1,2}-[A-Z][a-z]{2}-[0-9]{4}: ",
+        "rec:^[A-Z][a-z]{2} [0-9]{1,2}, [0-9]{4}: ",
+        "rec:^(?:release notes for details\\.|for details\\.)$",
+        "rec:^and$",
+        "rec:^cis$",
+        "rec:^[A-Z][A-Za-z]+,? (?:Tamayo, )?et al\\. [0-9]{4}$",
+        "rec:^[A-Z][a-z]+ and [A-Z][a-z]+, [0-9]{4}$",
+        "rec:^page for more detailed descriptions\\. See also the$",
+        "rec:^see the$",
+        "rec:^guide in the$",
+        "rec:^[A-Z]+（[A-Za-z]+）$",
+        "rec:\\.\\.\\.$",
+        "rec: vs ",
+        "re:^chr[0-9XYM]+[pq][0-9.]*$",
+        "rec:^[A-Za-z0-9]{1,2}_$",
+        "rec:^[A-Z][a-z]+(?: [A-Z]\\.)? [A-Z][a-z]+ \\([A-Za-z ]+ Team\\)$",
+        "rec:^[A-Z]{1,3}[0-9]?$",
+        "rec:^[A-Z][A-Za-z]*, (?:[A-Z][A-Za-z.]+, )?et al\\. \\([0-9]{4}, [A-Za-z ]+\\)$",
+        "rec:^(?!(?:GSEA|MSigDB|NCBI|HGNC|GMT|TSV|JSON|SQLite|API|GO|HPO|VAX|CGP)$)[A-Z0-9_.:/-]{3,}$",
+        "re:\\[Source:HGNC",
+        "re:^GSE[0-9]+$",
+        "re:^E-[A-Z]+-[0-9]+$",
+        "re:^(?:gmt|gmx|grp|json|xml|tsv|txt|xlsx?|zip|sqlite|db)$",
+        "re:^(?:Homo sapiens|Mus musculus|Rattus norvegicus|Caenorhabditis elegans|Saccharomyces cerevisiae|Drosophila melanogaster)( [A-Za-z]+)*$",
+        "rec:^(?:show|hide)$",
+        "re:^<table",
+        "re:^[a-z0-9.-]+\\.[a-z]{2,}/",
+        "re:^(?:Broad Institute|Harvard Medical School & Broad Institute|UC San Diego|UC San Diego and Broad Institute)$",
+        "rec:^(?!(?:Current|Past|GSEA|MSigDB|Human|Mouse|Gene|Genes|Data|Search|View|Download|License|Privacy|Release|Source|About|Home|Contact|Team|Principal|Molecular|Broad|Submit|Register|Login)\\b)[A-Z][a-z]+(?: [A-Z]\\.)? (?:[A-Z]\\. )?[A-Z][a-z'-]+$",
+        "rec:^[A-Za-z0-9]+_[A-Za-z0-9_]+$",
+        "re:^(?:GTEx|Human tissue|Global Cancer|NCI-60|Novartis)[^,]*$"
+      ]
+    },
+    {
+      "id": "medrxiv",
+      "name": "medRxiv",
+      "hosts": [
+        "www.medrxiv.org",
+        "medrxiv.org"
+      ],
+      "path": "^(/|/search|/content|/cgi|/collection|/by-date|/topic|/about|/news|/help|/contact|/FAQ)",
+      "dicts": [
+        "common",
+        "medrxiv"
+      ],
+      "scope": "body",
+      "block": "pre, code, kbd, samp, textarea, [contenteditable='true']",
+      "inlineExact": true,
+      "skip": ".highwire-cite-title, .highwire-citation-authors, .author-affiliation, .author-tooltip-affiliation, .author-tooltip-name, .highwire-markup",
+      "scopedExact": [
+        {
+          "sel": ".pub_jnl em",
+          "exact": {
+            "not": "不"
+          }
+        }
+      ],
+      "missNoise": [
+        "rec:^(medRxiv|bioRxiv)$",
+        "rec:^(TRiP|TRIP)$",
+        "rec:^(BibTeX|Bookends|EasyBib|EndNote \\(tagged\\)|EndNote 8 \\(xml\\)|Medlars|Mendeley|Papers|RefWorks Tagged|Ref Manager|RIS|Zotero)$",
+        "rec:^(Twitter|Facebook|LinkedIn|Mendeley|Hypothes\\.is|Altmetric) logo$",
+        "rec:^CrazyEgg",
+        "rec:^(doi|DOI):$",
+        "rec:^[xX]$",
+        "rec:^(PDF|XML|ISBN|QR code)$"
+      ]
+    },
+    {
+      "_note": "插入位置：config/sites.json 的 sites 数组末尾（原文件最后一个站点 nextflow 之后）。maayanlab.cloud 与既有任何站点都不重叠，顺序无抢先匹配问题；path 已收窄到 ^/Enrichr(/|$)，同域其他应用不会被误吃。",
+      "id": "enrichr",
+      "name": "Enrichr",
+      "hosts": [
+        "maayanlab.cloud"
+      ],
+      "path": "^/Enrichr(/|$)",
+      "dicts": [
+        "common",
+        "spa",
+        "enrichr"
+      ],
+      "scope": "body",
+      "spa": true,
+      "waitFor": "#header, #navbar, #content",
+      "block": "pre, code, kbd, samp, textarea, [contenteditable='true'], .blob-code, .code",
+      "skip": "#logo, div.header.column a.title",
+      "scopedExact": [
+        {
+          "sel": "#navbar a",
+          "exact": {
+            "Analyze": "分析",
+            "What's new?": "更新内容",
+            "Libraries": "文库",
+            "Gene search": "基因检索",
+            "Term search": "条目检索"
+          }
+        },
+        {
+          "sel": "table.nav a",
+          "exact": {
+            "Bar Graph": "柱状图",
+            "Table": "表格",
+            "Clustergram": "聚类图",
+            "Grid": "网格"
+          }
+        },
+        {
+          "sel": "a#Transcription-link, a#Pathways-link, a#Ontologies-link, a#Diseases\\/Drugs-link, a#Cell_Types-link, a#Misc-link, a#Legacy-link, a#Crowd-link",
+          "exact": {
+            "Transcription": "转录",
+            "Diseases/Drugs": "疾病/药物",
+            "Cell Types": "细胞类型",
+            "Misc": "其他",
+            "Legacy": "旧版",
+            "Crowd": "众包"
+          }
+        },
+        {
+          "sel": "p#textbox-description a",
+          "exact": {
+            "example": "示例",
+            "background": "背景"
+          }
+        },
+        {
+          "sel": "#header h1 a",
+          "exact": {
+            "r Help Center": "r 帮助中心"
+          }
+        }
+      ],
+      "missNoise": [
+        "rec:^[A-Za-z0-9_.+-]+_[A-Za-z0-9_.+-]+$",
+        "re:^\\d+(\\.\\d+)?e[-+]?\\d+$",
+        "rec:^[A-Z0-9][A-Z0-9-]{1,14}(,\\s*[A-Z0-9][A-Z0-9-]{1,14})+$",
+        "rec:^[A-Z0-9][A-Z0-9-]* \\d{5,} .+$",
+        "rec:^[A-Za-z][A-Za-z0-9+&/.,' -]{2,}\\d{4}(?: (?:Human|Mouse|up|down))?$",
+        "rec:^\\d+(\\.\\d+)?%$",
+        "rec:^: activate to sort column descending$",
+        "rec:^(En|rich|r)$",
+        "rec:^(SVG|PNG|JPG)$",
+        "rec:^Appyter$",
+        "rec:^blank$",
+        "rec:^name@example\\.com$",
+        "rec:^(Enrichr-KG|Rummagene|RummaGEO|ChEA-KG|DRUGseqr|L2S2|PFOCRummage|Perturb-Seqr|modEnrichr|FlyEnrichr|YeastEnrichr|WormEnrichr|FishEnrichr)$"
+      ]
     }
   ]
 }

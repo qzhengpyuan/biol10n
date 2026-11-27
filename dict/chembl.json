@@ -1,0 +1,421 @@
+{
+  "meta": {
+    "family": "chembl",
+    "version": "0.1.0",
+    "sites": [
+      "www.ebi.ac.uk/chembl"
+    ],
+    "area": "ChEMBL（新版 Nuxt 界面）：首页（检索框、导航、气泡图说明、版本与引用、关联资源卡、ELIXIR 页脚）、检索结果页（实体页签、筛选面板与属性筛选、结果表表头与分页、批量导出控件）、化合物报告卡（侧栏章节、字段标签、活性/实验/靶点概要与图例、数据来源、替代形式、适应症与作用机制表头、相似化合物、代谢关系图说明、计算性质、结构警报、交叉引用与列说明）",
+    "note": "只收界面骨架：按钮/页签/表头/字段标签/固定说明句与图例。CHEMBL/ChEBI/MeSH/EFO/ATC 编号、化合物名与同义词、物种拉丁名、文献题录与期刊缩写、活性类型与数值、数据集名一律不翻。EBI 全站 cookie 条与隐私声明在别的册里已有相同译文，这里重复一份是为了让 ChEMBL 不必加载 string-atlas（它把 Assays 译成「检测数」，在 ChEMBL 是实验页签/表头）。"
+  },
+  "exact": {
+    "Search in ChEMBL": "在 ChEMBL 中检索",
+    "Examples:": "示例：",
+    "Advanced Search": "高级检索",
+    "Chemical Biology Resources": "化学生物学资源",
+    "Downloads": "下载",
+    "Web Services": "Web 服务",
+    "More": "更多",
+    "Explore ChEMBL": "探索 ChEMBL",
+    "Instructions:": "使用说明：",
+    "Shows a summary of the ChEMBL entities and quantities of data for each of them.": "汇总 ChEMBL 各实体的数据量。",
+    "Click on a bubble to explore a specific ChEMBL entity in more detail.": "点击气泡可查看某个 ChEMBL 实体的详细信息。",
+    "See All Visualisations": "查看全部可视化",
+    "Provided under a": "基于以下许可发布：",
+    "Creative Commons Attribution-ShareAlike 3.0 Unported license": "知识共享 署名-相同方式共享 3.0 未本地化版本许可",
+    "Long-term data preservation": "长期数据保存",
+    "Targets": "靶点",
+    "Distinct Compounds": "不同化合物数",
+    "Publications": "论文",
+    "Deposited Datasets": "存放数据集数",
+    "Contact Us": "联系我们",
+    "Citing ChEMBL": "引用 ChEMBL",
+    "Want to know more?": "想了解更多？",
+    "FAQs": "常见问题",
+    "Database Schema": "数据库模式",
+    "Funding": "资助",
+    "Associated Resources": "相关资源",
+    "A repository for Open Access primary screening and medicinal chemistry data directed at neglected tropical diseases.": "面向被忽视热带病的开放获取初筛与药物化学数据仓库。",
+    "A simple system that produces cross-references between chemical structure identifiers from different databases.": "一个在不同数据库的化学结构标识符之间建立交叉引用的简单系统。",
+    "A publicly available large-scale resource containing compounds extracted from patent documents.": "一个公开的大规模资源，收录从专利文档中提取的化合物。",
+    "Privacy Notice": "隐私声明",
+    "Terms Of Use": "使用条款",
+    "I agree, dismiss this banner": "我同意，关闭此提示",
+    "and": "和",
+    "ChEMBL is part of the ELIXIR infrastructure": "ChEMBL 是 ELIXIR 基础设施的组成部分",
+    "ChEMBL is and Elixir Core Data Resource": "ChEMBL 是 ELIXIR 核心数据资源",
+    "ChEMBL is a Global Core Biodata Resource": "ChEMBL 是全球核心生物数据资源",
+    "Learn More": "了解更多",
+    "Global Bio Data logo": "全球生物数据徽标",
+    "Drugs": "药物",
+    "Cell Lines": "细胞系",
+    "Tissues": "组织",
+    "Drug Mechanisms": "药物作用机制",
+    "Drug Warnings": "药物警示",
+    "Drug Indications": "药物适应症",
+    "Sources": "数据来源",
+    "Compounds": "化合物",
+    "Filters": "筛选条件",
+    "Custom": "自定义",
+    "Custom Filtering": "自定义筛选",
+    "Per Property": "按属性",
+    "Type": "类型",
+    "Small molecule": "小分子",
+    "Unknown": "未知",
+    "Max Phase": "最高阶段",
+    "Phase 3": "3 期",
+    "Phase 2": "2 期",
+    "Preclinical": "临床前",
+    "#RO5 Violations": "RO5 违规项数",
+    "Molecular Weight": "分子量",
+    "Level 1 ATC Code Description": "一级 ATC 编码描述",
+    "Level 2 ATC Code Description": "二级 ATC 编码描述",
+    "Related Activities": "相关活性记录",
+    "Please select 100 items or fewer to activate.": "请选择不超过 100 项以启用。",
+    "Generate Heatmap": "生成热图",
+    "Search table": "检索表格",
+    "Compound ChEMBL ID": "化合物 ChEMBL ID",
+    "Name": "名称",
+    "Synonyms": "同义词",
+    "Polar Surface Area": "极性表面积",
+    "HBA": "氢键受体数",
+    "HBD": "氢键供体数",
+    "#Rotatable Bonds": "可旋转键数",
+    "Passes Ro3": "符合 Ro3",
+    "QED Weighted": "加权 QED",
+    "Search structure": "检索结构",
+    "Show more": "显示更多",
+    "Items per page": "每页条目数",
+    "Total": "总计",
+    "Learn more": "了解更多",
+    "Browse All": "浏览全部",
+    "Clear Sort": "清除排序",
+    "Pagination Navigation": "分页导航",
+    "Previous visual": "上一张可视化",
+    "Next visual": "下一张可视化",
+    "clear icon": "清除",
+    "Compound": "化合物",
+    "Name and Classification": "名称与分类",
+    "Structure search": "结构检索",
+    "View 3D": "查看 3D 结构",
+    "Compound ChEMBL ID:": "化合物 ChEMBL ID：",
+    "Name:": "名称：",
+    "Max Phase:": "最高阶段：",
+    "First Approval:": "首次批准：",
+    "Molecular Formula:": "分子式：",
+    "Molecular Weight:": "分子量：",
+    "Molecule Type:": "分子类型：",
+    "Synonyms and Trade Names:": "同义词与商品名：",
+    "Alternative Forms": "替代形式",
+    "Parent:": "母体：",
+    "Alternative Forms:": "替代形式：",
+    "Representations": "结构表示",
+    "Molfile:": "Molfile 文件：",
+    "Canonical SMILES:": "规范 SMILES：",
+    "Standard InChI:": "标准 InChI：",
+    "Standard InChI Key:": "标准 InChI 键：",
+    "Show": "显示",
+    "Copy to clipboard": "复制到剪贴板",
+    "Activity Charts": "活性图表",
+    "Include data from Alt. Forms": "包含替代形式的数据",
+    "Bioactivity Summary": "生物活性概要",
+    "Assay Summary": "实验概要",
+    "Target Summary": "靶点概要",
+    "Activity": "活性类型",
+    "Inhibition": "抑制",
+    "Tissue Severity Score": "组织严重度评分",
+    "Other": "其他",
+    "Enzyme": "酶",
+    "Membrane receptor": "膜受体",
+    "Transporter": "转运蛋白",
+    "Ion channel": "离子通道",
+    "Transcription factor": "转录因子",
+    "Epigenetic regulator": "表观遗传调控因子",
+    "Secreted protein": "分泌蛋白",
+    "Unclassified protein": "未分类蛋白",
+    "Adhesion": "黏附",
+    "Auxiliary transport protein": "辅助转运蛋白",
+    "F - Functional": "F - 功能性",
+    "B - Binding": "B - 结合",
+    "A - ADME": "A - ADME 性质",
+    "T - Toxicity": "T - 毒性",
+    "P - Physicochemical": "P - 理化性质",
+    "U - Unassigned": "U - 未指定",
+    "Scientific Literature": "科技文献",
+    "SARS-CoV-2 Screening Data": "SARS-CoV-2 筛选数据",
+    "SureChEMBL Patent Bioactivity Data": "SureChEMBL 专利生物活性数据",
+    "Curated Drug Metabolism Pathways": "整理的药物代谢通路",
+    "FDA approval pharmacokinetics/metabolism": "FDA 批准的药代动力学/代谢数据",
+    "Curated Drug Pharmacokinetic Data": "整理的药物药代动力学数据",
+    "Clinical Candidate Compounds": "临床候选化合物",
+    "WHO Anatomical Therapeutic Chemical (ATC) Classification of Drugs": "WHO 药物解剖治疗学及化学分类（ATC）",
+    "FDA Orange Book Drugs": "FDA 橙皮书药物",
+    "Fraunhofer Institute HDAC6 screening": "弗劳恩霍夫研究所 HDAC6 筛选",
+    "Hepatic and Cardiac Toxicity Systems modelling (HeCaToS) Compounds": "肝与心脏毒性系统建模（HeCaToS）化合物",
+    "British National Formulary (BNF)": "英国国家处方集（BNF）",
+    "Karolinska Institute dNTPase SAMHD1 screening": "卡罗林斯卡研究所 dNTPase SAMHD1 筛选",
+    "IMI-CARE SARS-CoV-2 Data": "IMI-CARE SARS-CoV-2 数据",
+    "Click on a chip to see all the compounds that belong to the corresponding source.": "点击任一标签即可查看属于该数据来源的全部化合物。",
+    "Click the button below to see the parent and its alternative forms in a new page.": "点击下方按钮，可在新页面中查看母体及其替代形式。",
+    "Molecule Features": "分子特征",
+    "Mechanism of Action": "作用机制",
+    "Action Type": "作用类型",
+    "Target ChEMBL ID": "靶点 ChEMBL ID",
+    "Target Name": "靶点名",
+    "Target Type": "靶点类型",
+    "Target Organism": "靶点物种",
+    "Variant": "变异",
+    "Binding Site Name": "结合位点名称",
+    "MESH ID": "MeSH 编号",
+    "MESH Heading": "MeSH 主题词",
+    "EFO IDs": "EFO 编号",
+    "EFO Terms": "EFO 术语",
+    "Max Phase for Indication": "适应症的最高阶段",
+    "Similar Compounds": "相似化合物",
+    "Similarity:": "相似度：",
+    "Metabolism": "代谢",
+    "Drag": "拖动",
+    "scroll": "滚动",
+    "Reset": "重置",
+    "Histogram Settings": "直方图设置",
+    "Less bars": "减少柱数",
+    "More bars": "增加柱数",
+    "Calculated Properties": "计算性质",
+    "AlogP:": "AlogP 值：",
+    "#Rotatable Bonds:": "可旋转键数：",
+    "Polar Surface Area:": "极性表面积：",
+    "HBA:": "氢键受体数：",
+    "HBD:": "氢键供体数：",
+    "#RO5 Violations:": "RO5 违规项数：",
+    "Aromatic Rings:": "芳环数：",
+    "Heavy Atoms:": "重原子数：",
+    "QED Weighted:": "加权 QED：",
+    "Np Likeness Score:": "NP 相似度评分：",
+    "Structural Alerts": "结构警报",
+    "Alert Set": "警报集",
+    "Priority": "优先级",
+    "Alerts": "警报",
+    "Alert ID:": "警报 ID：",
+    "Alert Name:": "警报名称：",
+    "Static Alerts JSON URL": "静态警报 JSON 地址",
+    "Cross References": "交叉引用",
+    "UniChem Connectivity Cross References": "UniChem 连通性交叉引用",
+    "Columns Legend:": "列说明：",
+    "stereochemical difference.": "立体化学差异。",
+    "isotopic difference.": "同位素差异。",
+    "protonation differences identified.": "识别出质子化差异。",
+    "Match": "匹配",
+    "Identical Component": "相同组分",
+    "REST Service Call": "REST 服务调用",
+    "Please try again.": "请重试。",
+    "Explore all related Activities (Including alt. forms)": "浏览所有相关活性记录（含替代形式）",
+    "Explore all related Assays (Including alt. forms)": "浏览所有相关实验（含替代形式）",
+    "Explore all related Targets (Including alt. forms)": "浏览所有相关靶点（含替代形式）",
+    "Release notes": "版本发布说明",
+    "Literature": "文献",
+    "Rows per page:": "每页行数：",
+    "node": "节点",
+    "Drug": "药物",
+    "Mechanisms": "机制",
+    "Indications": "适应症",
+    "Cell": "细胞",
+    "Lines": "系"
+  },
+  "rules": [
+    {
+      "re": "^Search results for (.+) - ChEMBL$",
+      "to": "“$1”的检索结果 - ChEMBL"
+    },
+    {
+      "re": "^Current Release: (.+)$",
+      "to": "当前版本：$1"
+    },
+    {
+      "re": "^Last Update on (.+) \\|$",
+      "to": "最后更新：$1 |"
+    },
+    {
+      "re": "^Search results for (.+)$",
+      "to": "“$1”的检索结果"
+    },
+    {
+      "re": "^Search for (.+)$",
+      "to": "检索“$1”"
+    },
+    {
+      "re": "^Showing ([\\d,]+)-([\\d,]+) out of ([\\d,]+) records$",
+      "to": "显示第 $1–$2 条，共 $3 条记录"
+    },
+    {
+      "re": "^(\\d+) - (\\d+) out of (\\d+)$",
+      "to": "第 $1–$2 条，共 $3 条"
+    },
+    {
+      "re": "^(\\d+)-(\\d+) of (\\d+)$",
+      "to": "第 $1–$2 条，共 $3 条"
+    },
+    {
+      "re": "^(\\d+) out of (\\d+)$",
+      "to": "第 $1 条，共 $2 条"
+    },
+    {
+      "re": "^Carousel slide (\\d+) of (\\d+)$",
+      "to": "轮播图第 $1 张，共 $2 张"
+    },
+    {
+      "re": "^Current Page, Page (\\d+)$",
+      "to": "当前页，第 $1 页"
+    },
+    {
+      "re": "^Goto Page (\\d+)$",
+      "to": "转到第 $1 页"
+    },
+    {
+      "re": "^(.+) \\(opens in a new tab\\)$",
+      "to": "$1（在新标签页打开）",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+): Not sorted\\. Activate to sort ascending\\.$",
+      "to": "$1：未排序。激活后按升序排序。",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+): Sorted ascending\\. Activate to remove sorting\\.$",
+      "to": "$1：已按升序排序。激活后取消排序。",
+      "requireHit": true
+    },
+    {
+      "re": "^(.+): Sorted descending\\. Activate to remove sorting\\.$",
+      "to": "$1：已按降序排序。激活后取消排序。",
+      "requireHit": true
+    },
+    {
+      "re": "^Structure of (.+)$",
+      "to": "$1 的结构"
+    },
+    {
+      "re": "^Interval Size \\((\\d+)\\)$",
+      "to": "区间大小（$1）"
+    },
+    {
+      "re": "^Items with no Year \\((\\d+)\\)$",
+      "to": "无年份条目（$1 条）"
+    },
+    {
+      "re": "^ChEMBL Synonyms \\((\\d+)\\):$",
+      "to": "ChEMBL 同义词（$1）："
+    },
+    {
+      "re": "^Synonyms from Alternative Forms \\((\\d+)\\):$",
+      "to": "替代形式的同义词（$1）："
+    },
+    {
+      "re": "^Trade Names \\((\\d+)\\):$",
+      "to": "商品名（$1）："
+    },
+    {
+      "re": "^All \\((\\d+) more\\)$",
+      "to": "全部（另有 $1 条）"
+    },
+    {
+      "re": "^Sources \\((\\d+)\\):$",
+      "to": "数据来源（$1）："
+    },
+    {
+      "re": "^Alternative forms of compound (.+)$",
+      "to": "化合物 $1 的替代形式"
+    },
+    {
+      "re": "^CHEMBL(\\d+) \\(Parent\\)$",
+      "to": "CHEMBL$1（母体）"
+    },
+    {
+      "re": "^Showing data from (.+) and its (\\d+) alternative forms?\\.$",
+      "to": "显示 $1 及其 $2 个替代形式的数据。"
+    },
+    {
+      "re": "^Compounds similar to (.+)$",
+      "to": "与 $1 相似的化合物"
+    },
+    {
+      "re": "^Compounds with at least (\\d+)% similarity\\.$",
+      "to": "相似度至少 $1% 的化合物。"
+    },
+    {
+      "re": "^Documents related to (.+) \\((\\d+) items\\)$",
+      "to": "与 $1 相关的文献（$2 条）"
+    },
+    {
+      "re": "^(\\d+)\\. (.+)$",
+      "to": "$1. $2",
+      "requireHit": true
+    },
+    {
+      "re": "^Error: \\.$",
+      "to": "错误。"
+    },
+    {
+      "re": "^Error: \\. Please try again\\.$",
+      "to": "错误。请重试。"
+    },
+    {
+      "re": "^Description:$",
+      "to": "说明："
+    },
+    {
+      "re": "^Activities$",
+      "to": "活性记录数"
+    },
+    {
+      "re": "^Bioactivities$",
+      "to": "生物活性记录数"
+    },
+    {
+      "re": "^Web Search$",
+      "to": "网络检索"
+    },
+    {
+      "re": "^Assays$",
+      "to": "实验"
+    },
+    {
+      "re": "^Documents$",
+      "to": "文献"
+    },
+    {
+      "re": "^Approved$",
+      "to": "已批准"
+    },
+    {
+      "re": "^UniChem Connectivity Layer Cross References for (.+)$",
+      "to": "与 $1 的 UniChem 连通层交叉引用"
+    },
+    {
+      "re": "^link$",
+      "to": "连线"
+    },
+    {
+      "re": "^Warnings$",
+      "to": "警示"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "{{1}} to move around the visualization, and {{2}} to zoom in and out.",
+      "zh": "{{1}}即可在可视化中移动，{{2}}即可放大或缩小。"
+    },
+    {
+      "pat": "Click the {{1}} button to return to the initial view.",
+      "zh": "点击{{1}}按钮可返回初始视图。"
+    },
+    {
+      "pat": "Click on a {{1}} to view details about the compound.",
+      "zh": "点击{{1}}可查看该化合物的详细信息。"
+    },
+    {
+      "pat": "Click on a {{1}} to see details of the metabolism conversion between compounds.",
+      "zh": "点击{{1}}可查看化合物之间代谢转化的详细信息。"
+    }
+  ]
+}

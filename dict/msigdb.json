@@ -1,0 +1,688 @@
+{
+  "meta": {
+    "family": "msigdb",
+    "version": 1,
+    "sites": [
+      "msigdb"
+    ],
+    "area": "GSEA / MSigDB",
+    "note": "GSEA/MSigDB 界面文案；基因集名、基因符号、登录号、物种拉丁名与文献元数据不译；长介绍段整段留英文。"
+  },
+  "exact": {
+    "login": "登录",
+    "register": "注册",
+    "GSEA Home": "GSEA 首页",
+    "Molecular Signatures Database": "分子特征数据库",
+    "Documentation": "文档",
+    "Team": "团队",
+    "MSigDB Home": "MSigDB 首页",
+    "Human Collections": "人类集合",
+    "Mouse Collections": "小鼠集合",
+    "Investigate": "分析",
+    "Gene Families": "基因家族",
+    "Gene families": "基因家族",
+    "Help": "帮助",
+    "Human": "人类",
+    "Mouse": "小鼠",
+    "Examine": "查看",
+    "Compute overlaps": "计算重叠",
+    "Categorize": "归类",
+    "View the expression profile": "查看表达谱",
+    "biological network repository NDEx": "生物网络库 NDEx",
+    "HALLMARK_APOPTOSIS human gene set page": "HALLMARK_APOPTOSIS 人类基因集页面",
+    "this human gene set page": "该人类基因集页面",
+    "this mouse gene set page": "该小鼠基因集页面",
+    "gene sets:": "基因集：",
+    "gene sets.": "基因集。",
+    "these license terms": "这些许可条款",
+    "Release notes": "版本发布说明",
+    "Signatures of post-translational modification (PTM) sites": "翻译后修饰（PTM）位点特征",
+    "Miscellaneous gene sets": "其他基因集",
+    "Other Gene Set Resources": "其他基因集资源",
+    "License Terms": "许可条款",
+    "Current Version": "当前版本",
+    "Citing the MSigDB": "引用 MSigDB",
+    "Citing GSEA": "引用 GSEA",
+    "Funding": "资助",
+    "What's New": "最新动态",
+    "Overview": "概览",
+    "hallmark gene sets": "标志性基因集",
+    "are coherently expressed signatures derived by aggregating many MSigDB gene sets to represent well-defined biological states or processes.": "是通过汇总大量 MSigDB 基因集得到的表达一致的特征，用以代表明确的生物学状态或过程。",
+    "ontology gene sets": "本体基因集",
+    "consist of genes annotated by the same ontology term.": "由注释到同一本体术语的基因组成。",
+    "positional gene sets": "位置型基因集",
+    "corresponding to human chromosome cytogenetic bands.": "对应人类染色体的细胞遗传学带。",
+    "corresponding to mouse chromosome cytogenetic bands.": "对应小鼠染色体的细胞遗传学带。",
+    "oncogenic signature gene sets": "致癌特征基因集",
+    "defined directly from microarray gene expression data from cancer gene perturbations.": "直接根据癌症基因扰动的微阵列基因表达数据定义。",
+    "curated gene sets": "策展基因集",
+    "from online pathway databases, publications in PubMed, and knowledge of domain experts.": "来自在线通路数据库、PubMed 文献与领域专家知识。",
+    "immunologic signature gene sets": "免疫学特征基因集",
+    "represent cell states and perturbations within the immune system.": "代表免疫系统内的细胞状态与扰动。",
+    "regulatory target gene sets": "调控靶基因集",
+    "based on gene target predictions for microRNA seed sequences and predicted transcription factor binding sites.": "基于 microRNA 种子序列的基因靶标预测与预测的转录因子结合位点。",
+    "cell type signature gene sets": "细胞类型特征基因集",
+    "curated from cluster markers identified in single-cell sequencing studies of human tissue.": "依据人类组织单细胞测序研究中鉴定的簇标记基因策展。",
+    "curated from cluster markers identified in single-cell sequencing studies of mouse tissue.": "依据小鼠组织单细胞测序研究中鉴定的簇标记基因策展。",
+    "computational gene sets": "计算基因集",
+    "defined by mining large collections of cancer-oriented expression data.": "通过挖掘大规模癌症相关表达数据集合定义。",
+    "computational perturbation signature gene sets": "计算扰动特征基因集",
+    "represent the coordinate transcriptional responses to expression of specific genes.": "代表对特定基因表达的协同转录响应。",
+    "mouse-ortholog hallmark gene sets": "小鼠同源标志性基因集",
+    "are versions of gene sets in the MSigDB Hallmarks collection mapped to their mouse orthologs.": "是 MSigDB 标志性集合中基因集映射到小鼠同源基因后的版本。",
+    "represent specific well-defined biological states or processes and display coherent expression.": "代表明确界定的生物学状态或过程，并显示一致的表达。",
+    "Human MSigDB Collections": "人类 MSigDB 集合",
+    "Mouse MSigDB Collections": "小鼠 MSigDB 集合",
+    "Human MSigDB Collections: Details and Acknowledgments": "人类 MSigDB 集合：详情与致谢",
+    "Mouse MSigDB Collections: Details and Acknowledgments": "小鼠 MSigDB 集合：详情与致谢",
+    "Download GMT Files": "下载 GMT 文件",
+    "NCBI (Entrez) Gene IDs": "NCBI（Entrez）基因 ID",
+    "JSON bundle": "JSON 打包文件",
+    "SQLite database": "SQLite 数据库",
+    "A SQLite database": "SQLite 数据库",
+    "(ZIPped) SQLite database": "SQLite 数据库（ZIP 压缩）",
+    "details": "详情",
+    "latest MSigDB Release Notes": "最新 MSigDB 版本说明",
+    "GMT file format": "GMT 文件格式",
+    "Data Formats": "数据格式",
+    "Documentation section": "文档部分",
+    "containing all the Human MSigDB gene sets is available as well.": "其中包含全部人类 MSigDB 基因集，同样可用。",
+    "containing all the Mouse MSigDB gene sets is available as well.": "其中包含全部小鼠 MSigDB 基因集，同样可用。",
+    "There is also a JSON bundle containing all the Human gene sets using HUGO (HGNC) gene symbols along with some useful metadata.": "另外还提供 JSON 打包文件，包含以 HUGO（HGNC）基因符号表示的全部人类基因集及一些有用的元数据。",
+    "There is also a JSON bundle containing all the Mouse gene sets using MGI gene symbols along with some useful metadata.": "另外还提供 JSON 打包文件，包含以 MGI 基因符号表示的全部小鼠基因集及一些有用的元数据。",
+    "All gene sets": "全部基因集",
+    "Bundles containing all Human gene sets in MSigDB.": "包含 MSigDB 全部人类基因集的打包文件。",
+    "Bundles containing all mouse gene sets in MSigDB.": "包含 MSigDB 全部小鼠基因集的打包文件。",
+    "H: hallmark gene sets": "H：标志性基因集",
+    "C1: positional gene sets": "C1：位置型基因集",
+    "C2: curated gene sets": "C2：策展基因集",
+    "C3: regulatory target gene sets": "C3：调控靶基因集",
+    "C4: computational gene sets": "C4：计算基因集",
+    "C5: ontology gene sets": "C5：本体基因集",
+    "C6: oncogenic signature gene sets": "C6：致癌特征基因集",
+    "C7: immunologic signature gene sets": "C7：免疫学特征基因集",
+    "C8: cell type signature gene sets": "C8：细胞类型特征基因集",
+    "C9: computational perturbation signature gene sets": "C9：计算扰动特征基因集",
+    "CGP: chemical and genetic perturbations": "CGP：化学与遗传扰动",
+    "CP: Canonical pathways": "CP：经典通路",
+    "MIR: microRNA targets": "MIR：microRNA 靶基因",
+    "TFT: transcription factor targets": "TFT：转录因子靶基因",
+    "GO: Gene Ontology gene sets": "GO：基因本体基因集",
+    "HPO: Human Phenotype Ontology": "HPO：人类表型本体",
+    "VAX: vaccine response gene sets": "VAX：疫苗响应基因集",
+    "3CA: Curated Cancer Cell Atlas": "3CA：策展癌症细胞图谱",
+    "CGN: cancer gene neighborhoods": "CGN：癌症基因邻域",
+    "CM: cancer modules": "CM：癌症模块",
+    "BioCarta subset of CP": "BioCarta（CP 子集）",
+    "KEGG_MEDICUS subset of CP": "KEGG_MEDICUS（CP 子集）",
+    "PID subset of CP": "PID（CP 子集）",
+    "Reactome subset of CP": "Reactome（CP 子集）",
+    "WikiPathways subset of CP": "WikiPathways（CP 子集）",
+    "KEGG_LEGACY subset of CP": "KEGG_LEGACY（CP 子集）",
+    "miRDB subset of MIR": "miRDB（MIR 子集）",
+    "MIR_LEGACY subset of MIR": "MIR_LEGACY（MIR 子集）",
+    "GTRD subset of TFT": "GTRD（TFT 子集）",
+    "TFT_LEGACY subset of TFT": "TFT_LEGACY（TFT 子集）",
+    "ImmuneSigDB subset of C7": "ImmuneSigDB（C7 子集）",
+    "BP: subset of GO": "BP（GO 子集）",
+    "CC: subset of GO": "CC（GO 子集）",
+    "MF: subset of GO": "MF（GO 子集）",
+    "MH: hallmark gene sets": "MH：标志性基因集",
+    "M1: positional gene sets": "M1：位置型基因集",
+    "M2: curated gene sets": "M2：策展基因集",
+    "M3: regulatory target gene sets": "M3：调控靶基因集",
+    "M5: ontology gene sets": "M5：本体基因集",
+    "M7: immunologic signature gene sets": "M7：免疫学特征基因集",
+    "M8: cell type signature gene sets": "M8：细胞类型特征基因集",
+    "Mammalian Phenotype Ontology": "哺乳动物表型本体",
+    "MP: general phenotype ontology": "MP：通用表型本体",
+    "MPT: tumor phenotype ontology": "MPT：肿瘤表型本体",
+    "subset of MPO": "MPO 的子集",
+    "miRDB gene sets": "miRDB 基因集",
+    "GTRD gene sets": "GTRD 基因集",
+    "Hallmark gene sets summarize and represent specific well-defined biological states or processes and display coherent expression. These gene sets were generated by a computational methodology based on identifying overlaps between gene sets in other MSigDB collections and retaining genes that display coordinate expression.": "标志性基因集概括并代表明确界定的特定生物学状态或过程，显示一致的表达。这些基因集由一种计算方法生成：先找出与其他 MSigDB 集合中基因集的重叠，再保留表达协同的基因。",
+    "Gene sets corresponding to human chromosome cytogenetic bands.": "对应人类染色体细胞遗传学带的基因集。",
+    "Gene sets in this collection are curated from various sources, including online pathway databases and the biomedical literature. Many sets are also contributed by individual domain experts. The gene set page for each gene set lists its source. The C2 collection is divided into the following two subcollections: Chemical and genetic perturbations (CGP) and Canonical pathways (CP).": "本集合的基因集来自多种渠道，包括在线通路数据库与生物医学文献；许多基因集也由领域专家个人贡献。每个基因集的页面都会列出其来源。C2 集合分为以下两个子集：化学与遗传扰动（CGP）和经典通路（CP）。",
+    "Gene sets represent expression signatures of genetic and chemical perturbations. A number of these gene sets come in pairs: xxx_UP (and xxx_DN) gene set representing genes induced (and repressed) by the perturbation.": "这些基因集代表遗传与化学扰动的表达特征。其中不少成对出现：xxx_UP（与 xxx_DN）基因集分别代表被该扰动诱导（与抑制）的基因。",
+    "Gene sets from pathway databases. Usually, these gene sets are canonical representations of a biological process compiled by domain experts.": "来自通路数据库的基因集。这些基因集通常是领域专家整理的生物学过程经典表示。",
+    "Canonical Pathways gene sets derived from the BioCarta pathway database.": "源自 BioCarta 通路数据库的经典通路基因集。",
+    "Canonical Pathways gene sets derived from the KEGG MEDICUS pathway database.": "源自 KEGG MEDICUS 通路数据库的经典通路基因集。",
+    "Canonical Pathways gene sets derived from the PID pathway database.": "源自 PID 通路数据库的经典通路基因集。",
+    "Canonical Pathways gene sets derived from the Reactome pathway database.": "源自 Reactome 通路数据库的经典通路基因集。",
+    "Canonical Pathways gene sets derived from the WikiPathways pathway database.": "源自 WikiPathways 通路数据库的经典通路基因集。",
+    "Canonical Pathways gene sets derived from the KEGG pathway database. These are considered Legacy gene sets since the introduction of the gene sets based on the more recent KEGG MEDICUS data.": "源自 KEGG 通路数据库的经典通路基因集。自从引入基于更新的 KEGG MEDICUS 数据的基因集后，这些被视为旧版（Legacy）基因集。",
+    "All miRNA target prediction gene sets. Combined superset of both miRDB prediction methods and legacy sets.": "全部 miRNA 靶标预测基因集，是 miRDB 两种预测方法与旧版基因集的合并超集。",
+    "Older gene sets that contain genes sharing putative target sites (seed matches) of human mature miRNA in their 3'-UTRs.": "较旧的基因集，其中的基因在 3'-UTR 共享人类成熟 miRNA 的推定靶位点（种子匹配）。",
+    "All transcription factor target prediction gene sets. Combined superset of both GTRD prediction methods and legacy sets.": "全部转录因子靶标预测基因集，是 GTRD 两种预测方法与旧版基因集的合并超集。",
+    "Computational gene sets defined by mining large collections of cancer-oriented expression data. The C4 collection is divided into three subcollections: 3CA, CGN and CM.": "通过挖掘大规模癌症相关表达数据集合定义的计算基因集。C4 集合分为三个子集：3CA、CGN 与 CM。",
+    "Gene sets that contain genes annotated by the same ontology term. The C5 collection is divided into two subcollections, the first derived from the Gene Ontology resource (GO) which contains BP, CC, and MF components and a second derived from the Human Phenotype Ontology (HPO).": "包含注释到同一本体术语的基因的基因集。C5 集合分为两个子集：第一个源自基因本体资源（GO），包含 BP、CC 与 MF 三部分；第二个源自人类表型本体（HPO）。",
+    "All gene sets derived from Gene Ontology.": "全部源自基因本体的基因集。",
+    "Gene sets derived from the GO Biological Process ontology.": "源自 GO 生物过程本体的基因集。",
+    "Gene sets derived from the GO Cellular Component ontology.": "源自 GO 细胞组分本体的基因集。",
+    "Gene sets derived from the GO Molecular Function ontology.": "源自 GO 分子功能本体的基因集。",
+    "Gene sets derived from the Human Phenotype ontology.": "源自人类表型本体的基因集。",
+    "Gene sets that represent signatures of cellular pathways which are often dis-regulated in cancer. The majority of signatures were generated directly from microarray data from NCBI GEO or from internal unpublished profiling experiments involving perturbation of known cancer genes.": "代表在癌症中常失调的细胞通路特征的基因集。多数特征直接来自 NCBI GEO 的微阵列数据，或来自涉及已知癌症基因扰动的内部未发表表达谱实验。",
+    "Gene sets that represent cell states and perturbations within the immune system.": "代表免疫系统内细胞状态与扰动的基因集。",
+    "Gene sets representing chemical and genetic perturbations of the immune system generated by manual curation of published studies in human and mouse immunology.": "通过对人类与小鼠免疫学已发表研究进行人工策展得到的、代表免疫系统化学与遗传扰动的基因集。",
+    "Gene sets curated by the Human Immunology Project Consortium (HIPC) describing human transcriptomic immune responses to vaccinations.": "由人类免疫学项目联盟（HIPC）策展、描述人类对疫苗接种的转录组免疫响应的基因集。",
+    "Gene sets that contain curated cluster markers for cell types identified in single-cell sequencing studies of human tissue.": "包含人类组织单细胞测序研究中鉴定的细胞类型簇标记基因（经策展）的基因集。",
+    "Gene sets that represent the coordinate transcriptional responses to expression of specific genes, as determined by computational analysis of DepMap CRISPR screen data and CCLE expression profiles.": "代表对特定基因表达的协同转录响应的基因集，依据对 DepMap CRISPR 筛选数据与 CCLE 表达谱的计算分析确定。",
+    "Gene sets corresponding to mouse chromosome cytogenetic bands.": "对应小鼠染色体细胞遗传学带的基因集。",
+    "Gene sets in this collection are curated from various sources, including online pathway databases and the biomedical literature. Many sets are also contributed by individual domain experts. The gene set page for each gene set lists its source. The M2 collection is divided into the following two subcollections: Chemical and genetic perturbations (CGP) and Canonical pathways (CP).": "本集合的基因集来自多种渠道，包括在线通路数据库与生物医学文献；许多基因集也由领域专家个人贡献。每个基因集的页面都会列出其来源。M2 集合分为以下两个子集：化学与遗传扰动（CGP）和经典通路（CP）。",
+    "Gene sets that contain genes annotated by the same ontology term. The M5 collection is divided into five subcollections: the BP, CC, and MF components derived from the Gene Ontology resource (GO); plus subcollections derived from the Mammalian Phenotype Ontology (MPO) for general phenotypic and for Tumor-specifc phenotypic information.": "包含注释到同一本体术语的基因的基因集。M5 集合分为五个子集：源自基因本体资源（GO）的 BP、CC 与 MF 三部分，以及源自哺乳动物表型本体（MPO）的通用表型与肿瘤表型信息子集。",
+    "Ontology terms from the Mammalian Phenotype Ontology database.": "来自哺乳动物表型本体数据库的本体术语。",
+    "A subset of general ontology terms from the Mammalian Phenotype Ontology database where terms from the neoplasm subtree (MP:0002006) are excluded.": "哺乳动物表型本体数据库中通用本体术语的子集，其中排除了肿瘤子树（MP:0002006）的术语。",
+    "A subset of ontology terms from the Mammalian Phenotype Ontology database related to cancer specific phenotype terms derived from descendants of the neoplasm subtree (MP:0002006).": "哺乳动物表型本体数据库中与癌症相关表型术语有关的本体术语子集，这些术语源自肿瘤子树（MP:0002006）的后代。",
+    "Gene sets that contain curated cluster markers for cell types identified in single-cell sequencing studies of mouse tissue.": "包含小鼠组织单细胞测序研究中鉴定的细胞类型簇标记基因（经策展）的基因集。",
+    "Browse Human Gene Sets": "浏览人类基因集",
+    "Browse Mouse Gene Sets": "浏览小鼠基因集",
+    "Gene set name:": "基因集名称：",
+    "(Enter full or partial name)": "（输入完整或部分名称）",
+    "By first letter:": "按首字母：",
+    "By collection:": "按集合：",
+    "about the MSigDB Human collections": "关于 MSigDB 人类集合",
+    "about the MSigDB Mouse collections": "关于 MSigDB 小鼠集合",
+    "Click on a gene set name to view its gene set page.": "点击基因集名称可查看其基因集页面。",
+    "chemical and genetic pertubations": "化学与遗传扰动",
+    "canonical pathways": "经典通路",
+    "BioCarta gene sets": "BioCarta 基因集",
+    "KEGG Medicus gene sets": "KEGG Medicus 基因集",
+    "PID gene sets": "PID 基因集",
+    "Reactome gene sets": "Reactome 基因集",
+    "WikiPathways gene sets": "WikiPathways 基因集",
+    "KEGG Legacy gene sets": "KEGG 旧版基因集",
+    "regulatory gene sets": "调控基因集",
+    "microRNA targets": "microRNA 靶基因",
+    "miRDB microRNA targets": "miRDB microRNA 靶基因",
+    "legacy microRNA targets": "旧版 microRNA 靶基因",
+    "all transcription factor targets": "全部转录因子靶基因",
+    "GTRD transcription factor targets": "GTRD 转录因子靶基因",
+    "legacy transcription factor targets": "旧版转录因子靶基因",
+    "Curated Cancer Cell Atlas gene sets": "策展癌症细胞图谱基因集",
+    "cancer gene neighborhoods": "癌症基因邻域",
+    "cancer modules": "癌症模块",
+    "Gene Ontology": "基因本体",
+    "GO biological process": "GO 生物过程",
+    "GO cellular component": "GO 细胞组分",
+    "GO molecular function": "GO 分子功能",
+    "Human Phenotype Ontology": "人类表型本体",
+    "oncogenic gene sets": "致癌基因集",
+    "immunologic gene sets": "免疫学基因集",
+    "ImmuneSigDB gene sets": "ImmuneSigDB 基因集",
+    "vaccine response gene sets": "疫苗响应基因集",
+    "Standard name": "标准名称",
+    "Systematic name": "系统名称",
+    "Brief description": "简要描述",
+    "Full description or abstract": "完整描述或摘要",
+    "Collection": "合集",
+    "Source publication": "来源文献",
+    "Exact source": "精确来源",
+    "Related gene sets": "相关基因集",
+    "Original Founder Set": "原始奠基基因集",
+    "Founder in Current MSigDB": "当前 MSigDB 中的奠基基因集",
+    "Renamed": "重命名",
+    "Founder Removed": "奠基集已移除",
+    "External links": "外部链接",
+    "Filtered by similarity": "按相似度筛选",
+    "Source species": "来源物种",
+    "Contributed by": "贡献者",
+    "Source platform or": "来源平台或",
+    "identifier namespace": "标识符命名空间",
+    "Dataset references": "数据集引用",
+    "Download gene set": "下载基因集",
+    "Compendia expression profiles": "表达汇编数据集",
+    "NG-CHM interactive heatmaps": "NG-CHM 交互式热图",
+    "Please note that clustering takes a few seconds": "请注意，聚类需要几秒钟",
+    "Legacy heatmaps (PNG)": "旧版热图（PNG）",
+    "Advanced query": "高级查询",
+    "Further investigate": "进一步分析",
+    "Show members": "显示成员",
+    "Version history": "版本历史",
+    "hallmark": "标志性",
+    "TSV metadata": "TSV 元数据",
+    "Id": "标识",
+    "Gene Id": "基因编号",
+    "Creative Commons Attribution 4.0 International License (CC-BY-4.0)": "知识共享署名 4.0 国际许可协议（CC-BY-4.0）",
+    "Creative Commons Attribution 4.0 International License": "知识共享署名 4.0 国际许可协议",
+    "Set in Current MSigDB": "当前 MSigDB 中的基因集",
+    "Gene set candidates that were excluded from MSigDB as highly similar to this selected set.": "因与所选基因集高度相似而被 MSigDB 排除的候选基因集。",
+    "Dataset identifier": "数据集标识符",
+    "Computes overlaps with gene sets in the selected MSigDB gene set collection": "计算与所选 MSigDB 基因集集合中基因集的重叠",
+    "Displays this gene set's expression profile based on the selected compendium of expression data.": "基于所选表达数据汇编显示该基因集的表达谱。",
+    "Categorizes members of this gene set by gene families.": "按基因家族对该基因集的成员分类。",
+    "original member source identifier": "原始成员来源标识符",
+    "entrez gene id": "Entrez 基因 ID",
+    "human gene symbol equivalent": "对应的人类基因符号",
+    "description of the human gene": "人类基因描述",
+    "view NCBI entry for Entrez gene id": "查看该 Entrez 基因 ID 的 NCBI 条目",
+    "view Ensembl entry for gene symbol": "查看该基因符号的 Ensembl 条目",
+    "H: Hallmark": "H：标志性基因集",
+    "C1: Positional": "C1：位置型",
+    "C2: Curated": "C2：策展",
+    "C3: Regulatory Target": "C3：调控靶",
+    "C4: Computational": "C4：计算",
+    "C5: Ontology": "C5：本体",
+    "C6: Oncogenic Signature": "C6：致癌特征",
+    "C7: Immunologic Signature": "C7：免疫学特征",
+    "C8: Cell Type Signature": "C8：细胞类型特征",
+    "C9: Computational Perturbation Signature": "C9：计算扰动特征",
+    "CGP: Chemical and Genetic Perturbations": "CGP：化学与遗传扰动",
+    "CP: Canonical Pathways": "CP：经典通路",
+    "CP:BIOCARTA: BioCarta Pathways": "CP:BIOCARTA：BioCarta 通路",
+    "CP:KEGG_MEDICUS: KEGG Medicus Pathways": "CP:KEGG_MEDICUS：KEGG Medicus 通路",
+    "CP:PID: PID Pathways": "CP:PID：PID 通路",
+    "CP:REACTOME: Reactome Pathways": "CP:REACTOME：Reactome 通路",
+    "CP:WIKIPATHWAYS: WikiPathways": "CP:WIKIPATHWAYS：WikiPathways 通路",
+    "CP:KEGG_LEGACY: KEGG Legacy Pathways": "CP:KEGG_LEGACY：KEGG 旧版通路",
+    "MIR: microRNA Targets": "MIR：microRNA 靶基因",
+    "MIR:MIRDB: miRDB": "MIR:MIRDB：miRDB 靶标预测",
+    "MIR:MIR_LEGACY: MIR_Legacy": "MIR:MIR_LEGACY：旧版 MIR",
+    "TFT: Transcription Factor Targets": "TFT：转录因子靶基因",
+    "TFT:GTRD: GTRD": "TFT:GTRD：GTRD 预测",
+    "TFT:TFT_LEGACY: TFT_Legacy": "TFT:TFT_LEGACY：旧版 TFT",
+    "3CA: Curated Cancer Cell Atlas gene sets": "3CA：策展癌症细胞图谱基因集",
+    "CGN: Cancer Gene Neighborhoods": "CGN：癌症基因邻域",
+    "CM: Cancer Modules": "CM：癌症模块",
+    "GO: Gene Ontology": "GO：基因本体",
+    "GO:BP: GO Biological Process": "GO:BP：GO 生物过程",
+    "GO:CC: GO Cellular Component": "GO:CC：GO 细胞组分",
+    "GO:MF: GO Molecular Function": "GO:MF：GO 分子功能",
+    "IMMUNESIGDB: ImmuneSigDB": "IMMUNESIGDB：ImmuneSigDB 基因集",
+    "VAX: HIPC Vaccine Response": "VAX：HIPC 疫苗响应",
+    "Find a gene set and view its gene set page": "查找基因集并查看其页面",
+    "List the gene sets in each collection": "列出各集合中的基因集",
+    "Download the gene set collections": "下载基因集集合",
+    "View the genes in the gene set": "查看基因集内的基因",
+    "Download the gene set": "下载该基因集",
+    "Export gene sets": "导出基因集",
+    "Show overlaps between select gene sets": "显示所选基因集之间的重叠",
+    "To gain further insight into the biology behind the gene set:": "如需进一步了解该基因集背后的生物学：",
+    "If you have questions or comments, please contact us:": "如有问题或意见，请联系我们：",
+    "Gene sets": "基因集",
+    "Gene set page": "基因集页面",
+    "Collections": "收藏集",
+    "Login to GSEA/MSigDB": "登录 GSEA/MSigDB",
+    "Login": "登录",
+    "Click here": "点击此处",
+    "GSEA/MSigDB Registration": "GSEA/MSigDB 注册",
+    "Instructions to obtain GSEA software and/or MSigDB gene sets.": "获取 GSEA 软件和/或 MSigDB 基因集的说明。",
+    "Fill in the form below.": "请填写下方表单。",
+    "Organization:": "单位：",
+    "GSEA and MSigDB Privacy Policy": "GSEA 与 MSigDB 隐私政策",
+    "GSEA and MSigDB Team": "GSEA 与 MSigDB 团队",
+    "Current Team": "现任团队",
+    "Past Team Members": "往届团队成员",
+    "Past Student Contributors": "往届学生贡献者",
+    "License Terms for MSigDB Gene Sets": "MSigDB 基因集许可条款",
+    "MSigDB releases v6.0 to v7.5.1, and v2022.1 and above": "MSigDB v6.0 至 v7.5.1 以及 v2022.1 及之后的版本",
+    "Prior versions of MSigDB (v5.2 and earlier)": "MSigDB 早期版本（v5.2 及更早）",
+    "License Terms for GSEA Software": "GSEA 软件许可条款",
+    "a BSD-style license": "一份 BSD 风格许可协议",
+    ". The source code is available from our": "。源代码可从我们的",
+    "GitHub organization": "GitHub 组织",
+    "Older versions of the Java GSEA Desktop Application and the GSEA R code.": "旧版 Java GSEA 桌面应用与 GSEA R 代码。",
+    "full license terms are available here": "完整许可条款见此",
+    "View Gene Families": "查看基因家族",
+    "Links to source publications in PubMed": "在 PubMed 中查看来源文献",
+    "cytokines and growth factors": "细胞因子与生长因子",
+    "transcription factors": "转录因子",
+    "homeodomain proteins": "同源域蛋白",
+    "cell differentiation markers": "细胞分化标志物",
+    "protein kinases": "蛋白激酶",
+    "translocated cancer genes": "易位的癌症基因",
+    "oncogenes": "癌基因",
+    "tumor suppressors": "抑癌基因",
+    "Gene Sets from Community Contributors": "社区贡献者提供的基因集",
+    "SysMyo Muscle Gene Sets": "SysMyo 肌肉基因集",
+    "PTMsigDB collection: Post-Translational Modification Signatures": "PTMsigDB 集合：翻译后修饰特征",
+    "not": "并不",
+    "mass spectrometry derived PTM datasets": "质谱衍生的 PTM 数据集",
+    "for details about the curation process of PTMsigDB and PTM-SEA methodology.": "了解 PTMsigDB 的策展流程与 PTM-SEA 方法学详情。",
+    "The PTMsigDB database can be found at": "PTMsigDB 数据库见",
+    "The source code and information about the PTM-SEA method can be found at": "PTM-SEA 方法的源代码与说明见",
+    "PTMsigDB and PTM-SEA are developed by the": "PTMsigDB 与 PTM-SEA 由以下团队开发：",
+    "MSigDB release notes": "MSigDB 发布说明",
+    "MSigDB license": "MSigDB 许可",
+    "General notes": "通用说明",
+    "Acknowledgments": "致谢",
+    "Human MSigDB Collections: Details and": "人类 MSigDB 集合：细节与",
+    "Chemical and genetic perturbations": "化学与遗传扰动",
+    "Canonical pathways": "经典通路",
+    "Transcription factor targets": "转录因子靶基因",
+    "Curated Cancer Cell Atlas": "策展癌症细胞图谱",
+    "Cancer gene neighborhoods": "癌症基因邻域",
+    "Cancer modules": "癌症模块",
+    "Note to GSEA users:": "致 GSEA 用户：",
+    "The pathway gene sets are curated from the following online databases:": "通路基因集从以下在线数据库策展：",
+    "To cite your use of the collection, and for further information, please refer to": "引用本集合及了解更多信息，请参阅",
+    "NCBI (Entrez)": "NCBI（Entrez）",
+    "See": "查看",
+    "the full MSigDB license terms here": "此处完整的 MSigDB 许可条款",
+    "by chromosome:": "按染色体：",
+    "View documentation": "查看文档",
+    "View guidelines for": "查看以下指南：",
+    "using RNA-seq datasets with GSEA": "在 GSEA 中使用 RNA-seq 数据集",
+    "Explore the Molecular Signatures Database (MSigDB)": "浏览分子特征数据库（MSigDB）",
+    "a collection of annotated gene sets for use with GSEA software.": "一套可配合 GSEA 软件使用的注释基因集。",
+    "our documentation": "我们的文档",
+    "for more details on the contents and usage.": "了解内容与用法的更多细节。",
+    "Gene Set Enrichment Analysis": "基因集富集分析",
+    "- Principal Investigator": "- 首席研究员",
+    "Proteomics": "蛋白质组学"
+  },
+  "rules": [
+    {
+      "re": "^Copyright \\(c\\) (\\d{4})-(\\d{4}) Broad Institute, Inc\\., Massachusetts Institute of Technology, and Regents of the University of California\\. All rights reserved\\.$",
+      "to": "版权所有 © $1–$2 Broad Institute, Inc.、麻省理工学院与加利福尼亚大学校董会。保留所有权利。"
+    },
+    {
+      "re": "^Human MSigDB (v[0-9A-Za-z.]+) updated ([A-Z][a-z]+ [0-9]{4})\\.$",
+      "to": "人类 MSigDB $1 更新于 $2。"
+    },
+    {
+      "re": "^Mouse MSigDB (v[0-9A-Za-z.]+) updated ([A-Z][a-z]+ [0-9]{4})\\.$",
+      "to": "小鼠 MSigDB $1 更新于 $2。"
+    },
+    {
+      "re": "^browse ([\\d,]+) gene sets?$",
+      "to": "浏览 $1 个基因集"
+    },
+    {
+      "re": "^browse all gene sets$",
+      "to": "浏览全部基因集"
+    },
+    {
+      "re": "^\\(browse ([\\d,]+) gene sets?\\)$",
+      "to": "（浏览 $1 个基因集）"
+    },
+    {
+      "re": "^Human Gene Set: (.+)$",
+      "to": "人类基因集：$1"
+    },
+    {
+      "re": "^Mouse Gene Set: (.+)$",
+      "to": "小鼠基因集：$1"
+    },
+    {
+      "re": "^Pubmed ([0-9]+)$",
+      "to": "PubMed 文献 $1"
+    },
+    {
+      "re": "^Authors: (.+)$",
+      "to": "作者：$1"
+    },
+    {
+      "re": "^([\\d,]+) additional gene sets from the source publication\\)$",
+      "to": "$1 个来自该来源文献的其他基因集)"
+    },
+    {
+      "re": "^([\\d,]+) gene sets from any of these authors\\)$",
+      "to": "$1 个来自这些作者中任一作者的基因集)"
+    },
+    {
+      "re": "^([\\d,]+) founder gene sets for this (.+) gene set\\)$",
+      "to": "$1 个该$2基因集的奠基基因集)"
+    },
+    {
+      "re": "^([\\d,]+) hallmark refinement datasets\\)$",
+      "to": "$1 个标志性基因集细化数据集)"
+    },
+    {
+      "re": "^([\\d,]+) hallmark validation datasets\\)$",
+      "to": "$1 个标志性基因集验证数据集)"
+    },
+    {
+      "re": "^([\\d,]+) source identifiers mapped to ([\\d,]+) genes\\)$",
+      "to": "$1 个来源标识符映射到 $2 个基因)"
+    },
+    {
+      "re": "^collections to investigate for overlap with this gene set\\)$",
+      "to": "可与该基因集计算重叠的集合)"
+    },
+    {
+      "re": "^these ([\\d,]+) genes$",
+      "to": "这 $1 个基因"
+    },
+    {
+      "re": "^these ([\\d,]+) genes by gene family$",
+      "to": "这 $1 个基因（按基因家族）"
+    },
+    {
+      "re": "^([0-9.]+): First introduced$",
+      "to": "$1：首次引入"
+    },
+    {
+      "re": "^([A-Z][0-9]) collection: (.+)$",
+      "to": "$1 集合：$2",
+      "requireHit": true
+    },
+    {
+      "re": "^> ([A-Z][0-9]) subcollection ([A-Z0-9_]+): (.+)$",
+      "to": "$1 子集合 $2：$3",
+      "requireHit": true
+    },
+    {
+      "re": "^\\((.+), ([0-9,]+) gene sets?\\)$",
+      "to": "（$1，$2 个基因集）",
+      "requireHit": true
+    },
+    {
+      "re": "^The (Human|Mouse) MSigDB (v[0-9A-Za-z.]+) contents and metadata in the form of a \\(ZIPped\\) SQLite database\\. See$",
+      "to": "$1 MSigDB $2 的内容与元数据以（ZIP 压缩的）SQLite 数据库形式提供。详见"
+    }
+  ],
+  "templates": [
+    {
+      "pat": "The Molecular Signatures Database (MSigDB) is a resource of tens of thousands of annotated gene sets for use with GSEA software, divided into {{1}} and {{2}} collections. From this web site, you can",
+      "zh": "分子特征数据库（MSigDB）收录数万个带注释的基因集，供 GSEA 软件使用，分为{{1}}与{{2}}两类集合。在本站中，您可以"
+    },
+    {
+      "pat": "{{1}} a gene set and its annotations. See, for example, the {{2}}.",
+      "zh": "{{1}}一个基因集及其注释。例如，参见{{2}}。"
+    },
+    {
+      "pat": "{{1}} gene sets by name or collection.",
+      "zh": "按名称或集合{{1}}基因集。"
+    },
+    {
+      "pat": "{{1}} for gene sets by keyword.",
+      "zh": "按关键词{{1}}基因集。"
+    },
+    {
+      "pat": "{{1}} between your gene set and gene sets in MSigDB.",
+      "zh": "{{1}}（您自己的基因集与 MSigDB 内基因集之间）。"
+    },
+    {
+      "pat": "{{1}} members of a gene set by gene families.",
+      "zh": "按基因家族{{1}}基因集成员。"
+    },
+    {
+      "pat": "{{1}} of a gene set in a provided public expression compendia.",
+      "zh": "在所提供的公共表达数据汇编中{{1}}。"
+    },
+    {
+      "pat": "Investigate the gene set in the online {{1}}",
+      "zh": "在在线{{1}}中分析该基因集"
+    },
+    {
+      "pat": "GSEA and MSigDB are available for use under {{1}}.",
+      "zh": "GSEA 与 MSigDB 可在{{1}}下使用。"
+    },
+    {
+      "pat": "Please {{1}} to download the GSEA software and the MSigDB gene sets, and to use our web tools. After registering, you can log in at any time using your email address. Registration is free. Its only purpose is to help us track usage for reports to our funding agencies.",
+      "zh": "请先{{1}}，以便下载 GSEA 软件与 MSigDB 基因集并使用我们的网络工具。注册后可随时使用邮箱地址登录。注册免费，唯一目的是帮助我们统计使用情况，以便向资助机构报告。"
+    },
+    {
+      "pat": "To cite your use of the Molecular Signatures Database (MSigDB), a joint project of UC San Diego and Broad Institute, please reference {{1}} and one or more of the following as appropriate: {{2}}, {{3}}, and also the source for the gene set as listed on the gene set page. If you use Mouse MSigDB, please also cite {{4}}.",
+      "zh": "引用分子特征数据库（MSigDB，加州大学圣地亚哥分校与 Broad 研究所的联合项目）时，请引用{{1}}，并按需引用下列一项或多项：{{2}}、{{3}}，以及基因集页面上列出的该基因集的来源文献。如使用小鼠 MSigDB，请同时引用{{4}}。"
+    },
+    {
+      "pat": "{{1}} from the Proteomics group at the Broad Institute",
+      "zh": "{{1}}（来自 Broad 研究所蛋白质组学团队）"
+    },
+    {
+      "pat": "{{1}} from community contributors.",
+      "zh": "{{1}}（来自社区贡献者）。"
+    },
+    {
+      "pat": "If you would like to suggest or contribute new gene sets, please contact us at {{1}}.",
+      "zh": "如需建议或贡献新的基因集，请通过 {{1}} 联系我们。"
+    },
+    {
+      "pat": "For the Human gene set with the same name, see {{1}}",
+      "zh": "同名人类基因集参见{{1}}"
+    },
+    {
+      "pat": "For the Mouse gene set with the same name, see {{1}}",
+      "zh": "同名小鼠基因集参见{{1}}"
+    },
+    {
+      "pat": "Download founder gene sets in their current form as: {{1}} | {{2}} | {{3}}",
+      "zh": "按当前形式下载奠基基因集：{{1}} | {{2}} | {{3}}"
+    },
+    {
+      "pat": "format: {{1}} | {{2}} | {{3}} | {{4}} | {{5}}",
+      "zh": "格式：{{1}} | {{2}} | {{3}} | {{4}} | {{5}}"
+    },
+    {
+      "pat": "Click on the \"browse gene sets\" links in the table below to view the gene sets in a collection. Or download the gene sets in a collection by clicking on the links below the \"Download Files\" headings. For a description of the {{1}} see the {{2}} guide in the {{3}}. The gene sets can be downloaded as NCBI (Entrez) Gene Identifiers or HUGO (HGNC) Gene Symbols. There are also JSON bundles containing the Human gene sets using HUGO (HGNC) Gene Symbols along with some useful metadata. {{4}} containing all the Human MSigDB gene sets is available as well.",
+      "zh": "点击下方表格中的“浏览基因集”链接可查看某个集合中的基因集；也可点击“下载文件”标题下的链接下载某个集合的基因集。关于 {{1}} 的说明见 {{3}} 中的 {{2}} 指南。基因集可按 NCBI（Entrez）基因标识符或 HUGO（HGNC）基因符号下载。另提供使用 HUGO（HGNC）基因符号的 JSON 包，内含人类基因集及一些有用的元数据。此外还提供包含全部人类 MSigDB 基因集的 {{4}}。"
+    },
+    {
+      "pat": "Genes that share GTRD ({{1}}) predicted transcription factor binding sites in the region -1000,+100 bp around the TSS for the indicated transcription factor. {{2}}",
+      "zh": "与所标示转录因子 TSS 周围 -1000 至 +100 bp 区域内 GTRD（{{1}}）预测的转录因子结合位点共享的基因。{{2}}"
+    },
+    {
+      "pat": "Older gene sets that share upstream {{1}}-regulatory motifs which can function as potential transcription factor binding sites. Based on work by {{2}} {{3}}",
+      "zh": "较旧的基因集，共享上游 {{1}} 调控基序，这些基序可能作为潜在的转录因子结合位点。基于 {{2}} 的工作 {{3}}"
+    },
+    {
+      "pat": "Gene sets defined by expression neighborhoods centered on 380 cancer-associated genes. This collection is described in {{1}}",
+      "zh": "以 380 个癌症相关基因为中心、按表达邻域定义的基因集。该集合的描述见 {{1}}"
+    },
+    {
+      "pat": "Gene sets defined by {{1}}. Briefly, the authors compiled gene sets ('modules') from a variety of resources such as KEGG, GO, and others. By mining a large compendium of cancer-related microarray data, they identified 456 such modules as significantly changed in a variety of cancer conditions.",
+      "zh": "基因集按 {{1}} 定义。简言之，作者从 KEGG、GO 等多种资源汇编了基因集（“模块”），并挖掘一个大型癌症相关微阵列数据汇编，识别出 456 个在多种癌症状态下显著变化的模块。"
+    },
+    {
+      "pat": "Gene sets representing potential targets of regulation by transcription factors or microRNAs. The sets consist of genes grouped by elements they share in their non-protein coding regions. The elements represent known or likely {{1}}-regulatory elements in promoters and 3'-UTRs. The C3 collection is divided into two subcollections: microRNA targets (MIR) and transcription factor targets (TFT). {{2}}",
+      "zh": "表示转录因子或 microRNA 潜在调控靶的基因集。这些集合按基因在非蛋白编码区共享的元件分组，元件代表启动子与 3'-UTR 中已知或可能的 {{1}} 调控元件。C3 集合分为两个子集合：microRNA 靶（MIR）与转录因子靶（TFT）。{{2}}"
+    },
+    {
+      "pat": "Compute overlaps with other MSigDB gene sets ({{1}})",
+      "zh": "计算与其他 MSigDB 基因集的重叠（{{1}}）"
+    },
+    {
+      "pat": "View an expression profile of the gene set ({{1}})",
+      "zh": "查看该基因集的表达谱（{{1}}）"
+    },
+    {
+      "pat": "Categorize the genes in the gene set by gene families ({{1}})",
+      "zh": "按基因家族对该基因集内的基因分类（{{1}}）"
+    },
+    {
+      "pat": "{{1}} (GSEA) is a computational method that determines whether an a priori defined set of genes shows statistically {{2}}significant, concordant differences between two biological states {{3}}(e.g. phenotypes). {{4}}{{5}}",
+      "zh": "{{1}}（GSEA）是一种计算方法，用于判定一组先验定义的基因在两个生物学状态（例如表型）之间是否呈现统计学上{{2}}显著且一致的变化。{{3}}{{4}}{{5}}"
+    },
+    {
+      "pat": "{{1}} describing GSEA and MSigDB.",
+      "zh": "{{1}}，其中介绍 GSEA 与 MSigDB。"
+    },
+    {
+      "pat": "View guidelines for {{1}}.",
+      "zh": "查看{{1}}的指南。"
+    },
+    {
+      "pat": "GSEA and MSigDB are available for use under {{1}}.",
+      "zh": "GSEA 与 MSigDB 依据{{1}}提供使用。"
+    },
+    {
+      "pat": "Please {{1}} to download the GSEA software, access our web tools, and view the MSigDB gene sets. After registering, you can log in at any time using your email address. Registration is free. Its only purpose is to help us track usage for reports to our funding agencies.",
+      "zh": "请{{1}}，即可下载 GSEA 软件、使用我们的网页工具并查看 MSigDB 基因集。注册后可随时用你的邮箱登录。注册免费，仅用于帮助我们统计使用情况，以便向资助机构报告。"
+    },
+    {
+      "pat": "Items marked with {{1}} are required.",
+      "zh": "标记 {{1}} 的项为必填项。"
+    },
+    {
+      "pat": "Items marked with {{1}} are required. No links or HTML tags, please.",
+      "zh": "标记 {{1}} 的项为必填项。请勿填写链接或 HTML 标签。"
+    },
+    {
+      "pat": "The software and gene sets are available under the terms listed {{1}}. Registration data is used to measure usage only. See here for the {{2}}",
+      "zh": "软件与基因集依据所列 {{1}} 提供。注册数据仅用于统计使用量。{{2}} 见此。"
+    },
+    {
+      "pat": "{{1}} : Oncogenes: a single mutated allele is sufficient to contribute to oncogenesis",
+      "zh": "{{1}}：癌基因——单个等位基因突变即足以促进肿瘤发生"
+    },
+    {
+      "pat": "{{1}} : Translocated cancer genes: genes mutated by translocation",
+      "zh": "{{1}}：易位的癌症基因——因易位而突变的基因"
+    },
+    {
+      "pat": "{{1}} : The protein kinase complement of the human genome",
+      "zh": "{{1}}：人类基因组的蛋白激酶全集"
+    },
+    {
+      "pat": "{{1}} : Human leukocyte and stromal cell molecules: the CD markers",
+      "zh": "{{1}}：人类白细胞与基质细胞分子——CD 标志物"
+    },
+    {
+      "pat": "{{1}} : Human homeodomain proteins",
+      "zh": "{{1}}：人类同源域蛋白"
+    },
+    {
+      "pat": "{{1}} : A compilation of human transcription factors",
+      "zh": "{{1}}：人类转录因子汇编"
+    },
+    {
+      "pat": "{{1}} : Human cytokine and growth factor genes",
+      "zh": "{{1}}：人类细胞因子与生长因子基因"
+    },
+    {
+      "pat": "{{1}} : Tumor suppressors: both alleles of these genes need to be mutated for oncogenesis",
+      "zh": "{{1}}：抑癌基因——需两个等位基因均突变才会致癌"
+    },
+    {
+      "pat": "See {{1}} for more information.",
+      "zh": "更多信息请见{{1}}。"
+    },
+    {
+      "pat": "See {{1}} for more information and to obtain the clique gene sets.",
+      "zh": "更多信息及共表达簇基因集的获取请见{{1}}。"
+    },
+    {
+      "pat": "{{1}} Co-Expression Cliques",
+      "zh": "{{1}} 共表达簇"
+    },
+    {
+      "pat": "From the {{1}}:",
+      "zh": "摘自{{1}}："
+    },
+    {
+      "pat": "Minjae Yoo et al. have contributed DSigDB, described in {{1}}.{{2}} From the {{3}}:",
+      "zh": "Minjae Yoo 等人贡献了 DSigDB，详见{{1}}。{{2}}摘自{{3}}："
+    },
+    {
+      "pat": "Lukas Schmauder and Klaus Richter have contributed a clique map of the {{1}} transcriptome, described in {{2}}.{{3}} From the {{4}}:",
+      "zh": "Lukas Schmauder 与 Klaus Richter 贡献了 {{1}} 转录组的共表达簇图，详见{{2}}。{{3}}摘自{{4}}："
+    },
+    {
+      "pat": "Siyuan Sima, Lukas Schmauder, Klaus Richter have contributed a clique map of the {{1}} transcriptome, described in {{2}}.{{3}} From the {{4}}:",
+      "zh": "Siyuan Sima、Lukas Schmauder 与 Klaus Richter 贡献了 {{1}} 转录组的共表达簇图，详见{{2}}。{{3}}摘自{{4}}："
+    },
+    {
+      "pat": "Note: The PTMsigDB sets are {{1}} for use with regular GSEA.",
+      "zh": "注意：PTMsigDB 基因集{{1}}适用于常规 GSEA。"
+    },
+    {
+      "pat": "The PTMsigDB database can be found at {{1}}.{{2}} The source code and information about the PTM-SEA method can be found at {{3}}.",
+      "zh": "PTMsigDB 数据库见{{1}}。{{2}}PTM-SEA 方法的源代码与说明见{{3}}。"
+    },
+    {
+      "pat": "PTMsigDB and PTM-SEA are developed by the {{1}} group at the Broad Institute. If you have questions or need help, please contact them through the group's contact page or by creating an issue in their GitHub repository.",
+      "zh": "PTMsigDB 与 PTM-SEA 由 Broad Institute 的{{1}}团队开发。如有疑问或需要帮助，可通过该团队的联系页面或在其 GitHub 仓库提交 issue 联系他们。"
+    }
+  ]
+}

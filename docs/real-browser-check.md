@@ -130,3 +130,30 @@ env -u WAYLAND_DISPLAY -u WAYLAND_SOCKET DISPLAY=:99 google-chrome \
 ```
 
    STRING（`string-db.org`）即使非 headless 也过不去 Cloudflare（页面一直是「请稍候…」，等 40 s 不变）。
+
+## 2026-11-28 冷启动相位实测（v0.17.5）
+
+`__BIOL10N.timing()` 在 0.17.5 拆成四个相位，先分清「等 DOM」与「解压词库」再谈优化：
+
+| 字段 | 含义 |
+|---|---|
+| `ready` | 脚本注入 → `whenBodyReady` 放行（body 出现） |
+| `load` | 本站词库解压 + JSON.parse |
+| `dict` | `ready + load` |
+| `start` | 首扫（walk）结束 |
+
+实测（直连 headless、document-start 注入 dist）：
+
+| 页面 | ready | load | dict | start |
+|---|---|---|---|---|
+| UniProt TP53 条目 | 250 ms | 6 ms | 256 ms | 270 ms |
+| RCSB 1TUP | 1,931 ms | 72 ms | 2,004 ms | 2,036 ms |
+| CELLxGENE /datasets | 101 ms | 4 ms | 105 ms | 122 ms |
+| GDC 文档首页 | 1,701 ms | 14 ms | 1,716 ms | 1,759 ms |
+
+结论：词库解压只要 4–85 ms，旧版 507–863 ms 的 `dict` 里绝大部分是等 body 有内容。
+0.17.5 把判据改成「body 存在就开工」后，UniProt 863 → 256 ms、RCSB 8,107 → 2,004 ms，
+节点数与命中数与改前一致；GDC 文档混合语抽查只剩 `GDC 文档`、`BAM 切片`、`OncoMatrix 矩阵图` 这类品牌/格式名。
+
+已知风险：流式 SSR 页面可能先扫到半截句子。引擎按整节点匹配，半句基本不命中词库；
+若某站首屏出现半截译文，先看该站是否流式输出，再考虑按站加 `waitFor`。

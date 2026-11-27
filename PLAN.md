@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.17.2。
+> 最后更新：2026-11-27，对应版本 0.17.3（本地，未推送）。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.17.2 |
-| 词库 | 114 册 / 35332 exact / 1811 规则 / 2183 模板 |
+| 版本 | 0.17.3（本地，未推送） |
+| 词库 | 114 册 / 35341 exact / 1811 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2378 条全绿（`npm test`，约 165 s） |
-| 产物 | `dist/biol10n.user.js` 2,167,698 字节（约 2117 KB） |
+| 单测 | 2400 条全绿（`npm test`，约 165 s） |
+| 产物 | `dist/biol10n.user.js` 2,174,703 字节（约 2124 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）。
+0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3 只存在于本地工作树，等用户要求再推。
 
 ## 结构
 
@@ -239,6 +239,23 @@ node tools/apply.mjs
 - 新增 `test/prose-fixes.test.mjs` 4 条：裸标签 `proseExempt` 生效、纯类/属性选择器不误伤、斜杠后的句内短词保持英文、独立短标签仍翻。
 - 验收：`npm test` **2378 条全绿**；`dict-lint` 114 册 / 35332 条 / 跨册冲突 57 组；产物 2,167,698 字节。
 
+本轮（2026-11-27 深夜，0.17.3，本地未推送）收掉的（三个子代理并行 + 名单收紧）：
+
+- **引擎：`<mark>` 高亮切开的片段不再半翻**。InterPro 检索结果里 `<a><span></span><mark>Protein</mark><span> kinase-like …</span></a>`：
+  `<mark>` 不在 `INLINE` 表里 → `inlineRoot` 停在 mark 内 → `nextTextAfter/prevTextBefore` 读到空串 → 片段被当独立标签翻成「蛋白质 kinase-like …」。
+  修法（`src/engine.js`，+88 行）：`markRun()` 把 `<mark>` 还原成它所在的整条行内文本流（向上穿内联祖先取根，再在块级容器内向两侧收连续内联节点，遇块级/控件/图片停，流 > 400 字符按整段正文处理）；
+  `handleTextNode` 在正文保护之前判：`flow !== text` 时对整条流查表——整条有译文且容器纯内联就整段替换（走 `blockOriginals`，restore 可还原），否则登记漏翻、片段保持英文；`flow === text`（`<mark>Download</mark>` 这种整词高亮）走原通道。
+  `test/mark-split.test.mjs` 7 条。真实页面：修前标题「蛋白质 kina e domain」、说明段「ubiquitin-蛋白质 liga e」→ 修后整条英文。
+  其他站：Europe PMC 无 `<mark>`；EBI Search / Ensembl 检索 / PRIDE / Expression Atlas 探测均为 0；NCBI/PubMed 被 reCAPTCHA 挡，未取证（修复在引擎层，自动覆盖）。
+- **kegg 通路名不再进漏翻清单**：`skip: "div.list"` + `skipFree: ["div.list span.new", "h2.txt3", "h4.txt3"]`（`div.list` 里唯一的界面文字是 3 个 `span.new` 徽标）。
+  历史报告回放 653 → **23 条**（其余是 `.list2` 散文拆句与品牌/图例词，skip 治不了）。**未实机取证**（genome.jp 与代理均连不上），依据是两份静态副本 + 报告；连通后要抽 module/brite/ko/entry 三页复核 `div.list` 是否仍纯内容。
+- **europepmc 25 条站级名单**：品牌/库名整串锚定（Europe PMC / MEDLINE / PubMed / PMC / EMBL-EBI / ORCID / Wellcome Trust / NLM…）、作者、卷期页、PMID/MED/PMCID/DOI/ORCID、日期、资助编号、机构地址。
+  回放 687 → **198 条**。有两条形状刻意不收：光秃秃的期刊缩写（`Int J Mol Sci`、`Nat Commun`）与 Title Case 短语——它们和 `Gene Expression`、`Show More`、`Advanced Search` 同形，收了会把真界面缺口藏起来（`test/miss-noise-batch5.test.mjs` 7 条钉住）。
+- **PubMed 剪贴板与排序**：`dict/pubmed2.json` +9 exact（Clipboard items、No items in clipboard.、两次过期提醒、Research Materials（沿用 gene.json 译法）、Dismiss expiration warning、两个排序提示）；
+  `test/pubmed-extra2.test.mjs` 8 条；`/clipboard/` 实机 27 → 23 条。未收：跳页 `of`（会与 ensembl/expasy 的 `of`→`/` 形成第 58 组冲突）、`Keywords:`（既有测试锁英文）、`My NCBI account settings`（长句里该走模板）。
+- 新增 `test/mark-split.test.mjs` 7 条、`test/miss-noise-batch5.test.mjs` 7 条、`test/pubmed-extra2.test.mjs` 8 条。
+- 验收：`npm test` **2400 条全绿**；`dict-lint` 114 册 / 35341 条 / 跨册冲突 57 组；产物 2,174,703 字节。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -249,14 +266,14 @@ node tools/apply.mjs
 3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
 4. **cBioPortal 研究显示名**：已定案「整名不翻」（0.16.9，理由见上；`test/cbio-study-names.test.mjs` 钉住），此项结案。
 5. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
-6. **其余站的名单还没补**：还剩几站值得看 —— kegg（通路名是内容，得靠 skip 而不是名单；genome.jp 本机 curl 000）、
-   europepmc（Cloudflare 挑战挡住 headless）、pubmed 剩下的医学分词片段、string-db / gnomad 的剩余属性噪音。
-   方法照 0.16.7–0.17.2：先看报告里成片的同一形状，再决定子串 / `re:` / `rec:`；判据是「被滤掉的确实是数据，不是界面词」。
-7. **`<mark>` 高亮切开的条目名**（interpro 检索结果 `Protein kinase-like domain superfamily` 被翻成「蛋白质 kinase-like …」）：
-   词库侧无解，需要 `scopedExact` 或引擎把被高亮切成两段的同一节点按整句拼回去；先看还有几个站有 `<mark>`。
-8. **发布面（2026-11-27 查证）**：ScriptCat 站上 `script-show-page/9127` 仍是 **v0.16.6**、标注未公开（后续版本只装在本机）；
-   改公开要在登录态下走站点后台。GreasyFork 从未发布过，本机直连被 DNS 污染 + Cloudflare IP 的 TLS RST 拦死，
-   系统代理（FlClash 7897）当时节点已死 —— 两件事都要等可用代理；登录态在用户自己的 Vivaldi profile 里（`scriptcat.org` 的 `login_id`+`token`）。
+6. **kegg `div.list` 待实机复核**（0.17.3 只做了静态回放）：genome.jp 网络恢复后抽 module / brite / ko / entry 三页，
+   确认 `div.list` 里除 3 个 `span.new` 徽标外没有界面文字；若某页整块是界面控件，改成更窄的容器选择器或给该页单独 skipFree。
+7. **`<mark>` 修复的后验**：0.17.3 已在 InterPro 真实页面验证整条保持英文；剩余站点里 EBI Search / Ensembl 检索 / PRIDE / Expression Atlas 探测都是 0 个 `<mark>`，
+   NCBI / PubMed 被 reCAPTCHA 挡未取证 —— 有代理时补一次，确认没有新形状（`<mark>` 跨多个块级元素时不适用）。
+8. **发布面（更新到 0.17.3）**：本机 ScriptCat 已是 0.17.3；**站点上仍是 v0.16.6、未公开**，改公开要在登录态下走站点后台。
+   网络：`greasyfork.org` DNS 污染 + Cloudflare IP 的 TLS RST，`scriptcat.org` 四个域名 TCP 通但 TLS 全 000（SNI 阻断），
+   FlClash 7897 节点死 —— 两件事都要等可用代理；Vivaldi profile 里 `scriptcat.org` 的 `login_id`+`token` 到 2026-12-03。
+   用户说 GreasyFork 先算了，暂缓。
 9. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
    现在只能靠 `PROSITE profiles` 这类复合键挡；要动就三处一起核对（common / interpro / 其他含 Profile 的册）。
 ## 踩过的坑（每条都真实踩过，改之前先看）

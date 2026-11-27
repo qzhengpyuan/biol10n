@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2117 KB**（2,167,698 字节）；词库里 114 个文件共 35332 条词条（含 1811 条规则）+ 2183 条模板，覆盖 91 个站点
+- 单文件产物 **2124 KB**（2,174,703 字节）；词库里 114 个文件共 35341 条词条（含 1811 条规则）+ 2183 条模板，覆盖 91 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -277,7 +277,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | pride | 394 | 43 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
 | proteomexchange | 27 | 1 | 10 | ProteomeXchange 蛋白质组数据联盟（提交与数据集检索） |
 | pubchem-dbgap | 738 | 18 | 3 | PubChem 与 dbGaP |
-| pubmed2 | 31 | 3 | 1 | PubMed 首页与结果页补漏 |
+| pubmed2 | 40 | 3 | 1 | PubMed 首页与结果页补漏 |
 | rcsb | 738 | 34 | 3 | RCSB PDB（含新版首页与检索） |
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
 | reactome | 541 | 58 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
@@ -302,7 +302,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 769 | 16 |  | UniProt |
 | uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **35332 条 / 1811 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **35341 条 / 1811 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

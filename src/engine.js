@@ -609,6 +609,83 @@ function createEngine(options) {
     return cur || el;
   }
 
+  /** 行内高亮（<mark>）把一条文案切成片段时，片段单独查表必然翻出半中半英
+   *  （InterPro 检索结果「<mark>Protein</mark> kinase-like domain superfamily」→
+   *  「蛋白质 kinase-like domain superfamily」）。所以片段不能单独判：先把 <mark> 还原成
+   *  「它所在的那一条行内文本流」——从 <mark> 向上穿过内联祖先得到这一串的根，再在块级
+   *  容器里向两侧收集连续的内联节点（遇到块级元素/控件/链接图片就停）。
+   *  返回 { flow, root }；不在 <mark> 里时返回 null。flow 就是整条文本流，调用方自己
+   *  与片段文字比较（相等 = 独立高亮词，照常翻）。 */
+  var markOfCache = new WeakMap();      // 文本节点的父元素 → 它所在的 <mark>（没有则 null）
+  var markRunCache = new WeakMap();     // <mark> → { flow, root }
+  function inlineRunNode(n) {
+    if (!n) return false;
+    if (n.nodeType === 3 || n.nodeType === 8) return true;   // 文本 / 注释（注释不渲染，越过）
+    if (n.nodeType !== 1) return false;
+    return INLINE_TAGS[tagUpper(n)] === 1;                   // 只有内联标签才算同一条流
+  }
+  function markRun(node) {
+    var el = node && node.nodeType === 3 ? node.parentElement : null;
+    if (!el) return null;
+    var m = markOfCache.get(el);
+    if (m === undefined) {
+      try { m = el.closest("mark") || null; } catch (e) { m = null; }
+      markOfCache.set(el, m);
+    }
+    if (!m) return null;
+    var run = markRunCache.get(m);
+    if (run !== undefined) return run;
+    // 这一串内联内容的根：<a><mark>x</mark> kinase</a> 里要算到 <a>，否则只看到 mark 两个字
+    var root = m, guard = 0;
+    while (root.parentElement && INLINE[root.parentElement.tagName] && guard++ < 8) root = root.parentElement;
+    var block = root.parentElement;
+    var nodes = [], n = root.previousSibling;
+    while (block && n && nodes.length < 60 && inlineRunNode(n)) { nodes.unshift(n); n = n.previousSibling; }
+    nodes.push(root);
+    n = root.nextSibling;
+    var after = 0;
+    while (block && n && after++ < 60 && inlineRunNode(n)) { nodes.push(n); n = n.nextSibling; }
+    // 流太长只可能是整段正文（词表里没有这么长的整条译文）：记成超长，调用方按 miss 处理
+    var parts = [], total = 0;
+    for (var i = 0; i < nodes.length; i++) {
+      var c = nodes[i], s;
+      if (c.nodeType === 3) s = c.nodeValue || "";
+      else if (c.nodeType === 8) continue;
+      else if (tagUpper(c) === "BR") s = " ";
+      else s = String(c.textContent || "");
+      parts.push(s);
+      total += s.length;
+      if (total > 400) break;
+    }
+    run = { flow: normalize(parts.join("")), root: root };
+    markRunCache.set(m, run);
+    return run;
+  }
+
+  /** 整条文本流命中整条译文时，把这串行内内容整块换成译文（与段落通道共用原文备份，
+   *  disable 能还原）。只收「整串恰好都在一个容器里、容器里没有链接/图片/控件」的形态：
+   *  否则宁可留住英文，也不能把可点区域拍平成文本。 */
+  function markFlatten(run, out) {
+    var root = run.root;
+    if (!root || !root.parentElement) return false;
+    // 流跨了兄弟节点时整块替换会丢内容：只在「流 == 这个容器自己的文字」时才动
+    if (normalize(String(root.textContent || "")) !== run.flow) return false;
+    for (var i = 0; i < root.children.length; i++) {
+      var t = tagUpper(root.children[i]);
+      if (!INLINE_TAGS[t] || /^(A|IMG|BUTTON|INPUT|SELECT|TEXTAREA|SVG)$/.test(t)) return false;
+    }
+    if (root.getAttribute && root.getAttribute("data-biol10n-block")) return false;
+    if (!blockOriginals.has(root)) {
+      blockOriginals.set(root, Array.prototype.slice.call(root.childNodes));
+      origText.set(root, String(root.textContent || ""));
+    }
+    try { root.setAttribute("data-biol10n-block", "1"); } catch (e) { /* ignore */ }
+    while (root.firstChild) root.removeChild(root.firstChild);
+    root.appendChild(doc.createTextNode(out));
+    stats.mark = (stats.mark || 0) + 1;
+    return true;
+  }
+
   /** 取元素之后、同一块级容器内的第一段非空文本（用于判断"这句还没说完"） */
   function nextTextAfter(el) {
     var n = el && el.nextSibling;
@@ -976,6 +1053,17 @@ function createEngine(options) {
     // <sup class="help_i">i</sup>，挡掉会把整类标签（Tissue specificity 等）留在英文。
     if (nsEl && nsEl.nodeType === 1 && /^(SUB|SUP)$/.test(nsEl.tagName) && /^[+\-]?[\d.]+$/.test(String(nsEl.textContent || "").trim())) { processed.add(node); return; }
     if (skipNode(node) || inBlock(pe) || inSkip(pe)) { processed.add(node); return; }
+    // 行内高亮（<mark>）把一条文案切成片段：片段单独命中词库会翻出半中半英。
+    // 这种片段一律按「整条文本流」判：整条命中整条译文才动（markFlatten 会连高亮一起换掉），
+    // 整条没有译文就留住英文——片段绝不能单独翻（InterPro「蛋白质 kinase-like …」就是这么来的）。
+    // 独立高亮词（<mark>Download</mark>）的整条流就是它自己，flow === text，走正常通道。
+    var mrun = markRun(node);
+    if (mrun && mrun.flow !== text) {
+      var whole = lookupExact(mrun.flow);
+      if (whole !== null && hasCJK(whole) && markFlatten(mrun, whole)) return;
+      recordMiss(text, node, true);
+      return;
+    }
     // 正文保护挡下的节点不记入 processed：块内容会随其它节点被翻译而变中文
     // （RCSB 构建器先被翻成「选择一个 attribute 进行检索…」），下一轮补扫要能重新判一次。
     // 但词库里明确收录的整段（帮助页、FAQ、首页简介）是人工核对过的译文，

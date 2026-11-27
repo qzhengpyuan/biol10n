@@ -38,7 +38,16 @@
     "ADD": "添加",
     "to": "至",
     "Trending page": "热门页面",
-    "Go to": "前往"
+    "Go to": "前往",
+    "Clipboard items": "剪贴板条目",
+    "No items in clipboard.": "剪贴板中没有条目。",
+    "Your clipboard expires after eight hours of inactivity.": "剪贴板闲置八小时后过期。",
+    "Your entire clipboard is about to be cleared.": "您的整个剪贴板即将被清除。",
+    "Research Materials": "研究材料",
+    "Dismiss expiration warning": "关闭过期提醒",
+    "Delete All From Clipboard Dialog": "全部从剪贴板删除对话框",
+    "Change to ascending order": "改为升序排列",
+    "Change to descending order": "改为降序排列"
   },
   "rules": [
     {

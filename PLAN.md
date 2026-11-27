@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.16.6。
+> 最后更新：2026-11-27，对应版本 0.16.7。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.16.6 |
+| 版本 | 0.16.7 |
 | 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2319 条全绿（`npm test`，约 180 s） |
-| 产物 | `dist/biol10n.user.js` 2,147,696 字节（约 2097 KB） |
+| 单测 | 2325 条全绿（`npm test`，约 163 s） |
+| 产物 | `dist/biol10n.user.js` 2,152,797 字节（约 2102 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.16.6 已推送（main 与 release 同版本对齐，release 头 = v0.16.6）。
+0.16.0–0.16.7 已推送（main 与 release 同版本对齐，release 头 = v0.16.7）。
 
 ## 结构
 
@@ -122,16 +122,34 @@ node tools/apply.mjs
 - **`Query` 标签改「查询」**（`common` 与 `ena` 同改，句子里的「检索式」不动）：页签上读「查询式」是把标签当检索表达式了。
 - `test/query-noise.test.mjs` 6 条：两册同值、正文句子不动、名单覆盖实测流程名、名单不吃界面词、词库确实没有这些流程名的 exact。
 
+本轮（2026-11-27 下午，0.16.7）收掉的：
+
+- **站级不翻名单支持正则条目**（`"re:"` 前缀）：登录号、基因组坐标、测序平台名、研究显示名这类取值枚举不完，
+  现在可以按形状覆盖。`src/ui.js` 与 `tools/miss-report.mjs` 用同一套语义（普通条目子串匹配、`re:` 条目当正则，
+  作者自己加 `^`/`$` 决定整串还是子串），正则只编译一次（blast 那条名单一千多字符，逐条 `new RegExp` 太贵）。
+  `test/miss-noise-regex.test.mjs` 6 条：正则生效、坏正则跳过不误滤、锚定语义、工具与面板语义一致、配置体检。
+- **9 个站补上名单**（`config/sites.json`）：uniprot 30 条（UniProt 登录号 / rs / HGNC / ENS / EBI / GO / PR / VAR_ /
+  物种拉丁名 + 库名）、ncbi-blast 3 条（PAM/BLOSUM 矩阵、`BLAST`/`PAM` 这类程序名、物种拉丁名两词式带界面词停用表）、
+  ncbi-snp 18 条（坐标 `NC_000017.11:7676153:G:C`、RCV/rs、`gnomAD v4 - Genomes`、蛋白替换 `P (Pro) > L (Leu)`、
+  千人基因组等群体名）、pubchem 7 条（`PCLID n`/`CID n`/DOI/LD50/SPLASH）、cellxgene 3 条（10x/Visium/Smart-seq/
+  Slide-seq 等平台名、SMBO/SCBO/SL 数据集 id、常见物种）、hpa 3 条（`5.2 nCPM` 数值、41 个细胞系、6 个脑区）、
+  cbioportal 2 条（`(MSK, Nature 2024)` 式研究显示名、CNA/RPPA/GISTIC/OQL 缩写）、clinicaltrials 4 条（NCT/NCI 编号、
+  NIH 资助号、`City, State, United States, ZIP`）、ucsc 2 条（GENCODE V50 / dbSNP 155 / CADD 1.6 / `chr17:…` 坐标）。
+- 对既有报告回放的效果：uniprot 2784→439、hpa 303→98、ncbi-blast 20648→6943、cbioportal 1650→1211、
+  clinicaltrials 973→640、cellxgene 2540→2370、pubchem 3783→3601、ncbi-snp 1475→1220、ucsc 321→300；
+  剩余条目里仍未动的都是真缺口（`PubChem SID:`、`New Feature`、`Study View`、`Hide group`、`IntAct` 这类）。
+- 验收：`npm test` 2325 条全绿；`dist/biol10n.user.js` 2,152,797 字节（名单让产物涨约 5 KB）。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
    要么维持现状（GitHub release 分支 raw 直链安装）。
 2. **性能余量**：`walk` 里剩余开销大半是 jsdom 的接口包装（真实浏览器不存在）；若还要做，方向是「只翻视口附近 + 空闲补」（IntersectionObserver + 分片），风险中等。
 3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
-4. **GDC 文档站不翻白名单**：BWA / ASCAT2 / ABSOLUTE LiftOver 这类流程名反复进 miss 清单干扰判读，建议登记显式不翻名单。
-5. **cBioPortal 研究显示名的译法**：`cbioportal.json` 有「疾病名（队列）→中文」的既有沉淀，与「研究名不翻」原则有张力；动之前先看测试依赖，单独一轮。
-6. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
-7. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
+4. **cBioPortal 研究显示名的译法**：`cbioportal.json` 有「疾病名（队列）→中文」的既有沉淀，与「研究名不翻」原则有张力；动之前先看测试依赖，单独一轮。0.16.7 只把这类名字登记进 `missNoise`（不翻、也不进漏翻清单），译法问题没动。
+5. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
+6. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
+7. **其余站的名单还没补**：347 份 miss 报告里还有不少站没登记（kegg / rfam / string / ucsc 的 track 名、clinicaltrials 的疾病分期名等），方法照 0.16.7 这一轮：先看报告里成片的同一形状，再决定子串还是正则。
 ## 踩过的坑（每条都真实踩过，改之前先看）
 
 - **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。
@@ -188,12 +206,20 @@ node tools/apply.mjs
 - **`common` 里的小写 exact 会被 Title-case 命中**：引擎有 `lowerIndex` 小写兜底，在 `common` 写 `"new": "新增"`
   会让页面上的 `New`（Ensembl 页签 / Biomart 按钮）抢在站内规则 `^New$ → 新建` 之前被翻成「新增」，
   两套既有测试直接红。小写词要通用化时用**大小写敏感的规则**（`^new$`），不要进 exact。
+- **`missNoise` 的普通条目是子串匹配，短词会吃掉界面词**：`PubChem` 会连 `PubChem SID:` 这类字段标签一起滤掉，
+  `BLAST` 会吃掉 `blastn suite`，`AGR` 会吃掉 `agreement`。短词/通用词一律写成锚定正则（`re:^PubChem$`），
+  只有品牌全名（`UniProt`、`CellRanger`）才用子串。加完名单回放报告，确认被滤掉的都是数据。
+- **拉丁生物学名不能用 `^[A-Z][a-z]+ [a-z]+$` 一把梭**：NCBI BLAST 的表单两词串里混着 `Reset page`、`Template type`、
+  `Search results`、`blastn suite` 这类真界面文字。现行写法带一张界面词停用表（page/type/result/suite/…），
+  以后看到界面标签从清单里消失，先往停用表加词，别删整条规则。
+- **正则条目不要自动加锚点**：`re:P[0-9]{5}` 按子串命中（会连整句一起滤），`re:^P[0-9]{5}$` 才只吃纯 ID。
+  工具与页面面板都按「作者写什么就是什么」执行，测试 `test/miss-noise-regex.test.mjs` 固定了这条语义。
 - **验收顺序：先 `npm run build` 再 `readme-sync`**：`readme-sync` 会把 `dist/biol10n.user.js` 的字节数写进 README，
   顺序反了会写进旧字节数，`readme-stats` 照报不一致。
 
 ## 验收标准
 
-- `npm test` 全绿（2319 条，当前）
+- `npm test` 全绿（2325 条，当前）
 - `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
 - 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
 - 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms

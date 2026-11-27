@@ -737,13 +737,33 @@ function createBioL10nUI(opts) {
     return true;
   }
 
-  /** 站级噪音名单：流程名/工具名/品牌这类「本来就不翻」的词，不进漏翻清单。 */
-  function isNoise(t) {
-    if (!missNoise.length) return false;
-    var s = String(t).toLowerCase();
+  /**
+   * 站级噪音名单：流程名/工具名/品牌这类「本来就不翻」的词，不进漏翻清单。
+   * 普通条目按子串匹配（大小写不敏感）；"re:" 开头的条目当正则用，作者自己加 ^ $ 决定整串还是前缀，
+   * 用来覆盖登录号、基因组坐标、测序平台名这类成百上千的取值（枚举不完，但形状固定）。
+   */
+  var noiseRules = null;
+  /** 名单只解析一次：blast 这类站点的正则条目有一千多字符，逐条 new RegExp 太贵。 */
+  function noiseRuleSet() {
+    if (noiseRules) return noiseRules;
+    noiseRules = [];
     for (var i = 0; i < missNoise.length; i++) {
-      var n = String(missNoise[i] || "").toLowerCase().trim();
-      if (n && s.indexOf(n) >= 0) return true;
+      var n = String(missNoise[i] || "").trim();
+      if (!n) continue;
+      if (n.slice(0, 3).toLowerCase() === "re:") {
+        try { noiseRules.push({ re: new RegExp(n.slice(3), "i") }); } catch (e) {}
+      } else {
+        noiseRules.push({ sub: n.toLowerCase() });
+      }
+    }
+    return noiseRules;
+  }
+  function isNoise(t) {
+    var rules = noiseRuleSet();
+    if (!rules.length) return false;
+    var s = String(t).toLowerCase().trim();
+    for (var i = 0; i < rules.length; i++) {
+      if (rules[i].re ? rules[i].re.test(s) : s.indexOf(rules[i].sub) >= 0) return true;
     }
     return false;
   }

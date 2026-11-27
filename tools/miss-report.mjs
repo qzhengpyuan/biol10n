@@ -184,7 +184,21 @@ try {
   const site = (cfg.sites || []).find((s) => s.id === siteId);
   siteNoise = (site && site.missNoise) || [];
 } catch (e) { /* 没有配置就不过滤 */ }
-const isNoise = (t) => siteNoise.some((n) => n && String(t).toLowerCase().includes(String(n).toLowerCase().trim()));
+// 与 src/ui.js 的 isNoise 同一套语义：普通条目子串匹配，"re:" 开头当正则（作者自己加 ^ $）。
+const noiseRules = [];
+for (const raw of siteNoise) {
+  const n = String(raw || "").trim();
+  if (!n) continue;
+  if (n.slice(0, 3).toLowerCase() === "re:") {
+    try { noiseRules.push({ re: new RegExp(n.slice(3), "i") }); } catch (e) { /* 写坏的正则不生效 */ }
+  } else {
+    noiseRules.push({ sub: n.toLowerCase() });
+  }
+}
+const isNoise = (t) => {
+  const s = String(t).toLowerCase().trim();
+  return noiseRules.some((r) => (r.re ? r.re.test(s) : s.includes(r.sub)));
+};
 if (siteNoise.length) {
   const t0 = data.texts.length, a0 = data.attrs.length;
   data.texts = data.texts.filter((x) => !isNoise(x[0]));

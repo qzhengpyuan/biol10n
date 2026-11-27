@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.17.3（本地，未推送）。
+> 最后更新：2026-11-28，对应版本 0.17.4（本地，未推送）。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.17.3（本地，未推送） |
-| 词库 | 114 册 / 35341 exact / 1811 规则 / 2183 模板 |
+| 版本 | 0.17.4（本地，未推送） |
+| 词库 | 114 册 / 35436 exact / 1819 规则 / 2185 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2400 条全绿（`npm test`，约 165 s） |
-| 产物 | `dist/biol10n.user.js` 2,174,703 字节（约 2124 KB） |
-| 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
+| 单测 | 2431 条全绿（`npm test`，约 165 s） |
+| 产物 | `dist/biol10n.user.js` 2,181,427 字节（约 2130 KB） |
+| 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（已公开，站内搜「BioL10n」可得，线上 v0.17.3） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3 只存在于本地工作树，等用户要求再推。
+0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）；0.17.3 与 0.17.4 只存在于本地工作树，未经用户要求不推；脚本猫线上已发到 v0.17.3（改公开时一并发布）。
 
 ## 结构
 
@@ -57,6 +57,7 @@ node tools/apply.mjs
 ```
 
 **【硬】未经用户明确要求，不执行 `git push`**（2026-11-27 用户原话：「以后我没有让你push就不要push，只许commit到本地」）。
+**【硬】即使得到推送许可，也不许「改一点小更改就推」**（2026-11-28 用户原话：「以后不要没完成一点小更改就推送」）：攒够一个稳定批次再推一次，一次会话里反复 push 算违规。
 发版照旧改版本、构建、测试、`release.mjs`、本地 commit、`apply.mjs`；要不要推到 GitHub 由用户当次说了算。
 推送时两个分支一起：`git push origin main release`。
 
@@ -256,6 +257,28 @@ node tools/apply.mjs
 - 新增 `test/mark-split.test.mjs` 7 条、`test/miss-noise-batch5.test.mjs` 7 条、`test/pubmed-extra2.test.mjs` 8 条。
 - 验收：`npm test` **2400 条全绿**；`dict-lint` 114 册 / 35341 条 / 跨册冲突 57 组；产物 2,174,703 字节。
 
+本轮（2026-11-28 凌晨，0.17.4，本地未推送）收掉的（三个子代理并行补译 + 域名漏配修复）：
+
+- **string-db**（子代理 sdb，只改 `dict/string-atlas2.json`，45 → 107 exact）：网络页 focus bar（`open as new network` / `show in list` + 3 个 title）、
+  下载页 `/cgi/download`（物种限制/置信度/去重/分隔符四组设置、6 个下拉项、3 张表表头与 32 条描述列、`New`/`coming soon`）、页脚 `Access`。
+  下载页漏翻 151 → 84（剩 62 条是文件名与体积，数据不翻）；`test/string-db-r2.test.mjs` 7 条。
+- **gnomAD**（子代理 gnomad2，`dict/gnomad.json`）：exact 245 → 266、模板 5 → 7；基因页未翻 236 → 161，其中真界面文案 43 → 9，内容类 60 处一处没动；
+  变异页属性 13 → 0（`Copy link to X` 全部翻出）；`test/gnomad-r2.test.mjs` 15 条。移除 2 条 `Data displayed here is from ClinVar's…`：
+  发布日期被浏览器 locale 渲染成「2026年10月11日」，再翻必半中半英，整句留英文。
+- **NCBI Gene**（子代理 gene2，`dict/gene2.json` +12 exact +1 规则）：LinkOut/Research Materials 面板（Find Quality Antibodies、Find Recombinant Proteins
+  and Peptides、Order … clone、Get Plasmids - Addgene、reagents、Probe、NEW）、`^Analysis date: (.+)$ → 分析日期：$1`；`test/ncbi-gene-r2.test.mjs` 9 条。
+  **未实机取证**：NCBI 对 headless 全挡 reCAPTCHA（672/7157 都是 nodes 0），依据 `research/miss-gene.json`（TP53 页 713 种）与 attrs 报告。
+- **string-db 中国区域名漏配（真 bug）**：`www.string-db.org` 302 到 `cn.string-db.org`，而 `config/sites.json` 的 hosts 没有这个域名
+  → 中国用户的页面脚本**根本不注入**（实测 `window.__BIOL10N === undefined`）。已加 hosts，`@match` 现为 string-db.org / www / cn 三条。
+  cn 域直连时 Cloudflare 对 headless 直接 403（挑战页），真浏览器可用；`curl` 已验证 302 目标。
+- **站级名单**：`ncbi-gene` 28 条（EC / AC 登录号 / 证据代码 / RefSeq 登录号 / UniProt / MGI / isoform / GO 前缀 / 物种 / 品牌库名），
+  回放 TP53 页 713 种 → 243 种（界面哨兵 59 条 0 误滤）；`gnomad` 补 19 条（`[GEA]`、pLI、HGVSc/HGVSp、SiteQuality、inbreeding_coeff、AS_*、dbSNP(/ClinVar(、品牌）；
+  `string-db` 补 4 条（`[HD]`、`k`、ENSP 登录号、SIB/CPR/ELIXIR）。刻意不收：NCBI 的 `of`（分页片段，译「/」不含汉字过不了卫生断言）、
+  gnomAD 的裸基因符号正则（会连 NEW/RNA/GEO 一起吃掉）。
+- **规则必须有捕获组的既有断言**撞上两条静态串：SpliceAI 说明句移到 exact；`^only$`（ClinVar 表头筛选按钮）保留为规则，
+  理由是 kegg 册已把 `only` 定义为「（仅搜索此项）」，进 exact 会多一组跨册冲突；`test/gnomad.test.mjs` 只对这一条加了例外并写明原因。
+- 验收：`npm test` **2431 条全绿**；`dict-lint` 114 册 / 35436 条 / 跨册冲突 57 组未涨；产物 2,181,427 字节。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -270,13 +293,26 @@ node tools/apply.mjs
    确认 `div.list` 里除 3 个 `span.new` 徽标外没有界面文字；若某页整块是界面控件，改成更窄的容器选择器或给该页单独 skipFree。
 7. **`<mark>` 修复的后验**：0.17.3 已在 InterPro 真实页面验证整条保持英文；剩余站点里 EBI Search / Ensembl 检索 / PRIDE / Expression Atlas 探测都是 0 个 `<mark>`，
    NCBI / PubMed 被 reCAPTCHA 挡未取证 —— 有代理时补一次，确认没有新形状（`<mark>` 跨多个块级元素时不适用）。
-8. **发布面（更新到 0.17.3）**：本机 ScriptCat 已是 0.17.3；**站点上仍是 v0.16.6、未公开**，改公开要在登录态下走站点后台。
-   网络：`greasyfork.org` DNS 污染 + Cloudflare IP 的 TLS RST，`scriptcat.org` 四个域名 TCP 通但 TLS 全 000（SNI 阻断），
-   FlClash 7897 节点死 —— 两件事都要等可用代理；Vivaldi profile 里 `scriptcat.org` 的 `login_id`+`token` 到 2026-12-03。
-   用户说 GreasyFork 先算了，暂缓。
-9. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
+8. **发布面**：脚本猫 `9127` 已公开、线上 v0.17.3；本机已装 0.17.4。GitHub main/release 头仍是 v0.17.2，
+   0.17.3、0.17.4 只在本地 —— **【硬】未获明确要求不 push，且不许改一点就推**（用户 2026-11-28：「以后不要没完成一点小更改就推送」）。
+   GreasyFork 用户说先算了，暂缓。
+9. **NCBI Gene 实机取证**：0.17.4 的 12 条是静态证据推导（672/7157 全被 reCAPTCHA 挡，curl 也只拿到挑战页）。
+   有真实浏览器/可用代理时跑一次 `miss-report ncbi-gene`，确认没有再漏的界面词，也确认 `of` 分页片段是否值得做跨节点模板。
+10. **cn.string-db.org 的 Cloudflare**：加 hosts 后中国用户能用，但 headless 直连被 403 挑战页，无法自动回归；
+   回归时用真浏览器或比对 `www` 的 302 目标即可。
+11. **kegg 仍不可达**：`genome.jp` 2026-11-28 复测仍是 000（15 s 超时），`div.list` 的 skip 只能继续挂静态回放；europepmc 也仍是 403 / Cloudflare 挑战。
+12. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
    现在只能靠 `PROSITE profiles` 这类复合键挡；要动就三处一起核对（common / interpro / 其他含 Profile 的册）。
 ## 踩过的坑（每条都真实踩过，改之前先看）
+
+- **`tools/miss-report.mjs` 会覆盖 `research/` 里的同名报告**：`research/` 不在 git 里，覆盖就找不回来。要让子代理先建目标目录再备份（`mkdir -p` 之后 `cp`），
+  或者干脆用不同站 id 落新文件；0.17.4 就发生过一次（备份目录不存在、`cp -n` 静默失败，改前基线只剩主会话记录的数字）。
+- **词库规则必须有捕获组**（`test/gnomad.test.mjs` 这类断言）：静态整句该进 exact，进 rules 会红。只有「进 exact 会撞跨册冲突」的单词才值得开例外，
+  例外要在测试里写明原因与原键（现行唯一一条：gnomAD 的 `^only$`，kegg 已占用 `only`→「（仅搜索此项）」）。
+- **hosts 漏地域域名 = 脚本不注入**：站点按 IP 302 到 `cn.*` / `www.*` 时，`config/sites.json` 的 hosts 与生成的 `@match` 必须都覆盖，
+  否则用户看到的是纯英文页面且控制台无任何错误。判据：`curl -D -` 看 `location`，再用 headless 确认 `window.__BIOL10N` 是否存在。
+- **headless 被 Cloudflare / reCAPTCHA 挡 ≠ 站点不可用**：NCBI Gene 与 `cn.string-db.org` 都是 403/挑战页，但 `curl` 与真浏览器正常；
+  结论只能写「未实机取证」，并注明用的静态证据。
 
 - **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。
 - **新站接线的顺序**：先写 stub 词库 → 进 `config/sites.json` → 再补词。没挂站的册会让 `build.mjs` 直接 exit 1。

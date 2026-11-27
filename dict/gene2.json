@@ -11,9 +11,13 @@
     "BioAssays related to the gene by protein target or RNAi target": "与该基因相关的生物测定（按蛋白靶标或 RNAi 靶标）",
     "BioAssays that contain the gene as the target of a RNAi reagent": "以该基因作为 RNAi 试剂靶标的生物测定",
     "BioAssays that contain the gene as the target of a RNAi reagent, which is identified as a hit in a RNAi screening and flagged as \"active\" in the corresponding BioAssay record": "以该基因作为 RNAi 试剂靶标的生物测定；该基因在 RNAi 筛选中被识别为命中，并在对应的 BioAssay 记录中标记为「活性」",
+    "Dryad Digital Repository": "Dryad 数字存储库",
     "Enter text to narrow down the list": "输入文本以缩小列表范围",
+    "Find Quality Antibodies": "查找优质抗体",
+    "Find Recombinant Proteins and Peptides": "查找重组蛋白与多肽",
     "GAP Links": "GAP 链接",
     "Gene links to PubMed derived from omim_pubmed_cited links": "由 omim_pubmed_cited 链接派生的 Gene 到 PubMed 链接",
+    "Get Plasmids - Addgene": "获取质粒 - Addgene",
     "Goto First Page": "首页",
     "Goto Previous Page": "上一页",
     "In addition, your package will include a detailed data report in both TSV and JSONL formats.": "此外，数据包中还会包含一份 TSV 与 JSONL 格式的详细数据报告。",
@@ -30,13 +34,21 @@
     "Link to related protein entry": "链接到相关蛋白质条目",
     "Link to related taxonomy entry": "链接到相关分类学条目",
     "Name your file": "为文件命名",
+    "NEW": "新增",
+    "Order full-length ORF clone": "订购全长 ORF 克隆",
+    "Order promoter clone": "订购启动子克隆",
+    "Order shRNA clones": "订购 shRNA 克隆",
     "Overlapping genes and two nearest non-overlapping genes on either side": "重叠基因，以及两侧各两个最近的未重叠基因",
     "PMC links": "PMC 链接",
+    "Probe": "探针",
     "Publication:": "文献：",
+    "PubChem BioAssay": "PubChem 生物测定",
     "PubChem BioAssays done on the Gene target": "针对该基因靶标开展的 PubChem 生物测定",
     "RNA Sequence": "RNA 序列",
     "RefSeq Proteins": "RefSeq 蛋白质",
     "RefSeq RNAs": "RefSeq RNA 序列",
+    "reagent review": "试剂评价",
+    "reagents": "试剂",
     "Related CDD": "相关保守结构域（CDD）",
     "Related GEO": "相关 GEO",
     "Related Genome": "相关基因组",
@@ -74,6 +86,10 @@
     {
       "re": "^Sufficient evidence for dosage pathogenicity \\(Last evaluated (.+)\\)$",
       "to": "剂量致病性证据充分（最近评估于 $1）"
+    },
+    {
+      "re": "^Analysis date: (.+)$",
+      "to": "分析日期：$1"
     }
   ],
   "templates": [

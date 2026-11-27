@@ -253,7 +253,28 @@
     "splice region": "剪接区域",
     "stop gained": "获得终止密码子",
     "non coding transcript exon": "非编码转录本外显子",
-    "The following GRCh37 variant lifts over to this variant:": "以下 GRCh37 变异可坐标转换为该变异："
+    "The following GRCh37 variant lifts over to this variant:": "以下 GRCh37 变异可坐标转换为该变异：",
+    "region view": "区域视图",
+    "transcript view": "转录本视图",
+    "3' UTR": "3' 非翻译区（UTR）",
+    "Z =": "Z 分数 =",
+    "o/e =": "观测/期望 =",
+    "More datasets": "更多数据集",
+    "Negative strand": "负链",
+    "Positive strand": "正链",
+    "Exome variants": "外显子组变异",
+    "No variant": "无变异",
+    "ClinVar Variation ID": "ClinVar 变异 ID",
+    "Conditions": "疾病条件",
+    "Last evaluated": "最近评估日期",
+    "See": "查看",
+    "Site quality approximation for all singleton variants.": "全部单例变异的位点质量近似值。",
+    "The SpliceAI and Pangolin predictions displayed here were precomputed by": "此处显示的 SpliceAI 与 Pangolin 预测由以下机构预计算：",
+    "Feedback": "反馈",
+    "Copy link to ClinVar": "复制 ClinVar 的链接",
+    "Copy link to Ensembl Variant Effect Predictor": "复制 Ensembl Variant Effect Predictor 的链接",
+    "Select transcript for": "精选转录本：",
+    ". For more detailed and up to date SpliceAI and Pangolin predictions, please visit our": "。如需更详细、最新的 SpliceAI 与 Pangolin 预测，请访问我们的"
   },
   "rules": [
     {
@@ -295,6 +316,35 @@
     {
       "re": "^and (\\d+) more$",
       "to": "以及另外 $1 项"
+    },
+    {
+      "re": "^all (\\d+) submissions?$",
+      "to": "全部 $1 条提交"
+    },
+    {
+      "re": "^See all (\\d+) submissions?$",
+      "to": "查看全部 $1 条提交"
+    },
+    {
+      "re": "^Copy link to (.+)$",
+      "to": "复制「$1」的链接",
+      "requireHit": true
+    },
+    {
+      "re": "^([0-9.eE+-]+) \\(exome samples\\)$",
+      "to": "$1（外显子组样本）"
+    },
+    {
+      "re": "^([0-9.eE+-]+) \\(genome samples\\)$",
+      "to": "$1（基因组样本）"
+    },
+    {
+      "re": "^Select transcript for (.+)$",
+      "to": "$1 的精选转录本"
+    },
+    {
+      "re": "^only$",
+      "to": "仅"
     }
   ],
   "templates": [
@@ -317,6 +367,14 @@
     {
       "pat": "Secondary Analyses are additional analyses developed in collaboration with laboratories of the {{1}}.",
       "zh": "二次分析是与 {{1}} 的实验室合作开发的其他分析。"
+    },
+    {
+      "pat": "{{1}} Only variants located in or within 75 base pairs of a coding exon (CDS) are shown here. To see variants in UTRs or introns, use the {{2}}.",
+      "zh": "{{1}}：此处仅显示位于编码外显子（CDS）内或其 75 个碱基对范围内的变异。若要查看 UTR 或内含子中的变异，请使用{{2}}。"
+    },
+    {
+      "pat": "The table below shows the HGVS consequence and VEP annotation for each variant's most severe consequence across all transcripts in this gene. Cases where the most severe consequence occurs in a non-MANE Select transcript (or non-canonical transcript if no MANE Select transcript exists) are denoted with †. To see consequences in a specific transcript, use the {{1}}.",
+      "zh": "下表展示每个变异在该基因全部转录本中最严重后果的 HGVS 变异后果与 VEP 注释。若最严重后果出现在非 MANE Select 转录本（或不存在 MANE Select 转录本时的非规范转录本）中，会以 † 标注。若要查看特定转录本中的后果，请使用{{1}}。"
     }
   ]
 }

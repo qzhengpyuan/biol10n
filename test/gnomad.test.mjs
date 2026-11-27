@@ -66,7 +66,11 @@ test("词库结构：family/sites 正确，exact 有足够条目且译文都含�
   for (const r of dict.rules) {
     assert.doesNotThrow(() => new RegExp(r.re), "坏正则: " + r.re);
     assert.match(r.to, CJK, "规则译文不含汉字: " + r.re);
-    assert.ok(/\((?!\?)/.test(r.re), "规则没有捕获组: " + r.re);
+    // 例外：
+    // 「only」是表头筛选按钮上的单词，必须整词命中；但 kegg 册已把同键定义为
+    // 「（仅搜索此项）」（那个站点的复选框语境），进 exact 会多一组跨册冲突。
+    // 单词语义无法写成动态捕获组，这里只放行这一条固定规则。
+    assert.ok(/\((?!\?)/.test(r.re) || r.re === "^only$", "规则没有捕获组: " + r.re);
   }
   const tpl = dict.templates || [];
   for (const t of tpl) {

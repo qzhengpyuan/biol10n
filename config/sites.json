@@ -133,6 +133,36 @@
       "path": "^/gene",
       "attrs": [
         "data-qtip"
+      ],
+      "missNoise": [
+        "re:^EC$",
+        "re:^AC[0-9]{5,}(\\.[0-9]+)?$",
+        "re:^[A-Z0-9][A-Z0-9.]{3,}(, [A-Z0-9][A-Z0-9.]{3,})+$",
+        "re:^PubMed$",
+        "re:^(IDA|IEA|IMP|ISS|NAS|TAS|IBA|IPI|EXP|IEP|IGI|ISA|RCA|IC|ND|IGC|ISM|ISO|HDA|HMP|HTP)$",
+        "re:^(NP|NM|NR|NC|NG|NT|NW|XM|XR|XP|YP|ENSP|ENST|CCDS|LRG)_[0-9]+(\\.[0-9]+)?$",
+        "re:^ENSP[0-9]+\\.[0-9]+$",
+        "re:^RS_[0-9]{4}_[0-9]{2}$",
+        "re:^GC[AF]_[0-9]+\\.[0-9]+$",
+        "rec:^(?:[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9](?:[A-Z][A-Z0-9]{2}[0-9]){1,2}|[A-Z0-9]{10})$",
+        "re:^UniSTS:[0-9]+$",
+        "re:^MIM:[0-9]+;?$",
+        "re:^C[0-9]{7}$",
+        "re:^(pfam|cl|cd)[0-9]+$",
+        "re:^[0-9]{1,2}[pq][0-9]{1,2}(\\.[0-9]+)?$",
+        "re: isoform [0-9a-z]+$",
+        "re:^[A-Za-z0-9_]+; .*(domain|motif)$",
+        "rec:^(enables|involved_in|located_in|part_of|is_active_in|colocalizes_with|acts_upstream_of) ",
+        "rec:^\\. [A-Z][A-Za-z]+ ",
+        "rec:^[A-Z][A-Za-z-]+ [A-Z]{1,3},$",
+        "re:^(Homo sapiens|Mus musculus|Rattus norvegicus|Danio rerio|Drosophila melanogaster|Caenorhabditis elegans|Saccharomyces cerevisiae|Arabidopsis thaliana|Escherichia coli)$",
+        "rec:^Buy [A-Z]",
+        "re:^(RefSeq|RefSeqGene|GenBank|FASTA|BLAST|OMIM|Ensembl|UCSC|HGNC|KEGG|Reactome|ClinVar|dbVar|GTR|SNP|SRA|MGC|GAP|LinkOut|HTTPS|XML|ASN\\.1|BioGPS|GeneMANIA|InnateDB|InterMine|MedGen|CCDS|UniProtKB\\/Swiss-Prot|UniProtKB\\/TrEMBL)$",
+        "re:^(Ensembl|HGNC|UniProtKB\\/Swiss-Prot):",
+        "re:^(BIND|BioGRID|MINT|IntAct|DIP|HPRD)$",
+        "re:^ToolKit",
+        "re:^AllianceGenome",
+        "re:^(tat|rev|nef|vif|vpu|vpr|env|gag|gag-pol|integrase|reverse transcriptase|Nef|Tat|Rev|Vif|Vpu|Vpr|Gag|Pol|Env)$"
       ]
     },
     {
@@ -533,7 +563,9 @@
       "scope": "body, main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "name": "NCBI GEO/GDS",
-      "attrs": ["value"],
+      "attrs": [
+        "value"
+      ],
       "skip": "p.title, div.resc, #results .title",
       "skipFree": [
         ".rprtid dt",
@@ -1648,7 +1680,8 @@
       "name": "STRING",
       "hosts": [
         "string-db.org",
-        "www.string-db.org"
+        "www.string-db.org",
+        "cn.string-db.org"
       ],
       "dicts": [
         "common",
@@ -1660,7 +1693,11 @@
         "re:^(?:Gallus gallus|Bos taurus|Homo sapiens|Mus musculus|Saccharomyces cerevisiae|Drosophila melanogaster|Caenorhabditis elegans|Dictyostelium discoideum|Aegilops tauschii|Anas platyrhynchos|Anolis carolinensis|Anopheles gambiae|Arabidopsis lyrata|Arabidopsis thaliana|Aspergillus fumigatus|Beta vulgaris|Brachypodium distachyon|Brassica napus|Brassica oleracea|Brassica rapa|Chlamydomonas reinhardtii|Chlorocebus sabaeus|Danio rerio|Drosophila pseudoobscura|Equus caballus|Glycine max|Hordeum vulgare|Macaca mulatta|Medicago truncatula|Monodelphis domestica|Musa acuminata|Oryctolagus cuniculus|Oryza sativa|Ovis aries|Papio anubis|Physcomitrella patens|Populus trichocarpa|Prunus persica|Rattus norvegicus|Schistosoma mansoni|Schizosaccharomyces pombe|Setaria italica|Solanum lycopersicum|Solanum tuberosum|Sorghum bicolor|Sus scrofa|Theobroma cacao|Trifolium pratense|Triticum aestivum|Triticum urartu|Vitis vinifera|Xenopus tropicalis|Zea mays|Canis familiaris)$",
         "EMBL",
         "EMBL-EBI",
-        "Ensembl"
+        "Ensembl",
+        "re:^\\[HD\\]$",
+        "re:^k$",
+        "re:^ENSP[0-9]{11}$",
+        "re:^(SIB|CPR|ELIXIR)$"
       ],
       "proseExempt": ""
     },
@@ -1701,7 +1738,26 @@
         "re:^[0-9]+_[0-9]+_[ACGT]+_[ACGT]+$",
         "re:^[0-9,]+ samples, .+$",
         "ExAC",
-        "pLoF"
+        "pLoF",
+        "re:^[GEA]$",
+        "re:^pLI =$",
+        "re:^HGVSc$",
+        "re:^HGVSp$",
+        "re:^SiteQuality$",
+        "re:^inbreeding_coeff$",
+        "re:^AS_[A-Za-z_]+$",
+        "re:^AS VSQR$",
+        "re:^X[XY]$",
+        "re:^star$",
+        "re:^(mobidb|PTHR[0-9]+|2gs0|rs[0-9]+) .*$",
+        "dbSNP (",
+        "ClinVar (",
+        "UCSC",
+        "All of Us",
+        "Illumina and Invitae",
+        "SpliceAI Lookup browser",
+        "Ensembl Variant Effect Predictor",
+        "criteria provided, conflicting classifications"
       ],
       "spa": true,
       "waitFor": "#root",

@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2110 KB**（2,160,888 字节）；词库里 114 个文件共 35252 条词条（含 1800 条规则）+ 2183 条模板，覆盖 91 个站点
+- 单文件产物 **2117 KB**（2,167,698 字节）；词库里 114 个文件共 35332 条词条（含 1811 条规则）+ 2183 条模板，覆盖 91 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -233,7 +233,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | gene2 | 42 | 6 | 2 | NCBI Gene 补漏 |
 | geneontology | 529 | 2 | 4 | 基因本体资源（首页、文档、下载、工具目录） |
 | geo-docs | 432 | 1 | 60 | GEO 文档体系（/geo/info、FAQ、MIAME、提交指南） |
-| geo-extra | 199 | 5 |  | GEO / GDS / SRA 检索页补漏 |
+| geo-extra | 248 | 13 |  | GEO / GDS / SRA 检索页补漏 |
 | gepia2 | 180 | 9 |  | GEPIA2 |
 | gnomad | 245 | 10 | 5 | gnomAD |
 | gtex | 536 | 14 | 41 | GTEx Portal（含数据集页与文档） |
@@ -244,7 +244,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | hpo | 184 | 10 | 9 | Human Phenotype Ontology（首页、术语页、基因页、注释与下载） |
 | imagej | 374 | 2 | 82 | ImageJ / Fiji Wiki（下载、插件、更新站点） |
 | intact | 219 | 7 | 56 |  |
-| interpro | 369 | 16 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
+| interpro | 382 | 19 | 4 | InterPro（首页、检索、条目、蛋白页、帮助） |
 | jaspar | 353 | 17 | 37 |  |
 | kegg | 567 | 16 |  | KEGG（含帮助文档与通路图查看页） |
 | kegg-docs | 113 | 1 | 3 | KEGG 帮助文档 |
@@ -278,7 +278,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | proteomexchange | 27 | 1 | 10 | ProteomeXchange 蛋白质组数据联盟（提交与数据集检索） |
 | pubchem-dbgap | 738 | 18 | 3 | PubChem 与 dbGaP |
 | pubmed2 | 31 | 3 | 1 | PubMed 首页与结果页补漏 |
-| rcsb | 723 | 34 | 3 | RCSB PDB（含新版首页与检索） |
+| rcsb | 738 | 34 | 3 | RCSB PDB（含新版首页与检索） |
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
 | reactome | 541 | 58 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
 | rfam | 363 | 37 | 31 | Rfam（首页、家族页、检索、下载、帮助文档） |
@@ -292,7 +292,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | string-atlas2 | 45 | 11 | 7 | STRING / Expression Atlas 补充（下载说明） |
 | targetscan | 250 | 33 | 5 | TargetScanHuman（首页、检索、结果表、FAQ、下载） |
 | taxonomy | 116 | 6 |  | NCBI Taxonomy |
-| timer | 123 | 8 |  | TIMER2.0 / TIMER3 |
+| timer | 126 | 8 |  | TIMER2.0 / TIMER3 |
 | ualcan | 132 | 4 |  | UALCAN |
 | ucsc | 1008 | 9 | 49 | UCSC Genome Browser（含 hgTracks/hgVai/hgGene 与切碎句） |
 | ucsc-extra | 452 | 24 | 248 | UCSC 补充（hgTracks 工具栏、轨道名、hgTables） |
@@ -302,7 +302,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 769 | 16 |  | UniProt |
 | uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **35252 条 / 1800 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **35332 条 / 1811 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 

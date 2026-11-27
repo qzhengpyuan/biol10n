@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.17.1。
+> 最后更新：2026-11-27，对应版本 0.17.2。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.17.1 |
-| 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
+| 版本 | 0.17.2 |
+| 词库 | 114 册 / 35332 exact / 1811 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
-| 单测 | 2339 条全绿（`npm test`，约 165 s） |
-| 产物 | `dist/biol10n.user.js` 2,160,888 字节（约 2110 KB） |
+| 单测 | 2378 条全绿（`npm test`，约 165 s） |
+| 产物 | `dist/biol10n.user.js` 2,167,698 字节（约 2117 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.17.0 已推送（main 与 release 同版本对齐，release 头 = v0.17.0）。
+0.16.0–0.17.2 已推送（main 与 release 同版本对齐，release 头 = v0.17.2）。
 
 ## 结构
 
@@ -204,6 +204,37 @@ node tools/apply.mjs
   miRBase 配置、命令行与面板口径一致。
 - 验收：`npm test` 2339 条全绿。
 
+本轮（2026-11-27，0.17.2）收掉的（四个子代理并行补译 + 引擎两处判据修复）：
+
+- **并行分工**：timer2(TIMER3)/geo(NCBI GEO)/rcsb(RCSB PDB)/interpro 四个子代理各占一个 CDP 端口与 profile、各自 `OUT=/tmp/<name>.user.js` 私有构建，
+  只改自己的词库册 + 建一个自己的测试文件，禁改 `config/sites.json`/`src/`/`package.json`/README/PLAN/tools、禁 commit；名单与引擎改动由主会话统一收口。
+  四路并行没有互相踩：字典册不重叠，`dict-lint` 跨册冲突全程 57 组。
+- **timer2**：`dict/timer.json` +3 exact（`sCNA`→拷贝数改变、`with`→及、`and`→和）；`test/timer3-ui.test.mjs` 8 条。
+  实机 30 条 → **27 条**，余下全是题录/正文。
+- **ncbi-geo**：`dict/geo-extra.json` +48 exact / +8 规则；`test/geo-ui-r2.test.mjs` 10 条。
+  数据集页 45/19 → **10/1**，系列页 26/1 → **26/0**；`Single`→单连接（原先被小写兜底误译成「单端」）。
+- **rcsb-pdb**：`dict/rcsb.json` +15 改 2（页脚资助声明按真实节点边界逐段补齐、实体分组 aria-label、新闻卡标题与 alt）；`test/rcsb-ui-r2.test.mjs` 7 条。
+  首页 53→41、结构页 75→67、高级检索 30→22（属性 15→12）。
+- **interpro**：`dict/interpro.json` +13 exact / +3 规则（UniProt 审编状态、匹配句、PROSITE 谱、计数行规则）；`test/interpro-ui-r2.test.mjs` 7 条。
+  protein 页 75→66、structure 页 50→45、检索页 14→11。
+- **引擎修复 1 — `proseExempt` 能命中无属性元素**：`proseHitAbove()` 以前只在元素 `hasAttributes()` 时才试 `matches()`，
+  于是 `div[role=main] > strong` 这种带裸标签的放行选择器对 `<strong>` 永远不生效（timer2 的 `Instruction:` 页签因此一直留英文）。
+  现在按选择器自身判断：条目里去掉 属性/类/ID/伪类 后还剩标签名（`proseExemptNeedsBare`）才对无属性元素试匹配，
+  NCBI 那种纯 `.usa-banner` 选择器仍走原来的快路径。timer2 站补 `proseExempt: "div[role=main] > strong"` 后该页签已翻。
+- **引擎修复 2 — 句内分隔符不再制造半中半英**：`inLongProse` 的「前文以字母结尾 ⇒ 句中」判据把 `/` 当断点，
+  于是 `…marked in red / blue, respectively.` 里 red 被挡住、blue 被放行成「蓝色」。正解不是把 `/&|` 塞进字符类
+  （那样 KEGG 的 `A | B | C` 标签行和 NCBI mega footer 会整片退回英文，实测踩过），而是**先剥掉末尾分隔符**再看最后一个字符。
+- **ncbi-geo 打开 value 通道**：`attrs: ["value"]`（默认属性表是追加不是覆盖）+ `geo-extra` 补 `Display`→显示；
+  引擎对 `value` 本来就只翻 submit/button/reset（文本框要站点显式 `valueText`），GDSbrowser 的 `Display`/`Go` 按钮因此能翻。
+- **第四批站级名单**：timer2 追加 10 条（题录 `rec:^[A-Z][a-z]+ et al\\. `、期刊名、卷期页码、作者名（带 Search/Read 等界面词负向前瞻）、`GO:BP`、工具包名、`, respectively.`），回放 3218→**16 条**；
+  ncbi-geo 追加 11 条（`to`、`(Submitter supplied)`、隐藏 mega-menu 的品牌名、`GDSBrowser`、`protocol`、`A/B/vs`）；
+  rcsb-pdb 15 条（PDB ID、`pdb_0000xxxx`、UniProt、作者、链号、实体 ID、晶胞、空间群、期刊、物种白名单、InChIKey、ENSG、品牌白名单、已译标签、Examples 芯片），
+  实测 130 条残留滤掉 90 条；interpro 6 条（`PMID:`、`doi:`、IPR 号、`9k` 计数、成员库号前缀、格式名）。
+  新增 `test/timer-noise.test.mjs` 3 条钉住「名单滤数据但不吃界面词」。
+- 删掉 interpro 的 `PMID:`→`PMID：`（只有标点差异，值无汉字，卫生测试报错）。
+- 新增 `test/prose-fixes.test.mjs` 4 条：裸标签 `proseExempt` 生效、纯类/属性选择器不误伤、斜杠后的句内短词保持英文、独立短标签仍翻。
+- 验收：`npm test` **2378 条全绿**；`dict-lint` 114 册 / 35332 条 / 跨册冲突 57 组；产物 2,167,698 字节。
+
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -213,11 +244,14 @@ node tools/apply.mjs
    判据同样是「最终覆盖率不变 + `test/perf-engine.test.mjs` 的三条不退化」。
 3. **SCP 未覆盖**：上传向导（登录后才有：AnnData 上传、Terra 授权、`Validating...`）、书签弹窗实渲染、DE 绘图控件（Plotly 需真实数据）。
 4. **cBioPortal 研究显示名**：已定案「整名不翻」（0.16.9，理由见上；`test/cbio-study-names.test.mjs` 钉住），此项结案。
-5. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
-6. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
-7. **其余站的名单还没补**：还剩几站值得看 —— kegg（通路名是内容，得靠 skip 而不是名单，本机暂时连不上 genome.jp）、
-   europepmc（期刊名与作者名成片，但同页也有真界面缺口，边界不好划）、pubmed 剩下的医学分词片段。
-   方法照 0.16.7–0.17.1：先看报告里成片的同一形状，再决定子串 / `re:` / `rec:`；判据是「被滤掉的确实是数据，不是界面词」。
+5. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
+6. **其余站的名单还没补**：还剩几站值得看 —— kegg（通路名是内容，得靠 skip 而不是名单；genome.jp 本机 curl 000）、
+   europepmc（Cloudflare 挑战挡住 headless）、pubmed 剩下的医学分词片段、string-db / gnomad 的剩余属性噪音。
+   方法照 0.16.7–0.17.2：先看报告里成片的同一形状，再决定子串 / `re:` / `rec:`；判据是「被滤掉的确实是数据，不是界面词」。
+7. **`<mark>` 高亮切开的条目名**（interpro 检索结果 `Protein kinase-like domain superfamily` 被翻成「蛋白质 kinase-like …」）：
+   词库侧无解，需要 `scopedExact` 或引擎把被高亮切成两段的同一节点按整句拼回去；先看还有几个站有 `<mark>`。
+8. **`common.json` 的 `Profile`→「个人资料」**：InterPro 成员库语境应是「谱」，但同键改全域会牵动别的站，
+   现在只能靠 `PROSITE profiles` 这类复合键挡；要动就三处一起核对（common / interpro / 其他含 Profile 的册）。
 ## 踩过的坑（每条都真实踩过，改之前先看）
 
 - **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。
@@ -287,10 +321,22 @@ node tools/apply.mjs
   工具与页面面板都按「作者写什么就是什么」执行，测试 `test/miss-noise-regex.test.mjs` 固定了这条语义。
 - **验收顺序：先 `npm run build` 再 `readme-sync`**：`readme-sync` 会把 `dist/biol10n.user.js` 的字节数写进 README，
   顺序反了会写进旧字节数，`readme-stats` 照报不一致。
+- **`proseExempt` 的选择器带裸标签才需要特别处理**：`proseHitAbove()` 现在按选择器判断要不要对无属性元素试 `matches()`
+  （`proseExemptNeedsBare`：去掉 `[attr]`/`.class`/`#id`/`:pseudo` 后还剩标签名即为真）。写 `.usa-banner` 这类选择器时
+  仍走快路径；写 `div[role=main] > strong` 这类时会对每个元素多一次 `matches()`，超大页面上要量一下 `timing.blocks`。
+- **`/` `&` `|` 不能直接塞进 `inLongProse` 的「前文以字母结尾」字符类**：KEGG 的 `A | B | C` 标签行、
+  NCBI mega footer 的 `… | Contact Us | …` 会整片被当正文挡住退回英文。正解是先剥末尾分隔符再看最后一个字符
+  （`prv.replace(/[\s\/&|]+$/, "")`）：`red / blue` 仍按句内挡住，标签行剥完是汉字照翻。
+- **`dict/*.json` 里不能写注释**：`// …` 会让 `require()` 直接 SyntaxError（0.17.2 踩过，删掉那行才恢复）；
+  需要解释就写到 `PLAN.md` 或对应 `.md`。
+- **并行子代理的收口顺序**：每个代理只改自己的 `dict/*.json` 与新建一个 `test/*.test.mjs`，
+  名单（`config/sites.json`）、引擎（`src/`）、README/PLAN 一律由主会话改；
+  交回后先跑各自测试 → 再看 `dict-lint` 是否仍 57 组 → 统一 `npm run build` + `npm run readme` + `npm test`，
+  否则中途的 `readme-stats` / `dist 指纹` 必然红（它们读的是磁盘词库与 dist 的一致性）。
 
 ## 验收标准
 
-- `npm test` 全绿（2329 条，当前）
+- `npm test` 全绿（2378 条，当前）
 - `node tools/dict-lint.mjs` 跨册冲突数不增加（当前基线 57 组）
 - 真实页面抽查：误翻 0 条；半中半英 0 条；英文残留只允许是专有名词/标识符/数据
 - 大表格页（`test/perf-engine.test.mjs`）：首扫 < 4000 ms、重扫 < 1500 ms

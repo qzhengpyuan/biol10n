@@ -671,6 +671,18 @@ function createEngine(options) {
   var BLOCK_ANC_TAGS = { P: 1, BLOCKQUOTE: 1, DD: 1, DT: 1, LI: 1, TD: 1, FIGCAPTION: 1, DIV: 1, SECTION: 1, ARTICLE: 1 };
   /** 元素级「本元素及以上有没有控件祖先 / 站点放行块」：1 位。 */
   var proseHitCache = new WeakMap();
+  /** proseExempt 里有没有「裸标签」段：只有裸标签才可能命中无属性元素，全带 类/属性/伪类 时可跳过匹配。 */
+  var proseBareCache = null;
+  function proseExemptNeedsBare(sel) {
+    if (proseBareCache && proseBareCache.sel === sel) return proseBareCache.need;
+    var need = false, parts = String(sel).split(",");
+    for (var i = 0; i < parts.length; i++) {
+      var rest = parts[i].replace(/\[[^\]]*\]/g, " ").replace(/::?[A-Za-z-]+/g, " ").replace(/[.#][\w-]+/g, " ");
+      if (/[A-Za-z]/.test(rest)) { need = true; break; }
+    }
+    proseBareCache = { sel: sel, need: need };
+    return need;
+  }
   function proseHitAbove(el) {
     var chain = [], cur = el, hit = 0, guard = 0;
     while (cur && guard++ < 60) {
@@ -678,10 +690,16 @@ function createEngine(options) {
       if (v !== undefined) { hit = v; break; }
       var t = tagUpper(cur);
       if (CTRL_TAGS[t] === 1) { hit = 1; break; }
-      if (cur.hasAttributes && cur.hasAttributes()) {
+      if (cur.getAttribute) {
         var role = cur.getAttribute("role");
         if (role === "button") { hit = 1; break; }
-        if (site.proseExempt && cur.matches) {
+      }
+      // proseExempt 以前只在「元素有属性」时才试匹配，理由是站点用的选择器都带类/属性；
+      // 于是 `<strong>` 这种裸标签永远匹配不到（timer 的 proseExempt 想写 div[role=main] > strong
+      // 放行块首标签，写了等于没写）。带不带裸标签由选择器自己决定：整条都是 [.]: 形态时
+      // 无属性元素不可能命中，跳过匹配保住大页面上的开销。
+      if (site.proseExempt && cur.matches) {
+        if ((cur.hasAttributes && cur.hasAttributes()) || proseExemptNeedsBare(site.proseExempt)) {
           try { if (cur.matches(site.proseExempt)) { hit = 1; break; } } catch (e) {}
         }
       }
@@ -798,7 +816,12 @@ function createEngine(options) {
     if (nxt && /^[a-z]/.test(nxt)) return true;
     // 反过来看前文：前面是英文单词/逗号，说明这个节点被夹在句子中间
     //（"…5 digit number (see <a>KEGG identifier</a>). The prefix…"），单独翻就是半中半英。
-    if (prv && /[A-Za-z,;.!?]$/.test(prv)) return true;
+    // 斜杠/与号/竖线只是「并列分隔」，不改变前面那个词的性质：
+    // 「…are marked in red / blue, respectively.」里 red 前面是字母被挡、blue 前面是 "/" 被放行，
+    // 同一句里一半中文一半英文。所以先剥掉末尾的分隔符，再看剩下的最后一个字符。
+    // 剥完如果是汉字（「KEGG 标识符 |」「数据 &」「下载 /」这类标签行），照旧放行。
+    var prvTrim = prv ? String(prv).replace(/[\s\/&|]+$/, "") : prv;
+    if (prvTrim && /[A-Za-z,;.!?]$/.test(prvTrim)) return true;
     // 后面没有文本（标签项后面通常是 <br>/<a>）：按标签处理，照翻
     return false;
   }

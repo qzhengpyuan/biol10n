@@ -78,6 +78,7 @@ const COLLECTOR = `(() => {
     for (const f of SITE.free || []) { try { if (el.closest(f)) return false; } catch (e2) {} }
     return true;
   }
+  let skipFiltered = 0;
   const texts = new Map();
   const tw = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
   while (tw.nextNode()) {
@@ -86,7 +87,7 @@ const COLLECTOR = `(() => {
     if (!p || SKIP.has(p.tagName)) continue;
     // head 里的 <link title> 之类不可见，报出来只是噪音（每站都会撞上一条 "Sitemap"）
     if (p.closest("head,code,pre,svg,script,style,.highlight,.blob-code")) continue;
-    if (inSiteSkip(p)) continue;
+    if (inSiteSkip(p)) { skipFiltered++; continue; }
     const t = (n.nodeValue || "").replace(/\\s+/g, " ").trim();
     // 与 ui.js 的 looksUntranslated 对齐：邮箱/URL 不是界面文案
     if (t.indexOf("@") >= 0 || /^https?:/.test(t) || t.indexOf("www.") === 0) continue;
@@ -124,6 +125,7 @@ const COLLECTOR = `(() => {
     url: location.href,
     translated: !!window.__BIOL10N,
     stats: window.__BIOL10N ? window.__BIOL10N.stats() : null,
+    skipFiltered,
     texts: [...texts.entries()].sort((a, b) => b[1] - a[1]),
     attrs
   });
@@ -257,6 +259,7 @@ await b.send("Target.closeTarget", { targetId });
 b.close();
 
 console.log("#", siteId, "|", data.title, "| 已注入:", data.translated, "| 统计:", JSON.stringify(data.stats));
+if (data.skipFiltered) console.log("# 站级 skip 区块里另有 " + data.skipFiltered + " 条文本没进清单");
 console.log("# 文本 " + data.texts.length + " 条，属性 " + data.attrs.length + " 条" +
   (data.noiseFiltered ? "（已按站级 missNoise 过滤 " + data.noiseFiltered.texts + " 条文本 / " + data.noiseFiltered.attrs + " 条属性，" + data.noiseFiltered.list + " 条名单）" : ""));
 for (const [t, c] of data.texts.slice(0, 80)) console.log((c > 1 ? "[" + c + "] " : "      ") + t);

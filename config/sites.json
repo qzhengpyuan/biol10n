@@ -533,6 +533,7 @@
       "scope": "body, main, #maincontent, .content, #doc, .facet, .search, .portlet, #footer, #universal_header, #faceted_search, form#EntrezForm, .usa-banner",
       "proseExempt": ".usa-banner, .usa-media_block-body, [class*=disclaimer]",
       "name": "NCBI GEO/GDS",
+      "attrs": ["value"],
       "skip": "p.title, div.resc, #results .title",
       "skipFree": [
         ".rprtid dt",
@@ -565,7 +566,17 @@
         "re:^(?:MM|DD|YYYY|YYYY/MM/DD|MM/DD/YYYY)$",
         "re:^[0-9]{4} [A-Z][a-z]+ (?:Pike|Avenue|Street)$",
         "re:^[A-Z][a-z]+, [A-Z]{2} [0-9]{5}$",
-        "re:^(?:NLM|NIH|HHS|HTTPS|USA\\.gov|GitHub|Youtube)$"
+        "re:^(?:NLM|NIH|HHS|HTTPS|USA\\.gov|GitHub|Youtube)$",
+        "rec:^to$",
+        "re:^\\(Submitter supplied\\)",
+        "re:^unidentified ",
+        "re:^(?:E-Utilities|Genome Workbench|ProSplign|BioSystems|Splign|Genome ProtMap|GenBank|Cn3D|NCBI)$",
+        "re:^GenBank: ",
+        "re:^PubChem Structure Search$",
+        "re:^PubMed Central \\(PMC\\)$",
+        "re:^GDSBrowser$",
+        "rec:^protocol$",
+        "rec:^(?:A|B|vs)$"
       ]
     },
     {
@@ -1382,6 +1393,7 @@
         "anatomy"
       ],
       "scope": "body",
+      "proseExempt": "div[role=main] > strong",
       "name": "TIMER2.0/3.0",
       "missNoise": [
         "rec:^[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$",
@@ -1390,9 +1402,16 @@
         "rec:^[0-9]+_[0-9]+S_rRNA$",
         "rec:^7SK$",
         "rec:^\\[(?:DOI|PubMed|PMC|PMID)\\]$",
-        "rec:^[A-Za-z]{2,}_(?:GSE[0-9]+|PRJ[A-Z]*[0-9]+|phs[0-9]+|NCT[0-9]+|[A-Za-z]+_[0-9]{4}|[A-Za-z0-9]+)$",
+        "rec:^[A-Za-z]{2,}_(?:GSE[0-9]+|PRJ[A-Z]*[0-9]+|phs[0-9]+|NCT[0-9]+|[A-Za-z]+_[0-9]{4}|E_MTAB_[0-9]+|[A-Za-z0-9]+)$",
         "rec:^[A-Z]{1,3}[0-9]*orf[0-9]+$",
-        "rec:^[0-9]+S_rRNA$"
+        "rec:^[0-9]+S_rRNA$",
+        "rec:^[A-Z][a-z]+ et al\\. .*$",
+        "rec:^(?:Nucleic Acids Research|Cancer Research\\.)$",
+        "rec:^[0-9]{4};[0-9]+\\([A-Za-z0-9]+\\):W?e?[0-9]+-W?e?[0-9]+\\.$",
+        "rec:^(?!Search|Read|Show|View|More|All|See)[A-Z][a-z]+ [A-Z][a-z]+:$",
+        "rec:^GO:[A-Za-z]{2}$",
+        "rec:^(?:CIBERSORT|quanTIseq|xCell|MCP-counter|mMCP-counter|seqImmuCC|ImmuCellAI|ConsensusTME|EPIC|ESTIMATE|ABIS|DCQ|BASE|immunedeconv|TIMER),?$",
+        "rec:^, respectively\\.$"
       ]
     },
     {
@@ -1599,7 +1618,24 @@
         }
       ],
       "name": "RCSB PDB",
-      "valueText": true
+      "valueText": true,
+      "missNoise": [
+        "re:^[0-9][A-Za-z0-9]{3}$",
+        "re:^pdb_0000[0-9A-Za-z]{4}$",
+        "re:^[A-Z][0-9][A-Z0-9]{3}[0-9]$",
+        "re:^[A-Z][A-Za-z'.-]+, [A-Z]\\.[A-Z]?\\.?$",
+        "re:^[A-Z]+ \\[auth [A-Z]+\\],?$",
+        "re:^[0-9][A-Z0-9]{3}_[0-9]+$",
+        "re:^[abc] = [0-9.]+$",
+        "re:^[A-Z] [0-9] [0-9] [0-9]$",
+        "re:^\\([0-9]{4}\\) [A-Z][A-Za-z ]+$",
+        "re:^(Homo sapiens|Escherichia coli|Mus musculus|Saccharomyces cerevisiae|Caenorhabditis elegans|Drosophila melanogaster|Arabidopsis thaliana|Danio rerio|Rattus norvegicus)$",
+        "re:^[A-Z]{14}-[A-Z]{10}-[A-Z]$",
+        "re:^ENS[A-Z]*G[0-9]{11}$",
+        "re:^(Mol\\* \\(MolStar\\)|PDB50|Google|ORCID|UniProt|Pfam|NAKB|PHAROS|MyPDB|RCSB PDB|PDBe|PDBj|BMRB|EMDB|PDBc|NERSC|RCSB\\.org)$",
+        "re:^(PDB DOI|PubMed|GTEx|NAKB|PHAROS)[：:]$",
+        "re:^(hemoglobin|ATP|BRCA1|E\\.coli|Insulin|COVID-19)$"
+      ]
     },
     {
       "id": "string-db",
@@ -1836,6 +1872,14 @@
       "skip": "span.journal",
       "attrs": [
         "data-content"
+      ],
+      "missNoise": [
+        "re:^PMID:?$",
+        "re:^doi:$",
+        "re:^IPR[0-9]{6}$",
+        "re:^[0-9]+(?:\\.[0-9]+)?k$",
+        "re:^(?:PF|PS|SM|SSF|cd|G3DSA|PIRSF|PR|MF_|TIGR|NF)[0-9A-Za-z]{3,}$",
+        "re:^(?:FASTA|TSV|JSON)$"
       ]
     },
     {

@@ -129,7 +129,10 @@
     "Fibroblast": "成纤维细胞",
     "Mast cell": "肥大细胞",
     "Eosinophil": "嗜酸性粒细胞",
-    "of expression profiles for five TCGA LUAD tumors": "五个 TCGA LUAD 肿瘤的表达谱"
+    "of expression profiles for five TCGA LUAD tumors": "五个 TCGA LUAD 肿瘤的表达谱",
+    "with": "及",
+    "and": "和",
+    "sCNA": "拷贝数改变"
   },
   "rules": [
     {

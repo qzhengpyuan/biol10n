@@ -205,7 +205,56 @@
     "Application Read, Forward": "应用读段，正向",
     "Technical Read, Linker": "技术读段，连接子",
     "Application Read, Reverse": "应用读段，反向",
-    "All runs for this experiment": "此实验的全部运行"
+    "All runs for this experiment": "此实验的全部运行",
+    "Expression Profiles": "表达谱",
+    "Sample Subsets": "样本子集",
+    "Cluster Analysis": "聚类分析",
+    "Reference Series": "参考系列",
+    "Value type": "值类型",
+    "Series published": "系列发布日期",
+    "Ok": "确定",
+    "Select test and significance level": "选择检验方法与显著性水平",
+    "Two-tailed t-test (A vs B)": "双尾 t 检验（A 与 B）",
+    "One-tailed t-test (A > B)": "单尾 t 检验（A > B）",
+    "One-tailed t-test (A < B)": "单尾 t 检验（A < B）",
+    "Value means difference": "数值均值差异",
+    "Rank means difference": "秩均值差异",
+    "Select which Samples to put in Group A and Group B": "选择要把哪些样本放入 A 组和 B 组",
+    "Query Group A vs. B": "查询 A 组与 B 组",
+    "Uncentered Correlation": "非中心化相关",
+    "Pearson Correlation": "皮尔逊相关",
+    "Euclidean": "欧氏距离",
+    "Average/UPGMA": "平均连接（UPGMA）",
+    "Single": "单连接",
+    "Partitional (K-means/K-medians)": "划分聚类（K-means/K-medians）",
+    "By location on chromosome": "按染色体位置",
+    "higher": "更高",
+    "lower": "更低",
+    "either": "任一",
+    "View Expression Profiles": "查看表达谱",
+    "GEO DataSet Browser": "GEO 数据集浏览器",
+    "National Center for Biotechnology Information (NCBI)": "美国国家生物技术信息中心（NCBI）",
+    "Link to PubMed record": "链接到 PubMed 记录",
+    "Boxplots and value distributions": "箱线图与数值分布",
+    "Find specific gene(s) within this DataSet. Search by gene name, symbol or differential expression flags.": "在此数据集中查找特定基因。可按基因名称、符号或差异表达标记检索。",
+    "Use t-test or fold change to identify genes that are differentially expressed between two selected groups of samples.": "用 t 检验或倍数变化找出两组所选样本之间差异表达的基因。",
+    "Explore hierarchical and K-means/medians clusters, and chromosomal location heatmaps.": "浏览层次聚类、K-means/K-medians 聚类以及染色体位置热图。",
+    "View how the samples in this DataSet are organized and their value distributions.": "查看此数据集中样本的组织方式及其数值分布。",
+    "Contains DataSet information, experiment variable subsets and expression value measurements (plain text, tab-delimited format).": "包含数据集信息、实验变量子集与表达值测量结果（纯文本，制表符分隔格式）。",
+    "Contains DataSet information, experiment variable subsets, expression value measurements and up-to-date gene annotation for the DataSet Platform (plain text, tab-delimited format).": "包含数据集信息、实验变量子集、表达值测量结果以及该数据集平台的最新基因注释（纯文本，制表符分隔格式）。",
+    "Contains the complete, original, submitter-supplied records that form the basis of this DataSet (plain text, tab-delimited format).": "包含构成该数据集基础的完整原始提交记录（纯文本，制表符分隔格式）。",
+    "Contains the complete, original, submitter-supplied records that form the basis of this DataSet (XML format).": "包含构成该数据集基础的完整原始提交记录（XML 格式）。",
+    "Contains up-to-date gene annotation for the DataSet Platform (plain text, tab-delimited format).": "包含该数据集平台的最新基因注释（纯文本，制表符分隔格式）。",
+    "Distance:": "距离度量：",
+    "Linkage:": "连接方式：",
+    "Significance level:": "显著性水平：",
+    "Extracted molecule": "提取分子",
+    "Data table": "数据表",
+    "Data table header descriptions": "数据表表头说明",
+    "indicating whether the transcript was present (P), absent (A), or marginal (M)": "表示该转录本为存在（P）、缺失（A）或边缘（M）",
+    "Total number of rows:": "总行数：",
+    "Table truncated, full table size": "表格已截断，完整表格大小为",
+    "Display": "显示"
   },
   "rules": [
     {
@@ -227,6 +276,38 @@
     {
       "re": "^The following term was not found in SRA: (.+)\\.$",
       "to": "在 SRA 中未找到以下检索词：$1。"
+    },
+    {
+      "re": "^DataSet Record (G[A-Z]{2}[0-9]+):?$",
+      "to": "数据集记录 $1："
+    },
+    {
+      "re": "^(\\S+) Cluster Analysis$",
+      "to": "$1 聚类分析"
+    },
+    {
+      "re": "^(\\S+) Cluster Image$",
+      "to": "$1 聚类图像"
+    },
+    {
+      "re": "^([0-9]+)\\+ fold$",
+      "to": "$1 倍以上"
+    },
+    {
+      "re": "^Hierarchical$",
+      "to": "层次聚类"
+    },
+    {
+      "re": "^Complete$",
+      "to": "完全连接"
+    },
+    {
+      "re": "^Accession: (G[A-Z]{2}[0-9]+)$",
+      "to": "登录号：$1"
+    },
+    {
+      "re": "^Sample (GS[EMSD][0-9]+)$",
+      "to": "样本 $1"
     }
   ]
 }

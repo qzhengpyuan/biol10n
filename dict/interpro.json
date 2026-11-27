@@ -377,7 +377,21 @@
     "box on the InterPro website, for the analysis of single protein sequences in FASTA format with a maximum length of 40,000 amino acids.": "框（位于 InterPro 网站），用于分析单条蛋白序列，FASTA 格式，最长 40,000 个氨基酸。",
     ", providing as much information as possible so that we can recreate the problem.": "，并尽可能提供详细信息，以便我们重现问题。",
     "To ensure you have the latest data and software enhancements we always recommend you download the latest version of InterProScan.": "为确保你拥有最新数据与软件改进，我们始终建议你下载 InterProScan 的最新版本。",
-    "service": "服务"
+    "service": "服务",
+    "UniProt Curation": "UniProt 审编",
+    "reviewed": "已审编",
+    "unreviewed": "未审编",
+    "Predicted structure": "预测结构",
+    "Matches": "匹配",
+    "This entry matches these proteins:": "本条目匹配以下蛋白质：",
+    "This entry matches these structures:": "本条目匹配以下结构：",
+    "PROSITE profiles": "PROSITE 谱",
+    "PROSITE profiles:": "PROSITE 谱：",
+    "PROSITE patterns:": "PROSITE 模式：",
+    "text": "文本",
+    "domain architecture": "结构域架构",
+    "option , selected.": "选项，已选中。",
+    "Select is focused ,type to refine list, press Down to open the menu,": "下拉列表已聚焦，输入以筛选列表，按向下方向键打开菜单，"
   },
   "rules": [
     {
@@ -443,6 +457,18 @@
     {
       "re": "^(SUPERFAMILY is a library of profile hidden Markov models that represent all proteins of known structure\\. The library is based on the SCOP classification of proteins: each model corresponds to a SCOP domain and aims to represent the entire SCOP superfamily that the domain belongs to\\. SUPERFAMILY is based at the University of Bristol, UK\\.)$",
       "to": "SUPERFAMILY 是一个 HMM 剖面库，代表所有已知结构的蛋白。该库基于蛋白的 SCOP 分类：每个模型对应一个 SCOP 结构域，并力求代表该结构域所属的整个 SCOP 超家族。SUPERFAMILY 依托于 University of Bristol，位于 UK。"
+    },
+    {
+      "re": "^([\\d,]+) - ([\\d,]+) of ([\\d.,]+k?) entries$",
+      "to": "第 $1 - $2 项，共 $3 条目"
+    },
+    {
+      "re": "^([\\d,]+) - ([\\d,]+) of ([\\d.,]+k?) proteins$",
+      "to": "第 $1 - $2 项，共 $3 蛋白质"
+    },
+    {
+      "re": "^([\\d,]+) - ([\\d,]+) of ([\\d.,]+k?) structures$",
+      "to": "第 $1 - $2 项，共 $3 结构"
     }
   ],
   "templates": [

@@ -5,7 +5,7 @@
 离线词库驱动的生物医学网站界面汉化脚本（Tampermonkey / ScriptCat）。
 
 仓库地址：<https://github.com/qzhengpyuan/biol10n>
-脚本猫脚本站：<https://scriptcat.org/zh-CN/script-show-page/9127>（当前为**未公开**状态，站内搜不到，只能通过这个链接进入）
+脚本猫脚本站：<https://scriptcat.org/zh-CN/script-show-page/9127>（已公开，站内搜索「BioL10n」即可找到）
 
 ## 为什么做这个
 
@@ -36,7 +36,7 @@ PubMed、GEO、UCSC、Ensembl、KEGG、HPA、cBioPortal、GDC 这些数据库、
 
 ## 安装
 
-脚本目前在脚本猫上处于**未公开**状态：不进搜索、不进列表，只能通过下面的链接安装，测试稳定后会转为公开。
+脚本已在脚本猫公开：站内搜索「BioL10n」即可找到，也可以直接用下面的链接安装。
 
 1. 装 Tampermonkey（Chrome / Firefox）或 ScriptCat
 2. 打开 [脚本猫页面](https://scriptcat.org/zh-CN/script-show-page/9127) 点安装

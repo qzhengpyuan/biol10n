@@ -1569,6 +1569,12 @@
         "string-atlas2"
       ],
       "scope": "body",
+      "missNoise": [
+        "re:^(?:Gallus gallus|Bos taurus|Homo sapiens|Mus musculus|Saccharomyces cerevisiae|Drosophila melanogaster|Caenorhabditis elegans|Dictyostelium discoideum|Aegilops tauschii|Anas platyrhynchos|Anolis carolinensis|Anopheles gambiae|Arabidopsis lyrata|Arabidopsis thaliana|Aspergillus fumigatus|Beta vulgaris|Brachypodium distachyon|Brassica napus|Brassica oleracea|Brassica rapa|Chlamydomonas reinhardtii|Chlorocebus sabaeus|Danio rerio|Drosophila pseudoobscura|Equus caballus|Glycine max|Hordeum vulgare|Macaca mulatta|Medicago truncatula|Monodelphis domestica|Musa acuminata|Oryctolagus cuniculus|Oryza sativa|Ovis aries|Papio anubis|Physcomitrella patens|Populus trichocarpa|Prunus persica|Rattus norvegicus|Schistosoma mansoni|Schizosaccharomyces pombe|Setaria italica|Solanum lycopersicum|Solanum tuberosum|Sorghum bicolor|Sus scrofa|Theobroma cacao|Trifolium pratense|Triticum aestivum|Triticum urartu|Vitis vinifera|Xenopus tropicalis|Zea mays|Canis familiaris)$",
+        "EMBL",
+        "EMBL-EBI",
+        "Ensembl"
+      ],
       "proseExempt": ""
     },
     {
@@ -1600,6 +1606,16 @@
         "gnomad"
       ],
       "scope": "body",
+      "missNoise": [
+        "re:^gnomAD (?:v[0-9.]+|CNVs? v[0-9.]+|SVs? v[0-9.]+)(?: \\(.*\\))?$",
+        "re:^[0-9.]+e-[0-9]+$",
+        "re:^GRCh3[78]$",
+        "re:^ENST[0-9]+(\\.[0-9]+)?$",
+        "re:^[0-9]+_[0-9]+_[ACGT]+_[ACGT]+$",
+        "re:^[0-9,]+ samples, .+$",
+        "ExAC",
+        "pLoF"
+      ],
       "spa": true,
       "waitFor": "#root",
       "proseExempt": ""
@@ -1822,6 +1838,12 @@
         "pride"
       ],
       "scope": "body",
+      "missNoise": [
+        "re:^NT=.*$",
+        "re:^CT=.*$",
+        "re:^\\S+\\.(?:raw|tsv|mzML|mgf|mzid)$",
+        "re:^PXD[0-9]+$"
+      ],
       "spa": true,
       "proseExempt": ""
     },
@@ -1837,6 +1859,10 @@
         "ena"
       ],
       "scope": "body",
+      "missNoise": [
+        "re:^[A-Z]{1,6}[0-9]{3,}(\\.[0-9]+)?$",
+        "re:^[A-Za-z0-9_.-]+\\.(?:fastq|fq|bam|cram|vcf|tsv|csv|txt|gz|xml)$"
+      ],
       "spa": true,
       "waitFor": "#content app-root",
       "proseExempt": "",
@@ -1956,6 +1982,15 @@
         "opentargets"
       ],
       "scope": "body",
+      "missNoise": [
+        "re:^rs[0-9]+$",
+        "re:^[A-Z][0-9][A-Z0-9]{3}[0-9]$",
+        "re:^[0-9]+_[0-9]+_[ACGT]+_[ACGT]+$",
+        "re:^N/A$",
+        "VEP",
+        "eQTL",
+        "SuSiE"
+      ],
       "spa": true,
       "waitFor": "main, #root",
       "proseExempt": ""
@@ -2007,6 +2042,11 @@
         "rfam"
       ],
       "scope": "body",
+      "missNoise": [
+        "re:^(?:RF|CL)[0-9]{5}$",
+        "re:^(?:GO|SO):[0-9]{7}$",
+        "re:^[0-9]+S_rRNA$"
+      ],
       "proseExempt": "",
       "skip": "#rfam-wiki-article"
     },

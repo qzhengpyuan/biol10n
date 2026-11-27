@@ -1,6 +1,6 @@
 # 工作计划（当前状态）
 
-> 最后更新：2026-11-27，对应版本 0.16.7。
+> 最后更新：2026-11-27，对应版本 0.16.8。
 > 这份文件是给「接手这个仓库的人（或新会话）」看的：现状、怎么做、坑在哪、还剩什么。
 > 设计初稿与里程碑演进见 git 历史里的旧版本。
 
@@ -17,16 +17,16 @@
 
 | 项 | 值 |
 |---|---|
-| 版本 | 0.16.7 |
+| 版本 | 0.16.8 |
 | 词库 | 114 册 / 35252 exact / 1800 规则 / 2183 模板 |
 | 覆盖站点 | 91 个（`config/sites.json`） |
 | 单测 | 2325 条全绿（`npm test`，约 163 s） |
-| 产物 | `dist/biol10n.user.js` 2,152,797 字节（约 2102 KB） |
+| 产物 | `dist/biol10n.user.js` 2,154,479 字节（约 2104 KB） |
 | 发布 | GitHub `qzhengpyuan/biol10n`（public）；脚本猫 script id `9127`（未公开，仅直链） |
 | 本机 | ScriptCat 扩展 id 不写死（`tools/apply.mjs` 从安装页 URL 反查，机器上装多个也不装错）；`node tools/apply.mjs` 装，需 CDP 9227 |
 
 远端状态：main 与 release 两个分支，release 只放 `biol10n.user.js` + README。
-0.16.0–0.16.7 已推送（main 与 release 同版本对齐，release 头 = v0.16.7）。
+0.16.0–0.16.8 已推送（main 与 release 同版本对齐，release 头 = v0.16.8）。
 
 ## 结构
 
@@ -142,6 +142,16 @@ node tools/apply.mjs
   余下 414 条里成片的是单字母氨基酸代码与 `dbSNP:` / `PubMed:` 这类字段标签（真缺口，没进名单）。
 - 验收：`npm test` 2325 条全绿；`dist/biol10n.user.js` 2,152,797 字节（名单让产物涨约 5 KB）。
 
+本轮（2026-11-27 下午，0.16.8）收掉的：
+
+- **第二批站级名单**（6 站，同一套正则/子串语义）：string-db 4 条（54 个模式生物拉丁名 + EMBL/Ensembl）、
+  ena 2 条（`PRJEB…`/`ERR…` 登录号、`.fastq.gz` 类文件名）、gnomad 8 条（gnomAD/CNV/SV 版本串、e 记数 p 值、GRCh37/38、
+  ENST、`17_7668434_T_G` 变异 id、`N samples, …` 计数、ExAC/pLoF）、opentargets 7 条（rs、UniProt 登录号、变异 id、VEP/eQTL/SuSiE）、
+  pride 4 条（`NT=`/`CT=` 控制注释串、`.raw`/`.mzML` 文件名、`PXD…`）、rfam 3 条（`RF…`/`CL…` 家族号、GO/SO 术语 id、`5S_rRNA` 式符号）。
+- 对既有报告回放：string-db 114→56（属性 58→3）、ena 138→65、gnomad 136→90、pride 103→68（属性 65→41）、
+  opentargets 246→229、rfam 317→310。rfam 收益小是因为那页大半是真的界面词与文献元数据标签（PMID/doi/Bibcode），属真缺口没进名单。
+- 名单覆盖站点数 9→15（另有 gdc-docs 为 0.16.6 所加，合计 16 站）。`test/miss-noise-regex.test.mjs` 的配置体检阈值同步到 16 站。
+- 验收：`npm test` 2325 条全绿；`dist/biol10n.user.js` 2,154,479 字节。
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，
@@ -151,7 +161,7 @@ node tools/apply.mjs
 4. **cBioPortal 研究显示名的译法**：`cbioportal.json` 有「疾病名（队列）→中文」的既有沉淀，与「研究名不翻」原则有张力；动之前先看测试依赖，单独一轮。0.16.7 只把这类名字登记进 `missNoise`（不翻、也不进漏翻清单），译法问题没动。
 5. **`common.json` 的 `Query`→「查询式」**：cBioPortal / Ensembl 的标签语境更像「查询」，但 `ena` 册同值，要三处一起改。
 6. **GDC `/projects`、`/repository`、`/annotations`**：前两个是客户端渲染空壳，第三个要登录，本轮没取证。
-7. **其余站的名单还没补**：347 份 miss 报告里还有不少站没登记（kegg / rfam / string / ucsc 的 track 名、clinicaltrials 的疾病分期名等），方法照 0.16.7 这一轮：先看报告里成片的同一形状，再决定子串还是正则。
+7. **其余站的名单还没补**：347 份 miss 报告里还有不少站没登记（kegg 的通路名与栏目、clinicaltrials 的疾病分期名、uci/geo 一类属性噪音），方法照 0.16.7–0.16.8 这两轮：先看报告里成片的同一形状，再决定子串还是正则；判据是「被滤掉的确实是数据，不是界面词」。
 ## 踩过的坑（每条都真实踩过，改之前先看）
 
 - **规则里的 `$1`**：bash 内联 `node -e` 会被 shell 吃掉，必须写成 `.mjs` 脚本文件再执行。

@@ -60,7 +60,7 @@ test("命令行工具与页面面板用同一套语义", () => {
 test("配置里的名单条目都能用：正则可编译、普通条目不是通用界面词", () => {
   const uiWords = ["data", "tool", "search", "query", "download", "summary", "new", "all", "view", "help", "submit", "result"];
   const sites = (cfg.sites || []).filter((s) => Array.isArray(s.missNoise) && s.missNoise.length);
-  assert.ok(sites.length >= 10, "至少 10 个站点有站级名单，实际 " + sites.length);
+  assert.ok(sites.length >= 16, "至少 16 个站点有站级名单，实际 " + sites.length);
   for (const site of sites) {
     assert.equal(new Set(site.missNoise).size, site.missNoise.length, site.id + " 名单有重复条目");
     for (const raw of site.missNoise) {
@@ -77,7 +77,8 @@ test("配置里的名单条目都能用：正则可编译、普通条目不是�
 });
 
 test("本轮覆盖的站点都装上了名单", () => {
-  const want = ["uniprot", "ncbi-snp", "pubchem", "cellxgene", "hpa", "cbioportal", "clinicaltrials", "ucsc", "ncbi-blast"];
+  const want = ["uniprot", "ncbi-snp", "pubchem", "cellxgene", "hpa", "cbioportal", "clinicaltrials", "ucsc",
+    "ncbi-blast", "string-db", "ena", "gnomad", "opentargets", "pride", "rfam"];
   for (const id of want) {
     const site = (cfg.sites || []).find((s) => s.id === id);
     assert.ok(site, "缺站点 " + id);

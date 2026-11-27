@@ -73,11 +73,12 @@
     return null;
   }
 
-  // 注入时机：脚本是 document-start 注入的，翻译从 body 出现那一刻就开始，不等 body 有内容。
-  // 早先的判据是「有子节点或 readyState 不是 loading」，实测代价很大：RCSB 结构页要 8.1 秒才
-  // 满足（SPA 先吐空壳再挂载），UniProt 0.78 秒，这段时间界面完全是英文。改成只看 body 是否存在，
-  // 实测 RCSB 降到 1.1 秒、UniProt 84 毫秒，节点数与命中数不变（首扫扫到的后续节点由
-  // MutationObserver 补，引擎按整节点匹配，半截句子基本不会命中词库）。
+  // 注入时机：脚本是 document-start 注入的，但翻译要等 body 有内容。
+  // 0.17.5 试过「body 出现就开工」，独立复核（冷缓存 A/B、可见中文时点探针）显示没有稳定收益：
+  // 静态页 first ≈ ready（门控时间），但 ready 差值小于运行间抖动；SPA 的正文本来就要等数据，
+  // 门控提前不改变用户看到中文的时刻。反而在「body 下裸文本先到、首元素晚到」的流式页面上
+  // 会把半句先翻掉（Search + 后续  results for TP53 → 「检索 results for TP53」）。
+  // 结论：回退到「有子节点或 readyState 不是 loading」，只保留 timing 相位拆分。
   // 为什么不留在 document-end：有些站点 HTML 一直流不完（dbSNP 变异页 25 秒后 document.readyState
   // 仍是 "loading"，DOMContentLoaded 从不触发），document-end 的脚本根本不会被注入，整页零汉化。
   function whenBodyReady(fn) {
@@ -87,19 +88,19 @@
       started = true;
       fn();
     }
-    if (document.body) { go(); return; }
+    if (document.body && document.readyState !== "loading") { go(); return; }
     document.addEventListener("DOMContentLoaded", go);
     var tries = 0;
     var timer = setInterval(function () {
       tries++;
-      if (document.body) {
+      if (document.body && (document.body.childElementCount > 0 || document.readyState !== "loading")) {
         clearInterval(timer);
         go();
-      } else if (tries > 240) {   // 24 秒还没有 body 属于异常页面，放弃（正常几十毫秒内就有）
+      } else if (tries > 12) {   // 6 秒还没铺开也先跑，MutationObserver 会继续补后续节点
         clearInterval(timer);
         go();
       }
-    }, 100);
+    }, 500);
   }
 
   whenBodyReady(function () {

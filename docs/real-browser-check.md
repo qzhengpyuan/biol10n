@@ -131,13 +131,13 @@ env -u WAYLAND_DISPLAY -u WAYLAND_SOCKET DISPLAY=:99 google-chrome \
 
    STRING（`string-db.org`）即使非 headless 也过不去 Cloudflare（页面一直是「请稍候…」，等 40 s 不变）。
 
-## 2026-11-28 冷启动相位实测（v0.17.5）
+## 2026-11-28 冷启动相位实测（v0.17.5 → 0.17.6）
 
-`__BIOL10N.timing()` 在 0.17.5 拆成四个相位，先分清「等 DOM」与「解压词库」再谈优化：
+`__BIOL10N.timing()` 拆成四个相位，先分清「等 DOM」与「解压词库」再谈优化：
 
 | 字段 | 含义 |
 |---|---|
-| `ready` | 脚本注入 → `whenBodyReady` 放行（body 出现） |
+| `ready` | 脚本注入 → `whenBodyReady` 放行 |
 | `load` | 本站词库解压 + JSON.parse |
 | `dict` | `ready + load` |
 | `start` | 首扫（walk）结束 |
@@ -151,9 +151,16 @@ env -u WAYLAND_DISPLAY -u WAYLAND_SOCKET DISPLAY=:99 google-chrome \
 | CELLxGENE /datasets | 101 ms | 4 ms | 105 ms | 122 ms |
 | GDC 文档首页 | 1,701 ms | 14 ms | 1,716 ms | 1,759 ms |
 
-结论：词库解压只要 4–85 ms，旧版 507–863 ms 的 `dict` 里绝大部分是等 body 有内容。
-0.17.5 把判据改成「body 存在就开工」后，UniProt 863 → 256 ms、RCSB 8,107 → 2,004 ms，
-节点数与命中数与改前一致；GDC 文档混合语抽查只剩 `GDC 文档`、`BAM 切片`、`OncoMatrix 矩阵图` 这类品牌/格式名。
+结论：词库解压只要 4–85 ms，旧版 507–863 ms 的 `dict` 里绝大部分是等 DOM，不是词库。
 
-已知风险：流式 SSR 页面可能先扫到半截句子。引擎按整节点匹配，半句基本不命中词库；
-若某站首屏出现半截译文，先看该站是否流式输出，再考虑按站加 `waitFor`。
+### 早启动尝试（0.17.5）与回退（0.17.6）
+
+0.17.5 把门控改成「body 存在即开工」，初测 UniProt 863 → 256 ms、RCSB 8,107 → 2,004 ms。
+独立复核（冷缓存 A/B + 可见中文探针）推翻了收益：RCSB old 2,545–2,743 vs new 2,298–2,936 ms、
+UniProt old 101–176 vs new 158–187 ms，区间重叠；静态页 `first ≈ ready`，差值小于抖动；
+SPA 正文 1.2–2.3 s 才出现，提前门控不改变用户看到中文的时刻。
+且流式页面（body 下裸文本先到）会先翻半句：`Search` → 「检索」，随后 ` results for TP53` 到达成「检索 results for TP53」。
+0.17.6 因此回退门控，只保留 `ready`/`load` 字段；`test/boot-timing.test.mjs` 钉住回退后的判据。
+
+复核方法（可复现）：同一 headless Chrome 内顺序跑 old→new 会互相预热，必须另开 `Network.setCacheDisabled` 轮；
+仅看 `timing()` 不够，还要挂 MutationObserver 记录 body 内首个 CJK 文本的时刻（`first`）。

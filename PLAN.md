@@ -279,28 +279,22 @@ node tools/apply.mjs
   理由是 kegg 册已把 `only` 定义为「（仅搜索此项）」，进 exact 会多一组跨册冲突；`test/gnomad.test.mjs` 只对这一条加了例外并写明原因。
 - 验收：`npm test` **2431 条全绿**；`dict-lint` 114 册 / 35436 条 / 跨册冲突 57 组未涨；产物 2,181,427 字节。
 
-本轮（2026-11-28 凌晨，0.17.5，本地未推送）收掉的（冷启动早启动 + 相位拆分）：
+本轮（2026-11-28 凌晨，0.17.5 → 0.17.6）收掉的（冷启动相位拆分 + 早启动尝试与回退）：
 
-- **先量再改**：把 `src/boot.js` 的 `timing` 拆成 `ready`（脚本注入 → body 可翻）/ `load`（本站词库解压解析）/ `dict`（ready+load）/ `start`（译完首扫）四个数。
-  实测本站词库解压解析只要 4–85 ms（UniProt 85、RCSB 31、cellxgene 4），慢的不是词库 —— 旧 `dict` 数字里混着等 DOM 的时间。
-- **真因**：旧 `whenBodyReady` 要等 `document.body.childElementCount > 0` 或 `readyState !== "loading"`。
-  RCSB 结构页（SPA 空壳先到、内容后挂载）实测 **8.1 秒**才满足、UniProt 0.78 秒，这段时间界面全英文。
-- **改法**：判据改成只看 `document.body` 是否存在；body 未到时 100 ms 轮询、24 秒兜底，保留 `DOMContentLoaded` 监听。
-  首扫扫到的后续节点由既有 MutationObserver 补；引擎按整节点匹配，半截句子基本不会命中词库。
-- **实测（直连 headless + document-start 注入 dist）**：UniProt ready 777 → 250 ms、总 dict 863 → 256；RCSB 8107 → 2004；
-  cellxgene /datasets 101 ms / 19,286 节点；docs.gdc.cancer.gov 1,701 ms、节点 228、hitExact 164（与改前一致）。
-  混合语抽查：GDC 文档只剩 `GDC 文档`、`BAM 切片`、`OncoMatrix 矩阵图` 这类品牌/格式名，无半句翻译。
-- `test/early-start.test.mjs` 3 条守判据（不等子节点、100 ms 轮询、timing 四相位）。
-- 验收：`npm test` **2434 条全绿**；产物 2,182,381 字节。
-- **已知风险**：流式 SSR 页面（HTML 边流边解析）可能在文字完整前先扫一次；本次四个实测站节点数与命中数不变，
-  但若以后发现某站首屏出现半截译文，先查该站是否流式输出，再考虑按站加 `waitFor`。
-- 观察：`reactome.org` 在旧版里 15 秒还采不到 `__BIOL10N`（SPA 空壳从未满足旧判据），早启动后 5.9 秒可翻、283 节点 252 命中。
-### 工具补充（同日，未单独发版）
+- **先量再改**：`src/boot.js` 的 `timing` 拆成 `ready`（脚本注入 → body 可翻）/ `load`（本站词库解压解析）/
+  `dict`（ready+load）/ `start`（译完首扫）。实测本站词库解压解析只要 4–85 ms（UniProt 85、RCSB 31、cellxgene 4），
+  旧版 507–863 ms 的 `dict` 里绝大部分是等 DOM 的时间 —— 这组字段保留，供以后判断冷启动慢在哪一段。
+- **0.17.5 的早启动**：把门控从「body 有子节点或 readyState 非 loading」改成「body 存在即开工」。
+  初测 UniProt 863 → 256 ms、RCSB 8,107 → 2,004 ms；**独立复核否定了这个结论**：
+  冷缓存 A/B（同浏览器顺序跑 old→new，另有 `Network.setCacheDisabled` 轮）里 RCSB old 2,545–2,743 vs new 2,298–2,936 ms，
+  UniProt old 101–176 vs new 158–187 ms，区间重叠；可见中文时点探针显示静态页 `first ≈ ready`，但 ready 差值小于 run 间抖动，
+  SPA（UniProt）正文 1.2–2.3 s 才出现，门控提前不改变用户看到中文的时刻。
+- **早启动引入的窄回归**：流式页面「body 下裸文本先到、首元素晚到」时，新门控会把 `Search` 先翻成「检索」，
+  后续 ` results for TP53` 到达后成为「检索 results for TP53」；旧门控整块留英文。合成用例可稳定复现。
+- **处理：0.17.6 回退门控**，保留 `ready`/`load` 相位字段；`test/boot-timing.test.mjs` 3 条钉住「不能再退回只看 body」。
+  复核用的是重建的旧门控产物（源码文本替换），旧门控 0.17.4 原产物未留档。
+- 复核顺带确认：6 站混合语抽查 old/new 完全一致（onlyNew = 0），无半句；`reactome` 站点本身 2.4 s 就会翻，此前「15 秒不翻」的记录不再复现。
 
-- `tools/miss-replay.mjs`：把 `research/miss-*.json` 按站点 `missNoise` 回放（普通条目=子串、`re:`=不敏感正则、`rec:`=敏感正则，与 `src/ui.js` 同一套语义），
-  打印「文本 N → 被滤 X → 剩余 Y」与剩余样本；`--candidates` 可在不写配置前预览候选名单收益，`--list` 看各站报告量。
-  换掉了此前每轮临时手写的回放脚本（存档在 `/mnt/E/备份文件/biol10n-临时脚本-20261127/miss-noise-replay.mjs`）。
-  入口：`npm run miss:replay -- <siteId>`、`npm run miss:list`；`test/miss-replay.test.mjs` 5 条钉住三种条目语义与路径优先顺序。
 待办（按优先级）：
 
 1. **GreasyFork**：没有发布 API，只能登录后走网页表单，本机无账号凭据 —— 要么在 `:99` 登录一次、由会话驱动表单，

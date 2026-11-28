@@ -5,7 +5,7 @@
 离线词库驱动的生物医学网站界面汉化脚本（Tampermonkey / ScriptCat）。
 
 仓库地址：<https://github.com/qzhengpyuan/biol10n>
-脚本猫脚本站：<https://scriptcat.org/zh-CN/script-show-page/9127>（当前为**未公开**状态，站内搜不到，只能通过这个链接进入）
+脚本猫脚本站：<https://scriptcat.org/zh-CN/script-show-page/9127>（已公开，站内搜索「BioL10n」即可找到）
 
 ## 为什么做这个
 
@@ -36,7 +36,7 @@ PubMed、GEO、UCSC、Ensembl、KEGG、HPA、cBioPortal、GDC 这些数据库、
 
 ## 安装
 
-脚本目前在脚本猫上处于**未公开**状态：不进搜索、不进列表，只能通过下面的链接安装，测试稳定后会转为公开。
+脚本已在脚本猫公开：站内搜索「BioL10n」即可找到，也可以直接用下面的链接安装。
 
 1. 装 Tampermonkey（Chrome / Firefox）或 ScriptCat
 2. 打开 [脚本猫页面](https://scriptcat.org/zh-CN/script-show-page/9127) 点安装
@@ -94,7 +94,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 
 构建时每本词库单独 gzip + base64 打包，运行时按站解压（`DecompressionStream`），不用本站的词库一个字节都不解。
 
-- 单文件产物 **2117 KB**（2,167,698 字节）；词库里 114 个文件共 35332 条词条（含 1811 条规则）+ 2183 条模板，覆盖 91 个站点
+- 单文件产物 **2180 KB**（2,232,264 字节）；词库里 118 个文件共 36405 条词条（含 1894 条规则）+ 2252 条模板，覆盖 95 个站点
 - 解压开销在 `document-end` 之后：PubMed 帮助页 24–140 ms、HPA 133–241 ms（三本词库合计约 150 KB 的 base64）
 - 整页首次扫描（同时修掉了两处 O(n²)：`querySelector("br")` 与逐节点 `textContent`）：PubMed 帮助页 98–117 ms、HPA 281 ms，脚本整体耗时 34–473 ms
 - 大表格页（3.6 万元素 / 3.4 万文本节点的数据集表格）：首扫 3.3 s → **0.93 s**、重扫 1.2 s → **0.35 s**（-72% / -71%）；同一批词反复出现 2 万次的页面：首扫 2.3 s → **0.55 s**、重扫 0.54 s → **0.17 s**。做法：
@@ -201,6 +201,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | cbioportal | 1189 | 55 |  | cBioPortal |
 | cbioportal2 | 86 | 2 | 6 | cBioPortal 补漏（研究页、图表、下载对话框） |
 | cellxgene | 144 | 14 | 1 |  |
+| chembl | 207 | 43 | 4 | ChEMBL（化合物检索、报告卡、代谢图） |
 | clingen | 437 | 10 | 27 | ClinGen 与 ClinPGx |
 | clingen2 | 105 | 4 | 3 | ClinGen 与 ClinPGx 补漏（证据、剂量、行动性） |
 | clinicaltrials | 734 | 57 | 131 | ClinicalTrials.gov（首页、检索筛选、研究记录、结果页、About） |
@@ -215,6 +216,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | ebi-home | 61 | 2 | 1 | EMBL-EBI 全局页头页脚与首页（多站复用） |
 | ebi-training | 52 | 2 |  | EMBL-EBI 培训（课程、线上讲座、材料） |
 | ena | 513 | 28 | 29 | ENA Browser（记录页、检索、序列检索、Webin） |
+| enrichr | 136 | 3 | 5 | Enrichr（富集结果表、文库、帮助） |
 | ensembl | 394 | 10 | 16 | Ensembl（含新前端、文档、API、VEP、切碎句） |
 | ensembl-extra | 452 | 4 | 4 | Ensembl 补充（文档侧栏、API、VEP、镜像安装） |
 | ensembl-tpl | 116 |  | 71 | Ensembl 整段模板 |
@@ -226,16 +228,16 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | galaxy | 350 | 18 | 24 | Galaxy 主站与项目官网（usegalaxy.org、galaxyproject.org） |
 | gdc | 514 | 20 | 1 | GDC Data Portal |
 | gdc-docs | 1114 | 12 | 126 | GDC 文档站（API 指南、数据字典、生信流程） |
-| gdc2 | 16 | 3 |  | GDC Data Portal 补漏 |
+| gdc2 | 84 | 4 |  | GDC Data Portal 补漏 |
 | gdv | 103 | 6 | 1 | NCBI GDV（基因组数据查看器） |
 | gdv2 | 60 | 11 |  | GDV 配置轨道面板、轨道集线器、帮助页 |
 | gene | 246 | 37 |  | NCBI Gene |
-| gene2 | 42 | 6 | 2 | NCBI Gene 补漏 |
+| gene2 | 54 | 7 | 2 | NCBI Gene 补漏 |
 | geneontology | 529 | 2 | 4 | 基因本体资源（首页、文档、下载、工具目录） |
 | geo-docs | 432 | 1 | 60 | GEO 文档体系（/geo/info、FAQ、MIAME、提交指南） |
 | geo-extra | 248 | 13 |  | GEO / GDS / SRA 检索页补漏 |
 | gepia2 | 180 | 9 |  | GEPIA2 |
-| gnomad | 245 | 10 | 5 | gnomAD |
+| gnomad | 266 | 17 | 7 | gnomAD |
 | gtex | 536 | 14 | 41 | GTEx Portal（含数据集页与文档） |
 | gtex-home | 245 | 13 | 33 | GTEx 首页与文档补漏 |
 | gxa | 570 | 54 |  | Expression Atlas（实验页、组织枚举、下载） |
@@ -250,11 +252,13 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | kegg-docs | 113 | 1 | 3 | KEGG 帮助文档 |
 | kegg-docs2 | 89 | 2 | 4 | KEGG 文档补漏（通路、模块、KO） |
 | medgen-gtr | 335 | 72 | 2 | MedGen / GTR |
+| medrxiv | 196 | 4 | 4 | medRxiv 预印本（首页、检索、文章页） |
 | mesh | 83 | 7 |  | NCBI MeSH |
 | metabolights | 315 | 15 | 11 | MetaboLights 代谢组学数据库（实验页、下载、帮助） |
 | mirbase | 162 | 22 |  | miRBase |
 | misc-extra | 217 | 5 | 3 | UALCAN / GTEx / GEPIA2 补漏 |
 | misc-tpl | 32 |  | 83 | 杂项整段模板 |
+| msigdb | 362 | 24 | 54 | GSEA / MSigDB（首页、集合、浏览、基因集） |
 | ncbi | 1439 | 76 | 2 | PubMed / GEO / BLAST / 页眉页脚与 About、目录站、结构库（Structure/CCD/IPG） |
 | ncbi-cat | 162 | 10 | 4 | NCBI 目录站（Guide、NLM Catalog、ORFfinder） |
 | ncbi-deep2 | 84 | 14 | 1 | GTR 基因页 / MedGen / BioSample / CCDS / Datasets 深页 |
@@ -277,7 +281,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | pride | 394 | 43 | 2 | PRIDE Archive（数据集、文件表、SDRF、帮助文档） |
 | proteomexchange | 27 | 1 | 10 | ProteomeXchange 蛋白质组数据联盟（提交与数据集检索） |
 | pubchem-dbgap | 738 | 18 | 3 | PubChem 与 dbGaP |
-| pubmed2 | 31 | 3 | 1 | PubMed 首页与结果页补漏 |
+| pubmed2 | 40 | 3 | 1 | PubMed 首页与结果页补漏 |
 | rcsb | 738 | 34 | 3 | RCSB PDB（含新版首页与检索） |
 | rcsb-home | 17 | 4 | 8 | RCSB PDB 新版首页 |
 | reactome | 541 | 58 | 7 | Reactome（通路页、检索、下载、通路浏览器） |
@@ -289,7 +293,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | snp | 123 | 4 | 5 | NCBI dbSNP |
 | spa | 136 |  |  | 各站共用的单页应用骨架词 |
 | string-atlas | 700 | 43 | 40 | STRING 与 EMBL-EBI Expression Atlas |
-| string-atlas2 | 45 | 11 | 7 | STRING / Expression Atlas 补充（下载说明） |
+| string-atlas2 | 107 | 11 | 7 | STRING / Expression Atlas 补充（下载说明） |
 | targetscan | 250 | 33 | 5 | TargetScanHuman（首页、检索、结果表、FAQ、下载） |
 | taxonomy | 116 | 6 |  | NCBI Taxonomy |
 | timer | 126 | 8 |  | TIMER2.0 / TIMER3 |
@@ -302,7 +306,7 @@ ScriptCat 在新版 Chrome（MV3）下还需要在 `chrome://extensions` → 脚
 | uniprot | 769 | 16 |  | UniProt |
 | uniprot2 | 100 | 15 |  | UniProt 补漏（条目页、检索、下载） |
 
-合计 **35332 条 / 1811 条规则 / 2183 条模板**（114 册 / 91 站点）。词库按家族复用，加一个站通常只增 50–300 条。
+合计 **36405 条 / 1894 条规则 / 2252 条模板**（118 册 / 95 站点）。词库按家族复用，加一个站通常只增 50–300 条。
 
 ## 开发
 
